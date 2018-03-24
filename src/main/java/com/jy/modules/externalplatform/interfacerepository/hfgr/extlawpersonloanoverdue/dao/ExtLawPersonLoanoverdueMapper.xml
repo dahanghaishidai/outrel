@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.hfgr.extlawpersonloanoverdue.dao.ExtLawPersonLoanoverdueDao">
+<resultMap id="ExtLawPersonLoanoverdueDTO" type="com.jy.modules.externalplatform.interfacerepository.hfgr.extlawpersonloanoverdue.dto.ExtLawPersonLoanoverdueDTO">
+				<result property="keyid" column="KEYID" jdbcType="DECIMAL" />
+				<result property="allmsg" column="ALLMSG" jdbcType="VARCHAR" />
+				<result property="objection" column="OBJECTION" jdbcType="VARCHAR" />
+				<result property="objectiontime" column="OBJECTIONTIME" jdbcType="VARCHAR" />
+				<result property="fkId" column="FK_ID" jdbcType="DECIMAL" />
+				<result property="datatime" column="DATATIME" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 ext_LAW_PERSON_LOANOVERDUE -->	
+<select id="searchExtLawPersonLoanoverdueByPaging" parameterType="java.util.Map" resultMap="ExtLawPersonLoanoverdueDTO">
+    	 		select 
+						t1.keyid                          ,
+						t1.datatime                       ,
+						t1.allmsg                         ,
+						t1.objection                      ,
+						t1.objectiontime                  ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.fk_id                          
+					
+				from ext_law_person_loanoverdue 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.keyid != null and dto.keyid != ''">
+						and t1.KEYID =#{dto.keyid}
+    			</if>
+    			<if test="dto.allmsg != null and dto.allmsg != ''">
+						and t1.ALLMSG =#{dto.allmsg}
+    			</if>
+    			<if test="dto.objection != null and dto.objection != ''">
+						and t1.OBJECTION =#{dto.objection}
+    			</if>
+    			<if test="dto.objectiontime != null and dto.objectiontime != ''">
+						and t1.OBJECTIONTIME =#{dto.objectiontime}
+    			</if>
+    			<if test="dto.fkId != null and dto.fkId != ''">
+						and t1.FK_ID =#{dto.fkId}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 ext_LAW_PERSON_LOANOVERDUE  -->
+<select id="searchExtLawPersonLoanoverdue" parameterType="java.util.Map" resultMap="ExtLawPersonLoanoverdueDTO">
+    	     select 
+						t1.keyid                          ,
+						t1.datatime                       ,
+						t1.allmsg                         ,
+						t1.objection                      ,
+						t1.objectiontime                  ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.fk_id                          
+				from ext_law_person_loanoverdue 		t1
+				where 1=1
+    			<if test="dto.keyid != null and dto.keyid != ''">
+						and t1.KEYID = #{dto.keyid}
+    			</if>
+    			<if test="dto.allmsg != null and dto.allmsg != ''">
+						and t1.ALLMSG = #{dto.allmsg}
+    			</if>
+    			<if test="dto.objection != null and dto.objection != ''">
+						and t1.OBJECTION = #{dto.objection}
+    			</if>
+    			<if test="dto.objectiontime != null and dto.objectiontime != ''">
+						and t1.OBJECTIONTIME = #{dto.objectiontime}
+    			</if>
+    			<if test="dto.fkId != null and dto.fkId != ''">
+						and t1.FK_ID = #{dto.fkId}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  ext_LAW_PERSON_LOANOVERDUE -->
+<select id="findExtLawPersonLoanoverdueByPrimaryKey" parameterType="java.util.Map" resultMap="ExtLawPersonLoanoverdueDTO">
+   	 		select 
+					t1.keyid                          ,
+					t1.datatime                       ,
+					t1.allmsg                         ,
+					t1.objection                      ,
+					t1.objectiontime                  ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.fk_id                          
+			from ext_law_person_loanoverdue 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 ext_LAW_PERSON_LOANOVERDUE -->
+<insert id="insertExtLawPersonLoanoverdue" parameterType="java.util.Map" useGeneratedKeys="true">
+
+			insert into ext_law_person_loanoverdue
+			(   		
+					keyid                          ,
+					datatime                       ,
+					allmsg                         ,
+					objection                      ,
+					objectiontime                  ,
+					create_time                    ,
+					fk_id                          
+			)
+			values(#{dto.keyid}
+					,#{dto.datatime,jdbcType=VARCHAR}
+					,#{dto.allmsg,jdbcType=VARCHAR}
+					,#{dto.objection,jdbcType=VARCHAR}
+					,#{dto.objectiontime,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.fkId,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 ext_LAW_PERSON_LOANOVERDUE -->
+<update id="updateExtLawPersonLoanoverdue" parameterType="java.util.Map">
+	     update ext_law_person_loanoverdue t1
+	           set 
+			           t1.keyid                          =#{dto.keyid,jdbcType=DECIMAL},
+			           t1.datatime                       =#{dto.datatime,jdbcType=VARCHAR},
+			           t1.allmsg                         =#{dto.allmsg,jdbcType=VARCHAR},
+			           t1.objection                      =#{dto.objection,jdbcType=VARCHAR},
+			           t1.objectiontime                  =#{dto.objectiontime,jdbcType=VARCHAR},
+			           t1.modify_time                    =systimestamp,
+			           t1.fk_id                          =#{dto.fkId,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 ext_LAW_PERSON_LOANOVERDUE -->
+<delete id="deleteExtLawPersonLoanoverdueByID" parameterType="java.util.Map">
+    	delete from ext_law_person_loanoverdue t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 ext_LAW_PERSON_LOANOVERDUE -->
+<update id="deleteExtLawPersonLoanoverdueByPrimaryKey" parameterType="java.util.Map">
+	     update ext_law_person_loanoverdue t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

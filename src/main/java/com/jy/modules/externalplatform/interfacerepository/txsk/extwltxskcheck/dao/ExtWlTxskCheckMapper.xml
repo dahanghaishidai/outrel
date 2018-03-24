@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.txsk.extwltxskcheck.dao.ExtWlTxskCheckDao">
+
+<!-- 新增对象 ext_wl_txsk_check -->
+<insert id="insertExtWlTxskCheck" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_ext_wl_txsk_check.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_txsk_check
+			(   		
+					id                             ,
+					into_cust_ref_id               ,
+					success                        ,
+					code                           ,
+					error                          ,
+					error_desc                     ,
+					create_time                    ,
+					update_time                    ,
+					create_by                      ,
+					update_by                      
+			)
+			values(#{dto.id}
+					,#{dto.intoCustRefId,jdbcType=DECIMAL}
+					,#{dto.success,jdbcType=VARCHAR}
+					,#{dto.code,jdbcType=VARCHAR}
+					,#{dto.error,jdbcType=VARCHAR}
+					,#{dto.errorDesc,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.updateTime,jdbcType=TIMESTAMP}
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.updateBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+</mapper>

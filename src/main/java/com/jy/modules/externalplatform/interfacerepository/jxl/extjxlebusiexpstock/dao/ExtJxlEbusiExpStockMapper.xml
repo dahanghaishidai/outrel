@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.jxl.extjxlebusiexpstock.dao.ExtJxlEbusiExpStockDao">
+<resultMap id="ExtJxlEbusiExpStockDTO" type="com.jy.modules.externalplatform.interfacerepository.jxl.extjxlebusiexpstock.dto.ExtJxlEbusiExpStockDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="fkJxlCustInfoId" column="FK_JXL_CUST_INFO_ID" jdbcType="DECIMAL" />
+				<result property="transMth" column="TRANS_MTH" jdbcType="VARCHAR" />
+				<result property="ownerAmount" column="OWNER_AMOUNT" jdbcType="DECIMAL" />
+				<result property="ownerCount" column="OWNER_COUNT" jdbcType="DECIMAL" />
+				<result property="familyAmount" column="FAMILY_AMOUNT" jdbcType="DECIMAL" />
+				<result property="familyCount" column="FAMILY_COUNT" jdbcType="DECIMAL" />
+				<result property="othersAmount" column="OTHERS_AMOUNT" jdbcType="DECIMAL" />
+				<result property="othersCount" column="OTHERS_COUNT" jdbcType="DECIMAL" />
+				<result property="allAmount" column="ALL_AMOUNT" jdbcType="DECIMAL" />
+				<result property="allCount" column="ALL_COUNT" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 EXT_JXL_EBUSI_EXP_STOCK -->	
+<select id="searchExtJxlEbusiExpStockByPaging" parameterType="java.util.Map" resultMap="ExtJxlEbusiExpStockDTO">
+    	 		select 
+						t1.id                             ,
+						t1.fk_jxl_cust_info_id            ,
+						t1.trans_mth                      ,
+						t1.owner_amount                   ,
+						t1.owner_count                    ,
+						t1.family_amount                  ,
+						t1.family_count                   ,
+						t1.others_amount                  ,
+						t1.others_count                   ,
+						t1.all_amount                     ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.all_count                      
+					
+				from ext_jxl_ebusi_exp_stock 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.fkJxlCustInfoId != null and dto.fkJxlCustInfoId != ''">
+						and t1.FK_JXL_CUST_INFO_ID =#{dto.fkJxlCustInfoId}
+    			</if>
+    			<if test="dto.transMth != null and dto.transMth != ''">
+						and t1.TRANS_MTH =#{dto.transMth}
+    			</if>
+    			<if test="dto.ownerAmount != null and dto.ownerAmount != ''">
+						and t1.OWNER_AMOUNT =#{dto.ownerAmount}
+    			</if>
+    			<if test="dto.ownerCount != null and dto.ownerCount != ''">
+						and t1.OWNER_COUNT =#{dto.ownerCount}
+    			</if>
+    			<if test="dto.familyAmount != null and dto.familyAmount != ''">
+						and t1.FAMILY_AMOUNT =#{dto.familyAmount}
+    			</if>
+    			<if test="dto.familyCount != null and dto.familyCount != ''">
+						and t1.FAMILY_COUNT =#{dto.familyCount}
+    			</if>
+    			<if test="dto.othersAmount != null and dto.othersAmount != ''">
+						and t1.OTHERS_AMOUNT =#{dto.othersAmount}
+    			</if>
+    			<if test="dto.othersCount != null and dto.othersCount != ''">
+						and t1.OTHERS_COUNT =#{dto.othersCount}
+    			</if>
+    			<if test="dto.allAmount != null and dto.allAmount != ''">
+						and t1.ALL_AMOUNT =#{dto.allAmount}
+    			</if>
+    			<if test="dto.allCount != null and dto.allCount != ''">
+						and t1.ALL_COUNT =#{dto.allCount}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_JXL_EBUSI_EXP_STOCK  -->
+<select id="searchExtJxlEbusiExpStock" parameterType="java.util.Map" resultMap="ExtJxlEbusiExpStockDTO">
+    	     select 
+						t1.id                             ,
+						t1.fk_jxl_cust_info_id            ,
+						t1.trans_mth                      ,
+						t1.owner_amount                   ,
+						t1.owner_count                    ,
+						t1.family_amount                  ,
+						t1.family_count                   ,
+						t1.others_amount                  ,
+						t1.others_count                   ,
+						t1.all_amount                     ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.all_count                      
+				from ext_jxl_ebusi_exp_stock 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.fkJxlCustInfoId != null and dto.fkJxlCustInfoId != ''">
+						and t1.FK_JXL_CUST_INFO_ID = #{dto.fkJxlCustInfoId}
+    			</if>
+    			<if test="dto.transMth != null and dto.transMth != ''">
+						and t1.TRANS_MTH = #{dto.transMth}
+    			</if>
+    			<if test="dto.ownerAmount != null and dto.ownerAmount != ''">
+						and t1.OWNER_AMOUNT = #{dto.ownerAmount}
+    			</if>
+    			<if test="dto.ownerCount != null and dto.ownerCount != ''">
+						and t1.OWNER_COUNT = #{dto.ownerCount}
+    			</if>
+    			<if test="dto.familyAmount != null and dto.familyAmount != ''">
+						and t1.FAMILY_AMOUNT = #{dto.familyAmount}
+    			</if>
+    			<if test="dto.familyCount != null and dto.familyCount != ''">
+						and t1.FAMILY_COUNT = #{dto.familyCount}
+    			</if>
+    			<if test="dto.othersAmount != null and dto.othersAmount != ''">
+						and t1.OTHERS_AMOUNT = #{dto.othersAmount}
+    			</if>
+    			<if test="dto.othersCount != null and dto.othersCount != ''">
+						and t1.OTHERS_COUNT = #{dto.othersCount}
+    			</if>
+    			<if test="dto.allAmount != null and dto.allAmount != ''">
+						and t1.ALL_AMOUNT = #{dto.allAmount}
+    			</if>
+    			<if test="dto.allCount != null and dto.allCount != ''">
+						and t1.ALL_COUNT = #{dto.allCount}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_JXL_EBUSI_EXP_STOCK -->
+<select id="findExtJxlEbusiExpStockByPrimaryKey" parameterType="java.util.Map" resultMap="ExtJxlEbusiExpStockDTO">
+   	 		select 
+					t1.id                             ,
+					t1.fk_jxl_cust_info_id            ,
+					t1.trans_mth                      ,
+					t1.owner_amount                   ,
+					t1.owner_count                    ,
+					t1.family_amount                  ,
+					t1.family_count                   ,
+					t1.others_amount                  ,
+					t1.others_count                   ,
+					t1.all_amount                     ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.all_count                      
+			from ext_jxl_ebusi_exp_stock 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_JXL_EBUSI_EXP_STOCK -->
+<insert id="insertExtJxlEbusiExpStock" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_JXL_EBUSI_EXP_STOCK.nextval as id from dual
+	</selectKey>
+			insert into ext_jxl_ebusi_exp_stock
+			(   		
+					id                             ,
+					fk_jxl_cust_info_id            ,
+					trans_mth                      ,
+					owner_amount                   ,
+					owner_count                    ,
+					family_amount                  ,
+					family_count                   ,
+					others_amount                  ,
+					others_count                   ,
+					all_amount                     ,
+					create_time                    ,
+					all_count                      
+			)
+			values(#{dto.id}
+					,#{dto.fkJxlCustInfoId,jdbcType=DECIMAL}
+					,#{dto.transMth,jdbcType=VARCHAR}
+					,#{dto.ownerAmount,jdbcType=DECIMAL}
+					,#{dto.ownerCount,jdbcType=DECIMAL}
+					,#{dto.familyAmount,jdbcType=DECIMAL}
+					,#{dto.familyCount,jdbcType=DECIMAL}
+					,#{dto.othersAmount,jdbcType=DECIMAL}
+					,#{dto.othersCount,jdbcType=DECIMAL}
+					,#{dto.allAmount,jdbcType=DECIMAL}
+					,systimestamp
+					,#{dto.allCount,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_JXL_EBUSI_EXP_STOCK -->
+<update id="updateExtJxlEbusiExpStock" parameterType="java.util.Map">
+	     update ext_jxl_ebusi_exp_stock t1
+	           set 
+			           t1.fk_jxl_cust_info_id            =#{dto.fkJxlCustInfoId,jdbcType=DECIMAL},
+			           t1.trans_mth                      =#{dto.transMth,jdbcType=VARCHAR},
+			           t1.owner_amount                   =#{dto.ownerAmount,jdbcType=DECIMAL},
+			           t1.owner_count                    =#{dto.ownerCount,jdbcType=DECIMAL},
+			           t1.family_amount                  =#{dto.familyAmount,jdbcType=DECIMAL},
+			           t1.family_count                   =#{dto.familyCount,jdbcType=DECIMAL},
+			           t1.others_amount                  =#{dto.othersAmount,jdbcType=DECIMAL},
+			           t1.others_count                   =#{dto.othersCount,jdbcType=DECIMAL},
+			           t1.all_amount                     =#{dto.allAmount,jdbcType=DECIMAL},
+					   t1.modify_time                    =systimestamp,
+			           t1.all_count                      =#{dto.allCount,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_JXL_EBUSI_EXP_STOCK -->
+<delete id="deleteExtJxlEbusiExpStockByID" parameterType="java.util.Map">
+    	delete from ext_jxl_ebusi_exp_stock t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_JXL_EBUSI_EXP_STOCK -->
+<update id="deleteExtJxlEbusiExpStockByPrimaryKey" parameterType="java.util.Map">
+	     update ext_jxl_ebusi_exp_stock t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

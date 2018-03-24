@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.xayx.extwlfpxastrategy.dao.ExtWlFpxaStrategyDao">
+<resultMap id="ExtWlFpxaStrategyDTO" type="com.jy.modules.externalplatform.interfacerepository.xayx.extwlfpxastrategy.dto.ExtWlFpxaStrategyDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="fkId" column="FK_ID" jdbcType="DECIMAL" />
+				<result property="ruleCode" column="RULE_CODE" jdbcType="VARCHAR" />
+				<result property="ruleName" column="RULE_NAME" jdbcType="VARCHAR" />
+				<result property="value" column="VALUE" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="updateTime" column="UPDATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="updateBy" column="UPDATE_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 新增对象 EXT_WL_FPXA_STRATEGY -->
+<insert id="insertExtWlFpxaStrategy" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_FPXA_STRATEGY.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_fpxa_strategy
+			(   		
+					id                             ,
+					fk_id                          ,
+					rule_code                      ,
+					rule_name                      ,
+					value                          ,
+					create_time                    ,
+					update_time                    ,
+					create_by                      ,
+					update_by                      
+			)
+			values(#{dto.id}
+					,#{dto.fkId,jdbcType=DECIMAL}
+					,#{dto.ruleCode,jdbcType=VARCHAR}
+					,#{dto.ruleName,jdbcType=VARCHAR}
+					,#{dto.value,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.updateTime,jdbcType=TIMESTAMP}
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.updateBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+</mapper>

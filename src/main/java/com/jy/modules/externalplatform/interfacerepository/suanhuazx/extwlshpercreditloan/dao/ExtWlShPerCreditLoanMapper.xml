@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.suanhuazx.extwlshpercreditloan.dao.ExtWlShPerCreditLoanDao">
+<resultMap id="ExtWlShPerCreditLoanDTO" type="com.jy.modules.externalplatform.interfacerepository.suanhuazx.extwlshpercreditloan.dto.ExtWlShPerCreditLoanDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="creditMOB" column="CREDIT_MOB" jdbcType="VARCHAR" />
+				<result property="loanMOB" column="LOAN_MOB" jdbcType="VARCHAR" />
+				<result property="creditOrgCountsM3" column="CREDIT_ORG_COUNTS_M3" jdbcType="VARCHAR" />
+				<result property="creditLimitTotalM3" column="CREDIT_LIMIT_TOTAL_M3" jdbcType="VARCHAR" />
+				<result property="loanCountsM3" column="LOAN_COUNTS_M3" jdbcType="VARCHAR" />
+				<result property="loanAmtsM3" column="LOAN_AMTS_M3" jdbcType="VARCHAR" />
+				<result property="loanQueriesM3" column="LOAN_QUERIES_M3" jdbcType="VARCHAR" />
+				<result property="selfQueriesM3" column="SELF_QUERIES_M3" jdbcType="VARCHAR" />
+				<result property="guarantees" column="GUARANTEES" jdbcType="VARCHAR" />
+				<result property="guaranteeAmts" column="GUARANTEE_AMTS" jdbcType="VARCHAR" />
+				<result property="month6TaxAmts" column="MONTH6_TAX_AMTS" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="fkPersonalReportId" column="FK_PERSONAL_REPORT_ID" jdbcType="DECIMAL" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="validateState" column="VALIDATE_STATE" jdbcType="VARCHAR" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="updateBy" column="UPDATE_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_SH_PER_CREDIT_LOAN -->	
+<select id="searchExtWlShPerCreditLoanByPaging" parameterType="java.util.Map" resultMap="ExtWlShPerCreditLoanDTO">
+    	 		select 
+						t1.id                             ,
+						t1.credit_mob                     ,
+						t1.loan_mob                       ,
+						t1.credit_org_counts_m3           ,
+						t1.credit_limit_total_m3          ,
+						t1.loan_counts_m3                 ,
+						t1.loan_amts_m3                   ,
+						t1.loan_queries_m3                ,
+						t1.self_queries_m3                ,
+						t1.guarantees                     ,
+						t1.guarantee_amts                 ,
+						t1.month6_tax_amts                ,
+						t1.create_time                    ,
+						t1.fk_personal_report_id          ,
+						t1.modify_time                    ,
+						t1.validate_state                 ,
+						t1.create_by                      ,
+						t1.update_by                      
+					
+				from ext_wl_sh_per_credit_loan 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.creditMOB != null and dto.creditMOB != ''">
+						and t1.CREDIT_MOB =#{dto.creditMOB}
+    			</if>
+    			<if test="dto.loanMOB != null and dto.loanMOB != ''">
+						and t1.LOAN_MOB =#{dto.loanMOB}
+    			</if>
+    			<if test="dto.creditOrgCountsM3 != null and dto.creditOrgCountsM3 != ''">
+						and t1.CREDIT_ORG_COUNTS_M3 =#{dto.creditOrgCountsM3}
+    			</if>
+    			<if test="dto.creditLimitTotalM3 != null and dto.creditLimitTotalM3 != ''">
+						and t1.CREDIT_LIMIT_TOTAL_M3 =#{dto.creditLimitTotalM3}
+    			</if>
+    			<if test="dto.loanCountsM3 != null and dto.loanCountsM3 != ''">
+						and t1.LOAN_COUNTS_M3 =#{dto.loanCountsM3}
+    			</if>
+    			<if test="dto.loanAmtsM3 != null and dto.loanAmtsM3 != ''">
+						and t1.LOAN_AMTS_M3 =#{dto.loanAmtsM3}
+    			</if>
+    			<if test="dto.loanQueriesM3 != null and dto.loanQueriesM3 != ''">
+						and t1.LOAN_QUERIES_M3 =#{dto.loanQueriesM3}
+    			</if>
+    			<if test="dto.selfQueriesM3 != null and dto.selfQueriesM3 != ''">
+						and t1.SELF_QUERIES_M3 =#{dto.selfQueriesM3}
+    			</if>
+    			<if test="dto.guarantees != null and dto.guarantees != ''">
+						and t1.GUARANTEES =#{dto.guarantees}
+    			</if>
+    			<if test="dto.guaranteeAmts != null and dto.guaranteeAmts != ''">
+						and t1.GUARANTEE_AMTS =#{dto.guaranteeAmts}
+    			</if>
+    			<if test="dto.month6TaxAmts != null and dto.month6TaxAmts != ''">
+						and t1.MONTH6_TAX_AMTS =#{dto.month6TaxAmts}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.fkPersonalReportId != null and dto.fkPersonalReportId != ''">
+						and t1.FK_PERSONAL_REPORT_ID =#{dto.fkPersonalReportId}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE =#{dto.validateState}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY =#{dto.updateBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_SH_PER_CREDIT_LOAN  -->
+<select id="searchExtWlShPerCreditLoan" parameterType="java.util.Map" resultMap="ExtWlShPerCreditLoanDTO">
+    	     select 
+						t1.id                             ,
+						t1.credit_mob                     ,
+						t1.loan_mob                       ,
+						t1.credit_org_counts_m3           ,
+						t1.credit_limit_total_m3          ,
+						t1.loan_counts_m3                 ,
+						t1.loan_amts_m3                   ,
+						t1.loan_queries_m3                ,
+						t1.self_queries_m3                ,
+						t1.guarantees                     ,
+						t1.guarantee_amts                 ,
+						t1.month6_tax_amts                ,
+						t1.create_time                    ,
+						t1.fk_personal_report_id          ,
+						t1.modify_time                    ,
+						t1.validate_state                 ,
+						t1.create_by                      ,
+						t1.update_by                      
+				from ext_wl_sh_per_credit_loan 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.creditMOB != null and dto.creditMOB != ''">
+						and t1.CREDIT_MOB = #{dto.creditMOB}
+    			</if>
+    			<if test="dto.loanMOB != null and dto.loanMOB != ''">
+						and t1.LOAN_MOB = #{dto.loanMOB}
+    			</if>
+    			<if test="dto.creditOrgCountsM3 != null and dto.creditOrgCountsM3 != ''">
+						and t1.CREDIT_ORG_COUNTS_M3 = #{dto.creditOrgCountsM3}
+    			</if>
+    			<if test="dto.creditLimitTotalM3 != null and dto.creditLimitTotalM3 != ''">
+						and t1.CREDIT_LIMIT_TOTAL_M3 = #{dto.creditLimitTotalM3}
+    			</if>
+    			<if test="dto.loanCountsM3 != null and dto.loanCountsM3 != ''">
+						and t1.LOAN_COUNTS_M3 = #{dto.loanCountsM3}
+    			</if>
+    			<if test="dto.loanAmtsM3 != null and dto.loanAmtsM3 != ''">
+						and t1.LOAN_AMTS_M3 = #{dto.loanAmtsM3}
+    			</if>
+    			<if test="dto.loanQueriesM3 != null and dto.loanQueriesM3 != ''">
+						and t1.LOAN_QUERIES_M3 = #{dto.loanQueriesM3}
+    			</if>
+    			<if test="dto.selfQueriesM3 != null and dto.selfQueriesM3 != ''">
+						and t1.SELF_QUERIES_M3 = #{dto.selfQueriesM3}
+    			</if>
+    			<if test="dto.guarantees != null and dto.guarantees != ''">
+						and t1.GUARANTEES = #{dto.guarantees}
+    			</if>
+    			<if test="dto.guaranteeAmts != null and dto.guaranteeAmts != ''">
+						and t1.GUARANTEE_AMTS = #{dto.guaranteeAmts}
+    			</if>
+    			<if test="dto.month6TaxAmts != null and dto.month6TaxAmts != ''">
+						and t1.MONTH6_TAX_AMTS = #{dto.month6TaxAmts}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.fkPersonalReportId != null and dto.fkPersonalReportId != ''">
+						and t1.FK_PERSONAL_REPORT_ID = #{dto.fkPersonalReportId}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE = #{dto.validateState}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY = #{dto.updateBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_SH_PER_CREDIT_LOAN -->
+<select id="findExtWlShPerCreditLoanByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlShPerCreditLoanDTO">
+   	 		select 
+					t1.id                             ,
+					t1.credit_mob                     ,
+					t1.loan_mob                       ,
+					t1.credit_org_counts_m3           ,
+					t1.credit_limit_total_m3          ,
+					t1.loan_counts_m3                 ,
+					t1.loan_amts_m3                   ,
+					t1.loan_queries_m3                ,
+					t1.self_queries_m3                ,
+					t1.guarantees                     ,
+					t1.guarantee_amts                 ,
+					t1.month6_tax_amts                ,
+					t1.create_time                    ,
+					t1.fk_personal_report_id          ,
+					t1.modify_time                    ,
+					t1.validate_state                 ,
+					t1.create_by                      ,
+					t1.update_by                      
+			from ext_wl_sh_per_credit_loan 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_SH_PER_CREDIT_LOAN -->
+<insert id="insertExtWlShPerCreditLoan" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_SH_PER_CREDIT_LOAN.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_sh_per_credit_loan
+			(   		
+					id                             ,
+					credit_mob                     ,
+					loan_mob                       ,
+					credit_org_counts_m3           ,
+					credit_limit_total_m3          ,
+					loan_counts_m3                 ,
+					loan_amts_m3                   ,
+					loan_queries_m3                ,
+					self_queries_m3                ,
+					guarantees                     ,
+					guarantee_amts                 ,
+					month6_tax_amts                ,
+					create_time                    ,
+					fk_personal_report_id          ,
+					modify_time                    ,
+					validate_state                 ,
+					create_by                      ,
+					update_by                      
+			)
+			values(#{dto.id}
+					,#{dto.creditMOB,jdbcType=VARCHAR}
+					,#{dto.loanMOB,jdbcType=VARCHAR}
+					,#{dto.creditOrgCountsM3,jdbcType=VARCHAR}
+					,#{dto.creditLimitTotalM3,jdbcType=VARCHAR}
+					,#{dto.loanCountsM3,jdbcType=VARCHAR}
+					,#{dto.loanAmtsM3,jdbcType=VARCHAR}
+					,#{dto.loanQueriesM3,jdbcType=VARCHAR}
+					,#{dto.selfQueriesM3,jdbcType=VARCHAR}
+					,#{dto.guarantees,jdbcType=VARCHAR}
+					,#{dto.guaranteeAmts,jdbcType=VARCHAR}
+					,#{dto.month6TaxAmts,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.fkPersonalReportId,jdbcType=DECIMAL}
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,'1'
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.updateBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_SH_PER_CREDIT_LOAN -->
+<update id="updateExtWlShPerCreditLoan" parameterType="java.util.Map">
+	     update ext_wl_sh_per_credit_loan t1
+	           set 
+			           t1.credit_mob                     =#{dto.creditMOB,jdbcType=VARCHAR},
+			           t1.loan_mob                       =#{dto.loanMOB,jdbcType=VARCHAR},
+			           t1.credit_org_counts_m3           =#{dto.creditOrgCountsM3,jdbcType=VARCHAR},
+			           t1.credit_limit_total_m3          =#{dto.creditLimitTotalM3,jdbcType=VARCHAR},
+			           t1.loan_counts_m3                 =#{dto.loanCountsM3,jdbcType=VARCHAR},
+			           t1.loan_amts_m3                   =#{dto.loanAmtsM3,jdbcType=VARCHAR},
+			           t1.loan_queries_m3                =#{dto.loanQueriesM3,jdbcType=VARCHAR},
+			           t1.self_queries_m3                =#{dto.selfQueriesM3,jdbcType=VARCHAR},
+			           t1.guarantees                     =#{dto.guarantees,jdbcType=VARCHAR},
+			           t1.guarantee_amts                 =#{dto.guaranteeAmts,jdbcType=VARCHAR},
+			           t1.month6_tax_amts                =#{dto.month6TaxAmts,jdbcType=VARCHAR},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.fk_personal_report_id          =#{dto.fkPersonalReportId,jdbcType=DECIMAL},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP},
+			           t1.validate_state                 ='1',
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.update_by                      =#{dto.updateBy,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_SH_PER_CREDIT_LOAN -->
+<delete id="deleteExtWlShPerCreditLoanByID" parameterType="java.util.Map">
+    	delete from ext_wl_sh_per_credit_loan t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_SH_PER_CREDIT_LOAN -->
+<update id="deleteExtWlShPerCreditLoanByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_sh_per_credit_loan t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

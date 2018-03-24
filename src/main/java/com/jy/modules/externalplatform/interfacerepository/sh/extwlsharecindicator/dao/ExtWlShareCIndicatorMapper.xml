@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.sh.extwlsharecindicator.dao.ExtWlShareCIndicatorDao">
+<resultMap id="ExtWlShareCIndicatorDTO" type="com.jy.modules.externalplatform.interfacerepository.sh.extwlsharecindicator.dto.ExtWlShareCIndicatorDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="scredittype" column="SCREDITTYPE" jdbcType="VARCHAR" />
+				<result property="total" column="TOTAL" jdbcType="DECIMAL" />
+				<result property="unSettledTotal" column="UN_SETTLED_TOTAL" jdbcType="DECIMAL" />
+				<result property="guaranteeTotal" column="GUARANTEE_TOTAL" jdbcType="DECIMAL" />
+				<result property="fkReportId" column="FK_REPORT_ID" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_SHARE_C_INDICATOR -->	
+<select id="searchExtWlShareCIndicatorByPaging" parameterType="java.util.Map" resultMap="ExtWlShareCIndicatorDTO">
+    	 		select 
+						t1.id                             ,
+						t1.scredittype                    ,
+						t1.total                          ,
+						t1.un_settled_total               ,
+						t1.guarantee_total                ,
+						t1.fk_report_id                   ,
+						t1.create_time                    ,
+						t1.modify_time                    
+					
+				from ext_wl_share_c_indicator 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.scredittype != null and dto.scredittype != ''">
+						and t1.SCREDITTYPE =#{dto.scredittype}
+    			</if>
+    			<if test="dto.total != null and dto.total != ''">
+						and t1.TOTAL =#{dto.total}
+    			</if>
+    			<if test="dto.unSettledTotal != null and dto.unSettledTotal != ''">
+						and t1.UN_SETTLED_TOTAL =#{dto.unSettledTotal}
+    			</if>
+    			<if test="dto.guaranteeTotal != null and dto.guaranteeTotal != ''">
+						and t1.GUARANTEE_TOTAL =#{dto.guaranteeTotal}
+    			</if>
+    			<if test="dto.fkReportId != null and dto.fkReportId != ''">
+						and t1.FK_REPORT_ID =#{dto.fkReportId}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_SHARE_C_INDICATOR  -->
+<select id="searchExtWlShareCIndicator" parameterType="java.util.Map" resultMap="ExtWlShareCIndicatorDTO">
+    	     select 
+						t1.id                             ,
+						t1.scredittype                    ,
+						t1.total                          ,
+						t1.un_settled_total               ,
+						t1.guarantee_total                ,
+						t1.fk_report_id                   ,
+						t1.create_time                    ,
+						t1.modify_time                    
+				from ext_wl_share_c_indicator 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.scredittype != null and dto.scredittype != ''">
+						and t1.SCREDITTYPE = #{dto.scredittype}
+    			</if>
+    			<if test="dto.total != null and dto.total != ''">
+						and t1.TOTAL = #{dto.total}
+    			</if>
+    			<if test="dto.unSettledTotal != null and dto.unSettledTotal != ''">
+						and t1.UN_SETTLED_TOTAL = #{dto.unSettledTotal}
+    			</if>
+    			<if test="dto.guaranteeTotal != null and dto.guaranteeTotal != ''">
+						and t1.GUARANTEE_TOTAL = #{dto.guaranteeTotal}
+    			</if>
+    			<if test="dto.fkReportId != null and dto.fkReportId != ''">
+						and t1.FK_REPORT_ID = #{dto.fkReportId}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_SHARE_C_INDICATOR -->
+<select id="findExtWlShareCIndicatorByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlShareCIndicatorDTO">
+   	 		select 
+					t1.id                             ,
+					t1.scredittype                    ,
+					t1.total                          ,
+					t1.un_settled_total               ,
+					t1.guarantee_total                ,
+					t1.fk_report_id                   ,
+					t1.create_time                    ,
+					t1.modify_time                    
+			from ext_wl_share_c_indicator 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_SHARE_C_INDICATOR -->
+<insert id="insertExtWlShareCIndicator" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_SHARE_C_INDICATOR.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_share_c_indicator
+			(   		
+					id                             ,
+					scredittype                    ,
+					total                          ,
+					un_settled_total               ,
+					guarantee_total                ,
+					fk_report_id                   ,
+					create_time                    ,
+					modify_time                    
+			)
+			values(#{dto.id}
+					,#{dto.scredittype,jdbcType=VARCHAR}
+					,#{dto.total,jdbcType=DECIMAL}
+					,#{dto.unSettledTotal,jdbcType=DECIMAL}
+					,#{dto.guaranteeTotal,jdbcType=DECIMAL}
+					,#{dto.fkReportId,jdbcType=DECIMAL}
+					,#{dto.createTime,jdbcType=TIMESTAMP}
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_SHARE_C_INDICATOR -->
+<update id="updateExtWlShareCIndicator" parameterType="java.util.Map">
+	     update ext_wl_share_c_indicator t1
+	           set 
+			           t1.scredittype                    =#{dto.scredittype,jdbcType=VARCHAR},
+			           t1.total                          =#{dto.total,jdbcType=DECIMAL},
+			           t1.un_settled_total               =#{dto.unSettledTotal,jdbcType=DECIMAL},
+			           t1.guarantee_total                =#{dto.guaranteeTotal,jdbcType=DECIMAL},
+			           t1.fk_report_id                   =#{dto.fkReportId,jdbcType=DECIMAL},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_SHARE_C_INDICATOR -->
+<delete id="deleteExtWlShareCIndicatorByID" parameterType="java.util.Map">
+    	delete from ext_wl_share_c_indicator t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_SHARE_C_INDICATOR -->
+<update id="deleteExtWlShareCIndicatorByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_share_c_indicator t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+  
+<insert id="insertExtWlShareCIndicatorList" parameterType="java.util.Map">
+begin
+    <foreach collection="dtoList" item="dto" >
+          insert into ext_wl_share_c_indicator
+			(   		
+					id                             ,
+					scredittype                    ,
+					total                          ,
+					un_settled_total               ,
+					guarantee_total                ,
+					fk_report_id                   ,
+					create_time                    ,
+					modify_time                    
+			)
+			values(seq_EXT_WL_SHARE_C_INDICATOR.nextval
+					,#{dto.scredittype,jdbcType=VARCHAR}
+					,#{dto.total,jdbcType=DECIMAL}
+					,#{dto.unSettledTotal,jdbcType=DECIMAL}
+					,#{dto.guaranteeTotal,jdbcType=DECIMAL}
+					,#{fkReportId}
+					,systimestamp
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+			);
+    </foreach>
+  end;
+</insert>
+
+</mapper>

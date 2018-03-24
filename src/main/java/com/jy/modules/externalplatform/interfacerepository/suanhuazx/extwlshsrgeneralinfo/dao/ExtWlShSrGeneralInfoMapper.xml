@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.suanhuazx.extwlshsrgeneralinfo.dao.ExtWlShSrGeneralInfoDao">
+<resultMap id="ExtWlShSrGeneralInfoDTO" type="com.jy.modules.externalplatform.interfacerepository.suanhuazx.extwlshsrgeneralinfo.dto.ExtWlShSrGeneralInfoDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="assetTotal" column="ASSET_TOTAL" jdbcType="DECIMAL" />
+				<result property="compensateTotal" column="COMPENSATE_TOTAL" jdbcType="DECIMAL" />
+				<result property="creditTotal" column="CREDIT_TOTAL" jdbcType="DECIMAL" />
+				<result property="creditActive" column="CREDIT_ACTIVE" jdbcType="DECIMAL" />
+				<result property="creditOverdue" column="CREDIT_OVERDUE" jdbcType="DECIMAL" />
+				<result property="creditOverdue90" column="CREDIT_OVERDUE_90" jdbcType="DECIMAL" />
+				<result property="creditGuarantee" column="CREDIT_GUARANTEE" jdbcType="DECIMAL" />
+				<result property="mortgageTotal" column="MORTGAGE_TOTAL" jdbcType="DECIMAL" />
+				<result property="mortgageActive" column="MORTGAGE_ACTIVE" jdbcType="DECIMAL" />
+				<result property="mortgageOverdue" column="MORTGAGE_OVERDUE" jdbcType="DECIMAL" />
+				<result property="mortgageOverdue90" column="MORTGAGE_OVERDUE_90" jdbcType="DECIMAL" />
+				<result property="mortgageGuarantee" column="MORTGAGE_GUARANTEE" jdbcType="DECIMAL" />
+				<result property="otherloanTotal" column="OTHERLOAN_TOTAL" jdbcType="DECIMAL" />
+				<result property="otherloanActive" column="OTHERLOAN_ACTIVE" jdbcType="DECIMAL" />
+				<result property="otherloanOverdue" column="OTHERLOAN_OVERDUE" jdbcType="DECIMAL" />
+				<result property="otherloanOverdue90" column="OTHERLOAN_OVERDUE_90" jdbcType="DECIMAL" />
+				<result property="otherloanGuarantee" column="OTHERLOAN_GUARANTEE" jdbcType="DECIMAL" />
+				<result property="isfail" column="ISFAIL" jdbcType="VARCHAR" />
+				<result property="fkReportId" column="FK_REPORT_ID" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="validateState" column="VALIDATE_STATE" jdbcType="VARCHAR" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="updateBy" column="UPDATE_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_SH_SR_GENERAL_INFO -->	
+<select id="searchExtWlShSrGeneralInfoByPaging" parameterType="java.util.Map" resultMap="ExtWlShSrGeneralInfoDTO">
+    	 		select 
+						t1.id                             ,
+						t1.asset_total                    ,
+						t1.compensate_total               ,
+						t1.credit_total                   ,
+						t1.credit_active                  ,
+						t1.credit_overdue                 ,
+						t1.credit_overdue_90              ,
+						t1.credit_guarantee               ,
+						t1.mortgage_total                 ,
+						t1.mortgage_active                ,
+						t1.mortgage_overdue               ,
+						t1.mortgage_overdue_90            ,
+						t1.mortgage_guarantee             ,
+						t1.otherloan_total                ,
+						t1.otherloan_active               ,
+						t1.otherloan_overdue              ,
+						t1.otherloan_overdue_90           ,
+						t1.otherloan_guarantee            ,
+						t1.isfail                         ,
+						t1.fk_report_id                   ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.validate_state                 ,
+						t1.create_by                      ,
+						t1.update_by                      
+					
+				from ext_wl_sh_sr_general_info 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.assetTotal != null and dto.assetTotal != ''">
+						and t1.ASSET_TOTAL =#{dto.assetTotal}
+    			</if>
+    			<if test="dto.compensateTotal != null and dto.compensateTotal != ''">
+						and t1.COMPENSATE_TOTAL =#{dto.compensateTotal}
+    			</if>
+    			<if test="dto.creditTotal != null and dto.creditTotal != ''">
+						and t1.CREDIT_TOTAL =#{dto.creditTotal}
+    			</if>
+    			<if test="dto.creditActive != null and dto.creditActive != ''">
+						and t1.CREDIT_ACTIVE =#{dto.creditActive}
+    			</if>
+    			<if test="dto.creditOverdue != null and dto.creditOverdue != ''">
+						and t1.CREDIT_OVERDUE =#{dto.creditOverdue}
+    			</if>
+    			<if test="dto.creditOverdue90 != null and dto.creditOverdue90 != ''">
+						and t1.CREDIT_OVERDUE_90 =#{dto.creditOverdue90}
+    			</if>
+    			<if test="dto.creditGuarantee != null and dto.creditGuarantee != ''">
+						and t1.CREDIT_GUARANTEE =#{dto.creditGuarantee}
+    			</if>
+    			<if test="dto.mortgageTotal != null and dto.mortgageTotal != ''">
+						and t1.MORTGAGE_TOTAL =#{dto.mortgageTotal}
+    			</if>
+    			<if test="dto.mortgageActive != null and dto.mortgageActive != ''">
+						and t1.MORTGAGE_ACTIVE =#{dto.mortgageActive}
+    			</if>
+    			<if test="dto.mortgageOverdue != null and dto.mortgageOverdue != ''">
+						and t1.MORTGAGE_OVERDUE =#{dto.mortgageOverdue}
+    			</if>
+    			<if test="dto.mortgageOverdue90 != null and dto.mortgageOverdue90 != ''">
+						and t1.MORTGAGE_OVERDUE_90 =#{dto.mortgageOverdue90}
+    			</if>
+    			<if test="dto.mortgageGuarantee != null and dto.mortgageGuarantee != ''">
+						and t1.MORTGAGE_GUARANTEE =#{dto.mortgageGuarantee}
+    			</if>
+    			<if test="dto.otherloanTotal != null and dto.otherloanTotal != ''">
+						and t1.OTHERLOAN_TOTAL =#{dto.otherloanTotal}
+    			</if>
+    			<if test="dto.otherloanActive != null and dto.otherloanActive != ''">
+						and t1.OTHERLOAN_ACTIVE =#{dto.otherloanActive}
+    			</if>
+    			<if test="dto.otherloanOverdue != null and dto.otherloanOverdue != ''">
+						and t1.OTHERLOAN_OVERDUE =#{dto.otherloanOverdue}
+    			</if>
+    			<if test="dto.otherloanOverdue90 != null and dto.otherloanOverdue90 != ''">
+						and t1.OTHERLOAN_OVERDUE_90 =#{dto.otherloanOverdue90}
+    			</if>
+    			<if test="dto.otherloanGuarantee != null and dto.otherloanGuarantee != ''">
+						and t1.OTHERLOAN_GUARANTEE =#{dto.otherloanGuarantee}
+    			</if>
+    			<if test="dto.isfail != null and dto.isfail != ''">
+						and t1.ISFAIL =#{dto.isfail}
+    			</if>
+    			<if test="dto.fkReportId != null and dto.fkReportId != ''">
+						and t1.FK_REPORT_ID =#{dto.fkReportId}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE =#{dto.validateState}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY =#{dto.updateBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_SH_SR_GENERAL_INFO  -->
+<select id="searchExtWlShSrGeneralInfo" parameterType="java.util.Map" resultMap="ExtWlShSrGeneralInfoDTO">
+    	     select 
+						t1.id                             ,
+						t1.asset_total                    ,
+						t1.compensate_total               ,
+						t1.credit_total                   ,
+						t1.credit_active                  ,
+						t1.credit_overdue                 ,
+						t1.credit_overdue_90              ,
+						t1.credit_guarantee               ,
+						t1.mortgage_total                 ,
+						t1.mortgage_active                ,
+						t1.mortgage_overdue               ,
+						t1.mortgage_overdue_90            ,
+						t1.mortgage_guarantee             ,
+						t1.otherloan_total                ,
+						t1.otherloan_active               ,
+						t1.otherloan_overdue              ,
+						t1.otherloan_overdue_90           ,
+						t1.otherloan_guarantee            ,
+						t1.isfail                         ,
+						t1.fk_report_id                   ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.validate_state                 ,
+						t1.create_by                      ,
+						t1.update_by                      
+				from ext_wl_sh_sr_general_info 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.assetTotal != null and dto.assetTotal != ''">
+						and t1.ASSET_TOTAL = #{dto.assetTotal}
+    			</if>
+    			<if test="dto.compensateTotal != null and dto.compensateTotal != ''">
+						and t1.COMPENSATE_TOTAL = #{dto.compensateTotal}
+    			</if>
+    			<if test="dto.creditTotal != null and dto.creditTotal != ''">
+						and t1.CREDIT_TOTAL = #{dto.creditTotal}
+    			</if>
+    			<if test="dto.creditActive != null and dto.creditActive != ''">
+						and t1.CREDIT_ACTIVE = #{dto.creditActive}
+    			</if>
+    			<if test="dto.creditOverdue != null and dto.creditOverdue != ''">
+						and t1.CREDIT_OVERDUE = #{dto.creditOverdue}
+    			</if>
+    			<if test="dto.creditOverdue90 != null and dto.creditOverdue90 != ''">
+						and t1.CREDIT_OVERDUE_90 = #{dto.creditOverdue90}
+    			</if>
+    			<if test="dto.creditGuarantee != null and dto.creditGuarantee != ''">
+						and t1.CREDIT_GUARANTEE = #{dto.creditGuarantee}
+    			</if>
+    			<if test="dto.mortgageTotal != null and dto.mortgageTotal != ''">
+						and t1.MORTGAGE_TOTAL = #{dto.mortgageTotal}
+    			</if>
+    			<if test="dto.mortgageActive != null and dto.mortgageActive != ''">
+						and t1.MORTGAGE_ACTIVE = #{dto.mortgageActive}
+    			</if>
+    			<if test="dto.mortgageOverdue != null and dto.mortgageOverdue != ''">
+						and t1.MORTGAGE_OVERDUE = #{dto.mortgageOverdue}
+    			</if>
+    			<if test="dto.mortgageOverdue90 != null and dto.mortgageOverdue90 != ''">
+						and t1.MORTGAGE_OVERDUE_90 = #{dto.mortgageOverdue90}
+    			</if>
+    			<if test="dto.mortgageGuarantee != null and dto.mortgageGuarantee != ''">
+						and t1.MORTGAGE_GUARANTEE = #{dto.mortgageGuarantee}
+    			</if>
+    			<if test="dto.otherloanTotal != null and dto.otherloanTotal != ''">
+						and t1.OTHERLOAN_TOTAL = #{dto.otherloanTotal}
+    			</if>
+    			<if test="dto.otherloanActive != null and dto.otherloanActive != ''">
+						and t1.OTHERLOAN_ACTIVE = #{dto.otherloanActive}
+    			</if>
+    			<if test="dto.otherloanOverdue != null and dto.otherloanOverdue != ''">
+						and t1.OTHERLOAN_OVERDUE = #{dto.otherloanOverdue}
+    			</if>
+    			<if test="dto.otherloanOverdue90 != null and dto.otherloanOverdue90 != ''">
+						and t1.OTHERLOAN_OVERDUE_90 = #{dto.otherloanOverdue90}
+    			</if>
+    			<if test="dto.otherloanGuarantee != null and dto.otherloanGuarantee != ''">
+						and t1.OTHERLOAN_GUARANTEE = #{dto.otherloanGuarantee}
+    			</if>
+    			<if test="dto.isfail != null and dto.isfail != ''">
+						and t1.ISFAIL = #{dto.isfail}
+    			</if>
+    			<if test="dto.fkReportId != null and dto.fkReportId != ''">
+						and t1.FK_REPORT_ID = #{dto.fkReportId}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE = #{dto.validateState}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY = #{dto.updateBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_SH_SR_GENERAL_INFO -->
+<select id="findExtWlShSrGeneralInfoByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlShSrGeneralInfoDTO">
+   	 		select 
+					t1.id                             ,
+					t1.asset_total                    ,
+					t1.compensate_total               ,
+					t1.credit_total                   ,
+					t1.credit_active                  ,
+					t1.credit_overdue                 ,
+					t1.credit_overdue_90              ,
+					t1.credit_guarantee               ,
+					t1.mortgage_total                 ,
+					t1.mortgage_active                ,
+					t1.mortgage_overdue               ,
+					t1.mortgage_overdue_90            ,
+					t1.mortgage_guarantee             ,
+					t1.otherloan_total                ,
+					t1.otherloan_active               ,
+					t1.otherloan_overdue              ,
+					t1.otherloan_overdue_90           ,
+					t1.otherloan_guarantee            ,
+					t1.isfail                         ,
+					t1.fk_report_id                   ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.validate_state                 ,
+					t1.create_by                      ,
+					t1.update_by                      
+			from ext_wl_sh_sr_general_info 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_SH_SR_GENERAL_INFO -->
+<insert id="insertExtWlShSrGeneralInfo" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_SH_SR_GENERAL_INFO.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_sh_sr_general_info
+			(   		
+					id                             ,
+					asset_total                    ,
+					compensate_total               ,
+					credit_total                   ,
+					credit_active                  ,
+					credit_overdue                 ,
+					credit_overdue_90              ,
+					credit_guarantee               ,
+					mortgage_total                 ,
+					mortgage_active                ,
+					mortgage_overdue               ,
+					mortgage_overdue_90            ,
+					mortgage_guarantee             ,
+					otherloan_total                ,
+					otherloan_active               ,
+					otherloan_overdue              ,
+					otherloan_overdue_90           ,
+					otherloan_guarantee            ,
+					isfail                         ,
+					fk_report_id                   ,
+					create_time                    ,
+					modify_time                    ,
+					validate_state                 ,
+					create_by                      ,
+					update_by                      
+			)
+			values(#{dto.id}
+					,#{dto.assetTotal,jdbcType=DECIMAL}
+					,#{dto.compensateTotal,jdbcType=DECIMAL}
+					,#{dto.creditTotal,jdbcType=DECIMAL}
+					,#{dto.creditActive,jdbcType=DECIMAL}
+					,#{dto.creditOverdue,jdbcType=DECIMAL}
+					,#{dto.creditOverdue90,jdbcType=DECIMAL}
+					,#{dto.creditGuarantee,jdbcType=DECIMAL}
+					,#{dto.mortgageTotal,jdbcType=DECIMAL}
+					,#{dto.mortgageActive,jdbcType=DECIMAL}
+					,#{dto.mortgageOverdue,jdbcType=DECIMAL}
+					,#{dto.mortgageOverdue90,jdbcType=DECIMAL}
+					,#{dto.mortgageGuarantee,jdbcType=DECIMAL}
+					,#{dto.otherloanTotal,jdbcType=DECIMAL}
+					,#{dto.otherloanActive,jdbcType=DECIMAL}
+					,#{dto.otherloanOverdue,jdbcType=DECIMAL}
+					,#{dto.otherloanOverdue90,jdbcType=DECIMAL}
+					,#{dto.otherloanGuarantee,jdbcType=DECIMAL}
+					,#{dto.isfail,jdbcType=VARCHAR}
+					,#{dto.fkReportId,jdbcType=DECIMAL}
+					,systimestamp
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,'1'
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.updateBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_SH_SR_GENERAL_INFO -->
+<update id="updateExtWlShSrGeneralInfo" parameterType="java.util.Map">
+	     update ext_wl_sh_sr_general_info t1
+	           set 
+			           t1.asset_total                    =#{dto.assetTotal,jdbcType=DECIMAL},
+			           t1.compensate_total               =#{dto.compensateTotal,jdbcType=DECIMAL},
+			           t1.credit_total                   =#{dto.creditTotal,jdbcType=DECIMAL},
+			           t1.credit_active                  =#{dto.creditActive,jdbcType=DECIMAL},
+			           t1.credit_overdue                 =#{dto.creditOverdue,jdbcType=DECIMAL},
+			           t1.credit_overdue_90              =#{dto.creditOverdue90,jdbcType=DECIMAL},
+			           t1.credit_guarantee               =#{dto.creditGuarantee,jdbcType=DECIMAL},
+			           t1.mortgage_total                 =#{dto.mortgageTotal,jdbcType=DECIMAL},
+			           t1.mortgage_active                =#{dto.mortgageActive,jdbcType=DECIMAL},
+			           t1.mortgage_overdue               =#{dto.mortgageOverdue,jdbcType=DECIMAL},
+			           t1.mortgage_overdue_90            =#{dto.mortgageOverdue90,jdbcType=DECIMAL},
+			           t1.mortgage_guarantee             =#{dto.mortgageGuarantee,jdbcType=DECIMAL},
+			           t1.otherloan_total                =#{dto.otherloanTotal,jdbcType=DECIMAL},
+			           t1.otherloan_active               =#{dto.otherloanActive,jdbcType=DECIMAL},
+			           t1.otherloan_overdue              =#{dto.otherloanOverdue,jdbcType=DECIMAL},
+			           t1.otherloan_overdue_90           =#{dto.otherloanOverdue90,jdbcType=DECIMAL},
+			           t1.otherloan_guarantee            =#{dto.otherloanGuarantee,jdbcType=DECIMAL},
+			           t1.isfail                         =#{dto.isfail,jdbcType=VARCHAR},
+			           t1.fk_report_id                   =#{dto.fkReportId,jdbcType=DECIMAL},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP},
+			           t1.validate_state                 ='1',
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.update_by                      =#{dto.updateBy,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_SH_SR_GENERAL_INFO -->
+<delete id="deleteExtWlShSrGeneralInfoByID" parameterType="java.util.Map">
+    	delete from ext_wl_sh_sr_general_info t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_SH_SR_GENERAL_INFO -->
+<update id="deleteExtWlShSrGeneralInfoByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_sh_sr_general_info t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

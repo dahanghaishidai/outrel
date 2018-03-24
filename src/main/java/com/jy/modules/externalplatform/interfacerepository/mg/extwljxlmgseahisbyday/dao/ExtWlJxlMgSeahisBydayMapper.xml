@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.mg.extwljxlmgseahisbyday.dao.ExtWlJxlMgSeahisBydayDao">
+<resultMap id="ExtWlJxlMgSeahisBydayDTO" type="com.jy.modules.externalplatform.interfacerepository.mg.extwljxlmgseahisbyday.dto.ExtWlJxlMgSeahisBydayDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="userGridId" column="USER_GRID_ID" jdbcType="VARCHAR" />
+				<result property="dayNum" column="DAY_NUM" jdbcType="VARCHAR" />
+				<result property="cnt" column="CNT" jdbcType="DECIMAL" />
+				<result property="cntCash" column="CNT_CASH" jdbcType="DECIMAL" />
+				<result property="cntCc" column="CNT_CC" jdbcType="DECIMAL" />
+				<result property="cntCf" column="CNT_CF" jdbcType="DECIMAL" />
+				<result property="cntOrg" column="CNT_ORG" jdbcType="DECIMAL" />
+				<result property="cntOrgCash" column="CNT_ORG_CASH" jdbcType="DECIMAL" />
+				<result property="cntOrgCc" column="CNT_ORG_CC" jdbcType="DECIMAL" />
+				<result property="cntOrgCf" column="CNT_ORG_CF" jdbcType="DECIMAL" />
+				<result property="pctCntAll" column="PCT_CNT_ALL" jdbcType="DECIMAL" />
+				<result property="pctCntCash" column="PCT_CNT_CASH" jdbcType="DECIMAL" />
+				<result property="pctCntCc" column="PCT_CNT_CC" jdbcType="DECIMAL" />
+				<result property="pctCntCf" column="PCT_CNT_CF" jdbcType="DECIMAL" />
+				<result property="pctCntOrgAll" column="PCT_CNT_ORG_ALL" jdbcType="DECIMAL" />
+				<result property="pctCntOrgCash" column="PCT_CNT_ORG_CASH" jdbcType="DECIMAL" />
+				<result property="pctCntOrgCc" column="PCT_CNT_ORG_CC" jdbcType="DECIMAL" />
+				<result property="pctCntOrgCf" column="PCT_CNT_ORG_CF" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyBy" column="MODIFY_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_JXL_MG_SEAHIS_BYDAY -->	
+<select id="searchExtWlJxlMgSeahisBydayByPaging" parameterType="java.util.Map" resultMap="ExtWlJxlMgSeahisBydayDTO">
+    	 		select 
+						t1.id                             ,
+						t1.user_grid_id                   ,
+						t1.day_num                        ,
+						t1.cnt                            ,
+						t1.cnt_cash                       ,
+						t1.cnt_cc                         ,
+						t1.cnt_cf                         ,
+						t1.cnt_org                        ,
+						t1.cnt_org_cash                   ,
+						t1.cnt_org_cc                     ,
+						t1.cnt_org_cf                     ,
+						t1.pct_cnt_all                    ,
+						t1.pct_cnt_cash                   ,
+						t1.pct_cnt_cc                     ,
+						t1.pct_cnt_cf                     ,
+						t1.pct_cnt_org_all                ,
+						t1.pct_cnt_org_cash               ,
+						t1.pct_cnt_org_cc                 ,
+						t1.pct_cnt_org_cf                 ,
+						t1.create_time                    ,
+						t1.create_by                      ,
+						t1.modify_time                    ,
+						t1.modify_by                      
+					
+				from ext_wl_jxl_mg_seahis_byday 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.userGridId != null and dto.userGridId != ''">
+						and t1.USER_GRID_ID =#{dto.userGridId}
+    			</if>
+    			<if test="dto.dayNum != null and dto.dayNum != ''">
+						and t1.DAY_NUM =#{dto.dayNum}
+    			</if>
+    			<if test="dto.cnt != null and dto.cnt != ''">
+						and t1.CNT =#{dto.cnt}
+    			</if>
+    			<if test="dto.cntCash != null and dto.cntCash != ''">
+						and t1.CNT_CASH =#{dto.cntCash}
+    			</if>
+    			<if test="dto.cntCc != null and dto.cntCc != ''">
+						and t1.CNT_CC =#{dto.cntCc}
+    			</if>
+    			<if test="dto.cntCf != null and dto.cntCf != ''">
+						and t1.CNT_CF =#{dto.cntCf}
+    			</if>
+    			<if test="dto.cntOrg != null and dto.cntOrg != ''">
+						and t1.CNT_ORG =#{dto.cntOrg}
+    			</if>
+    			<if test="dto.cntOrgCash != null and dto.cntOrgCash != ''">
+						and t1.CNT_ORG_CASH =#{dto.cntOrgCash}
+    			</if>
+    			<if test="dto.cntOrgCc != null and dto.cntOrgCc != ''">
+						and t1.CNT_ORG_CC =#{dto.cntOrgCc}
+    			</if>
+    			<if test="dto.cntOrgCf != null and dto.cntOrgCf != ''">
+						and t1.CNT_ORG_CF =#{dto.cntOrgCf}
+    			</if>
+    			<if test="dto.pctCntAll != null and dto.pctCntAll != ''">
+						and t1.PCT_CNT_ALL =#{dto.pctCntAll}
+    			</if>
+    			<if test="dto.pctCntCash != null and dto.pctCntCash != ''">
+						and t1.PCT_CNT_CASH =#{dto.pctCntCash}
+    			</if>
+    			<if test="dto.pctCntCc != null and dto.pctCntCc != ''">
+						and t1.PCT_CNT_CC =#{dto.pctCntCc}
+    			</if>
+    			<if test="dto.pctCntCf != null and dto.pctCntCf != ''">
+						and t1.PCT_CNT_CF =#{dto.pctCntCf}
+    			</if>
+    			<if test="dto.pctCntOrgAll != null and dto.pctCntOrgAll != ''">
+						and t1.PCT_CNT_ORG_ALL =#{dto.pctCntOrgAll}
+    			</if>
+    			<if test="dto.pctCntOrgCash != null and dto.pctCntOrgCash != ''">
+						and t1.PCT_CNT_ORG_CASH =#{dto.pctCntOrgCash}
+    			</if>
+    			<if test="dto.pctCntOrgCc != null and dto.pctCntOrgCc != ''">
+						and t1.PCT_CNT_ORG_CC =#{dto.pctCntOrgCc}
+    			</if>
+    			<if test="dto.pctCntOrgCf != null and dto.pctCntOrgCf != ''">
+						and t1.PCT_CNT_ORG_CF =#{dto.pctCntOrgCf}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY =#{dto.modifyBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_JXL_MG_SEAHIS_BYDAY  -->
+<select id="searchExtWlJxlMgSeahisByday" parameterType="java.util.Map" resultMap="ExtWlJxlMgSeahisBydayDTO">
+    	     select 
+						t1.id                             ,
+						t1.user_grid_id                   ,
+						t1.day_num                        ,
+						t1.cnt                            ,
+						t1.cnt_cash                       ,
+						t1.cnt_cc                         ,
+						t1.cnt_cf                         ,
+						t1.cnt_org                        ,
+						t1.cnt_org_cash                   ,
+						t1.cnt_org_cc                     ,
+						t1.cnt_org_cf                     ,
+						t1.pct_cnt_all                    ,
+						t1.pct_cnt_cash                   ,
+						t1.pct_cnt_cc                     ,
+						t1.pct_cnt_cf                     ,
+						t1.pct_cnt_org_all                ,
+						t1.pct_cnt_org_cash               ,
+						t1.pct_cnt_org_cc                 ,
+						t1.pct_cnt_org_cf                 ,
+						t1.create_time                    ,
+						t1.create_by                      ,
+						t1.modify_time                    ,
+						t1.modify_by                      
+				from ext_wl_jxl_mg_seahis_byday 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.userGridId != null and dto.userGridId != ''">
+						and t1.USER_GRID_ID = #{dto.userGridId}
+    			</if>
+    			<if test="dto.dayNum != null and dto.dayNum != ''">
+						and t1.DAY_NUM = #{dto.dayNum}
+    			</if>
+    			<if test="dto.cnt != null and dto.cnt != ''">
+						and t1.CNT = #{dto.cnt}
+    			</if>
+    			<if test="dto.cntCash != null and dto.cntCash != ''">
+						and t1.CNT_CASH = #{dto.cntCash}
+    			</if>
+    			<if test="dto.cntCc != null and dto.cntCc != ''">
+						and t1.CNT_CC = #{dto.cntCc}
+    			</if>
+    			<if test="dto.cntCf != null and dto.cntCf != ''">
+						and t1.CNT_CF = #{dto.cntCf}
+    			</if>
+    			<if test="dto.cntOrg != null and dto.cntOrg != ''">
+						and t1.CNT_ORG = #{dto.cntOrg}
+    			</if>
+    			<if test="dto.cntOrgCash != null and dto.cntOrgCash != ''">
+						and t1.CNT_ORG_CASH = #{dto.cntOrgCash}
+    			</if>
+    			<if test="dto.cntOrgCc != null and dto.cntOrgCc != ''">
+						and t1.CNT_ORG_CC = #{dto.cntOrgCc}
+    			</if>
+    			<if test="dto.cntOrgCf != null and dto.cntOrgCf != ''">
+						and t1.CNT_ORG_CF = #{dto.cntOrgCf}
+    			</if>
+    			<if test="dto.pctCntAll != null and dto.pctCntAll != ''">
+						and t1.PCT_CNT_ALL = #{dto.pctCntAll}
+    			</if>
+    			<if test="dto.pctCntCash != null and dto.pctCntCash != ''">
+						and t1.PCT_CNT_CASH = #{dto.pctCntCash}
+    			</if>
+    			<if test="dto.pctCntCc != null and dto.pctCntCc != ''">
+						and t1.PCT_CNT_CC = #{dto.pctCntCc}
+    			</if>
+    			<if test="dto.pctCntCf != null and dto.pctCntCf != ''">
+						and t1.PCT_CNT_CF = #{dto.pctCntCf}
+    			</if>
+    			<if test="dto.pctCntOrgAll != null and dto.pctCntOrgAll != ''">
+						and t1.PCT_CNT_ORG_ALL = #{dto.pctCntOrgAll}
+    			</if>
+    			<if test="dto.pctCntOrgCash != null and dto.pctCntOrgCash != ''">
+						and t1.PCT_CNT_ORG_CASH = #{dto.pctCntOrgCash}
+    			</if>
+    			<if test="dto.pctCntOrgCc != null and dto.pctCntOrgCc != ''">
+						and t1.PCT_CNT_ORG_CC = #{dto.pctCntOrgCc}
+    			</if>
+    			<if test="dto.pctCntOrgCf != null and dto.pctCntOrgCf != ''">
+						and t1.PCT_CNT_ORG_CF = #{dto.pctCntOrgCf}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY = #{dto.modifyBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_JXL_MG_SEAHIS_BYDAY -->
+<select id="findExtWlJxlMgSeahisBydayByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlJxlMgSeahisBydayDTO">
+   	 		select 
+					t1.id                             ,
+					t1.user_grid_id                   ,
+					t1.day_num                        ,
+					t1.cnt                            ,
+					t1.cnt_cash                       ,
+					t1.cnt_cc                         ,
+					t1.cnt_cf                         ,
+					t1.cnt_org                        ,
+					t1.cnt_org_cash                   ,
+					t1.cnt_org_cc                     ,
+					t1.cnt_org_cf                     ,
+					t1.pct_cnt_all                    ,
+					t1.pct_cnt_cash                   ,
+					t1.pct_cnt_cc                     ,
+					t1.pct_cnt_cf                     ,
+					t1.pct_cnt_org_all                ,
+					t1.pct_cnt_org_cash               ,
+					t1.pct_cnt_org_cc                 ,
+					t1.pct_cnt_org_cf                 ,
+					t1.create_time                    ,
+					t1.create_by                      ,
+					t1.modify_time                    ,
+					t1.modify_by                      
+			from ext_wl_jxl_mg_seahis_byday 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_JXL_MG_SEAHIS_BYDAY -->
+<insert id="insertExtWlJxlMgSeahisByday" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_JXL_MG_SEAHIS_BYDAY.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_jxl_mg_seahis_byday
+			(   		
+					id                             ,
+					user_grid_id                   ,
+					day_num                        ,
+					cnt                            ,
+					cnt_cash                       ,
+					cnt_cc                         ,
+					cnt_cf                         ,
+					cnt_org                        ,
+					cnt_org_cash                   ,
+					cnt_org_cc                     ,
+					cnt_org_cf                     ,
+					pct_cnt_all                    ,
+					pct_cnt_cash                   ,
+					pct_cnt_cc                     ,
+					pct_cnt_cf                     ,
+					pct_cnt_org_all                ,
+					pct_cnt_org_cash               ,
+					pct_cnt_org_cc                 ,
+					pct_cnt_org_cf                 ,
+					create_time                    ,
+					create_by                      ,
+					modify_time                    ,
+					modify_by                      
+			)
+			values(#{dto.id}
+					,#{dto.userGridId,jdbcType=VARCHAR}
+					,#{dto.dayNum,jdbcType=VARCHAR}
+					,#{dto.cnt,jdbcType=DECIMAL}
+					,#{dto.cntCash,jdbcType=DECIMAL}
+					,#{dto.cntCc,jdbcType=DECIMAL}
+					,#{dto.cntCf,jdbcType=DECIMAL}
+					,#{dto.cntOrg,jdbcType=DECIMAL}
+					,#{dto.cntOrgCash,jdbcType=DECIMAL}
+					,#{dto.cntOrgCc,jdbcType=DECIMAL}
+					,#{dto.cntOrgCf,jdbcType=DECIMAL}
+					,#{dto.pctCntAll,jdbcType=DECIMAL}
+					,#{dto.pctCntCash,jdbcType=DECIMAL}
+					,#{dto.pctCntCc,jdbcType=DECIMAL}
+					,#{dto.pctCntCf,jdbcType=DECIMAL}
+					,#{dto.pctCntOrgAll,jdbcType=DECIMAL}
+					,#{dto.pctCntOrgCash,jdbcType=DECIMAL}
+					,#{dto.pctCntOrgCc,jdbcType=DECIMAL}
+					,#{dto.pctCntOrgCf,jdbcType=DECIMAL}
+					,systimestamp
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,#{dto.modifyBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_JXL_MG_SEAHIS_BYDAY -->
+<update id="updateExtWlJxlMgSeahisByday" parameterType="java.util.Map">
+	     update ext_wl_jxl_mg_seahis_byday t1
+	           set 
+			           t1.user_grid_id                   =#{dto.userGridId,jdbcType=VARCHAR},
+			           t1.day_num                        =#{dto.dayNum,jdbcType=VARCHAR},
+			           t1.cnt                            =#{dto.cnt,jdbcType=DECIMAL},
+			           t1.cnt_cash                       =#{dto.cntCash,jdbcType=DECIMAL},
+			           t1.cnt_cc                         =#{dto.cntCc,jdbcType=DECIMAL},
+			           t1.cnt_cf                         =#{dto.cntCf,jdbcType=DECIMAL},
+			           t1.cnt_org                        =#{dto.cntOrg,jdbcType=DECIMAL},
+			           t1.cnt_org_cash                   =#{dto.cntOrgCash,jdbcType=DECIMAL},
+			           t1.cnt_org_cc                     =#{dto.cntOrgCc,jdbcType=DECIMAL},
+			           t1.cnt_org_cf                     =#{dto.cntOrgCf,jdbcType=DECIMAL},
+			           t1.pct_cnt_all                    =#{dto.pctCntAll,jdbcType=DECIMAL},
+			           t1.pct_cnt_cash                   =#{dto.pctCntCash,jdbcType=DECIMAL},
+			           t1.pct_cnt_cc                     =#{dto.pctCntCc,jdbcType=DECIMAL},
+			           t1.pct_cnt_cf                     =#{dto.pctCntCf,jdbcType=DECIMAL},
+			           t1.pct_cnt_org_all                =#{dto.pctCntOrgAll,jdbcType=DECIMAL},
+			           t1.pct_cnt_org_cash               =#{dto.pctCntOrgCash,jdbcType=DECIMAL},
+			           t1.pct_cnt_org_cc                 =#{dto.pctCntOrgCc,jdbcType=DECIMAL},
+			           t1.pct_cnt_org_cf                 =#{dto.pctCntOrgCf,jdbcType=DECIMAL},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP},
+			           t1.modify_by                      =#{dto.modifyBy,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_JXL_MG_SEAHIS_BYDAY -->
+<delete id="deleteExtWlJxlMgSeahisBydayByID" parameterType="java.util.Map">
+    	delete from ext_wl_jxl_mg_seahis_byday t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_JXL_MG_SEAHIS_BYDAY -->
+<update id="deleteExtWlJxlMgSeahisBydayByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_jxl_mg_seahis_byday t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

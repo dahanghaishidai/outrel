@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.mg.extwljxlmgphoneorgs.dao.ExtWlJxlMgPhoneorgsDao">
+<resultMap id="ExtWlJxlMgPhoneorgsDTO" type="com.jy.modules.externalplatform.interfacerepository.mg.extwljxlmgphoneorgs.dto.ExtWlJxlMgPhoneorgsDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="userGridId" column="USER_GRID_ID" jdbcType="VARCHAR" />
+				<result property="suspOrgType" column="SUSP_ORG_TYPE" jdbcType="VARCHAR" />
+				<result property="suspUpdt" column="SUSP_UPDT" jdbcType="VARCHAR" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyBy" column="MODIFY_BY" jdbcType="DECIMAL" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="validateState" column="VALIDATE_STATE" jdbcType="VARCHAR" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_JXL_MG_PHONEORGS -->	
+<select id="searchExtWlJxlMgPhoneorgsByPaging" parameterType="java.util.Map" resultMap="ExtWlJxlMgPhoneorgsDTO">
+    	 		select 
+						t1.id                             ,
+						t1.user_grid_id                   ,
+						t1.susp_org_type                  ,
+						t1.susp_updt                      ,
+						t1.create_by                      ,
+						t1.create_time                    ,
+						t1.modify_by                      ,
+						t1.modify_time                    ,
+						t1.validate_state                 
+					
+				from ext_wl_jxl_mg_phoneorgs 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.userGridId != null and dto.userGridId != ''">
+						and t1.USER_GRID_ID =#{dto.userGridId}
+    			</if>
+    			<if test="dto.suspOrgType != null and dto.suspOrgType != ''">
+						and t1.SUSP_ORG_TYPE =#{dto.suspOrgType}
+    			</if>
+    			<if test="dto.suspUpdt != null and dto.suspUpdt != ''">
+						and t1.SUSP_UPDT =#{dto.suspUpdt}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY =#{dto.modifyBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE =#{dto.validateState}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_JXL_MG_PHONEORGS  -->
+<select id="searchExtWlJxlMgPhoneorgs" parameterType="java.util.Map" resultMap="ExtWlJxlMgPhoneorgsDTO">
+    	     select 
+						t1.id                             ,
+						t1.user_grid_id                   ,
+						t1.susp_org_type                  ,
+						t1.susp_updt                      ,
+						t1.create_by                      ,
+						t1.create_time                    ,
+						t1.modify_by                      ,
+						t1.modify_time                    ,
+						t1.validate_state                 
+				from ext_wl_jxl_mg_phoneorgs 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.userGridId != null and dto.userGridId != ''">
+						and t1.USER_GRID_ID = #{dto.userGridId}
+    			</if>
+    			<if test="dto.suspOrgType != null and dto.suspOrgType != ''">
+						and t1.SUSP_ORG_TYPE = #{dto.suspOrgType}
+    			</if>
+    			<if test="dto.suspUpdt != null and dto.suspUpdt != ''">
+						and t1.SUSP_UPDT = #{dto.suspUpdt}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY = #{dto.modifyBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE = #{dto.validateState}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_JXL_MG_PHONEORGS -->
+<select id="findExtWlJxlMgPhoneorgsByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlJxlMgPhoneorgsDTO">
+   	 		select 
+					t1.id                             ,
+					t1.user_grid_id                   ,
+					t1.susp_org_type                  ,
+					t1.susp_updt                      ,
+					t1.create_by                      ,
+					t1.create_time                    ,
+					t1.modify_by                      ,
+					t1.modify_time                    ,
+					t1.validate_state                 
+			from ext_wl_jxl_mg_phoneorgs 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_JXL_MG_PHONEORGS -->
+<insert id="insertExtWlJxlMgPhoneorgs" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_JXL_MG_PHONEORGS.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_jxl_mg_phoneorgs
+			(   		
+					id                             ,
+					user_grid_id                   ,
+					susp_org_type                  ,
+					susp_updt                      ,
+					create_by                      ,
+					create_time                    ,
+					modify_by                      ,
+					modify_time                    ,
+					validate_state                 
+			)
+			values(#{dto.id}
+					,#{dto.userGridId,jdbcType=VARCHAR}
+					,#{dto.suspOrgType,jdbcType=VARCHAR}
+					,#{dto.suspUpdt,jdbcType=VARCHAR}
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,systimestamp
+					,#{dto.modifyBy,jdbcType=DECIMAL}
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,'1'
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_JXL_MG_PHONEORGS -->
+<update id="updateExtWlJxlMgPhoneorgs" parameterType="java.util.Map">
+	     update ext_wl_jxl_mg_phoneorgs t1
+	           set 
+			           t1.user_grid_id                   =#{dto.userGridId,jdbcType=VARCHAR},
+			           t1.susp_org_type                  =#{dto.suspOrgType,jdbcType=VARCHAR},
+			           t1.susp_updt                      =#{dto.suspUpdt,jdbcType=VARCHAR},
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_by                      =#{dto.modifyBy,jdbcType=DECIMAL},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP},
+			           t1.validate_state                 ='1'
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_JXL_MG_PHONEORGS -->
+<delete id="deleteExtWlJxlMgPhoneorgsByID" parameterType="java.util.Map">
+    	delete from ext_wl_jxl_mg_phoneorgs t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_JXL_MG_PHONEORGS -->
+<update id="deleteExtWlJxlMgPhoneorgsByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_jxl_mg_phoneorgs t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

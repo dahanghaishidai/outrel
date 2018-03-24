@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.sh.extwlsharemainreport.dao.ExtWlShareMainReportDao">
+<resultMap id="ExtWlShareMainReportDTO" type="com.jy.modules.externalplatform.interfacerepository.sh.extwlsharemainreport.dto.ExtWlShareMainReportDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="custName" column="CUST_NAME" jdbcType="VARCHAR" />
+				<result property="idType" column="ID_TYPE" jdbcType="VARCHAR" />
+				<result property="idCard" column="ID_CARD" jdbcType="VARCHAR" />
+				<result property="sreason" column="SREASON" jdbcType="VARCHAR" />
+				<result property="success" column="SUCCESS" jdbcType="VARCHAR" />
+				<result property="error" column="ERROR" jdbcType="VARCHAR" />
+				<result property="reqMsg" column="REQ_MSG" jdbcType="VARCHAR" />
+				<result property="respMsg" column="RESP_MSG" jdbcType="VARCHAR" />
+				<result property="fkIntoId" column="FK_INTO_ID" jdbcType="DECIMAL" />
+				<result property="fkCustId" column="FK_CUST_ID" jdbcType="DECIMAL" />
+				<result property="sorgseq" column="SORGSEQ" jdbcType="VARCHAR" />
+				<result property="queryDate" column="QUERY_DATE" jdbcType="DATE" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 ext_WL_share_main_report -->	
+<select id="searchExtWlShareMainReportByPaging" parameterType="java.util.Map" resultMap="ExtWlShareMainReportDTO">
+    	 		select 
+						t1.id                             ,
+						t1.cust_name                      ,
+						t1.id_type                        ,
+						t1.id_card                        ,
+						t1.sreason                        ,
+						t1.success                        ,
+						t1.error                          ,
+						t1.req_msg                        ,
+						t1.resp_msg                       ,
+						t1.fk_into_id                     ,
+						t1.fk_cust_id                     ,
+						t1.sorgseq                        ,
+						t1.query_date                     ,
+						t1.create_time                    ,
+						t1.modify_time                    
+					
+				from ext_wl_share_main_report 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.custName != null and dto.custName != ''">
+						and t1.CUST_NAME =#{dto.custName}
+    			</if>
+    			<if test="dto.idType != null and dto.idType != ''">
+						and t1.ID_TYPE =#{dto.idType}
+    			</if>
+    			<if test="dto.idCard != null and dto.idCard != ''">
+						and t1.ID_CARD =#{dto.idCard}
+    			</if>
+    			<if test="dto.sreason != null and dto.sreason != ''">
+						and t1.SREASON =#{dto.sreason}
+    			</if>
+    			<if test="dto.success != null and dto.success != ''">
+						and t1.SUCCESS =#{dto.success}
+    			</if>
+    			<if test="dto.error != null and dto.error != ''">
+						and t1.ERROR =#{dto.error}
+    			</if>
+    			<if test="dto.reqMsg != null and dto.reqMsg != ''">
+						and t1.REQ_MSG =#{dto.reqMsg}
+    			</if>
+    			<if test="dto.respMsg != null and dto.respMsg != ''">
+						and t1.RESP_MSG =#{dto.respMsg}
+    			</if>
+    			<if test="dto.fkIntoId != null and dto.fkIntoId != ''">
+						and t1.FK_INTO_ID =#{dto.fkIntoId}
+    			</if>
+    			<if test="dto.fkCustId != null and dto.fkCustId != ''">
+						and t1.FK_CUST_ID =#{dto.fkCustId}
+    			</if>
+    			<if test="dto.sorgseq != null and dto.sorgseq != ''">
+						and t1.SORGSEQ =#{dto.sorgseq}
+    			</if>
+    			<if test="dto.queryDate != null and dto.queryDate != ''">
+						and t1.QUERY_DATE =#{dto.queryDate}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 ext_WL_share_main_report  -->
+<select id="searchExtWlShareMainReport" parameterType="java.util.Map" resultMap="ExtWlShareMainReportDTO">
+    	     select 
+						t1.id                             ,
+						t1.cust_name                      ,
+						t1.id_type                        ,
+						t1.id_card                        ,
+						t1.sreason                        ,
+						t1.success                        ,
+						t1.error                          ,
+						t1.req_msg                        ,
+						t1.resp_msg                       ,
+						t1.fk_into_id                     ,
+						t1.fk_cust_id                     ,
+						t1.sorgseq                        ,
+						t1.query_date                     ,
+						t1.create_time                    ,
+						t1.modify_time                    
+				from ext_wl_share_main_report 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.custName != null and dto.custName != ''">
+						and t1.CUST_NAME = #{dto.custName}
+    			</if>
+    			<if test="dto.idType != null and dto.idType != ''">
+						and t1.ID_TYPE = #{dto.idType}
+    			</if>
+    			<if test="dto.idCard != null and dto.idCard != ''">
+						and t1.ID_CARD = #{dto.idCard}
+    			</if>
+    			<if test="dto.sreason != null and dto.sreason != ''">
+						and t1.SREASON = #{dto.sreason}
+    			</if>
+    			<if test="dto.success != null and dto.success != ''">
+						and t1.SUCCESS = #{dto.success}
+    			</if>
+    			<if test="dto.error != null and dto.error != ''">
+						and t1.ERROR = #{dto.error}
+    			</if>
+    			<if test="dto.reqMsg != null and dto.reqMsg != ''">
+						and t1.REQ_MSG = #{dto.reqMsg}
+    			</if>
+    			<if test="dto.respMsg != null and dto.respMsg != ''">
+						and t1.RESP_MSG = #{dto.respMsg}
+    			</if>
+    			<if test="dto.fkIntoId != null and dto.fkIntoId != ''">
+						and t1.FK_INTO_ID = #{dto.fkIntoId}
+    			</if>
+    			<if test="dto.fkCustId != null and dto.fkCustId != ''">
+						and t1.FK_CUST_ID = #{dto.fkCustId}
+    			</if>
+    			<if test="dto.sorgseq != null and dto.sorgseq != ''">
+						and t1.SORGSEQ = #{dto.sorgseq}
+    			</if>
+    			<if test="dto.queryDate != null and dto.queryDate != ''">
+						and t1.QUERY_DATE = #{dto.queryDate}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  ext_WL_share_main_report -->
+<select id="findExtWlShareMainReportByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlShareMainReportDTO">
+   	 		select 
+					t1.id                             ,
+					t1.cust_name                      ,
+					t1.id_type                        ,
+					t1.id_card                        ,
+					t1.sreason                        ,
+					t1.success                        ,
+					t1.error                          ,
+					t1.req_msg                        ,
+					t1.resp_msg                       ,
+					t1.fk_into_id                     ,
+					t1.fk_cust_id                     ,
+					t1.sorgseq                        ,
+					t1.query_date                     ,
+					t1.create_time                    ,
+					t1.modify_time                    
+			from ext_wl_share_main_report 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 ext_WL_share_main_report -->
+<insert id="insertExtWlShareMainReport" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_ext_WL_share_main_report.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_share_main_report
+			(   		
+					id                             ,
+					cust_name                      ,
+					id_type                        ,
+					id_card                        ,
+					sreason                        ,
+					success                        ,
+					error                          ,
+					req_msg                        ,
+					resp_msg                       ,
+					fk_into_id                     ,
+					fk_cust_id                     ,
+					sorgseq                        ,
+					query_date                     ,
+					create_time                    ,
+					modify_time                    
+			)
+			values(#{dto.id}
+					,#{dto.custName,jdbcType=VARCHAR}
+					,#{dto.idType,jdbcType=VARCHAR}
+					,#{dto.idCard,jdbcType=VARCHAR}
+					,#{dto.sreason,jdbcType=VARCHAR}
+					,#{dto.success,jdbcType=VARCHAR}
+					,#{dto.error,jdbcType=VARCHAR}
+					,#{dto.reqMsg,jdbcType=VARCHAR}
+					,#{dto.respMsg,jdbcType=VARCHAR}
+					,#{dto.fkIntoId,jdbcType=DECIMAL}
+					,#{dto.fkCustId,jdbcType=DECIMAL}
+					,#{dto.sorgseq,jdbcType=VARCHAR}
+					,#{dto.queryDate,jdbcType=DATE}
+					,systimestamp
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+			)
+</insert>
+    
+<!-- 更新对象 ext_WL_share_main_report -->
+<update id="updateExtWlShareMainReport" parameterType="java.util.Map">
+	     update ext_wl_share_main_report t1
+	           set 
+			           t1.cust_name                      =#{dto.custName,jdbcType=VARCHAR},
+			           t1.id_type                        =#{dto.idType,jdbcType=VARCHAR},
+			           t1.id_card                        =#{dto.idCard,jdbcType=VARCHAR},
+			           t1.sreason                        =#{dto.sreason,jdbcType=VARCHAR},
+			           t1.success                        =#{dto.success,jdbcType=VARCHAR},
+			           t1.error                          =#{dto.error,jdbcType=VARCHAR},
+			           t1.req_msg                        =#{dto.reqMsg,jdbcType=VARCHAR},
+			           t1.resp_msg                       =#{dto.respMsg,jdbcType=VARCHAR},
+			           t1.fk_into_id                     =#{dto.fkIntoId,jdbcType=DECIMAL},
+			           t1.fk_cust_id                     =#{dto.fkCustId,jdbcType=DECIMAL},
+			           t1.sorgseq                        =#{dto.sorgseq,jdbcType=VARCHAR},
+			           t1.query_date                     =#{dto.queryDate,jdbcType=DATE},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 ext_WL_share_main_report -->
+<delete id="deleteExtWlShareMainReportByID" parameterType="java.util.Map">
+    	delete from ext_wl_share_main_report t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 ext_WL_share_main_report -->
+<update id="deleteExtWlShareMainReportByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_share_main_report t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.weishidun.extwlwsdblackdetail.dao.ExtWlWsdBlackDetailDao">
+<resultMap id="ExtWlWsdBlackDetailDTO" type="com.jy.modules.externalplatform.interfacerepository.weishidun.extwlwsdblackdetail.dto.ExtWlWsdBlackDetailDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="fkId" column="FK_ID" jdbcType="DECIMAL" />
+				<result property="overdueDate" column="OVERDUE_DATE" jdbcType="VARCHAR" />
+				<result property="legalState" column="LEGAL_STATE" jdbcType="VARCHAR" />
+				<result property="type" column="TYPE" jdbcType="VARCHAR" />
+				<result property="overdueAmount" column="OVERDUE_AMOUNT" jdbcType="VARCHAR" />
+				<result property="overdueDays" column="OVERDUE_DAYS" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="updateTime" column="UPDATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="updateBy" column="UPDATE_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 分页查询 ext_wl_wsd_black_detail -->	
+<select id="searchExtWlWsdBlackDetailByPaging" parameterType="java.util.Map" resultMap="ExtWlWsdBlackDetailDTO">
+    	 		select 
+						t1.id                             ,
+						t1.fk_id                          ,
+						t1.overdue_date                   ,
+						t1.legal_state                    ,
+						t1.type                           ,
+						t1.overdue_amount                 ,
+						t1.overdue_days                   ,
+						t1.create_time                    ,
+						t1.update_time                    ,
+						t1.create_by                      ,
+						t1.update_by                      
+					
+				from ext_wl_wsd_black_detail 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.fkId != null and dto.fkId != ''">
+						and t1.FK_ID =#{dto.fkId}
+    			</if>
+    			<if test="dto.overdueDate != null and dto.overdueDate != ''">
+						and t1.OVERDUE_DATE =#{dto.overdueDate}
+    			</if>
+    			<if test="dto.legalState != null and dto.legalState != ''">
+						and t1.LEGAL_STATE =#{dto.legalState}
+    			</if>
+    			<if test="dto.type != null and dto.type != ''">
+						and t1.TYPE =#{dto.type}
+    			</if>
+    			<if test="dto.overdueAmount != null and dto.overdueAmount != ''">
+						and t1.OVERDUE_AMOUNT =#{dto.overdueAmount}
+    			</if>
+    			<if test="dto.overdueDays != null and dto.overdueDays != ''">
+						and t1.OVERDUE_DAYS =#{dto.overdueDays}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.updateTime != null and dto.updateTime != ''">
+						and t1.UPDATE_TIME =#{dto.updateTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY =#{dto.updateBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 ext_wl_wsd_black_detail  -->
+<select id="searchExtWlWsdBlackDetail" parameterType="java.util.Map" resultMap="ExtWlWsdBlackDetailDTO">
+    	     select 
+						t1.id                             ,
+						t1.fk_id                          ,
+						t1.overdue_date                   ,
+						t1.legal_state                    ,
+						t1.type                           ,
+						t1.overdue_amount                 ,
+						t1.overdue_days                   ,
+						t1.create_time                    ,
+						t1.update_time                    ,
+						t1.create_by                      ,
+						t1.update_by                      
+				from ext_wl_wsd_black_detail 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.fkId != null and dto.fkId != ''">
+						and t1.FK_ID = #{dto.fkId}
+    			</if>
+    			<if test="dto.overdueDate != null and dto.overdueDate != ''">
+						and t1.OVERDUE_DATE = #{dto.overdueDate}
+    			</if>
+    			<if test="dto.legalState != null and dto.legalState != ''">
+						and t1.LEGAL_STATE = #{dto.legalState}
+    			</if>
+    			<if test="dto.type != null and dto.type != ''">
+						and t1.TYPE = #{dto.type}
+    			</if>
+    			<if test="dto.overdueAmount != null and dto.overdueAmount != ''">
+						and t1.OVERDUE_AMOUNT = #{dto.overdueAmount}
+    			</if>
+    			<if test="dto.overdueDays != null and dto.overdueDays != ''">
+						and t1.OVERDUE_DAYS = #{dto.overdueDays}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.updateTime != null and dto.updateTime != ''">
+						and t1.UPDATE_TIME = #{dto.updateTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY = #{dto.updateBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  ext_wl_wsd_black_detail -->
+<select id="findExtWlWsdBlackDetailByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlWsdBlackDetailDTO">
+   	 		select 
+					t1.id                             ,
+					t1.fk_id                          ,
+					t1.overdue_date                   ,
+					t1.legal_state                    ,
+					t1.type                           ,
+					t1.overdue_amount                 ,
+					t1.overdue_days                   ,
+					t1.create_time                    ,
+					t1.update_time                    ,
+					t1.create_by                      ,
+					t1.update_by                      
+			from ext_wl_wsd_black_detail 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 ext_wl_wsd_black_detail -->
+<insert id="insertExtWlWsdBlackDetail" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_ext_wl_wsd_black_detail.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_wsd_black_detail
+			(   		
+					id                             ,
+					fk_id                          ,
+					overdue_date                   ,
+					legal_state                    ,
+					type                           ,
+					overdue_amount                 ,
+					overdue_days                   ,
+					create_time                    ,
+					update_time                    ,
+					create_by                      ,
+					update_by                      
+			)
+			values(#{dto.id}
+					,#{dto.fkId,jdbcType=DECIMAL}
+					,#{dto.overdueDate,jdbcType=VARCHAR}
+					,#{dto.legalState,jdbcType=VARCHAR}
+					,#{dto.type,jdbcType=VARCHAR}
+					,#{dto.overdueAmount,jdbcType=VARCHAR}
+					,#{dto.overdueDays,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.updateTime,jdbcType=TIMESTAMP}
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.updateBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 ext_wl_wsd_black_detail -->
+<update id="updateExtWlWsdBlackDetail" parameterType="java.util.Map">
+	     update ext_wl_wsd_black_detail t1
+	           set 
+			           t1.fk_id                          =#{dto.fkId,jdbcType=DECIMAL},
+			           t1.overdue_date                   =#{dto.overdueDate,jdbcType=VARCHAR},
+			           t1.legal_state                    =#{dto.legalState,jdbcType=VARCHAR},
+			           t1.type                           =#{dto.type,jdbcType=VARCHAR},
+			           t1.overdue_amount                 =#{dto.overdueAmount,jdbcType=VARCHAR},
+			           t1.overdue_days                   =#{dto.overdueDays,jdbcType=VARCHAR},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.update_time                    =#{dto.updateTime,jdbcType=TIMESTAMP},
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.update_by                      =#{dto.updateBy,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 ext_wl_wsd_black_detail -->
+<delete id="deleteExtWlWsdBlackDetailByID" parameterType="java.util.Map">
+    	delete from ext_wl_wsd_black_detail t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 ext_wl_wsd_black_detail -->
+<update id="deleteExtWlWsdBlackDetailByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_wsd_black_detail t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

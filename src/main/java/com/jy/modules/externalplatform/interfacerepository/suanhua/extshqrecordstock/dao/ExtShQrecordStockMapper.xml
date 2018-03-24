@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.suanhua.extshqrecordstock.dao.ExtShQrecordStockDao">
+<resultMap id="ExtShQrecordStockDTO" type="com.jy.modules.externalplatform.interfacerepository.suanhua.extshqrecordstock.dto.ExtShQrecordStockDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="orgCount" column="ORG_COUNT" jdbcType="DECIMAL" />
+				<result property="queryCount" column="QUERY_COUNT" jdbcType="DECIMAL" />
+				<result property="orgCountM3" column="ORG_COUNT_M3" jdbcType="DECIMAL" />
+				<result property="queryCountM3" column="QUERY_COUNT_M3" jdbcType="DECIMAL" />
+				<result property="orgCountM6" column="ORG_COUNT_M6" jdbcType="DECIMAL" />
+				<result property="queryCountM6" column="QUERY_COUNT_M6" jdbcType="DECIMAL" />
+				<result property="detailMsg" column="DETAIL_MSG" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="VARCHAR" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyBy" column="MODIFY_BY" jdbcType="VARCHAR" />
+				<result property="prodCode" column="PROD_CODE" jdbcType="VARCHAR" />
+				<result property="orgCode" column="ORG_CODE" jdbcType="VARCHAR" />
+				<result property="sysCode" column="SYS_CODE" jdbcType="VARCHAR" />
+				<result property="retcode" column="RETCODE" jdbcType="VARCHAR" />
+				<result property="errormsg" column="ERRORMSG" jdbcType="VARCHAR" />
+				<result property="interfaceId" column="INTERFACE_ID" jdbcType="VARCHAR" />
+				<result property="remark" column="REMARK" jdbcType="VARCHAR" />
+</resultMap>
+				
+<!-- 分页查询 EXT_SH_QRECORD_STOCK -->	
+<select id="searchExtShQrecordStockByPaging" parameterType="java.util.Map" resultMap="ExtShQrecordStockDTO">
+    	 		select 
+						t1.id                             ,
+						t1.org_count                      ,
+						t1.query_count                    ,
+						t1.org_count_m3                   ,
+						t1.query_count_m3                 ,
+						t1.org_count_m6                   ,
+						t1.query_count_m6                 ,
+						t1.detail_msg                     ,
+						t1.create_time                    ,
+						t1.create_by                      ,
+						t1.modify_time                    ,
+						t1.modify_by                      ,
+						t1.prod_code                      ,
+						t1.org_code                       ,
+						t1.sys_code                       ,
+						t1.retcode                        ,
+						t1.errormsg                       ,
+						t1.interface_id                   ,
+						t1.remark                         
+					
+				from ext_sh_qrecord_stock 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.orgCount != null and dto.orgCount != ''">
+						and t1.ORG_COUNT =#{dto.orgCount}
+    			</if>
+    			<if test="dto.queryCount != null and dto.queryCount != ''">
+						and t1.QUERY_COUNT =#{dto.queryCount}
+    			</if>
+    			<if test="dto.orgCountM3 != null and dto.orgCountM3 != ''">
+						and t1.ORG_COUNT_M3 =#{dto.orgCountM3}
+    			</if>
+    			<if test="dto.queryCountM3 != null and dto.queryCountM3 != ''">
+						and t1.QUERY_COUNT_M3 =#{dto.queryCountM3}
+    			</if>
+    			<if test="dto.orgCountM6 != null and dto.orgCountM6 != ''">
+						and t1.ORG_COUNT_M6 =#{dto.orgCountM6}
+    			</if>
+    			<if test="dto.queryCountM6 != null and dto.queryCountM6 != ''">
+						and t1.QUERY_COUNT_M6 =#{dto.queryCountM6}
+    			</if>
+    			<if test="dto.detailMsg != null and dto.detailMsg != ''">
+						and t1.DETAIL_MSG =#{dto.dto.detailMsg}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY =#{dto.modifyBy}
+    			</if>
+    			<if test="dto.prodCode != null and dto.prodCode != ''">
+						and t1.PROD_CODE =#{dto.prodCode}
+    			</if>
+    			<if test="dto.orgCode != null and dto.orgCode != ''">
+						and t1.ORG_CODE =#{dto.orgCode}
+    			</if>
+    			<if test="dto.sysCode != null and dto.sysCode != ''">
+						and t1.SYS_CODE =#{dto.sysCode}
+    			</if>
+    			<if test="dto.retcode != null and dto.retcode != ''">
+						and t1.RETCODE =#{dto.retcode}
+    			</if>
+    			<if test="dto.errormsg != null and dto.errormsg != ''">
+						and t1.ERRORMSG =#{dto.errormsg}
+    			</if>
+    			<if test="dto.interfaceId != null and dto.interfaceId != ''">
+						and t1.INTERFACE_ID =#{dto.interfaceId}
+    			</if>
+    			<if test="dto.remark != null and dto.remark != ''">
+						and t1.REMARK =#{dto.remark}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_SH_QRECORD_STOCK  -->
+<select id="searchExtShQrecordStock" parameterType="java.util.Map" resultMap="ExtShQrecordStockDTO">
+    	     select 
+						t1.id                             ,
+						t1.org_count                      ,
+						t1.query_count                    ,
+						t1.org_count_m3                   ,
+						t1.query_count_m3                 ,
+						t1.org_count_m6                   ,
+						t1.query_count_m6                 ,
+						t1.detail_msg                     ,
+						t1.create_time                    ,
+						t1.create_by                      ,
+						t1.modify_time                    ,
+						t1.modify_by                      ,
+						t1.prod_code                      ,
+						t1.org_code                       ,
+						t1.sys_code                       ,
+						t1.retcode                        ,
+						t1.errormsg                       ,
+						t1.interface_id                   ,
+						t1.remark                         
+				from ext_sh_qrecord_stock 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.orgCount != null and dto.orgCount != ''">
+						and t1.ORG_COUNT = #{dto.orgCount}
+    			</if>
+    			<if test="dto.queryCount != null and dto.queryCount != ''">
+						and t1.QUERY_COUNT = #{dto.queryCount}
+    			</if>
+    			<if test="dto.orgCountM3 != null and dto.orgCountM3 != ''">
+						and t1.ORG_COUNT_M3 = #{dto.orgCountM3}
+    			</if>
+    			<if test="dto.queryCountM3 != null and dto.queryCountM3 != ''">
+						and t1.QUERY_COUNT_M3 = #{dto.queryCountM3}
+    			</if>
+    			<if test="dto.orgCountM6 != null and dto.orgCountM6 != ''">
+						and t1.ORG_COUNT_M6 = #{dto.orgCountM6}
+    			</if>
+    			<if test="dto.queryCountM6 != null and dto.queryCountM6 != ''">
+						and t1.QUERY_COUNT_M6 = #{dto.queryCountM6}
+    			</if>
+    			<if test="dto.detailMsg != null and dto.detailMsg != ''">
+						and t1.DETAIL_MSG =#{dto.dto.detailMsg}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY = #{dto.modifyBy}
+    			</if>
+    			<if test="dto.prodCode != null and dto.prodCode != ''">
+						and t1.PROD_CODE = #{dto.prodCode}
+    			</if>
+    			<if test="dto.orgCode != null and dto.orgCode != ''">
+						and t1.ORG_CODE = #{dto.orgCode}
+    			</if>
+    			<if test="dto.sysCode != null and dto.sysCode != ''">
+						and t1.SYS_CODE = #{dto.sysCode}
+    			</if>
+    			<if test="dto.retcode != null and dto.retcode != ''">
+						and t1.RETCODE = #{dto.retcode}
+    			</if>
+    			<if test="dto.errormsg != null and dto.errormsg != ''">
+						and t1.ERRORMSG = #{dto.errormsg}
+    			</if>
+    			<if test="dto.interfaceId != null and dto.interfaceId != ''">
+						and t1.INTERFACE_ID = #{dto.interfaceId}
+    			</if>
+    			<if test="dto.remark != null and dto.remark != ''">
+						and t1.REMARK = #{dto.remark}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_SH_QRECORD_STOCK -->
+<select id="findExtShQrecordStockByPrimaryKey" parameterType="java.util.Map" resultMap="ExtShQrecordStockDTO">
+   	 		select 
+					t1.id                             ,
+					t1.org_count                      ,
+					t1.query_count                    ,
+					t1.org_count_m3                   ,
+					t1.query_count_m3                 ,
+					t1.org_count_m6                   ,
+					t1.query_count_m6                 ,
+					t1.detail_msg                     ,
+					t1.create_time                    ,
+					t1.create_by                      ,
+					t1.modify_time                    ,
+					t1.modify_by                      ,
+					t1.prod_code                      ,
+					t1.org_code                       ,
+					t1.sys_code                       ,
+					t1.retcode                        ,
+					t1.errormsg                       ,
+					t1.interface_id                   ,
+					t1.remark                         
+			from ext_sh_qrecord_stock 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_SH_QRECORD_STOCK -->
+<insert id="insertExtShQrecordStock" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_SH_QRECORD_STOCK.nextval as id from dual
+	</selectKey>
+			insert into ext_sh_qrecord_stock
+			(   		
+					id                             ,
+					org_count                      ,
+					query_count                    ,
+					org_count_m3                   ,
+					query_count_m3                 ,
+					org_count_m6                   ,
+					query_count_m6                 ,
+					detail_msg                     ,
+					create_time                    ,
+					create_by                      ,
+					prod_code                      ,
+					org_code                       ,
+					sys_code                       ,
+					retcode                        ,
+					errormsg                       ,
+					interface_id                   ,
+					remark                         
+			)
+			values(#{dto.id}
+					,#{dto.orgCount,jdbcType=DECIMAL}
+					,#{dto.queryCount,jdbcType=DECIMAL}
+					,#{dto.orgCountM3,jdbcType=DECIMAL}
+					,#{dto.queryCountM3,jdbcType=DECIMAL}
+					,#{dto.orgCountM6,jdbcType=DECIMAL}
+					,#{dto.queryCountM6,jdbcType=DECIMAL}
+					,#{dto.detailMsg,jdbcType=DECIMAL}
+					,systimestamp
+					,#{dto.createBy,jdbcType=VARCHAR}
+					,#{dto.prodCode,jdbcType=VARCHAR}
+					,#{dto.orgCode,jdbcType=VARCHAR}
+					,#{dto.sysCode,jdbcType=VARCHAR}
+					,#{dto.retcode,jdbcType=VARCHAR}
+					,#{dto.errormsg,jdbcType=VARCHAR}
+					,#{dto.interfaceId,jdbcType=VARCHAR}
+					,#{dto.remark,jdbcType=VARCHAR}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_SH_QRECORD_STOCK -->
+<update id="updateExtShQrecordStock" parameterType="java.util.Map">
+	     update ext_sh_qrecord_stock t1
+	           set 
+			           t1.org_count                      =#{dto.orgCount,jdbcType=DECIMAL},
+			           t1.query_count                    =#{dto.queryCount,jdbcType=DECIMAL},
+			           t1.org_count_m3                   =#{dto.orgCountM3,jdbcType=DECIMAL},
+			           t1.query_count_m3                 =#{dto.queryCountM3,jdbcType=DECIMAL},
+			           t1.org_count_m6                   =#{dto.orgCountM6,jdbcType=DECIMAL},
+			           t1.query_count_m6                 =#{dto.queryCountM6,jdbcType=DECIMAL},
+			           t1.detail_msg                     =#{dto.detailMsg,jdbcType=DECIMAL},
+			           t1.modify_time                    =systimestamp,
+			           t1.modify_by                      =#{dto.modifyBy,jdbcType=VARCHAR},
+			           t1.prod_code                      =#{dto.prodCode,jdbcType=VARCHAR},
+			           t1.org_code                       =#{dto.orgCode,jdbcType=VARCHAR},
+			           t1.sys_code                       =#{dto.sysCode,jdbcType=VARCHAR},
+			           t1.retcode                        =#{dto.retcode,jdbcType=VARCHAR},
+			           t1.errormsg                       =#{dto.errormsg,jdbcType=VARCHAR},
+			           t1.interface_id                   =#{dto.interfaceId,jdbcType=VARCHAR},
+			           t1.remark                         =#{dto.remark,jdbcType=VARCHAR}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_SH_QRECORD_STOCK -->
+<delete id="deleteExtShQrecordStockByID" parameterType="java.util.Map">
+    	delete from ext_sh_qrecord_stock t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_SH_QRECORD_STOCK -->
+<update id="deleteExtShQrecordStockByPrimaryKey" parameterType="java.util.Map">
+	     update ext_sh_qrecord_stock t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

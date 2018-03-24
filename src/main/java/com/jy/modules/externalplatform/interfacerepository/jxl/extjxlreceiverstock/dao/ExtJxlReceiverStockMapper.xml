@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.jxl.extjxlreceiverstock.dao.ExtJxlReceiverStockDao">
+<resultMap id="ExtJxlReceiverStockDTO" type="com.jy.modules.externalplatform.interfacerepository.jxl.extjxlreceiverstock.dto.ExtJxlReceiverStockDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="fkDeliverAddressId" column="FK_DELIVER_ADDRESS_ID" jdbcType="DECIMAL" />
+				<result property="name" column="NAME" jdbcType="VARCHAR" />
+				<result property="phone_num_list1" column="PHONE_NUM_LIST" jdbcType="VARCHAR" />
+				<result property="amount" column="AMOUNT" jdbcType="DECIMAL" />
+				<result property="count" column="COUNT" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 EXT_JXL_RECEIVER_STOCK -->	
+<select id="searchExtJxlReceiverStockByPaging" parameterType="java.util.Map" resultMap="ExtJxlReceiverStockDTO">
+    	 		select 
+						t1.id                             ,
+						t1.fk_deliver_address_id          ,
+						t1.name                           ,
+						t1.phone_num_list                 ,
+						t1.amount                         ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.count                          
+					
+				from ext_jxl_receiver_stock 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.fkDeliverAddressId != null and dto.fkDeliverAddressId != ''">
+						and t1.FK_DELIVER_ADDRESS_ID =#{dto.fkDeliverAddressId}
+    			</if>
+    			<if test="dto.name != null and dto.name != ''">
+						and t1.NAME =#{dto.name}
+    			</if>
+    			<if test="dto.phoneNumList != null and dto.phoneNumList != ''">
+						and t1.PHONE_NUM_LIST =#{dto.phoneNumList}
+    			</if>
+    			<if test="dto.amount != null and dto.amount != ''">
+						and t1.AMOUNT =#{dto.amount}
+    			</if>
+    			<if test="dto.count != null and dto.count != ''">
+						and t1.COUNT =#{dto.count}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_JXL_RECEIVER_STOCK  -->
+<select id="searchExtJxlReceiverStock" parameterType="java.util.Map" resultMap="ExtJxlReceiverStockDTO">
+    	     select 
+						t1.id                             ,
+						t1.fk_deliver_address_id          ,
+						t1.name                           ,
+						t1.phone_num_list                 ,
+						t1.amount                         ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.count                          
+				from ext_jxl_receiver_stock 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.fkDeliverAddressId != null and dto.fkDeliverAddressId != ''">
+						and t1.FK_DELIVER_ADDRESS_ID = #{dto.fkDeliverAddressId}
+    			</if>
+    			<if test="dto.name != null and dto.name != ''">
+						and t1.NAME = #{dto.name}
+    			</if>
+    			<if test="dto.phoneNumList != null and dto.phoneNumList != ''">
+						and t1.PHONE_NUM_LIST = #{dto.phoneNumList}
+    			</if>
+    			<if test="dto.amount != null and dto.amount != ''">
+						and t1.AMOUNT = #{dto.amount}
+    			</if>
+    			<if test="dto.count != null and dto.count != ''">
+						and t1.COUNT = #{dto.count}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_JXL_RECEIVER_STOCK -->
+<select id="findExtJxlReceiverStockByPrimaryKey" parameterType="java.util.Map" resultMap="ExtJxlReceiverStockDTO">
+   	 		select 
+					t1.id                             ,
+					t1.fk_deliver_address_id          ,
+					t1.name                           ,
+					t1.phone_num_list                 ,
+					t1.amount                         ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.count                          
+			from ext_jxl_receiver_stock 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_JXL_RECEIVER_STOCK -->
+<insert id="insertExtJxlReceiverStock" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_JXL_RECEIVER_STOCK.nextval as id from dual
+	</selectKey>
+			insert into ext_jxl_receiver_stock
+			(   		
+					id                             ,
+					fk_deliver_address_id          ,
+					name                           ,
+					phone_num_list                 ,
+					amount                         ,
+					create_time                    ,
+					count                          
+			)
+			values(#{dto.id}
+					,#{dto.fkDeliverAddressId,jdbcType=DECIMAL}
+					,#{dto.name,jdbcType=VARCHAR}
+					,#{dto.phone_num_list1,jdbcType=VARCHAR}
+					,#{dto.amount,jdbcType=DECIMAL}
+					,systimestamp
+					,#{dto.count,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_JXL_RECEIVER_STOCK -->
+<update id="updateExtJxlReceiverStock" parameterType="java.util.Map">
+	     update ext_jxl_receiver_stock t1
+	           set 
+			           t1.fk_deliver_address_id          =#{dto.fkDeliverAddressId,jdbcType=DECIMAL},
+			           t1.name                           =#{dto.name,jdbcType=VARCHAR},
+			           t1.phone_num_list                 =#{dto.phone_num_list1,jdbcType=VARCHAR},
+			           t1.amount                         =#{dto.amount,jdbcType=DECIMAL},
+					   t1.modify_time                    =systimestamp,
+			           t1.count                          =#{dto.count,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_JXL_RECEIVER_STOCK -->
+<delete id="deleteExtJxlReceiverStockByID" parameterType="java.util.Map">
+    	delete from ext_jxl_receiver_stock t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_JXL_RECEIVER_STOCK -->
+<update id="deleteExtJxlReceiverStockByPrimaryKey" parameterType="java.util.Map">
+	     update ext_jxl_receiver_stock t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

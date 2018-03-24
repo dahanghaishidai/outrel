@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.pa.extwlpacreditinfo.dao.ExtWlPaCreditInfoDao">
+<resultMap id="ExtWlPaCreditInfoDTO" type="com.jy.modules.externalplatform.interfacerepository.pa.extwlpacreditinfo.dto.ExtWlPaCreditInfoDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="keyId" column="KEY_ID" jdbcType="VARCHAR" />
+				<result property="mobile" column="MOBILE" jdbcType="VARCHAR" />
+				<result property="orgCode" column="ORG_CODE" jdbcType="VARCHAR" />
+				<result property="orgType" column="ORG_TYPE" jdbcType="VARCHAR" />
+				<result property="demandType" column="DEMAND_TYPE" jdbcType="VARCHAR" />
+				<result property="lastMarkDate" column="LAST_MARK_DATE" jdbcType="VARCHAR" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyBy" column="MODIFY_BY" jdbcType="DECIMAL" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="validateState" column="VALIDATE_STATE" jdbcType="VARCHAR" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_PA_CREDIT_INFO -->	
+<select id="searchExtWlPaCreditInfoByPaging" parameterType="java.util.Map" resultMap="ExtWlPaCreditInfoDTO">
+    	 		select 
+						t1.id                             ,
+						t1.key_id                         ,
+						t1.mobile                         ,
+						t1.org_code                       ,
+						t1.org_type                       ,
+						t1.demand_type                    ,
+						t1.last_mark_date                 ,
+						t1.create_by                      ,
+						t1.create_time                    ,
+						t1.modify_by                      ,
+						t1.modify_time                    ,
+						t1.validate_state                 
+					
+				from ext_wl_pa_credit_info 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.keyId != null and dto.keyId != ''">
+						and t1.KEY_ID =#{dto.keyId}
+    			</if>
+    			<if test="dto.mobile != null and dto.mobile != ''">
+						and t1.MOBILE =#{dto.mobile}
+    			</if>
+    			<if test="dto.orgCode != null and dto.orgCode != ''">
+						and t1.ORG_CODE =#{dto.orgCode}
+    			</if>
+    			<if test="dto.orgType != null and dto.orgType != ''">
+						and t1.ORG_TYPE =#{dto.orgType}
+    			</if>
+    			<if test="dto.demandType != null and dto.demandType != ''">
+						and t1.DEMAND_TYPE =#{dto.demandType}
+    			</if>
+    			<if test="dto.lastMarkDate != null and dto.lastMarkDate != ''">
+						and t1.LAST_MARK_DATE =#{dto.lastMarkDate}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY =#{dto.modifyBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE =#{dto.validateState}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_PA_CREDIT_INFO  -->
+<select id="searchExtWlPaCreditInfo" parameterType="java.util.Map" resultMap="ExtWlPaCreditInfoDTO">
+    	     select 
+						t1.id                             ,
+						t1.key_id                         ,
+						t1.mobile                         ,
+						t1.org_code                       ,
+						t1.org_type                       ,
+						t1.demand_type                    ,
+						t1.last_mark_date                 ,
+						t1.create_by                      ,
+						t1.create_time                    ,
+						t1.modify_by                      ,
+						t1.modify_time                    ,
+						t1.validate_state                 
+				from ext_wl_pa_credit_info 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.keyId != null and dto.keyId != ''">
+						and t1.KEY_ID = #{dto.keyId}
+    			</if>
+    			<if test="dto.mobile != null and dto.mobile != ''">
+						and t1.MOBILE = #{dto.mobile}
+    			</if>
+    			<if test="dto.orgCode != null and dto.orgCode != ''">
+						and t1.ORG_CODE = #{dto.orgCode}
+    			</if>
+    			<if test="dto.orgType != null and dto.orgType != ''">
+						and t1.ORG_TYPE = #{dto.orgType}
+    			</if>
+    			<if test="dto.demandType != null and dto.demandType != ''">
+						and t1.DEMAND_TYPE = #{dto.demandType}
+    			</if>
+    			<if test="dto.lastMarkDate != null and dto.lastMarkDate != ''">
+						and t1.LAST_MARK_DATE = #{dto.lastMarkDate}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY = #{dto.modifyBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE = #{dto.validateState}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_PA_CREDIT_INFO -->
+<select id="findExtWlPaCreditInfoByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlPaCreditInfoDTO">
+   	 		select 
+					t1.id                             ,
+					t1.key_id                         ,
+					t1.mobile                         ,
+					t1.org_code                       ,
+					t1.org_type                       ,
+					t1.demand_type                    ,
+					t1.last_mark_date                 ,
+					t1.create_by                      ,
+					t1.create_time                    ,
+					t1.modify_by                      ,
+					t1.modify_time                    ,
+					t1.validate_state                 
+			from ext_wl_pa_credit_info 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_PA_CREDIT_INFO -->
+<insert id="insertExtWlPaCreditInfo" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_PA_CREDIT_INFO.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_pa_credit_info
+			(   		
+					id                             ,
+					key_id                         ,
+					mobile                         ,
+					org_code                       ,
+					org_type                       ,
+					demand_type                    ,
+					last_mark_date                 ,
+					create_by                      ,
+					create_time                    ,
+					modify_by                      ,
+					modify_time                    ,
+					validate_state                 
+			)
+			values(#{dto.id}
+					,#{dto.keyId,jdbcType=VARCHAR}
+					,#{dto.mobile,jdbcType=VARCHAR}
+					,#{dto.orgCode,jdbcType=VARCHAR}
+					,#{dto.orgType,jdbcType=VARCHAR}
+					,#{dto.demandType,jdbcType=VARCHAR}
+					,#{dto.lastMarkDate,jdbcType=VARCHAR}
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,systimestamp
+					,#{dto.modifyBy,jdbcType=DECIMAL}
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,'1'
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_PA_CREDIT_INFO -->
+<update id="updateExtWlPaCreditInfo" parameterType="java.util.Map">
+	     update ext_wl_pa_credit_info t1
+	           set 
+			           t1.key_id                         =#{dto.keyId,jdbcType=VARCHAR},
+			           t1.mobile                         =#{dto.mobile,jdbcType=VARCHAR},
+			           t1.org_code                       =#{dto.orgCode,jdbcType=VARCHAR},
+			           t1.org_type                       =#{dto.orgType,jdbcType=VARCHAR},
+			           t1.demand_type                    =#{dto.demandType,jdbcType=VARCHAR},
+			           t1.last_mark_date                 =#{dto.lastMarkDate,jdbcType=VARCHAR},
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_by                      =#{dto.modifyBy,jdbcType=DECIMAL},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP},
+			           t1.validate_state                 ='1'
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_PA_CREDIT_INFO -->
+<delete id="deleteExtWlPaCreditInfoByID" parameterType="java.util.Map">
+    	delete from ext_wl_pa_credit_info t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_PA_CREDIT_INFO -->
+<update id="deleteExtWlPaCreditInfoByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_pa_credit_info t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.br.extbrreportassessment.dao.ExtBrReportAssessmentDao">
+<resultMap id="ExtBrReportAssessmentDTO" type="com.jy.modules.externalplatform.interfacerepository.br.extbrreportassessment.dto.ExtBrReportAssessmentDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="brReportId" column="BR_REPORT_ID" jdbcType="DECIMAL" />
+				<result property="optlock" column="OPTLOCK" jdbcType="DECIMAL" />
+				<result property="proType" column="PRO_TYPE" jdbcType="VARCHAR" />
+				<result property="totalNum" column="TOTAL_NUM" jdbcType="VARCHAR" />
+				<result property="consumeNum" column="CONSUME_NUM" jdbcType="VARCHAR" />
+				<result property="totalMoney" column="TOTAL_MONEY" jdbcType="VARCHAR" />
+				<result property="maxMonthMoney" column="MAX_MONTH_MONEY" jdbcType="VARCHAR" />
+				<result property="top" column="TOP" jdbcType="VARCHAR" />
+				<result property="type" column="TYPE" jdbcType="VARCHAR" />
+				<result property="selfApplyNum" column="SELF_APPLY_NUM" jdbcType="VARCHAR" />
+				<result property="totalApplyNum" column="TOTAL_APPLY_NUM" jdbcType="VARCHAR" />
+				<result property="applyedNum" column="APPLYED_NUM" jdbcType="VARCHAR" />
+				<result property="proName" column="PRO_NAME" jdbcType="VARCHAR" />
+				<result property="isBank" column="IS_BANK" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="VARCHAR" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyBy" column="MODIFY_BY" jdbcType="VARCHAR" />
+</resultMap>
+				
+<!-- 分页查询 EXT_BR_REPORT_ASSESSMENT -->	
+<select id="searchExtBrReportAssessmentByPaging" parameterType="java.util.Map" resultMap="ExtBrReportAssessmentDTO">
+    	 		select 
+						t1.id                             ,
+						t1.br_report_id                   ,
+						t1.optlock                        ,
+						t1.pro_type                       ,
+						t1.total_num                      ,
+						t1.consume_num                    ,
+						t1.total_money                    ,
+						t1.max_month_money                ,
+						t1.top                            ,
+						t1.type                           ,
+						t1.self_apply_num                 ,
+						t1.total_apply_num                ,
+						t1.applyed_num                    ,
+						t1.pro_name                       ,
+						t1.is_bank                        ,
+						t1.create_time                    ,
+						t1.create_by                      ,
+						t1.modify_time                    ,
+						t1.modify_by                      
+					
+				from ext_br_report_assessment 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.brReportId != null and dto.brReportId != ''">
+						and t1.BR_REPORT_ID =#{dto.brReportId}
+    			</if>
+    			<if test="dto.optlock != null and dto.optlock != ''">
+						and t1.OPTLOCK =#{dto.optlock}
+    			</if>
+    			<if test="dto.proType != null and dto.proType != ''">
+						and t1.PRO_TYPE =#{dto.proType}
+    			</if>
+    			<if test="dto.totalNum != null and dto.totalNum != ''">
+						and t1.TOTAL_NUM =#{dto.totalNum}
+    			</if>
+    			<if test="dto.consumeNum != null and dto.consumeNum != ''">
+						and t1.CONSUME_NUM =#{dto.consumeNum}
+    			</if>
+    			<if test="dto.totalMoney != null and dto.totalMoney != ''">
+						and t1.TOTAL_MONEY =#{dto.totalMoney}
+    			</if>
+    			<if test="dto.maxMonthMoney != null and dto.maxMonthMoney != ''">
+						and t1.MAX_MONTH_MONEY =#{dto.maxMonthMoney}
+    			</if>
+    			<if test="dto.top != null and dto.top != ''">
+						and t1.TOP =#{dto.top}
+    			</if>
+    			<if test="dto.type != null and dto.type != ''">
+						and t1.TYPE =#{dto.type}
+    			</if>
+    			<if test="dto.selfApplyNum != null and dto.selfApplyNum != ''">
+						and t1.SELF_APPLY_NUM =#{dto.selfApplyNum}
+    			</if>
+    			<if test="dto.totalApplyNum != null and dto.totalApplyNum != ''">
+						and t1.TOTAL_APPLY_NUM =#{dto.totalApplyNum}
+    			</if>
+    			<if test="dto.applyedNum != null and dto.applyedNum != ''">
+						and t1.APPLYED_NUM =#{dto.applyedNum}
+    			</if>
+    			<if test="dto.proName != null and dto.proName != ''">
+						and t1.PRO_NAME =#{dto.proName}
+    			</if>
+    			<if test="dto.isBank != null and dto.isBank != ''">
+						and t1.IS_BANK =#{dto.isBank}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY =#{dto.modifyBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_BR_REPORT_ASSESSMENT  -->
+<select id="searchExtBrReportAssessment" parameterType="java.util.Map" resultMap="ExtBrReportAssessmentDTO">
+    	     select 
+						t1.id                             ,
+						t1.br_report_id                   ,
+						t1.optlock                        ,
+						t1.pro_type                       ,
+						t1.total_num                      ,
+						t1.consume_num                    ,
+						t1.total_money                    ,
+						t1.max_month_money                ,
+						t1.top                            ,
+						t1.type                           ,
+						t1.self_apply_num                 ,
+						t1.total_apply_num                ,
+						t1.applyed_num                    ,
+						t1.pro_name                       ,
+						t1.is_bank                        ,
+						t1.create_time                    ,
+						t1.create_by                      ,
+						t1.modify_time                    ,
+						t1.modify_by                      
+				from ext_br_report_assessment 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.brReportId != null and dto.brReportId != ''">
+						and t1.BR_REPORT_ID = #{dto.brReportId}
+    			</if>
+    			<if test="dto.optlock != null and dto.optlock != ''">
+						and t1.OPTLOCK = #{dto.optlock}
+    			</if>
+    			<if test="dto.proType != null and dto.proType != ''">
+						and t1.PRO_TYPE = #{dto.proType}
+    			</if>
+    			<if test="dto.totalNum != null and dto.totalNum != ''">
+						and t1.TOTAL_NUM = #{dto.totalNum}
+    			</if>
+    			<if test="dto.consumeNum != null and dto.consumeNum != ''">
+						and t1.CONSUME_NUM = #{dto.consumeNum}
+    			</if>
+    			<if test="dto.totalMoney != null and dto.totalMoney != ''">
+						and t1.TOTAL_MONEY = #{dto.totalMoney}
+    			</if>
+    			<if test="dto.maxMonthMoney != null and dto.maxMonthMoney != ''">
+						and t1.MAX_MONTH_MONEY = #{dto.maxMonthMoney}
+    			</if>
+    			<if test="dto.top != null and dto.top != ''">
+						and t1.TOP = #{dto.top}
+    			</if>
+    			<if test="dto.type != null and dto.type != ''">
+						and t1.TYPE = #{dto.type}
+    			</if>
+    			<if test="dto.selfApplyNum != null and dto.selfApplyNum != ''">
+						and t1.SELF_APPLY_NUM = #{dto.selfApplyNum}
+    			</if>
+    			<if test="dto.totalApplyNum != null and dto.totalApplyNum != ''">
+						and t1.TOTAL_APPLY_NUM = #{dto.totalApplyNum}
+    			</if>
+    			<if test="dto.applyedNum != null and dto.applyedNum != ''">
+						and t1.APPLYED_NUM = #{dto.applyedNum}
+    			</if>
+    			<if test="dto.proName != null and dto.proName != ''">
+						and t1.PRO_NAME = #{dto.proName}
+    			</if>
+    			<if test="dto.isBank != null and dto.isBank != ''">
+						and t1.IS_BANK = #{dto.isBank}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY = #{dto.modifyBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_BR_REPORT_ASSESSMENT -->
+<select id="findExtBrReportAssessmentByPrimaryKey" parameterType="java.util.Map" resultMap="ExtBrReportAssessmentDTO">
+   	 		select 
+					t1.id                             ,
+					t1.br_report_id                   ,
+					t1.optlock                        ,
+					t1.pro_type                       ,
+					t1.total_num                      ,
+					t1.consume_num                    ,
+					t1.total_money                    ,
+					t1.max_month_money                ,
+					t1.top                            ,
+					t1.type                           ,
+					t1.self_apply_num                 ,
+					t1.total_apply_num                ,
+					t1.applyed_num                    ,
+					t1.pro_name                       ,
+					t1.is_bank                        ,
+					t1.create_time                    ,
+					t1.create_by                      ,
+					t1.modify_time                    ,
+					t1.modify_by                      
+			from ext_br_report_assessment 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_BR_REPORT_ASSESSMENT -->
+<insert id="insertExtBrReportAssessment" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_BR_REPORT_ASSESSMENT.nextval as id from dual
+	</selectKey>
+			insert into ext_br_report_assessment
+			(   		
+					id                             ,
+					br_report_id                   ,
+					optlock                        ,
+					pro_type                       ,
+					total_num                      ,
+					consume_num                    ,
+					total_money                    ,
+					max_month_money                ,
+					top                            ,
+					type                           ,
+					self_apply_num                 ,
+					total_apply_num                ,
+					applyed_num                    ,
+					pro_name                       ,
+					is_bank                        ,
+					create_time                    ,
+					create_by                      
+			)
+			values(#{dto.id}
+					,#{dto.brReportId,jdbcType=DECIMAL}
+					,#{dto.optlock,jdbcType=DECIMAL}
+					,#{dto.proType,jdbcType=VARCHAR}
+					,#{dto.totalNum,jdbcType=VARCHAR}
+					,#{dto.consumeNum,jdbcType=VARCHAR}
+					,#{dto.totalMoney,jdbcType=VARCHAR}
+					,#{dto.maxMonthMoney,jdbcType=VARCHAR}
+					,#{dto.top,jdbcType=VARCHAR}
+					,#{dto.type,jdbcType=VARCHAR}
+					,#{dto.selfApplyNum,jdbcType=VARCHAR}
+					,#{dto.totalApplyNum,jdbcType=VARCHAR}
+					,#{dto.applyedNum,jdbcType=VARCHAR}
+					,#{dto.proName,jdbcType=VARCHAR}
+					,#{dto.isBank,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.createBy,jdbcType=VARCHAR}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_BR_REPORT_ASSESSMENT -->
+<update id="updateExtBrReportAssessment" parameterType="java.util.Map">
+	     update ext_br_report_assessment t1
+	           set 
+			           t1.br_report_id                   =#{dto.brReportId,jdbcType=DECIMAL},
+			           t1.optlock                        =#{dto.optlock,jdbcType=DECIMAL},
+			           t1.pro_type                       =#{dto.proType,jdbcType=VARCHAR},
+			           t1.total_num                      =#{dto.totalNum,jdbcType=VARCHAR},
+			           t1.consume_num                    =#{dto.consumeNum,jdbcType=VARCHAR},
+			           t1.total_money                    =#{dto.totalMoney,jdbcType=VARCHAR},
+			           t1.max_month_money                =#{dto.maxMonthMoney,jdbcType=VARCHAR},
+			           t1.top                            =#{dto.top,jdbcType=VARCHAR},
+			           t1.type                           =#{dto.type,jdbcType=VARCHAR},
+			           t1.self_apply_num                 =#{dto.selfApplyNum,jdbcType=VARCHAR},
+			           t1.total_apply_num                =#{dto.totalApplyNum,jdbcType=VARCHAR},
+			           t1.applyed_num                    =#{dto.applyedNum,jdbcType=VARCHAR},
+			           t1.pro_name                       =#{dto.proName,jdbcType=VARCHAR},
+			           t1.is_bank                        =#{dto.isBank,jdbcType=VARCHAR},
+			           t1.modify_time                    =systimestamp,
+			           t1.modify_by                      =#{dto.modifyBy,jdbcType=VARCHAR}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_BR_REPORT_ASSESSMENT -->
+<delete id="deleteExtBrReportAssessmentByID" parameterType="java.util.Map">
+    	delete from ext_br_report_assessment t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_BR_REPORT_ASSESSMENT -->
+<update id="deleteExtBrReportAssessmentByPrimaryKey" parameterType="java.util.Map">
+	     update ext_br_report_assessment t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

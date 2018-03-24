@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.sm.extwlsmlabelsinfo.dao.ExtWlSmLabelsInfoDao">
+<resultMap id="ExtWlSmLabelsInfoDTO" type="com.jy.modules.externalplatform.interfacerepository.sm.extwlsmlabelsinfo.dto.ExtWlSmLabelsInfoDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="intoCustRefId" column="INTO_CUST_REF_ID" jdbcType="DECIMAL" />
+				<result property="phone" column="PHONE" jdbcType="VARCHAR" />
+				<result property="labels" column="LABELS" jdbcType="VARCHAR" />
+				<result property="virtualNumber" column="VIRTUAL_NUMBER" jdbcType="VARCHAR" />
+				<result property="validateState" column="VALIDATE_STATE" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="modifyBy" column="MODIFY_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 分页查询 ext_wl_sm_labels_info -->	
+<select id="searchExtWlSmLabelsInfoByPaging" parameterType="java.util.Map" resultMap="ExtWlSmLabelsInfoDTO">
+    	 		select 
+						t1.id                             ,
+						t1.into_cust_ref_id               ,
+						t1.phone                          ,
+						t1.labels                         ,
+						t1.virtual_number                 ,
+						t1.validate_state                 ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.create_by                      ,
+						t1.modify_by                      
+					
+				from ext_wl_sm_labels_info 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.intoCustRefId != null and dto.intoCustRefId != ''">
+						and t1.INTO_CUST_REF_ID =#{dto.intoCustRefId}
+    			</if>
+    			<if test="dto.phone != null and dto.phone != ''">
+						and t1.PHONE =#{dto.phone}
+    			</if>
+    			<if test="dto.labels != null and dto.labels != ''">
+						and t1.LABELS =#{dto.labels}
+    			</if>
+    			<if test="dto.virtualNumber != null and dto.virtualNumber != ''">
+						and t1.VIRTUAL_NUMBER =#{dto.virtualNumber}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE =#{dto.validateState}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY =#{dto.modifyBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 ext_wl_sm_labels_info  -->
+<select id="searchExtWlSmLabelsInfo" parameterType="java.util.Map" resultMap="ExtWlSmLabelsInfoDTO">
+    	     select 
+						t1.id                             ,
+						t1.into_cust_ref_id               ,
+						t1.phone                          ,
+						t1.labels                         ,
+						t1.virtual_number                 ,
+						t1.validate_state                 ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.create_by                      ,
+						t1.modify_by                      
+				from ext_wl_sm_labels_info 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.intoCustRefId != null and dto.intoCustRefId != ''">
+						and t1.INTO_CUST_REF_ID = #{dto.intoCustRefId}
+    			</if>
+    			<if test="dto.phone != null and dto.phone != ''">
+						and t1.PHONE = #{dto.phone}
+    			</if>
+    			<if test="dto.labels != null and dto.labels != ''">
+						and t1.LABELS = #{dto.labels}
+    			</if>
+    			<if test="dto.virtualNumber != null and dto.virtualNumber != ''">
+						and t1.VIRTUAL_NUMBER = #{dto.virtualNumber}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE = #{dto.validateState}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY = #{dto.modifyBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  ext_wl_sm_labels_info -->
+<select id="findExtWlSmLabelsInfoByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlSmLabelsInfoDTO">
+   	 		select 
+					t1.id                             ,
+					t1.into_cust_ref_id               ,
+					t1.phone                          ,
+					t1.labels                         ,
+					t1.virtual_number                 ,
+					t1.validate_state                 ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.create_by                      ,
+					t1.modify_by                      
+			from ext_wl_sm_labels_info 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 ext_wl_sm_labels_info -->
+<insert id="insertExtWlSmLabelsInfo" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_ext_wl_sm_labels_info.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_sm_labels_info
+			(   		
+					id                             ,
+					into_cust_ref_id               ,
+					phone                          ,
+					labels                         ,
+					virtual_number                 ,
+					validate_state                 ,
+					create_time                    ,
+					modify_time                    ,
+					create_by                      ,
+					modify_by                      
+			)
+			values(#{dto.id}
+					,#{dto.intoCustRefId,jdbcType=DECIMAL}
+					,#{dto.phone,jdbcType=VARCHAR}
+					,#{dto.labels,jdbcType=VARCHAR}
+					,#{dto.virtualNumber,jdbcType=VARCHAR}
+					,'1'
+					,systimestamp
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.modifyBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 ext_wl_sm_labels_info -->
+<update id="updateExtWlSmLabelsInfo" parameterType="java.util.Map">
+	     update ext_wl_sm_labels_info t1
+	           set 
+			           t1.into_cust_ref_id               =#{dto.intoCustRefId,jdbcType=DECIMAL},
+			           t1.phone                          =#{dto.phone,jdbcType=VARCHAR},
+			           t1.labels                         =#{dto.labels,jdbcType=VARCHAR},
+			           t1.virtual_number                 =#{dto.virtualNumber,jdbcType=VARCHAR},
+			           t1.validate_state                 ='1',
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP},
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.modify_by                      =#{dto.modifyBy,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 ext_wl_sm_labels_info -->
+<delete id="deleteExtWlSmLabelsInfoByID" parameterType="java.util.Map">
+    	delete from ext_wl_sm_labels_info t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 ext_wl_sm_labels_info -->
+<update id="updateExtWlSmLabelsInfoByIntocustid" parameterType="java.util.Map">
+	     update ext_wl_sm_labels_info t1
+	           set   t1.validate_state='0'	
+	     where  t1.into_cust_ref_id = #{dto.intoCustRefId} and t1.phone = #{dto.phone}
+</update>
+<!-- 主键假删除 ext_wl_sm_labels_info -->
+<update id="deleteExtWlSmLabelsInfoByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_sm_labels_info t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

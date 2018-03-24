@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.baidu.extwlbaidubusilicense.dao.ExtWlBaiduBusiLicenseDao">
+<resultMap id="ExtWlBaiduBusiLicenseDTO" type="com.jy.modules.externalplatform.interfacerepository.baidu.extwlbaidubusilicense.dto.ExtWlBaiduBusiLicenseDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="keyId" column="KEY_ID" jdbcType="VARCHAR" />
+				<result property="punishmentNo" column="PUNISHMENT_NO" jdbcType="VARCHAR" />
+				<result property="causeOfAction" column="CAUSE_OF_ACTION" jdbcType="VARCHAR" />
+				<result property="handleOrgName" column="HANDLE_ORG_NAME" jdbcType="VARCHAR" />
+				<result property="pubDate" column="PUB_DATE" jdbcType="VARCHAR" />
+				<result property="punishmentContent" column="PUNISHMENT_CONTENT" jdbcType="VARCHAR" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyBy" column="MODIFY_BY" jdbcType="DECIMAL" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="validateState" column="VALIDATE_STATE" jdbcType="VARCHAR" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_BAIDU_BUSI_LICENSE -->	
+<select id="searchExtWlBaiduBusiLicenseByPaging" parameterType="java.util.Map" resultMap="ExtWlBaiduBusiLicenseDTO">
+    	 		select 
+						t1.id                             ,
+						t1.key_id                         ,
+						t1.punishment_no                  ,
+						t1.cause_of_action                ,
+						t1.handle_org_name                ,
+						t1.pub_date                       ,
+						t1.punishment_content             ,
+						t1.create_by                      ,
+						t1.create_time                    ,
+						t1.modify_by                      ,
+						t1.modify_time                    ,
+						t1.validate_state                 
+					
+				from ext_wl_baidu_busi_license 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.keyId != null and dto.keyId != ''">
+						and t1.KEY_ID =#{dto.keyId}
+    			</if>
+    			<if test="dto.punishmentNo != null and dto.punishmentNo != ''">
+						and t1.PUNISHMENT_NO =#{dto.punishmentNo}
+    			</if>
+    			<if test="dto.causeOfAction != null and dto.causeOfAction != ''">
+						and t1.CAUSE_OF_ACTION =#{dto.causeOfAction}
+    			</if>
+    			<if test="dto.handleOrgName != null and dto.handleOrgName != ''">
+						and t1.HANDLE_ORG_NAME =#{dto.handleOrgName}
+    			</if>
+    			<if test="dto.pubDate != null and dto.pubDate != ''">
+						and t1.PUB_DATE =#{dto.pubDate}
+    			</if>
+    			<if test="dto.punishmentContent != null and dto.punishmentContent != ''">
+						and t1.PUNISHMENT_CONTENT =#{dto.punishmentContent}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY =#{dto.modifyBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE =#{dto.validateState}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_BAIDU_BUSI_LICENSE  -->
+<select id="searchExtWlBaiduBusiLicense" parameterType="java.util.Map" resultMap="ExtWlBaiduBusiLicenseDTO">
+    	     select 
+						t1.id                             ,
+						t1.key_id                         ,
+						t1.punishment_no                  ,
+						t1.cause_of_action                ,
+						t1.handle_org_name                ,
+						t1.pub_date                       ,
+						t1.punishment_content             ,
+						t1.create_by                      ,
+						t1.create_time                    ,
+						t1.modify_by                      ,
+						t1.modify_time                    ,
+						t1.validate_state                 
+				from ext_wl_baidu_busi_license 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.keyId != null and dto.keyId != ''">
+						and t1.KEY_ID = #{dto.keyId}
+    			</if>
+    			<if test="dto.punishmentNo != null and dto.punishmentNo != ''">
+						and t1.PUNISHMENT_NO = #{dto.punishmentNo}
+    			</if>
+    			<if test="dto.causeOfAction != null and dto.causeOfAction != ''">
+						and t1.CAUSE_OF_ACTION = #{dto.causeOfAction}
+    			</if>
+    			<if test="dto.handleOrgName != null and dto.handleOrgName != ''">
+						and t1.HANDLE_ORG_NAME = #{dto.handleOrgName}
+    			</if>
+    			<if test="dto.pubDate != null and dto.pubDate != ''">
+						and t1.PUB_DATE = #{dto.pubDate}
+    			</if>
+    			<if test="dto.punishmentContent != null and dto.punishmentContent != ''">
+						and t1.PUNISHMENT_CONTENT = #{dto.punishmentContent}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY = #{dto.modifyBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE = #{dto.validateState}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_BAIDU_BUSI_LICENSE -->
+<select id="findExtWlBaiduBusiLicenseByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlBaiduBusiLicenseDTO">
+   	 		select 
+					t1.id                             ,
+					t1.key_id                         ,
+					t1.punishment_no                  ,
+					t1.cause_of_action                ,
+					t1.handle_org_name                ,
+					t1.pub_date                       ,
+					t1.punishment_content             ,
+					t1.create_by                      ,
+					t1.create_time                    ,
+					t1.modify_by                      ,
+					t1.modify_time                    ,
+					t1.validate_state                 
+			from ext_wl_baidu_busi_license 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_BAIDU_BUSI_LICENSE -->
+<insert id="insertExtWlBaiduBusiLicense" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_BAIDU_BUSI_LICENSE.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_baidu_busi_license
+			(   		
+					id                             ,
+					key_id                         ,
+					punishment_no                  ,
+					cause_of_action                ,
+					handle_org_name                ,
+					pub_date                       ,
+					punishment_content             ,
+					create_by                      ,
+					create_time                    ,
+					modify_by                      ,
+					modify_time                    ,
+					validate_state                 
+			)
+			values(#{dto.id}
+					,#{dto.keyId,jdbcType=VARCHAR}
+					,#{dto.punishmentNo,jdbcType=VARCHAR}
+					,#{dto.causeOfAction,jdbcType=VARCHAR}
+					,#{dto.handleOrgName,jdbcType=VARCHAR}
+					,#{dto.pubDate,jdbcType=VARCHAR}
+					,#{dto.punishmentContent,jdbcType=VARCHAR}
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,systimestamp
+					,#{dto.modifyBy,jdbcType=DECIMAL}
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,'1'
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_BAIDU_BUSI_LICENSE -->
+<update id="updateExtWlBaiduBusiLicense" parameterType="java.util.Map">
+	     update ext_wl_baidu_busi_license t1
+	           set 
+			           t1.key_id                         =#{dto.keyId,jdbcType=VARCHAR},
+			           t1.punishment_no                  =#{dto.punishmentNo,jdbcType=VARCHAR},
+			           t1.cause_of_action                =#{dto.causeOfAction,jdbcType=VARCHAR},
+			           t1.handle_org_name                =#{dto.handleOrgName,jdbcType=VARCHAR},
+			           t1.pub_date                       =#{dto.pubDate,jdbcType=VARCHAR},
+			           t1.punishment_content             =#{dto.punishmentContent,jdbcType=VARCHAR},
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_by                      =#{dto.modifyBy,jdbcType=DECIMAL},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP},
+			           t1.validate_state                 ='1'
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_BAIDU_BUSI_LICENSE -->
+<delete id="deleteExtWlBaiduBusiLicenseByID" parameterType="java.util.Map">
+    	delete from ext_wl_baidu_busi_license t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_BAIDU_BUSI_LICENSE -->
+<update id="deleteExtWlBaiduBusiLicenseByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_baidu_busi_license t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+
+	<!-- 批量保存数据-->
+	<insert id="insertBatchBusiLicense" parameterType="java.util.Map">
+		declare
+		detId number:=0;
+		begin
+
+		detId:=0;
+		<foreach collection="busiLicenseList" item="dto" index="index" >
+			select seq_EXT_WL_BAIDU_BUSI_LICENSE.nextval into detId from dual;
+			insert into ext_wl_baidu_busi_license
+			(
+			id                             ,
+			key_id                         ,
+			punishment_no                  ,
+			cause_of_action                ,
+			handle_org_name                ,
+			pub_date                       ,
+			punishment_content             ,
+			create_by                      ,
+			create_time                    ,
+			validate_state
+			)
+			select detId
+			,#{dto.keyId,jdbcType=VARCHAR}
+			,#{dto.punishmentNo,jdbcType=VARCHAR}
+			,#{dto.causeOfAction,jdbcType=VARCHAR}
+			,#{dto.handleOrgName,jdbcType=VARCHAR}
+			,#{dto.pubDate,jdbcType=VARCHAR}
+			,#{dto.punishmentContent,jdbcType=VARCHAR}
+			,#{dto.createBy,jdbcType=DECIMAL}
+			,systimestamp
+			,'1'
+			from dual           ;
+		</foreach>
+		end ;
+	</insert>
+</mapper>

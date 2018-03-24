@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.hfgr.extlawpersondishonesty.dao.ExtLawPersonDishonestyDao">
+<resultMap id="ExtLawPersonDishonestyDTO" type="com.jy.modules.externalplatform.interfacerepository.hfgr.extlawpersondishonesty.dto.ExtLawPersonDishonestyDTO">
+				<result property="keyid" column="KEYID" jdbcType="DECIMAL" />
+				<result property="name" column="NAME" jdbcType="VARCHAR" />
+				<result property="cidorcode" column="CIDORCODE" jdbcType="VARCHAR" />
+				<result property="court" column="COURT" jdbcType="VARCHAR" />
+				<result property="region" column="REGION" jdbcType="VARCHAR" />
+				<result property="casenum" column="CASENUM" jdbcType="VARCHAR" />
+				<result property="situation" column="SITUATION" jdbcType="VARCHAR" />
+				<result property="situation2" column="SITUATION2" jdbcType="VARCHAR" />
+				<result property="release" column="RELEASE" jdbcType="VARCHAR" />
+				<result property="putrecord" column="PUTRECORD" jdbcType="VARCHAR" />
+				<result property="objection" column="OBJECTION" jdbcType="VARCHAR" />
+				<result property="objectiontime" column="OBJECTIONTIME" jdbcType="VARCHAR" />
+				<result property="fkId" column="FK_ID" jdbcType="DECIMAL" />
+				<result property="datatime" column="DATATIME" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 ext_law_person_dishonesty -->	
+<select id="searchExtLawPersonDishonestyByPaging" parameterType="java.util.Map" resultMap="ExtLawPersonDishonestyDTO">
+    	 		select 
+						t1.keyid                          ,
+						t1.datatime                       ,
+						t1.name                           ,
+						t1.cidorcode                      ,
+						t1.court                          ,
+						t1.region                         ,
+						t1.casenum                        ,
+						t1.situation                      ,
+						t1.situation2                     ,
+						t1.release                        ,
+						t1.putrecord                      ,
+						t1.objection                      ,
+						t1.objectiontime                  ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.fk_id                          
+					
+				from ext_law_person_dishonesty 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.keyid != null and dto.keyid != ''">
+						and t1.KEYID =#{dto.keyid}
+    			</if>
+    			<if test="dto.name != null and dto.name != ''">
+						and t1.NAME =#{dto.name}
+    			</if>
+    			<if test="dto.cidorcode != null and dto.cidorcode != ''">
+						and t1.CIDORCODE =#{dto.cidorcode}
+    			</if>
+    			<if test="dto.court != null and dto.court != ''">
+						and t1.COURT =#{dto.court}
+    			</if>
+    			<if test="dto.region != null and dto.region != ''">
+						and t1.REGION =#{dto.region}
+    			</if>
+    			<if test="dto.casenum != null and dto.casenum != ''">
+						and t1.CASENUM =#{dto.casenum}
+    			</if>
+    			<if test="dto.situation != null and dto.situation != ''">
+						and t1.SITUATION =#{dto.situation}
+    			</if>
+    			<if test="dto.situation2 != null and dto.situation2 != ''">
+						and t1.SITUATION2 =#{dto.situation2}
+    			</if>
+    			<if test="dto.release != null and dto.release != ''">
+						and t1.RELEASE =#{dto.release}
+    			</if>
+    			<if test="dto.putrecord != null and dto.putrecord != ''">
+						and t1.PUTRECORD =#{dto.putrecord}
+    			</if>
+    			<if test="dto.objection != null and dto.objection != ''">
+						and t1.OBJECTION =#{dto.objection}
+    			</if>
+    			<if test="dto.objectiontime != null and dto.objectiontime != ''">
+						and t1.OBJECTIONTIME =#{dto.objectiontime}
+    			</if>
+    			<if test="dto.fkId != null and dto.fkId != ''">
+						and t1.FK_ID =#{dto.fkId}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 ext_law_person_dishonesty  -->
+<select id="searchExtLawPersonDishonesty" parameterType="java.util.Map" resultMap="ExtLawPersonDishonestyDTO">
+    	     select 
+						t1.keyid                          ,
+						t1.datatime                       ,
+						t1.name                           ,
+						t1.cidorcode                      ,
+						t1.court                          ,
+						t1.region                         ,
+						t1.casenum                        ,
+						t1.situation                      ,
+						t1.situation2                     ,
+						t1.release                        ,
+						t1.putrecord                      ,
+						t1.objection                      ,
+						t1.objectiontime                  ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.fk_id                          
+				from ext_law_person_dishonesty 		t1
+				where 1=1
+    			<if test="dto.keyid != null and dto.keyid != ''">
+						and t1.KEYID = #{dto.keyid}
+    			</if>
+    			<if test="dto.name != null and dto.name != ''">
+						and t1.NAME = #{dto.name}
+    			</if>
+    			<if test="dto.cidorcode != null and dto.cidorcode != ''">
+						and t1.CIDORCODE = #{dto.cidorcode}
+    			</if>
+    			<if test="dto.court != null and dto.court != ''">
+						and t1.COURT = #{dto.court}
+    			</if>
+    			<if test="dto.region != null and dto.region != ''">
+						and t1.REGION = #{dto.region}
+    			</if>
+    			<if test="dto.casenum != null and dto.casenum != ''">
+						and t1.CASENUM = #{dto.casenum}
+    			</if>
+    			<if test="dto.situation != null and dto.situation != ''">
+						and t1.SITUATION = #{dto.situation}
+    			</if>
+    			<if test="dto.situation2 != null and dto.situation2 != ''">
+						and t1.SITUATION2 = #{dto.situation2}
+    			</if>
+    			<if test="dto.release != null and dto.release != ''">
+						and t1.RELEASE = #{dto.release}
+    			</if>
+    			<if test="dto.putrecord != null and dto.putrecord != ''">
+						and t1.PUTRECORD = #{dto.putrecord}
+    			</if>
+    			<if test="dto.objection != null and dto.objection != ''">
+						and t1.OBJECTION = #{dto.objection}
+    			</if>
+    			<if test="dto.objectiontime != null and dto.objectiontime != ''">
+						and t1.OBJECTIONTIME = #{dto.objectiontime}
+    			</if>
+    			<if test="dto.fkId != null and dto.fkId != ''">
+						and t1.FK_ID = #{dto.fkId}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  ext_law_person_dishonesty -->
+<select id="findExtLawPersonDishonestyByPrimaryKey" parameterType="java.util.Map" resultMap="ExtLawPersonDishonestyDTO">
+   	 		select 
+					t1.keyid                          ,
+					t1.datatime                       ,
+					t1.name                           ,
+					t1.cidorcode                      ,
+					t1.court                          ,
+					t1.region                         ,
+					t1.casenum                        ,
+					t1.situation                      ,
+					t1.situation2                     ,
+					t1.release                        ,
+					t1.putrecord                      ,
+					t1.objection                      ,
+					t1.objectiontime                  ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.fk_id                          
+			from ext_law_person_dishonesty 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 ext_law_person_dishonesty -->
+<insert id="insertExtLawPersonDishonesty" parameterType="java.util.Map" useGeneratedKeys="true">
+
+			insert into ext_law_person_dishonesty
+			(   		
+					keyid                          ,
+					datatime                       ,
+					name                           ,
+					cidorcode                      ,
+					court                          ,
+					region                         ,
+					casenum                        ,
+					situation                      ,
+					situation2                     ,
+					release                        ,
+					putrecord                      ,
+					objection                      ,
+					objectiontime                  ,
+					create_time                    ,
+					fk_id                          
+			)
+			values(#{dto.keyid}
+					,#{dto.datatime,jdbcType=VARCHAR}
+					,#{dto.name,jdbcType=VARCHAR}
+					,#{dto.cidorcode,jdbcType=VARCHAR}
+					,#{dto.court,jdbcType=VARCHAR}
+					,#{dto.region,jdbcType=VARCHAR}
+					,#{dto.casenum,jdbcType=VARCHAR}
+					,#{dto.situation,jdbcType=VARCHAR}
+					,#{dto.situation2,jdbcType=VARCHAR}
+					,#{dto.release,jdbcType=VARCHAR}
+					,#{dto.putrecord,jdbcType=VARCHAR}
+					,#{dto.objection,jdbcType=VARCHAR}
+					,#{dto.objectiontime,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.fkId,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 ext_law_person_dishonesty -->
+<update id="updateExtLawPersonDishonesty" parameterType="java.util.Map">
+	     update ext_law_person_dishonesty t1
+	           set 
+			           t1.keyid                          =#{dto.keyid,jdbcType=DECIMAL},
+			           t1.datatime                       =#{dto.datatime,jdbcType=VARCHAR},
+			           t1.name                           =#{dto.name,jdbcType=VARCHAR},
+			           t1.cidorcode                      =#{dto.cidorcode,jdbcType=VARCHAR},
+			           t1.court                          =#{dto.court,jdbcType=VARCHAR},
+			           t1.region                         =#{dto.region,jdbcType=VARCHAR},
+			           t1.casenum                        =#{dto.casenum,jdbcType=VARCHAR},
+			           t1.situation                      =#{dto.situation,jdbcType=VARCHAR},
+			           t1.situation2                     =#{dto.situation2,jdbcType=VARCHAR},
+			           t1.release                        =#{dto.release,jdbcType=VARCHAR},
+			           t1.putrecord                      =#{dto.putrecord,jdbcType=VARCHAR},
+			           t1.objection                      =#{dto.objection,jdbcType=VARCHAR},
+			           t1.objectiontime                  =#{dto.objectiontime,jdbcType=VARCHAR},
+			           t1.modify_time                    =systimestamp,
+			           t1.fk_id                          =#{dto.fkId,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 ext_law_person_dishonesty -->
+<delete id="deleteExtLawPersonDishonestyByID" parameterType="java.util.Map">
+    	delete from ext_law_person_dishonesty t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 ext_law_person_dishonesty -->
+<update id="deleteExtLawPersonDishonestyByPrimaryKey" parameterType="java.util.Map">
+	     update ext_law_person_dishonesty t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

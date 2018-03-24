@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.sm.extwlsmmultiloan.dao.ExtWlSmMultiloanDao">
+<resultMap id="ExtWlSmMultiloanDTO" type="com.jy.modules.externalplatform.interfacerepository.sm.extwlsmmultiloan.dto.ExtWlSmMultiloanDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="intoCustRefId" column="INTO_CUST_REF_ID" jdbcType="DECIMAL" />
+				<result property="itfinRegisters" column="ITFIN_REGISTERS" jdbcType="VARCHAR" />
+				<result property="itfinLoanApplications" column="ITFIN_LOAN_APPLICATIONS" jdbcType="VARCHAR" />
+				<result property="itfinLoanRefuses" column="ITFIN_LOAN_REFUSES" jdbcType="VARCHAR" />
+				<result property="itfinLoanQueries" column="ITFIN_LOAN_QUERIES" jdbcType="VARCHAR" />
+				<result property="itfinLoanApprovals" column="ITFIN_LOAN_APPROVALS" jdbcType="VARCHAR" />
+				<result property="itfinRegisters7d" column="ITFIN_REGISTERS_7D" jdbcType="VARCHAR" />
+				<result property="itfinLoanApplications7d" column="ITFIN_LOAN_APPLICATIONS_7D" jdbcType="VARCHAR" />
+				<result property="itfinLoanRefuses7d" column="ITFIN_LOAN_REFUSES_7D" jdbcType="VARCHAR" />
+				<result property="itfinLoanQueries7d" column="ITFIN_LOAN_QUERIES_7D" jdbcType="VARCHAR" />
+				<result property="itfinLoanApprovals7d" column="ITFIN_LOAN_APPROVALS_7D" jdbcType="VARCHAR" />
+				<result property="itfinRegisters30d" column="ITFIN_REGISTERS_30D" jdbcType="VARCHAR" />
+				<result property="itfinLoanApplications30d" column="ITFIN_LOAN_APPLICATIONS_30D" jdbcType="VARCHAR" />
+				<result property="itfinLoanRefuses30d" column="ITFIN_LOAN_REFUSES_30D" jdbcType="VARCHAR" />
+				<result property="itfinLoanQueries30d" column="ITFIN_LOAN_QUERIES_30D" jdbcType="VARCHAR" />
+				<result property="itfinLoanApprovals30d" column="ITFIN_LOAN_APPROVALS_30D" jdbcType="VARCHAR" />
+				<result property="itfinRegisters60d" column="ITFIN_REGISTERS_60D" jdbcType="VARCHAR" />
+				<result property="itfinLoanApplications60d" column="ITFIN_LOAN_APPLICATIONS_60D" jdbcType="VARCHAR" />
+				<result property="itfinLoanRefuses60d" column="ITFIN_LOAN_REFUSES_60D" jdbcType="VARCHAR" />
+				<result property="itfinLoanQueries60d" column="ITFIN_LOAN_QUERIES_60D" jdbcType="VARCHAR" />
+				<result property="itfinLoanApprovals60d" column="ITFIN_LOAN_APPROVALS_60D" jdbcType="VARCHAR" />
+				<result property="itfinRegisters90d" column="ITFIN_REGISTERS_90D" jdbcType="VARCHAR" />
+				<result property="itfinLoanApplications90d" column="ITFIN_LOAN_APPLICATIONS_90D" jdbcType="VARCHAR" />
+				<result property="itfinLoanRefuses90d" column="ITFIN_LOAN_REFUSES_90D" jdbcType="VARCHAR" />
+				<result property="itfinLoanQueries90d" column="ITFIN_LOAN_QUERIES_90D" jdbcType="VARCHAR" />
+				<result property="itfinLoanApprovals90d" column="ITFIN_LOAN_APPROVALS_90D" jdbcType="VARCHAR" />
+				<result property="itfinRegisters180d" column="ITFIN_REGISTERS_180D" jdbcType="VARCHAR" />
+				<result property="itfinLoanApplications180d" column="ITFIN_LOAN_APPLICATIONS_180D" jdbcType="VARCHAR" />
+				<result property="itfinLoanRefuses180d" column="ITFIN_LOAN_REFUSES_180D" jdbcType="VARCHAR" />
+				<result property="itfinLoanQueries180d" column="ITFIN_LOAN_QUERIES_180D" jdbcType="VARCHAR" />
+				<result property="itfinLoanApprovals180d" column="ITFIN_LOAN_APPROVALS_180D" jdbcType="VARCHAR" />
+				<result property="validateState" column="VALIDATE_STATE" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="modifyBy" column="MODIFY_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 分页查询 ext_wl_sm_multiloan -->	
+<select id="searchExtWlSmMultiloanByPaging" parameterType="java.util.Map" resultMap="ExtWlSmMultiloanDTO">
+    	 		select 
+						t1.id                             ,
+						t1.into_cust_ref_id               ,
+						t1.itfin_registers                ,
+						t1.itfin_loan_applications        ,
+						t1.itfin_loan_refuses             ,
+						t1.itfin_loan_queries             ,
+						t1.itfin_loan_approvals           ,
+						t1.itfin_registers_7d             ,
+						t1.itfin_loan_applications_7d     ,
+						t1.itfin_loan_refuses_7d          ,
+						t1.itfin_loan_queries_7d          ,
+						t1.itfin_loan_approvals_7d        ,
+						t1.itfin_registers_30d            ,
+						t1.itfin_loan_applications_30d    ,
+						t1.itfin_loan_refuses_30d         ,
+						t1.itfin_loan_queries_30d         ,
+						t1.itfin_loan_approvals_30d       ,
+						t1.itfin_registers_60d            ,
+						t1.itfin_loan_applications_60d    ,
+						t1.itfin_loan_refuses_60d         ,
+						t1.itfin_loan_queries_60d         ,
+						t1.itfin_loan_approvals_60d       ,
+						t1.itfin_registers_90d            ,
+						t1.itfin_loan_applications_90d    ,
+						t1.itfin_loan_refuses_90d         ,
+						t1.itfin_loan_queries_90d         ,
+						t1.itfin_loan_approvals_90d       ,
+						t1.itfin_registers_180d           ,
+						t1.itfin_loan_applications_180d   ,
+						t1.itfin_loan_refuses_180d        ,
+						t1.itfin_loan_queries_180d        ,
+						t1.itfin_loan_approvals_180d      ,
+						t1.validate_state                 ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.create_by                      ,
+						t1.modify_by                      
+					
+				from ext_wl_sm_multiloan 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.intoCustRefId != null and dto.intoCustRefId != ''">
+						and t1.INTO_CUST_REF_ID =#{dto.intoCustRefId}
+    			</if>
+    			<if test="dto.itfinRegisters != null and dto.itfinRegisters != ''">
+						and t1.ITFIN_REGISTERS =#{dto.itfinRegisters}
+    			</if>
+    			<if test="dto.itfinLoanApplications != null and dto.itfinLoanApplications != ''">
+						and t1.ITFIN_LOAN_APPLICATIONS =#{dto.itfinLoanApplications}
+    			</if>
+    			<if test="dto.itfinLoanRefuses != null and dto.itfinLoanRefuses != ''">
+						and t1.ITFIN_LOAN_REFUSES =#{dto.itfinLoanRefuses}
+    			</if>
+    			<if test="dto.itfinLoanQueries != null and dto.itfinLoanQueries != ''">
+						and t1.ITFIN_LOAN_QUERIES =#{dto.itfinLoanQueries}
+    			</if>
+    			<if test="dto.itfinLoanApprovals != null and dto.itfinLoanApprovals != ''">
+						and t1.ITFIN_LOAN_APPROVALS =#{dto.itfinLoanApprovals}
+    			</if>
+    			<if test="dto.itfinRegisters7d != null and dto.itfinRegisters7d != ''">
+						and t1.ITFIN_REGISTERS_7D =#{dto.itfinRegisters7d}
+    			</if>
+    			<if test="dto.itfinLoanApplications7d != null and dto.itfinLoanApplications7d != ''">
+						and t1.ITFIN_LOAN_APPLICATIONS_7D =#{dto.itfinLoanApplications7d}
+    			</if>
+    			<if test="dto.itfinLoanRefuses7d != null and dto.itfinLoanRefuses7d != ''">
+						and t1.ITFIN_LOAN_REFUSES_7D =#{dto.itfinLoanRefuses7d}
+    			</if>
+    			<if test="dto.itfinLoanQueries7d != null and dto.itfinLoanQueries7d != ''">
+						and t1.ITFIN_LOAN_QUERIES_7D =#{dto.itfinLoanQueries7d}
+    			</if>
+    			<if test="dto.itfinLoanApprovals7d != null and dto.itfinLoanApprovals7d != ''">
+						and t1.ITFIN_LOAN_APPROVALS_7D =#{dto.itfinLoanApprovals7d}
+    			</if>
+    			<if test="dto.itfinRegisters30d != null and dto.itfinRegisters30d != ''">
+						and t1.ITFIN_REGISTERS_30D =#{dto.itfinRegisters30d}
+    			</if>
+    			<if test="dto.itfinLoanApplications30d != null and dto.itfinLoanApplications30d != ''">
+						and t1.ITFIN_LOAN_APPLICATIONS_30D =#{dto.itfinLoanApplications30d}
+    			</if>
+    			<if test="dto.itfinLoanRefuses30d != null and dto.itfinLoanRefuses30d != ''">
+						and t1.ITFIN_LOAN_REFUSES_30D =#{dto.itfinLoanRefuses30d}
+    			</if>
+    			<if test="dto.itfinLoanQueries30d != null and dto.itfinLoanQueries30d != ''">
+						and t1.ITFIN_LOAN_QUERIES_30D =#{dto.itfinLoanQueries30d}
+    			</if>
+    			<if test="dto.itfinLoanApprovals30d != null and dto.itfinLoanApprovals30d != ''">
+						and t1.ITFIN_LOAN_APPROVALS_30D =#{dto.itfinLoanApprovals30d}
+    			</if>
+    			<if test="dto.itfinRegisters60d != null and dto.itfinRegisters60d != ''">
+						and t1.ITFIN_REGISTERS_60D =#{dto.itfinRegisters60d}
+    			</if>
+    			<if test="dto.itfinLoanApplications60d != null and dto.itfinLoanApplications60d != ''">
+						and t1.ITFIN_LOAN_APPLICATIONS_60D =#{dto.itfinLoanApplications60d}
+    			</if>
+    			<if test="dto.itfinLoanRefuses60d != null and dto.itfinLoanRefuses60d != ''">
+						and t1.ITFIN_LOAN_REFUSES_60D =#{dto.itfinLoanRefuses60d}
+    			</if>
+    			<if test="dto.itfinLoanQueries60d != null and dto.itfinLoanQueries60d != ''">
+						and t1.ITFIN_LOAN_QUERIES_60D =#{dto.itfinLoanQueries60d}
+    			</if>
+    			<if test="dto.itfinLoanApprovals60d != null and dto.itfinLoanApprovals60d != ''">
+						and t1.ITFIN_LOAN_APPROVALS_60D =#{dto.itfinLoanApprovals60d}
+    			</if>
+    			<if test="dto.itfinRegisters90d != null and dto.itfinRegisters90d != ''">
+						and t1.ITFIN_REGISTERS_90D =#{dto.itfinRegisters90d}
+    			</if>
+    			<if test="dto.itfinLoanApplications90d != null and dto.itfinLoanApplications90d != ''">
+						and t1.ITFIN_LOAN_APPLICATIONS_90D =#{dto.itfinLoanApplications90d}
+    			</if>
+    			<if test="dto.itfinLoanRefuses90d != null and dto.itfinLoanRefuses90d != ''">
+						and t1.ITFIN_LOAN_REFUSES_90D =#{dto.itfinLoanRefuses90d}
+    			</if>
+    			<if test="dto.itfinLoanQueries90d != null and dto.itfinLoanQueries90d != ''">
+						and t1.ITFIN_LOAN_QUERIES_90D =#{dto.itfinLoanQueries90d}
+    			</if>
+    			<if test="dto.itfinLoanApprovals90d != null and dto.itfinLoanApprovals90d != ''">
+						and t1.ITFIN_LOAN_APPROVALS_90D =#{dto.itfinLoanApprovals90d}
+    			</if>
+    			<if test="dto.itfinRegisters180d != null and dto.itfinRegisters180d != ''">
+						and t1.ITFIN_REGISTERS_180D =#{dto.itfinRegisters180d}
+    			</if>
+    			<if test="dto.itfinLoanApplications180d != null and dto.itfinLoanApplications180d != ''">
+						and t1.ITFIN_LOAN_APPLICATIONS_180D =#{dto.itfinLoanApplications180d}
+    			</if>
+    			<if test="dto.itfinLoanRefuses180d != null and dto.itfinLoanRefuses180d != ''">
+						and t1.ITFIN_LOAN_REFUSES_180D =#{dto.itfinLoanRefuses180d}
+    			</if>
+    			<if test="dto.itfinLoanQueries180d != null and dto.itfinLoanQueries180d != ''">
+						and t1.ITFIN_LOAN_QUERIES_180D =#{dto.itfinLoanQueries180d}
+    			</if>
+    			<if test="dto.itfinLoanApprovals180d != null and dto.itfinLoanApprovals180d != ''">
+						and t1.ITFIN_LOAN_APPROVALS_180D =#{dto.itfinLoanApprovals180d}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE =#{dto.validateState}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY =#{dto.modifyBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 ext_wl_sm_multiloan  -->
+<select id="searchExtWlSmMultiloan" parameterType="java.util.Map" resultMap="ExtWlSmMultiloanDTO">
+    	     select 
+						t1.id                             ,
+						t1.into_cust_ref_id               ,
+						t1.itfin_registers                ,
+						t1.itfin_loan_applications        ,
+						t1.itfin_loan_refuses             ,
+						t1.itfin_loan_queries             ,
+						t1.itfin_loan_approvals           ,
+						t1.itfin_registers_7d             ,
+						t1.itfin_loan_applications_7d     ,
+						t1.itfin_loan_refuses_7d          ,
+						t1.itfin_loan_queries_7d          ,
+						t1.itfin_loan_approvals_7d        ,
+						t1.itfin_registers_30d            ,
+						t1.itfin_loan_applications_30d    ,
+						t1.itfin_loan_refuses_30d         ,
+						t1.itfin_loan_queries_30d         ,
+						t1.itfin_loan_approvals_30d       ,
+						t1.itfin_registers_60d            ,
+						t1.itfin_loan_applications_60d    ,
+						t1.itfin_loan_refuses_60d         ,
+						t1.itfin_loan_queries_60d         ,
+						t1.itfin_loan_approvals_60d       ,
+						t1.itfin_registers_90d            ,
+						t1.itfin_loan_applications_90d    ,
+						t1.itfin_loan_refuses_90d         ,
+						t1.itfin_loan_queries_90d         ,
+						t1.itfin_loan_approvals_90d       ,
+						t1.itfin_registers_180d           ,
+						t1.itfin_loan_applications_180d   ,
+						t1.itfin_loan_refuses_180d        ,
+						t1.itfin_loan_queries_180d        ,
+						t1.itfin_loan_approvals_180d      ,
+						t1.validate_state                 ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.create_by                      ,
+						t1.modify_by                      
+				from ext_wl_sm_multiloan 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.intoCustRefId != null and dto.intoCustRefId != ''">
+						and t1.INTO_CUST_REF_ID = #{dto.intoCustRefId}
+    			</if>
+    			<if test="dto.itfinRegisters != null and dto.itfinRegisters != ''">
+						and t1.ITFIN_REGISTERS = #{dto.itfinRegisters}
+    			</if>
+    			<if test="dto.itfinLoanApplications != null and dto.itfinLoanApplications != ''">
+						and t1.ITFIN_LOAN_APPLICATIONS = #{dto.itfinLoanApplications}
+    			</if>
+    			<if test="dto.itfinLoanRefuses != null and dto.itfinLoanRefuses != ''">
+						and t1.ITFIN_LOAN_REFUSES = #{dto.itfinLoanRefuses}
+    			</if>
+    			<if test="dto.itfinLoanQueries != null and dto.itfinLoanQueries != ''">
+						and t1.ITFIN_LOAN_QUERIES = #{dto.itfinLoanQueries}
+    			</if>
+    			<if test="dto.itfinLoanApprovals != null and dto.itfinLoanApprovals != ''">
+						and t1.ITFIN_LOAN_APPROVALS = #{dto.itfinLoanApprovals}
+    			</if>
+    			<if test="dto.itfinRegisters7d != null and dto.itfinRegisters7d != ''">
+						and t1.ITFIN_REGISTERS_7D = #{dto.itfinRegisters7d}
+    			</if>
+    			<if test="dto.itfinLoanApplications7d != null and dto.itfinLoanApplications7d != ''">
+						and t1.ITFIN_LOAN_APPLICATIONS_7D = #{dto.itfinLoanApplications7d}
+    			</if>
+    			<if test="dto.itfinLoanRefuses7d != null and dto.itfinLoanRefuses7d != ''">
+						and t1.ITFIN_LOAN_REFUSES_7D = #{dto.itfinLoanRefuses7d}
+    			</if>
+    			<if test="dto.itfinLoanQueries7d != null and dto.itfinLoanQueries7d != ''">
+						and t1.ITFIN_LOAN_QUERIES_7D = #{dto.itfinLoanQueries7d}
+    			</if>
+    			<if test="dto.itfinLoanApprovals7d != null and dto.itfinLoanApprovals7d != ''">
+						and t1.ITFIN_LOAN_APPROVALS_7D = #{dto.itfinLoanApprovals7d}
+    			</if>
+    			<if test="dto.itfinRegisters30d != null and dto.itfinRegisters30d != ''">
+						and t1.ITFIN_REGISTERS_30D = #{dto.itfinRegisters30d}
+    			</if>
+    			<if test="dto.itfinLoanApplications30d != null and dto.itfinLoanApplications30d != ''">
+						and t1.ITFIN_LOAN_APPLICATIONS_30D = #{dto.itfinLoanApplications30d}
+    			</if>
+    			<if test="dto.itfinLoanRefuses30d != null and dto.itfinLoanRefuses30d != ''">
+						and t1.ITFIN_LOAN_REFUSES_30D = #{dto.itfinLoanRefuses30d}
+    			</if>
+    			<if test="dto.itfinLoanQueries30d != null and dto.itfinLoanQueries30d != ''">
+						and t1.ITFIN_LOAN_QUERIES_30D = #{dto.itfinLoanQueries30d}
+    			</if>
+    			<if test="dto.itfinLoanApprovals30d != null and dto.itfinLoanApprovals30d != ''">
+						and t1.ITFIN_LOAN_APPROVALS_30D = #{dto.itfinLoanApprovals30d}
+    			</if>
+    			<if test="dto.itfinRegisters60d != null and dto.itfinRegisters60d != ''">
+						and t1.ITFIN_REGISTERS_60D = #{dto.itfinRegisters60d}
+    			</if>
+    			<if test="dto.itfinLoanApplications60d != null and dto.itfinLoanApplications60d != ''">
+						and t1.ITFIN_LOAN_APPLICATIONS_60D = #{dto.itfinLoanApplications60d}
+    			</if>
+    			<if test="dto.itfinLoanRefuses60d != null and dto.itfinLoanRefuses60d != ''">
+						and t1.ITFIN_LOAN_REFUSES_60D = #{dto.itfinLoanRefuses60d}
+    			</if>
+    			<if test="dto.itfinLoanQueries60d != null and dto.itfinLoanQueries60d != ''">
+						and t1.ITFIN_LOAN_QUERIES_60D = #{dto.itfinLoanQueries60d}
+    			</if>
+    			<if test="dto.itfinLoanApprovals60d != null and dto.itfinLoanApprovals60d != ''">
+						and t1.ITFIN_LOAN_APPROVALS_60D = #{dto.itfinLoanApprovals60d}
+    			</if>
+    			<if test="dto.itfinRegisters90d != null and dto.itfinRegisters90d != ''">
+						and t1.ITFIN_REGISTERS_90D = #{dto.itfinRegisters90d}
+    			</if>
+    			<if test="dto.itfinLoanApplications90d != null and dto.itfinLoanApplications90d != ''">
+						and t1.ITFIN_LOAN_APPLICATIONS_90D = #{dto.itfinLoanApplications90d}
+    			</if>
+    			<if test="dto.itfinLoanRefuses90d != null and dto.itfinLoanRefuses90d != ''">
+						and t1.ITFIN_LOAN_REFUSES_90D = #{dto.itfinLoanRefuses90d}
+    			</if>
+    			<if test="dto.itfinLoanQueries90d != null and dto.itfinLoanQueries90d != ''">
+						and t1.ITFIN_LOAN_QUERIES_90D = #{dto.itfinLoanQueries90d}
+    			</if>
+    			<if test="dto.itfinLoanApprovals90d != null and dto.itfinLoanApprovals90d != ''">
+						and t1.ITFIN_LOAN_APPROVALS_90D = #{dto.itfinLoanApprovals90d}
+    			</if>
+    			<if test="dto.itfinRegisters180d != null and dto.itfinRegisters180d != ''">
+						and t1.ITFIN_REGISTERS_180D = #{dto.itfinRegisters180d}
+    			</if>
+    			<if test="dto.itfinLoanApplications180d != null and dto.itfinLoanApplications180d != ''">
+						and t1.ITFIN_LOAN_APPLICATIONS_180D = #{dto.itfinLoanApplications180d}
+    			</if>
+    			<if test="dto.itfinLoanRefuses180d != null and dto.itfinLoanRefuses180d != ''">
+						and t1.ITFIN_LOAN_REFUSES_180D = #{dto.itfinLoanRefuses180d}
+    			</if>
+    			<if test="dto.itfinLoanQueries180d != null and dto.itfinLoanQueries180d != ''">
+						and t1.ITFIN_LOAN_QUERIES_180D = #{dto.itfinLoanQueries180d}
+    			</if>
+    			<if test="dto.itfinLoanApprovals180d != null and dto.itfinLoanApprovals180d != ''">
+						and t1.ITFIN_LOAN_APPROVALS_180D = #{dto.itfinLoanApprovals180d}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE = #{dto.validateState}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY = #{dto.modifyBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  ext_wl_sm_multiloan -->
+<select id="findExtWlSmMultiloanByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlSmMultiloanDTO">
+   	 		select 
+					t1.id                             ,
+					t1.into_cust_ref_id               ,
+					t1.itfin_registers                ,
+					t1.itfin_loan_applications        ,
+					t1.itfin_loan_refuses             ,
+					t1.itfin_loan_queries             ,
+					t1.itfin_loan_approvals           ,
+					t1.itfin_registers_7d             ,
+					t1.itfin_loan_applications_7d     ,
+					t1.itfin_loan_refuses_7d          ,
+					t1.itfin_loan_queries_7d          ,
+					t1.itfin_loan_approvals_7d        ,
+					t1.itfin_registers_30d            ,
+					t1.itfin_loan_applications_30d    ,
+					t1.itfin_loan_refuses_30d         ,
+					t1.itfin_loan_queries_30d         ,
+					t1.itfin_loan_approvals_30d       ,
+					t1.itfin_registers_60d            ,
+					t1.itfin_loan_applications_60d    ,
+					t1.itfin_loan_refuses_60d         ,
+					t1.itfin_loan_queries_60d         ,
+					t1.itfin_loan_approvals_60d       ,
+					t1.itfin_registers_90d            ,
+					t1.itfin_loan_applications_90d    ,
+					t1.itfin_loan_refuses_90d         ,
+					t1.itfin_loan_queries_90d         ,
+					t1.itfin_loan_approvals_90d       ,
+					t1.itfin_registers_180d           ,
+					t1.itfin_loan_applications_180d   ,
+					t1.itfin_loan_refuses_180d        ,
+					t1.itfin_loan_queries_180d        ,
+					t1.itfin_loan_approvals_180d      ,
+					t1.validate_state                 ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.create_by                      ,
+					t1.modify_by                      
+			from ext_wl_sm_multiloan 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 ext_wl_sm_multiloan -->
+<insert id="insertExtWlSmMultiloan" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_ext_wl_sm_multiloan.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_sm_multiloan
+			(   		
+					id                             ,
+					into_cust_ref_id               ,
+					itfin_registers                ,
+					itfin_loan_applications        ,
+					itfin_loan_refuses             ,
+					itfin_loan_queries             ,
+					itfin_loan_approvals           ,
+					itfin_registers_7d             ,
+					itfin_loan_applications_7d     ,
+					itfin_loan_refuses_7d          ,
+					itfin_loan_queries_7d          ,
+					itfin_loan_approvals_7d        ,
+					itfin_registers_30d            ,
+					itfin_loan_applications_30d    ,
+					itfin_loan_refuses_30d         ,
+					itfin_loan_queries_30d         ,
+					itfin_loan_approvals_30d       ,
+					itfin_registers_60d            ,
+					itfin_loan_applications_60d    ,
+					itfin_loan_refuses_60d         ,
+					itfin_loan_queries_60d         ,
+					itfin_loan_approvals_60d       ,
+					itfin_registers_90d            ,
+					itfin_loan_applications_90d    ,
+					itfin_loan_refuses_90d         ,
+					itfin_loan_queries_90d         ,
+					itfin_loan_approvals_90d       ,
+					itfin_registers_180d           ,
+					itfin_loan_applications_180d   ,
+					itfin_loan_refuses_180d        ,
+					itfin_loan_queries_180d        ,
+					itfin_loan_approvals_180d      ,
+					validate_state                 ,
+					create_time                    ,
+					modify_time                    ,
+					create_by                      ,
+					modify_by                      
+			)
+			values(#{dto.id}
+					,#{dto.intoCustRefId,jdbcType=DECIMAL}
+					,#{dto.itfinRegisters,jdbcType=VARCHAR}
+					,#{dto.itfinLoanApplications,jdbcType=VARCHAR}
+					,#{dto.itfinLoanRefuses,jdbcType=VARCHAR}
+					,#{dto.itfinLoanQueries,jdbcType=VARCHAR}
+					,#{dto.itfinLoanApprovals,jdbcType=VARCHAR}
+					,#{dto.itfinRegisters7d,jdbcType=VARCHAR}
+					,#{dto.itfinLoanApplications7d,jdbcType=VARCHAR}
+					,#{dto.itfinLoanRefuses7d,jdbcType=VARCHAR}
+					,#{dto.itfinLoanQueries7d,jdbcType=VARCHAR}
+					,#{dto.itfinLoanApprovals7d,jdbcType=VARCHAR}
+					,#{dto.itfinRegisters30d,jdbcType=VARCHAR}
+					,#{dto.itfinLoanApplications30d,jdbcType=VARCHAR}
+					,#{dto.itfinLoanRefuses30d,jdbcType=VARCHAR}
+					,#{dto.itfinLoanQueries30d,jdbcType=VARCHAR}
+					,#{dto.itfinLoanApprovals30d,jdbcType=VARCHAR}
+					,#{dto.itfinRegisters60d,jdbcType=VARCHAR}
+					,#{dto.itfinLoanApplications60d,jdbcType=VARCHAR}
+					,#{dto.itfinLoanRefuses60d,jdbcType=VARCHAR}
+					,#{dto.itfinLoanQueries60d,jdbcType=VARCHAR}
+					,#{dto.itfinLoanApprovals60d,jdbcType=VARCHAR}
+					,#{dto.itfinRegisters90d,jdbcType=VARCHAR}
+					,#{dto.itfinLoanApplications90d,jdbcType=VARCHAR}
+					,#{dto.itfinLoanRefuses90d,jdbcType=VARCHAR}
+					,#{dto.itfinLoanQueries90d,jdbcType=VARCHAR}
+					,#{dto.itfinLoanApprovals90d,jdbcType=VARCHAR}
+					,#{dto.itfinRegisters180d,jdbcType=VARCHAR}
+					,#{dto.itfinLoanApplications180d,jdbcType=VARCHAR}
+					,#{dto.itfinLoanRefuses180d,jdbcType=VARCHAR}
+					,#{dto.itfinLoanQueries180d,jdbcType=VARCHAR}
+					,#{dto.itfinLoanApprovals180d,jdbcType=VARCHAR}
+					,'1'
+					,systimestamp
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.modifyBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 ext_wl_sm_multiloan -->
+<update id="updateExtWlSmMultiloan" parameterType="java.util.Map">
+	     update ext_wl_sm_multiloan t1
+	           set 
+			           t1.into_cust_ref_id               =#{dto.intoCustRefId,jdbcType=DECIMAL},
+			           t1.itfin_registers                =#{dto.itfinRegisters,jdbcType=VARCHAR},
+			           t1.itfin_loan_applications        =#{dto.itfinLoanApplications,jdbcType=VARCHAR},
+			           t1.itfin_loan_refuses             =#{dto.itfinLoanRefuses,jdbcType=VARCHAR},
+			           t1.itfin_loan_queries             =#{dto.itfinLoanQueries,jdbcType=VARCHAR},
+			           t1.itfin_loan_approvals           =#{dto.itfinLoanApprovals,jdbcType=VARCHAR},
+			           t1.itfin_registers_7d             =#{dto.itfinRegisters7d,jdbcType=VARCHAR},
+			           t1.itfin_loan_applications_7d     =#{dto.itfinLoanApplications7d,jdbcType=VARCHAR},
+			           t1.itfin_loan_refuses_7d          =#{dto.itfinLoanRefuses7d,jdbcType=VARCHAR},
+			           t1.itfin_loan_queries_7d          =#{dto.itfinLoanQueries7d,jdbcType=VARCHAR},
+			           t1.itfin_loan_approvals_7d        =#{dto.itfinLoanApprovals7d,jdbcType=VARCHAR},
+			           t1.itfin_registers_30d            =#{dto.itfinRegisters30d,jdbcType=VARCHAR},
+			           t1.itfin_loan_applications_30d    =#{dto.itfinLoanApplications30d,jdbcType=VARCHAR},
+			           t1.itfin_loan_refuses_30d         =#{dto.itfinLoanRefuses30d,jdbcType=VARCHAR},
+			           t1.itfin_loan_queries_30d         =#{dto.itfinLoanQueries30d,jdbcType=VARCHAR},
+			           t1.itfin_loan_approvals_30d       =#{dto.itfinLoanApprovals30d,jdbcType=VARCHAR},
+			           t1.itfin_registers_60d            =#{dto.itfinRegisters60d,jdbcType=VARCHAR},
+			           t1.itfin_loan_applications_60d    =#{dto.itfinLoanApplications60d,jdbcType=VARCHAR},
+			           t1.itfin_loan_refuses_60d         =#{dto.itfinLoanRefuses60d,jdbcType=VARCHAR},
+			           t1.itfin_loan_queries_60d         =#{dto.itfinLoanQueries60d,jdbcType=VARCHAR},
+			           t1.itfin_loan_approvals_60d       =#{dto.itfinLoanApprovals60d,jdbcType=VARCHAR},
+			           t1.itfin_registers_90d            =#{dto.itfinRegisters90d,jdbcType=VARCHAR},
+			           t1.itfin_loan_applications_90d    =#{dto.itfinLoanApplications90d,jdbcType=VARCHAR},
+			           t1.itfin_loan_refuses_90d         =#{dto.itfinLoanRefuses90d,jdbcType=VARCHAR},
+			           t1.itfin_loan_queries_90d         =#{dto.itfinLoanQueries90d,jdbcType=VARCHAR},
+			           t1.itfin_loan_approvals_90d       =#{dto.itfinLoanApprovals90d,jdbcType=VARCHAR},
+			           t1.itfin_registers_180d           =#{dto.itfinRegisters180d,jdbcType=VARCHAR},
+			           t1.itfin_loan_applications_180d   =#{dto.itfinLoanApplications180d,jdbcType=VARCHAR},
+			           t1.itfin_loan_refuses_180d        =#{dto.itfinLoanRefuses180d,jdbcType=VARCHAR},
+			           t1.itfin_loan_queries_180d        =#{dto.itfinLoanQueries180d,jdbcType=VARCHAR},
+			           t1.itfin_loan_approvals_180d      =#{dto.itfinLoanApprovals180d,jdbcType=VARCHAR},
+			           t1.validate_state                 ='1',
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP},
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.modify_by                      =#{dto.modifyBy,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 ext_wl_sm_multiloan -->
+<delete id="deleteExtWlSmMultiloanByID" parameterType="java.util.Map">
+    	delete from ext_wl_sm_multiloan t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 ext_wl_sm_multiloan -->
+<update id="updateExtWlSmMultiloanByIntocustid" parameterType="java.util.Map">
+	     update ext_wl_sm_multiloan t1
+	           set   t1.validate_state='0'	
+	     where t1.into_cust_ref_id = #{dto.intoCustRefId}
+</update>
+<!-- 主键假删除 ext_wl_sm_multiloan -->
+<update id="deleteExtWlSmMultiloanByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_sm_multiloan t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

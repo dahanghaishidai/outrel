@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.qhzx.extwlqhzxriskdootip.dao.ExtWlQhzxRiskdooTipDao">
+<resultMap id="ExtWlQhzxRiskdooTipDTO" type="com.jy.modules.externalplatform.interfacerepository.qhzx.extwlqhzxriskdootip.dto.ExtWlQhzxRiskdooTipDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="cardId" column="CARD_ID" jdbcType="VARCHAR" />
+				<result property="cardType" column="CARD_TYPE" jdbcType="VARCHAR" />
+				<result property="custName" column="CUST_NAME" jdbcType="VARCHAR" />
+				<result property="bankAccount" column="BANK_ACCOUNT" jdbcType="VARCHAR" />
+				<result property="mobileNo" column="MOBILE_NO" jdbcType="VARCHAR" />
+				<result property="reasonCode" column="REASON_CODE" jdbcType="VARCHAR" />
+				<result property="reqMsg" column="REQ_MSG" jdbcType="VARCHAR" />
+				<result property="respMsg" column="RESP_MSG" jdbcType="VARCHAR" />
+				<result property="batchNo" column="BATCH_NO" jdbcType="VARCHAR" />
+				<result property="rtCode" column="RT_CODE" jdbcType="VARCHAR" />
+				<result property="rtMsg" column="RT_MSG" jdbcType="VARCHAR" />
+				<result property="transNo" column="TRANS_NO" jdbcType="VARCHAR" />
+				<result property="transDate" column="TRANS_DATE" jdbcType="VARCHAR" />
+				<result property="fkIntoAppId" column="FK_INTO_APP_ID" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 ext_wl_qhzx_riskdoo_tip -->	
+<select id="searchExtWlQhzxRiskdooTipByPaging" parameterType="java.util.Map" resultMap="ExtWlQhzxRiskdooTipDTO">
+    	 		select 
+						t1.id                             ,
+						t1.card_id                        ,
+						t1.card_type                      ,
+						t1.cust_name                      ,
+						t1.bank_account                   ,
+						t1.mobile_no                      ,
+						t1.reason_code                    ,
+						t1.req_msg                        ,
+						t1.resp_msg                       ,
+						t1.batch_no                       ,
+						t1.rt_code                        ,
+						t1.rt_msg                         ,
+						t1.trans_no                       ,
+						t1.trans_date                     ,
+						t1.fk_into_app_id                 ,
+						t1.create_time                    ,
+						t1.modify_time                    
+					
+				from ext_wl_qhzx_riskdoo_tip 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.cardId != null and dto.cardId != ''">
+						and t1.CARD_ID =#{dto.cardId}
+    			</if>
+    			<if test="dto.cardType != null and dto.cardType != ''">
+						and t1.CARD_TYPE =#{dto.cardType}
+    			</if>
+    			<if test="dto.custName != null and dto.custName != ''">
+						and t1.CUST_NAME =#{dto.custName}
+    			</if>
+    			<if test="dto.bankAccount != null and dto.bankAccount != ''">
+						and t1.BANK_ACCOUNT =#{dto.bankAccount}
+    			</if>
+    			<if test="dto.mobileNo != null and dto.mobileNo != ''">
+						and t1.MOBILE_NO =#{dto.mobileNo}
+    			</if>
+    			<if test="dto.reasonCode != null and dto.reasonCode != ''">
+						and t1.REASON_CODE =#{dto.reasonCode}
+    			</if>
+    			<if test="dto.reqMsg != null and dto.reqMsg != ''">
+						and t1.REQ_MSG =#{dto.reqMsg}
+    			</if>
+    			<if test="dto.respMsg != null and dto.respMsg != ''">
+						and t1.RESP_MSG =#{dto.respMsg}
+    			</if>
+    			<if test="dto.batchNo != null and dto.batchNo != ''">
+						and t1.BATCH_NO =#{dto.batchNo}
+    			</if>
+    			<if test="dto.rtCode != null and dto.rtCode != ''">
+						and t1.RT_CODE =#{dto.rtCode}
+    			</if>
+    			<if test="dto.rtMsg != null and dto.rtMsg != ''">
+						and t1.RT_MSG =#{dto.rtMsg}
+    			</if>
+    			<if test="dto.transNo != null and dto.transNo != ''">
+						and t1.TRANS_NO =#{dto.transNo}
+    			</if>
+    			<if test="dto.transDate != null and dto.transDate != ''">
+						and t1.TRANS_DATE =#{dto.transDate}
+    			</if>
+    			<if test="dto.fkIntoAppId != null and dto.fkIntoAppId != ''">
+						and t1.FK_INTO_APP_ID =#{dto.fkIntoAppId}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 ext_wl_qhzx_riskdoo_tip  -->
+<select id="searchExtWlQhzxRiskdooTip" parameterType="java.util.Map" resultMap="ExtWlQhzxRiskdooTipDTO">
+    	     select 
+						t1.id                             ,
+						t1.card_id                        ,
+						t1.card_type                      ,
+						t1.cust_name                      ,
+						t1.bank_account                   ,
+						t1.mobile_no                      ,
+						t1.reason_code                    ,
+						t1.req_msg                        ,
+						t1.resp_msg                       ,
+						t1.batch_no                       ,
+						t1.rt_code                        ,
+						t1.rt_msg                         ,
+						t1.trans_no                       ,
+						t1.trans_date                     ,
+						t1.fk_into_app_id                 ,
+						t1.create_time                    ,
+						t1.modify_time                    
+				from ext_wl_qhzx_riskdoo_tip 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.cardId != null and dto.cardId != ''">
+						and t1.CARD_ID = #{dto.cardId}
+    			</if>
+    			<if test="dto.cardType != null and dto.cardType != ''">
+						and t1.CARD_TYPE = #{dto.cardType}
+    			</if>
+    			<if test="dto.custName != null and dto.custName != ''">
+						and t1.CUST_NAME = #{dto.custName}
+    			</if>
+    			<if test="dto.bankAccount != null and dto.bankAccount != ''">
+						and t1.BANK_ACCOUNT = #{dto.bankAccount}
+    			</if>
+    			<if test="dto.mobileNo != null and dto.mobileNo != ''">
+						and t1.MOBILE_NO = #{dto.mobileNo}
+    			</if>
+    			<if test="dto.reasonCode != null and dto.reasonCode != ''">
+						and t1.REASON_CODE = #{dto.reasonCode}
+    			</if>
+    			<if test="dto.reqMsg != null and dto.reqMsg != ''">
+						and t1.REQ_MSG = #{dto.reqMsg}
+    			</if>
+    			<if test="dto.respMsg != null and dto.respMsg != ''">
+						and t1.RESP_MSG = #{dto.respMsg}
+    			</if>
+    			<if test="dto.batchNo != null and dto.batchNo != ''">
+						and t1.BATCH_NO = #{dto.batchNo}
+    			</if>
+    			<if test="dto.rtCode != null and dto.rtCode != ''">
+						and t1.RT_CODE = #{dto.rtCode}
+    			</if>
+    			<if test="dto.rtMsg != null and dto.rtMsg != ''">
+						and t1.RT_MSG = #{dto.rtMsg}
+    			</if>
+    			<if test="dto.transNo != null and dto.transNo != ''">
+						and t1.TRANS_NO = #{dto.transNo}
+    			</if>
+    			<if test="dto.transDate != null and dto.transDate != ''">
+						and t1.TRANS_DATE = #{dto.transDate}
+    			</if>
+    			<if test="dto.fkIntoAppId != null and dto.fkIntoAppId != ''">
+						and t1.FK_INTO_APP_ID = #{dto.fkIntoAppId}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  ext_wl_qhzx_riskdoo_tip -->
+<select id="findExtWlQhzxRiskdooTipByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlQhzxRiskdooTipDTO">
+   	 		select 
+					t1.id                             ,
+					t1.card_id                        ,
+					t1.card_type                      ,
+					t1.cust_name                      ,
+					t1.bank_account                   ,
+					t1.mobile_no                      ,
+					t1.reason_code                    ,
+					t1.req_msg                        ,
+					t1.resp_msg                       ,
+					t1.batch_no                       ,
+					t1.rt_code                        ,
+					t1.rt_msg                         ,
+					t1.trans_no                       ,
+					t1.trans_date                     ,
+					t1.fk_into_app_id                 ,
+					t1.create_time                    ,
+					t1.modify_time                    
+			from ext_wl_qhzx_riskdoo_tip 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 ext_wl_qhzx_riskdoo_tip -->
+<insert id="insertExtWlQhzxRiskdooTip" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_ext_wl_qhzx_riskdoo_tip.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_qhzx_riskdoo_tip
+			(   		
+					id                             ,
+					card_id                        ,
+					card_type                      ,
+					cust_name                      ,
+					bank_account                   ,
+					mobile_no                      ,
+					reason_code                    ,
+					req_msg                        ,
+					resp_msg                       ,
+					batch_no                       ,
+					rt_code                        ,
+					rt_msg                         ,
+					trans_no                       ,
+					trans_date                     ,
+					fk_into_app_id                 ,
+					create_time                    ,
+					modify_time                    
+			)
+			values(#{dto.id}
+					,#{dto.cardId,jdbcType=VARCHAR}
+					,#{dto.cardType,jdbcType=VARCHAR}
+					,#{dto.custName,jdbcType=VARCHAR}
+					,#{dto.bankAccount,jdbcType=VARCHAR}
+					,#{dto.mobileNo,jdbcType=VARCHAR}
+					,#{dto.reasonCode,jdbcType=VARCHAR}
+					,#{dto.reqMsg,jdbcType=VARCHAR}
+					,#{dto.respMsg,jdbcType=VARCHAR}
+					,#{dto.batchNo,jdbcType=VARCHAR}
+					,#{dto.rtCode,jdbcType=VARCHAR}
+					,#{dto.rtMsg,jdbcType=VARCHAR}
+					,#{dto.transNo,jdbcType=VARCHAR}
+					,#{dto.transDate,jdbcType=VARCHAR}
+					,#{dto.fkIntoAppId,jdbcType=DECIMAL}
+					,systimestamp
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+			)
+</insert>
+    
+<!-- 更新对象 ext_wl_qhzx_riskdoo_tip -->
+<update id="updateExtWlQhzxRiskdooTip" parameterType="java.util.Map">
+	     update ext_wl_qhzx_riskdoo_tip t1
+	           set 
+			           t1.card_id                        =#{dto.cardId,jdbcType=VARCHAR},
+			           t1.card_type                      =#{dto.cardType,jdbcType=VARCHAR},
+			           t1.cust_name                      =#{dto.custName,jdbcType=VARCHAR},
+			           t1.bank_account                   =#{dto.bankAccount,jdbcType=VARCHAR},
+			           t1.mobile_no                      =#{dto.mobileNo,jdbcType=VARCHAR},
+			           t1.reason_code                    =#{dto.reasonCode,jdbcType=VARCHAR},
+			           t1.req_msg                        =#{dto.reqMsg,jdbcType=VARCHAR},
+			           t1.resp_msg                       =#{dto.respMsg,jdbcType=VARCHAR},
+			           t1.batch_no                       =#{dto.batchNo,jdbcType=VARCHAR},
+			           t1.rt_code                        =#{dto.rtCode,jdbcType=VARCHAR},
+			           t1.rt_msg                         =#{dto.rtMsg,jdbcType=VARCHAR},
+			           t1.trans_no                       =#{dto.transNo,jdbcType=VARCHAR},
+			           t1.trans_date                     =#{dto.transDate,jdbcType=VARCHAR},
+			           t1.fk_into_app_id                 =#{dto.fkIntoAppId,jdbcType=DECIMAL},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 ext_wl_qhzx_riskdoo_tip -->
+<delete id="deleteExtWlQhzxRiskdooTipByID" parameterType="java.util.Map">
+    	delete from ext_wl_qhzx_riskdoo_tip t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 ext_wl_qhzx_riskdoo_tip -->
+<update id="deleteExtWlQhzxRiskdooTipByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_qhzx_riskdoo_tip t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

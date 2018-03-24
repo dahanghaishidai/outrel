@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<auth>
+	<authlist>
+	<!-- 配置rest 服务地址 -->
+		<authinfo appid = "jypt" apppwd = "xx" validtime="2020-12-01" serviceurl="http://127.0.0.1:8081/outrel" />
+		<!-- 配置同步HR数据的rest 服务地址 -->
+		<authinfo appid = "S001" apppwd = "xx" validtime="2020-12-01" serviceurl="http://http://172.18.100.83:8080/masterdata"/>
+	</authlist>
+</auth>

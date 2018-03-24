@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.sm.extwlsmoverdue.dao.ExtWlSmOverdueDao">
+<resultMap id="ExtWlSmOverdueDTO" type="com.jy.modules.externalplatform.interfacerepository.sm.extwlsmoverdue.dto.ExtWlSmOverdueDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="intoCustRefId" column="INTO_CUST_REF_ID" jdbcType="DECIMAL" />
+				<result property="inBlack" column="IN_BLACK" jdbcType="VARCHAR" />
+				<result property="inGrey" column="IN_GREY" jdbcType="VARCHAR" />
+				<result property="overdues" column="OVERDUES" jdbcType="VARCHAR" />
+				<result property="overdueDuration" column="OVERDUE_DURATION" jdbcType="VARCHAR" />
+				<result property="overdues7d" column="OVERDUES_7D" jdbcType="VARCHAR" />
+				<result property="overdueDuration7d" column="OVERDUE_DURATION_7D" jdbcType="VARCHAR" />
+				<result property="overdues30d" column="OVERDUES_30D" jdbcType="VARCHAR" />
+				<result property="overdueDuration30d" column="OVERDUE_DURATION_30D" jdbcType="VARCHAR" />
+				<result property="overdues60d" column="OVERDUES_60D" jdbcType="VARCHAR" />
+				<result property="overdueDuration60d" column="OVERDUE_DURATION_60D" jdbcType="VARCHAR" />
+				<result property="overdues90d" column="OVERDUES_90D" jdbcType="VARCHAR" />
+				<result property="overdueDuration90d" column="OVERDUE_DURATION_90D" jdbcType="VARCHAR" />
+				<result property="overdues180d" column="OVERDUES_180D" jdbcType="VARCHAR" />
+				<result property="overdueDuration180d" column="OVERDUE_DURATION_180D" jdbcType="VARCHAR" />
+				<result property="validateState" column="VALIDATE_STATE" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="modifyBy" column="MODIFY_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 分页查询 ext_wl_sm_overdue -->	
+<select id="searchExtWlSmOverdueByPaging" parameterType="java.util.Map" resultMap="ExtWlSmOverdueDTO">
+    	 		select 
+						t1.id                             ,
+						t1.into_cust_ref_id               ,
+						t1.in_black                       ,
+						t1.in_grey                        ,
+						t1.overdues                       ,
+						t1.overdue_duration               ,
+						t1.overdues_7d                    ,
+						t1.overdue_duration_7d            ,
+						t1.overdues_30d                   ,
+						t1.overdue_duration_30d           ,
+						t1.overdues_60d                   ,
+						t1.overdue_duration_60d           ,
+						t1.overdues_90d                   ,
+						t1.overdue_duration_90d           ,
+						t1.overdues_180d                  ,
+						t1.overdue_duration_180d          ,
+						t1.validate_state                 ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.create_by                      ,
+						t1.modify_by                      
+					
+				from ext_wl_sm_overdue 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.intoCustRefId != null and dto.intoCustRefId != ''">
+						and t1.INTO_CUST_REF_ID =#{dto.intoCustRefId}
+    			</if>
+    			<if test="dto.inBlack != null and dto.inBlack != ''">
+						and t1.IN_BLACK =#{dto.inBlack}
+    			</if>
+    			<if test="dto.inGrey != null and dto.inGrey != ''">
+						and t1.IN_GREY =#{dto.inGrey}
+    			</if>
+    			<if test="dto.overdues != null and dto.overdues != ''">
+						and t1.OVERDUES =#{dto.overdues}
+    			</if>
+    			<if test="dto.overdueDuration != null and dto.overdueDuration != ''">
+						and t1.OVERDUE_DURATION =#{dto.overdueDuration}
+    			</if>
+    			<if test="dto.overdues7d != null and dto.overdues7d != ''">
+						and t1.OVERDUES_7D =#{dto.overdues7d}
+    			</if>
+    			<if test="dto.overdueDuration7d != null and dto.overdueDuration7d != ''">
+						and t1.OVERDUE_DURATION_7D =#{dto.overdueDuration7d}
+    			</if>
+    			<if test="dto.overdues30d != null and dto.overdues30d != ''">
+						and t1.OVERDUES_30D =#{dto.overdues30d}
+    			</if>
+    			<if test="dto.overdueDuration30d != null and dto.overdueDuration30d != ''">
+						and t1.OVERDUE_DURATION_30D =#{dto.overdueDuration30d}
+    			</if>
+    			<if test="dto.overdues60d != null and dto.overdues60d != ''">
+						and t1.OVERDUES_60D =#{dto.overdues60d}
+    			</if>
+    			<if test="dto.overdueDuration60d != null and dto.overdueDuration60d != ''">
+						and t1.OVERDUE_DURATION_60D =#{dto.overdueDuration60d}
+    			</if>
+    			<if test="dto.overdues90d != null and dto.overdues90d != ''">
+						and t1.OVERDUES_90D =#{dto.overdues90d}
+    			</if>
+    			<if test="dto.overdueDuration90d != null and dto.overdueDuration90d != ''">
+						and t1.OVERDUE_DURATION_90D =#{dto.overdueDuration90d}
+    			</if>
+    			<if test="dto.overdues180d != null and dto.overdues180d != ''">
+						and t1.OVERDUES_180D =#{dto.overdues180d}
+    			</if>
+    			<if test="dto.overdueDuration180d != null and dto.overdueDuration180d != ''">
+						and t1.OVERDUE_DURATION_180D =#{dto.overdueDuration180d}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE =#{dto.validateState}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY =#{dto.modifyBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 ext_wl_sm_overdue  -->
+<select id="searchExtWlSmOverdue" parameterType="java.util.Map" resultMap="ExtWlSmOverdueDTO">
+    	     select 
+						t1.id                             ,
+						t1.into_cust_ref_id               ,
+						t1.in_black                       ,
+						t1.in_grey                        ,
+						t1.overdues                       ,
+						t1.overdue_duration               ,
+						t1.overdues_7d                    ,
+						t1.overdue_duration_7d            ,
+						t1.overdues_30d                   ,
+						t1.overdue_duration_30d           ,
+						t1.overdues_60d                   ,
+						t1.overdue_duration_60d           ,
+						t1.overdues_90d                   ,
+						t1.overdue_duration_90d           ,
+						t1.overdues_180d                  ,
+						t1.overdue_duration_180d          ,
+						t1.validate_state                 ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.create_by                      ,
+						t1.modify_by                      
+				from ext_wl_sm_overdue 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.intoCustRefId != null and dto.intoCustRefId != ''">
+						and t1.INTO_CUST_REF_ID = #{dto.intoCustRefId}
+    			</if>
+    			<if test="dto.inBlack != null and dto.inBlack != ''">
+						and t1.IN_BLACK = #{dto.inBlack}
+    			</if>
+    			<if test="dto.inGrey != null and dto.inGrey != ''">
+						and t1.IN_GREY = #{dto.inGrey}
+    			</if>
+    			<if test="dto.overdues != null and dto.overdues != ''">
+						and t1.OVERDUES = #{dto.overdues}
+    			</if>
+    			<if test="dto.overdueDuration != null and dto.overdueDuration != ''">
+						and t1.OVERDUE_DURATION = #{dto.overdueDuration}
+    			</if>
+    			<if test="dto.overdues7d != null and dto.overdues7d != ''">
+						and t1.OVERDUES_7D = #{dto.overdues7d}
+    			</if>
+    			<if test="dto.overdueDuration7d != null and dto.overdueDuration7d != ''">
+						and t1.OVERDUE_DURATION_7D = #{dto.overdueDuration7d}
+    			</if>
+    			<if test="dto.overdues30d != null and dto.overdues30d != ''">
+						and t1.OVERDUES_30D = #{dto.overdues30d}
+    			</if>
+    			<if test="dto.overdueDuration30d != null and dto.overdueDuration30d != ''">
+						and t1.OVERDUE_DURATION_30D = #{dto.overdueDuration30d}
+    			</if>
+    			<if test="dto.overdues60d != null and dto.overdues60d != ''">
+						and t1.OVERDUES_60D = #{dto.overdues60d}
+    			</if>
+    			<if test="dto.overdueDuration60d != null and dto.overdueDuration60d != ''">
+						and t1.OVERDUE_DURATION_60D = #{dto.overdueDuration60d}
+    			</if>
+    			<if test="dto.overdues90d != null and dto.overdues90d != ''">
+						and t1.OVERDUES_90D = #{dto.overdues90d}
+    			</if>
+    			<if test="dto.overdueDuration90d != null and dto.overdueDuration90d != ''">
+						and t1.OVERDUE_DURATION_90D = #{dto.overdueDuration90d}
+    			</if>
+    			<if test="dto.overdues180d != null and dto.overdues180d != ''">
+						and t1.OVERDUES_180D = #{dto.overdues180d}
+    			</if>
+    			<if test="dto.overdueDuration180d != null and dto.overdueDuration180d != ''">
+						and t1.OVERDUE_DURATION_180D = #{dto.overdueDuration180d}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE = #{dto.validateState}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY = #{dto.modifyBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  ext_wl_sm_overdue -->
+<select id="findExtWlSmOverdueByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlSmOverdueDTO">
+   	 		select 
+					t1.id                             ,
+					t1.into_cust_ref_id               ,
+					t1.in_black                       ,
+					t1.in_grey                        ,
+					t1.overdues                       ,
+					t1.overdue_duration               ,
+					t1.overdues_7d                    ,
+					t1.overdue_duration_7d            ,
+					t1.overdues_30d                   ,
+					t1.overdue_duration_30d           ,
+					t1.overdues_60d                   ,
+					t1.overdue_duration_60d           ,
+					t1.overdues_90d                   ,
+					t1.overdue_duration_90d           ,
+					t1.overdues_180d                  ,
+					t1.overdue_duration_180d          ,
+					t1.validate_state                 ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.create_by                      ,
+					t1.modify_by                      
+			from ext_wl_sm_overdue 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 ext_wl_sm_overdue -->
+<insert id="insertExtWlSmOverdue" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_ext_wl_sm_overdue.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_sm_overdue
+			(   		
+					id                             ,
+					into_cust_ref_id               ,
+					in_black                       ,
+					in_grey                        ,
+					overdues                       ,
+					overdue_duration               ,
+					overdues_7d                    ,
+					overdue_duration_7d            ,
+					overdues_30d                   ,
+					overdue_duration_30d           ,
+					overdues_60d                   ,
+					overdue_duration_60d           ,
+					overdues_90d                   ,
+					overdue_duration_90d           ,
+					overdues_180d                  ,
+					overdue_duration_180d          ,
+					validate_state                 ,
+					create_time                    ,
+					modify_time                    ,
+					create_by                      ,
+					modify_by                      
+			)
+			values(#{dto.id}
+					,#{dto.intoCustRefId,jdbcType=DECIMAL}
+					,#{dto.inBlack,jdbcType=VARCHAR}
+					,#{dto.inGrey,jdbcType=VARCHAR}
+					,#{dto.overdues,jdbcType=VARCHAR}
+					,#{dto.overdueDuration,jdbcType=VARCHAR}
+					,#{dto.overdues7d,jdbcType=VARCHAR}
+					,#{dto.overdueDuration7d,jdbcType=VARCHAR}
+					,#{dto.overdues30d,jdbcType=VARCHAR}
+					,#{dto.overdueDuration30d,jdbcType=VARCHAR}
+					,#{dto.overdues60d,jdbcType=VARCHAR}
+					,#{dto.overdueDuration60d,jdbcType=VARCHAR}
+					,#{dto.overdues90d,jdbcType=VARCHAR}
+					,#{dto.overdueDuration90d,jdbcType=VARCHAR}
+					,#{dto.overdues180d,jdbcType=VARCHAR}
+					,#{dto.overdueDuration180d,jdbcType=VARCHAR}
+					,'1'
+					,systimestamp
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.modifyBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 ext_wl_sm_overdue -->
+<update id="updateExtWlSmOverdue" parameterType="java.util.Map">
+	     update ext_wl_sm_overdue t1
+	           set 
+			           t1.into_cust_ref_id               =#{dto.intoCustRefId,jdbcType=DECIMAL},
+			           t1.in_black                       =#{dto.inBlack,jdbcType=VARCHAR},
+			           t1.in_grey                        =#{dto.inGrey,jdbcType=VARCHAR},
+			           t1.overdues                       =#{dto.overdues,jdbcType=VARCHAR},
+			           t1.overdue_duration               =#{dto.overdueDuration,jdbcType=VARCHAR},
+			           t1.overdues_7d                    =#{dto.overdues7d,jdbcType=VARCHAR},
+			           t1.overdue_duration_7d            =#{dto.overdueDuration7d,jdbcType=VARCHAR},
+			           t1.overdues_30d                   =#{dto.overdues30d,jdbcType=VARCHAR},
+			           t1.overdue_duration_30d           =#{dto.overdueDuration30d,jdbcType=VARCHAR},
+			           t1.overdues_60d                   =#{dto.overdues60d,jdbcType=VARCHAR},
+			           t1.overdue_duration_60d           =#{dto.overdueDuration60d,jdbcType=VARCHAR},
+			           t1.overdues_90d                   =#{dto.overdues90d,jdbcType=VARCHAR},
+			           t1.overdue_duration_90d           =#{dto.overdueDuration90d,jdbcType=VARCHAR},
+			           t1.overdues_180d                  =#{dto.overdues180d,jdbcType=VARCHAR},
+			           t1.overdue_duration_180d          =#{dto.overdueDuration180d,jdbcType=VARCHAR},
+			           t1.validate_state                 ='1',
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP},
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.modify_by                      =#{dto.modifyBy,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 ext_wl_sm_overdue -->
+<delete id="deleteExtWlSmOverdueByID" parameterType="java.util.Map">
+    	delete from ext_wl_sm_overdue t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 ext_wl_sm_overdue -->
+<update id="updateExtWlSmOverdueByInfocustid" parameterType="java.util.Map">
+	     update ext_wl_sm_overdue t1
+	           set   t1.validate_state='0'	
+	     where t1.into_cust_ref_id = #{dto.intoCustRefId}
+</update>
+<!-- 主键假删除 ext_wl_sm_overdue -->
+<update id="deleteExtWlSmOverdueByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_sm_overdue t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

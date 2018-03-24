@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.suanhuazx.extwlshcreditinvest.dao.ExtWlShCreditInvestDao">
+<resultMap id="ExtWlShCreditInvestDTO" type="com.jy.modules.externalplatform.interfacerepository.suanhuazx.extwlshcreditinvest.dto.ExtWlShCreditInvestDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="custName" column="CUST_NAME" jdbcType="VARCHAR" />
+				<result property="cellPhoneNum" column="CELL_PHONE_NUM" jdbcType="VARCHAR" />
+				<result property="idCardNum" column="ID_CARD_NUM" jdbcType="VARCHAR" />
+				<result property="success" column="SUCCESS" jdbcType="VARCHAR" />
+				<result property="message" column="MESSAGE" jdbcType="VARCHAR" />
+				<result property="report" column="REPORT" jdbcType="VARCHAR" />
+				<result property="content" column="CONTENT" jdbcType="VARCHAR" />
+				<result property="processCode" column="PROCESS_CODE" jdbcType="VARCHAR" />
+				<result property="sysSource" column="SYS_SOURCE" jdbcType="VARCHAR" />
+				<result property="fkConsultId" column="FK_CONSULT_ID" jdbcType="DECIMAL" />
+				<result property="linkConsultIds" column="LINK_CONSULT_IDS" jdbcType="VARCHAR" />
+				<result property="state" column="STATE" jdbcType="VARCHAR" />
+				<result property="invokeTimes" column="INVOKE_TIMES" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="validateState" column="VALIDATE_STATE" jdbcType="VARCHAR" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="updateBy" column="UPDATE_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_SH_CREDIT_INVEST -->	
+<select id="searchExtWlShCreditInvestByPaging" parameterType="java.util.Map" resultMap="ExtWlShCreditInvestDTO">
+    	 		select 
+						t1.id                             ,
+						t1.cust_name                      ,
+						t1.cell_phone_num                 ,
+						t1.id_card_num                    ,
+						t1.success                        ,
+						t1.message                        ,
+						t1.report                         ,
+						t1.content                        ,
+						t1.process_code                   ,
+						t1.sys_source                     ,
+						t1.fk_consult_id                  ,
+						t1.link_consult_ids               ,
+						t1.state                          ,
+						t1.invoke_times                   ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.validate_state                 ,
+						t1.create_by                      ,
+						t1.update_by                      
+					
+				from ext_wl_sh_credit_invest 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.custName != null and dto.custName != ''">
+						and t1.CUST_NAME =#{dto.custName}
+    			</if>
+    			<if test="dto.cellPhoneNum != null and dto.cellPhoneNum != ''">
+						and t1.CELL_PHONE_NUM =#{dto.cellPhoneNum}
+    			</if>
+    			<if test="dto.idCardNum != null and dto.idCardNum != ''">
+						and t1.ID_CARD_NUM =#{dto.idCardNum}
+    			</if>
+    			<if test="dto.success != null and dto.success != ''">
+						and t1.SUCCESS =#{dto.success}
+    			</if>
+    			<if test="dto.message != null and dto.message != ''">
+						and t1.MESSAGE =#{dto.message}
+    			</if>
+    			<if test="dto.report != null and dto.report != ''">
+						and t1.REPORT =#{dto.report}
+    			</if>
+    			<if test="dto.content != null and dto.content != ''">
+						and t1.CONTENT =#{dto.content}
+    			</if>
+    			<if test="dto.processCode != null and dto.processCode != ''">
+						and t1.PROCESS_CODE =#{dto.processCode}
+    			</if>
+    			<if test="dto.sysSource != null and dto.sysSource != ''">
+						and t1.SYS_SOURCE =#{dto.sysSource}
+    			</if>
+    			<if test="dto.fkConsultId != null and dto.fkConsultId != ''">
+						and t1.FK_CONSULT_ID =#{dto.fkConsultId}
+    			</if>
+    			<if test="dto.linkConsultIds != null and dto.linkConsultIds != ''">
+						and t1.LINK_CONSULT_IDS =#{dto.linkConsultIds}
+    			</if>
+    			<if test="dto.state != null and dto.state != ''">
+						and t1.STATE =#{dto.state}
+    			</if>
+    			<if test="dto.invokeTimes != null and dto.invokeTimes != ''">
+						and t1.INVOKE_TIMES =#{dto.invokeTimes}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE =#{dto.validateState}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY =#{dto.updateBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_SH_CREDIT_INVEST  -->
+<select id="searchExtWlShCreditInvest" parameterType="java.util.Map" resultMap="ExtWlShCreditInvestDTO">
+    	     select 
+						t1.id                             ,
+						t1.cust_name                      ,
+						t1.cell_phone_num                 ,
+						t1.id_card_num                    ,
+						t1.success                        ,
+						t1.message                        ,
+						t1.report                         ,
+						t1.content                        ,
+						t1.process_code                   ,
+						t1.sys_source                     ,
+						t1.fk_consult_id                  ,
+						t1.link_consult_ids               ,
+						t1.state                          ,
+						t1.invoke_times                   ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.validate_state                 ,
+						t1.create_by                      ,
+						t1.update_by                      
+				from ext_wl_sh_credit_invest 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.custName != null and dto.custName != ''">
+						and t1.CUST_NAME = #{dto.custName}
+    			</if>
+    			<if test="dto.cellPhoneNum != null and dto.cellPhoneNum != ''">
+						and t1.CELL_PHONE_NUM = #{dto.cellPhoneNum}
+    			</if>
+    			<if test="dto.idCardNum != null and dto.idCardNum != ''">
+						and t1.ID_CARD_NUM = #{dto.idCardNum}
+    			</if>
+    			<if test="dto.success != null and dto.success != ''">
+						and t1.SUCCESS = #{dto.success}
+    			</if>
+    			<if test="dto.message != null and dto.message != ''">
+						and t1.MESSAGE = #{dto.message}
+    			</if>
+    			<if test="dto.report != null and dto.report != ''">
+						and t1.REPORT = #{dto.report}
+    			</if>
+    			<if test="dto.content != null and dto.content != ''">
+						and t1.CONTENT = #{dto.content}
+    			</if>
+    			<if test="dto.processCode != null and dto.processCode != ''">
+						and t1.PROCESS_CODE = #{dto.processCode}
+    			</if>
+    			<if test="dto.sysSource != null and dto.sysSource != ''">
+						and t1.SYS_SOURCE = #{dto.sysSource}
+    			</if>
+    			<if test="dto.fkConsultId != null and dto.fkConsultId != ''">
+						and t1.FK_CONSULT_ID = #{dto.fkConsultId}
+    			</if>
+    			<if test="dto.linkConsultIds != null and dto.linkConsultIds != ''">
+						and t1.LINK_CONSULT_IDS = #{dto.linkConsultIds}
+    			</if>
+    			<if test="dto.state != null and dto.state != ''">
+						and t1.STATE = #{dto.state}
+    			</if>
+    			<if test="dto.invokeTimes != null and dto.invokeTimes != ''">
+						and t1.INVOKE_TIMES = #{dto.invokeTimes}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE = #{dto.validateState}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY = #{dto.updateBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_SH_CREDIT_INVEST -->
+<select id="findExtWlShCreditInvestByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlShCreditInvestDTO">
+   	 		select 
+					t1.id                             ,
+					t1.cust_name                      ,
+					t1.cell_phone_num                 ,
+					t1.id_card_num                    ,
+					t1.success                        ,
+					t1.message                        ,
+					t1.report                         ,
+					t1.content                        ,
+					t1.process_code                   ,
+					t1.sys_source                     ,
+					t1.fk_consult_id                  ,
+					t1.link_consult_ids               ,
+					t1.state                          ,
+					t1.invoke_times                   ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.validate_state                 ,
+					t1.create_by                      ,
+					t1.update_by                      
+			from ext_wl_sh_credit_invest 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_SH_CREDIT_INVEST -->
+<insert id="insertExtWlShCreditInvest" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_SH_CREDIT_INVEST.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_sh_credit_invest
+			(   		
+					id                             ,
+					cust_name                      ,
+					cell_phone_num                 ,
+					id_card_num                    ,
+					success                        ,
+					message                        ,
+					report                         ,
+					content                        ,
+					process_code                   ,
+					sys_source                     ,
+					fk_consult_id                  ,
+					link_consult_ids               ,
+					state                          ,
+					invoke_times                   ,
+					create_time                    ,
+					modify_time                    ,
+					validate_state                 ,
+					create_by                      ,
+					update_by                      
+			)
+			values(#{dto.id}
+					,#{dto.custName,jdbcType=VARCHAR}
+					,#{dto.cellPhoneNum,jdbcType=VARCHAR}
+					,#{dto.idCardNum,jdbcType=VARCHAR}
+					,#{dto.success,jdbcType=VARCHAR}
+					,#{dto.message,jdbcType=VARCHAR}
+					,#{dto.report,jdbcType=VARCHAR}
+					,#{dto.content,jdbcType=VARCHAR}
+					,#{dto.processCode,jdbcType=VARCHAR}
+					,#{dto.sysSource,jdbcType=VARCHAR}
+					,#{dto.fkConsultId,jdbcType=DECIMAL}
+					,#{dto.linkConsultIds,jdbcType=VARCHAR}
+					,#{dto.state,jdbcType=VARCHAR}
+					,#{dto.invokeTimes,jdbcType=DECIMAL}
+					,systimestamp
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,'1'
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.updateBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_SH_CREDIT_INVEST -->
+<update id="updateExtWlShCreditInvest" parameterType="java.util.Map">
+	     update ext_wl_sh_credit_invest t1
+	           set 
+			           t1.cust_name                      =#{dto.custName,jdbcType=VARCHAR},
+			           t1.cell_phone_num                 =#{dto.cellPhoneNum,jdbcType=VARCHAR},
+			           t1.id_card_num                    =#{dto.idCardNum,jdbcType=VARCHAR},
+			           t1.success                        =#{dto.success,jdbcType=VARCHAR},
+			           t1.message                        =#{dto.message,jdbcType=VARCHAR},
+			           t1.report                         =#{dto.report,jdbcType=VARCHAR},
+			           t1.content                        =#{dto.content,jdbcType=VARCHAR},
+			           t1.process_code                   =#{dto.processCode,jdbcType=VARCHAR},
+			           t1.sys_source                     =#{dto.sysSource,jdbcType=VARCHAR},
+			           t1.fk_consult_id                  =#{dto.fkConsultId,jdbcType=DECIMAL},
+			           t1.link_consult_ids               =#{dto.linkConsultIds,jdbcType=VARCHAR},
+			           t1.state                          =#{dto.state,jdbcType=VARCHAR},
+			           t1.invoke_times                   =#{dto.invokeTimes,jdbcType=DECIMAL},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP},
+			           t1.validate_state                 ='1',
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.update_by                      =#{dto.updateBy,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_SH_CREDIT_INVEST -->
+<delete id="deleteExtWlShCreditInvestByID" parameterType="java.util.Map">
+    	delete from ext_wl_sh_credit_invest t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_SH_CREDIT_INVEST -->
+<update id="deleteExtWlShCreditInvestByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_sh_credit_invest t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+
+	<!-- 更新对象 更新对象算话央行征信采集申请表[调用状态] -->
+	<update id="updateExtWlShCreditInvestState" parameterType="java.util.Map">
+		update ext_wl_sh_credit_invest t1
+		set
+		t1.state          =#{dto.state},
+		<if test="dto.state == 3">
+			t1.invoke_times   =#{dto.invokeTimes},
+		</if>
+		t1.modify_time    =systimestamp
+		where t1.id = #{dto.id}
+	</update>
+</mapper>

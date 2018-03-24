@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.zxt.extwlzxtquestions.dao.ExtWlZxtQuestionsDao">
+<resultMap id="ExtWlZxtQuestionsDTO" type="com.jy.modules.externalplatform.interfacerepository.zxt.extwlzxtquestions.dto.ExtWlZxtQuestionsDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="verId" column="VER_ID" jdbcType="VARCHAR" />
+				<result property="dataType" column="DATA_TYPE" jdbcType="VARCHAR" />
+				<result property="answerId" column="ANSWER_ID" jdbcType="VARCHAR" />
+				<result property="question" column="QUESTION" jdbcType="VARCHAR" />
+				<result property="queStyle" column="QUE_STYLE" jdbcType="VARCHAR" />
+				<result property="answers" column="ANSWERS" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="updateTime" column="UPDATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="updateBy" column="UPDATE_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 分页查询 ext_wl_zxt_questions -->	
+<select id="searchExtWlZxtQuestionsByPaging" parameterType="java.util.Map" resultMap="ExtWlZxtQuestionsDTO">
+    	 		select 
+						t1.id                             ,
+						t1.ver_id                         ,
+						t1.data_type                      ,
+						t1.answer_id                      ,
+						t1.question                       ,
+						t1.que_style                      ,
+						t1.answers                        ,
+						t1.create_time                    ,
+						t1.update_time                    ,
+						t1.create_by                      ,
+						t1.update_by                      
+					
+				from ext_wl_zxt_questions 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.verId != null and dto.verId != ''">
+						and t1.VER_ID =#{dto.verId}
+    			</if>
+    			<if test="dto.dataType != null and dto.dataType != ''">
+						and t1.DATA_TYPE =#{dto.dataType}
+    			</if>
+    			<if test="dto.answerId != null and dto.answerId != ''">
+						and t1.ANSWER_ID =#{dto.answerId}
+    			</if>
+    			<if test="dto.question != null and dto.question != ''">
+						and t1.QUESTION =#{dto.question}
+    			</if>
+    			<if test="dto.queStyle != null and dto.queStyle != ''">
+						and t1.QUE_STYLE =#{dto.queStyle}
+    			</if>
+    			<if test="dto.answers != null and dto.answers != ''">
+						and t1.ANSWERS =#{dto.answers}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.updateTime != null and dto.updateTime != ''">
+						and t1.UPDATE_TIME =#{dto.updateTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY =#{dto.updateBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 ext_wl_zxt_questions  -->
+<select id="searchExtWlZxtQuestions" parameterType="java.util.Map" resultMap="ExtWlZxtQuestionsDTO">
+    	     select 
+						t1.id                             ,
+						t1.ver_id                         ,
+						t1.data_type                      ,
+						t1.answer_id                      ,
+						t1.question                       ,
+						t1.que_style                      ,
+						t1.answers                        ,
+						t1.create_time                    ,
+						t1.update_time                    ,
+						t1.create_by                      ,
+						t1.update_by                      
+				from ext_wl_zxt_questions 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.verId != null and dto.verId != ''">
+						and t1.VER_ID = #{dto.verId}
+    			</if>
+    			<if test="dto.dataType != null and dto.dataType != ''">
+						and t1.DATA_TYPE = #{dto.dataType}
+    			</if>
+    			<if test="dto.answerId != null and dto.answerId != ''">
+						and t1.ANSWER_ID = #{dto.answerId}
+    			</if>
+    			<if test="dto.question != null and dto.question != ''">
+						and t1.QUESTION = #{dto.question}
+    			</if>
+    			<if test="dto.queStyle != null and dto.queStyle != ''">
+						and t1.QUE_STYLE = #{dto.queStyle}
+    			</if>
+    			<if test="dto.answers != null and dto.answers != ''">
+						and t1.ANSWERS = #{dto.answers}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.updateTime != null and dto.updateTime != ''">
+						and t1.UPDATE_TIME = #{dto.updateTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY = #{dto.updateBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  ext_wl_zxt_questions -->
+<select id="findExtWlZxtQuestionsByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlZxtQuestionsDTO">
+   	 		select 
+					t1.id                             ,
+					t1.ver_id                         ,
+					t1.data_type                      ,
+					t1.answer_id                      ,
+					t1.question                       ,
+					t1.que_style                      ,
+					t1.answers                        ,
+					t1.create_time                    ,
+					t1.update_time                    ,
+					t1.create_by                      ,
+					t1.update_by                      
+			from ext_wl_zxt_questions 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 ext_wl_zxt_questions -->
+<insert id="insertExtWlZxtQuestions" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_ext_wl_zxt_questions.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_zxt_questions
+			(   		
+					id                             ,
+					ver_id                         ,
+					data_type                      ,
+					answer_id                      ,
+					question                       ,
+					que_style                      ,
+					answers                        ,
+					create_time                    ,
+					update_time                    ,
+					create_by                      ,
+					update_by                      
+			)
+			values(#{dto.id}
+					,#{dto.verId,jdbcType=VARCHAR}
+					,#{dto.dataType,jdbcType=VARCHAR}
+					,#{dto.answerId,jdbcType=VARCHAR}
+					,#{dto.question,jdbcType=VARCHAR}
+					,#{dto.queStyle,jdbcType=VARCHAR}
+					,#{dto.answers,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.updateTime,jdbcType=TIMESTAMP}
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.updateBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 ext_wl_zxt_questions -->
+<update id="updateExtWlZxtQuestions" parameterType="java.util.Map">
+	     update ext_wl_zxt_questions t1
+	           set 
+			           t1.ver_id                         =#{dto.verId,jdbcType=VARCHAR},
+			           t1.data_type                      =#{dto.dataType,jdbcType=VARCHAR},
+			           t1.answer_id                      =#{dto.answerId,jdbcType=VARCHAR},
+			           t1.question                       =#{dto.question,jdbcType=VARCHAR},
+			           t1.que_style                      =#{dto.queStyle,jdbcType=VARCHAR},
+			           t1.answers                        =#{dto.answers,jdbcType=VARCHAR},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.update_time                    =#{dto.updateTime,jdbcType=TIMESTAMP},
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.update_by                      =#{dto.updateBy,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 ext_wl_zxt_questions -->
+<delete id="deleteExtWlZxtQuestionsByID" parameterType="java.util.Map">
+    	delete from ext_wl_zxt_questions t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 ext_wl_zxt_questions -->
+<update id="deleteExtWlZxtQuestionsByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_zxt_questions t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

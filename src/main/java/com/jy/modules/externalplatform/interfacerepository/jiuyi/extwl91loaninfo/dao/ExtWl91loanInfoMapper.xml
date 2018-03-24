@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.jiuyi.extwl91loaninfo.dao.ExtWl91loanInfoDao">
+<resultMap id="ExtWl91loanInfoDTO" type="com.jy.modules.externalplatform.interfacerepository.jiuyi.extwl91loaninfo.dto.ExtWl91loanInfoDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="intoId" column="INTO_ID" jdbcType="VARCHAR" />
+				<result property="idNo" column="ID_NO" jdbcType="VARCHAR" />
+				<result property="name" column="NAME" jdbcType="VARCHAR" />
+				<result property="trxNo" column="TRX_NO" jdbcType="VARCHAR" />
+				<result property="validateState" column="VALIDATE_STATE" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="modifyBy" column="MODIFY_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_91LOAN_INFO -->	
+<select id="searchExtWl91loanInfoByPaging" parameterType="java.util.Map" resultMap="ExtWl91loanInfoDTO">
+    	 		select 
+						t1.id                             ,
+						t1.into_id                        ,
+						t1.id_no                          ,
+						t1.name                           ,
+						t1.trx_no                         ,
+						t1.validate_state                 ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.create_by                      ,
+						t1.modify_by                      
+					
+				from ext_wl_91loan_info 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.intoId != null and dto.intoId != ''">
+						and t1.INTO_ID =#{dto.intoId}
+    			</if>
+    			<if test="dto.idNo != null and dto.idNo != ''">
+						and t1.ID_NO =#{dto.idNo}
+    			</if>
+    			<if test="dto.name != null and dto.name != ''">
+						and t1.NAME =#{dto.name}
+    			</if>
+    			<if test="dto.trxNo != null and dto.trxNo != ''">
+						and t1.TRX_NO =#{dto.trxNo}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE =#{dto.validateState}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY =#{dto.modifyBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_91LOAN_INFO  -->
+<select id="searchExtWl91loanInfo" parameterType="java.util.Map" resultMap="ExtWl91loanInfoDTO">
+    	     select 
+						t1.id                             ,
+						t1.into_id                        ,
+						t1.id_no                          ,
+						t1.name                           ,
+						t1.trx_no                         ,
+						t1.validate_state                 ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.create_by                      ,
+						t1.modify_by                      
+				from ext_wl_91loan_info 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.intoId != null and dto.intoId != ''">
+						and t1.INTO_ID = #{dto.intoId}
+    			</if>
+    			<if test="dto.idNo != null and dto.idNo != ''">
+						and t1.ID_NO = #{dto.idNo}
+    			</if>
+    			<if test="dto.name != null and dto.name != ''">
+						and t1.NAME = #{dto.name}
+    			</if>
+    			<if test="dto.trxNo != null and dto.trxNo != ''">
+						and t1.TRX_NO = #{dto.trxNo}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE = #{dto.validateState}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY = #{dto.modifyBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_91LOAN_INFO -->
+<select id="findExtWl91loanInfoByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWl91loanInfoDTO">
+   	 		select 
+					t1.id                             ,
+					t1.into_id                        ,
+					t1.id_no                          ,
+					t1.name                           ,
+					t1.trx_no                         ,
+					t1.validate_state                 ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.create_by                      ,
+					t1.modify_by                      
+			from ext_wl_91loan_info 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_91LOAN_INFO -->
+<insert id="insertExtWl91loanInfo" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_91LOAN_INFO.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_91loan_info
+			(   		
+					id                             ,
+					into_id                        ,
+					id_no                          ,
+					name                           ,
+					trx_no                         ,
+					validate_state                 ,
+					create_time                    ,
+					modify_time                    ,
+					create_by                      ,
+					modify_by                      
+			)
+			values(#{dto.id}
+					,#{dto.intoId,jdbcType=VARCHAR}
+					,#{dto.idNo,jdbcType=VARCHAR}
+					,#{dto.name,jdbcType=VARCHAR}
+					,#{dto.trxNo,jdbcType=VARCHAR}
+					,'1'
+					,systimestamp
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.modifyBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_91LOAN_INFO -->
+<update id="updateExtWl91loanInfo" parameterType="java.util.Map">
+	     update ext_wl_91loan_info t1
+	           set 
+			           t1.into_id                        =#{dto.intoId,jdbcType=VARCHAR},
+			           t1.id_no                          =#{dto.idNo,jdbcType=VARCHAR},
+			           t1.name                           =#{dto.name,jdbcType=VARCHAR},
+			           t1.trx_no                         =#{dto.trxNo,jdbcType=VARCHAR},
+			           t1.validate_state                 ='1',
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP},
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.modify_by                      =#{dto.modifyBy,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_91LOAN_INFO -->
+<delete id="deleteExtWl91loanInfoByID" parameterType="java.util.Map">
+    	delete from ext_wl_91loan_info t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_91LOAN_INFO -->
+<update id="deleteExtWl91loanInfoByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_91loan_info t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

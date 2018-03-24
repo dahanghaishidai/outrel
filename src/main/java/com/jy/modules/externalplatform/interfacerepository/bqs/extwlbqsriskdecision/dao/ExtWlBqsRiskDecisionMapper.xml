@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.bqs.extwlbqsriskdecision.dao.ExtWlBqsRiskDecisionDao">
+<resultMap id="ExtWlBqsRiskDecisionDTO" type="com.jy.modules.externalplatform.interfacerepository.bqs.extwlbqsriskdecision.dto.ExtWlBqsRiskDecisionDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="intoCustRefId" column="INTO_CUST_REF_ID" jdbcType="DECIMAL" />
+				<result property="resultCode" column="RESULT_CODE" jdbcType="VARCHAR" />
+				<result property="resultDesc" column="RESULT_DESC" jdbcType="VARCHAR" />
+				<result property="flowNo" column="FLOW_NO" jdbcType="VARCHAR" />
+				<result property="finalDecision" column="FINAL_DECISION" jdbcType="VARCHAR" />
+				<result property="finalScore" column="FINAL_SCORE" jdbcType="VARCHAR" />
+				<result property="validateState" column="VALIDATE_STATE" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="updateTime" column="UPDATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="updateBy" column="UPDATE_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_BQS_RISK_DECISION -->	
+<select id="searchExtWlBqsRiskDecisionByPaging" parameterType="java.util.Map" resultMap="ExtWlBqsRiskDecisionDTO">
+    	 		select 
+						t1.id                             ,
+						t1.into_cust_ref_id               ,
+						t1.result_code                    ,
+						t1.result_desc                    ,
+						t1.flow_no                        ,
+						t1.final_decision                 ,
+						t1.final_score                    ,
+						t1.validate_state                 ,
+						t1.create_time                    ,
+						t1.update_time                    ,
+						t1.create_by                      ,
+						t1.update_by                      
+					
+				from ext_wl_bqs_risk_decision 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.intoCustRefId != null and dto.intoCustRefId != ''">
+						and t1.INTO_CUST_REF_ID =#{dto.intoCustRefId}
+    			</if>
+    			<if test="dto.resultCode != null and dto.resultCode != ''">
+						and t1.RESULT_CODE =#{dto.resultCode}
+    			</if>
+    			<if test="dto.resultDesc != null and dto.resultDesc != ''">
+						and t1.RESULT_DESC =#{dto.resultDesc}
+    			</if>
+    			<if test="dto.flowNo != null and dto.flowNo != ''">
+						and t1.FLOW_NO =#{dto.flowNo}
+    			</if>
+    			<if test="dto.finalDecision != null and dto.finalDecision != ''">
+						and t1.FINAL_DECISION =#{dto.finalDecision}
+    			</if>
+    			<if test="dto.finalScore != null and dto.finalScore != ''">
+						and t1.FINAL_SCORE =#{dto.finalScore}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE =#{dto.validateState}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.updateTime != null and dto.updateTime != ''">
+						and t1.UPDATE_TIME =#{dto.updateTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY =#{dto.updateBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_BQS_RISK_DECISION  -->
+<select id="searchExtWlBqsRiskDecision" parameterType="java.util.Map" resultMap="ExtWlBqsRiskDecisionDTO">
+    	     select 
+						t1.id                             ,
+						t1.into_cust_ref_id               ,
+						t1.result_code                    ,
+						t1.result_desc                    ,
+						t1.flow_no                        ,
+						t1.final_decision                 ,
+						t1.final_score                    ,
+						t1.validate_state                 ,
+						t1.create_time                    ,
+						t1.update_time                    ,
+						t1.create_by                      ,
+						t1.update_by                      
+				from ext_wl_bqs_risk_decision 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.intoCustRefId != null and dto.intoCustRefId != ''">
+						and t1.INTO_CUST_REF_ID = #{dto.intoCustRefId}
+    			</if>
+    			<if test="dto.resultCode != null and dto.resultCode != ''">
+						and t1.RESULT_CODE = #{dto.resultCode}
+    			</if>
+    			<if test="dto.resultDesc != null and dto.resultDesc != ''">
+						and t1.RESULT_DESC = #{dto.resultDesc}
+    			</if>
+    			<if test="dto.flowNo != null and dto.flowNo != ''">
+						and t1.FLOW_NO = #{dto.flowNo}
+    			</if>
+    			<if test="dto.finalDecision != null and dto.finalDecision != ''">
+						and t1.FINAL_DECISION = #{dto.finalDecision}
+    			</if>
+    			<if test="dto.finalScore != null and dto.finalScore != ''">
+						and t1.FINAL_SCORE = #{dto.finalScore}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE = #{dto.validateState}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.updateTime != null and dto.updateTime != ''">
+						and t1.UPDATE_TIME = #{dto.updateTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY = #{dto.updateBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_BQS_RISK_DECISION -->
+<select id="findExtWlBqsRiskDecisionByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlBqsRiskDecisionDTO">
+   	 		select 
+					t1.id                             ,
+					t1.into_cust_ref_id               ,
+					t1.result_code                    ,
+					t1.result_desc                    ,
+					t1.flow_no                        ,
+					t1.final_decision                 ,
+					t1.final_score                    ,
+					t1.validate_state                 ,
+					t1.create_time                    ,
+					t1.update_time                    ,
+					t1.create_by                      ,
+					t1.update_by                      
+			from ext_wl_bqs_risk_decision 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_BQS_RISK_DECISION -->
+<insert id="insertExtWlBqsRiskDecision" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_BQS_RISK_DECISION.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_bqs_risk_decision
+			(   		
+					id                             ,
+					into_cust_ref_id               ,
+					result_code                    ,
+					result_desc                    ,
+					flow_no                        ,
+					final_decision                 ,
+					final_score                    ,
+					validate_state                 ,
+					create_time                    ,
+					update_time                    ,
+					create_by                      ,
+					update_by                      
+			)
+			values(#{dto.id}
+					,#{dto.intoCustRefId,jdbcType=DECIMAL}
+					,#{dto.resultCode,jdbcType=VARCHAR}
+					,#{dto.resultDesc,jdbcType=VARCHAR}
+					,#{dto.flowNo,jdbcType=VARCHAR}
+					,#{dto.finalDecision,jdbcType=VARCHAR}
+					,#{dto.finalScore,jdbcType=VARCHAR}
+					,'1'
+					,systimestamp
+					,#{dto.updateTime,jdbcType=TIMESTAMP}
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.updateBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_BQS_RISK_DECISION -->
+<update id="updateExtWlBqsRiskDecision" parameterType="java.util.Map">
+	     update ext_wl_bqs_risk_decision t1
+	           set 
+			           t1.into_cust_ref_id               =#{dto.intoCustRefId,jdbcType=DECIMAL},
+			           t1.result_code                    =#{dto.resultCode,jdbcType=VARCHAR},
+			           t1.result_desc                    =#{dto.resultDesc,jdbcType=VARCHAR},
+			           t1.flow_no                        =#{dto.flowNo,jdbcType=VARCHAR},
+			           t1.final_decision                 =#{dto.finalDecision,jdbcType=VARCHAR},
+			           t1.final_score                    =#{dto.finalScore,jdbcType=VARCHAR},
+			           t1.validate_state                 ='1',
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.update_time                    =#{dto.updateTime,jdbcType=TIMESTAMP},
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.update_by                      =#{dto.updateBy,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_BQS_RISK_DECISION -->
+<delete id="deleteExtWlBqsRiskDecisionByID" parameterType="java.util.Map">
+    	delete from ext_wl_bqs_risk_decision t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_BQS_RISK_DECISION -->
+<update id="deleteExtWlBqsRiskDecisionByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_bqs_risk_decision t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.xy.extwlxyidentityprobe.dao.ExtWlXyIdentityProbeDao">
+<resultMap id="ExtWlXyIdentityProbeDTO" type="com.jy.modules.externalplatform.interfacerepository.xy.extwlxyidentityprobe.dto.ExtWlXyIdentityProbeDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="intoCustRefId" column="INTO_CUST_REF_ID" jdbcType="DECIMAL" />
+				<result property="productCode" column="PRODUCT_CODE" jdbcType="VARCHAR" />
+				<result property="blackType" column="BLACK_TYPE" jdbcType="VARCHAR" />
+				<result property="subBlackType" column="SUB_BLACK_TYPE" jdbcType="VARCHAR" />
+				<result property="caseNo" column="CASE_NO" jdbcType="VARCHAR" />
+				<result property="publishDate" column="PUBLISH_DATE" jdbcType="VARCHAR" />
+				<result property="performance" column="PERFORMANCE" jdbcType="VARCHAR" />
+				<result property="province" column="PROVINCE" jdbcType="VARCHAR" />
+				<result property="court" column="COURT" jdbcType="VARCHAR" />
+				<result property="duty" column="DUTY" jdbcType="VARCHAR" />
+				<result property="disruptTypeName" column="DISRUPT_TYPE_NAME" jdbcType="VARCHAR" />
+				<result property="regDate" column="REG_DATE" jdbcType="VARCHAR" />
+				<result property="execMoney" column="EXEC_MONEY" jdbcType="VARCHAR" />
+				<result property="blackTypeName" column="BLACK_TYPE_NAME" jdbcType="VARCHAR" />
+				<result property="intoBlackReason" column="INTO_BLACK_REASON" jdbcType="VARCHAR" />
+				<result property="intoBlackTime" column="INTO_BLACK_TIME" jdbcType="VARCHAR" />
+				<result property="overdueAmount" column="OVERDUE_AMOUNT" jdbcType="VARCHAR" />
+				<result property="overdueLong" column="OVERDUE_LONG" jdbcType="VARCHAR" />
+				<result property="remarks" column="REMARKS" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="modifyBy" column="MODIFY_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_XY_IDENTITY_PROBE -->	
+<select id="searchExtWlXyIdentityProbeByPaging" parameterType="java.util.Map" resultMap="ExtWlXyIdentityProbeDTO">
+    	 		select 
+						t1.id                             ,
+						t1.into_cust_ref_id               ,
+						t1.product_code                   ,
+						t1.black_type                     ,
+						t1.sub_black_type                 ,
+						t1.case_no                        ,
+						t1.publish_date                   ,
+						t1.performance                    ,
+						t1.province                       ,
+						t1.court                          ,
+						t1.duty                           ,
+						t1.disrupt_type_name              ,
+						t1.reg_date                       ,
+						t1.exec_money                     ,
+						t1.black_type_name                ,
+						t1.into_black_reason              ,
+						t1.into_black_time                ,
+						t1.overdue_amount                 ,
+						t1.overdue_long                   ,
+						t1.remarks                        ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.create_by                      ,
+						t1.modify_by                      
+					
+				from ext_wl_xy_identity_probe 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.intoCustRefId != null and dto.intoCustRefId != ''">
+						and t1.INTO_CUST_REF_ID =#{dto.intoCustRefId}
+    			</if>
+    			<if test="dto.productCode != null and dto.productCode != ''">
+						and t1.PRODUCT_CODE =#{dto.productCode}
+    			</if>
+    			<if test="dto.blackType != null and dto.blackType != ''">
+						and t1.BLACK_TYPE =#{dto.blackType}
+    			</if>
+    			<if test="dto.subBlackType != null and dto.subBlackType != ''">
+						and t1.SUB_BLACK_TYPE =#{dto.subBlackType}
+    			</if>
+    			<if test="dto.caseNo != null and dto.caseNo != ''">
+						and t1.CASE_NO =#{dto.caseNo}
+    			</if>
+    			<if test="dto.publishDate != null and dto.publishDate != ''">
+						and t1.PUBLISH_DATE =#{dto.publishDate}
+    			</if>
+    			<if test="dto.performance != null and dto.performance != ''">
+						and t1.PERFORMANCE =#{dto.performance}
+    			</if>
+    			<if test="dto.province != null and dto.province != ''">
+						and t1.PROVINCE =#{dto.province}
+    			</if>
+    			<if test="dto.court != null and dto.court != ''">
+						and t1.COURT =#{dto.court}
+    			</if>
+    			<if test="dto.duty != null and dto.duty != ''">
+						and t1.DUTY =#{dto.duty}
+    			</if>
+    			<if test="dto.disruptTypeName != null and dto.disruptTypeName != ''">
+						and t1.DISRUPT_TYPE_NAME =#{dto.disruptTypeName}
+    			</if>
+    			<if test="dto.regDate != null and dto.regDate != ''">
+						and t1.REG_DATE =#{dto.regDate}
+    			</if>
+    			<if test="dto.execMoney != null and dto.execMoney != ''">
+						and t1.EXEC_MONEY =#{dto.execMoney}
+    			</if>
+    			<if test="dto.blackTypeName != null and dto.blackTypeName != ''">
+						and t1.BLACK_TYPE_NAME =#{dto.blackTypeName}
+    			</if>
+    			<if test="dto.intoBlackReason != null and dto.intoBlackReason != ''">
+						and t1.INTO_BLACK_REASON =#{dto.intoBlackReason}
+    			</if>
+    			<if test="dto.intoBlackTime != null and dto.intoBlackTime != ''">
+						and t1.INTO_BLACK_TIME =#{dto.intoBlackTime}
+    			</if>
+    			<if test="dto.overdueAmount != null and dto.overdueAmount != ''">
+						and t1.OVERDUE_AMOUNT =#{dto.overdueAmount}
+    			</if>
+    			<if test="dto.overdueLong != null and dto.overdueLong != ''">
+						and t1.OVERDUE_LONG =#{dto.overdueLong}
+    			</if>
+    			<if test="dto.remarks != null and dto.remarks != ''">
+						and t1.REMARKS =#{dto.remarks}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY =#{dto.modifyBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_XY_IDENTITY_PROBE  -->
+<select id="searchExtWlXyIdentityProbe" parameterType="java.util.Map" resultMap="ExtWlXyIdentityProbeDTO">
+    	     select 
+						t1.id                             ,
+						t1.into_cust_ref_id               ,
+						t1.product_code                   ,
+						t1.black_type                     ,
+						t1.sub_black_type                 ,
+						t1.case_no                        ,
+						t1.publish_date                   ,
+						t1.performance                    ,
+						t1.province                       ,
+						t1.court                          ,
+						t1.duty                           ,
+						t1.disrupt_type_name              ,
+						t1.reg_date                       ,
+						t1.exec_money                     ,
+						t1.black_type_name                ,
+						t1.into_black_reason              ,
+						t1.into_black_time                ,
+						t1.overdue_amount                 ,
+						t1.overdue_long                   ,
+						t1.remarks                        ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.create_by                      ,
+						t1.modify_by                      
+				from ext_wl_xy_identity_probe 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.intoCustRefId != null and dto.intoCustRefId != ''">
+						and t1.INTO_CUST_REF_ID = #{dto.intoCustRefId}
+    			</if>
+    			<if test="dto.productCode != null and dto.productCode != ''">
+						and t1.PRODUCT_CODE = #{dto.productCode}
+    			</if>
+    			<if test="dto.blackType != null and dto.blackType != ''">
+						and t1.BLACK_TYPE = #{dto.blackType}
+    			</if>
+    			<if test="dto.subBlackType != null and dto.subBlackType != ''">
+						and t1.SUB_BLACK_TYPE = #{dto.subBlackType}
+    			</if>
+    			<if test="dto.caseNo != null and dto.caseNo != ''">
+						and t1.CASE_NO = #{dto.caseNo}
+    			</if>
+    			<if test="dto.publishDate != null and dto.publishDate != ''">
+						and t1.PUBLISH_DATE = #{dto.publishDate}
+    			</if>
+    			<if test="dto.performance != null and dto.performance != ''">
+						and t1.PERFORMANCE = #{dto.performance}
+    			</if>
+    			<if test="dto.province != null and dto.province != ''">
+						and t1.PROVINCE = #{dto.province}
+    			</if>
+    			<if test="dto.court != null and dto.court != ''">
+						and t1.COURT = #{dto.court}
+    			</if>
+    			<if test="dto.duty != null and dto.duty != ''">
+						and t1.DUTY = #{dto.duty}
+    			</if>
+    			<if test="dto.disruptTypeName != null and dto.disruptTypeName != ''">
+						and t1.DISRUPT_TYPE_NAME = #{dto.disruptTypeName}
+    			</if>
+    			<if test="dto.regDate != null and dto.regDate != ''">
+						and t1.REG_DATE = #{dto.regDate}
+    			</if>
+    			<if test="dto.execMoney != null and dto.execMoney != ''">
+						and t1.EXEC_MONEY = #{dto.execMoney}
+    			</if>
+    			<if test="dto.blackTypeName != null and dto.blackTypeName != ''">
+						and t1.BLACK_TYPE_NAME = #{dto.blackTypeName}
+    			</if>
+    			<if test="dto.intoBlackReason != null and dto.intoBlackReason != ''">
+						and t1.INTO_BLACK_REASON = #{dto.intoBlackReason}
+    			</if>
+    			<if test="dto.intoBlackTime != null and dto.intoBlackTime != ''">
+						and t1.INTO_BLACK_TIME = #{dto.intoBlackTime}
+    			</if>
+    			<if test="dto.overdueAmount != null and dto.overdueAmount != ''">
+						and t1.OVERDUE_AMOUNT = #{dto.overdueAmount}
+    			</if>
+    			<if test="dto.overdueLong != null and dto.overdueLong != ''">
+						and t1.OVERDUE_LONG = #{dto.overdueLong}
+    			</if>
+    			<if test="dto.remarks != null and dto.remarks != ''">
+						and t1.REMARKS = #{dto.remarks}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY = #{dto.modifyBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_XY_IDENTITY_PROBE -->
+<select id="findExtWlXyIdentityProbeByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlXyIdentityProbeDTO">
+   	 		select 
+					t1.id                             ,
+					t1.into_cust_ref_id               ,
+					t1.product_code                   ,
+					t1.black_type                     ,
+					t1.sub_black_type                 ,
+					t1.case_no                        ,
+					t1.publish_date                   ,
+					t1.performance                    ,
+					t1.province                       ,
+					t1.court                          ,
+					t1.duty                           ,
+					t1.disrupt_type_name              ,
+					t1.reg_date                       ,
+					t1.exec_money                     ,
+					t1.black_type_name                ,
+					t1.into_black_reason              ,
+					t1.into_black_time                ,
+					t1.overdue_amount                 ,
+					t1.overdue_long                   ,
+					t1.remarks                        ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.create_by                      ,
+					t1.modify_by                      
+			from ext_wl_xy_identity_probe 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_XY_IDENTITY_PROBE -->
+<insert id="insertExtWlXyIdentityProbe" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_ext_wl_xy_identity_probe.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_xy_identity_probe
+			(   		
+					id                             ,
+					into_cust_ref_id               ,
+					product_code                   ,
+					black_type                     ,
+					sub_black_type                 ,
+					case_no                        ,
+					publish_date                   ,
+					performance                    ,
+					province                       ,
+					court                          ,
+					duty                           ,
+					disrupt_type_name              ,
+					reg_date                       ,
+					exec_money                     ,
+					black_type_name                ,
+					into_black_reason              ,
+					into_black_time                ,
+					overdue_amount                 ,
+					overdue_long                   ,
+					remarks                        ,
+					create_time                    ,
+					modify_time                    ,
+					create_by                      ,
+					modify_by                      
+			)
+			values(#{dto.id}
+					,#{dto.intoCustRefId,jdbcType=DECIMAL}
+					,#{dto.productCode,jdbcType=VARCHAR}
+					,#{dto.blackType,jdbcType=VARCHAR}
+					,#{dto.subBlackType,jdbcType=VARCHAR}
+					,#{dto.caseNo,jdbcType=VARCHAR}
+					,#{dto.publishDate,jdbcType=VARCHAR}
+					,#{dto.performance,jdbcType=VARCHAR}
+					,#{dto.province,jdbcType=VARCHAR}
+					,#{dto.court,jdbcType=VARCHAR}
+					,#{dto.duty,jdbcType=VARCHAR}
+					,#{dto.disruptTypeName,jdbcType=VARCHAR}
+					,#{dto.regDate,jdbcType=VARCHAR}
+					,#{dto.execMoney,jdbcType=VARCHAR}
+					,#{dto.blackTypeName,jdbcType=VARCHAR}
+					,#{dto.intoBlackReason,jdbcType=VARCHAR}
+					,#{dto.intoBlackTime,jdbcType=VARCHAR}
+					,#{dto.overdueAmount,jdbcType=VARCHAR}
+					,#{dto.overdueLong,jdbcType=VARCHAR}
+					,#{dto.remarks,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.modifyBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_XY_IDENTITY_PROBE -->
+<update id="updateExtWlXyIdentityProbe" parameterType="java.util.Map">
+	     update ext_wl_xy_identity_probe t1
+	           set 
+			           t1.into_cust_ref_id               =#{dto.intoCustRefId,jdbcType=DECIMAL},
+			           t1.product_code                   =#{dto.productCode,jdbcType=VARCHAR},
+			           t1.black_type                     =#{dto.blackType,jdbcType=VARCHAR},
+			           t1.sub_black_type                 =#{dto.subBlackType,jdbcType=VARCHAR},
+			           t1.case_no                        =#{dto.caseNo,jdbcType=VARCHAR},
+			           t1.publish_date                   =#{dto.publishDate,jdbcType=VARCHAR},
+			           t1.performance                    =#{dto.performance,jdbcType=VARCHAR},
+			           t1.province                       =#{dto.province,jdbcType=VARCHAR},
+			           t1.court                          =#{dto.court,jdbcType=VARCHAR},
+			           t1.duty                           =#{dto.duty,jdbcType=VARCHAR},
+			           t1.disrupt_type_name              =#{dto.disruptTypeName,jdbcType=VARCHAR},
+			           t1.reg_date                       =#{dto.regDate,jdbcType=VARCHAR},
+			           t1.exec_money                     =#{dto.execMoney,jdbcType=VARCHAR},
+			           t1.black_type_name                =#{dto.blackTypeName,jdbcType=VARCHAR},
+			           t1.into_black_reason              =#{dto.intoBlackReason,jdbcType=VARCHAR},
+			           t1.into_black_time                =#{dto.intoBlackTime,jdbcType=VARCHAR},
+			           t1.overdue_amount                 =#{dto.overdueAmount,jdbcType=VARCHAR},
+			           t1.overdue_long                   =#{dto.overdueLong,jdbcType=VARCHAR},
+			           t1.remarks                        =#{dto.remarks,jdbcType=VARCHAR},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP},
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.modify_by                      =#{dto.modifyBy,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_XY_IDENTITY_PROBE -->
+<delete id="deleteExtWlXyIdentityProbeByID" parameterType="java.util.Map">
+    	delete from ext_wl_xy_identity_probe t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_XY_IDENTITY_PROBE -->
+<update id="deleteExtWlXyIdentityProbeByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_xy_identity_probe t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

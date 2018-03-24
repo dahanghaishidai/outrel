@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.sh.extwlsharerepayinfo.dao.ExtWlShareRepayinfoDao">
+<resultMap id="ExtWlShareRepayinfoDTO" type="com.jy.modules.externalplatform.interfacerepository.sh.extwlsharerepayinfo.dto.ExtWlShareRepayinfoDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="m1" column="M1" jdbcType="VARCHAR" />
+				<result property="m2" column="M2" jdbcType="VARCHAR" />
+				<result property="m3" column="M3" jdbcType="VARCHAR" />
+				<result property="m4" column="M4" jdbcType="VARCHAR" />
+				<result property="m5" column="M5" jdbcType="VARCHAR" />
+				<result property="m6" column="M6" jdbcType="VARCHAR" />
+				<result property="m7" column="M7" jdbcType="VARCHAR" />
+				<result property="m8" column="M8" jdbcType="VARCHAR" />
+				<result property="m9" column="M9" jdbcType="VARCHAR" />
+				<result property="m10" column="M10" jdbcType="VARCHAR" />
+				<result property="m11" column="M11" jdbcType="VARCHAR" />
+				<result property="m12" column="M12" jdbcType="VARCHAR" />
+				<result property="m13" column="M13" jdbcType="VARCHAR" />
+				<result property="m14" column="M14" jdbcType="VARCHAR" />
+				<result property="m15" column="M15" jdbcType="VARCHAR" />
+				<result property="m16" column="M16" jdbcType="VARCHAR" />
+				<result property="m17" column="M17" jdbcType="VARCHAR" />
+				<result property="m18" column="M18" jdbcType="VARCHAR" />
+				<result property="m19" column="M19" jdbcType="VARCHAR" />
+				<result property="m20" column="M20" jdbcType="VARCHAR" />
+				<result property="m21" column="M21" jdbcType="VARCHAR" />
+				<result property="m22" column="M22" jdbcType="VARCHAR" />
+				<result property="m23" column="M23" jdbcType="VARCHAR" />
+				<result property="m24" column="M24" jdbcType="VARCHAR" />
+				<result property="startDate" column="START_DATE" jdbcType="VARCHAR" />
+				<result property="endDate" column="END_DATE" jdbcType="VARCHAR" />
+				<result property="fkCreditDetailId" column="FK_CREDIT_DETAIL_ID" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_SHARE_REPAYINFO -->	
+<select id="searchExtWlShareRepayinfoByPaging" parameterType="java.util.Map" resultMap="ExtWlShareRepayinfoDTO">
+    	 		select 
+						t1.id                             ,
+						t1.m1                             ,
+						t1.m2                             ,
+						t1.m3                             ,
+						t1.m4                             ,
+						t1.m5                             ,
+						t1.m6                             ,
+						t1.m7                             ,
+						t1.m8                             ,
+						t1.m9                             ,
+						t1.m10                            ,
+						t1.m11                            ,
+						t1.m12                            ,
+						t1.m13                            ,
+						t1.m14                            ,
+						t1.m15                            ,
+						t1.m16                            ,
+						t1.m17                            ,
+						t1.m18                            ,
+						t1.m19                            ,
+						t1.m20                            ,
+						t1.m21                            ,
+						t1.m22                            ,
+						t1.m23                            ,
+						t1.m24                            ,
+						t1.start_date                     ,
+						t1.end_date                       ,
+						t1.fk_credit_detail_id            ,
+						t1.create_time                    ,
+						t1.modify_time                    
+					
+				from ext_wl_share_repayinfo 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.m1 != null and dto.m1 != ''">
+						and t1.M1 =#{dto.m1}
+    			</if>
+    			<if test="dto.m2 != null and dto.m2 != ''">
+						and t1.M2 =#{dto.m2}
+    			</if>
+    			<if test="dto.m3 != null and dto.m3 != ''">
+						and t1.M3 =#{dto.m3}
+    			</if>
+    			<if test="dto.m4 != null and dto.m4 != ''">
+						and t1.M4 =#{dto.m4}
+    			</if>
+    			<if test="dto.m5 != null and dto.m5 != ''">
+						and t1.M5 =#{dto.m5}
+    			</if>
+    			<if test="dto.m6 != null and dto.m6 != ''">
+						and t1.M6 =#{dto.m6}
+    			</if>
+    			<if test="dto.m7 != null and dto.m7 != ''">
+						and t1.M7 =#{dto.m7}
+    			</if>
+    			<if test="dto.m8 != null and dto.m8 != ''">
+						and t1.M8 =#{dto.m8}
+    			</if>
+    			<if test="dto.m9 != null and dto.m9 != ''">
+						and t1.M9 =#{dto.m9}
+    			</if>
+    			<if test="dto.m10 != null and dto.m10 != ''">
+						and t1.M10 =#{dto.m10}
+    			</if>
+    			<if test="dto.m11 != null and dto.m11 != ''">
+						and t1.M11 =#{dto.m11}
+    			</if>
+    			<if test="dto.m12 != null and dto.m12 != ''">
+						and t1.M12 =#{dto.m12}
+    			</if>
+    			<if test="dto.m13 != null and dto.m13 != ''">
+						and t1.M13 =#{dto.m13}
+    			</if>
+    			<if test="dto.m14 != null and dto.m14 != ''">
+						and t1.M14 =#{dto.m14}
+    			</if>
+    			<if test="dto.m15 != null and dto.m15 != ''">
+						and t1.M15 =#{dto.m15}
+    			</if>
+    			<if test="dto.m16 != null and dto.m16 != ''">
+						and t1.M16 =#{dto.m16}
+    			</if>
+    			<if test="dto.m17 != null and dto.m17 != ''">
+						and t1.M17 =#{dto.m17}
+    			</if>
+    			<if test="dto.m18 != null and dto.m18 != ''">
+						and t1.M18 =#{dto.m18}
+    			</if>
+    			<if test="dto.m19 != null and dto.m19 != ''">
+						and t1.M19 =#{dto.m19}
+    			</if>
+    			<if test="dto.m20 != null and dto.m20 != ''">
+						and t1.M20 =#{dto.m20}
+    			</if>
+    			<if test="dto.m21 != null and dto.m21 != ''">
+						and t1.M21 =#{dto.m21}
+    			</if>
+    			<if test="dto.m22 != null and dto.m22 != ''">
+						and t1.M22 =#{dto.m22}
+    			</if>
+    			<if test="dto.m23 != null and dto.m23 != ''">
+						and t1.M23 =#{dto.m23}
+    			</if>
+    			<if test="dto.m24 != null and dto.m24 != ''">
+						and t1.M24 =#{dto.m24}
+    			</if>
+    			<if test="dto.startDate != null and dto.startDate != ''">
+						and t1.START_DATE =#{dto.startDate}
+    			</if>
+    			<if test="dto.endDate != null and dto.endDate != ''">
+						and t1.END_DATE =#{dto.endDate}
+    			</if>
+    			<if test="dto.fkCreditDetailId != null and dto.fkCreditDetailId != ''">
+						and t1.FK_CREDIT_DETAIL_ID =#{dto.fkCreditDetailId}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_SHARE_REPAYINFO  -->
+<select id="searchExtWlShareRepayinfo" parameterType="java.util.Map" resultMap="ExtWlShareRepayinfoDTO">
+    	     select 
+						t1.id                             ,
+						t1.m1                             ,
+						t1.m2                             ,
+						t1.m3                             ,
+						t1.m4                             ,
+						t1.m5                             ,
+						t1.m6                             ,
+						t1.m7                             ,
+						t1.m8                             ,
+						t1.m9                             ,
+						t1.m10                            ,
+						t1.m11                            ,
+						t1.m12                            ,
+						t1.m13                            ,
+						t1.m14                            ,
+						t1.m15                            ,
+						t1.m16                            ,
+						t1.m17                            ,
+						t1.m18                            ,
+						t1.m19                            ,
+						t1.m20                            ,
+						t1.m21                            ,
+						t1.m22                            ,
+						t1.m23                            ,
+						t1.m24                            ,
+						t1.start_date                     ,
+						t1.end_date                       ,
+						t1.fk_credit_detail_id            ,
+						t1.create_time                    ,
+						t1.modify_time                    
+				from ext_wl_share_repayinfo 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.m1 != null and dto.m1 != ''">
+						and t1.M1 = #{dto.m1}
+    			</if>
+    			<if test="dto.m2 != null and dto.m2 != ''">
+						and t1.M2 = #{dto.m2}
+    			</if>
+    			<if test="dto.m3 != null and dto.m3 != ''">
+						and t1.M3 = #{dto.m3}
+    			</if>
+    			<if test="dto.m4 != null and dto.m4 != ''">
+						and t1.M4 = #{dto.m4}
+    			</if>
+    			<if test="dto.m5 != null and dto.m5 != ''">
+						and t1.M5 = #{dto.m5}
+    			</if>
+    			<if test="dto.m6 != null and dto.m6 != ''">
+						and t1.M6 = #{dto.m6}
+    			</if>
+    			<if test="dto.m7 != null and dto.m7 != ''">
+						and t1.M7 = #{dto.m7}
+    			</if>
+    			<if test="dto.m8 != null and dto.m8 != ''">
+						and t1.M8 = #{dto.m8}
+    			</if>
+    			<if test="dto.m9 != null and dto.m9 != ''">
+						and t1.M9 = #{dto.m9}
+    			</if>
+    			<if test="dto.m10 != null and dto.m10 != ''">
+						and t1.M10 = #{dto.m10}
+    			</if>
+    			<if test="dto.m11 != null and dto.m11 != ''">
+						and t1.M11 = #{dto.m11}
+    			</if>
+    			<if test="dto.m12 != null and dto.m12 != ''">
+						and t1.M12 = #{dto.m12}
+    			</if>
+    			<if test="dto.m13 != null and dto.m13 != ''">
+						and t1.M13 = #{dto.m13}
+    			</if>
+    			<if test="dto.m14 != null and dto.m14 != ''">
+						and t1.M14 = #{dto.m14}
+    			</if>
+    			<if test="dto.m15 != null and dto.m15 != ''">
+						and t1.M15 = #{dto.m15}
+    			</if>
+    			<if test="dto.m16 != null and dto.m16 != ''">
+						and t1.M16 = #{dto.m16}
+    			</if>
+    			<if test="dto.m17 != null and dto.m17 != ''">
+						and t1.M17 = #{dto.m17}
+    			</if>
+    			<if test="dto.m18 != null and dto.m18 != ''">
+						and t1.M18 = #{dto.m18}
+    			</if>
+    			<if test="dto.m19 != null and dto.m19 != ''">
+						and t1.M19 = #{dto.m19}
+    			</if>
+    			<if test="dto.m20 != null and dto.m20 != ''">
+						and t1.M20 = #{dto.m20}
+    			</if>
+    			<if test="dto.m21 != null and dto.m21 != ''">
+						and t1.M21 = #{dto.m21}
+    			</if>
+    			<if test="dto.m22 != null and dto.m22 != ''">
+						and t1.M22 = #{dto.m22}
+    			</if>
+    			<if test="dto.m23 != null and dto.m23 != ''">
+						and t1.M23 = #{dto.m23}
+    			</if>
+    			<if test="dto.m24 != null and dto.m24 != ''">
+						and t1.M24 = #{dto.m24}
+    			</if>
+    			<if test="dto.startDate != null and dto.startDate != ''">
+						and t1.START_DATE = #{dto.startDate}
+    			</if>
+    			<if test="dto.endDate != null and dto.endDate != ''">
+						and t1.END_DATE = #{dto.endDate}
+    			</if>
+    			<if test="dto.fkCreditDetailId != null and dto.fkCreditDetailId != ''">
+						and t1.FK_CREDIT_DETAIL_ID = #{dto.fkCreditDetailId}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_SHARE_REPAYINFO -->
+<select id="findExtWlShareRepayinfoByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlShareRepayinfoDTO">
+   	 		select 
+					t1.id                             ,
+					t1.m1                             ,
+					t1.m2                             ,
+					t1.m3                             ,
+					t1.m4                             ,
+					t1.m5                             ,
+					t1.m6                             ,
+					t1.m7                             ,
+					t1.m8                             ,
+					t1.m9                             ,
+					t1.m10                            ,
+					t1.m11                            ,
+					t1.m12                            ,
+					t1.m13                            ,
+					t1.m14                            ,
+					t1.m15                            ,
+					t1.m16                            ,
+					t1.m17                            ,
+					t1.m18                            ,
+					t1.m19                            ,
+					t1.m20                            ,
+					t1.m21                            ,
+					t1.m22                            ,
+					t1.m23                            ,
+					t1.m24                            ,
+					t1.start_date                     ,
+					t1.end_date                       ,
+					t1.fk_credit_detail_id            ,
+					t1.create_time                    ,
+					t1.modify_time                    
+			from ext_wl_share_repayinfo 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_SHARE_REPAYINFO -->
+<insert id="insertExtWlShareRepayinfo" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_SHARE_REPAYINFO.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_share_repayinfo
+			(   		
+					id                             ,
+					m1                             ,
+					m2                             ,
+					m3                             ,
+					m4                             ,
+					m5                             ,
+					m6                             ,
+					m7                             ,
+					m8                             ,
+					m9                             ,
+					m10                            ,
+					m11                            ,
+					m12                            ,
+					m13                            ,
+					m14                            ,
+					m15                            ,
+					m16                            ,
+					m17                            ,
+					m18                            ,
+					m19                            ,
+					m20                            ,
+					m21                            ,
+					m22                            ,
+					m23                            ,
+					m24                            ,
+					start_date                     ,
+					end_date                       ,
+					fk_credit_detail_id            ,
+					create_time                    ,
+					modify_time                    
+			)
+			values(#{dto.id}
+					,#{dto.m1,jdbcType=VARCHAR}
+					,#{dto.m2,jdbcType=VARCHAR}
+					,#{dto.m3,jdbcType=VARCHAR}
+					,#{dto.m4,jdbcType=VARCHAR}
+					,#{dto.m5,jdbcType=VARCHAR}
+					,#{dto.m6,jdbcType=VARCHAR}
+					,#{dto.m7,jdbcType=VARCHAR}
+					,#{dto.m8,jdbcType=VARCHAR}
+					,#{dto.m9,jdbcType=VARCHAR}
+					,#{dto.m10,jdbcType=VARCHAR}
+					,#{dto.m11,jdbcType=VARCHAR}
+					,#{dto.m12,jdbcType=VARCHAR}
+					,#{dto.m13,jdbcType=VARCHAR}
+					,#{dto.m14,jdbcType=VARCHAR}
+					,#{dto.m15,jdbcType=VARCHAR}
+					,#{dto.m16,jdbcType=VARCHAR}
+					,#{dto.m17,jdbcType=VARCHAR}
+					,#{dto.m18,jdbcType=VARCHAR}
+					,#{dto.m19,jdbcType=VARCHAR}
+					,#{dto.m20,jdbcType=VARCHAR}
+					,#{dto.m21,jdbcType=VARCHAR}
+					,#{dto.m22,jdbcType=VARCHAR}
+					,#{dto.m23,jdbcType=VARCHAR}
+					,#{dto.m24,jdbcType=VARCHAR}
+					,#{dto.startDate,jdbcType=VARCHAR}
+					,#{dto.endDate,jdbcType=VARCHAR}
+					,#{dto.fkCreditDetailId,jdbcType=DECIMAL}
+					,systimestamp
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_SHARE_REPAYINFO -->
+<update id="updateExtWlShareRepayinfo" parameterType="java.util.Map">
+	     update ext_wl_share_repayinfo t1
+	           set 
+			           t1.m1                             =#{dto.m1,jdbcType=VARCHAR},
+			           t1.m2                             =#{dto.m2,jdbcType=VARCHAR},
+			           t1.m3                             =#{dto.m3,jdbcType=VARCHAR},
+			           t1.m4                             =#{dto.m4,jdbcType=VARCHAR},
+			           t1.m5                             =#{dto.m5,jdbcType=VARCHAR},
+			           t1.m6                             =#{dto.m6,jdbcType=VARCHAR},
+			           t1.m7                             =#{dto.m7,jdbcType=VARCHAR},
+			           t1.m8                             =#{dto.m8,jdbcType=VARCHAR},
+			           t1.m9                             =#{dto.m9,jdbcType=VARCHAR},
+			           t1.m10                            =#{dto.m10,jdbcType=VARCHAR},
+			           t1.m11                            =#{dto.m11,jdbcType=VARCHAR},
+			           t1.m12                            =#{dto.m12,jdbcType=VARCHAR},
+			           t1.m13                            =#{dto.m13,jdbcType=VARCHAR},
+			           t1.m14                            =#{dto.m14,jdbcType=VARCHAR},
+			           t1.m15                            =#{dto.m15,jdbcType=VARCHAR},
+			           t1.m16                            =#{dto.m16,jdbcType=VARCHAR},
+			           t1.m17                            =#{dto.m17,jdbcType=VARCHAR},
+			           t1.m18                            =#{dto.m18,jdbcType=VARCHAR},
+			           t1.m19                            =#{dto.m19,jdbcType=VARCHAR},
+			           t1.m20                            =#{dto.m20,jdbcType=VARCHAR},
+			           t1.m21                            =#{dto.m21,jdbcType=VARCHAR},
+			           t1.m22                            =#{dto.m22,jdbcType=VARCHAR},
+			           t1.m23                            =#{dto.m23,jdbcType=VARCHAR},
+			           t1.m24                            =#{dto.m24,jdbcType=VARCHAR},
+			           t1.start_date                     =#{dto.startDate,jdbcType=VARCHAR},
+			           t1.end_date                       =#{dto.endDate,jdbcType=VARCHAR},
+			           t1.fk_credit_detail_id            =#{dto.fkCreditDetailId,jdbcType=DECIMAL},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_SHARE_REPAYINFO -->
+<delete id="deleteExtWlShareRepayinfoByID" parameterType="java.util.Map">
+    	delete from ext_wl_share_repayinfo t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_SHARE_REPAYINFO -->
+<update id="deleteExtWlShareRepayinfoByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_share_repayinfo t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

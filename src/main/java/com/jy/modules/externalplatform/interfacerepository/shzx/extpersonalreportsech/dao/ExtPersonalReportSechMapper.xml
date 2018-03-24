@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.shzx.extpersonalreportsech.dao.ExtPersonalReportSechDao">
+<resultMap id="ExtPersonalReportSechDTO" type="com.jy.modules.externalplatform.interfacerepository.shzx.extpersonalreportsech.dto.ExtPersonalReportSechDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="searchType" column="SEARCH_TYPE" jdbcType="VARCHAR" />
+				<result property="searchBecause" column="SEARCH_BECAUSE" jdbcType="VARCHAR" />
+				<result property="searchDate" column="SEARCH_DATE" jdbcType="VARCHAR" />
+				<result property="personalCreditReport" column="PERSONAL_CREDIT_REPORT" jdbcType="DECIMAL" />
+				<result property="optlock" column="OPTLOCK" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 EXT_personal_report_sech -->	
+<select id="searchExtPersonalReportSechByPaging" parameterType="java.util.Map" resultMap="ExtPersonalReportSechDTO">
+    	 		select 
+						t1.id                             ,
+						t1.search_type                    ,
+						t1.search_because                 ,
+						t1.search_date                    ,
+						t1.personal_credit_report         ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.optlock                        
+					
+				from ext_personal_report_sech 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.searchType != null and dto.searchType != ''">
+						and t1.SEARCH_TYPE =#{dto.searchType}
+    			</if>
+    			<if test="dto.searchBecause != null and dto.searchBecause != ''">
+						and t1.SEARCH_BECAUSE =#{dto.searchBecause}
+    			</if>
+    			<if test="dto.searchDate != null and dto.searchDate != ''">
+						and t1.SEARCH_DATE =#{dto.searchDate}
+    			</if>
+    			<if test="dto.personalCreditReport != null and dto.personalCreditReport != ''">
+						and t1.PERSONAL_CREDIT_REPORT =#{dto.personalCreditReport}
+    			</if>
+    			<if test="dto.optlock != null and dto.optlock != ''">
+						and t1.OPTLOCK =#{dto.optlock}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_personal_report_sech  -->
+<select id="searchExtPersonalReportSech" parameterType="java.util.Map" resultMap="ExtPersonalReportSechDTO">
+    	     select 
+						t1.id                             ,
+						t1.search_type                    ,
+						t1.search_because                 ,
+						t1.search_date                    ,
+						t1.personal_credit_report         ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.optlock                        
+				from ext_personal_report_sech 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.searchType != null and dto.searchType != ''">
+						and t1.SEARCH_TYPE = #{dto.searchType}
+    			</if>
+    			<if test="dto.searchBecause != null and dto.searchBecause != ''">
+						and t1.SEARCH_BECAUSE = #{dto.searchBecause}
+    			</if>
+    			<if test="dto.searchDate != null and dto.searchDate != ''">
+						and t1.SEARCH_DATE = #{dto.searchDate}
+    			</if>
+    			<if test="dto.personalCreditReport != null and dto.personalCreditReport != ''">
+						and t1.PERSONAL_CREDIT_REPORT = #{dto.personalCreditReport}
+    			</if>
+    			<if test="dto.optlock != null and dto.optlock != ''">
+						and t1.OPTLOCK = #{dto.optlock}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_personal_report_sech -->
+<select id="findExtPersonalReportSechByPrimaryKey" parameterType="java.util.Map" resultMap="ExtPersonalReportSechDTO">
+   	 		select 
+					t1.id                             ,
+					t1.search_type                    ,
+					t1.search_because                 ,
+					t1.search_date                    ,
+					t1.personal_credit_report         ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.optlock                        
+			from ext_personal_report_sech 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_personal_report_sech -->
+<insert id="insertExtPersonalReportSech" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_personal_report_sech.nextval as id from dual
+	</selectKey>
+			insert into ext_personal_report_sech
+			(   		
+					id                             ,
+					search_type                    ,
+					search_because                 ,
+					search_date                    ,
+					personal_credit_report         ,
+					create_time                    ,
+					optlock                        
+			)
+			values(#{dto.id}
+					,#{dto.searchType,jdbcType=VARCHAR}
+					,#{dto.searchBecause,jdbcType=VARCHAR}
+					,#{dto.searchDate,jdbcType=VARCHAR}
+					,#{dto.personalCreditReport,jdbcType=DECIMAL}
+					,systimestamp
+					,#{dto.optlock,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_personal_report_sech -->
+<update id="updateExtPersonalReportSech" parameterType="java.util.Map">
+	     update ext_personal_report_sech t1
+	           set 
+			           t1.search_type                    =#{dto.searchType,jdbcType=VARCHAR},
+			           t1.search_because                 =#{dto.searchBecause,jdbcType=VARCHAR},
+			           t1.search_date                    =#{dto.searchDate,jdbcType=VARCHAR},
+			           t1.personal_credit_report         =#{dto.personalCreditReport,jdbcType=DECIMAL},
+					   t1.modify_time                    =systimestamp,
+			           t1.optlock                        =#{dto.optlock,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_personal_report_sech -->
+<delete id="deleteExtPersonalReportSechByID" parameterType="java.util.Map">
+    	delete from ext_personal_report_sech t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_personal_report_sech -->
+<update id="deleteExtPersonalReportSechByPrimaryKey" parameterType="java.util.Map">
+	     update ext_personal_report_sech t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

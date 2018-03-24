@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<bean id="jedisSentinelPool" class="com.jy.platform.core.redis.JedisSentinelPool">
+		<constructor-arg index="0" ref="jedisPoolConfig" />
+		<constructor-arg index="1">
+			<list>
+				<value>mymaster</value>
+			</list>
+		</constructor-arg>
+		<constructor-arg index="2">
+			<set>
+			    <!-- 集成1环境 
+				<value>172.18.100.57:26479</value>-->
+				<!-- 集成2环境-->
+ 				<value>172.18.100.169:26479</value>
+				<!-- 集成3环境
+				<value>172.18.100.212:26379</value>-->
+				<!-- 资金存管
+				<value>172.18.100.169:26879</value>-->
+				
+				
+				<!-- 准生产环境
+				<value>172.17.100.19:26479</value>-->
+				
+				<!-- UAT
+				<value>172.18.100.139:26479</value>-->
+			</set>
+		</constructor-arg>
+		<!-- <constructor-arg index="3" type="String">
+				<value>123456</value>
+		</constructor-arg> -->
+	</bean>
+
+	<bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+		<property name="maxTotal" value="100" />
+		<!-- 对象的最大空闲数 -->
+		<property name="maxIdle" value="100" />
+		<property name="maxWaitMillis" value="5000" />
+		<!-- 在获取连接的时候检查有效性  默认false-->
+		<property name="testOnBorrow" value="false" />
+	</bean>
+</beans>

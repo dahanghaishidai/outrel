@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.jxl.extjxlcheckinfostock.dao.ExtJxlCheckInfoStockDao">
+<resultMap id="ExtJxlCheckInfoStockDTO" type="com.jy.modules.externalplatform.interfacerepository.jxl.extjxlcheckinfostock.dto.ExtJxlCheckInfoStockDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="fkJxlCustInfoId" column="FK_JXL_CUST_INFO_ID" jdbcType="DECIMAL" />
+				<result property="category" column="CATEGORY" jdbcType="VARCHAR" />
+				<result property="checkPoint" column="CHECK_POINT" jdbcType="VARCHAR" />
+				<result property="result" column="RESULT" jdbcType="VARCHAR" />
+				<result property="evidence" column="EVIDENCE" jdbcType="VARCHAR" />
+				<result property="isApplicationBehavior" column="IS_APPLICATION_BEHAVIOR" jdbcType="CHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 EXT_JXL_CHECK_INFO_STOCK -->	
+<select id="searchExtJxlCheckInfoStockByPaging" parameterType="java.util.Map" resultMap="ExtJxlCheckInfoStockDTO">
+    	 		select 
+						t1.id                             ,
+						t1.fk_jxl_cust_info_id            ,
+						t1.category                       ,
+						t1.check_point                    ,
+						t1.result                         ,
+						t1.evidence                       ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.is_application_behavior        
+					
+				from ext_jxl_check_info_stock 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.fkJxlCustInfoId != null and dto.fkJxlCustInfoId != ''">
+						and t1.FK_JXL_CUST_INFO_ID =#{dto.fkJxlCustInfoId}
+    			</if>
+    			<if test="dto.category != null and dto.category != ''">
+						and t1.CATEGORY =#{dto.category}
+    			</if>
+    			<if test="dto.checkPoint != null and dto.checkPoint != ''">
+						and t1.CHECK_POINT =#{dto.checkPoint}
+    			</if>
+    			<if test="dto.result != null and dto.result != ''">
+						and t1.RESULT =#{dto.result}
+    			</if>
+    			<if test="dto.evidence != null and dto.evidence != ''">
+						and t1.EVIDENCE =#{dto.evidence}
+    			</if>
+    			<if test="dto.isApplicationBehavior != null and dto.isApplicationBehavior != ''">
+						and t1.IS_APPLICATION_BEHAVIOR =#{dto.isApplicationBehavior}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_JXL_CHECK_INFO_STOCK  -->
+<select id="searchExtJxlCheckInfoStock" parameterType="java.util.Map" resultMap="ExtJxlCheckInfoStockDTO">
+    	     select 
+						t1.id                             ,
+						t1.fk_jxl_cust_info_id            ,
+						t1.category                       ,
+						t1.check_point                    ,
+						t1.result                         ,
+						t1.evidence                       ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.is_application_behavior        
+				from ext_jxl_check_info_stock 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.fkJxlCustInfoId != null and dto.fkJxlCustInfoId != ''">
+						and t1.FK_JXL_CUST_INFO_ID = #{dto.fkJxlCustInfoId}
+    			</if>
+    			<if test="dto.category != null and dto.category != ''">
+						and t1.CATEGORY = #{dto.category}
+    			</if>
+    			<if test="dto.checkPoint != null and dto.checkPoint != ''">
+						and t1.CHECK_POINT = #{dto.checkPoint}
+    			</if>
+    			<if test="dto.result != null and dto.result != ''">
+						and t1.RESULT = #{dto.result}
+    			</if>
+    			<if test="dto.evidence != null and dto.evidence != ''">
+						and t1.EVIDENCE = #{dto.evidence}
+    			</if>
+    			<if test="dto.isApplicationBehavior != null and dto.isApplicationBehavior != ''">
+						and t1.IS_APPLICATION_BEHAVIOR = #{dto.isApplicationBehavior}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_JXL_CHECK_INFO_STOCK -->
+<select id="findExtJxlCheckInfoStockByPrimaryKey" parameterType="java.util.Map" resultMap="ExtJxlCheckInfoStockDTO">
+   	 		select 
+					t1.id                             ,
+					t1.fk_jxl_cust_info_id            ,
+					t1.category                       ,
+					t1.check_point                    ,
+					t1.result                         ,
+					t1.evidence                       ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.is_application_behavior        
+			from ext_jxl_check_info_stock 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_JXL_CHECK_INFO_STOCK -->
+<insert id="insertExtJxlCheckInfoStock" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_JXL_CHECK_INFO_STOCK.nextval as id from dual
+	</selectKey>
+			insert into ext_jxl_check_info_stock
+			(   		
+					id                             ,
+					fk_jxl_cust_info_id            ,
+					category                       ,
+					check_point                    ,
+					result                         ,
+					evidence                       ,
+					create_time                    ,
+					is_application_behavior        
+			)
+			values(#{dto.id}
+					,#{dto.fkJxlCustInfoId,jdbcType=DECIMAL}
+					,#{dto.category,jdbcType=VARCHAR}
+					,#{dto.checkPoint,jdbcType=VARCHAR}
+					,#{dto.result,jdbcType=VARCHAR}
+					,#{dto.evidence,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.isApplicationBehavior,jdbcType=CHAR}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_JXL_CHECK_INFO_STOCK -->
+<update id="updateExtJxlCheckInfoStock" parameterType="java.util.Map">
+	     update ext_jxl_check_info_stock t1
+	           set 
+			           t1.fk_jxl_cust_info_id            =#{dto.fkJxlCustInfoId,jdbcType=DECIMAL},
+			           t1.category                       =#{dto.category,jdbcType=VARCHAR},
+			           t1.check_point                    =#{dto.checkPoint,jdbcType=VARCHAR},
+			           t1.result                         =#{dto.result,jdbcType=VARCHAR},
+			           t1.evidence                       =#{dto.evidence,jdbcType=VARCHAR},
+					   t1.modify_time                    =systimestamp,
+			           t1.is_application_behavior        =#{dto.isApplicationBehavior,jdbcType=CHAR}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_JXL_CHECK_INFO_STOCK -->
+<delete id="deleteExtJxlCheckInfoStockByID" parameterType="java.util.Map">
+    	delete from ext_jxl_check_info_stock t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_JXL_CHECK_INFO_STOCK -->
+<update id="deleteExtJxlCheckInfoStockByPrimaryKey" parameterType="java.util.Map">
+	     update ext_jxl_check_info_stock t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

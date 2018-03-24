@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.suanhuazx.extwlshprecordenforcem.dao.ExtWlShPrecordEnforcemDao">
+<resultMap id="ExtWlShPrecordEnforcemDTO" type="com.jy.modules.externalplatform.interfacerepository.suanhuazx.extwlshprecordenforcem.dto.ExtWlShPrecordEnforcemDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="fkReportId" column="FK_REPORT_ID" jdbcType="DECIMAL" />
+				<result property="court" column="COURT" jdbcType="VARCHAR" />
+				<result property="docketNo" column="DOCKET_NO" jdbcType="VARCHAR" />
+				<result property="docketCause" column="DOCKET_CAUSE" jdbcType="VARCHAR" />
+				<result property="filingWay" column="FILING_WAY" jdbcType="VARCHAR" />
+				<result property="filingTime" column="FILING_TIME" jdbcType="VARCHAR" />
+				<result property="docketStatus" column="DOCKET_STATUS" jdbcType="VARCHAR" />
+				<result property="applyEnforceSubject" column="APPLY_ENFORCE_SUBJECT" jdbcType="VARCHAR" />
+				<result property="executedEnforceSubject" column="EXECUTED_ENFORCE_SUBJECT" jdbcType="VARCHAR" />
+				<result property="applyEnforceAmount" column="APPLY_ENFORCE_AMOUNT" jdbcType="VARCHAR" />
+				<result property="executedEnforceAmount" column="EXECUTED_ENFORCE_AMOUNT" jdbcType="VARCHAR" />
+				<result property="closedTime" column="CLOSED_TIME" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="validateState" column="VALIDATE_STATE" jdbcType="VARCHAR" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="updateBy" column="UPDATE_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_SH_PRECORD_ENFORCEM -->	
+<select id="searchExtWlShPrecordEnforcemByPaging" parameterType="java.util.Map" resultMap="ExtWlShPrecordEnforcemDTO">
+    	 		select 
+						t1.id                             ,
+						t1.fk_report_id                   ,
+						t1.court                          ,
+						t1.docket_no                      ,
+						t1.docket_cause                   ,
+						t1.filing_way                     ,
+						t1.filing_time                    ,
+						t1.docket_status                  ,
+						t1.apply_enforce_subject          ,
+						t1.executed_enforce_subject       ,
+						t1.apply_enforce_amount           ,
+						t1.executed_enforce_amount        ,
+						t1.closed_time                    ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.validate_state                 ,
+						t1.create_by                      ,
+						t1.update_by                      
+					
+				from ext_wl_sh_precord_enforcem 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.fkReportId != null and dto.fkReportId != ''">
+						and t1.FK_REPORT_ID =#{dto.fkReportId}
+    			</if>
+    			<if test="dto.court != null and dto.court != ''">
+						and t1.COURT =#{dto.court}
+    			</if>
+    			<if test="dto.docketNo != null and dto.docketNo != ''">
+						and t1.DOCKET_NO =#{dto.docketNo}
+    			</if>
+    			<if test="dto.docketCause != null and dto.docketCause != ''">
+						and t1.DOCKET_CAUSE =#{dto.docketCause}
+    			</if>
+    			<if test="dto.filingWay != null and dto.filingWay != ''">
+						and t1.FILING_WAY =#{dto.filingWay}
+    			</if>
+    			<if test="dto.filingTime != null and dto.filingTime != ''">
+						and t1.FILING_TIME =#{dto.filingTime}
+    			</if>
+    			<if test="dto.docketStatus != null and dto.docketStatus != ''">
+						and t1.DOCKET_STATUS =#{dto.docketStatus}
+    			</if>
+    			<if test="dto.applyEnforceSubject != null and dto.applyEnforceSubject != ''">
+						and t1.APPLY_ENFORCE_SUBJECT =#{dto.applyEnforceSubject}
+    			</if>
+    			<if test="dto.executedEnforceSubject != null and dto.executedEnforceSubject != ''">
+						and t1.EXECUTED_ENFORCE_SUBJECT =#{dto.executedEnforceSubject}
+    			</if>
+    			<if test="dto.applyEnforceAmount != null and dto.applyEnforceAmount != ''">
+						and t1.APPLY_ENFORCE_AMOUNT =#{dto.applyEnforceAmount}
+    			</if>
+    			<if test="dto.executedEnforceAmount != null and dto.executedEnforceAmount != ''">
+						and t1.EXECUTED_ENFORCE_AMOUNT =#{dto.executedEnforceAmount}
+    			</if>
+    			<if test="dto.closedTime != null and dto.closedTime != ''">
+						and t1.CLOSED_TIME =#{dto.closedTime}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE =#{dto.validateState}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY =#{dto.updateBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_SH_PRECORD_ENFORCEM  -->
+<select id="searchExtWlShPrecordEnforcem" parameterType="java.util.Map" resultMap="ExtWlShPrecordEnforcemDTO">
+    	     select 
+						t1.id                             ,
+						t1.fk_report_id                   ,
+						t1.court                          ,
+						t1.docket_no                      ,
+						t1.docket_cause                   ,
+						t1.filing_way                     ,
+						t1.filing_time                    ,
+						t1.docket_status                  ,
+						t1.apply_enforce_subject          ,
+						t1.executed_enforce_subject       ,
+						t1.apply_enforce_amount           ,
+						t1.executed_enforce_amount        ,
+						t1.closed_time                    ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.validate_state                 ,
+						t1.create_by                      ,
+						t1.update_by                      
+				from ext_wl_sh_precord_enforcem 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.fkReportId != null and dto.fkReportId != ''">
+						and t1.FK_REPORT_ID = #{dto.fkReportId}
+    			</if>
+    			<if test="dto.court != null and dto.court != ''">
+						and t1.COURT = #{dto.court}
+    			</if>
+    			<if test="dto.docketNo != null and dto.docketNo != ''">
+						and t1.DOCKET_NO = #{dto.docketNo}
+    			</if>
+    			<if test="dto.docketCause != null and dto.docketCause != ''">
+						and t1.DOCKET_CAUSE = #{dto.docketCause}
+    			</if>
+    			<if test="dto.filingWay != null and dto.filingWay != ''">
+						and t1.FILING_WAY = #{dto.filingWay}
+    			</if>
+    			<if test="dto.filingTime != null and dto.filingTime != ''">
+						and t1.FILING_TIME = #{dto.filingTime}
+    			</if>
+    			<if test="dto.docketStatus != null and dto.docketStatus != ''">
+						and t1.DOCKET_STATUS = #{dto.docketStatus}
+    			</if>
+    			<if test="dto.applyEnforceSubject != null and dto.applyEnforceSubject != ''">
+						and t1.APPLY_ENFORCE_SUBJECT = #{dto.applyEnforceSubject}
+    			</if>
+    			<if test="dto.executedEnforceSubject != null and dto.executedEnforceSubject != ''">
+						and t1.EXECUTED_ENFORCE_SUBJECT = #{dto.executedEnforceSubject}
+    			</if>
+    			<if test="dto.applyEnforceAmount != null and dto.applyEnforceAmount != ''">
+						and t1.APPLY_ENFORCE_AMOUNT = #{dto.applyEnforceAmount}
+    			</if>
+    			<if test="dto.executedEnforceAmount != null and dto.executedEnforceAmount != ''">
+						and t1.EXECUTED_ENFORCE_AMOUNT = #{dto.executedEnforceAmount}
+    			</if>
+    			<if test="dto.closedTime != null and dto.closedTime != ''">
+						and t1.CLOSED_TIME = #{dto.closedTime}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE = #{dto.validateState}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY = #{dto.updateBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_SH_PRECORD_ENFORCEM -->
+<select id="findExtWlShPrecordEnforcemByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlShPrecordEnforcemDTO">
+   	 		select 
+					t1.id                             ,
+					t1.fk_report_id                   ,
+					t1.court                          ,
+					t1.docket_no                      ,
+					t1.docket_cause                   ,
+					t1.filing_way                     ,
+					t1.filing_time                    ,
+					t1.docket_status                  ,
+					t1.apply_enforce_subject          ,
+					t1.executed_enforce_subject       ,
+					t1.apply_enforce_amount           ,
+					t1.executed_enforce_amount        ,
+					t1.closed_time                    ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.validate_state                 ,
+					t1.create_by                      ,
+					t1.update_by                      
+			from ext_wl_sh_precord_enforcem 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_SH_PRECORD_ENFORCEM -->
+<insert id="insertExtWlShPrecordEnforcem" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_SH_PRECORD_ENFORCEM.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_sh_precord_enforcem
+			(   		
+					id                             ,
+					fk_report_id                   ,
+					court                          ,
+					docket_no                      ,
+					docket_cause                   ,
+					filing_way                     ,
+					filing_time                    ,
+					docket_status                  ,
+					apply_enforce_subject          ,
+					executed_enforce_subject       ,
+					apply_enforce_amount           ,
+					executed_enforce_amount        ,
+					closed_time                    ,
+					create_time                    ,
+					modify_time                    ,
+					validate_state                 ,
+					create_by                      ,
+					update_by                      
+			)
+			values(#{dto.id}
+					,#{dto.fkReportId,jdbcType=DECIMAL}
+					,#{dto.court,jdbcType=VARCHAR}
+					,#{dto.docketNo,jdbcType=VARCHAR}
+					,#{dto.docketCause,jdbcType=VARCHAR}
+					,#{dto.filingWay,jdbcType=VARCHAR}
+					,#{dto.filingTime,jdbcType=VARCHAR}
+					,#{dto.docketStatus,jdbcType=VARCHAR}
+					,#{dto.applyEnforceSubject,jdbcType=VARCHAR}
+					,#{dto.executedEnforceSubject,jdbcType=VARCHAR}
+					,#{dto.applyEnforceAmount,jdbcType=VARCHAR}
+					,#{dto.executedEnforceAmount,jdbcType=VARCHAR}
+					,#{dto.closedTime,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,'1'
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.updateBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_SH_PRECORD_ENFORCEM -->
+<update id="updateExtWlShPrecordEnforcem" parameterType="java.util.Map">
+	     update ext_wl_sh_precord_enforcem t1
+	           set 
+			           t1.fk_report_id                   =#{dto.fkReportId,jdbcType=DECIMAL},
+			           t1.court                          =#{dto.court,jdbcType=VARCHAR},
+			           t1.docket_no                      =#{dto.docketNo,jdbcType=VARCHAR},
+			           t1.docket_cause                   =#{dto.docketCause,jdbcType=VARCHAR},
+			           t1.filing_way                     =#{dto.filingWay,jdbcType=VARCHAR},
+			           t1.filing_time                    =#{dto.filingTime,jdbcType=VARCHAR},
+			           t1.docket_status                  =#{dto.docketStatus,jdbcType=VARCHAR},
+			           t1.apply_enforce_subject          =#{dto.applyEnforceSubject,jdbcType=VARCHAR},
+			           t1.executed_enforce_subject       =#{dto.executedEnforceSubject,jdbcType=VARCHAR},
+			           t1.apply_enforce_amount           =#{dto.applyEnforceAmount,jdbcType=VARCHAR},
+			           t1.executed_enforce_amount        =#{dto.executedEnforceAmount,jdbcType=VARCHAR},
+			           t1.closed_time                    =#{dto.closedTime,jdbcType=VARCHAR},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP},
+			           t1.validate_state                 ='1',
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.update_by                      =#{dto.updateBy,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_SH_PRECORD_ENFORCEM -->
+<delete id="deleteExtWlShPrecordEnforcemByID" parameterType="java.util.Map">
+    	delete from ext_wl_sh_precord_enforcem t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_SH_PRECORD_ENFORCEM -->
+<update id="deleteExtWlShPrecordEnforcemByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_sh_precord_enforcem t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+
+	<!--批量新增 算话人行原版(公共记录_强制执行记录表)列表-->
+	<insert id="insertExtWlShPrecordEnforcementList" parameterType="java.util.Map" useGeneratedKeys="true">
+		begin
+		<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+			select seq_EXT_WL_SH_PRECORD_ENFORCEM.nextval as id from dual
+		</selectKey>
+		<foreach collection="dtoList" item="dto" >
+			insert into ext_wl_sh_precord_enforcem
+			(
+			id,
+			fk_report_id,
+			court,
+			docket_no,
+			docket_cause,
+			filing_way,
+			filing_time,
+			docket_status,
+			apply_enforce_subject,
+			executed_enforce_subject,
+			apply_enforce_amount,
+			executed_enforce_amount,
+			closed_time,
+			create_time,
+			validate_state
+			)
+			values(seq_EXT_WL_SH_PRECORD_ENFORCEM.nextval
+			,#{fkReportId}
+			,#{dto.court,jdbcType=VARCHAR}
+			,#{dto.docketNo,jdbcType=VARCHAR}
+			,#{dto.docketCause,jdbcType=VARCHAR}
+			,#{dto.filingWay,jdbcType=VARCHAR}
+			,#{dto.filingTime,jdbcType=VARCHAR}
+			,#{dto.docketStatus,jdbcType=VARCHAR}
+			,#{dto.applyEnforceSubject,jdbcType=VARCHAR}
+			,#{dto.executedEnforceSubject,jdbcType=VARCHAR}
+			,#{dto.applyEnforceAmount,jdbcType=VARCHAR}
+			,#{dto.executedEnforceAmount,jdbcType=VARCHAR}
+			,#{dto.closedTime,jdbcType=VARCHAR}
+			,systimestamp
+			,'1'
+			);
+		</foreach>
+		end;
+	</insert>
+</mapper>

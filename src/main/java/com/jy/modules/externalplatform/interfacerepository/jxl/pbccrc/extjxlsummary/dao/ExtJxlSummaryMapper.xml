@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.jxl.pbccrc.extjxlsummary.dao.ExtJxlSummaryDao">
+<resultMap id="ExtJxlSummaryDTO" type="com.jy.modules.externalplatform.interfacerepository.jxl.pbccrc.extjxlsummary.dto.ExtJxlSummaryDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="fkReportId" column="FK_REPORT_ID" jdbcType="DECIMAL" />
+				<result property="guaranteeNumber" column="GUARANTEE_NUMBER" jdbcType="VARCHAR" />
+				<result property="noSettleAccountNumber" column="NO_SETTLE_ACCOUNT_NUMBER" jdbcType="VARCHAR" />
+				<result property="accountNumber" column="ACCOUNT_NUMBER" jdbcType="VARCHAR" />
+				<result property="overdueAccountNum" column="OVERDUE_ACCOUNT_NUM" jdbcType="VARCHAR" />
+				<result property="overdue90AccountNum" column="OVERDUE90_ACCOUNT_NUM" jdbcType="VARCHAR" />
+				<result property="type" column="SUMMARY_TYPE" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 查询列表 EXT_JXL_SUMMARY  -->
+<select id="searchExtJxlSummary" parameterType="java.util.Map" resultMap="ExtJxlSummaryDTO">
+    	     select 
+						t1.id                             ,
+						t1.fk_report_id                   ,
+						t1.guarantee_number               ,
+						t1.no_settle_account_number       ,
+						t1.account_number                 ,
+						t1.overdue_account_num            ,
+						t1.overdue90_account_num          ,
+						t1.summary_type                   ,
+						t1.create_time                    ,
+						t1.modify_time                    
+				from ext_jxl_summary 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.fkReportId != null and dto.fkReportId != ''">
+						and t1.FK_REPORT_ID = #{dto.fkReportId}
+    			</if>
+    			<if test="dto.guaranteeNumber != null and dto.guaranteeNumber != ''">
+						and t1.GUARANTEE_NUMBER = #{dto.guaranteeNumber}
+    			</if>
+    			<if test="dto.noSettleAccountNumber != null and dto.noSettleAccountNumber != ''">
+						and t1.NO_SETTLE_ACCOUNT_NUMBER = #{dto.noSettleAccountNumber}
+    			</if>
+    			<if test="dto.accountNumber != null and dto.accountNumber != ''">
+						and t1.ACCOUNT_NUMBER = #{dto.accountNumber}
+    			</if>
+    			<if test="dto.overdueAccountNum != null and dto.overdueAccountNum != ''">
+						and t1.OVERDUE_ACCOUNT_NUM = #{dto.overdueAccountNum}
+    			</if>
+    			<if test="dto.overdue90AccountNum != null and dto.overdue90AccountNum != ''">
+						and t1.OVERDUE90_ACCOUNT_NUM = #{dto.overdue90AccountNum}
+    			</if>
+    			<if test="dto.type != null and dto.type != ''">
+						and t1.SUMMARY_TYPE = #{dto.type}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			order by t1.id desc
+</select>
+  
+<insert id="insertExtJxlSummaryList" parameterType="java.util.Map" useGeneratedKeys="true">
+begin
+    <selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+		 select seq_EXT_JXL_SUMMARY.nextval as id from dual
+	</selectKey>
+    <foreach collection="dtoList" item="dto" >
+          insert into ext_jxl_summary
+			(   		
+					id                             ,
+					fk_report_id                   ,
+					guarantee_number               ,
+					no_settle_account_number       ,
+					account_number                 ,
+					overdue_account_num            ,
+					overdue90_account_num          ,
+					summary_type                   ,
+					create_time                                       
+			)
+			values(seq_EXT_JXL_SUMMARY.nextval
+					,#{fkReportId}
+					,#{dto.guaranteeNumber,jdbcType=VARCHAR}
+					,#{dto.noSettleAccountNumber,jdbcType=VARCHAR}
+					,#{dto.accountNumber,jdbcType=VARCHAR}
+					,#{dto.overdueAccountNum,jdbcType=VARCHAR}
+					,#{dto.overdue90AccountNum,jdbcType=VARCHAR}
+					,#{dto.type,jdbcType=VARCHAR}
+					,systimestamp
+			);
+    </foreach>
+  end;
+</insert>
+
+</mapper>

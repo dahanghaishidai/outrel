@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.shzx.extpersonalreportcred.dao.ExtPersonalReportCredDao">
+<resultMap id="ExtPersonalReportCredDTO" type="com.jy.modules.externalplatform.interfacerepository.shzx.extpersonalreportcred.dto.ExtPersonalReportCredDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="loanProject" column="LOAN_PROJECT" jdbcType="VARCHAR" />
+				<result property="orgName" column="ORG_NAME" jdbcType="VARCHAR" />
+				<result property="creditQuota" column="CREDIT_QUOTA" jdbcType="VARCHAR" />
+				<result property="personalCreditReport" column="PERSONAL_CREDIT_REPORT" jdbcType="DECIMAL" />
+				<result property="guaranteeWay" column="GUARANTEE_WAY" jdbcType="VARCHAR" />
+				<result property="accountOpeningDate" column="ACCOUNT_OPENING_DATE" jdbcType="VARCHAR" />
+				<result property="currency" column="CURRENCY" jdbcType="VARCHAR" />
+				<result property="place" column="PLACE" jdbcType="VARCHAR" />
+				<result property="sharedCreditQuota" column="SHARED_CREDIT_QUOTA" jdbcType="VARCHAR" />
+				<result property="maxLiabilitiesQuota" column="MAX_LIABILITIES_QUOTA" jdbcType="VARCHAR" />
+				<result property="paymentFrequency" column="PAYMENT_FREQUENCY" jdbcType="VARCHAR" />
+				<result property="endLoanBalance" column="END_LOAN_BALANCE" jdbcType="VARCHAR" />
+				<result property="remainingRepaymentMonths" column="REMAINING_REPAYMENT_MONTHS" jdbcType="VARCHAR" />
+				<result property="monthRepaymentDate" column="MONTH_REPAYMENT_DATE" jdbcType="VARCHAR" />
+				<result property="monthRepaymentAmount" column="MONTH_REPAYMENT_AMOUNT" jdbcType="VARCHAR" />
+				<result property="accountStatus" column="ACCOUNT_STATUS" jdbcType="VARCHAR" />
+				<result property="actualRepaymentDate" column="ACTUAL_REPAYMENT_DATE" jdbcType="VARCHAR" />
+				<result property="actualRepaymentAmount" column="ACTUAL_REPAYMENT_AMOUNT" jdbcType="VARCHAR" />
+				<result property="currentOverdueTotal" column="CURRENT_OVERDUE_TOTAL" jdbcType="VARCHAR" />
+				<result property="currentOverdueNumber" column="CURRENT_OVERDUE_NUMBER" jdbcType="VARCHAR" />
+				<result property="accumulatedOverdueNumber" column="ACCUMULATED_OVERDUE_NUMBER" jdbcType="VARCHAR" />
+				<result property="maxOverdueNumber" column="MAX_OVERDUE_NUMBER" jdbcType="VARCHAR" />
+				<result property="monthlyRepaymentConditions" column="MONTHLY_REPAYMENT_CONDITIONS" jdbcType="VARCHAR" />
+				<result property="overduePrincipalMonths2" column="OVERDUE_PRINCIPAL_MONTHS2" jdbcType="VARCHAR" />
+				<result property="overduePrincipalMonths3" column="OVERDUE_PRINCIPAL_MONTHS3" jdbcType="VARCHAR" />
+				<result property="overduePrincipalMonths6" column="OVERDUE_PRINCIPAL_MONTHS6" jdbcType="VARCHAR" />
+				<result property="overduePrincipalDays180" column="OVERDUE_PRINCIPAL_DAYS180" jdbcType="VARCHAR" />
+				<result property="loanObtainDate" column="LOAN_OBTAIN_DATE" jdbcType="VARCHAR" />
+				<result property="optlock" column="OPTLOCK" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 EXT_personal_report_cred -->	
+<select id="searchExtPersonalReportCredByPaging" parameterType="java.util.Map" resultMap="ExtPersonalReportCredDTO">
+    	 		select 
+						t1.id                             ,
+						t1.loan_project                   ,
+						t1.org_name                       ,
+						t1.credit_quota                   ,
+						t1.personal_credit_report         ,
+						t1.guarantee_way                  ,
+						t1.account_opening_date           ,
+						t1.currency                       ,
+						t1.place                          ,
+						t1.shared_credit_quota            ,
+						t1.max_liabilities_quota          ,
+						t1.payment_frequency              ,
+						t1.end_loan_balance               ,
+						t1.remaining_repayment_months     ,
+						t1.month_repayment_date           ,
+						t1.month_repayment_amount         ,
+						t1.account_status                 ,
+						t1.actual_repayment_date          ,
+						t1.actual_repayment_amount        ,
+						t1.current_overdue_total          ,
+						t1.current_overdue_number         ,
+						t1.accumulated_overdue_number     ,
+						t1.max_overdue_number             ,
+						t1.monthly_repayment_conditions   ,
+						t1.overdue_principal_months2      ,
+						t1.overdue_principal_months3      ,
+						t1.overdue_principal_months6      ,
+						t1.overdue_principal_days180      ,
+						t1.loan_obtain_date               ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.optlock                        
+					
+				from ext_personal_report_cred 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.loanProject != null and dto.loanProject != ''">
+						and t1.LOAN_PROJECT =#{dto.loanProject}
+    			</if>
+    			<if test="dto.orgName != null and dto.orgName != ''">
+						and t1.ORG_NAME =#{dto.orgName}
+    			</if>
+    			<if test="dto.creditQuota != null and dto.creditQuota != ''">
+						and t1.CREDIT_QUOTA =#{dto.creditQuota}
+    			</if>
+    			<if test="dto.personalCreditReport != null and dto.personalCreditReport != ''">
+						and t1.PERSONAL_CREDIT_REPORT =#{dto.personalCreditReport}
+    			</if>
+    			<if test="dto.guaranteeWay != null and dto.guaranteeWay != ''">
+						and t1.GUARANTEE_WAY =#{dto.guaranteeWay}
+    			</if>
+    			<if test="dto.accountOpeningDate != null and dto.accountOpeningDate != ''">
+						and t1.ACCOUNT_OPENING_DATE =#{dto.accountOpeningDate}
+    			</if>
+    			<if test="dto.currency != null and dto.currency != ''">
+						and t1.CURRENCY =#{dto.currency}
+    			</if>
+    			<if test="dto.place != null and dto.place != ''">
+						and t1.PLACE =#{dto.place}
+    			</if>
+    			<if test="dto.sharedCreditQuota != null and dto.sharedCreditQuota != ''">
+						and t1.SHARED_CREDIT_QUOTA =#{dto.sharedCreditQuota}
+    			</if>
+    			<if test="dto.maxLiabilitiesQuota != null and dto.maxLiabilitiesQuota != ''">
+						and t1.MAX_LIABILITIES_QUOTA =#{dto.maxLiabilitiesQuota}
+    			</if>
+    			<if test="dto.paymentFrequency != null and dto.paymentFrequency != ''">
+						and t1.PAYMENT_FREQUENCY =#{dto.paymentFrequency}
+    			</if>
+    			<if test="dto.endLoanBalance != null and dto.endLoanBalance != ''">
+						and t1.END_LOAN_BALANCE =#{dto.endLoanBalance}
+    			</if>
+    			<if test="dto.remainingRepaymentMonths != null and dto.remainingRepaymentMonths != ''">
+						and t1.REMAINING_REPAYMENT_MONTHS =#{dto.remainingRepaymentMonths}
+    			</if>
+    			<if test="dto.monthRepaymentDate != null and dto.monthRepaymentDate != ''">
+						and t1.MONTH_REPAYMENT_DATE =#{dto.monthRepaymentDate}
+    			</if>
+    			<if test="dto.monthRepaymentAmount != null and dto.monthRepaymentAmount != ''">
+						and t1.MONTH_REPAYMENT_AMOUNT =#{dto.monthRepaymentAmount}
+    			</if>
+    			<if test="dto.accountStatus != null and dto.accountStatus != ''">
+						and t1.ACCOUNT_STATUS =#{dto.accountStatus}
+    			</if>
+    			<if test="dto.actualRepaymentDate != null and dto.actualRepaymentDate != ''">
+						and t1.ACTUAL_REPAYMENT_DATE =#{dto.actualRepaymentDate}
+    			</if>
+    			<if test="dto.actualRepaymentAmount != null and dto.actualRepaymentAmount != ''">
+						and t1.ACTUAL_REPAYMENT_AMOUNT =#{dto.actualRepaymentAmount}
+    			</if>
+    			<if test="dto.currentOverdueTotal != null and dto.currentOverdueTotal != ''">
+						and t1.CURRENT_OVERDUE_TOTAL =#{dto.currentOverdueTotal}
+    			</if>
+    			<if test="dto.currentOverdueNumber != null and dto.currentOverdueNumber != ''">
+						and t1.CURRENT_OVERDUE_NUMBER =#{dto.currentOverdueNumber}
+    			</if>
+    			<if test="dto.accumulatedOverdueNumber != null and dto.accumulatedOverdueNumber != ''">
+						and t1.ACCUMULATED_OVERDUE_NUMBER =#{dto.accumulatedOverdueNumber}
+    			</if>
+    			<if test="dto.maxOverdueNumber != null and dto.maxOverdueNumber != ''">
+						and t1.MAX_OVERDUE_NUMBER =#{dto.maxOverdueNumber}
+    			</if>
+    			<if test="dto.monthlyRepaymentConditions != null and dto.monthlyRepaymentConditions != ''">
+						and t1.MONTHLY_REPAYMENT_CONDITIONS =#{dto.monthlyRepaymentConditions}
+    			</if>
+    			<if test="dto.overduePrincipalMonths2 != null and dto.overduePrincipalMonths2 != ''">
+						and t1.OVERDUE_PRINCIPAL_MONTHS2 =#{dto.overduePrincipalMonths2}
+    			</if>
+    			<if test="dto.overduePrincipalMonths3 != null and dto.overduePrincipalMonths3 != ''">
+						and t1.OVERDUE_PRINCIPAL_MONTHS3 =#{dto.overduePrincipalMonths3}
+    			</if>
+    			<if test="dto.overduePrincipalMonths6 != null and dto.overduePrincipalMonths6 != ''">
+						and t1.OVERDUE_PRINCIPAL_MONTHS6 =#{dto.overduePrincipalMonths6}
+    			</if>
+    			<if test="dto.overduePrincipalDays180 != null and dto.overduePrincipalDays180 != ''">
+						and t1.OVERDUE_PRINCIPAL_DAYS180 =#{dto.overduePrincipalDays180}
+    			</if>
+    			<if test="dto.loanObtainDate != null and dto.loanObtainDate != ''">
+						and t1.LOAN_OBTAIN_DATE =#{dto.loanObtainDate}
+    			</if>
+    			<if test="dto.optlock != null and dto.optlock != ''">
+						and t1.OPTLOCK =#{dto.optlock}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_personal_report_cred  -->
+<select id="searchExtPersonalReportCred" parameterType="java.util.Map" resultMap="ExtPersonalReportCredDTO">
+    	     select 
+						t1.id                             ,
+						t1.loan_project                   ,
+						t1.org_name                       ,
+						t1.credit_quota                   ,
+						t1.personal_credit_report         ,
+						t1.guarantee_way                  ,
+						t1.account_opening_date           ,
+						t1.currency                       ,
+						t1.place                          ,
+						t1.shared_credit_quota            ,
+						t1.max_liabilities_quota          ,
+						t1.payment_frequency              ,
+						t1.end_loan_balance               ,
+						t1.remaining_repayment_months     ,
+						t1.month_repayment_date           ,
+						t1.month_repayment_amount         ,
+						t1.account_status                 ,
+						t1.actual_repayment_date          ,
+						t1.actual_repayment_amount        ,
+						t1.current_overdue_total          ,
+						t1.current_overdue_number         ,
+						t1.accumulated_overdue_number     ,
+						t1.max_overdue_number             ,
+						t1.monthly_repayment_conditions   ,
+						t1.overdue_principal_months2      ,
+						t1.overdue_principal_months3      ,
+						t1.overdue_principal_months6      ,
+						t1.overdue_principal_days180      ,
+						t1.loan_obtain_date               ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.optlock                        
+				from ext_personal_report_cred 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.loanProject != null and dto.loanProject != ''">
+						and t1.LOAN_PROJECT = #{dto.loanProject}
+    			</if>
+    			<if test="dto.orgName != null and dto.orgName != ''">
+						and t1.ORG_NAME = #{dto.orgName}
+    			</if>
+    			<if test="dto.creditQuota != null and dto.creditQuota != ''">
+						and t1.CREDIT_QUOTA = #{dto.creditQuota}
+    			</if>
+    			<if test="dto.personalCreditReport != null and dto.personalCreditReport != ''">
+						and t1.PERSONAL_CREDIT_REPORT = #{dto.personalCreditReport}
+    			</if>
+    			<if test="dto.guaranteeWay != null and dto.guaranteeWay != ''">
+						and t1.GUARANTEE_WAY = #{dto.guaranteeWay}
+    			</if>
+    			<if test="dto.accountOpeningDate != null and dto.accountOpeningDate != ''">
+						and t1.ACCOUNT_OPENING_DATE = #{dto.accountOpeningDate}
+    			</if>
+    			<if test="dto.currency != null and dto.currency != ''">
+						and t1.CURRENCY = #{dto.currency}
+    			</if>
+    			<if test="dto.place != null and dto.place != ''">
+						and t1.PLACE = #{dto.place}
+    			</if>
+    			<if test="dto.sharedCreditQuota != null and dto.sharedCreditQuota != ''">
+						and t1.SHARED_CREDIT_QUOTA = #{dto.sharedCreditQuota}
+    			</if>
+    			<if test="dto.maxLiabilitiesQuota != null and dto.maxLiabilitiesQuota != ''">
+						and t1.MAX_LIABILITIES_QUOTA = #{dto.maxLiabilitiesQuota}
+    			</if>
+    			<if test="dto.paymentFrequency != null and dto.paymentFrequency != ''">
+						and t1.PAYMENT_FREQUENCY = #{dto.paymentFrequency}
+    			</if>
+    			<if test="dto.endLoanBalance != null and dto.endLoanBalance != ''">
+						and t1.END_LOAN_BALANCE = #{dto.endLoanBalance}
+    			</if>
+    			<if test="dto.remainingRepaymentMonths != null and dto.remainingRepaymentMonths != ''">
+						and t1.REMAINING_REPAYMENT_MONTHS = #{dto.remainingRepaymentMonths}
+    			</if>
+    			<if test="dto.monthRepaymentDate != null and dto.monthRepaymentDate != ''">
+						and t1.MONTH_REPAYMENT_DATE = #{dto.monthRepaymentDate}
+    			</if>
+    			<if test="dto.monthRepaymentAmount != null and dto.monthRepaymentAmount != ''">
+						and t1.MONTH_REPAYMENT_AMOUNT = #{dto.monthRepaymentAmount}
+    			</if>
+    			<if test="dto.accountStatus != null and dto.accountStatus != ''">
+						and t1.ACCOUNT_STATUS = #{dto.accountStatus}
+    			</if>
+    			<if test="dto.actualRepaymentDate != null and dto.actualRepaymentDate != ''">
+						and t1.ACTUAL_REPAYMENT_DATE = #{dto.actualRepaymentDate}
+    			</if>
+    			<if test="dto.actualRepaymentAmount != null and dto.actualRepaymentAmount != ''">
+						and t1.ACTUAL_REPAYMENT_AMOUNT = #{dto.actualRepaymentAmount}
+    			</if>
+    			<if test="dto.currentOverdueTotal != null and dto.currentOverdueTotal != ''">
+						and t1.CURRENT_OVERDUE_TOTAL = #{dto.currentOverdueTotal}
+    			</if>
+    			<if test="dto.currentOverdueNumber != null and dto.currentOverdueNumber != ''">
+						and t1.CURRENT_OVERDUE_NUMBER = #{dto.currentOverdueNumber}
+    			</if>
+    			<if test="dto.accumulatedOverdueNumber != null and dto.accumulatedOverdueNumber != ''">
+						and t1.ACCUMULATED_OVERDUE_NUMBER = #{dto.accumulatedOverdueNumber}
+    			</if>
+    			<if test="dto.maxOverdueNumber != null and dto.maxOverdueNumber != ''">
+						and t1.MAX_OVERDUE_NUMBER = #{dto.maxOverdueNumber}
+    			</if>
+    			<if test="dto.monthlyRepaymentConditions != null and dto.monthlyRepaymentConditions != ''">
+						and t1.MONTHLY_REPAYMENT_CONDITIONS = #{dto.monthlyRepaymentConditions}
+    			</if>
+    			<if test="dto.overduePrincipalMonths2 != null and dto.overduePrincipalMonths2 != ''">
+						and t1.OVERDUE_PRINCIPAL_MONTHS2 = #{dto.overduePrincipalMonths2}
+    			</if>
+    			<if test="dto.overduePrincipalMonths3 != null and dto.overduePrincipalMonths3 != ''">
+						and t1.OVERDUE_PRINCIPAL_MONTHS3 = #{dto.overduePrincipalMonths3}
+    			</if>
+    			<if test="dto.overduePrincipalMonths6 != null and dto.overduePrincipalMonths6 != ''">
+						and t1.OVERDUE_PRINCIPAL_MONTHS6 = #{dto.overduePrincipalMonths6}
+    			</if>
+    			<if test="dto.overduePrincipalDays180 != null and dto.overduePrincipalDays180 != ''">
+						and t1.OVERDUE_PRINCIPAL_DAYS180 = #{dto.overduePrincipalDays180}
+    			</if>
+    			<if test="dto.loanObtainDate != null and dto.loanObtainDate != ''">
+						and t1.LOAN_OBTAIN_DATE = #{dto.loanObtainDate}
+    			</if>
+    			<if test="dto.optlock != null and dto.optlock != ''">
+						and t1.OPTLOCK = #{dto.optlock}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_personal_report_cred -->
+<select id="findExtPersonalReportCredByPrimaryKey" parameterType="java.util.Map" resultMap="ExtPersonalReportCredDTO">
+   	 		select 
+					t1.id                             ,
+					t1.loan_project                   ,
+					t1.org_name                       ,
+					t1.credit_quota                   ,
+					t1.personal_credit_report         ,
+					t1.guarantee_way                  ,
+					t1.account_opening_date           ,
+					t1.currency                       ,
+					t1.place                          ,
+					t1.shared_credit_quota            ,
+					t1.max_liabilities_quota          ,
+					t1.payment_frequency              ,
+					t1.end_loan_balance               ,
+					t1.remaining_repayment_months     ,
+					t1.month_repayment_date           ,
+					t1.month_repayment_amount         ,
+					t1.account_status                 ,
+					t1.actual_repayment_date          ,
+					t1.actual_repayment_amount        ,
+					t1.current_overdue_total          ,
+					t1.current_overdue_number         ,
+					t1.accumulated_overdue_number     ,
+					t1.max_overdue_number             ,
+					t1.monthly_repayment_conditions   ,
+					t1.overdue_principal_months2      ,
+					t1.overdue_principal_months3      ,
+					t1.overdue_principal_months6      ,
+					t1.overdue_principal_days180      ,
+					t1.loan_obtain_date               ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.optlock                        
+			from ext_personal_report_cred 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_personal_report_cred -->
+<insert id="insertExtPersonalReportCred" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_personal_report_cred.nextval as id from dual
+	</selectKey>
+			insert into ext_personal_report_cred
+			(   		
+					id                             ,
+					loan_project                   ,
+					org_name                       ,
+					credit_quota                   ,
+					personal_credit_report         ,
+					guarantee_way                  ,
+					account_opening_date           ,
+					currency                       ,
+					place                          ,
+					shared_credit_quota            ,
+					max_liabilities_quota          ,
+					payment_frequency              ,
+					end_loan_balance               ,
+					remaining_repayment_months     ,
+					month_repayment_date           ,
+					month_repayment_amount         ,
+					account_status                 ,
+					actual_repayment_date          ,
+					actual_repayment_amount        ,
+					current_overdue_total          ,
+					current_overdue_number         ,
+					accumulated_overdue_number     ,
+					max_overdue_number             ,
+					monthly_repayment_conditions   ,
+					overdue_principal_months2      ,
+					overdue_principal_months3      ,
+					overdue_principal_months6      ,
+					overdue_principal_days180      ,
+					loan_obtain_date               ,
+					create_time                    ,
+					optlock                        
+			)
+			values(#{dto.id}
+					,#{dto.loanProject,jdbcType=VARCHAR}
+					,#{dto.orgName,jdbcType=VARCHAR}
+					,#{dto.creditQuota,jdbcType=VARCHAR}
+					,#{dto.personalCreditReport,jdbcType=DECIMAL}
+					,#{dto.guaranteeWay,jdbcType=VARCHAR}
+					,#{dto.accountOpeningDate,jdbcType=VARCHAR}
+					,#{dto.currency,jdbcType=VARCHAR}
+					,#{dto.place,jdbcType=VARCHAR}
+					,#{dto.sharedCreditQuota,jdbcType=VARCHAR}
+					,#{dto.maxLiabilitiesQuota,jdbcType=VARCHAR}
+					,#{dto.paymentFrequency,jdbcType=VARCHAR}
+					,#{dto.endLoanBalance,jdbcType=VARCHAR}
+					,#{dto.remainingRepaymentMonths,jdbcType=VARCHAR}
+					,#{dto.monthRepaymentDate,jdbcType=VARCHAR}
+					,#{dto.monthRepaymentAmount,jdbcType=VARCHAR}
+					,#{dto.accountStatus,jdbcType=VARCHAR}
+					,#{dto.actualRepaymentDate,jdbcType=VARCHAR}
+					,#{dto.actualRepaymentAmount,jdbcType=VARCHAR}
+					,#{dto.currentOverdueTotal,jdbcType=VARCHAR}
+					,#{dto.currentOverdueNumber,jdbcType=VARCHAR}
+					,#{dto.accumulatedOverdueNumber,jdbcType=VARCHAR}
+					,#{dto.maxOverdueNumber,jdbcType=VARCHAR}
+					,#{dto.monthlyRepaymentConditions,jdbcType=VARCHAR}
+					,#{dto.overduePrincipalMonths2,jdbcType=VARCHAR}
+					,#{dto.overduePrincipalMonths3,jdbcType=VARCHAR}
+					,#{dto.overduePrincipalMonths6,jdbcType=VARCHAR}
+					,#{dto.overduePrincipalDays180,jdbcType=VARCHAR}
+					,#{dto.loanObtainDate,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.optlock,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_personal_report_cred -->
+<update id="updateExtPersonalReportCred" parameterType="java.util.Map">
+	     update ext_personal_report_cred t1
+	           set 
+			           t1.loan_project                   =#{dto.loanProject,jdbcType=VARCHAR},
+			           t1.org_name                       =#{dto.orgName,jdbcType=VARCHAR},
+			           t1.credit_quota                   =#{dto.creditQuota,jdbcType=VARCHAR},
+			           t1.personal_credit_report         =#{dto.personalCreditReport,jdbcType=DECIMAL},
+			           t1.guarantee_way                  =#{dto.guaranteeWay,jdbcType=VARCHAR},
+			           t1.account_opening_date           =#{dto.accountOpeningDate,jdbcType=VARCHAR},
+			           t1.currency                       =#{dto.currency,jdbcType=VARCHAR},
+			           t1.place                          =#{dto.place,jdbcType=VARCHAR},
+			           t1.shared_credit_quota            =#{dto.sharedCreditQuota,jdbcType=VARCHAR},
+			           t1.max_liabilities_quota          =#{dto.maxLiabilitiesQuota,jdbcType=VARCHAR},
+			           t1.payment_frequency              =#{dto.paymentFrequency,jdbcType=VARCHAR},
+			           t1.end_loan_balance               =#{dto.endLoanBalance,jdbcType=VARCHAR},
+			           t1.remaining_repayment_months     =#{dto.remainingRepaymentMonths,jdbcType=VARCHAR},
+			           t1.month_repayment_date           =#{dto.monthRepaymentDate,jdbcType=VARCHAR},
+			           t1.month_repayment_amount         =#{dto.monthRepaymentAmount,jdbcType=VARCHAR},
+			           t1.account_status                 =#{dto.accountStatus,jdbcType=VARCHAR},
+			           t1.actual_repayment_date          =#{dto.actualRepaymentDate,jdbcType=VARCHAR},
+			           t1.actual_repayment_amount        =#{dto.actualRepaymentAmount,jdbcType=VARCHAR},
+			           t1.current_overdue_total          =#{dto.currentOverdueTotal,jdbcType=VARCHAR},
+			           t1.current_overdue_number         =#{dto.currentOverdueNumber,jdbcType=VARCHAR},
+			           t1.accumulated_overdue_number     =#{dto.accumulatedOverdueNumber,jdbcType=VARCHAR},
+			           t1.max_overdue_number             =#{dto.maxOverdueNumber,jdbcType=VARCHAR},
+			           t1.monthly_repayment_conditions   =#{dto.monthlyRepaymentConditions,jdbcType=VARCHAR},
+			           t1.overdue_principal_months2      =#{dto.overduePrincipalMonths2,jdbcType=VARCHAR},
+			           t1.overdue_principal_months3      =#{dto.overduePrincipalMonths3,jdbcType=VARCHAR},
+			           t1.overdue_principal_months6      =#{dto.overduePrincipalMonths6,jdbcType=VARCHAR},
+			           t1.overdue_principal_days180      =#{dto.overduePrincipalDays180,jdbcType=VARCHAR},
+			           t1.loan_obtain_date               =#{dto.loanObtainDate,jdbcType=VARCHAR},
+					   t1.modify_time                    =systimestamp,
+			           t1.optlock                        =#{dto.optlock,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_personal_report_cred -->
+<delete id="deleteExtPersonalReportCredByID" parameterType="java.util.Map">
+    	delete from ext_personal_report_cred t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_personal_report_cred -->
+<update id="deleteExtPersonalReportCredByPrimaryKey" parameterType="java.util.Map">
+	     update ext_personal_report_cred t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

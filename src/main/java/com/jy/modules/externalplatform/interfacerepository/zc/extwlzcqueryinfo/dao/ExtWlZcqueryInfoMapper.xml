@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.zc.extwlzcqueryinfo.dao.ExtWlZcqueryInfoDao">
+<resultMap id="ExtWlZcqueryInfoDTO" type="com.jy.modules.externalplatform.interfacerepository.zc.extwlzcqueryinfo.dto.ExtWlZcqueryInfoDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="intoId" column="INTO_ID" jdbcType="VARCHAR" />
+				<result property="cardId" column="CARD_ID" jdbcType="VARCHAR" />
+				<result property="custName" column="CUST_NAME" jdbcType="VARCHAR" />
+				<result property="flowId" column="FLOW_ID" jdbcType="VARCHAR" />
+				<result property="zcCreditScore" column="ZC_CREDIT_SCORE" jdbcType="VARCHAR" />
+				<result property="contractBreakRate" column="CONTRACT_BREAK_RATE" jdbcType="VARCHAR" />
+				<result property="message" column="MESSAGE" jdbcType="VARCHAR" />
+				<result property="errorCode" column="ERROR_CODE" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 ext_wl_zcquery_info -->	
+<select id="searchExtWlZcqueryInfoByPaging" parameterType="java.util.Map" resultMap="ExtWlZcqueryInfoDTO">
+    	 		select 
+						t1.id                             ,
+						t1.into_id                        ,
+						t1.card_id                        ,
+						t1.cust_name                      ,
+						t1.flow_id                        ,
+						t1.zc_credit_score                ,
+						t1.contract_break_rate            ,
+						t1.message                        ,
+						t1.error_code                     ,
+						t1.create_time                    ,
+						t1.modify_time                    
+					
+				from ext_wl_zcquery_info 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.intoId != null and dto.intoId != ''">
+						and t1.INTO_ID =#{dto.intoId}
+    			</if>
+    			<if test="dto.cardId != null and dto.cardId != ''">
+						and t1.CARD_ID =#{dto.cardId}
+    			</if>
+    			<if test="dto.custName != null and dto.custName != ''">
+						and t1.CUST_NAME =#{dto.custName}
+    			</if>
+    			<if test="dto.flowId != null and dto.flowId != ''">
+						and t1.FLOW_ID =#{dto.flowId}
+    			</if>
+    			<if test="dto.zcCreditScore != null and dto.zcCreditScore != ''">
+						and t1.ZC_CREDIT_SCORE =#{dto.zcCreditScore}
+    			</if>
+    			<if test="dto.contractBreakRate != null and dto.contractBreakRate != ''">
+						and t1.CONTRACT_BREAK_RATE =#{dto.contractBreakRate}
+    			</if>
+    			<if test="dto.message != null and dto.message != ''">
+						and t1.MESSAGE =#{dto.message}
+    			</if>
+    			<if test="dto.errorCode != null and dto.errorCode != ''">
+						and t1.ERROR_CODE =#{dto.errorCode}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 ext_wl_zcquery_info  -->
+<select id="searchExtWlZcqueryInfo" parameterType="java.util.Map" resultMap="ExtWlZcqueryInfoDTO">
+    	     select 
+						t1.id                             ,
+						t1.into_id                        ,
+						t1.card_id                        ,
+						t1.cust_name                      ,
+						t1.flow_id                        ,
+						t1.zc_credit_score                ,
+						t1.contract_break_rate            ,
+						t1.message                        ,
+						t1.error_code                     ,
+						t1.create_time                    ,
+						t1.modify_time                    
+				from ext_wl_zcquery_info 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.intoId != null and dto.intoId != ''">
+						and t1.INTO_ID = #{dto.intoId}
+    			</if>
+    			<if test="dto.cardId != null and dto.cardId != ''">
+						and t1.CARD_ID = #{dto.cardId}
+    			</if>
+    			<if test="dto.custName != null and dto.custName != ''">
+						and t1.CUST_NAME = #{dto.custName}
+    			</if>
+    			<if test="dto.flowId != null and dto.flowId != ''">
+						and t1.FLOW_ID = #{dto.flowId}
+    			</if>
+    			<if test="dto.zcCreditScore != null and dto.zcCreditScore != ''">
+						and t1.ZC_CREDIT_SCORE = #{dto.zcCreditScore}
+    			</if>
+    			<if test="dto.contractBreakRate != null and dto.contractBreakRate != ''">
+						and t1.CONTRACT_BREAK_RATE = #{dto.contractBreakRate}
+    			</if>
+    			<if test="dto.message != null and dto.message != ''">
+						and t1.MESSAGE = #{dto.message}
+    			</if>
+    			<if test="dto.errorCode != null and dto.errorCode != ''">
+						and t1.ERROR_CODE = #{dto.errorCode}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  ext_wl_zcquery_info -->
+<select id="findExtWlZcqueryInfoByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlZcqueryInfoDTO">
+   	 		select 
+					t1.id                             ,
+					t1.into_id                        ,
+					t1.card_id                        ,
+					t1.cust_name                      ,
+					t1.flow_id                        ,
+					t1.zc_credit_score                ,
+					t1.contract_break_rate            ,
+					t1.message                        ,
+					t1.error_code                     ,
+					t1.create_time                    ,
+					t1.modify_time                    
+			from ext_wl_zcquery_info 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 ext_wl_zcquery_info -->
+<insert id="insertExtWlZcqueryInfo" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_ext_wl_zcquery_info.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_zcquery_info
+			(   		
+					id                             ,
+					into_id                        ,
+					card_id                        ,
+					cust_name                      ,
+					flow_id                        ,
+					zc_credit_score                ,
+					contract_break_rate            ,
+					message                        ,
+					error_code                     ,
+					create_time                    ,
+					modify_time                    
+			)
+			values(#{dto.id}
+					,#{dto.intoId,jdbcType=VARCHAR}
+					,#{dto.cardId,jdbcType=VARCHAR}
+					,#{dto.custName,jdbcType=VARCHAR}
+					,#{dto.flowId,jdbcType=VARCHAR}
+					,#{dto.zcCreditScore,jdbcType=VARCHAR}
+					,#{dto.contractBreakRate,jdbcType=VARCHAR}
+					,#{dto.message,jdbcType=VARCHAR}
+					,#{dto.errorCode,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+			)
+</insert>
+    
+<!-- 更新对象 ext_wl_zcquery_info -->
+<update id="updateExtWlZcqueryInfo" parameterType="java.util.Map">
+	     update ext_wl_zcquery_info t1
+	           set 
+			           t1.into_id                        =#{dto.intoId,jdbcType=VARCHAR},
+			           t1.card_id                        =#{dto.cardId,jdbcType=VARCHAR},
+			           t1.cust_name                      =#{dto.custName,jdbcType=VARCHAR},
+			           t1.flow_id                        =#{dto.flowId,jdbcType=VARCHAR},
+			           t1.zc_credit_score                =#{dto.zcCreditScore,jdbcType=VARCHAR},
+			           t1.contract_break_rate            =#{dto.contractBreakRate,jdbcType=VARCHAR},
+			           t1.message                        =#{dto.message,jdbcType=VARCHAR},
+			           t1.error_code                     =#{dto.errorCode,jdbcType=VARCHAR},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 ext_wl_zcquery_info -->
+<delete id="deleteExtWlZcqueryInfoByID" parameterType="java.util.Map">
+    	delete from ext_wl_zcquery_info t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 ext_wl_zcquery_info -->
+<update id="deleteExtWlZcqueryInfoByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_zcquery_info t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

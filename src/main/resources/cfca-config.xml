@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfca>
+	<property>
+		<name>ktIP</name>
+		<value>172.18.100.124</value>
+	</property>
+	<property>
+		<name>ktPort</name>
+		<value>9040</value>
+	</property>
+	<property>
+		<name>raUrl</name>
+		<value>http://172.18.100.124:8080/RA/CSHttpServlet</value>
+	</property>
+	<property>
+		<name>raIp</name>
+		<value>172.18.100.124</value>
+	</property>
+	<property>
+		<name>raPort</name>
+		<value>8443</value>
+	</property>
+	<property>
+		<name>sealUrl</name>
+		<value>http://172.18.100.124:8080/Seal</value>
+	</property>
+	<property>
+		<name>J_Map</name>
+		<value>
+			[
+			{'SEALCODE':'JIEYUEUNITED_SEAL','KEYWORD':'乙方：北京捷越联合信息咨询有限公司','OFFSETX':'1','OFFSETY':'4'},
+			{'SEALCODE':'TSINGTAOHK_SEAL','KEYWORD':'乙方（签章）：青岛海客保险经纪有限公司','OFFSETX':'40','OFFSETY':'1'},
+			{'SEALCODE':'JIEYUEUNITED_SEAL','KEYWORD':'乙方（签章）：','OFFSETX':'40','OFFSETY':'1'},
+			{'SEALCODE':'TSINGTAOHK_SEAL','KEYWORD':'青岛海客保险经纪有限公司（签章）：','OFFSETX':'40','OFFSETY':'1'},
+			{'SEALCODE':'JYWXT220204197909142748','KEYWORD':'乙方（签章）：','OFFSETX':'50','OFFSETY':'0'},
+			{'SEALCODE':'TSINGTAOHK_SEAL','KEYWORD':'乙方（签章）: ','OFFSETX':'40','OFFSETY':'1'},
+			{'SEALCODE':'JIEYUEUNITED_SEAL','KEYWORD':'被授权人( 盖章) ：','OFFSETX':'40','OFFSETY':'1'},
+			{'SEALCODE':'JIEYUEUNITED_SEAL','KEYWORD':'管理服务商（签章）：','OFFSETX':'40','OFFSETY':'1'}
+			]
+		</value>
+	</property>
+	<property>
+		<name>Y_Map</name>
+		<value>
+			[
+			{'KEYWORD':'甲方（签字）：','OFFSETX':'20','OFFSETY':'4'},
+			{'KEYWORD':'授权人（签字）：','OFFSETX':'8','OFFSETY':'4'},
+			{'KEYWORD':'甲方（签章）：','OFFSETX':'1','OFFSETY':'3'},
+			{'KEYWORD':'委托人（签章）：','OFFSETX':'18','OFFSETY':'4'},
+			{'KEYWORD':'声明人（签字）：','OFFSETX':'1','OFFSETY':'4'},
+			{'KEYWORD':'甲方签字:','OFFSETX':'50','OFFSETY':'0'},
+			{'KEYWORD':'授权人( 签名) ：','OFFSETX':'50','OFFSETY':'0'},
+			{'KEYWORD':'借款人（签章）：','OFFSETX':'50','OFFSETY':'0'}
+			]
+		</value>
+	</property>
+</cfca>

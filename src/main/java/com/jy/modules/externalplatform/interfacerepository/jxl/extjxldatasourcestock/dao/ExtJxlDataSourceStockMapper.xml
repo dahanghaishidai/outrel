@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.jxl.extjxldatasourcestock.dao.ExtJxlDataSourceStockDao">
+<resultMap id="ExtJxlDataSourceStockDTO" type="com.jy.modules.externalplatform.interfacerepository.jxl.extjxldatasourcestock.dto.ExtJxlDataSourceStockDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="fkJxlCustInfoId" column="FK_JXL_CUST_INFO_ID" jdbcType="DECIMAL" />
+				<result property="name" column="NAME" jdbcType="VARCHAR" />
+				<result property="account" column="ACCOUNT" jdbcType="VARCHAR" />
+				<result property="categoryName" column="CATEGORY_NAME" jdbcType="VARCHAR" />
+				<result property="categoryValue" column="CATEGORY_VALUE" jdbcType="VARCHAR" />
+				<result property="status" column="STATUS" jdbcType="VARCHAR" />
+				<result property="reliability" column="RELIABILITY" jdbcType="VARCHAR" />
+				<result property="bindingTime" column="BINDING_TIME" jdbcType="VARCHAR" />
+				<result property="key" column="KEY" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 EXT_JXL_DATA_SOURCE_STOCK -->	
+<select id="searchExtJxlDataSourceStockByPaging" parameterType="java.util.Map" resultMap="ExtJxlDataSourceStockDTO">
+    	 		select 
+						t1.id                             ,
+						t1.fk_jxl_cust_info_id            ,
+						t1.name                           ,
+						t1.account                        ,
+						t1.category_name                  ,
+						t1.category_value                 ,
+						t1.status                         ,
+						t1.reliability                    ,
+						t1.binding_time                   ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.key                            
+					
+				from ext_jxl_data_source_stock 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.fkJxlCustInfoId != null and dto.fkJxlCustInfoId != ''">
+						and t1.FK_JXL_CUST_INFO_ID =#{dto.fkJxlCustInfoId}
+    			</if>
+    			<if test="dto.name != null and dto.name != ''">
+						and t1.NAME =#{dto.name}
+    			</if>
+    			<if test="dto.account != null and dto.account != ''">
+						and t1.ACCOUNT =#{dto.account}
+    			</if>
+    			<if test="dto.categoryName != null and dto.categoryName != ''">
+						and t1.CATEGORY_NAME =#{dto.categoryName}
+    			</if>
+    			<if test="dto.categoryValue != null and dto.categoryValue != ''">
+						and t1.CATEGORY_VALUE =#{dto.categoryValue}
+    			</if>
+    			<if test="dto.status != null and dto.status != ''">
+						and t1.STATUS =#{dto.status}
+    			</if>
+    			<if test="dto.reliability != null and dto.reliability != ''">
+						and t1.RELIABILITY =#{dto.reliability}
+    			</if>
+    			<if test="dto.bindingTime != null and dto.bindingTime != ''">
+						and t1.BINDING_TIME =#{dto.bindingTime}
+    			</if>
+    			<if test="dto.key != null and dto.key != ''">
+						and t1.KEY =#{dto.key}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_JXL_DATA_SOURCE_STOCK  -->
+<select id="searchExtJxlDataSourceStock" parameterType="java.util.Map" resultMap="ExtJxlDataSourceStockDTO">
+    	     select 
+						t1.id                             ,
+						t1.fk_jxl_cust_info_id            ,
+						t1.name                           ,
+						t1.account                        ,
+						t1.category_name                  ,
+						t1.category_value                 ,
+						t1.status                         ,
+						t1.reliability                    ,
+						t1.binding_time                   ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.key                            
+				from ext_jxl_data_source_stock 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.fkJxlCustInfoId != null and dto.fkJxlCustInfoId != ''">
+						and t1.FK_JXL_CUST_INFO_ID = #{dto.fkJxlCustInfoId}
+    			</if>
+    			<if test="dto.name != null and dto.name != ''">
+						and t1.NAME = #{dto.name}
+    			</if>
+    			<if test="dto.account != null and dto.account != ''">
+						and t1.ACCOUNT = #{dto.account}
+    			</if>
+    			<if test="dto.categoryName != null and dto.categoryName != ''">
+						and t1.CATEGORY_NAME = #{dto.categoryName}
+    			</if>
+    			<if test="dto.categoryValue != null and dto.categoryValue != ''">
+						and t1.CATEGORY_VALUE = #{dto.categoryValue}
+    			</if>
+    			<if test="dto.status != null and dto.status != ''">
+						and t1.STATUS = #{dto.status}
+    			</if>
+    			<if test="dto.reliability != null and dto.reliability != ''">
+						and t1.RELIABILITY = #{dto.reliability}
+    			</if>
+    			<if test="dto.bindingTime != null and dto.bindingTime != ''">
+						and t1.BINDING_TIME = #{dto.bindingTime}
+    			</if>
+    			<if test="dto.key != null and dto.key != ''">
+						and t1.KEY = #{dto.key}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_JXL_DATA_SOURCE_STOCK -->
+<select id="findExtJxlDataSourceStockByPrimaryKey" parameterType="java.util.Map" resultMap="ExtJxlDataSourceStockDTO">
+   	 		select 
+					t1.id                             ,
+					t1.fk_jxl_cust_info_id            ,
+					t1.name                           ,
+					t1.account                        ,
+					t1.category_name                  ,
+					t1.category_value                 ,
+					t1.status                         ,
+					t1.reliability                    ,
+					t1.binding_time                   ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.key                            
+			from ext_jxl_data_source_stock 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_JXL_DATA_SOURCE_STOCK -->
+<insert id="insertExtJxlDataSourceStock" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_JXL_DATA_SOURCE_STOCK.nextval as id from dual
+	</selectKey>
+			insert into ext_jxl_data_source_stock
+			(   		
+					id                             ,
+					fk_jxl_cust_info_id            ,
+					name                           ,
+					account                        ,
+					category_name                  ,
+					category_value                 ,
+					status                         ,
+					reliability                    ,
+					binding_time                   ,
+					create_time                    ,
+					key                            
+			)
+			values(#{dto.id}
+					,#{dto.fkJxlCustInfoId,jdbcType=DECIMAL}
+					,#{dto.name,jdbcType=VARCHAR}
+					,#{dto.account,jdbcType=VARCHAR}
+					,#{dto.categoryName,jdbcType=VARCHAR}
+					,#{dto.categoryValue,jdbcType=VARCHAR}
+					,#{dto.status,jdbcType=VARCHAR}
+					,#{dto.reliability,jdbcType=VARCHAR}
+					,#{dto.bindingTime,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.key,jdbcType=VARCHAR}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_JXL_DATA_SOURCE_STOCK -->
+<update id="updateExtJxlDataSourceStock" parameterType="java.util.Map">
+	     update ext_jxl_data_source_stock t1
+	           set 
+			           t1.fk_jxl_cust_info_id            =#{dto.fkJxlCustInfoId,jdbcType=DECIMAL},
+			           t1.name                           =#{dto.name,jdbcType=VARCHAR},
+			           t1.account                        =#{dto.account,jdbcType=VARCHAR},
+			           t1.category_name                  =#{dto.categoryName,jdbcType=VARCHAR},
+			           t1.category_value                 =#{dto.categoryValue,jdbcType=VARCHAR},
+			           t1.status                         =#{dto.status,jdbcType=VARCHAR},
+			           t1.reliability                    =#{dto.reliability,jdbcType=VARCHAR},
+			           t1.binding_time                   =#{dto.bindingTime,jdbcType=VARCHAR},
+					   t1.modify_time                    =systimestamp,
+			           t1.key                            =#{dto.key,jdbcType=VARCHAR}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_JXL_DATA_SOURCE_STOCK -->
+<delete id="deleteExtJxlDataSourceStockByID" parameterType="java.util.Map">
+    	delete from ext_jxl_data_source_stock t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_JXL_DATA_SOURCE_STOCK -->
+<update id="deleteExtJxlDataSourceStockByPrimaryKey" parameterType="java.util.Map">
+	     update ext_jxl_data_source_stock t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

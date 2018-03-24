@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.td.extwltdpolicyset.dao.ExtWlTdPolicySetDao">
+<resultMap id="ExtWlTdPolicySetDTO" type="com.jy.modules.externalplatform.interfacerepository.td.extwltdpolicyset.dto.ExtWlTdPolicySetDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="fkPolicyId" column="FK_POLICY_ID" jdbcType="DECIMAL" />
+				<result property="policyDecision" column="POLICY_DECISION" jdbcType="VARCHAR" />
+				<result property="riskType" column="RISK_TYPE" jdbcType="VARCHAR" />
+				<result property="policyMode" column="POLICY_MODE" jdbcType="VARCHAR" />
+				<result property="policyName" column="POLICY_NAME" jdbcType="VARCHAR" />
+				<result property="policyScore" column="POLICY_SCORE" jdbcType="DECIMAL" />
+				<result property="policyUuid" column="POLICY_UUID" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="updateTime" column="UPDATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="updateBy" column="UPDATE_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 分页查询 ext_wl_td_policy_set -->	
+<select id="searchExtWlTdPolicySetByPaging" parameterType="java.util.Map" resultMap="ExtWlTdPolicySetDTO">
+    	 		select 
+						t1.id                             ,
+						t1.fk_policy_id                   ,
+						t1.policy_decision                ,
+						t1.risk_type                      ,
+						t1.policy_mode                    ,
+						t1.policy_name                    ,
+						t1.policy_score                   ,
+						t1.policy_uuid                    ,
+						t1.create_time                    ,
+						t1.update_time                    ,
+						t1.create_by                      ,
+						t1.update_by                      
+					
+				from ext_wl_td_policy_set 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.fkPolicyId != null and dto.fkPolicyId != ''">
+						and t1.FK_POLICY_ID =#{dto.fkPolicyId}
+    			</if>
+    			<if test="dto.policyDecision != null and dto.policyDecision != ''">
+						and t1.POLICY_DECISION =#{dto.policyDecision}
+    			</if>
+    			<if test="dto.riskType != null and dto.riskType != ''">
+						and t1.RISK_TYPE =#{dto.riskType}
+    			</if>
+    			<if test="dto.policyMode != null and dto.policyMode != ''">
+						and t1.POLICY_MODE =#{dto.policyMode}
+    			</if>
+    			<if test="dto.policyName != null and dto.policyName != ''">
+						and t1.POLICY_NAME =#{dto.policyName}
+    			</if>
+    			<if test="dto.policyScore != null and dto.policyScore != ''">
+						and t1.POLICY_SCORE =#{dto.policyScore}
+    			</if>
+    			<if test="dto.policyUuid != null and dto.policyUuid != ''">
+						and t1.POLICY_UUID =#{dto.policyUuid}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.updateTime != null and dto.updateTime != ''">
+						and t1.UPDATE_TIME =#{dto.updateTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY =#{dto.updateBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 ext_wl_td_policy_set  -->
+<select id="searchExtWlTdPolicySet" parameterType="java.util.Map" resultMap="ExtWlTdPolicySetDTO">
+    	     select 
+						t1.id                             ,
+						t1.fk_policy_id                   ,
+						t1.policy_decision                ,
+						t1.risk_type                      ,
+						t1.policy_mode                    ,
+						t1.policy_name                    ,
+						t1.policy_score                   ,
+						t1.policy_uuid                    ,
+						t1.create_time                    ,
+						t1.update_time                    ,
+						t1.create_by                      ,
+						t1.update_by                      
+				from ext_wl_td_policy_set 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.fkPolicyId != null and dto.fkPolicyId != ''">
+						and t1.FK_POLICY_ID = #{dto.fkPolicyId}
+    			</if>
+    			<if test="dto.policyDecision != null and dto.policyDecision != ''">
+						and t1.POLICY_DECISION = #{dto.policyDecision}
+    			</if>
+    			<if test="dto.riskType != null and dto.riskType != ''">
+						and t1.RISK_TYPE = #{dto.riskType}
+    			</if>
+    			<if test="dto.policyMode != null and dto.policyMode != ''">
+						and t1.POLICY_MODE = #{dto.policyMode}
+    			</if>
+    			<if test="dto.policyName != null and dto.policyName != ''">
+						and t1.POLICY_NAME = #{dto.policyName}
+    			</if>
+    			<if test="dto.policyScore != null and dto.policyScore != ''">
+						and t1.POLICY_SCORE = #{dto.policyScore}
+    			</if>
+    			<if test="dto.policyUuid != null and dto.policyUuid != ''">
+						and t1.POLICY_UUID = #{dto.policyUuid}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.updateTime != null and dto.updateTime != ''">
+						and t1.UPDATE_TIME = #{dto.updateTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY = #{dto.updateBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  ext_wl_td_policy_set -->
+<select id="findExtWlTdPolicySetByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlTdPolicySetDTO">
+   	 		select 
+					t1.id                             ,
+					t1.fk_policy_id                   ,
+					t1.policy_decision                ,
+					t1.risk_type                      ,
+					t1.policy_mode                    ,
+					t1.policy_name                    ,
+					t1.policy_score                   ,
+					t1.policy_uuid                    ,
+					t1.create_time                    ,
+					t1.update_time                    ,
+					t1.create_by                      ,
+					t1.update_by                      
+			from ext_wl_td_policy_set 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 ext_wl_td_policy_set -->
+<insert id="insertExtWlTdPolicySet" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_ext_wl_td_policy_set.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_td_policy_set
+			(   		
+					id                             ,
+					fk_policy_id                   ,
+					policy_decision                ,
+					risk_type                      ,
+					policy_mode                    ,
+					policy_name                    ,
+					policy_score                   ,
+					policy_uuid                    ,
+					create_time                    ,
+					update_time                    ,
+					create_by                      ,
+					update_by                      
+			)
+			values(#{dto.id}
+					,#{dto.fkPolicyId,jdbcType=DECIMAL}
+					,#{dto.policyDecision,jdbcType=VARCHAR}
+					,#{dto.riskType,jdbcType=VARCHAR}
+					,#{dto.policyMode,jdbcType=VARCHAR}
+					,#{dto.policyName,jdbcType=VARCHAR}
+					,#{dto.policyScore,jdbcType=DECIMAL}
+					,#{dto.policyUuid,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.updateTime,jdbcType=TIMESTAMP}
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.updateBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 ext_wl_td_policy_set -->
+<update id="updateExtWlTdPolicySet" parameterType="java.util.Map">
+	     update ext_wl_td_policy_set t1
+	           set 
+			           t1.fk_policy_id                   =#{dto.fkPolicyId,jdbcType=DECIMAL},
+			           t1.policy_decision                =#{dto.policyDecision,jdbcType=VARCHAR},
+			           t1.risk_type                      =#{dto.riskType,jdbcType=VARCHAR},
+			           t1.policy_mode                    =#{dto.policyMode,jdbcType=VARCHAR},
+			           t1.policy_name                    =#{dto.policyName,jdbcType=VARCHAR},
+			           t1.policy_score                   =#{dto.policyScore,jdbcType=DECIMAL},
+			           t1.policy_uuid                    =#{dto.policyUuid,jdbcType=VARCHAR},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.update_time                    =#{dto.updateTime,jdbcType=TIMESTAMP},
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.update_by                      =#{dto.updateBy,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 ext_wl_td_policy_set -->
+<delete id="deleteExtWlTdPolicySetByID" parameterType="java.util.Map">
+    	delete from ext_wl_td_policy_set t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 ext_wl_td_policy_set -->
+<update id="deleteExtWlTdPolicySetByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_td_policy_set t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

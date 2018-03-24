@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.sh.extwlsharecoverdueinfo.dao.ExtWlShareCOverdueinfoDao">
+<resultMap id="ExtWlShareCOverdueinfoDTO" type="com.jy.modules.externalplatform.interfacerepository.sh.extwlsharecoverdueinfo.dto.ExtWlShareCOverdueinfoDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="badDebtNum" column="BAD_DEBT_NUM" jdbcType="DECIMAL" />
+				<result property="badDebtBalance" column="BAD_DEBT_BALANCE" jdbcType="DECIMAL" />
+				<result property="offNum" column="OFF_NUM" jdbcType="DECIMAL" />
+				<result property="offBalance" column="OFF_BALANCE" jdbcType="DECIMAL" />
+				<result property="agentNum" column="AGENT_NUM" jdbcType="DECIMAL" />
+				<result property="agentBalance" column="AGENT_BALANCE" jdbcType="DECIMAL" />
+				<result property="overdueNum" column="OVERDUE_NUM" jdbcType="DECIMAL" />
+				<result property="maxOverdueTimes" column="MAX_OVERDUE_TIMES" jdbcType="DECIMAL" />
+				<result property="maxOverdueAmount" column="MAX_OVERDUE_AMOUNT" jdbcType="DECIMAL" />
+				<result property="fkReportId" column="FK_REPORT_ID" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_SHARE_C_OVERDUEINFO -->	
+<select id="searchExtWlShareCOverdueinfoByPaging" parameterType="java.util.Map" resultMap="ExtWlShareCOverdueinfoDTO">
+    	 		select 
+						t1.id                             ,
+						t1.bad_debt_num                   ,
+						t1.bad_debt_balance               ,
+						t1.off_num                        ,
+						t1.off_balance                    ,
+						t1.agent_num                      ,
+						t1.agent_balance                  ,
+						t1.overdue_num                    ,
+						t1.max_overdue_times              ,
+						t1.max_overdue_amount             ,
+						t1.fk_report_id                   ,
+						t1.create_time                    ,
+						t1.modify_time                    
+					
+				from ext_wl_share_c_overdueinfo 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.badDebtNum != null and dto.badDebtNum != ''">
+						and t1.BAD_DEBT_NUM =#{dto.badDebtNum}
+    			</if>
+    			<if test="dto.badDebtBalance != null and dto.badDebtBalance != ''">
+						and t1.BAD_DEBT_BALANCE =#{dto.badDebtBalance}
+    			</if>
+    			<if test="dto.offNum != null and dto.offNum != ''">
+						and t1.OFF_NUM =#{dto.offNum}
+    			</if>
+    			<if test="dto.offBalance != null and dto.offBalance != ''">
+						and t1.OFF_BALANCE =#{dto.offBalance}
+    			</if>
+    			<if test="dto.agentNum != null and dto.agentNum != ''">
+						and t1.AGENT_NUM =#{dto.agentNum}
+    			</if>
+    			<if test="dto.agentBalance != null and dto.agentBalance != ''">
+						and t1.AGENT_BALANCE =#{dto.agentBalance}
+    			</if>
+    			<if test="dto.overdueNum != null and dto.overdueNum != ''">
+						and t1.OVERDUE_NUM =#{dto.overdueNum}
+    			</if>
+    			<if test="dto.maxOverdueTimes != null and dto.maxOverdueTimes != ''">
+						and t1.MAX_OVERDUE_TIMES =#{dto.maxOverdueTimes}
+    			</if>
+    			<if test="dto.maxOverdueAmount != null and dto.maxOverdueAmount != ''">
+						and t1.MAX_OVERDUE_AMOUNT =#{dto.maxOverdueAmount}
+    			</if>
+    			<if test="dto.fkReportId != null and dto.fkReportId != ''">
+						and t1.FK_REPORT_ID =#{dto.fkReportId}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_SHARE_C_OVERDUEINFO  -->
+<select id="searchExtWlShareCOverdueinfo" parameterType="java.util.Map" resultMap="ExtWlShareCOverdueinfoDTO">
+    	     select 
+						t1.id                             ,
+						t1.bad_debt_num                   ,
+						t1.bad_debt_balance               ,
+						t1.off_num                        ,
+						t1.off_balance                    ,
+						t1.agent_num                      ,
+						t1.agent_balance                  ,
+						t1.overdue_num                    ,
+						t1.max_overdue_times              ,
+						t1.max_overdue_amount             ,
+						t1.fk_report_id                   ,
+						t1.create_time                    ,
+						t1.modify_time                    
+				from ext_wl_share_c_overdueinfo 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.badDebtNum != null and dto.badDebtNum != ''">
+						and t1.BAD_DEBT_NUM = #{dto.badDebtNum}
+    			</if>
+    			<if test="dto.badDebtBalance != null and dto.badDebtBalance != ''">
+						and t1.BAD_DEBT_BALANCE = #{dto.badDebtBalance}
+    			</if>
+    			<if test="dto.offNum != null and dto.offNum != ''">
+						and t1.OFF_NUM = #{dto.offNum}
+    			</if>
+    			<if test="dto.offBalance != null and dto.offBalance != ''">
+						and t1.OFF_BALANCE = #{dto.offBalance}
+    			</if>
+    			<if test="dto.agentNum != null and dto.agentNum != ''">
+						and t1.AGENT_NUM = #{dto.agentNum}
+    			</if>
+    			<if test="dto.agentBalance != null and dto.agentBalance != ''">
+						and t1.AGENT_BALANCE = #{dto.agentBalance}
+    			</if>
+    			<if test="dto.overdueNum != null and dto.overdueNum != ''">
+						and t1.OVERDUE_NUM = #{dto.overdueNum}
+    			</if>
+    			<if test="dto.maxOverdueTimes != null and dto.maxOverdueTimes != ''">
+						and t1.MAX_OVERDUE_TIMES = #{dto.maxOverdueTimes}
+    			</if>
+    			<if test="dto.maxOverdueAmount != null and dto.maxOverdueAmount != ''">
+						and t1.MAX_OVERDUE_AMOUNT = #{dto.maxOverdueAmount}
+    			</if>
+    			<if test="dto.fkReportId != null and dto.fkReportId != ''">
+						and t1.FK_REPORT_ID = #{dto.fkReportId}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_SHARE_C_OVERDUEINFO -->
+<select id="findExtWlShareCOverdueinfoByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlShareCOverdueinfoDTO">
+   	 		select 
+					t1.id                             ,
+					t1.bad_debt_num                   ,
+					t1.bad_debt_balance               ,
+					t1.off_num                        ,
+					t1.off_balance                    ,
+					t1.agent_num                      ,
+					t1.agent_balance                  ,
+					t1.overdue_num                    ,
+					t1.max_overdue_times              ,
+					t1.max_overdue_amount             ,
+					t1.fk_report_id                   ,
+					t1.create_time                    ,
+					t1.modify_time                    
+			from ext_wl_share_c_overdueinfo 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_SHARE_C_OVERDUEINFO -->
+<insert id="insertExtWlShareCOverdueinfo" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_SHARE_C_OVERDUEINFO.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_share_c_overdueinfo
+			(   		
+					id                             ,
+					bad_debt_num                   ,
+					bad_debt_balance               ,
+					off_num                        ,
+					off_balance                    ,
+					agent_num                      ,
+					agent_balance                  ,
+					overdue_num                    ,
+					max_overdue_times              ,
+					max_overdue_amount             ,
+					fk_report_id                   ,
+					create_time                    ,
+					modify_time                    
+			)
+			values(#{dto.id}
+					,#{dto.badDebtNum,jdbcType=DECIMAL}
+					,#{dto.badDebtBalance,jdbcType=DECIMAL}
+					,#{dto.offNum,jdbcType=DECIMAL}
+					,#{dto.offBalance,jdbcType=DECIMAL}
+					,#{dto.agentNum,jdbcType=DECIMAL}
+					,#{dto.agentBalance,jdbcType=DECIMAL}
+					,#{dto.overdueNum,jdbcType=DECIMAL}
+					,#{dto.maxOverdueTimes,jdbcType=DECIMAL}
+					,#{dto.maxOverdueAmount,jdbcType=DECIMAL}
+					,#{dto.fkReportId,jdbcType=DECIMAL}
+					,systimestamp
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_SHARE_C_OVERDUEINFO -->
+<update id="updateExtWlShareCOverdueinfo" parameterType="java.util.Map">
+	     update ext_wl_share_c_overdueinfo t1
+	           set 
+			           t1.bad_debt_num                   =#{dto.badDebtNum,jdbcType=DECIMAL},
+			           t1.bad_debt_balance               =#{dto.badDebtBalance,jdbcType=DECIMAL},
+			           t1.off_num                        =#{dto.offNum,jdbcType=DECIMAL},
+			           t1.off_balance                    =#{dto.offBalance,jdbcType=DECIMAL},
+			           t1.agent_num                      =#{dto.agentNum,jdbcType=DECIMAL},
+			           t1.agent_balance                  =#{dto.agentBalance,jdbcType=DECIMAL},
+			           t1.overdue_num                    =#{dto.overdueNum,jdbcType=DECIMAL},
+			           t1.max_overdue_times              =#{dto.maxOverdueTimes,jdbcType=DECIMAL},
+			           t1.max_overdue_amount             =#{dto.maxOverdueAmount,jdbcType=DECIMAL},
+			           t1.fk_report_id                   =#{dto.fkReportId,jdbcType=DECIMAL},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_SHARE_C_OVERDUEINFO -->
+<delete id="deleteExtWlShareCOverdueinfoByID" parameterType="java.util.Map">
+    	delete from ext_wl_share_c_overdueinfo t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_SHARE_C_OVERDUEINFO -->
+<update id="deleteExtWlShareCOverdueinfoByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_share_c_overdueinfo t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

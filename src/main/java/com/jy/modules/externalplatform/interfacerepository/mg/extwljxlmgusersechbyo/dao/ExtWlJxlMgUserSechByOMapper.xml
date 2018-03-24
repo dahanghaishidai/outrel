@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.mg.extwljxlmgusersechbyo.dao.ExtWlJxlMgUserSechByODao">
+<resultMap id="ExtWlJxlMgUserSechByODTO" type="com.jy.modules.externalplatform.interfacerepository.mg.extwljxlmgusersechbyo.dto.ExtWlJxlMgUserSechByODTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="userGridId" column="USER_GRID_ID" jdbcType="VARCHAR" />
+				<result property="searchedOrg" column="SEARCHED_ORG" jdbcType="VARCHAR" />
+				<result property="searchedDate" column="SEARCHED_DATE" jdbcType="VARCHAR" />
+				<result property="orgSelf" column="ORG_SELF" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyBy" column="MODIFY_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_JXL_MG_USER_SECH_BY_O -->	
+<select id="searchExtWlJxlMgUserSechByOByPaging" parameterType="java.util.Map" resultMap="ExtWlJxlMgUserSechByODTO">
+    	 		select 
+						t1.id                             ,
+						t1.user_grid_id                   ,
+						t1.searched_org                   ,
+						t1.searched_date                  ,
+						t1.org_self                       ,
+						t1.create_time                    ,
+						t1.create_by                      ,
+						t1.modify_time                    ,
+						t1.modify_by                      
+					
+				from ext_wl_jxl_mg_user_sech_by_o 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.userGridId != null and dto.userGridId != ''">
+						and t1.USER_GRID_ID =#{dto.userGridId}
+    			</if>
+    			<if test="dto.searchedOrg != null and dto.searchedOrg != ''">
+						and t1.SEARCHED_ORG =#{dto.searchedOrg}
+    			</if>
+    			<if test="dto.searchedDate != null and dto.searchedDate != ''">
+						and t1.SEARCHED_DATE =#{dto.searchedDate}
+    			</if>
+    			<if test="dto.orgSelf != null and dto.orgSelf != ''">
+						and t1.ORG_SELF =#{dto.orgSelf}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY =#{dto.modifyBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_JXL_MG_USER_SECH_BY_O  -->
+<select id="searchExtWlJxlMgUserSechByO" parameterType="java.util.Map" resultMap="ExtWlJxlMgUserSechByODTO">
+    	     select 
+						t1.id                             ,
+						t1.user_grid_id                   ,
+						t1.searched_org                   ,
+						t1.searched_date                  ,
+						t1.org_self                       ,
+						t1.create_time                    ,
+						t1.create_by                      ,
+						t1.modify_time                    ,
+						t1.modify_by                      
+				from ext_wl_jxl_mg_user_sech_by_o 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.userGridId != null and dto.userGridId != ''">
+						and t1.USER_GRID_ID = #{dto.userGridId}
+    			</if>
+    			<if test="dto.searchedOrg != null and dto.searchedOrg != ''">
+						and t1.SEARCHED_ORG = #{dto.searchedOrg}
+    			</if>
+    			<if test="dto.searchedDate != null and dto.searchedDate != ''">
+						and t1.SEARCHED_DATE = #{dto.searchedDate}
+    			</if>
+    			<if test="dto.orgSelf != null and dto.orgSelf != ''">
+						and t1.ORG_SELF = #{dto.orgSelf}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY = #{dto.modifyBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_JXL_MG_USER_SECH_BY_O -->
+<select id="findExtWlJxlMgUserSechByOByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlJxlMgUserSechByODTO">
+   	 		select 
+					t1.id                             ,
+					t1.user_grid_id                   ,
+					t1.searched_org                   ,
+					t1.searched_date                  ,
+					t1.org_self                       ,
+					t1.create_time                    ,
+					t1.create_by                      ,
+					t1.modify_time                    ,
+					t1.modify_by                      
+			from ext_wl_jxl_mg_user_sech_by_o 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_JXL_MG_USER_SECH_BY_O -->
+<insert id="insertExtWlJxlMgUserSechByO" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_JXL_MG_USSEHBY_O.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_jxl_mg_user_sech_by_o
+			(   		
+					id                             ,
+					user_grid_id                   ,
+					searched_org                   ,
+					searched_date                  ,
+					org_self                       ,
+					create_time                    ,
+					create_by                      ,
+					modify_time                    ,
+					modify_by                      
+			)
+			values(#{dto.id}
+					,#{dto.userGridId,jdbcType=VARCHAR}
+					,#{dto.searchedOrg,jdbcType=VARCHAR}
+					,#{dto.searchedDate,jdbcType=VARCHAR}
+					,#{dto.orgSelf,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,#{dto.modifyBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_JXL_MG_USER_SECH_BY_O -->
+<update id="updateExtWlJxlMgUserSechByO" parameterType="java.util.Map">
+	     update ext_wl_jxl_mg_user_sech_by_o t1
+	           set 
+			           t1.user_grid_id                   =#{dto.userGridId,jdbcType=VARCHAR},
+			           t1.searched_org                   =#{dto.searchedOrg,jdbcType=VARCHAR},
+			           t1.searched_date                  =#{dto.searchedDate,jdbcType=VARCHAR},
+			           t1.org_self                       =#{dto.orgSelf,jdbcType=VARCHAR},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP},
+			           t1.modify_by                      =#{dto.modifyBy,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_JXL_MG_USER_SECH_BY_O -->
+<delete id="deleteExtWlJxlMgUserSechByOByID" parameterType="java.util.Map">
+    	delete from ext_wl_jxl_mg_user_sech_by_o t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_JXL_MG_USER_SECH_BY_O -->
+<update id="deleteExtWlJxlMgUserSechByOByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_jxl_mg_user_sech_by_o t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

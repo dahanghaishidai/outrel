@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.suanhuazx.extwlshsrbasicinfo.dao.ExtWlShSrBasicInfoDao">
+<resultMap id="ExtWlShSrBasicInfoDTO" type="com.jy.modules.externalplatform.interfacerepository.suanhuazx.extwlshsrbasicinfo.dto.ExtWlShSrBasicInfoDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="orgId" column="ORG_ID" jdbcType="VARCHAR" />
+				<result property="operatorId" column="OPERATOR_ID" jdbcType="VARCHAR" />
+				<result property="reportSn" column="REPORT_SN" jdbcType="VARCHAR" />
+				<result property="queryTime" column="QUERY_TIME" jdbcType="VARCHAR" />
+				<result property="reportTime" column="REPORT_TIME" jdbcType="VARCHAR" />
+				<result property="idtype" column="IDTYPE" jdbcType="VARCHAR" />
+				<result property="idno" column="IDNO" jdbcType="VARCHAR" />
+				<result property="idname" column="IDNAME" jdbcType="VARCHAR" />
+				<result property="marital" column="MARITAL" jdbcType="VARCHAR" />
+				<result property="assetFlag" column="ASSET_FLAG" jdbcType="VARCHAR" />
+				<result property="compensateFlag" column="COMPENSATE_FLAG" jdbcType="VARCHAR" />
+				<result property="creditFlag" column="CREDIT_FLAG" jdbcType="VARCHAR" />
+				<result property="loanFlag" column="LOAN_FLAG" jdbcType="VARCHAR" />
+				<result property="guaranteeFlag" column="GUARANTEE_FLAG" jdbcType="VARCHAR" />
+				<result property="taxFlag" column="TAX_FLAG" jdbcType="VARCHAR" />
+				<result property="judgmentFlag" column="JUDGMENT_FLAG" jdbcType="VARCHAR" />
+				<result property="enforcementFlag" column="ENFORCEMENT_FLAG" jdbcType="VARCHAR" />
+				<result property="punishmentFlag" column="PUNISHMENT_FLAG" jdbcType="VARCHAR" />
+				<result property="telecomFlag" column="TELECOM_FLAG" jdbcType="VARCHAR" />
+				<result property="checks" column="CHECKS" jdbcType="VARCHAR" />
+				<result property="isfail" column="ISFAIL" jdbcType="VARCHAR" />
+				<result property="fkTrailId" column="FK_TRAIL_ID" jdbcType="DECIMAL" />
+				<result property="respMsg" column="RESP_MSG" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="validateState" column="VALIDATE_STATE" jdbcType="VARCHAR" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="updateBy" column="UPDATE_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_SH_SR_BASIC_INFO -->	
+<select id="searchExtWlShSrBasicInfoByPaging" parameterType="java.util.Map" resultMap="ExtWlShSrBasicInfoDTO">
+    	 		select 
+						t1.id                             ,
+						t1.org_id                         ,
+						t1.operator_id                    ,
+						t1.report_sn                      ,
+						t1.query_time                     ,
+						t1.report_time                    ,
+						t1.idtype                         ,
+						t1.idno                           ,
+						t1.idname                         ,
+						t1.marital                        ,
+						t1.asset_flag                     ,
+						t1.compensate_flag                ,
+						t1.credit_flag                    ,
+						t1.loan_flag                      ,
+						t1.guarantee_flag                 ,
+						t1.tax_flag                       ,
+						t1.judgment_flag                  ,
+						t1.enforcement_flag               ,
+						t1.punishment_flag                ,
+						t1.telecom_flag                   ,
+						t1.checks                         ,
+						t1.isfail                         ,
+						t1.fk_trail_id                    ,
+						t1.resp_msg                       ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.validate_state                 ,
+						t1.create_by                      ,
+						t1.update_by                      
+					
+				from ext_wl_sh_sr_basic_info 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.orgId != null and dto.orgId != ''">
+						and t1.ORG_ID =#{dto.orgId}
+    			</if>
+    			<if test="dto.operatorId != null and dto.operatorId != ''">
+						and t1.OPERATOR_ID =#{dto.operatorId}
+    			</if>
+    			<if test="dto.reportSn != null and dto.reportSn != ''">
+						and t1.REPORT_SN =#{dto.reportSn}
+    			</if>
+    			<if test="dto.queryTime != null and dto.queryTime != ''">
+						and t1.QUERY_TIME =#{dto.queryTime}
+    			</if>
+    			<if test="dto.reportTime != null and dto.reportTime != ''">
+						and t1.REPORT_TIME =#{dto.reportTime}
+    			</if>
+    			<if test="dto.idtype != null and dto.idtype != ''">
+						and t1.IDTYPE =#{dto.idtype}
+    			</if>
+    			<if test="dto.idno != null and dto.idno != ''">
+						and t1.IDNO =#{dto.idno}
+    			</if>
+    			<if test="dto.idname != null and dto.idname != ''">
+						and t1.IDNAME =#{dto.idname}
+    			</if>
+    			<if test="dto.marital != null and dto.marital != ''">
+						and t1.MARITAL =#{dto.marital}
+    			</if>
+    			<if test="dto.assetFlag != null and dto.assetFlag != ''">
+						and t1.ASSET_FLAG =#{dto.assetFlag}
+    			</if>
+    			<if test="dto.compensateFlag != null and dto.compensateFlag != ''">
+						and t1.COMPENSATE_FLAG =#{dto.compensateFlag}
+    			</if>
+    			<if test="dto.creditFlag != null and dto.creditFlag != ''">
+						and t1.CREDIT_FLAG =#{dto.creditFlag}
+    			</if>
+    			<if test="dto.loanFlag != null and dto.loanFlag != ''">
+						and t1.LOAN_FLAG =#{dto.loanFlag}
+    			</if>
+    			<if test="dto.guaranteeFlag != null and dto.guaranteeFlag != ''">
+						and t1.GUARANTEE_FLAG =#{dto.guaranteeFlag}
+    			</if>
+    			<if test="dto.taxFlag != null and dto.taxFlag != ''">
+						and t1.TAX_FLAG =#{dto.taxFlag}
+    			</if>
+    			<if test="dto.judgmentFlag != null and dto.judgmentFlag != ''">
+						and t1.JUDGMENT_FLAG =#{dto.judgmentFlag}
+    			</if>
+    			<if test="dto.enforcementFlag != null and dto.enforcementFlag != ''">
+						and t1.ENFORCEMENT_FLAG =#{dto.enforcementFlag}
+    			</if>
+    			<if test="dto.punishmentFlag != null and dto.punishmentFlag != ''">
+						and t1.PUNISHMENT_FLAG =#{dto.punishmentFlag}
+    			</if>
+    			<if test="dto.telecomFlag != null and dto.telecomFlag != ''">
+						and t1.TELECOM_FLAG =#{dto.telecomFlag}
+    			</if>
+    			<if test="dto.checks != null and dto.checks != ''">
+						and t1.CHECKS =#{dto.checks}
+    			</if>
+    			<if test="dto.isfail != null and dto.isfail != ''">
+						and t1.ISFAIL =#{dto.isfail}
+    			</if>
+    			<if test="dto.fkTrailId != null and dto.fkTrailId != ''">
+						and t1.FK_TRAIL_ID =#{dto.fkTrailId}
+    			</if>
+    			<if test="dto.respMsg != null and dto.respMsg != ''">
+						and t1.RESP_MSG =#{dto.respMsg}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE =#{dto.validateState}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY =#{dto.updateBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_SH_SR_BASIC_INFO  -->
+<select id="searchExtWlShSrBasicInfo" parameterType="java.util.Map" resultMap="ExtWlShSrBasicInfoDTO">
+    	     select 
+						t1.id                             ,
+						t1.org_id                         ,
+						t1.operator_id                    ,
+						t1.report_sn                      ,
+						t1.query_time                     ,
+						t1.report_time                    ,
+						t1.idtype                         ,
+						t1.idno                           ,
+						t1.idname                         ,
+						t1.marital                        ,
+						t1.asset_flag                     ,
+						t1.compensate_flag                ,
+						t1.credit_flag                    ,
+						t1.loan_flag                      ,
+						t1.guarantee_flag                 ,
+						t1.tax_flag                       ,
+						t1.judgment_flag                  ,
+						t1.enforcement_flag               ,
+						t1.punishment_flag                ,
+						t1.telecom_flag                   ,
+						t1.checks                         ,
+						t1.isfail                         ,
+						t1.fk_trail_id                    ,
+						t1.resp_msg                       ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.validate_state                 ,
+						t1.create_by                      ,
+						t1.update_by                      
+				from ext_wl_sh_sr_basic_info 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.orgId != null and dto.orgId != ''">
+						and t1.ORG_ID = #{dto.orgId}
+    			</if>
+    			<if test="dto.operatorId != null and dto.operatorId != ''">
+						and t1.OPERATOR_ID = #{dto.operatorId}
+    			</if>
+    			<if test="dto.reportSn != null and dto.reportSn != ''">
+						and t1.REPORT_SN = #{dto.reportSn}
+    			</if>
+    			<if test="dto.queryTime != null and dto.queryTime != ''">
+						and t1.QUERY_TIME = #{dto.queryTime}
+    			</if>
+    			<if test="dto.reportTime != null and dto.reportTime != ''">
+						and t1.REPORT_TIME = #{dto.reportTime}
+    			</if>
+    			<if test="dto.idtype != null and dto.idtype != ''">
+						and t1.IDTYPE = #{dto.idtype}
+    			</if>
+    			<if test="dto.idno != null and dto.idno != ''">
+						and t1.IDNO = #{dto.idno}
+    			</if>
+    			<if test="dto.idname != null and dto.idname != ''">
+						and t1.IDNAME = #{dto.idname}
+    			</if>
+    			<if test="dto.marital != null and dto.marital != ''">
+						and t1.MARITAL = #{dto.marital}
+    			</if>
+    			<if test="dto.assetFlag != null and dto.assetFlag != ''">
+						and t1.ASSET_FLAG = #{dto.assetFlag}
+    			</if>
+    			<if test="dto.compensateFlag != null and dto.compensateFlag != ''">
+						and t1.COMPENSATE_FLAG = #{dto.compensateFlag}
+    			</if>
+    			<if test="dto.creditFlag != null and dto.creditFlag != ''">
+						and t1.CREDIT_FLAG = #{dto.creditFlag}
+    			</if>
+    			<if test="dto.loanFlag != null and dto.loanFlag != ''">
+						and t1.LOAN_FLAG = #{dto.loanFlag}
+    			</if>
+    			<if test="dto.guaranteeFlag != null and dto.guaranteeFlag != ''">
+						and t1.GUARANTEE_FLAG = #{dto.guaranteeFlag}
+    			</if>
+    			<if test="dto.taxFlag != null and dto.taxFlag != ''">
+						and t1.TAX_FLAG = #{dto.taxFlag}
+    			</if>
+    			<if test="dto.judgmentFlag != null and dto.judgmentFlag != ''">
+						and t1.JUDGMENT_FLAG = #{dto.judgmentFlag}
+    			</if>
+    			<if test="dto.enforcementFlag != null and dto.enforcementFlag != ''">
+						and t1.ENFORCEMENT_FLAG = #{dto.enforcementFlag}
+    			</if>
+    			<if test="dto.punishmentFlag != null and dto.punishmentFlag != ''">
+						and t1.PUNISHMENT_FLAG = #{dto.punishmentFlag}
+    			</if>
+    			<if test="dto.telecomFlag != null and dto.telecomFlag != ''">
+						and t1.TELECOM_FLAG = #{dto.telecomFlag}
+    			</if>
+    			<if test="dto.checks != null and dto.checks != ''">
+						and t1.CHECKS = #{dto.checks}
+    			</if>
+    			<if test="dto.isfail != null and dto.isfail != ''">
+						and t1.ISFAIL = #{dto.isfail}
+    			</if>
+    			<if test="dto.fkTrailId != null and dto.fkTrailId != ''">
+						and t1.FK_TRAIL_ID = #{dto.fkTrailId}
+    			</if>
+    			<if test="dto.respMsg != null and dto.respMsg != ''">
+						and t1.RESP_MSG = #{dto.respMsg}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE = #{dto.validateState}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY = #{dto.updateBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_SH_SR_BASIC_INFO -->
+<select id="findExtWlShSrBasicInfoByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlShSrBasicInfoDTO">
+   	 		select 
+					t1.id                             ,
+					t1.org_id                         ,
+					t1.operator_id                    ,
+					t1.report_sn                      ,
+					t1.query_time                     ,
+					t1.report_time                    ,
+					t1.idtype                         ,
+					t1.idno                           ,
+					t1.idname                         ,
+					t1.marital                        ,
+					t1.asset_flag                     ,
+					t1.compensate_flag                ,
+					t1.credit_flag                    ,
+					t1.loan_flag                      ,
+					t1.guarantee_flag                 ,
+					t1.tax_flag                       ,
+					t1.judgment_flag                  ,
+					t1.enforcement_flag               ,
+					t1.punishment_flag                ,
+					t1.telecom_flag                   ,
+					t1.checks                         ,
+					t1.isfail                         ,
+					t1.fk_trail_id                    ,
+					t1.resp_msg                       ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.validate_state                 ,
+					t1.create_by                      ,
+					t1.update_by                      
+			from ext_wl_sh_sr_basic_info 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_SH_SR_BASIC_INFO -->
+<insert id="insertExtWlShSrBasicInfo" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_SH_SR_BASIC_INFO.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_sh_sr_basic_info
+			(   		
+					id                             ,
+					org_id                         ,
+					operator_id                    ,
+					report_sn                      ,
+					query_time                     ,
+					report_time                    ,
+					idtype                         ,
+					idno                           ,
+					idname                         ,
+					marital                        ,
+					asset_flag                     ,
+					compensate_flag                ,
+					credit_flag                    ,
+					loan_flag                      ,
+					guarantee_flag                 ,
+					tax_flag                       ,
+					judgment_flag                  ,
+					enforcement_flag               ,
+					punishment_flag                ,
+					telecom_flag                   ,
+					checks                         ,
+					isfail                         ,
+					fk_trail_id                    ,
+					resp_msg                       ,
+					create_time                    ,
+					modify_time                    ,
+					validate_state                 ,
+					create_by                      ,
+					update_by                      
+			)
+			values(#{dto.id}
+					,#{dto.orgId,jdbcType=VARCHAR}
+					,#{dto.operatorId,jdbcType=VARCHAR}
+					,#{dto.reportSn,jdbcType=VARCHAR}
+					,#{dto.queryTime,jdbcType=VARCHAR}
+					,#{dto.reportTime,jdbcType=VARCHAR}
+					,#{dto.idtype,jdbcType=VARCHAR}
+					,#{dto.idno,jdbcType=VARCHAR}
+					,#{dto.idname,jdbcType=VARCHAR}
+					,#{dto.marital,jdbcType=VARCHAR}
+					,#{dto.assetFlag,jdbcType=VARCHAR}
+					,#{dto.compensateFlag,jdbcType=VARCHAR}
+					,#{dto.creditFlag,jdbcType=VARCHAR}
+					,#{dto.loanFlag,jdbcType=VARCHAR}
+					,#{dto.guaranteeFlag,jdbcType=VARCHAR}
+					,#{dto.taxFlag,jdbcType=VARCHAR}
+					,#{dto.judgmentFlag,jdbcType=VARCHAR}
+					,#{dto.enforcementFlag,jdbcType=VARCHAR}
+					,#{dto.punishmentFlag,jdbcType=VARCHAR}
+					,#{dto.telecomFlag,jdbcType=VARCHAR}
+					,#{dto.checks,jdbcType=VARCHAR}
+					,#{dto.isfail,jdbcType=VARCHAR}
+					,#{dto.fkTrailId,jdbcType=DECIMAL}
+					,#{dto.respMsg,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,'1'
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.updateBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_SH_SR_BASIC_INFO -->
+<update id="updateExtWlShSrBasicInfo" parameterType="java.util.Map">
+	     update ext_wl_sh_sr_basic_info t1
+	           set 
+			           t1.org_id                         =#{dto.orgId,jdbcType=VARCHAR},
+			           t1.operator_id                    =#{dto.operatorId,jdbcType=VARCHAR},
+			           t1.report_sn                      =#{dto.reportSn,jdbcType=VARCHAR},
+			           t1.query_time                     =#{dto.queryTime,jdbcType=VARCHAR},
+			           t1.report_time                    =#{dto.reportTime,jdbcType=VARCHAR},
+			           t1.idtype                         =#{dto.idtype,jdbcType=VARCHAR},
+			           t1.idno                           =#{dto.idno,jdbcType=VARCHAR},
+			           t1.idname                         =#{dto.idname,jdbcType=VARCHAR},
+			           t1.marital                        =#{dto.marital,jdbcType=VARCHAR},
+			           t1.asset_flag                     =#{dto.assetFlag,jdbcType=VARCHAR},
+			           t1.compensate_flag                =#{dto.compensateFlag,jdbcType=VARCHAR},
+			           t1.credit_flag                    =#{dto.creditFlag,jdbcType=VARCHAR},
+			           t1.loan_flag                      =#{dto.loanFlag,jdbcType=VARCHAR},
+			           t1.guarantee_flag                 =#{dto.guaranteeFlag,jdbcType=VARCHAR},
+			           t1.tax_flag                       =#{dto.taxFlag,jdbcType=VARCHAR},
+			           t1.judgment_flag                  =#{dto.judgmentFlag,jdbcType=VARCHAR},
+			           t1.enforcement_flag               =#{dto.enforcementFlag,jdbcType=VARCHAR},
+			           t1.punishment_flag                =#{dto.punishmentFlag,jdbcType=VARCHAR},
+			           t1.telecom_flag                   =#{dto.telecomFlag,jdbcType=VARCHAR},
+			           t1.checks                         =#{dto.checks,jdbcType=VARCHAR},
+			           t1.isfail                         =#{dto.isfail,jdbcType=VARCHAR},
+			           t1.fk_trail_id                    =#{dto.fkTrailId,jdbcType=DECIMAL},
+			           t1.resp_msg                       =#{dto.respMsg,jdbcType=VARCHAR},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP},
+			           t1.validate_state                 ='1',
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.update_by                      =#{dto.updateBy,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_SH_SR_BASIC_INFO -->
+<delete id="deleteExtWlShSrBasicInfoByID" parameterType="java.util.Map">
+    	delete from ext_wl_sh_sr_basic_info t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_SH_SR_BASIC_INFO -->
+<update id="deleteExtWlShSrBasicInfoByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_sh_sr_basic_info t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

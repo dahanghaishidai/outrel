@@ -1,0 +1,759 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.suanhua.extshfrandreportstock.dao.ExtShFrandReportStockDao">
+<resultMap id="ExtShFrandReportStockDTO" type="com.jy.modules.externalplatform.interfacerepository.suanhua.extshfrandreportstock.dto.ExtShFrandReportStockDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="prodCode" column="PROD_CODE" jdbcType="VARCHAR" />
+				<result property="orgCode" column="ORG_CODE" jdbcType="VARCHAR" />
+				<result property="sysCode" column="SYS_CODE" jdbcType="VARCHAR" />
+				<result property="appNum" column="APP_NUM" jdbcType="VARCHAR" />
+				<result property="frdCheckType" column="FRD_CHECK_TYPE" jdbcType="VARCHAR" />
+				<result property="appDate" column="APP_DATE" jdbcType="DATE" />
+				<result property="appNo" column="APP_NO" jdbcType="VARCHAR" />
+				<result property="appValid" column="APP_VALID" jdbcType="VARCHAR" />
+				<result property="errMsg" column="ERR_MSG" jdbcType="VARCHAR" />
+				<result property="appRst" column="APP_RST" jdbcType="DECIMAL" />
+				<result property="appRstRemark" column="APP_RST_REMARK" jdbcType="VARCHAR" />
+				<result property="appFaceRst" column="APP_FACE_RST" jdbcType="VARCHAR" />
+				<result property="appBlackRst" column="APP_BLACK_RST" jdbcType="VARCHAR" />
+				<result property="appStatus" column="APP_STATUS" jdbcType="VARCHAR" />
+				<result property="appWarn" column="APP_WARN" jdbcType="VARCHAR" />
+				<result property="appWarnInfo" column="APP_WARN_INFO" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="validateState" column="VALIDATE_STATE" jdbcType="VARCHAR" />
+				<result property="custId" column="CUST_ID" jdbcType="DECIMAL" />
+				<result property="stanFrdLevel" column="STAN_FRD_LEVEL" jdbcType="VARCHAR" />
+				<result property="stanIdNameMatch" column="STAN_ID_NAME_MATCH" jdbcType="VARCHAR" />
+				<result property="stanStatusB001" column="STAN_STATUS_B001" jdbcType="VARCHAR" />
+				<result property="stanStatus3007" column="STAN_STATUS_3007" jdbcType="VARCHAR" />
+				<result property="stan6001Cpws" column="STAN_6001_CPWS" jdbcType="VARCHAR" />
+				<result property="stan6001Zxgg" column="STAN_6001_ZXGG" jdbcType="VARCHAR" />
+				<result property="stan6001Sxgg" column="STAN_6001_SXGG" jdbcType="VARCHAR" />
+				<result property="stan6001Ktgg" column="STAN_6001_KTGG" jdbcType="VARCHAR" />
+				<result property="stan6001Fygg" column="STAN_6001_FYGG" jdbcType="VARCHAR" />
+				<result property="stan6001Wdhmd" column="STAN_6001_WDHMD" jdbcType="VARCHAR" />
+				<result property="stan3004Address" column="STAN_3004_ADDRESS" jdbcType="VARCHAR" />
+				<result property="stan3004Name" column="STAN_3004_NAME" jdbcType="VARCHAR" />
+				<result property="stan3004EmpName" column="STAN_3004_EMP_NAME" jdbcType="VARCHAR" />
+				<result property="stan3004EmpAddress" column="STAN_3004_EMP_ADDRESS" jdbcType="VARCHAR" />
+				<result property="stan3005Hfbalsign" column="STAN_3005_HFBALSIGN" jdbcType="VARCHAR" />
+				<result property="stan3005Telecomoperator" column="STAN_3005_TELECOMOPERATOR" jdbcType="VARCHAR" />
+				<result property="stan3005Onlinetimes" column="STAN_3005_ONLINETIMES" jdbcType="VARCHAR" />
+				<result property="stan8007AMonthlyContacts" column="STAN_8007_A_MONTHLY_CONTACTS" jdbcType="VARCHAR" />
+				<result property="stan8007ADailycalltimes" column="STAN_8007_A_DAILYCALLTIMES" jdbcType="VARCHAR" />
+				<result property="stan8007ALabel" column="STAN_8007_A_LABEL" jdbcType="VARCHAR" />
+				<result property="stan8007Intimacy1" column="STAN_8007_INTIMACY_1" jdbcType="VARCHAR" />
+				<result property="stan8007Intimacy2" column="STAN_8007_INTIMACY_2" jdbcType="VARCHAR" />
+				<result property="stanExternalStatus" column="STAN_EXTERNAL_STATUS" jdbcType="VARCHAR" />
+				<result property="stanCellCsPhoneCheck" column="STAN_CELL_CS_PHONE_CHECK" jdbcType="VARCHAR" />
+				<result property="stanAppInvalid" column="STAN_APP_INVALID" jdbcType="VARCHAR" />
+				<result property="stanRiskRate" column="STAN_RISK_RATE" jdbcType="VARCHAR" />
+				<result property="homeEmpAddrCheck" column="HOME_EMP_ADDR_CHECK" jdbcType="VARCHAR" />
+				<result property="homeEmpPhoneCheck" column="HOME_EMP_PHONE_CHECK" jdbcType="VARCHAR" />
+				<result property="g1Msg" column="G1_MSG" jdbcType="VARCHAR" />
+				<result property="retCode" column="RET_CODE" jdbcType="VARCHAR" />
+				<result property="errorMsg" column="ERROR_MSG" jdbcType="VARCHAR" />
+				<result property="interfaceId" column="INTERFACE_ID" jdbcType="VARCHAR" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="remark" column="REMARK" jdbcType="VARCHAR" />
+</resultMap>
+				
+<!-- 分页查询 EXT_SH_FRAND_REPORT_STOCK -->	
+<select id="searchExtShFrandReportStockByPaging" parameterType="java.util.Map" resultMap="ExtShFrandReportStockDTO">
+    	 		select 
+						t1.id                             ,
+						t1.prod_code                      ,
+						t1.org_code                       ,
+						t1.sys_code                       ,
+						t1.app_num                        ,
+						t1.frd_check_type                 ,
+						t1.app_date                       ,
+						t1.app_no                         ,
+						t1.app_valid                      ,
+						t1.err_msg                        ,
+						t1.app_rst                        ,
+						t1.app_rst_remark                 ,
+						t1.app_face_rst                   ,
+						t1.app_black_rst                  ,
+						t1.app_status                     ,
+						t1.app_warn                       ,
+						t1.app_warn_info                  ,
+						t1.create_time                    ,
+						t1.validate_state                 ,
+						t1.cust_id                        ,
+						t1.stan_frd_level                 ,
+						t1.stan_id_name_match             ,
+						t1.stan_status_b001               ,
+						t1.stan_status_3007               ,
+						t1.stan_6001_cpws                 ,
+						t1.stan_6001_zxgg                 ,
+						t1.stan_6001_sxgg                 ,
+						t1.stan_6001_ktgg                 ,
+						t1.stan_6001_fygg                 ,
+						t1.stan_6001_wdhmd                ,
+						t1.stan_3004_address              ,
+						t1.stan_3004_name                 ,
+						t1.stan_3004_emp_name             ,
+						t1.stan_3004_emp_address          ,
+						t1.stan_3005_hfbalsign            ,
+						t1.stan_3005_telecomoperator      ,
+						t1.stan_3005_onlinetimes          ,
+						t1.stan_8007_a_monthly_contacts   ,
+						t1.stan_8007_a_dailycalltimes     ,
+						t1.stan_8007_a_label              ,
+						t1.stan_8007_intimacy_1           ,
+						t1.stan_8007_intimacy_2           ,
+						t1.stan_external_status           ,
+						t1.stan_cell_cs_phone_check       ,
+						t1.stan_app_invalid               ,
+						t1.stan_risk_rate                 ,
+						t1.home_emp_addr_check            ,
+						t1.home_emp_phone_check           ,
+						t1.g1_msg                         ,
+						t1.ret_code                       ,
+						t1.error_msg                      ,
+						t1.interface_id                   ,
+						t1.modify_time                    ,
+						t1.remark                         
+					
+				from ext_sh_frand_report_stock 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.prodCode != null and dto.prodCode != ''">
+						and t1.PROD_CODE =#{dto.prodCode}
+    			</if>
+    			<if test="dto.orgCode != null and dto.orgCode != ''">
+						and t1.ORG_CODE =#{dto.orgCode}
+    			</if>
+    			<if test="dto.sysCode != null and dto.sysCode != ''">
+						and t1.SYS_CODE =#{dto.sysCode}
+    			</if>
+    			<if test="dto.appNum != null and dto.appNum != ''">
+						and t1.APP_NUM =#{dto.appNum}
+    			</if>
+    			<if test="dto.frdCheckType != null and dto.frdCheckType != ''">
+						and t1.FRD_CHECK_TYPE =#{dto.frdCheckType}
+    			</if>
+    			<if test="dto.appDate != null and dto.appDate != ''">
+						and t1.APP_DATE =#{dto.appDate}
+    			</if>
+    			<if test="dto.appNo != null and dto.appNo != ''">
+						and t1.APP_NO =#{dto.appNo}
+    			</if>
+    			<if test="dto.appValid != null and dto.appValid != ''">
+						and t1.APP_VALID =#{dto.appValid}
+    			</if>
+    			<if test="dto.errMsg != null and dto.errMsg != ''">
+						and t1.ERR_MSG =#{dto.errMsg}
+    			</if>
+    			<if test="dto.appRst != null and dto.appRst != ''">
+						and t1.APP_RST =#{dto.appRst}
+    			</if>
+    			<if test="dto.appRstRemark != null and dto.appRstRemark != ''">
+						and t1.APP_RST_REMARK =#{dto.appRstRemark}
+    			</if>
+    			<if test="dto.appFaceRst != null and dto.appFaceRst != ''">
+						and t1.APP_FACE_RST =#{dto.appFaceRst}
+    			</if>
+    			<if test="dto.appBlackRst != null and dto.appBlackRst != ''">
+						and t1.APP_BLACK_RST =#{dto.appBlackRst}
+    			</if>
+    			<if test="dto.appStatus != null and dto.appStatus != ''">
+						and t1.APP_STATUS =#{dto.appStatus}
+    			</if>
+    			<if test="dto.appWarn != null and dto.appWarn != ''">
+						and t1.APP_WARN =#{dto.appWarn}
+    			</if>
+    			<if test="dto.appWarnInfo != null and dto.appWarnInfo != ''">
+						and t1.APP_WARN_INFO =#{dto.appWarnInfo}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE =#{dto.validateState}
+    			</if>
+    			<if test="dto.custId != null and dto.custId != ''">
+						and t1.CUST_ID =#{dto.custId}
+    			</if>
+    			<if test="dto.stanFrdLevel != null and dto.stanFrdLevel != ''">
+						and t1.STAN_FRD_LEVEL =#{dto.stanFrdLevel}
+    			</if>
+    			<if test="dto.stanIdNameMatch != null and dto.stanIdNameMatch != ''">
+						and t1.STAN_ID_NAME_MATCH =#{dto.stanIdNameMatch}
+    			</if>
+    			<if test="dto.stanStatusB001 != null and dto.stanStatusB001 != ''">
+						and t1.STAN_STATUS_B001 =#{dto.stanStatusB001}
+    			</if>
+    			<if test="dto.stanStatus3007 != null and dto.stanStatus3007 != ''">
+						and t1.STAN_STATUS_3007 =#{dto.stanStatus3007}
+    			</if>
+    			<if test="dto.stan6001Cpws != null and dto.stan6001Cpws != ''">
+						and t1.STAN_6001_CPWS =#{dto.stan6001Cpws}
+    			</if>
+    			<if test="dto.stan6001Zxgg != null and dto.stan6001Zxgg != ''">
+						and t1.STAN_6001_ZXGG =#{dto.stan6001Zxgg}
+    			</if>
+    			<if test="dto.stan6001Sxgg != null and dto.stan6001Sxgg != ''">
+						and t1.STAN_6001_SXGG =#{dto.stan6001Sxgg}
+    			</if>
+    			<if test="dto.stan6001Ktgg != null and dto.stan6001Ktgg != ''">
+						and t1.STAN_6001_KTGG =#{dto.stan6001Ktgg}
+    			</if>
+    			<if test="dto.stan6001Fygg != null and dto.stan6001Fygg != ''">
+						and t1.STAN_6001_FYGG =#{dto.stan6001Fygg}
+    			</if>
+    			<if test="dto.stan6001Wdhmd != null and dto.stan6001Wdhmd != ''">
+						and t1.STAN_6001_WDHMD =#{dto.stan6001Wdhmd}
+    			</if>
+    			<if test="dto.stan3004Address != null and dto.stan3004Address != ''">
+						and t1.STAN_3004_ADDRESS =#{dto.stan3004Address}
+    			</if>
+    			<if test="dto.stan3004Name != null and dto.stan3004Name != ''">
+						and t1.STAN_3004_NAME =#{dto.stan3004Name}
+    			</if>
+    			<if test="dto.stan3004EmpName != null and dto.stan3004EmpName != ''">
+						and t1.STAN_3004_EMP_NAME =#{dto.stan3004EmpName}
+    			</if>
+    			<if test="dto.stan3004EmpAddress != null and dto.stan3004EmpAddress != ''">
+						and t1.STAN_3004_EMP_ADDRESS =#{dto.stan3004EmpAddress}
+    			</if>
+    			<if test="dto.stan3005Hfbalsign != null and dto.stan3005Hfbalsign != ''">
+						and t1.STAN_3005_HFBALSIGN =#{dto.stan3005Hfbalsign}
+    			</if>
+    			<if test="dto.stan3005Telecomoperator != null and dto.stan3005Telecomoperator != ''">
+						and t1.STAN_3005_TELECOMOPERATOR =#{dto.stan3005Telecomoperator}
+    			</if>
+    			<if test="dto.stan3005Onlinetimes != null and dto.stan3005Onlinetimes != ''">
+						and t1.STAN_3005_ONLINETIMES =#{dto.stan3005Onlinetimes}
+    			</if>
+    			<if test="dto.stan8007AMonthlyContacts != null and dto.stan8007AMonthlyContacts != ''">
+						and t1.STAN_8007_A_MONTHLY_CONTACTS =#{dto.stan8007AMonthlyContacts}
+    			</if>
+    			<if test="dto.stan8007ADailycalltimes != null and dto.stan8007ADailycalltimes != ''">
+						and t1.STAN_8007_A_DAILYCALLTIMES =#{dto.stan8007ADailycalltimes}
+    			</if>
+    			<if test="dto.stan8007ALabel != null and dto.stan8007ALabel != ''">
+						and t1.STAN_8007_A_LABEL =#{dto.stan8007ALabel}
+    			</if>
+    			<if test="dto.stan8007Intimacy1 != null and dto.stan8007Intimacy1 != ''">
+						and t1.STAN_8007_INTIMACY_1 =#{dto.stan8007Intimacy1}
+    			</if>
+    			<if test="dto.stan8007Intimacy2 != null and dto.stan8007Intimacy2 != ''">
+						and t1.STAN_8007_INTIMACY_2 =#{dto.stan8007Intimacy2}
+    			</if>
+    			<if test="dto.stanExternalStatus != null and dto.stanExternalStatus != ''">
+						and t1.STAN_EXTERNAL_STATUS =#{dto.stanExternalStatus}
+    			</if>
+    			<if test="dto.stanCellCsPhoneCheck != null and dto.stanCellCsPhoneCheck != ''">
+						and t1.STAN_CELL_CS_PHONE_CHECK =#{dto.stanCellCsPhoneCheck}
+    			</if>
+    			<if test="dto.stanAppInvalid != null and dto.stanAppInvalid != ''">
+						and t1.STAN_APP_INVALID =#{dto.stanAppInvalid}
+    			</if>
+    			<if test="dto.stanRiskRate != null and dto.stanRiskRate != ''">
+						and t1.STAN_RISK_RATE =#{dto.stanRiskRate}
+    			</if>
+    			<if test="dto.homeEmpAddrCheck != null and dto.homeEmpAddrCheck != ''">
+						and t1.HOME_EMP_ADDR_CHECK =#{dto.homeEmpAddrCheck}
+    			</if>
+    			<if test="dto.homeEmpPhoneCheck != null and dto.homeEmpPhoneCheck != ''">
+						and t1.HOME_EMP_PHONE_CHECK =#{dto.homeEmpPhoneCheck}
+    			</if>
+    			<if test="dto.g1Msg != null and dto.g1Msg != ''">
+						and t1.G1_MSG =#{dto.g1Msg}
+    			</if>
+    			<if test="dto.retCode != null and dto.retCode != ''">
+						and t1.RET_CODE =#{dto.retCode}
+    			</if>
+    			<if test="dto.errorMsg != null and dto.errorMsg != ''">
+						and t1.ERROR_MSG =#{dto.errorMsg}
+    			</if>
+    			<if test="dto.interfaceId != null and dto.interfaceId != ''">
+						and t1.INTERFACE_ID =#{dto.interfaceId}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.remark != null and dto.remark != ''">
+						and t1.REMARK =#{dto.remark}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_SH_FRAND_REPORT_STOCK  -->
+<select id="searchExtShFrandReportStock" parameterType="java.util.Map" resultMap="ExtShFrandReportStockDTO">
+    	     select 
+						t1.id                             ,
+						t1.prod_code                      ,
+						t1.org_code                       ,
+						t1.sys_code                       ,
+						t1.app_num                        ,
+						t1.frd_check_type                 ,
+						t1.app_date                       ,
+						t1.app_no                         ,
+						t1.app_valid                      ,
+						t1.err_msg                        ,
+						t1.app_rst                        ,
+						t1.app_rst_remark                 ,
+						t1.app_face_rst                   ,
+						t1.app_black_rst                  ,
+						t1.app_status                     ,
+						t1.app_warn                       ,
+						t1.app_warn_info                  ,
+						t1.create_time                    ,
+						t1.validate_state                 ,
+						t1.cust_id                        ,
+						t1.stan_frd_level                 ,
+						t1.stan_id_name_match             ,
+						t1.stan_status_b001               ,
+						t1.stan_status_3007               ,
+						t1.stan_6001_cpws                 ,
+						t1.stan_6001_zxgg                 ,
+						t1.stan_6001_sxgg                 ,
+						t1.stan_6001_ktgg                 ,
+						t1.stan_6001_fygg                 ,
+						t1.stan_6001_wdhmd                ,
+						t1.stan_3004_address              ,
+						t1.stan_3004_name                 ,
+						t1.stan_3004_emp_name             ,
+						t1.stan_3004_emp_address          ,
+						t1.stan_3005_hfbalsign            ,
+						t1.stan_3005_telecomoperator      ,
+						t1.stan_3005_onlinetimes          ,
+						t1.stan_8007_a_monthly_contacts   ,
+						t1.stan_8007_a_dailycalltimes     ,
+						t1.stan_8007_a_label              ,
+						t1.stan_8007_intimacy_1           ,
+						t1.stan_8007_intimacy_2           ,
+						t1.stan_external_status           ,
+						t1.stan_cell_cs_phone_check       ,
+						t1.stan_app_invalid               ,
+						t1.stan_risk_rate                 ,
+						t1.home_emp_addr_check            ,
+						t1.home_emp_phone_check           ,
+						t1.g1_msg                         ,
+						t1.ret_code                       ,
+						t1.error_msg                      ,
+						t1.interface_id                   ,
+						t1.modify_time                    ,
+						t1.remark                         
+				from ext_sh_frand_report_stock 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.prodCode != null and dto.prodCode != ''">
+						and t1.PROD_CODE = #{dto.prodCode}
+    			</if>
+    			<if test="dto.orgCode != null and dto.orgCode != ''">
+						and t1.ORG_CODE = #{dto.orgCode}
+    			</if>
+    			<if test="dto.sysCode != null and dto.sysCode != ''">
+						and t1.SYS_CODE = #{dto.sysCode}
+    			</if>
+    			<if test="dto.appNum != null and dto.appNum != ''">
+						and t1.APP_NUM = #{dto.appNum}
+    			</if>
+    			<if test="dto.frdCheckType != null and dto.frdCheckType != ''">
+						and t1.FRD_CHECK_TYPE = #{dto.frdCheckType}
+    			</if>
+    			<if test="dto.appDate != null and dto.appDate != ''">
+						and t1.APP_DATE = #{dto.appDate}
+    			</if>
+    			<if test="dto.appNo != null and dto.appNo != ''">
+						and t1.APP_NO = #{dto.appNo}
+    			</if>
+    			<if test="dto.appValid != null and dto.appValid != ''">
+						and t1.APP_VALID = #{dto.appValid}
+    			</if>
+    			<if test="dto.errMsg != null and dto.errMsg != ''">
+						and t1.ERR_MSG = #{dto.errMsg}
+    			</if>
+    			<if test="dto.appRst != null and dto.appRst != ''">
+						and t1.APP_RST = #{dto.appRst}
+    			</if>
+    			<if test="dto.appRstRemark != null and dto.appRstRemark != ''">
+						and t1.APP_RST_REMARK = #{dto.appRstRemark}
+    			</if>
+    			<if test="dto.appFaceRst != null and dto.appFaceRst != ''">
+						and t1.APP_FACE_RST = #{dto.appFaceRst}
+    			</if>
+    			<if test="dto.appBlackRst != null and dto.appBlackRst != ''">
+						and t1.APP_BLACK_RST = #{dto.appBlackRst}
+    			</if>
+    			<if test="dto.appStatus != null and dto.appStatus != ''">
+						and t1.APP_STATUS = #{dto.appStatus}
+    			</if>
+    			<if test="dto.appWarn != null and dto.appWarn != ''">
+						and t1.APP_WARN = #{dto.appWarn}
+    			</if>
+    			<if test="dto.appWarnInfo != null and dto.appWarnInfo != ''">
+						and t1.APP_WARN_INFO = #{dto.appWarnInfo}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE = #{dto.validateState}
+    			</if>
+    			<if test="dto.custId != null and dto.custId != ''">
+						and t1.CUST_ID = #{dto.custId}
+    			</if>
+    			<if test="dto.stanFrdLevel != null and dto.stanFrdLevel != ''">
+						and t1.STAN_FRD_LEVEL = #{dto.stanFrdLevel}
+    			</if>
+    			<if test="dto.stanIdNameMatch != null and dto.stanIdNameMatch != ''">
+						and t1.STAN_ID_NAME_MATCH = #{dto.stanIdNameMatch}
+    			</if>
+    			<if test="dto.stanStatusB001 != null and dto.stanStatusB001 != ''">
+						and t1.STAN_STATUS_B001 = #{dto.stanStatusB001}
+    			</if>
+    			<if test="dto.stanStatus3007 != null and dto.stanStatus3007 != ''">
+						and t1.STAN_STATUS_3007 = #{dto.stanStatus3007}
+    			</if>
+    			<if test="dto.stan6001Cpws != null and dto.stan6001Cpws != ''">
+						and t1.STAN_6001_CPWS = #{dto.stan6001Cpws}
+    			</if>
+    			<if test="dto.stan6001Zxgg != null and dto.stan6001Zxgg != ''">
+						and t1.STAN_6001_ZXGG = #{dto.stan6001Zxgg}
+    			</if>
+    			<if test="dto.stan6001Sxgg != null and dto.stan6001Sxgg != ''">
+						and t1.STAN_6001_SXGG = #{dto.stan6001Sxgg}
+    			</if>
+    			<if test="dto.stan6001Ktgg != null and dto.stan6001Ktgg != ''">
+						and t1.STAN_6001_KTGG = #{dto.stan6001Ktgg}
+    			</if>
+    			<if test="dto.stan6001Fygg != null and dto.stan6001Fygg != ''">
+						and t1.STAN_6001_FYGG = #{dto.stan6001Fygg}
+    			</if>
+    			<if test="dto.stan6001Wdhmd != null and dto.stan6001Wdhmd != ''">
+						and t1.STAN_6001_WDHMD = #{dto.stan6001Wdhmd}
+    			</if>
+    			<if test="dto.stan3004Address != null and dto.stan3004Address != ''">
+						and t1.STAN_3004_ADDRESS = #{dto.stan3004Address}
+    			</if>
+    			<if test="dto.stan3004Name != null and dto.stan3004Name != ''">
+						and t1.STAN_3004_NAME = #{dto.stan3004Name}
+    			</if>
+    			<if test="dto.stan3004EmpName != null and dto.stan3004EmpName != ''">
+						and t1.STAN_3004_EMP_NAME = #{dto.stan3004EmpName}
+    			</if>
+    			<if test="dto.stan3004EmpAddress != null and dto.stan3004EmpAddress != ''">
+						and t1.STAN_3004_EMP_ADDRESS = #{dto.stan3004EmpAddress}
+    			</if>
+    			<if test="dto.stan3005Hfbalsign != null and dto.stan3005Hfbalsign != ''">
+						and t1.STAN_3005_HFBALSIGN = #{dto.stan3005Hfbalsign}
+    			</if>
+    			<if test="dto.stan3005Telecomoperator != null and dto.stan3005Telecomoperator != ''">
+						and t1.STAN_3005_TELECOMOPERATOR = #{dto.stan3005Telecomoperator}
+    			</if>
+    			<if test="dto.stan3005Onlinetimes != null and dto.stan3005Onlinetimes != ''">
+						and t1.STAN_3005_ONLINETIMES = #{dto.stan3005Onlinetimes}
+    			</if>
+    			<if test="dto.stan8007AMonthlyContacts != null and dto.stan8007AMonthlyContacts != ''">
+						and t1.STAN_8007_A_MONTHLY_CONTACTS = #{dto.stan8007AMonthlyContacts}
+    			</if>
+    			<if test="dto.stan8007ADailycalltimes != null and dto.stan8007ADailycalltimes != ''">
+						and t1.STAN_8007_A_DAILYCALLTIMES = #{dto.stan8007ADailycalltimes}
+    			</if>
+    			<if test="dto.stan8007ALabel != null and dto.stan8007ALabel != ''">
+						and t1.STAN_8007_A_LABEL = #{dto.stan8007ALabel}
+    			</if>
+    			<if test="dto.stan8007Intimacy1 != null and dto.stan8007Intimacy1 != ''">
+						and t1.STAN_8007_INTIMACY_1 = #{dto.stan8007Intimacy1}
+    			</if>
+    			<if test="dto.stan8007Intimacy2 != null and dto.stan8007Intimacy2 != ''">
+						and t1.STAN_8007_INTIMACY_2 = #{dto.stan8007Intimacy2}
+    			</if>
+    			<if test="dto.stanExternalStatus != null and dto.stanExternalStatus != ''">
+						and t1.STAN_EXTERNAL_STATUS = #{dto.stanExternalStatus}
+    			</if>
+    			<if test="dto.stanCellCsPhoneCheck != null and dto.stanCellCsPhoneCheck != ''">
+						and t1.STAN_CELL_CS_PHONE_CHECK = #{dto.stanCellCsPhoneCheck}
+    			</if>
+    			<if test="dto.stanAppInvalid != null and dto.stanAppInvalid != ''">
+						and t1.STAN_APP_INVALID = #{dto.stanAppInvalid}
+    			</if>
+    			<if test="dto.stanRiskRate != null and dto.stanRiskRate != ''">
+						and t1.STAN_RISK_RATE = #{dto.stanRiskRate}
+    			</if>
+    			<if test="dto.homeEmpAddrCheck != null and dto.homeEmpAddrCheck != ''">
+						and t1.HOME_EMP_ADDR_CHECK = #{dto.homeEmpAddrCheck}
+    			</if>
+    			<if test="dto.homeEmpPhoneCheck != null and dto.homeEmpPhoneCheck != ''">
+						and t1.HOME_EMP_PHONE_CHECK = #{dto.homeEmpPhoneCheck}
+    			</if>
+    			<if test="dto.g1Msg != null and dto.g1Msg != ''">
+						and t1.G1_MSG = #{dto.g1Msg}
+    			</if>
+    			<if test="dto.retCode != null and dto.retCode != ''">
+						and t1.RET_CODE = #{dto.retCode}
+    			</if>
+    			<if test="dto.errorMsg != null and dto.errorMsg != ''">
+						and t1.ERROR_MSG = #{dto.errorMsg}
+    			</if>
+    			<if test="dto.interfaceId != null and dto.interfaceId != ''">
+						and t1.INTERFACE_ID = #{dto.interfaceId}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.remark != null and dto.remark != ''">
+						and t1.REMARK = #{dto.remark}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_SH_FRAND_REPORT_STOCK -->
+<select id="findExtShFrandReportStockByPrimaryKey" parameterType="java.util.Map" resultMap="ExtShFrandReportStockDTO">
+   	 		select 
+					t1.id                             ,
+					t1.prod_code                      ,
+					t1.org_code                       ,
+					t1.sys_code                       ,
+					t1.app_num                        ,
+					t1.frd_check_type                 ,
+					t1.app_date                       ,
+					t1.app_no                         ,
+					t1.app_valid                      ,
+					t1.err_msg                        ,
+					t1.app_rst                        ,
+					t1.app_rst_remark                 ,
+					t1.app_face_rst                   ,
+					t1.app_black_rst                  ,
+					t1.app_status                     ,
+					t1.app_warn                       ,
+					t1.app_warn_info                  ,
+					t1.create_time                    ,
+					t1.validate_state                 ,
+					t1.cust_id                        ,
+					t1.stan_frd_level                 ,
+					t1.stan_id_name_match             ,
+					t1.stan_status_b001               ,
+					t1.stan_status_3007               ,
+					t1.stan_6001_cpws                 ,
+					t1.stan_6001_zxgg                 ,
+					t1.stan_6001_sxgg                 ,
+					t1.stan_6001_ktgg                 ,
+					t1.stan_6001_fygg                 ,
+					t1.stan_6001_wdhmd                ,
+					t1.stan_3004_address              ,
+					t1.stan_3004_name                 ,
+					t1.stan_3004_emp_name             ,
+					t1.stan_3004_emp_address          ,
+					t1.stan_3005_hfbalsign            ,
+					t1.stan_3005_telecomoperator      ,
+					t1.stan_3005_onlinetimes          ,
+					t1.stan_8007_a_monthly_contacts   ,
+					t1.stan_8007_a_dailycalltimes     ,
+					t1.stan_8007_a_label              ,
+					t1.stan_8007_intimacy_1           ,
+					t1.stan_8007_intimacy_2           ,
+					t1.stan_external_status           ,
+					t1.stan_cell_cs_phone_check       ,
+					t1.stan_app_invalid               ,
+					t1.stan_risk_rate                 ,
+					t1.home_emp_addr_check            ,
+					t1.home_emp_phone_check           ,
+					t1.g1_msg                         ,
+					t1.ret_code                       ,
+					t1.error_msg                      ,
+					t1.interface_id                   ,
+					t1.modify_time                    ,
+					t1.remark                         
+			from ext_sh_frand_report_stock 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_SH_FRAND_REPORT_STOCK -->
+<insert id="insertExtShFrandReportStock" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_SH_FRAND_REPORT_STOCK.nextval as id from dual
+	</selectKey>
+			insert into ext_sh_frand_report_stock
+			(   		
+					id                             ,
+					prod_code                      ,
+					org_code                       ,
+					sys_code                       ,
+					app_num                        ,
+					frd_check_type                 ,
+					app_date                       ,
+					app_no                         ,
+					app_valid                      ,
+					err_msg                        ,
+					app_rst                        ,
+					app_rst_remark                 ,
+					app_face_rst                   ,
+					app_black_rst                  ,
+					app_status                     ,
+					app_warn                       ,
+					app_warn_info                  ,
+					create_time                    ,
+					validate_state                 ,
+					cust_id                        ,
+					stan_frd_level                 ,
+					stan_id_name_match             ,
+					stan_status_b001               ,
+					stan_status_3007               ,
+					stan_6001_cpws                 ,
+					stan_6001_zxgg                 ,
+					stan_6001_sxgg                 ,
+					stan_6001_ktgg                 ,
+					stan_6001_fygg                 ,
+					stan_6001_wdhmd                ,
+					stan_3004_address              ,
+					stan_3004_name                 ,
+					stan_3004_emp_name             ,
+					stan_3004_emp_address          ,
+					stan_3005_hfbalsign            ,
+					stan_3005_telecomoperator      ,
+					stan_3005_onlinetimes          ,
+					stan_8007_a_monthly_contacts   ,
+					stan_8007_a_dailycalltimes     ,
+					stan_8007_a_label              ,
+					stan_8007_intimacy_1           ,
+					stan_8007_intimacy_2           ,
+					stan_external_status           ,
+					stan_cell_cs_phone_check       ,
+					stan_app_invalid               ,
+					stan_risk_rate                 ,
+					home_emp_addr_check            ,
+					home_emp_phone_check           ,
+					g1_msg                         ,
+					ret_code                       ,
+					error_msg                      ,
+					interface_id                   ,
+					remark                         
+			)
+			values(#{dto.id}
+					,#{dto.prodCode,jdbcType=VARCHAR}
+					,#{dto.orgCode,jdbcType=VARCHAR}
+					,#{dto.sysCode,jdbcType=VARCHAR}
+					,#{dto.appNum,jdbcType=VARCHAR}
+					,#{dto.frdCheckType,jdbcType=VARCHAR}
+					,#{dto.appDate,jdbcType=DATE}
+					,#{dto.appNo,jdbcType=VARCHAR}
+					,#{dto.appValid,jdbcType=VARCHAR}
+					,#{dto.errMsg,jdbcType=VARCHAR}
+					,#{dto.appRst,jdbcType=DECIMAL}
+					,#{dto.appRstRemark,jdbcType=VARCHAR}
+					,#{dto.appFaceRst,jdbcType=VARCHAR}
+					,#{dto.appBlackRst,jdbcType=VARCHAR}
+					,#{dto.appStatus,jdbcType=VARCHAR}
+					,#{dto.appWarn,jdbcType=VARCHAR}
+					,#{dto.appWarnInfo,jdbcType=VARCHAR}
+					,systimestamp
+					,'1'
+					,#{dto.custId,jdbcType=DECIMAL}
+					,#{dto.stanFrdLevel,jdbcType=VARCHAR}
+					,#{dto.stanIdNameMatch,jdbcType=VARCHAR}
+					,#{dto.stanStatusB001,jdbcType=VARCHAR}
+					,#{dto.stanStatus3007,jdbcType=VARCHAR}
+					,#{dto.stan6001Cpws,jdbcType=VARCHAR}
+					,#{dto.stan6001Zxgg,jdbcType=VARCHAR}
+					,#{dto.stan6001Sxgg,jdbcType=VARCHAR}
+					,#{dto.stan6001Ktgg,jdbcType=VARCHAR}
+					,#{dto.stan6001Fygg,jdbcType=VARCHAR}
+					,#{dto.stan6001Wdhmd,jdbcType=VARCHAR}
+					,#{dto.stan3004Address,jdbcType=VARCHAR}
+					,#{dto.stan3004Name,jdbcType=VARCHAR}
+					,#{dto.stan3004EmpName,jdbcType=VARCHAR}
+					,#{dto.stan3004EmpAddress,jdbcType=VARCHAR}
+					,#{dto.stan3005Hfbalsign,jdbcType=VARCHAR}
+					,#{dto.stan3005Telecomoperator,jdbcType=VARCHAR}
+					,#{dto.stan3005Onlinetimes,jdbcType=VARCHAR}
+					,#{dto.stan8007AMonthlyContacts,jdbcType=VARCHAR}
+					,#{dto.stan8007ADailycalltimes,jdbcType=VARCHAR}
+					,#{dto.stan8007ALabel,jdbcType=VARCHAR}
+					,#{dto.stan8007Intimacy1,jdbcType=VARCHAR}
+					,#{dto.stan8007Intimacy2,jdbcType=VARCHAR}
+					,#{dto.stanExternalStatus,jdbcType=VARCHAR}
+					,#{dto.stanCellCsPhoneCheck,jdbcType=VARCHAR}
+					,#{dto.stanAppInvalid,jdbcType=VARCHAR}
+					,#{dto.stanRiskRate,jdbcType=VARCHAR}
+					,#{dto.homeEmpAddrCheck,jdbcType=VARCHAR}
+					,#{dto.homeEmpPhoneCheck,jdbcType=VARCHAR}
+					,#{dto.g1Msg,jdbcType=VARCHAR}
+					,#{dto.retCode,jdbcType=VARCHAR}
+					,#{dto.errorMsg,jdbcType=VARCHAR}
+					,#{dto.interfaceId,jdbcType=VARCHAR}
+					,#{dto.remark,jdbcType=VARCHAR}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_SH_FRAND_REPORT_STOCK -->
+<update id="updateExtShFrandReportStock" parameterType="java.util.Map">
+	     update ext_sh_frand_report_stock t1
+	           set 
+			           t1.prod_code                      =#{dto.prodCode,jdbcType=VARCHAR},
+			           t1.org_code                       =#{dto.orgCode,jdbcType=VARCHAR},
+			           t1.sys_code                       =#{dto.sysCode,jdbcType=VARCHAR},
+			           t1.app_num                        =#{dto.appNum,jdbcType=VARCHAR},
+			           t1.frd_check_type                 =#{dto.frdCheckType,jdbcType=VARCHAR},
+			           t1.app_date                       =#{dto.appDate,jdbcType=DATE},
+			           t1.app_no                         =#{dto.appNo,jdbcType=VARCHAR},
+			           t1.app_valid                      =#{dto.appValid,jdbcType=VARCHAR},
+			           t1.err_msg                        =#{dto.errMsg,jdbcType=VARCHAR},
+			           t1.app_rst                        =#{dto.appRst,jdbcType=DECIMAL},
+			           t1.app_rst_remark                 =#{dto.appRstRemark,jdbcType=VARCHAR},
+			           t1.app_face_rst                   =#{dto.appFaceRst,jdbcType=VARCHAR},
+			           t1.app_black_rst                  =#{dto.appBlackRst,jdbcType=VARCHAR},
+			           t1.app_status                     =#{dto.appStatus,jdbcType=VARCHAR},
+			           t1.app_warn                       =#{dto.appWarn,jdbcType=VARCHAR},
+			           t1.app_warn_info                  =#{dto.appWarnInfo,jdbcType=VARCHAR},
+			           t1.validate_state                 ='1',
+			           t1.cust_id                        =#{dto.custId,jdbcType=DECIMAL},
+			           t1.stan_frd_level                 =#{dto.stanFrdLevel,jdbcType=VARCHAR},
+			           t1.stan_id_name_match             =#{dto.stanIdNameMatch,jdbcType=VARCHAR},
+			           t1.stan_status_b001               =#{dto.stanStatusB001,jdbcType=VARCHAR},
+			           t1.stan_status_3007               =#{dto.stanStatus3007,jdbcType=VARCHAR},
+			           t1.stan_6001_cpws                 =#{dto.stan6001Cpws,jdbcType=VARCHAR},
+			           t1.stan_6001_zxgg                 =#{dto.stan6001Zxgg,jdbcType=VARCHAR},
+			           t1.stan_6001_sxgg                 =#{dto.stan6001Sxgg,jdbcType=VARCHAR},
+			           t1.stan_6001_ktgg                 =#{dto.stan6001Ktgg,jdbcType=VARCHAR},
+			           t1.stan_6001_fygg                 =#{dto.stan6001Fygg,jdbcType=VARCHAR},
+			           t1.stan_6001_wdhmd                =#{dto.stan6001Wdhmd,jdbcType=VARCHAR},
+			           t1.stan_3004_address              =#{dto.stan3004Address,jdbcType=VARCHAR},
+			           t1.stan_3004_name                 =#{dto.stan3004Name,jdbcType=VARCHAR},
+			           t1.stan_3004_emp_name             =#{dto.stan3004EmpName,jdbcType=VARCHAR},
+			           t1.stan_3004_emp_address          =#{dto.stan3004EmpAddress,jdbcType=VARCHAR},
+			           t1.stan_3005_hfbalsign            =#{dto.stan3005Hfbalsign,jdbcType=VARCHAR},
+			           t1.stan_3005_telecomoperator      =#{dto.stan3005Telecomoperator,jdbcType=VARCHAR},
+			           t1.stan_3005_onlinetimes          =#{dto.stan3005Onlinetimes,jdbcType=VARCHAR},
+			           t1.stan_8007_a_monthly_contacts   =#{dto.stan8007AMonthlyContacts,jdbcType=VARCHAR},
+			           t1.stan_8007_a_dailycalltimes     =#{dto.stan8007ADailycalltimes,jdbcType=VARCHAR},
+			           t1.stan_8007_a_label              =#{dto.stan8007ALabel,jdbcType=VARCHAR},
+			           t1.stan_8007_intimacy_1           =#{dto.stan8007Intimacy1,jdbcType=VARCHAR},
+			           t1.stan_8007_intimacy_2           =#{dto.stan8007Intimacy2,jdbcType=VARCHAR},
+			           t1.stan_external_status           =#{dto.stanExternalStatus,jdbcType=VARCHAR},
+			           t1.stan_cell_cs_phone_check       =#{dto.stanCellCsPhoneCheck,jdbcType=VARCHAR},
+			           t1.stan_app_invalid               =#{dto.stanAppInvalid,jdbcType=VARCHAR},
+			           t1.stan_risk_rate                 =#{dto.stanRiskRate,jdbcType=VARCHAR},
+			           t1.home_emp_addr_check            =#{dto.homeEmpAddrCheck,jdbcType=VARCHAR},
+			           t1.home_emp_phone_check           =#{dto.homeEmpPhoneCheck,jdbcType=VARCHAR},
+			           t1.g1_msg                         =#{dto.g1Msg,jdbcType=VARCHAR},
+			           t1.ret_code                       =#{dto.retCode,jdbcType=VARCHAR},
+			           t1.error_msg                      =#{dto.errorMsg,jdbcType=VARCHAR},
+			           t1.interface_id                   =#{dto.interfaceId,jdbcType=VARCHAR},
+			           t1.modify_time                    = systimestamp,
+			           t1.remark                         =#{dto.remark,jdbcType=VARCHAR}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_SH_FRAND_REPORT_STOCK -->
+<delete id="deleteExtShFrandReportStockByID" parameterType="java.util.Map">
+    	delete from ext_sh_frand_report_stock t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_SH_FRAND_REPORT_STOCK -->
+<update id="deleteExtShFrandReportStockByPrimaryKey" parameterType="java.util.Map">
+	     update ext_sh_frand_report_stock t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

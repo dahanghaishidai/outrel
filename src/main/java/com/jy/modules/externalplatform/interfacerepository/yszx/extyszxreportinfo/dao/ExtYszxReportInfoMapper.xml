@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.yszx.extyszxreportinfo.dao.ExtYszxReportInfoDao">
+<resultMap id="ExtYszxReportInfoDTO" type="com.jy.modules.externalplatform.interfacerepository.yszx.extyszxreportinfo.dto.ExtYszxReportInfoDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="prodCode" column="PROD_CODE" jdbcType="VARCHAR" />
+				<result property="orgCode" column="ORG_CODE" jdbcType="VARCHAR" />
+				<result property="sysCode" column="SYS_CODE" jdbcType="VARCHAR" />
+				<result property="corporateMsg" column="CORPORATE_MSG" jdbcType="VARCHAR" />
+				<result property="shareholderMsg" column="SHAREHOLDER_MSG" jdbcType="VARCHAR" />
+				<result property="retCode" column="RET_CODE" jdbcType="VARCHAR" />
+				<result property="errorMsg" column="ERROR_MSG" jdbcType="VARCHAR" />
+				<result property="interfaceId" column="INTERFACE_ID" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="remark" column="REMARK" jdbcType="VARCHAR" />
+</resultMap>
+				
+<!-- 分页查询 ext_yszx_report_info -->	
+<select id="searchExtYszxReportInfoByPaging" parameterType="java.util.Map" resultMap="ExtYszxReportInfoDTO">
+    	 		select 
+						t1.id                             ,
+						t1.prod_code                      ,
+						t1.org_code                       ,
+						t1.sys_code                       ,
+						t1.corporate_msg                  ,
+						t1.shareholder_msg                ,
+						t1.ret_code                       ,
+						t1.error_msg                      ,
+						t1.interface_id                   ,
+						t1.create_time                    ,
+						t1.remark                         
+					
+				from ext_yszx_report_info 	t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.prodCode != null and dto.prodCode != ''">
+						and t1.PROD_CODE =#{dto.prodCode}
+    			</if>
+    			<if test="dto.orgCode != null and dto.orgCode != ''">
+						and t1.ORG_CODE =#{dto.orgCode}
+    			</if>
+    			<if test="dto.sysCode != null and dto.sysCode != ''">
+						and t1.SYS_CODE =#{dto.sysCode}
+    			</if>
+    			<if test="dto.corporateMsg != null and dto.corporateMsg != ''">
+						and t1.CORPORATE_MSG =#{dto.corporateMsg}
+    			</if>
+    			<if test="dto.shareholderMsg != null and dto.shareholderMsg != ''">
+						and t1.SHAREHOLDER_MSG =#{dto.shareholderMsg}
+    			</if>
+    			<if test="dto.retCode != null and dto.retCode != ''">
+						and t1.RET_CODE =#{dto.retCode}
+    			</if>
+    			<if test="dto.errorMsg != null and dto.errorMsg != ''">
+						and t1.ERROR_MSG =#{dto.errorMsg}
+    			</if>
+    			<if test="dto.interfaceId != null and dto.interfaceId != ''">
+						and t1.INTERFACE_ID =#{dto.interfaceId}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.remark != null and dto.remark != ''">
+						and t1.REMARK =#{dto.remark}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 ext_yszx_report_info  -->
+<select id="searchExtYszxReportInfo" parameterType="java.util.Map" resultMap="ExtYszxReportInfoDTO">
+    	     select 
+						t1.id                             ,
+						t1.prod_code                      ,
+						t1.org_code                       ,
+						t1.sys_code                       ,
+						t1.corporate_msg                  ,
+						t1.shareholder_msg                ,
+						t1.ret_code                       ,
+						t1.error_msg                      ,
+						t1.interface_id                   ,
+						t1.create_time                    ,
+						t1.remark                         
+				from ext_yszx_report_info 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.prodCode != null and dto.prodCode != ''">
+						and t1.PROD_CODE = #{dto.prodCode}
+    			</if>
+    			<if test="dto.orgCode != null and dto.orgCode != ''">
+						and t1.ORG_CODE = #{dto.orgCode}
+    			</if>
+    			<if test="dto.sysCode != null and dto.sysCode != ''">
+						and t1.SYS_CODE = #{dto.sysCode}
+    			</if>
+    			<if test="dto.corporateMsg != null and dto.corporateMsg != ''">
+						and t1.CORPORATE_MSG = #{dto.corporateMsg}
+    			</if>
+    			<if test="dto.shareholderMsg != null and dto.shareholderMsg != ''">
+						and t1.SHAREHOLDER_MSG = #{dto.shareholderMsg}
+    			</if>
+    			<if test="dto.retCode != null and dto.retCode != ''">
+						and t1.RET_CODE = #{dto.retCode}
+    			</if>
+    			<if test="dto.errorMsg != null and dto.errorMsg != ''">
+						and t1.ERROR_MSG = #{dto.errorMsg}
+    			</if>
+    			<if test="dto.interfaceId != null and dto.interfaceId != ''">
+						and t1.INTERFACE_ID = #{dto.interfaceId}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.remark != null and dto.remark != ''">
+						and t1.REMARK = #{dto.remark}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  ext_yszx_report_info -->
+<select id="findExtYszxReportInfoByPrimaryKey" parameterType="java.util.Map" resultMap="ExtYszxReportInfoDTO">
+   	 		select 
+					t1.id                             ,
+					t1.prod_code                      ,
+					t1.org_code                       ,
+					t1.sys_code                       ,
+					t1.corporate_msg                  ,
+					t1.shareholder_msg                ,
+					t1.ret_code                       ,
+					t1.error_msg                      ,
+					t1.interface_id                   ,
+					t1.create_time                    ,
+					t1.remark                         
+			from ext_yszx_report_info 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 ext_yszx_report_info -->
+<insert id="insertExtYszxReportInfo" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_ext_yszx_report_info.nextval as id from dual
+	</selectKey>
+			insert into ext_yszx_report_info
+			(   		
+					id                             ,
+					prod_code                      ,
+					org_code                       ,
+					sys_code                       ,
+					corporate_msg                  ,
+					shareholder_msg                ,
+					ret_code                       ,
+					error_msg                      ,
+					interface_id                   ,
+					create_time                    ,
+					remark                         
+			)
+			values(#{dto.id}
+					,#{dto.prodCode,jdbcType=VARCHAR}
+					,#{dto.orgCode,jdbcType=VARCHAR}
+					,#{dto.sysCode,jdbcType=VARCHAR}
+					,#{dto.corporateMsg,jdbcType=VARCHAR}
+					,#{dto.shareholderMsg,jdbcType=VARCHAR}
+					,#{dto.retCode,jdbcType=VARCHAR}
+					,#{dto.errorMsg,jdbcType=VARCHAR}
+					,#{dto.interfaceId,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.remark,jdbcType=VARCHAR}
+			)
+</insert>
+    
+<!-- 更新对象 ext_yszx_report_info -->
+<update id="updateExtYszxReportInfo" parameterType="java.util.Map">
+	     update ext_yszx_report_info t1
+	           set 
+			           t1.prod_code                      =#{dto.prodCode,jdbcType=VARCHAR},
+			           t1.org_code                       =#{dto.orgCode,jdbcType=VARCHAR},
+			           t1.sys_code                       =#{dto.sysCode,jdbcType=VARCHAR},
+			           t1.corporate_msg                  =#{dto.corporateMsg,jdbcType=VARCHAR},
+			           t1.shareholder_msg                =#{dto.shareholderMsg,jdbcType=VARCHAR},
+			           t1.ret_code                       =#{dto.retCode,jdbcType=VARCHAR},
+			           t1.error_msg                      =#{dto.errorMsg,jdbcType=VARCHAR},
+			           t1.interface_id                   =#{dto.interfaceId,jdbcType=VARCHAR},
+			           t1.remark                         =#{dto.remark,jdbcType=VARCHAR}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 ext_yszx_report_info -->
+<delete id="deleteExtYszxReportInfoByID" parameterType="java.util.Map">
+    	delete from ext_yszx_report_info t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 ext_yszx_report_info -->
+<update id="deleteExtYszxReportInfoByPrimaryKey" parameterType="java.util.Map">
+	     update ext_yszx_report_info t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

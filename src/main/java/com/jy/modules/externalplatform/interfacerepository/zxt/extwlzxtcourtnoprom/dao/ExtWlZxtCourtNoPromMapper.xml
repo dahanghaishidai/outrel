@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.zxt.extwlzxtcourtnoprom.dao.ExtWlZxtCourtNoPromDao">
+<resultMap id="ExtWlZxtCourtNoPromDTO" type="com.jy.modules.externalplatform.interfacerepository.zxt.extwlzxtcourtnoprom.dto.ExtWlZxtCourtNoPromDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="moduleFkId" column="MODULE_FK_ID" jdbcType="DECIMAL" />
+				<result property="time" column="TIME" jdbcType="VARCHAR" />
+				<result property="sex" column="SEX" jdbcType="VARCHAR" />
+				<result property="execution" column="EXECUTION" jdbcType="VARCHAR" />
+				<result property="documentNo" column="DOCUMENT_NO" jdbcType="VARCHAR" />
+				<result property="personConcerned" column="PERSON_CONCERNED" jdbcType="VARCHAR" />
+				<result property="court" column="COURT" jdbcType="VARCHAR" />
+				<result property="idNo" column="ID_NO" jdbcType="VARCHAR" />
+				<result property="corpNo" column="CORP_NO" jdbcType="VARCHAR" />
+				<result property="executionUnit" column="EXECUTION_UNIT" jdbcType="VARCHAR" />
+				<result property="reason" column="REASON" jdbcType="VARCHAR" />
+				<result property="obligation" column="OBLIGATION" jdbcType="VARCHAR" />
+				<result property="age" column="AGE" jdbcType="VARCHAR" />
+				<result property="personName" column="PERSON_NAME" jdbcType="VARCHAR" />
+				<result property="province" column="PROVINCE" jdbcType="VARCHAR" />
+				<result property="caseNo" column="CASE_NO" jdbcType="VARCHAR" />
+				<result property="publishTime" column="PUBLISH_TIME" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="updateTime" column="UPDATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="updateBy" column="UPDATE_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 分页查询 ext_wl_zxt_court_no_prom -->	
+<select id="searchExtWlZxtCourtNoPromByPaging" parameterType="java.util.Map" resultMap="ExtWlZxtCourtNoPromDTO">
+    	 		select 
+						t1.id                             ,
+						t1.module_fk_id                   ,
+						t1.time                           ,
+						t1.sex                            ,
+						t1.execution                      ,
+						t1.document_no                    ,
+						t1.person_concerned               ,
+						t1.court                          ,
+						t1.id_no                          ,
+						t1.corp_no                        ,
+						t1.execution_unit                 ,
+						t1.reason                         ,
+						t1.obligation                     ,
+						t1.age                            ,
+						t1.person_name                    ,
+						t1.province                       ,
+						t1.case_no                        ,
+						t1.publish_time                   ,
+						t1.create_time                    ,
+						t1.update_time                    ,
+						t1.create_by                      ,
+						t1.update_by                      
+					
+				from ext_wl_zxt_court_no_prom 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.moduleFkId != null and dto.moduleFkId != ''">
+						and t1.MODULE_FK_ID =#{dto.moduleFkId}
+    			</if>
+    			<if test="dto.time != null and dto.time != ''">
+						and t1.TIME =#{dto.time}
+    			</if>
+    			<if test="dto.sex != null and dto.sex != ''">
+						and t1.SEX =#{dto.sex}
+    			</if>
+    			<if test="dto.execution != null and dto.execution != ''">
+						and t1.EXECUTION =#{dto.execution}
+    			</if>
+    			<if test="dto.documentNo != null and dto.documentNo != ''">
+						and t1.DOCUMENT_NO =#{dto.documentNo}
+    			</if>
+    			<if test="dto.personConcerned != null and dto.personConcerned != ''">
+						and t1.PERSON_CONCERNED =#{dto.personConcerned}
+    			</if>
+    			<if test="dto.court != null and dto.court != ''">
+						and t1.COURT =#{dto.court}
+    			</if>
+    			<if test="dto.idNo != null and dto.idNo != ''">
+						and t1.ID_NO =#{dto.idNo}
+    			</if>
+    			<if test="dto.corpNo != null and dto.corpNo != ''">
+						and t1.CORP_NO =#{dto.corpNo}
+    			</if>
+    			<if test="dto.executionUnit != null and dto.executionUnit != ''">
+						and t1.EXECUTION_UNIT =#{dto.executionUnit}
+    			</if>
+    			<if test="dto.reason != null and dto.reason != ''">
+						and t1.REASON =#{dto.reason}
+    			</if>
+    			<if test="dto.obligation != null and dto.obligation != ''">
+						and t1.OBLIGATION =#{dto.obligation}
+    			</if>
+    			<if test="dto.age != null and dto.age != ''">
+						and t1.AGE =#{dto.age}
+    			</if>
+    			<if test="dto.personName != null and dto.personName != ''">
+						and t1.PERSON_NAME =#{dto.personName}
+    			</if>
+    			<if test="dto.province != null and dto.province != ''">
+						and t1.PROVINCE =#{dto.province}
+    			</if>
+    			<if test="dto.caseNo != null and dto.caseNo != ''">
+						and t1.CASE_NO =#{dto.caseNo}
+    			</if>
+    			<if test="dto.publishTime != null and dto.publishTime != ''">
+						and t1.PUBLISH_TIME =#{dto.publishTime}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.updateTime != null and dto.updateTime != ''">
+						and t1.UPDATE_TIME =#{dto.updateTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY =#{dto.updateBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 ext_wl_zxt_court_no_prom  -->
+<select id="searchExtWlZxtCourtNoProm" parameterType="java.util.Map" resultMap="ExtWlZxtCourtNoPromDTO">
+    	     select 
+						t1.id                             ,
+						t1.module_fk_id                   ,
+						t1.time                           ,
+						t1.sex                            ,
+						t1.execution                      ,
+						t1.document_no                    ,
+						t1.person_concerned               ,
+						t1.court                          ,
+						t1.id_no                          ,
+						t1.corp_no                        ,
+						t1.execution_unit                 ,
+						t1.reason                         ,
+						t1.obligation                     ,
+						t1.age                            ,
+						t1.person_name                    ,
+						t1.province                       ,
+						t1.case_no                        ,
+						t1.publish_time                   ,
+						t1.create_time                    ,
+						t1.update_time                    ,
+						t1.create_by                      ,
+						t1.update_by                      
+				from ext_wl_zxt_court_no_prom 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.moduleFkId != null and dto.moduleFkId != ''">
+						and t1.MODULE_FK_ID = #{dto.moduleFkId}
+    			</if>
+    			<if test="dto.time != null and dto.time != ''">
+						and t1.TIME = #{dto.time}
+    			</if>
+    			<if test="dto.sex != null and dto.sex != ''">
+						and t1.SEX = #{dto.sex}
+    			</if>
+    			<if test="dto.execution != null and dto.execution != ''">
+						and t1.EXECUTION = #{dto.execution}
+    			</if>
+    			<if test="dto.documentNo != null and dto.documentNo != ''">
+						and t1.DOCUMENT_NO = #{dto.documentNo}
+    			</if>
+    			<if test="dto.personConcerned != null and dto.personConcerned != ''">
+						and t1.PERSON_CONCERNED = #{dto.personConcerned}
+    			</if>
+    			<if test="dto.court != null and dto.court != ''">
+						and t1.COURT = #{dto.court}
+    			</if>
+    			<if test="dto.idNo != null and dto.idNo != ''">
+						and t1.ID_NO = #{dto.idNo}
+    			</if>
+    			<if test="dto.corpNo != null and dto.corpNo != ''">
+						and t1.CORP_NO = #{dto.corpNo}
+    			</if>
+    			<if test="dto.executionUnit != null and dto.executionUnit != ''">
+						and t1.EXECUTION_UNIT = #{dto.executionUnit}
+    			</if>
+    			<if test="dto.reason != null and dto.reason != ''">
+						and t1.REASON = #{dto.reason}
+    			</if>
+    			<if test="dto.obligation != null and dto.obligation != ''">
+						and t1.OBLIGATION = #{dto.obligation}
+    			</if>
+    			<if test="dto.age != null and dto.age != ''">
+						and t1.AGE = #{dto.age}
+    			</if>
+    			<if test="dto.personName != null and dto.personName != ''">
+						and t1.PERSON_NAME = #{dto.personName}
+    			</if>
+    			<if test="dto.province != null and dto.province != ''">
+						and t1.PROVINCE = #{dto.province}
+    			</if>
+    			<if test="dto.caseNo != null and dto.caseNo != ''">
+						and t1.CASE_NO = #{dto.caseNo}
+    			</if>
+    			<if test="dto.publishTime != null and dto.publishTime != ''">
+						and t1.PUBLISH_TIME = #{dto.publishTime}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.updateTime != null and dto.updateTime != ''">
+						and t1.UPDATE_TIME = #{dto.updateTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY = #{dto.updateBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  ext_wl_zxt_court_no_prom -->
+<select id="findExtWlZxtCourtNoPromByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlZxtCourtNoPromDTO">
+   	 		select 
+					t1.id                             ,
+					t1.module_fk_id                   ,
+					t1.time                           ,
+					t1.sex                            ,
+					t1.execution                      ,
+					t1.document_no                    ,
+					t1.person_concerned               ,
+					t1.court                          ,
+					t1.id_no                          ,
+					t1.corp_no                        ,
+					t1.execution_unit                 ,
+					t1.reason                         ,
+					t1.obligation                     ,
+					t1.age                            ,
+					t1.person_name                    ,
+					t1.province                       ,
+					t1.case_no                        ,
+					t1.publish_time                   ,
+					t1.create_time                    ,
+					t1.update_time                    ,
+					t1.create_by                      ,
+					t1.update_by                      
+			from ext_wl_zxt_court_no_prom 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 ext_wl_zxt_court_no_prom -->
+<insert id="insertExtWlZxtCourtNoProm" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_ext_wl_zxt_court_no_prom.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_zxt_court_no_prom
+			(   		
+					id                             ,
+					module_fk_id                   ,
+					time                           ,
+					sex                            ,
+					execution                      ,
+					document_no                    ,
+					person_concerned               ,
+					court                          ,
+					id_no                          ,
+					corp_no                        ,
+					execution_unit                 ,
+					reason                         ,
+					obligation                     ,
+					age                            ,
+					person_name                    ,
+					province                       ,
+					case_no                        ,
+					publish_time                   ,
+					create_time                    ,
+					update_time                    ,
+					create_by                      ,
+					update_by                      
+			)
+			values(#{dto.id}
+					,#{dto.moduleFkId,jdbcType=DECIMAL}
+					,#{dto.time,jdbcType=VARCHAR}
+					,#{dto.sex,jdbcType=VARCHAR}
+					,#{dto.execution,jdbcType=VARCHAR}
+					,#{dto.documentNo,jdbcType=VARCHAR}
+					,#{dto.personConcerned,jdbcType=VARCHAR}
+					,#{dto.court,jdbcType=VARCHAR}
+					,#{dto.idNo,jdbcType=VARCHAR}
+					,#{dto.corpNo,jdbcType=VARCHAR}
+					,#{dto.executionUnit,jdbcType=VARCHAR}
+					,#{dto.reason,jdbcType=VARCHAR}
+					,#{dto.obligation,jdbcType=VARCHAR}
+					,#{dto.age,jdbcType=VARCHAR}
+					,#{dto.personName,jdbcType=VARCHAR}
+					,#{dto.province,jdbcType=VARCHAR}
+					,#{dto.caseNo,jdbcType=VARCHAR}
+					,#{dto.publishTime,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.updateTime,jdbcType=TIMESTAMP}
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.updateBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 ext_wl_zxt_court_no_prom -->
+<update id="updateExtWlZxtCourtNoProm" parameterType="java.util.Map">
+	     update ext_wl_zxt_court_no_prom t1
+	           set 
+			           t1.module_fk_id                   =#{dto.moduleFkId,jdbcType=DECIMAL},
+			           t1.time                           =#{dto.time,jdbcType=VARCHAR},
+			           t1.sex                            =#{dto.sex,jdbcType=VARCHAR},
+			           t1.execution                      =#{dto.execution,jdbcType=VARCHAR},
+			           t1.document_no                    =#{dto.documentNo,jdbcType=VARCHAR},
+			           t1.person_concerned               =#{dto.personConcerned,jdbcType=VARCHAR},
+			           t1.court                          =#{dto.court,jdbcType=VARCHAR},
+			           t1.id_no                          =#{dto.idNo,jdbcType=VARCHAR},
+			           t1.corp_no                        =#{dto.corpNo,jdbcType=VARCHAR},
+			           t1.execution_unit                 =#{dto.executionUnit,jdbcType=VARCHAR},
+			           t1.reason                         =#{dto.reason,jdbcType=VARCHAR},
+			           t1.obligation                     =#{dto.obligation,jdbcType=VARCHAR},
+			           t1.age                            =#{dto.age,jdbcType=VARCHAR},
+			           t1.person_name                    =#{dto.personName,jdbcType=VARCHAR},
+			           t1.province                       =#{dto.province,jdbcType=VARCHAR},
+			           t1.case_no                        =#{dto.caseNo,jdbcType=VARCHAR},
+			           t1.publish_time                   =#{dto.publishTime,jdbcType=VARCHAR},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.update_time                    =#{dto.updateTime,jdbcType=TIMESTAMP},
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.update_by                      =#{dto.updateBy,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 ext_wl_zxt_court_no_prom -->
+<delete id="deleteExtWlZxtCourtNoPromByID" parameterType="java.util.Map">
+    	delete from ext_wl_zxt_court_no_prom t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 ext_wl_zxt_court_no_prom -->
+<update id="deleteExtWlZxtCourtNoPromByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_zxt_court_no_prom t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

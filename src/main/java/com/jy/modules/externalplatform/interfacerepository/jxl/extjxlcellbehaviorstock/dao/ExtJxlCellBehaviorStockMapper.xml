@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.jxl.extjxlcellbehaviorstock.dao.ExtJxlCellBehaviorStockDao">
+<resultMap id="ExtJxlCellBehaviorStockDTO" type="com.jy.modules.externalplatform.interfacerepository.jxl.extjxlcellbehaviorstock.dto.ExtJxlCellBehaviorStockDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="fkJxlCustInfoId" column="FK_JXL_CUST_INFO_ID" jdbcType="DECIMAL" />
+				<result property="cellPhoneNum" column="CELL_PHONE_NUM" jdbcType="VARCHAR" />
+				<result property="cellOperator" column="CELL_OPERATOR" jdbcType="VARCHAR" />
+				<result property="cellLoc" column="CELL_LOC" jdbcType="VARCHAR" />
+				<result property="cellMth" column="CELL_MTH" jdbcType="VARCHAR" />
+				<result property="callInTime" column="CALL_IN_TIME" jdbcType="DECIMAL" />
+				<result property="callOutTime" column="CALL_OUT_TIME" jdbcType="DECIMAL" />
+				<result property="smsCnt" column="SMS_CNT" jdbcType="DECIMAL" />
+				<result property="netFlow" column="NET_FLOW" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 EXT_JXL_CELL_BEHAVIOR_STOCK -->	
+<select id="searchExtJxlCellBehaviorStockByPaging" parameterType="java.util.Map" resultMap="ExtJxlCellBehaviorStockDTO">
+    	 		select 
+						t1.id                             ,
+						t1.fk_jxl_cust_info_id            ,
+						t1.cell_phone_num                 ,
+						t1.cell_operator                  ,
+						t1.cell_loc                       ,
+						t1.cell_mth                       ,
+						t1.call_in_time                   ,
+						t1.call_out_time                  ,
+						t1.sms_cnt                        ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.net_flow                       
+					
+				from ext_jxl_cell_behavior_stock 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.fkJxlCustInfoId != null and dto.fkJxlCustInfoId != ''">
+						and t1.FK_JXL_CUST_INFO_ID =#{dto.fkJxlCustInfoId}
+    			</if>
+    			<if test="dto.cellPhoneNum != null and dto.cellPhoneNum != ''">
+						and t1.CELL_PHONE_NUM =#{dto.cellPhoneNum}
+    			</if>
+    			<if test="dto.cellOperator != null and dto.cellOperator != ''">
+						and t1.CELL_OPERATOR =#{dto.cellOperator}
+    			</if>
+    			<if test="dto.cellLoc != null and dto.cellLoc != ''">
+						and t1.CELL_LOC =#{dto.cellLoc}
+    			</if>
+    			<if test="dto.cellMth != null and dto.cellMth != ''">
+						and t1.CELL_MTH =#{dto.cellMth}
+    			</if>
+    			<if test="dto.callInTime != null and dto.callInTime != ''">
+						and t1.CALL_IN_TIME =#{dto.callInTime}
+    			</if>
+    			<if test="dto.callOutTime != null and dto.callOutTime != ''">
+						and t1.CALL_OUT_TIME =#{dto.callOutTime}
+    			</if>
+    			<if test="dto.smsCnt != null and dto.smsCnt != ''">
+						and t1.SMS_CNT =#{dto.smsCnt}
+    			</if>
+    			<if test="dto.netFlow != null and dto.netFlow != ''">
+						and t1.NET_FLOW =#{dto.netFlow}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_JXL_CELL_BEHAVIOR_STOCK  -->
+<select id="searchExtJxlCellBehaviorStock" parameterType="java.util.Map" resultMap="ExtJxlCellBehaviorStockDTO">
+    	     select 
+						t1.id                             ,
+						t1.fk_jxl_cust_info_id            ,
+						t1.cell_phone_num                 ,
+						t1.cell_operator                  ,
+						t1.cell_loc                       ,
+						t1.cell_mth                       ,
+						t1.call_in_time                   ,
+						t1.call_out_time                  ,
+						t1.sms_cnt                        ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.net_flow                       
+				from ext_jxl_cell_behavior_stock 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.fkJxlCustInfoId != null and dto.fkJxlCustInfoId != ''">
+						and t1.FK_JXL_CUST_INFO_ID = #{dto.fkJxlCustInfoId}
+    			</if>
+    			<if test="dto.cellPhoneNum != null and dto.cellPhoneNum != ''">
+						and t1.CELL_PHONE_NUM = #{dto.cellPhoneNum}
+    			</if>
+    			<if test="dto.cellOperator != null and dto.cellOperator != ''">
+						and t1.CELL_OPERATOR = #{dto.cellOperator}
+    			</if>
+    			<if test="dto.cellLoc != null and dto.cellLoc != ''">
+						and t1.CELL_LOC = #{dto.cellLoc}
+    			</if>
+    			<if test="dto.cellMth != null and dto.cellMth != ''">
+						and t1.CELL_MTH = #{dto.cellMth}
+    			</if>
+    			<if test="dto.callInTime != null and dto.callInTime != ''">
+						and t1.CALL_IN_TIME = #{dto.callInTime}
+    			</if>
+    			<if test="dto.callOutTime != null and dto.callOutTime != ''">
+						and t1.CALL_OUT_TIME = #{dto.callOutTime}
+    			</if>
+    			<if test="dto.smsCnt != null and dto.smsCnt != ''">
+						and t1.SMS_CNT = #{dto.smsCnt}
+    			</if>
+    			<if test="dto.netFlow != null and dto.netFlow != ''">
+						and t1.NET_FLOW = #{dto.netFlow}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_JXL_CELL_BEHAVIOR_STOCK -->
+<select id="findExtJxlCellBehaviorStockByPrimaryKey" parameterType="java.util.Map" resultMap="ExtJxlCellBehaviorStockDTO">
+   	 		select 
+					t1.id                             ,
+					t1.fk_jxl_cust_info_id            ,
+					t1.cell_phone_num                 ,
+					t1.cell_operator                  ,
+					t1.cell_loc                       ,
+					t1.cell_mth                       ,
+					t1.call_in_time                   ,
+					t1.call_out_time                  ,
+					t1.sms_cnt                        ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.net_flow                       
+			from ext_jxl_cell_behavior_stock 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_JXL_CELL_BEHAVIOR_STOCK -->
+<insert id="insertExtJxlCellBehaviorStock" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select SEQ_EXT_JXL_CELL_BEH_STOCK.nextval as id from dual
+	</selectKey>
+			insert into ext_jxl_cell_behavior_stock
+			(   		
+					id                             ,
+					fk_jxl_cust_info_id            ,
+					cell_phone_num                 ,
+					cell_operator                  ,
+					cell_loc                       ,
+					cell_mth                       ,
+					call_in_time                   ,
+					call_out_time                  ,
+					sms_cnt                        ,
+					create_time                    ,
+					net_flow                       
+			)
+			values(#{dto.id}
+					,#{dto.fkJxlCustInfoId,jdbcType=DECIMAL}
+					,#{dto.cellPhoneNum,jdbcType=VARCHAR}
+					,#{dto.cellOperator,jdbcType=VARCHAR}
+					,#{dto.cellLoc,jdbcType=VARCHAR}
+					,#{dto.cellMth,jdbcType=VARCHAR}
+					,#{dto.callInTime,jdbcType=DECIMAL}
+					,#{dto.callOutTime,jdbcType=DECIMAL}
+					,#{dto.smsCnt,jdbcType=DECIMAL}
+					,systimestamp
+					,#{dto.netFlow,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_JXL_CELL_BEHAVIOR_STOCK -->
+<update id="updateExtJxlCellBehaviorStock" parameterType="java.util.Map">
+	     update ext_jxl_cell_behavior_stock t1
+	           set 
+			           t1.fk_jxl_cust_info_id            =#{dto.fkJxlCustInfoId,jdbcType=DECIMAL},
+			           t1.cell_phone_num                 =#{dto.cellPhoneNum,jdbcType=VARCHAR},
+			           t1.cell_operator                  =#{dto.cellOperator,jdbcType=VARCHAR},
+			           t1.cell_loc                       =#{dto.cellLoc,jdbcType=VARCHAR},
+			           t1.cell_mth                       =#{dto.cellMth,jdbcType=VARCHAR},
+			           t1.call_in_time                   =#{dto.callInTime,jdbcType=DECIMAL},
+			           t1.call_out_time                  =#{dto.callOutTime,jdbcType=DECIMAL},
+			           t1.sms_cnt                        =#{dto.smsCnt,jdbcType=DECIMAL},
+					   t1.modify_time                    =systimestamp,
+			           t1.net_flow                       =#{dto.netFlow,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_JXL_CELL_BEHAVIOR_STOCK -->
+<delete id="deleteExtJxlCellBehaviorStockByID" parameterType="java.util.Map">
+    	delete from ext_jxl_cell_behavior_stock t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_JXL_CELL_BEHAVIOR_STOCK -->
+<update id="deleteExtJxlCellBehaviorStockByPrimaryKey" parameterType="java.util.Map">
+	     update ext_jxl_cell_behavior_stock t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

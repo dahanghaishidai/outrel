@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.zc.extwlzcrisklist.dao.ExtWlZcRiskListDao">
+<resultMap id="ExtWlZcRiskListDTO" type="com.jy.modules.externalplatform.interfacerepository.zc.extwlzcrisklist.dto.ExtWlZcRiskListDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="keyId" column="KEY_ID" jdbcType="VARCHAR" />
+				<result property="dataType" column="DATA_TYPE" jdbcType="VARCHAR" />
+				<result property="dataTypeCode" column="DATA_TYPE_CODE" jdbcType="VARCHAR" />
+				<result property="riskItemType" column="RISK_ITEM_TYPE" jdbcType="VARCHAR" />
+				<result property="riskItemTypeCode" column="RISK_ITEM_TYPE_CODE" jdbcType="VARCHAR" />
+				<result property="riskValue" column="RISK_VALUE" jdbcType="VARCHAR" />
+				<result property="riskDetail" column="RISK_DETAIL" jdbcType="VARCHAR" />
+				<result property="riskDetailCode" column="RISK_DETAIL_CODE" jdbcType="VARCHAR" />
+				<result property="riskTime" column="RISK_TIME" jdbcType="VARCHAR" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyBy" column="MODIFY_BY" jdbcType="DECIMAL" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="validateState" column="VALIDATE_STATE" jdbcType="VARCHAR" />
+</resultMap>
+				
+<!-- 分页查询 ext_wl_zc_risk_list -->	
+<select id="searchExtWlZcRiskListByPaging" parameterType="java.util.Map" resultMap="ExtWlZcRiskListDTO">
+    	 		select 
+						t1.id                             ,
+						t1.key_id                         ,
+						t1.data_type                      ,
+						t1.data_type_code                 ,
+						t1.risk_item_type                 ,
+						t1.risk_item_type_code            ,
+						t1.risk_value                     ,
+						t1.risk_detail                    ,
+						t1.risk_detail_code               ,
+						t1.risk_time                      ,
+						t1.create_by                      ,
+						t1.create_time                    ,
+						t1.modify_by                      ,
+						t1.modify_time                    ,
+						t1.validate_state                 
+					
+				from ext_wl_zc_risk_list 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.keyId != null and dto.keyId != ''">
+						and t1.KEY_ID =#{dto.keyId}
+    			</if>
+    			<if test="dto.dataType != null and dto.dataType != ''">
+						and t1.DATA_TYPE =#{dto.dataType}
+    			</if>
+    			<if test="dto.dataTypeCode != null and dto.dataTypeCode != ''">
+						and t1.DATA_TYPE_CODE =#{dto.dataTypeCode}
+    			</if>
+    			<if test="dto.riskItemType != null and dto.riskItemType != ''">
+						and t1.RISK_ITEM_TYPE =#{dto.riskItemType}
+    			</if>
+    			<if test="dto.riskItemTypeCode != null and dto.riskItemTypeCode != ''">
+						and t1.RISK_ITEM_TYPE_CODE =#{dto.riskItemTypeCode}
+    			</if>
+    			<if test="dto.riskValue != null and dto.riskValue != ''">
+						and t1.RISK_VALUE =#{dto.riskValue}
+    			</if>
+    			<if test="dto.riskDetail != null and dto.riskDetail != ''">
+						and t1.RISK_DETAIL =#{dto.riskDetail}
+    			</if>
+    			<if test="dto.riskDetailCode != null and dto.riskDetailCode != ''">
+						and t1.RISK_DETAIL_CODE =#{dto.riskDetailCode}
+    			</if>
+    			<if test="dto.riskTime != null and dto.riskTime != ''">
+						and t1.RISK_TIME =#{dto.riskTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY =#{dto.modifyBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE =#{dto.validateState}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 ext_wl_zc_risk_list  -->
+<select id="searchExtWlZcRiskList" parameterType="java.util.Map" resultMap="ExtWlZcRiskListDTO">
+    	     select 
+						t1.id                             ,
+						t1.key_id                         ,
+						t1.data_type                      ,
+						t1.data_type_code                 ,
+						t1.risk_item_type                 ,
+						t1.risk_item_type_code            ,
+						t1.risk_value                     ,
+						t1.risk_detail                    ,
+						t1.risk_detail_code               ,
+						t1.risk_time                      ,
+						t1.create_by                      ,
+						t1.create_time                    ,
+						t1.modify_by                      ,
+						t1.modify_time                    ,
+						t1.validate_state                 
+				from ext_wl_zc_risk_list 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.keyId != null and dto.keyId != ''">
+						and t1.KEY_ID = #{dto.keyId}
+    			</if>
+    			<if test="dto.dataType != null and dto.dataType != ''">
+						and t1.DATA_TYPE = #{dto.dataType}
+    			</if>
+    			<if test="dto.dataTypeCode != null and dto.dataTypeCode != ''">
+						and t1.DATA_TYPE_CODE = #{dto.dataTypeCode}
+    			</if>
+    			<if test="dto.riskItemType != null and dto.riskItemType != ''">
+						and t1.RISK_ITEM_TYPE = #{dto.riskItemType}
+    			</if>
+    			<if test="dto.riskItemTypeCode != null and dto.riskItemTypeCode != ''">
+						and t1.RISK_ITEM_TYPE_CODE = #{dto.riskItemTypeCode}
+    			</if>
+    			<if test="dto.riskValue != null and dto.riskValue != ''">
+						and t1.RISK_VALUE = #{dto.riskValue}
+    			</if>
+    			<if test="dto.riskDetail != null and dto.riskDetail != ''">
+						and t1.RISK_DETAIL = #{dto.riskDetail}
+    			</if>
+    			<if test="dto.riskDetailCode != null and dto.riskDetailCode != ''">
+						and t1.RISK_DETAIL_CODE = #{dto.riskDetailCode}
+    			</if>
+    			<if test="dto.riskTime != null and dto.riskTime != ''">
+						and t1.RISK_TIME = #{dto.riskTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY = #{dto.modifyBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE = #{dto.validateState}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  ext_wl_zc_risk_list -->
+<select id="findExtWlZcRiskListByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlZcRiskListDTO">
+   	 		select 
+					t1.id                             ,
+					t1.key_id                         ,
+					t1.data_type                      ,
+					t1.data_type_code                 ,
+					t1.risk_item_type                 ,
+					t1.risk_item_type_code            ,
+					t1.risk_value                     ,
+					t1.risk_detail                    ,
+					t1.risk_detail_code               ,
+					t1.risk_time                      ,
+					t1.create_by                      ,
+					t1.create_time                    ,
+					t1.modify_by                      ,
+					t1.modify_time                    ,
+					t1.validate_state                 
+			from ext_wl_zc_risk_list 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 ext_wl_zc_risk_list -->
+<insert id="insertExtWlZcRiskList" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_ext_wl_zc_risk_list.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_zc_risk_list
+			(   		
+					id                             ,
+					key_id                         ,
+					data_type                      ,
+					data_type_code                 ,
+					risk_item_type                 ,
+					risk_item_type_code            ,
+					risk_value                     ,
+					risk_detail                    ,
+					risk_detail_code               ,
+					risk_time                      ,
+					create_by                      ,
+					create_time                    ,
+					modify_by                      ,
+					modify_time                    ,
+					validate_state                 
+			)
+			values(#{dto.id}
+					,#{dto.keyId,jdbcType=VARCHAR}
+					,#{dto.dataType,jdbcType=VARCHAR}
+					,#{dto.dataTypeCode,jdbcType=VARCHAR}
+					,#{dto.riskItemType,jdbcType=VARCHAR}
+					,#{dto.riskItemTypeCode,jdbcType=VARCHAR}
+					,#{dto.riskValue,jdbcType=VARCHAR}
+					,#{dto.riskDetail,jdbcType=VARCHAR}
+					,#{dto.riskDetailCode,jdbcType=VARCHAR}
+					,#{dto.riskTime,jdbcType=VARCHAR}
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.createTime,jdbcType=TIMESTAMP}
+					,#{dto.modifyBy,jdbcType=DECIMAL}
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,'1'
+			)
+</insert>
+    
+<!-- 更新对象 ext_wl_zc_risk_list -->
+<update id="updateExtWlZcRiskList" parameterType="java.util.Map">
+	     update ext_wl_zc_risk_list t1
+	           set 
+			           t1.key_id                         =#{dto.keyId,jdbcType=VARCHAR},
+			           t1.data_type                      =#{dto.dataType,jdbcType=VARCHAR},
+			           t1.data_type_code                 =#{dto.dataTypeCode,jdbcType=VARCHAR},
+			           t1.risk_item_type                 =#{dto.riskItemType,jdbcType=VARCHAR},
+			           t1.risk_item_type_code            =#{dto.riskItemTypeCode,jdbcType=VARCHAR},
+			           t1.risk_value                     =#{dto.riskValue,jdbcType=VARCHAR},
+			           t1.risk_detail                    =#{dto.riskDetail,jdbcType=VARCHAR},
+			           t1.risk_detail_code               =#{dto.riskDetailCode,jdbcType=VARCHAR},
+			           t1.risk_time                      =#{dto.riskTime,jdbcType=VARCHAR},
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_by                      =#{dto.modifyBy,jdbcType=DECIMAL},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP},
+			           t1.validate_state                 ='1'
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 ext_wl_zc_risk_list -->
+<delete id="deleteExtWlZcRiskListByID" parameterType="java.util.Map">
+    	delete from ext_wl_zc_risk_list t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 ext_wl_zc_risk_list -->
+<update id="deleteExtWlZcRiskListByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_zc_risk_list t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+
+<insert id="batchInsertResults" parameterType="java.util.Map">
+	begin
+	<foreach collection="resultList" item="dto" index="index" > 
+			insert into ext_wl_zc_risk_list
+			(   		
+					id                             ,
+					key_id                         ,
+					data_type                      ,
+					data_type_code                 ,
+					risk_item_type                 ,
+					risk_item_type_code            ,
+					risk_value                     ,
+					risk_detail                    ,
+					risk_detail_code               ,
+					risk_time                      ,
+					create_by                      ,
+					validate_state                 ,
+					create_time                    
+			)
+			values(seq_ext_wl_zc_risk_list.nextval
+					,#{dto.keyId,jdbcType=VARCHAR}
+					,#{dto.dataType,jdbcType=VARCHAR}
+					,#{dto.dataTypeCode,jdbcType=VARCHAR}
+					,#{dto.riskItemType,jdbcType=VARCHAR}
+					,#{dto.riskItemTypeCode,jdbcType=VARCHAR}
+					,#{dto.riskValue,jdbcType=VARCHAR}
+					,#{dto.riskDetail,jdbcType=VARCHAR}
+					,#{dto.riskDetailCode,jdbcType=VARCHAR}
+					,#{dto.riskTime,jdbcType=VARCHAR}
+					,#{dto.createBy,jdbcType=VARCHAR}
+					,'1'
+					,systimestamp
+			);
+	</foreach>		
+	end ;
+</insert>
+
+</mapper>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.shzx.extpersonalreportoter.dao.ExtPersonalReportOterDao">
+<resultMap id="ExtPersonalReportOterDTO" type="com.jy.modules.externalplatform.interfacerepository.shzx.extpersonalreportoter.dto.ExtPersonalReportOterDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="optlock" column="OPTLOCK" jdbcType="DECIMAL" />
+				<result property="guaranteeAmount" column="GUARANTEE_AMOUNT" jdbcType="VARCHAR" />
+				<result property="guaranteeDate" column="GUARANTEE_DATE" jdbcType="VARCHAR" />
+				<result property="guaranteeProject" column="GUARANTEE_PROJECT" jdbcType="VARCHAR" />
+				<result property="guaranteeRelations" column="GUARANTEE_RELATIONS" jdbcType="VARCHAR" />
+				<result property="infoDate" column="INFO_DATE" jdbcType="VARCHAR" />
+				<result property="personalCreditReport" column="PERSONAL_CREDIT_REPORT" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 EXT_personal_report_oter -->	
+<select id="searchExtPersonalReportOterByPaging" parameterType="java.util.Map" resultMap="ExtPersonalReportOterDTO">
+    	 		select 
+						t1.id                             ,
+						t1.optlock                        ,
+						t1.guarantee_amount               ,
+						t1.guarantee_date                 ,
+						t1.guarantee_project              ,
+						t1.guarantee_relations            ,
+						t1.info_date                      ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.personal_credit_report         
+					
+				from ext_personal_report_oter 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.optlock != null and dto.optlock != ''">
+						and t1.OPTLOCK =#{dto.optlock}
+    			</if>
+    			<if test="dto.guaranteeAmount != null and dto.guaranteeAmount != ''">
+						and t1.GUARANTEE_AMOUNT =#{dto.guaranteeAmount}
+    			</if>
+    			<if test="dto.guaranteeDate != null and dto.guaranteeDate != ''">
+						and t1.GUARANTEE_DATE =#{dto.guaranteeDate}
+    			</if>
+    			<if test="dto.guaranteeProject != null and dto.guaranteeProject != ''">
+						and t1.GUARANTEE_PROJECT =#{dto.guaranteeProject}
+    			</if>
+    			<if test="dto.guaranteeRelations != null and dto.guaranteeRelations != ''">
+						and t1.GUARANTEE_RELATIONS =#{dto.guaranteeRelations}
+    			</if>
+    			<if test="dto.infoDate != null and dto.infoDate != ''">
+						and t1.INFO_DATE =#{dto.infoDate}
+    			</if>
+    			<if test="dto.personalCreditReport != null and dto.personalCreditReport != ''">
+						and t1.PERSONAL_CREDIT_REPORT =#{dto.personalCreditReport}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_personal_report_oter  -->
+<select id="searchExtPersonalReportOter" parameterType="java.util.Map" resultMap="ExtPersonalReportOterDTO">
+    	     select 
+						t1.id                             ,
+						t1.optlock                        ,
+						t1.guarantee_amount               ,
+						t1.guarantee_date                 ,
+						t1.guarantee_project              ,
+						t1.guarantee_relations            ,
+						t1.info_date                      ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.personal_credit_report         
+				from ext_personal_report_oter 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.optlock != null and dto.optlock != ''">
+						and t1.OPTLOCK = #{dto.optlock}
+    			</if>
+    			<if test="dto.guaranteeAmount != null and dto.guaranteeAmount != ''">
+						and t1.GUARANTEE_AMOUNT = #{dto.guaranteeAmount}
+    			</if>
+    			<if test="dto.guaranteeDate != null and dto.guaranteeDate != ''">
+						and t1.GUARANTEE_DATE = #{dto.guaranteeDate}
+    			</if>
+    			<if test="dto.guaranteeProject != null and dto.guaranteeProject != ''">
+						and t1.GUARANTEE_PROJECT = #{dto.guaranteeProject}
+    			</if>
+    			<if test="dto.guaranteeRelations != null and dto.guaranteeRelations != ''">
+						and t1.GUARANTEE_RELATIONS = #{dto.guaranteeRelations}
+    			</if>
+    			<if test="dto.infoDate != null and dto.infoDate != ''">
+						and t1.INFO_DATE = #{dto.infoDate}
+    			</if>
+    			<if test="dto.personalCreditReport != null and dto.personalCreditReport != ''">
+						and t1.PERSONAL_CREDIT_REPORT = #{dto.personalCreditReport}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_personal_report_oter -->
+<select id="findExtPersonalReportOterByPrimaryKey" parameterType="java.util.Map" resultMap="ExtPersonalReportOterDTO">
+   	 		select 
+					t1.id                             ,
+					t1.optlock                        ,
+					t1.guarantee_amount               ,
+					t1.guarantee_date                 ,
+					t1.guarantee_project              ,
+					t1.guarantee_relations            ,
+					t1.info_date                      ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.personal_credit_report         
+			from ext_personal_report_oter 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_personal_report_oter -->
+<insert id="insertExtPersonalReportOter" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_personal_report_oter.nextval as id from dual
+	</selectKey>
+			insert into ext_personal_report_oter
+			(   		
+					id                             ,
+					optlock                        ,
+					guarantee_amount               ,
+					guarantee_date                 ,
+					guarantee_project              ,
+					guarantee_relations            ,
+					info_date                      ,
+					create_time                    ,
+					personal_credit_report         
+			)
+			values(#{dto.id}
+					,#{dto.optlock,jdbcType=DECIMAL}
+					,#{dto.guaranteeAmount,jdbcType=VARCHAR}
+					,#{dto.guaranteeDate,jdbcType=VARCHAR}
+					,#{dto.guaranteeProject,jdbcType=VARCHAR}
+					,#{dto.guaranteeRelations,jdbcType=VARCHAR}
+					,#{dto.infoDate,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.personalCreditReport,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_personal_report_oter -->
+<update id="updateExtPersonalReportOter" parameterType="java.util.Map">
+	     update ext_personal_report_oter t1
+	           set 
+			           t1.optlock                        =#{dto.optlock,jdbcType=DECIMAL},
+			           t1.guarantee_amount               =#{dto.guaranteeAmount,jdbcType=VARCHAR},
+			           t1.guarantee_date                 =#{dto.guaranteeDate,jdbcType=VARCHAR},
+			           t1.guarantee_project              =#{dto.guaranteeProject,jdbcType=VARCHAR},
+			           t1.guarantee_relations            =#{dto.guaranteeRelations,jdbcType=VARCHAR},
+			           t1.info_date                      =#{dto.infoDate,jdbcType=VARCHAR},
+					   t1.modify_time                    =systimestamp,
+			           t1.personal_credit_report         =#{dto.personalCreditReport,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_personal_report_oter -->
+<delete id="deleteExtPersonalReportOterByID" parameterType="java.util.Map">
+    	delete from ext_personal_report_oter t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_personal_report_oter -->
+<update id="deleteExtPersonalReportOterByPrimaryKey" parameterType="java.util.Map">
+	     update ext_personal_report_oter t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

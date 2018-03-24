@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.baidu.extwlbaidulbsresult.dao.ExtWlBaiduLbsResultDao">
+<resultMap id="ExtWlBaiduLbsResultDTO" type="com.jy.modules.externalplatform.interfacerepository.baidu.extwlbaidulbsresult.dto.ExtWlBaiduLbsResultDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="keyId" column="KEY_ID" jdbcType="VARCHAR" />
+				<result property="distance" column="DISTANCE" jdbcType="VARCHAR" />
+				<result property="verifyResult" column="VERIFY_RESULT" jdbcType="VARCHAR" />
+				<result property="confidence" column="CONFIDENCE" jdbcType="VARCHAR" />
+				<result property="validity" column="VALIDITY" jdbcType="VARCHAR" />
+				<result property="matchLevel" column="MATCH_LEVEL" jdbcType="VARCHAR" />
+				<result property="frequency" column="FREQUENCY" jdbcType="VARCHAR" />
+				<result property="inactiveDay" column="INACTIVE_DAY" jdbcType="VARCHAR" />
+				<result property="resultType" column="RESULT_TYPE" jdbcType="VARCHAR" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyBy" column="MODIFY_BY" jdbcType="DECIMAL" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="validateState" column="VALIDATE_STATE" jdbcType="VARCHAR" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_BAIDU_LBS_RESULT -->	
+<select id="searchExtWlBaiduLbsResultByPaging" parameterType="java.util.Map" resultMap="ExtWlBaiduLbsResultDTO">
+    	 		select 
+						t1.id                             ,
+						t1.key_id                         ,
+						t1.distance                       ,
+						t1.verify_result                  ,
+						t1.confidence                     ,
+						t1.validity                       ,
+						t1.match_level                    ,
+						t1.frequency                      ,
+						t1.inactive_day                   ,
+						t1.result_type                    ,
+						t1.create_by                      ,
+						t1.create_time                    ,
+						t1.modify_by                      ,
+						t1.modify_time                    ,
+						t1.validate_state                 
+					
+				from ext_wl_baidu_lbs_result 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.keyId != null and dto.keyId != ''">
+						and t1.KEY_ID =#{dto.keyId}
+    			</if>
+    			<if test="dto.distance != null and dto.distance != ''">
+						and t1.DISTANCE =#{dto.distance}
+    			</if>
+    			<if test="dto.verifyResult != null and dto.verifyResult != ''">
+						and t1.VERIFY_RESULT =#{dto.verifyResult}
+    			</if>
+    			<if test="dto.confidence != null and dto.confidence != ''">
+						and t1.CONFIDENCE =#{dto.confidence}
+    			</if>
+    			<if test="dto.validity != null and dto.validity != ''">
+						and t1.VALIDITY =#{dto.validity}
+    			</if>
+    			<if test="dto.matchLevel != null and dto.matchLevel != ''">
+						and t1.MATCH_LEVEL =#{dto.matchLevel}
+    			</if>
+    			<if test="dto.frequency != null and dto.frequency != ''">
+						and t1.FREQUENCY =#{dto.frequency}
+    			</if>
+    			<if test="dto.inactiveDay != null and dto.inactiveDay != ''">
+						and t1.INACTIVE_DAY =#{dto.inactiveDay}
+    			</if>
+    			<if test="dto.resultType != null and dto.resultType != ''">
+						and t1.RESULT_TYPE =#{dto.resultType}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY =#{dto.modifyBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE =#{dto.validateState}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_BAIDU_LBS_RESULT  -->
+<select id="searchExtWlBaiduLbsResult" parameterType="java.util.Map" resultMap="ExtWlBaiduLbsResultDTO">
+    	     select 
+						t1.id                             ,
+						t1.key_id                         ,
+						t1.distance                       ,
+						t1.verify_result                  ,
+						t1.confidence                     ,
+						t1.validity                       ,
+						t1.match_level                    ,
+						t1.frequency                      ,
+						t1.inactive_day                   ,
+						t1.result_type                    ,
+						t1.create_by                      ,
+						t1.create_time                    ,
+						t1.modify_by                      ,
+						t1.modify_time                    ,
+						t1.validate_state                 
+				from ext_wl_baidu_lbs_result 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.keyId != null and dto.keyId != ''">
+						and t1.KEY_ID = #{dto.keyId}
+    			</if>
+    			<if test="dto.distance != null and dto.distance != ''">
+						and t1.DISTANCE = #{dto.distance}
+    			</if>
+    			<if test="dto.verifyResult != null and dto.verifyResult != ''">
+						and t1.VERIFY_RESULT = #{dto.verifyResult}
+    			</if>
+    			<if test="dto.confidence != null and dto.confidence != ''">
+						and t1.CONFIDENCE = #{dto.confidence}
+    			</if>
+    			<if test="dto.validity != null and dto.validity != ''">
+						and t1.VALIDITY = #{dto.validity}
+    			</if>
+    			<if test="dto.matchLevel != null and dto.matchLevel != ''">
+						and t1.MATCH_LEVEL = #{dto.matchLevel}
+    			</if>
+    			<if test="dto.frequency != null and dto.frequency != ''">
+						and t1.FREQUENCY = #{dto.frequency}
+    			</if>
+    			<if test="dto.inactiveDay != null and dto.inactiveDay != ''">
+						and t1.INACTIVE_DAY = #{dto.inactiveDay}
+    			</if>
+    			<if test="dto.resultType != null and dto.resultType != ''">
+						and t1.RESULT_TYPE = #{dto.resultType}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY = #{dto.modifyBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE = #{dto.validateState}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_BAIDU_LBS_RESULT -->
+<select id="findExtWlBaiduLbsResultByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlBaiduLbsResultDTO">
+   	 		select 
+					t1.id                             ,
+					t1.key_id                         ,
+					t1.distance                       ,
+					t1.verify_result                  ,
+					t1.confidence                     ,
+					t1.validity                       ,
+					t1.match_level                    ,
+					t1.frequency                      ,
+					t1.inactive_day                   ,
+					t1.result_type                    ,
+					t1.create_by                      ,
+					t1.create_time                    ,
+					t1.modify_by                      ,
+					t1.modify_time                    ,
+					t1.validate_state                 
+			from ext_wl_baidu_lbs_result 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_BAIDU_LBS_RESULT -->
+<insert id="insertExtWlBaiduLbsResult" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_ext_wl_baidu_lbs_result.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_baidu_lbs_result
+			(   		
+					id                             ,
+					key_id                         ,
+					distance                       ,
+					verify_result                  ,
+					confidence                     ,
+					validity                       ,
+					match_level                    ,
+					frequency                      ,
+					inactive_day                   ,
+					result_type                    ,
+					create_by                      ,
+					create_time                    ,
+					modify_by                      ,
+					modify_time                    ,
+					validate_state                 
+			)
+			values(#{dto.id}
+					,#{dto.keyId,jdbcType=VARCHAR}
+					,#{dto.distance,jdbcType=VARCHAR}
+					,#{dto.verifyResult,jdbcType=VARCHAR}
+					,#{dto.confidence,jdbcType=VARCHAR}
+					,#{dto.validity,jdbcType=VARCHAR}
+					,#{dto.matchLevel,jdbcType=VARCHAR}
+					,#{dto.frequency,jdbcType=VARCHAR}
+					,#{dto.inactiveDay,jdbcType=VARCHAR}
+					,#{dto.resultType,jdbcType=VARCHAR}
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,systimestamp
+					,#{dto.modifyBy,jdbcType=DECIMAL}
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,'1'
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_BAIDU_LBS_RESULT -->
+<update id="updateExtWlBaiduLbsResult" parameterType="java.util.Map">
+	     update ext_wl_baidu_lbs_result t1
+	           set 
+			           t1.key_id                         =#{dto.keyId,jdbcType=VARCHAR},
+			           t1.distance                       =#{dto.distance,jdbcType=VARCHAR},
+			           t1.verify_result                  =#{dto.verifyResult,jdbcType=VARCHAR},
+			           t1.confidence                     =#{dto.confidence,jdbcType=VARCHAR},
+			           t1.validity                       =#{dto.validity,jdbcType=VARCHAR},
+			           t1.match_level                    =#{dto.matchLevel,jdbcType=VARCHAR},
+			           t1.frequency                      =#{dto.frequency,jdbcType=VARCHAR},
+			           t1.inactive_day                   =#{dto.inactiveDay,jdbcType=VARCHAR},
+			           t1.result_type                    =#{dto.resultType,jdbcType=VARCHAR},
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_by                      =#{dto.modifyBy,jdbcType=DECIMAL},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP},
+			           t1.validate_state                 ='1'
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_BAIDU_LBS_RESULT -->
+<delete id="deleteExtWlBaiduLbsResultByID" parameterType="java.util.Map">
+    	delete from ext_wl_baidu_lbs_result t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_BAIDU_LBS_RESULT -->
+<update id="deleteExtWlBaiduLbsResultByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_baidu_lbs_result t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+
+<!-- 批量保存数据-->
+<insert id="insertBatchExtWlBaiduLbsResult" parameterType="java.util.Map">
+    declare
+      detId number:=0;
+    begin
+
+    detId:=0;
+    <foreach collection="lbsList" item="dto" index="index" > 
+    select seq_ext_wl_baidu_lbs_result.nextval into detId from dual;
+    insert into ext_wl_baidu_lbs_result
+            (           
+                    id                             ,
+                    key_id                         ,
+                    distance                       ,
+                    verify_result                  ,
+                    confidence                     ,
+                    validity                       ,
+                    match_level                    ,
+                    frequency                      ,
+                    inactive_day                   ,
+                    result_type                    ,
+                    create_by                      ,
+                    create_time                    ,
+                    validate_state     
+            )
+        select detId
+                    ,#{dto.keyId,jdbcType=VARCHAR}
+                    ,#{dto.distance,jdbcType=VARCHAR}
+                    ,#{dto.verifyResult,jdbcType=VARCHAR}
+                    ,#{dto.confidence,jdbcType=VARCHAR}
+                    ,#{dto.validity,jdbcType=VARCHAR}
+                    ,#{dto.matchLevel,jdbcType=VARCHAR}
+                    ,#{dto.frequency,jdbcType=VARCHAR}
+                    ,#{dto.inactiveDay,jdbcType=VARCHAR}
+                    ,#{dto.resultType,jdbcType=VARCHAR}
+                    ,#{dto.createBy,jdbcType=DECIMAL}
+                    ,systimestamp
+                    ,'1'
+        from dual           ;
+    </foreach>      
+    end ;
+</insert>
+</mapper>

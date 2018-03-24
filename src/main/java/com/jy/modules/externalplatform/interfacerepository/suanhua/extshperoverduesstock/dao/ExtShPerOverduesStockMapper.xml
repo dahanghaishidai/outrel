@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.suanhua.extshperoverduesstock.dao.ExtShPerOverduesStockDao">
+<resultMap id="ExtShPerOverduesStockDTO" type="com.jy.modules.externalplatform.interfacerepository.suanhua.extshperoverduesstock.dto.ExtShPerOverduesStockDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="creditOrgCounts" column="CREDIT_ORG_COUNTS" jdbcType="VARCHAR" />
+				<result property="creditAmts" column="CREDIT_AMTS" jdbcType="VARCHAR" />
+				<result property="creditOrgCounts200" column="CREDIT_ORG_COUNTS200" jdbcType="VARCHAR" />
+				<result property="creditAmts200" column="CREDIT_AMTS_200" jdbcType="VARCHAR" />
+				<result property="creditCountsM60" column="CREDIT_COUNTS_M60" jdbcType="VARCHAR" />
+				<result property="creditCountsM60d90" column="CREDIT_COUNTS_M60D90" jdbcType="VARCHAR" />
+				<result property="loanCounts" column="LOAN_COUNTS" jdbcType="VARCHAR" />
+				<result property="loanAmts" column="LOAN_AMTS" jdbcType="VARCHAR" />
+				<result property="loanCountsM60" column="LOAN_COUNTS_M60" jdbcType="VARCHAR" />
+				<result property="loanCountsM60d90" column="LOAN_COUNTS_M60D90" jdbcType="VARCHAR" />
+				<result property="countsM60" column="COUNTS_M60" jdbcType="VARCHAR" />
+				<result property="countsM60d90" column="COUNTS_M60D90" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="fkPersonalReportId" column="FK_PERSONAL_REPORT_ID" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 分页查询 EXT_SH_PER_OVERDUES_STOCK -->	
+<select id="searchExtShPerOverduesStockByPaging" parameterType="java.util.Map" resultMap="ExtShPerOverduesStockDTO">
+    	 		select 
+						t1.id                             ,
+						t1.credit_org_counts              ,
+						t1.credit_amts                    ,
+						t1.credit_org_counts200           ,
+						t1.credit_amts_200                ,
+						t1.credit_counts_m60              ,
+						t1.credit_counts_m60d90           ,
+						t1.loan_counts                    ,
+						t1.loan_amts                      ,
+						t1.loan_counts_m60                ,
+						t1.loan_counts_m60d90             ,
+						t1.counts_m60                     ,
+						t1.counts_m60d90                  ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.fk_personal_report_id          
+					
+				from ext_sh_per_overdues_stock 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.creditOrgCounts != null and dto.creditOrgCounts != ''">
+						and t1.CREDIT_ORG_COUNTS =#{dto.creditOrgCounts}
+    			</if>
+    			<if test="dto.creditAmts != null and dto.creditAmts != ''">
+						and t1.CREDIT_AMTS =#{dto.creditAmts}
+    			</if>
+    			<if test="dto.creditOrgCounts200 != null and dto.creditOrgCounts200 != ''">
+						and t1.CREDIT_ORG_COUNTS200 =#{dto.creditOrgCounts200}
+    			</if>
+    			<if test="dto.creditAmts200 != null and dto.creditAmts200 != ''">
+						and t1.CREDIT_AMTS_200 =#{dto.creditAmts200}
+    			</if>
+    			<if test="dto.creditCountsM60 != null and dto.creditCountsM60 != ''">
+						and t1.CREDIT_COUNTS_M60 =#{dto.creditCountsM60}
+    			</if>
+    			<if test="dto.creditCountsM60d90 != null and dto.creditCountsM60d90 != ''">
+						and t1.CREDIT_COUNTS_M60D90 =#{dto.creditCountsM60d90}
+    			</if>
+    			<if test="dto.loanCounts != null and dto.loanCounts != ''">
+						and t1.LOAN_COUNTS =#{dto.loanCounts}
+    			</if>
+    			<if test="dto.loanAmts != null and dto.loanAmts != ''">
+						and t1.LOAN_AMTS =#{dto.loanAmts}
+    			</if>
+    			<if test="dto.loanCountsM60 != null and dto.loanCountsM60 != ''">
+						and t1.LOAN_COUNTS_M60 =#{dto.loanCountsM60}
+    			</if>
+    			<if test="dto.loanCountsM60d90 != null and dto.loanCountsM60d90 != ''">
+						and t1.LOAN_COUNTS_M60D90 =#{dto.loanCountsM60d90}
+    			</if>
+    			<if test="dto.countsM60 != null and dto.countsM60 != ''">
+						and t1.COUNTS_M60 =#{dto.countsM60}
+    			</if>
+    			<if test="dto.countsM60d90 != null and dto.countsM60d90 != ''">
+						and t1.COUNTS_M60D90 =#{dto.countsM60d90}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.fkPersonalReportId != null and dto.fkPersonalReportId != ''">
+						and t1.FK_PERSONAL_REPORT_ID =#{dto.fkPersonalReportId}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_SH_PER_OVERDUES_STOCK  -->
+<select id="searchExtShPerOverduesStock" parameterType="java.util.Map" resultMap="ExtShPerOverduesStockDTO">
+    	     select 
+						t1.id                             ,
+						t1.credit_org_counts              ,
+						t1.credit_amts                    ,
+						t1.credit_org_counts200           ,
+						t1.credit_amts_200                ,
+						t1.credit_counts_m60              ,
+						t1.credit_counts_m60d90           ,
+						t1.loan_counts                    ,
+						t1.loan_amts                      ,
+						t1.loan_counts_m60                ,
+						t1.loan_counts_m60d90             ,
+						t1.counts_m60                     ,
+						t1.counts_m60d90                  ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.fk_personal_report_id          
+				from ext_sh_per_overdues_stock 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.creditOrgCounts != null and dto.creditOrgCounts != ''">
+						and t1.CREDIT_ORG_COUNTS = #{dto.creditOrgCounts}
+    			</if>
+    			<if test="dto.creditAmts != null and dto.creditAmts != ''">
+						and t1.CREDIT_AMTS = #{dto.creditAmts}
+    			</if>
+    			<if test="dto.creditOrgCounts200 != null and dto.creditOrgCounts200 != ''">
+						and t1.CREDIT_ORG_COUNTS200 = #{dto.creditOrgCounts200}
+    			</if>
+    			<if test="dto.creditAmts200 != null and dto.creditAmts200 != ''">
+						and t1.CREDIT_AMTS_200 = #{dto.creditAmts200}
+    			</if>
+    			<if test="dto.creditCountsM60 != null and dto.creditCountsM60 != ''">
+						and t1.CREDIT_COUNTS_M60 = #{dto.creditCountsM60}
+    			</if>
+    			<if test="dto.creditCountsM60d90 != null and dto.creditCountsM60d90 != ''">
+						and t1.CREDIT_COUNTS_M60D90 = #{dto.creditCountsM60d90}
+    			</if>
+    			<if test="dto.loanCounts != null and dto.loanCounts != ''">
+						and t1.LOAN_COUNTS = #{dto.loanCounts}
+    			</if>
+    			<if test="dto.loanAmts != null and dto.loanAmts != ''">
+						and t1.LOAN_AMTS = #{dto.loanAmts}
+    			</if>
+    			<if test="dto.loanCountsM60 != null and dto.loanCountsM60 != ''">
+						and t1.LOAN_COUNTS_M60 = #{dto.loanCountsM60}
+    			</if>
+    			<if test="dto.loanCountsM60d90 != null and dto.loanCountsM60d90 != ''">
+						and t1.LOAN_COUNTS_M60D90 = #{dto.loanCountsM60d90}
+    			</if>
+    			<if test="dto.countsM60 != null and dto.countsM60 != ''">
+						and t1.COUNTS_M60 = #{dto.countsM60}
+    			</if>
+    			<if test="dto.countsM60d90 != null and dto.countsM60d90 != ''">
+						and t1.COUNTS_M60D90 = #{dto.countsM60d90}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.fkPersonalReportId != null and dto.fkPersonalReportId != ''">
+						and t1.FK_PERSONAL_REPORT_ID = #{dto.fkPersonalReportId}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_SH_PER_OVERDUES_STOCK -->
+<select id="findExtShPerOverduesStockByPrimaryKey" parameterType="java.util.Map" resultMap="ExtShPerOverduesStockDTO">
+   	 		select 
+					t1.id                             ,
+					t1.credit_org_counts              ,
+					t1.credit_amts                    ,
+					t1.credit_org_counts200           ,
+					t1.credit_amts_200                ,
+					t1.credit_counts_m60              ,
+					t1.credit_counts_m60d90           ,
+					t1.loan_counts                    ,
+					t1.loan_amts                      ,
+					t1.loan_counts_m60                ,
+					t1.loan_counts_m60d90             ,
+					t1.counts_m60                     ,
+					t1.counts_m60d90                  ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.fk_personal_report_id          
+			from ext_sh_per_overdues_stock 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_SH_PER_OVERDUES_STOCK -->
+<insert id="insertExtShPerOverduesStock" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_SH_PER_OVERDUES_STOCK.nextval as id from dual
+	</selectKey>
+			insert into ext_sh_per_overdues_stock
+			(   		
+					id                             ,
+					credit_org_counts              ,
+					credit_amts                    ,
+					credit_org_counts200           ,
+					credit_amts_200                ,
+					credit_counts_m60              ,
+					credit_counts_m60d90           ,
+					loan_counts                    ,
+					loan_amts                      ,
+					loan_counts_m60                ,
+					loan_counts_m60d90             ,
+					counts_m60                     ,
+					counts_m60d90                  ,
+					create_time                    ,
+					fk_personal_report_id          
+			)
+			values(#{dto.id}
+					,#{dto.creditOrgCounts,jdbcType=VARCHAR}
+					,#{dto.creditAmts,jdbcType=VARCHAR}
+					,#{dto.creditOrgCounts200,jdbcType=VARCHAR}
+					,#{dto.creditAmts200,jdbcType=VARCHAR}
+					,#{dto.creditCountsM60,jdbcType=VARCHAR}
+					,#{dto.creditCountsM60d90,jdbcType=VARCHAR}
+					,#{dto.loanCounts,jdbcType=VARCHAR}
+					,#{dto.loanAmts,jdbcType=VARCHAR}
+					,#{dto.loanCountsM60,jdbcType=VARCHAR}
+					,#{dto.loanCountsM60d90,jdbcType=VARCHAR}
+					,#{dto.countsM60,jdbcType=VARCHAR}
+					,#{dto.countsM60d90,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.fkPersonalReportId,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_SH_PER_OVERDUES_STOCK -->
+<update id="updateExtShPerOverduesStock" parameterType="java.util.Map">
+	     update ext_sh_per_overdues_stock t1
+	           set 
+			           t1.credit_org_counts              =#{dto.creditOrgCounts,jdbcType=VARCHAR},
+			           t1.credit_amts                    =#{dto.creditAmts,jdbcType=VARCHAR},
+			           t1.credit_org_counts200           =#{dto.creditOrgCounts200,jdbcType=VARCHAR},
+			           t1.credit_amts_200                =#{dto.creditAmts200,jdbcType=VARCHAR},
+			           t1.credit_counts_m60              =#{dto.creditCountsM60,jdbcType=VARCHAR},
+			           t1.credit_counts_m60d90           =#{dto.creditCountsM60d90,jdbcType=VARCHAR},
+			           t1.loan_counts                    =#{dto.loanCounts,jdbcType=VARCHAR},
+			           t1.loan_amts                      =#{dto.loanAmts,jdbcType=VARCHAR},
+			           t1.loan_counts_m60                =#{dto.loanCountsM60,jdbcType=VARCHAR},
+			           t1.loan_counts_m60d90             =#{dto.loanCountsM60d90,jdbcType=VARCHAR},
+			           t1.counts_m60                     =#{dto.countsM60,jdbcType=VARCHAR},
+			           t1.counts_m60d90                  =#{dto.countsM60d90,jdbcType=VARCHAR},
+			           t1.modify_time                    =systimestamp,
+			           t1.fk_personal_report_id          =#{dto.fkPersonalReportId,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_SH_PER_OVERDUES_STOCK -->
+<delete id="deleteExtShPerOverduesStockByID" parameterType="java.util.Map">
+    	delete from ext_sh_per_overdues_stock t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_SH_PER_OVERDUES_STOCK -->
+<update id="deleteExtShPerOverduesStockByPrimaryKey" parameterType="java.util.Map">
+	     update ext_sh_per_overdues_stock t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

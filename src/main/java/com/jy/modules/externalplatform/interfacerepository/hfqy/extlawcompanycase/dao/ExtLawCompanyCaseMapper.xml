@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.hfqy.extlawcompanycase.dao.ExtLawCompanyCaseDao">
+<resultMap id="ExtLawCompanyCaseDTO" type="com.jy.modules.externalplatform.interfacerepository.hfqy.extlawcompanycase.dto.ExtLawCompanyCaseDTO">
+				<result property="keyid" column="KEYID" jdbcType="DECIMAL" />
+				<result property="name" column="NAME" jdbcType="VARCHAR" />
+				<result property="cidorcode" column="CIDORCODE" jdbcType="VARCHAR" />
+				<result property="ptype" column="PTYPE" jdbcType="VARCHAR" />
+				<result property="title" column="TITLE" jdbcType="VARCHAR" />
+				<result property="adjudicateDate" column="ADJUDICATE_DATE" jdbcType="VARCHAR" />
+				<result property="casetype" column="CASETYPE" jdbcType="VARCHAR" />
+				<result property="casenum" column="CASENUM" jdbcType="VARCHAR" />
+				<result property="ownfile" column="OWNFILE" jdbcType="VARCHAR" />
+				<result property="pdf" column="PDF" jdbcType="VARCHAR" />
+				<result property="contenthref" column="CONTENTHREF" jdbcType="VARCHAR" />
+				<result property="objection" column="OBJECTION" jdbcType="VARCHAR" />
+				<result property="objectiontime" column="OBJECTIONTIME" jdbcType="VARCHAR" />
+				<result property="fkId" column="FK_ID" jdbcType="DECIMAL" />
+				<result property="datatime" column="DATATIME" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 EXT_LAW_COMPANY_CASE -->	
+<select id="searchExtLawCompanyCaseByPaging" parameterType="java.util.Map" resultMap="ExtLawCompanyCaseDTO">
+    	 		select 
+						t1.keyid                          ,
+						t1.datatime                       ,
+						t1.name                           ,
+						t1.cidorcode                      ,
+						t1.ptype                          ,
+						t1.title                          ,
+						t1.adjudicate_date                ,
+						t1.casetype                       ,
+						t1.casenum                        ,
+						t1.ownfile                        ,
+						t1.pdf                            ,
+						t1.contenthref                    ,
+						t1.objection                      ,
+						t1.objectiontime                  ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.fk_id                          
+					
+				from ext_law_company_case 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.keyid != null and dto.keyid != ''">
+						and t1.KEYID =#{dto.keyid}
+    			</if>
+    			<if test="dto.name != null and dto.name != ''">
+						and t1.NAME =#{dto.name}
+    			</if>
+    			<if test="dto.cidorcode != null and dto.cidorcode != ''">
+						and t1.CIDORCODE =#{dto.cidorcode}
+    			</if>
+    			<if test="dto.ptype != null and dto.ptype != ''">
+						and t1.PTYPE =#{dto.ptype}
+    			</if>
+    			<if test="dto.title != null and dto.title != ''">
+						and t1.TITLE =#{dto.title}
+    			</if>
+    			<if test="dto.adjudicateDate != null and dto.adjudicateDate != ''">
+						and t1.ADJUDICATE_DATE =#{dto.adjudicateDate}
+    			</if>
+    			<if test="dto.casetype != null and dto.casetype != ''">
+						and t1.CASETYPE =#{dto.casetype}
+    			</if>
+    			<if test="dto.casenum != null and dto.casenum != ''">
+						and t1.CASENUM =#{dto.casenum}
+    			</if>
+    			<if test="dto.ownfile != null and dto.ownfile != ''">
+						and t1.OWNFILE =#{dto.ownfile}
+    			</if>
+    			<if test="dto.pdf != null and dto.pdf != ''">
+						and t1.PDF =#{dto.pdf}
+    			</if>
+    			<if test="dto.contenthref != null and dto.contenthref != ''">
+						and t1.CONTENTHREF =#{dto.contenthref}
+    			</if>
+    			<if test="dto.objection != null and dto.objection != ''">
+						and t1.OBJECTION =#{dto.objection}
+    			</if>
+    			<if test="dto.objectiontime != null and dto.objectiontime != ''">
+						and t1.OBJECTIONTIME =#{dto.objectiontime}
+    			</if>
+    			<if test="dto.fkId != null and dto.fkId != ''">
+						and t1.FK_ID =#{dto.fkId}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_LAW_COMPANY_CASE  -->
+<select id="searchExtLawCompanyCase" parameterType="java.util.Map" resultMap="ExtLawCompanyCaseDTO">
+    	     select 
+						t1.keyid                          ,
+						t1.datatime                       ,
+						t1.name                           ,
+						t1.cidorcode                      ,
+						t1.ptype                          ,
+						t1.title                          ,
+						t1.adjudicate_date                ,
+						t1.casetype                       ,
+						t1.casenum                        ,
+						t1.ownfile                        ,
+						t1.pdf                            ,
+						t1.contenthref                    ,
+						t1.objection                      ,
+						t1.objectiontime                  ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.fk_id                          
+				from ext_law_company_case 		t1
+				where 1=1
+    			<if test="dto.keyid != null and dto.keyid != ''">
+						and t1.KEYID = #{dto.keyid}
+    			</if>
+    			<if test="dto.name != null and dto.name != ''">
+						and t1.NAME = #{dto.name}
+    			</if>
+    			<if test="dto.cidorcode != null and dto.cidorcode != ''">
+						and t1.CIDORCODE = #{dto.cidorcode}
+    			</if>
+    			<if test="dto.ptype != null and dto.ptype != ''">
+						and t1.PTYPE = #{dto.ptype}
+    			</if>
+    			<if test="dto.title != null and dto.title != ''">
+						and t1.TITLE = #{dto.title}
+    			</if>
+    			<if test="dto.adjudicateDate != null and dto.adjudicateDate != ''">
+						and t1.ADJUDICATE_DATE = #{dto.adjudicateDate}
+    			</if>
+    			<if test="dto.casetype != null and dto.casetype != ''">
+						and t1.CASETYPE = #{dto.casetype}
+    			</if>
+    			<if test="dto.casenum != null and dto.casenum != ''">
+						and t1.CASENUM = #{dto.casenum}
+    			</if>
+    			<if test="dto.ownfile != null and dto.ownfile != ''">
+						and t1.OWNFILE = #{dto.ownfile}
+    			</if>
+    			<if test="dto.pdf != null and dto.pdf != ''">
+						and t1.PDF = #{dto.pdf}
+    			</if>
+    			<if test="dto.contenthref != null and dto.contenthref != ''">
+						and t1.CONTENTHREF = #{dto.contenthref}
+    			</if>
+    			<if test="dto.objection != null and dto.objection != ''">
+						and t1.OBJECTION = #{dto.objection}
+    			</if>
+    			<if test="dto.objectiontime != null and dto.objectiontime != ''">
+						and t1.OBJECTIONTIME = #{dto.objectiontime}
+    			</if>
+    			<if test="dto.fkId != null and dto.fkId != ''">
+						and t1.FK_ID = #{dto.fkId}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_LAW_COMPANY_CASE -->
+<select id="findExtLawCompanyCaseByPrimaryKey" parameterType="java.util.Map" resultMap="ExtLawCompanyCaseDTO">
+   	 		select 
+					t1.keyid                          ,
+					t1.datatime                       ,
+					t1.name                           ,
+					t1.cidorcode                      ,
+					t1.ptype                          ,
+					t1.title                          ,
+					t1.adjudicate_date                ,
+					t1.casetype                       ,
+					t1.casenum                        ,
+					t1.ownfile                        ,
+					t1.pdf                            ,
+					t1.contenthref                    ,
+					t1.objection                      ,
+					t1.objectiontime                  ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.fk_id                          
+			from ext_law_company_case 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_LAW_COMPANY_CASE -->
+<insert id="insertExtLawCompanyCase" parameterType="java.util.Map" useGeneratedKeys="true">
+	
+			insert into ext_law_company_case
+			(   		
+					keyid                          ,
+					datatime                       ,
+					name                           ,
+					cidorcode                      ,
+					ptype                          ,
+					title                          ,
+					adjudicate_date                ,
+					casetype                       ,
+					casenum                        ,
+					ownfile                        ,
+					pdf                            ,
+					contenthref                    ,
+					objection                      ,
+					objectiontime                  ,
+					create_time                    ,
+					fk_id                          
+			)
+			values(#{dto.keyid,jdbcType=DECIMAL}
+					,#{dto.datatime,jdbcType=VARCHAR}
+					,#{dto.name,jdbcType=VARCHAR}
+					,#{dto.cidorcode,jdbcType=VARCHAR}
+					,#{dto.ptype,jdbcType=VARCHAR}
+					,#{dto.title,jdbcType=VARCHAR}
+					,#{dto.adjudicateDate,jdbcType=VARCHAR}
+					,#{dto.casetype,jdbcType=VARCHAR}
+					,#{dto.casenum,jdbcType=VARCHAR}
+					,#{dto.ownfile,jdbcType=VARCHAR}
+					,#{dto.pdf,jdbcType=VARCHAR}
+					,#{dto.contenthref,jdbcType=VARCHAR}
+					,#{dto.objection,jdbcType=VARCHAR}
+					,#{dto.objectiontime,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.fkId,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_LAW_COMPANY_CASE -->
+<update id="updateExtLawCompanyCase" parameterType="java.util.Map">
+	     update ext_law_company_case t1
+	           set 
+			           t1.keyid                          =#{dto.keyid,jdbcType=DECIMAL},
+			           t1.datatime                       =#{dto.datatime,jdbcType=VARCHAR},
+			           t1.name                           =#{dto.name,jdbcType=VARCHAR},
+			           t1.cidorcode                      =#{dto.cidorcode,jdbcType=VARCHAR},
+			           t1.ptype                          =#{dto.ptype,jdbcType=VARCHAR},
+			           t1.title                          =#{dto.title,jdbcType=VARCHAR},
+			           t1.adjudicate_date                =#{dto.adjudicateDate,jdbcType=VARCHAR},
+			           t1.casetype                       =#{dto.casetype,jdbcType=VARCHAR},
+			           t1.casenum                        =#{dto.casenum,jdbcType=VARCHAR},
+			           t1.ownfile                        =#{dto.ownfile,jdbcType=VARCHAR},
+			           t1.pdf                            =#{dto.pdf,jdbcType=VARCHAR},
+			           t1.contenthref                    =#{dto.contenthref,jdbcType=VARCHAR},
+			           t1.objection                      =#{dto.objection,jdbcType=VARCHAR},
+			           t1.objectiontime                  =#{dto.objectiontime,jdbcType=VARCHAR},
+					   t1.modify_time                    =systimestamp,
+			           t1.fk_id                          =#{dto.fkId,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_LAW_COMPANY_CASE -->
+<delete id="deleteExtLawCompanyCaseByID" parameterType="java.util.Map">
+    	delete from ext_law_company_case t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_LAW_COMPANY_CASE -->
+<update id="deleteExtLawCompanyCaseByPrimaryKey" parameterType="java.util.Map">
+	     update ext_law_company_case t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

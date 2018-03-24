@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.suanhua.extshcreqryacctstock.dao.ExtShCreqryAcctStockDao">
+<resultMap id="ExtShCreqryAcctStockDTO" type="com.jy.modules.externalplatform.interfacerepository.suanhua.extshcreqryacctstock.dto.ExtShCreqryAcctStockDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="reportId" column="REPORT_ID" jdbcType="DECIMAL" />
+				<result property="sname" column="SNAME" jdbcType="VARCHAR" />
+				<result property="scerttype" column="SCERTTYPE" jdbcType="VARCHAR" />
+				<result property="scertno" column="SCERTNO" jdbcType="VARCHAR" />
+				<result property="saccount" column="SACCOUNT" jdbcType="VARCHAR" />
+				<result property="org" column="ORG" jdbcType="VARCHAR" />
+				<result property="scredittype" column="SCREDITTYPE" jdbcType="VARCHAR" />
+				<result property="spurpose" column="SPURPOSE" jdbcType="VARCHAR" />
+				<result property="icreditlimit" column="ICREDITLIMIT" jdbcType="DECIMAL" />
+				<result property="scurrency" column="SCURRENCY" jdbcType="VARCHAR" />
+				<result property="stermsfreq" column="STERMSFREQ" jdbcType="VARCHAR" />
+				<result property="ddateopened" column="DDATEOPENED" jdbcType="VARCHAR" />
+				<result property="ddateclosed" column="DDATECLOSED" jdbcType="VARCHAR" />
+				<result property="iguaranteeway" column="IGUARANTEEWAY" jdbcType="VARCHAR" />
+				<result property="sareaname" column="SAREANAME" jdbcType="VARCHAR" />
+				<result property="igender" column="IGENDER" jdbcType="DECIMAL" />
+				<result property="dbirthday" column="DBIRTHDAY" jdbcType="VARCHAR" />
+				<result property="imarriage" column="IMARRIAGE" jdbcType="DECIMAL" />
+				<result property="iedulevel" column="IEDULEVEL" jdbcType="DECIMAL" />
+				<result property="smobiletel" column="SMOBILETEL" jdbcType="VARCHAR" />
+				<result property="scontactaddress" column="SCONTACTADDRESS" jdbcType="VARCHAR" />
+				<result property="saddress" column="SADDRESS" jdbcType="VARCHAR" />
+				<result property="scondition" column="SCONDITION" jdbcType="VARCHAR" />
+				<result property="sestatus" column="SESTATUS" jdbcType="VARCHAR" />
+				<result property="scompany" column="SCOMPANY" jdbcType="VARCHAR" />
+				<result property="scompanyaddress" column="SCOMPANYADDRESS" jdbcType="VARCHAR" />
+				<result property="iposition" column="IPOSITION" jdbcType="DECIMAL" />
+				<result property="iannualincome" column="IANNUALINCOME" jdbcType="DECIMAL" />
+				<result property="sfirstcontactname" column="SFIRSTCONTACTNAME" jdbcType="VARCHAR" />
+				<result property="sfirstcontactrelation" column="SFIRSTCONTACTRELATION" jdbcType="VARCHAR" />
+				<result property="sfirstcontacttel" column="SFIRSTCONTACTTEL" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 EXT_SH_CREQRY_ACCT_STOCK -->	
+<select id="searchExtShCreqryAcctStockByPaging" parameterType="java.util.Map" resultMap="ExtShCreqryAcctStockDTO">
+    	 		select 
+						t1.id                             ,
+						t1.report_id                      ,
+						t1.sname                          ,
+						t1.scerttype                      ,
+						t1.scertno                        ,
+						t1.saccount                       ,
+						t1.org                            ,
+						t1.scredittype                    ,
+						t1.spurpose                       ,
+						t1.icreditlimit                   ,
+						t1.scurrency                      ,
+						t1.stermsfreq                     ,
+						t1.ddateopened                    ,
+						t1.ddateclosed                    ,
+						t1.iguaranteeway                  ,
+						t1.sareaname                      ,
+						t1.igender                        ,
+						t1.dbirthday                      ,
+						t1.imarriage                      ,
+						t1.iedulevel                      ,
+						t1.smobiletel                     ,
+						t1.scontactaddress                ,
+						t1.saddress                       ,
+						t1.scondition                     ,
+						t1.sestatus                       ,
+						t1.scompany                       ,
+						t1.scompanyaddress                ,
+						t1.iposition                      ,
+						t1.iannualincome                  ,
+						t1.sfirstcontactname              ,
+						t1.sfirstcontactrelation          ,
+						t1.sfirstcontacttel               ,
+						t1.create_time                    ,
+						t1.modify_time                    
+					
+				from ext_sh_creqry_acct_stock 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.reportId != null and dto.reportId != ''">
+						and t1.REPORT_ID =#{dto.reportId}
+    			</if>
+    			<if test="dto.sname != null and dto.sname != ''">
+						and t1.SNAME =#{dto.sname}
+    			</if>
+    			<if test="dto.scerttype != null and dto.scerttype != ''">
+						and t1.SCERTTYPE =#{dto.scerttype}
+    			</if>
+    			<if test="dto.scertno != null and dto.scertno != ''">
+						and t1.SCERTNO =#{dto.scertno}
+    			</if>
+    			<if test="dto.saccount != null and dto.saccount != ''">
+						and t1.SACCOUNT =#{dto.saccount}
+    			</if>
+    			<if test="dto.org != null and dto.org != ''">
+						and t1.ORG =#{dto.org}
+    			</if>
+    			<if test="dto.scredittype != null and dto.scredittype != ''">
+						and t1.SCREDITTYPE =#{dto.scredittype}
+    			</if>
+    			<if test="dto.spurpose != null and dto.spurpose != ''">
+						and t1.SPURPOSE =#{dto.spurpose}
+    			</if>
+    			<if test="dto.icreditlimit != null and dto.icreditlimit != ''">
+						and t1.ICREDITLIMIT =#{dto.icreditlimit}
+    			</if>
+    			<if test="dto.scurrency != null and dto.scurrency != ''">
+						and t1.SCURRENCY =#{dto.scurrency}
+    			</if>
+    			<if test="dto.stermsfreq != null and dto.stermsfreq != ''">
+						and t1.STERMSFREQ =#{dto.stermsfreq}
+    			</if>
+    			<if test="dto.ddateopened != null and dto.ddateopened != ''">
+						and t1.DDATEOPENED =#{dto.ddateopened}
+    			</if>
+    			<if test="dto.ddateclosed != null and dto.ddateclosed != ''">
+						and t1.DDATECLOSED =#{dto.ddateclosed}
+    			</if>
+    			<if test="dto.iguaranteeway != null and dto.iguaranteeway != ''">
+						and t1.IGUARANTEEWAY =#{dto.iguaranteeway}
+    			</if>
+    			<if test="dto.sareaname != null and dto.sareaname != ''">
+						and t1.SAREANAME =#{dto.sareaname}
+    			</if>
+    			<if test="dto.igender != null and dto.igender != ''">
+						and t1.IGENDER =#{dto.igender}
+    			</if>
+    			<if test="dto.dbirthday != null and dto.dbirthday != ''">
+						and t1.DBIRTHDAY =#{dto.dbirthday}
+    			</if>
+    			<if test="dto.imarriage != null and dto.imarriage != ''">
+						and t1.IMARRIAGE =#{dto.imarriage}
+    			</if>
+    			<if test="dto.iedulevel != null and dto.iedulevel != ''">
+						and t1.IEDULEVEL =#{dto.iedulevel}
+    			</if>
+    			<if test="dto.smobiletel != null and dto.smobiletel != ''">
+						and t1.SMOBILETEL =#{dto.smobiletel}
+    			</if>
+    			<if test="dto.scontactaddress != null and dto.scontactaddress != ''">
+						and t1.SCONTACTADDRESS =#{dto.scontactaddress}
+    			</if>
+    			<if test="dto.saddress != null and dto.saddress != ''">
+						and t1.SADDRESS =#{dto.saddress}
+    			</if>
+    			<if test="dto.scondition != null and dto.scondition != ''">
+						and t1.SCONDITION =#{dto.scondition}
+    			</if>
+    			<if test="dto.sestatus != null and dto.sestatus != ''">
+						and t1.SESTATUS =#{dto.sestatus}
+    			</if>
+    			<if test="dto.scompany != null and dto.scompany != ''">
+						and t1.SCOMPANY =#{dto.scompany}
+    			</if>
+    			<if test="dto.scompanyaddress != null and dto.scompanyaddress != ''">
+						and t1.SCOMPANYADDRESS =#{dto.scompanyaddress}
+    			</if>
+    			<if test="dto.iposition != null and dto.iposition != ''">
+						and t1.IPOSITION =#{dto.iposition}
+    			</if>
+    			<if test="dto.iannualincome != null and dto.iannualincome != ''">
+						and t1.IANNUALINCOME =#{dto.iannualincome}
+    			</if>
+    			<if test="dto.sfirstcontactname != null and dto.sfirstcontactname != ''">
+						and t1.SFIRSTCONTACTNAME =#{dto.sfirstcontactname}
+    			</if>
+    			<if test="dto.sfirstcontactrelation != null and dto.sfirstcontactrelation != ''">
+						and t1.SFIRSTCONTACTRELATION =#{dto.sfirstcontactrelation}
+    			</if>
+    			<if test="dto.sfirstcontacttel != null and dto.sfirstcontacttel != ''">
+						and t1.SFIRSTCONTACTTEL =#{dto.sfirstcontacttel}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_SH_CREQRY_ACCT_STOCK  -->
+<select id="searchExtShCreqryAcctStock" parameterType="java.util.Map" resultMap="ExtShCreqryAcctStockDTO">
+    	     select 
+						t1.id                             ,
+						t1.report_id                      ,
+						t1.sname                          ,
+						t1.scerttype                      ,
+						t1.scertno                        ,
+						t1.saccount                       ,
+						t1.org                            ,
+						t1.scredittype                    ,
+						t1.spurpose                       ,
+						t1.icreditlimit                   ,
+						t1.scurrency                      ,
+						t1.stermsfreq                     ,
+						t1.ddateopened                    ,
+						t1.ddateclosed                    ,
+						t1.iguaranteeway                  ,
+						t1.sareaname                      ,
+						t1.igender                        ,
+						t1.dbirthday                      ,
+						t1.imarriage                      ,
+						t1.iedulevel                      ,
+						t1.smobiletel                     ,
+						t1.scontactaddress                ,
+						t1.saddress                       ,
+						t1.scondition                     ,
+						t1.sestatus                       ,
+						t1.scompany                       ,
+						t1.scompanyaddress                ,
+						t1.iposition                      ,
+						t1.iannualincome                  ,
+						t1.sfirstcontactname              ,
+						t1.sfirstcontactrelation          ,
+						t1.sfirstcontacttel               ,
+						t1.create_time                    ,
+						t1.modify_time                    
+				from ext_sh_creqry_acct_stock 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.reportId != null and dto.reportId != ''">
+						and t1.REPORT_ID = #{dto.reportId}
+    			</if>
+    			<if test="dto.sname != null and dto.sname != ''">
+						and t1.SNAME = #{dto.sname}
+    			</if>
+    			<if test="dto.scerttype != null and dto.scerttype != ''">
+						and t1.SCERTTYPE = #{dto.scerttype}
+    			</if>
+    			<if test="dto.scertno != null and dto.scertno != ''">
+						and t1.SCERTNO = #{dto.scertno}
+    			</if>
+    			<if test="dto.saccount != null and dto.saccount != ''">
+						and t1.SACCOUNT = #{dto.saccount}
+    			</if>
+    			<if test="dto.org != null and dto.org != ''">
+						and t1.ORG = #{dto.org}
+    			</if>
+    			<if test="dto.scredittype != null and dto.scredittype != ''">
+						and t1.SCREDITTYPE = #{dto.scredittype}
+    			</if>
+    			<if test="dto.spurpose != null and dto.spurpose != ''">
+						and t1.SPURPOSE = #{dto.spurpose}
+    			</if>
+    			<if test="dto.icreditlimit != null and dto.icreditlimit != ''">
+						and t1.ICREDITLIMIT = #{dto.icreditlimit}
+    			</if>
+    			<if test="dto.scurrency != null and dto.scurrency != ''">
+						and t1.SCURRENCY = #{dto.scurrency}
+    			</if>
+    			<if test="dto.stermsfreq != null and dto.stermsfreq != ''">
+						and t1.STERMSFREQ = #{dto.stermsfreq}
+    			</if>
+    			<if test="dto.ddateopened != null and dto.ddateopened != ''">
+						and t1.DDATEOPENED = #{dto.ddateopened}
+    			</if>
+    			<if test="dto.ddateclosed != null and dto.ddateclosed != ''">
+						and t1.DDATECLOSED = #{dto.ddateclosed}
+    			</if>
+    			<if test="dto.iguaranteeway != null and dto.iguaranteeway != ''">
+						and t1.IGUARANTEEWAY = #{dto.iguaranteeway}
+    			</if>
+    			<if test="dto.sareaname != null and dto.sareaname != ''">
+						and t1.SAREANAME = #{dto.sareaname}
+    			</if>
+    			<if test="dto.igender != null and dto.igender != ''">
+						and t1.IGENDER = #{dto.igender}
+    			</if>
+    			<if test="dto.dbirthday != null and dto.dbirthday != ''">
+						and t1.DBIRTHDAY = #{dto.dbirthday}
+    			</if>
+    			<if test="dto.imarriage != null and dto.imarriage != ''">
+						and t1.IMARRIAGE = #{dto.imarriage}
+    			</if>
+    			<if test="dto.iedulevel != null and dto.iedulevel != ''">
+						and t1.IEDULEVEL = #{dto.iedulevel}
+    			</if>
+    			<if test="dto.smobiletel != null and dto.smobiletel != ''">
+						and t1.SMOBILETEL = #{dto.smobiletel}
+    			</if>
+    			<if test="dto.scontactaddress != null and dto.scontactaddress != ''">
+						and t1.SCONTACTADDRESS = #{dto.scontactaddress}
+    			</if>
+    			<if test="dto.saddress != null and dto.saddress != ''">
+						and t1.SADDRESS = #{dto.saddress}
+    			</if>
+    			<if test="dto.scondition != null and dto.scondition != ''">
+						and t1.SCONDITION = #{dto.scondition}
+    			</if>
+    			<if test="dto.sestatus != null and dto.sestatus != ''">
+						and t1.SESTATUS = #{dto.sestatus}
+    			</if>
+    			<if test="dto.scompany != null and dto.scompany != ''">
+						and t1.SCOMPANY = #{dto.scompany}
+    			</if>
+    			<if test="dto.scompanyaddress != null and dto.scompanyaddress != ''">
+						and t1.SCOMPANYADDRESS = #{dto.scompanyaddress}
+    			</if>
+    			<if test="dto.iposition != null and dto.iposition != ''">
+						and t1.IPOSITION = #{dto.iposition}
+    			</if>
+    			<if test="dto.iannualincome != null and dto.iannualincome != ''">
+						and t1.IANNUALINCOME = #{dto.iannualincome}
+    			</if>
+    			<if test="dto.sfirstcontactname != null and dto.sfirstcontactname != ''">
+						and t1.SFIRSTCONTACTNAME = #{dto.sfirstcontactname}
+    			</if>
+    			<if test="dto.sfirstcontactrelation != null and dto.sfirstcontactrelation != ''">
+						and t1.SFIRSTCONTACTRELATION = #{dto.sfirstcontactrelation}
+    			</if>
+    			<if test="dto.sfirstcontacttel != null and dto.sfirstcontacttel != ''">
+						and t1.SFIRSTCONTACTTEL = #{dto.sfirstcontacttel}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_SH_CREQRY_ACCT_STOCK -->
+<select id="findExtShCreqryAcctStockByPrimaryKey" parameterType="java.util.Map" resultMap="ExtShCreqryAcctStockDTO">
+   	 		select 
+					t1.id                             ,
+					t1.report_id                      ,
+					t1.sname                          ,
+					t1.scerttype                      ,
+					t1.scertno                        ,
+					t1.saccount                       ,
+					t1.org                            ,
+					t1.scredittype                    ,
+					t1.spurpose                       ,
+					t1.icreditlimit                   ,
+					t1.scurrency                      ,
+					t1.stermsfreq                     ,
+					t1.ddateopened                    ,
+					t1.ddateclosed                    ,
+					t1.iguaranteeway                  ,
+					t1.sareaname                      ,
+					t1.igender                        ,
+					t1.dbirthday                      ,
+					t1.imarriage                      ,
+					t1.iedulevel                      ,
+					t1.smobiletel                     ,
+					t1.scontactaddress                ,
+					t1.saddress                       ,
+					t1.scondition                     ,
+					t1.sestatus                       ,
+					t1.scompany                       ,
+					t1.scompanyaddress                ,
+					t1.iposition                      ,
+					t1.iannualincome                  ,
+					t1.sfirstcontactname              ,
+					t1.sfirstcontactrelation          ,
+					t1.sfirstcontacttel               ,
+					t1.create_time                    ,
+					t1.modify_time                    
+			from ext_sh_creqry_acct_stock 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_SH_CREQRY_ACCT_STOCK -->
+<insert id="insertExtShCreqryAcctStock" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_SH_CREQRY_ACCT_STOCK.nextval as id from dual
+	</selectKey>
+			insert into ext_sh_creqry_acct_stock
+			(   		
+					id                             ,
+					report_id                      ,
+					sname                          ,
+					scerttype                      ,
+					scertno                        ,
+					saccount                       ,
+					org                            ,
+					scredittype                    ,
+					spurpose                       ,
+					icreditlimit                   ,
+					scurrency                      ,
+					stermsfreq                     ,
+					ddateopened                    ,
+					ddateclosed                    ,
+					iguaranteeway                  ,
+					sareaname                      ,
+					igender                        ,
+					dbirthday                      ,
+					imarriage                      ,
+					iedulevel                      ,
+					smobiletel                     ,
+					scontactaddress                ,
+					saddress                       ,
+					scondition                     ,
+					sestatus                       ,
+					scompany                       ,
+					scompanyaddress                ,
+					iposition                      ,
+					iannualincome                  ,
+					sfirstcontactname              ,
+					sfirstcontactrelation          ,
+					sfirstcontacttel               ,
+					create_time                    
+			)
+			values(#{dto.id}
+					,#{dto.reportId,jdbcType=DECIMAL}
+					,#{dto.sname,jdbcType=VARCHAR}
+					,#{dto.scerttype,jdbcType=VARCHAR}
+					,#{dto.scertno,jdbcType=VARCHAR}
+					,#{dto.saccount,jdbcType=VARCHAR}
+					,#{dto.org,jdbcType=VARCHAR}
+					,#{dto.scredittype,jdbcType=VARCHAR}
+					,#{dto.spurpose,jdbcType=VARCHAR}
+					,#{dto.icreditlimit,jdbcType=DECIMAL}
+					,#{dto.scurrency,jdbcType=VARCHAR}
+					,#{dto.stermsfreq,jdbcType=VARCHAR}
+					,#{dto.ddateopened,jdbcType=VARCHAR}
+					,#{dto.ddateclosed,jdbcType=VARCHAR}
+					,#{dto.iguaranteeway,jdbcType=VARCHAR}
+					,#{dto.sareaname,jdbcType=VARCHAR}
+					,#{dto.igender,jdbcType=DECIMAL}
+					,#{dto.dbirthday,jdbcType=VARCHAR}
+					,#{dto.imarriage,jdbcType=DECIMAL}
+					,#{dto.iedulevel,jdbcType=DECIMAL}
+					,#{dto.smobiletel,jdbcType=VARCHAR}
+					,#{dto.scontactaddress,jdbcType=VARCHAR}
+					,#{dto.saddress,jdbcType=VARCHAR}
+					,#{dto.scondition,jdbcType=VARCHAR}
+					,#{dto.sestatus,jdbcType=VARCHAR}
+					,#{dto.scompany,jdbcType=VARCHAR}
+					,#{dto.scompanyaddress,jdbcType=VARCHAR}
+					,#{dto.iposition,jdbcType=DECIMAL}
+					,#{dto.iannualincome,jdbcType=DECIMAL}
+					,#{dto.sfirstcontactname,jdbcType=VARCHAR}
+					,#{dto.sfirstcontactrelation,jdbcType=VARCHAR}
+					,#{dto.sfirstcontacttel,jdbcType=VARCHAR}
+					,systimestamp
+			)
+</insert>
+    
+<!-- 更新对象 EXT_SH_CREQRY_ACCT_STOCK -->
+<update id="updateExtShCreqryAcctStock" parameterType="java.util.Map">
+	     update ext_sh_creqry_acct_stock t1
+	           set 
+			           t1.report_id                      =#{dto.reportId,jdbcType=DECIMAL},
+			           t1.sname                          =#{dto.sname,jdbcType=VARCHAR},
+			           t1.scerttype                      =#{dto.scerttype,jdbcType=VARCHAR},
+			           t1.scertno                        =#{dto.scertno,jdbcType=VARCHAR},
+			           t1.saccount                       =#{dto.saccount,jdbcType=VARCHAR},
+			           t1.org                            =#{dto.org,jdbcType=VARCHAR},
+			           t1.scredittype                    =#{dto.scredittype,jdbcType=VARCHAR},
+			           t1.spurpose                       =#{dto.spurpose,jdbcType=VARCHAR},
+			           t1.icreditlimit                   =#{dto.icreditlimit,jdbcType=DECIMAL},
+			           t1.scurrency                      =#{dto.scurrency,jdbcType=VARCHAR},
+			           t1.stermsfreq                     =#{dto.stermsfreq,jdbcType=VARCHAR},
+			           t1.ddateopened                    =#{dto.ddateopened,jdbcType=VARCHAR},
+			           t1.ddateclosed                    =#{dto.ddateclosed,jdbcType=VARCHAR},
+			           t1.iguaranteeway                  =#{dto.iguaranteeway,jdbcType=VARCHAR},
+			           t1.sareaname                      =#{dto.sareaname,jdbcType=VARCHAR},
+			           t1.igender                        =#{dto.igender,jdbcType=DECIMAL},
+			           t1.dbirthday                      =#{dto.dbirthday,jdbcType=VARCHAR},
+			           t1.imarriage                      =#{dto.imarriage,jdbcType=DECIMAL},
+			           t1.iedulevel                      =#{dto.iedulevel,jdbcType=DECIMAL},
+			           t1.smobiletel                     =#{dto.smobiletel,jdbcType=VARCHAR},
+			           t1.scontactaddress                =#{dto.scontactaddress,jdbcType=VARCHAR},
+			           t1.saddress                       =#{dto.saddress,jdbcType=VARCHAR},
+			           t1.scondition                     =#{dto.scondition,jdbcType=VARCHAR},
+			           t1.sestatus                       =#{dto.sestatus,jdbcType=VARCHAR},
+			           t1.scompany                       =#{dto.scompany,jdbcType=VARCHAR},
+			           t1.scompanyaddress                =#{dto.scompanyaddress,jdbcType=VARCHAR},
+			           t1.iposition                      =#{dto.iposition,jdbcType=DECIMAL},
+			           t1.iannualincome                  =#{dto.iannualincome,jdbcType=DECIMAL},
+			           t1.sfirstcontactname              =#{dto.sfirstcontactname,jdbcType=VARCHAR},
+			           t1.sfirstcontactrelation          =#{dto.sfirstcontactrelation,jdbcType=VARCHAR},
+			           t1.sfirstcontacttel               =#{dto.sfirstcontacttel,jdbcType=VARCHAR},
+			           t1.modify_time                    =systimestamp
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_SH_CREQRY_ACCT_STOCK -->
+<delete id="deleteExtShCreqryAcctStockByID" parameterType="java.util.Map">
+    	delete from ext_sh_creqry_acct_stock t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_SH_CREQRY_ACCT_STOCK -->
+<update id="deleteExtShCreqryAcctStockByPrimaryKey" parameterType="java.util.Map">
+	     update ext_sh_creqry_acct_stock t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

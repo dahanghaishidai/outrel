@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.pyzx.extwlpyzxphonerevcheck.dao.ExtWlPyzxPhoneRevcheckDao">
+<resultMap id="ExtWlPyzxPhoneRevcheckDTO" type="com.jy.modules.externalplatform.interfacerepository.pyzx.extwlpyzxphonerevcheck.dto.ExtWlPyzxPhoneRevcheckDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="fkIntoCustId" column="FK_INTO_CUST_ID" jdbcType="DECIMAL" />
+				<result property="resultType" column="RESULT_TYPE" jdbcType="VARCHAR" />
+				<result property="contactName" column="CONTACT_NAME" jdbcType="VARCHAR" />
+				<result property="mobileAreaDesc" column="MOBILE_AREA_DESC" jdbcType="VARCHAR" />
+				<result property="address" column="ADDRESS" jdbcType="VARCHAR" />
+				<result property="mobileType" column="MOBILE_TYPE" jdbcType="VARCHAR" />
+				<result property="checkType" column="CHECK_TYPE" jdbcType="VARCHAR" />
+				<result property="ownerName" column="OWNER_NAME" jdbcType="VARCHAR" />
+				<result property="areaCode" column="AREA_CODE" jdbcType="VARCHAR" />
+				<result property="areaDesc" column="AREA_DESC" jdbcType="VARCHAR" />
+				<result property="ext1" column="EXT1" jdbcType="VARCHAR" />
+				<result property="phoneNumber" column="PHONE_NUMBER" jdbcType="VARCHAR" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyBy" column="MODIFY_BY" jdbcType="DECIMAL" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="validateState" column="VALIDATE_STATE" jdbcType="VARCHAR" />
+</resultMap>
+				
+
+<!-- 新增对象 EXT_WL_PYZX_PHONE_REVCHECK -->
+<insert id="insertExtWlPyzxPhoneRevcheck" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_PYZX_PHONE_REVCHECK.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_pyzx_phone_revcheck
+			(   		
+					id                             ,
+					fk_into_cust_id                ,
+					result_type                    ,
+					contact_name                   ,
+					mobile_area_desc               ,
+					address                        ,
+					mobile_type                    ,
+					check_type                     ,
+					owner_name                     ,
+					area_code                      ,
+					area_desc                      ,
+					ext1                           ,
+					phone_number                   ,
+					create_by                      ,
+					create_time                    ,
+					modify_by                      ,
+					modify_time                    ,
+					validate_state                 
+			)
+			values(#{dto.id}
+					,#{dto.fkIntoCustId,jdbcType=DECIMAL}
+					,#{dto.resultType,jdbcType=VARCHAR}
+					,#{dto.contactName,jdbcType=VARCHAR}
+					,#{dto.mobileAreaDesc,jdbcType=VARCHAR}
+					,#{dto.address,jdbcType=VARCHAR}
+					,#{dto.mobileType,jdbcType=VARCHAR}
+					,#{dto.checkType,jdbcType=VARCHAR}
+					,#{dto.ownerName,jdbcType=VARCHAR}
+					,#{dto.areaCode,jdbcType=VARCHAR}
+					,#{dto.areaDesc,jdbcType=VARCHAR}
+					,#{dto.ext1,jdbcType=VARCHAR}
+					,#{dto.phoneNumber,jdbcType=VARCHAR}
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,systimestamp
+					,#{dto.modifyBy,jdbcType=DECIMAL}
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,'1'
+			)
+</insert>
+    
+</mapper>

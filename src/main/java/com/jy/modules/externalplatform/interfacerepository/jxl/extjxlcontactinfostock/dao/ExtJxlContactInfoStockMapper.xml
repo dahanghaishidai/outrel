@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.jxl.extjxlcontactinfostock.dao.ExtJxlContactInfoStockDao">
+<resultMap id="ExtJxlContactInfoStockDTO" type="com.jy.modules.externalplatform.interfacerepository.jxl.extjxlcontactinfostock.dto.ExtJxlContactInfoStockDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="fkJxlCustInfoId" column="FK_JXL_CUST_INFO_ID" jdbcType="DECIMAL" />
+				<result property="contactName" column="CONTACT_NAME" jdbcType="VARCHAR" />
+				<result property="beginDate" column="BEGIN_DATE" jdbcType="VARCHAR" />
+				<result property="endDate" column="END_DATE" jdbcType="VARCHAR" />
+				<result property="totalCount" column="TOTAL_COUNT" jdbcType="DECIMAL" />
+				<result property="totalAmount" column="TOTAL_AMOUNT" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 EXT_JXL_CONTACT_INFO_STOCK -->	
+<select id="searchExtJxlContactInfoStockByPaging" parameterType="java.util.Map" resultMap="ExtJxlContactInfoStockDTO">
+    	 		select 
+						t1.id                             ,
+						t1.fk_jxl_cust_info_id            ,
+						t1.contact_name                   ,
+						t1.begin_date                     ,
+						t1.end_date                       ,
+						t1.total_count                    ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.total_amount                   
+					
+				from ext_jxl_contact_info_stock 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.fkJxlCustInfoId != null and dto.fkJxlCustInfoId != ''">
+						and t1.FK_JXL_CUST_INFO_ID =#{dto.fkJxlCustInfoId}
+    			</if>
+    			<if test="dto.contactName != null and dto.contactName != ''">
+						and t1.CONTACT_NAME =#{dto.contactName}
+    			</if>
+    			<if test="dto.beginDate != null and dto.beginDate != ''">
+						and t1.BEGIN_DATE =#{dto.beginDate}
+    			</if>
+    			<if test="dto.endDate != null and dto.endDate != ''">
+						and t1.END_DATE =#{dto.endDate}
+    			</if>
+    			<if test="dto.totalCount != null and dto.totalCount != ''">
+						and t1.TOTAL_COUNT =#{dto.totalCount}
+    			</if>
+    			<if test="dto.totalAmount != null and dto.totalAmount != ''">
+						and t1.TOTAL_AMOUNT =#{dto.totalAmount}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_JXL_CONTACT_INFO_STOCK  -->
+<select id="searchExtJxlContactInfoStock" parameterType="java.util.Map" resultMap="ExtJxlContactInfoStockDTO">
+    	     select 
+						t1.id                             ,
+						t1.fk_jxl_cust_info_id            ,
+						t1.contact_name                   ,
+						t1.begin_date                     ,
+						t1.end_date                       ,
+						t1.total_count                    ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.total_amount                   
+				from ext_jxl_contact_info_stock 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.fkJxlCustInfoId != null and dto.fkJxlCustInfoId != ''">
+						and t1.FK_JXL_CUST_INFO_ID = #{dto.fkJxlCustInfoId}
+    			</if>
+    			<if test="dto.contactName != null and dto.contactName != ''">
+						and t1.CONTACT_NAME = #{dto.contactName}
+    			</if>
+    			<if test="dto.beginDate != null and dto.beginDate != ''">
+						and t1.BEGIN_DATE = #{dto.beginDate}
+    			</if>
+    			<if test="dto.endDate != null and dto.endDate != ''">
+						and t1.END_DATE = #{dto.endDate}
+    			</if>
+    			<if test="dto.totalCount != null and dto.totalCount != ''">
+						and t1.TOTAL_COUNT = #{dto.totalCount}
+    			</if>
+    			<if test="dto.totalAmount != null and dto.totalAmount != ''">
+						and t1.TOTAL_AMOUNT = #{dto.totalAmount}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_JXL_CONTACT_INFO_STOCK -->
+<select id="findExtJxlContactInfoStockByPrimaryKey" parameterType="java.util.Map" resultMap="ExtJxlContactInfoStockDTO">
+   	 		select 
+					t1.id                             ,
+					t1.fk_jxl_cust_info_id            ,
+					t1.contact_name                   ,
+					t1.begin_date                     ,
+					t1.end_date                       ,
+					t1.total_count                    ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.total_amount                   
+			from ext_jxl_contact_info_stock 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_JXL_CONTACT_INFO_STOCK -->
+<insert id="insertExtJxlContactInfoStock" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_JXL_CONTACT_INFO_STOCK.nextval as id from dual
+	</selectKey>
+			insert into ext_jxl_contact_info_stock
+			(   		
+					id                             ,
+					fk_jxl_cust_info_id            ,
+					contact_name                   ,
+					begin_date                     ,
+					end_date                       ,
+					total_count                    ,
+					create_time                    ,
+					total_amount                   
+			)
+			values(#{dto.id}
+					,#{dto.fkJxlCustInfoId,jdbcType=DECIMAL}
+					,#{dto.contactName,jdbcType=VARCHAR}
+					,#{dto.beginDate,jdbcType=VARCHAR}
+					,#{dto.endDate,jdbcType=VARCHAR}
+					,#{dto.totalCount,jdbcType=DECIMAL}
+					,systimestamp
+					,#{dto.totalAmount,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_JXL_CONTACT_INFO_STOCK -->
+<update id="updateExtJxlContactInfoStock" parameterType="java.util.Map">
+	     update ext_jxl_contact_info_stock t1
+	           set 
+			           t1.fk_jxl_cust_info_id            =#{dto.fkJxlCustInfoId,jdbcType=DECIMAL},
+			           t1.contact_name                   =#{dto.contactName,jdbcType=VARCHAR},
+			           t1.begin_date                     =#{dto.beginDate,jdbcType=VARCHAR},
+			           t1.end_date                       =#{dto.endDate,jdbcType=VARCHAR},
+			           t1.total_count                    =#{dto.totalCount,jdbcType=DECIMAL},
+					   t1.modify_time                    =systimestamp,
+			           t1.total_amount                   =#{dto.totalAmount,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_JXL_CONTACT_INFO_STOCK -->
+<delete id="deleteExtJxlContactInfoStockByID" parameterType="java.util.Map">
+    	delete from ext_jxl_contact_info_stock t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_JXL_CONTACT_INFO_STOCK -->
+<update id="deleteExtJxlContactInfoStockByPrimaryKey" parameterType="java.util.Map">
+	     update ext_jxl_contact_info_stock t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

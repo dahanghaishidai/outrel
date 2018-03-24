@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.suanhuazx.extwlshcreditquerytrail.dao.ExtWlShCreditQueryTrailDao">
+<resultMap id="ExtWlShCreditQueryTrailDTO" type="com.jy.modules.externalplatform.interfacerepository.suanhuazx.extwlshcreditquerytrail.dto.ExtWlShCreditQueryTrailDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="custName" column="CUST_NAME" jdbcType="VARCHAR" />
+				<result property="idCard" column="ID_CARD" jdbcType="VARCHAR" />
+				<result property="success" column="SUCCESS" jdbcType="VARCHAR" />
+				<result property="errorMsg" column="ERROR_MSG" jdbcType="VARCHAR" />
+				<result property="reqMsg" column="REQ_MSG" jdbcType="VARCHAR" />
+				<result property="respMsg" column="RESP_MSG" jdbcType="VARCHAR" />
+				<result property="fkInvestId" column="FK_INVEST_ID" jdbcType="DECIMAL" />
+				<result property="sysSource" column="SYS_SOURCE" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="validateState" column="VALIDATE_STATE" jdbcType="VARCHAR" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="updateBy" column="UPDATE_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_SH_CREDIT_QUERY_TRAIL -->	
+<select id="searchExtWlShCreditQueryTrailByPaging" parameterType="java.util.Map" resultMap="ExtWlShCreditQueryTrailDTO">
+    	 		select 
+						t1.id                             ,
+						t1.cust_name                      ,
+						t1.id_card                        ,
+						t1.success                        ,
+						t1.error_msg                      ,
+						t1.req_msg                        ,
+						t1.resp_msg                       ,
+						t1.fk_invest_id                   ,
+						t1.sys_source                     ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.validate_state                 ,
+						t1.create_by                      ,
+						t1.update_by                      
+					
+				from ext_wl_sh_credit_query_trail 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.custName != null and dto.custName != ''">
+						and t1.CUST_NAME =#{dto.custName}
+    			</if>
+    			<if test="dto.idCard != null and dto.idCard != ''">
+						and t1.ID_CARD =#{dto.idCard}
+    			</if>
+    			<if test="dto.success != null and dto.success != ''">
+						and t1.SUCCESS =#{dto.success}
+    			</if>
+    			<if test="dto.errorMsg != null and dto.errorMsg != ''">
+						and t1.ERROR_MSG =#{dto.errorMsg}
+    			</if>
+    			<if test="dto.reqMsg != null and dto.reqMsg != ''">
+						and t1.REQ_MSG =#{dto.reqMsg}
+    			</if>
+    			<if test="dto.respMsg != null and dto.respMsg != ''">
+						and t1.RESP_MSG =#{dto.respMsg}
+    			</if>
+    			<if test="dto.fkInvestId != null and dto.fkInvestId != ''">
+						and t1.FK_INVEST_ID =#{dto.fkInvestId}
+    			</if>
+    			<if test="dto.sysSource != null and dto.sysSource != ''">
+						and t1.SYS_SOURCE =#{dto.sysSource}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE =#{dto.validateState}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY =#{dto.updateBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_SH_CREDIT_QUERY_TRAIL  -->
+<select id="searchExtWlShCreditQueryTrail" parameterType="java.util.Map" resultMap="ExtWlShCreditQueryTrailDTO">
+    	     select 
+						t1.id                             ,
+						t1.cust_name                      ,
+						t1.id_card                        ,
+						t1.success                        ,
+						t1.error_msg                      ,
+						t1.req_msg                        ,
+						t1.resp_msg                       ,
+						t1.fk_invest_id                   ,
+						t1.sys_source                     ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.validate_state                 ,
+						t1.create_by                      ,
+						t1.update_by                      
+				from ext_wl_sh_credit_query_trail 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.custName != null and dto.custName != ''">
+						and t1.CUST_NAME = #{dto.custName}
+    			</if>
+    			<if test="dto.idCard != null and dto.idCard != ''">
+						and t1.ID_CARD = #{dto.idCard}
+    			</if>
+    			<if test="dto.success != null and dto.success != ''">
+						and t1.SUCCESS = #{dto.success}
+    			</if>
+    			<if test="dto.errorMsg != null and dto.errorMsg != ''">
+						and t1.ERROR_MSG = #{dto.errorMsg}
+    			</if>
+    			<if test="dto.reqMsg != null and dto.reqMsg != ''">
+						and t1.REQ_MSG = #{dto.reqMsg}
+    			</if>
+    			<if test="dto.respMsg != null and dto.respMsg != ''">
+						and t1.RESP_MSG = #{dto.respMsg}
+    			</if>
+    			<if test="dto.fkInvestId != null and dto.fkInvestId != ''">
+						and t1.FK_INVEST_ID = #{dto.fkInvestId}
+    			</if>
+    			<if test="dto.sysSource != null and dto.sysSource != ''">
+						and t1.SYS_SOURCE = #{dto.sysSource}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE = #{dto.validateState}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY = #{dto.updateBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_SH_CREDIT_QUERY_TRAIL -->
+<select id="findExtWlShCreditQueryTrailByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlShCreditQueryTrailDTO">
+   	 		select 
+					t1.id                             ,
+					t1.cust_name                      ,
+					t1.id_card                        ,
+					t1.success                        ,
+					t1.error_msg                      ,
+					t1.req_msg                        ,
+					t1.resp_msg                       ,
+					t1.fk_invest_id                   ,
+					t1.sys_source                     ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.validate_state                 ,
+					t1.create_by                      ,
+					t1.update_by                      
+			from ext_wl_sh_credit_query_trail 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_SH_CREDIT_QUERY_TRAIL -->
+<insert id="insertExtWlShCreditQueryTrail" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_SH_CREDIT_QUERY_TR.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_sh_credit_query_trail
+			(   		
+					id                             ,
+					cust_name                      ,
+					id_card                        ,
+					success                        ,
+					error_msg                      ,
+					req_msg                        ,
+					resp_msg                       ,
+					fk_invest_id                   ,
+					sys_source                     ,
+					create_time                    ,
+					modify_time                    ,
+					validate_state                 ,
+					create_by                      ,
+					update_by                      
+			)
+			values(#{dto.id}
+					,#{dto.custName,jdbcType=VARCHAR}
+					,#{dto.idCard,jdbcType=VARCHAR}
+					,#{dto.success,jdbcType=VARCHAR}
+					,#{dto.errorMsg,jdbcType=VARCHAR}
+					,#{dto.reqMsg,jdbcType=VARCHAR}
+					,#{dto.respMsg,jdbcType=VARCHAR}
+					,#{dto.fkInvestId,jdbcType=DECIMAL}
+					,#{dto.sysSource,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,'1'
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.updateBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_SH_CREDIT_QUERY_TRAIL -->
+<update id="updateExtWlShCreditQueryTrail" parameterType="java.util.Map">
+	     update ext_wl_sh_credit_query_trail t1
+	           set 
+			           t1.cust_name                      =#{dto.custName,jdbcType=VARCHAR},
+			           t1.id_card                        =#{dto.idCard,jdbcType=VARCHAR},
+			           t1.success                        =#{dto.success,jdbcType=VARCHAR},
+			           t1.error_msg                      =#{dto.errorMsg,jdbcType=VARCHAR},
+			           t1.req_msg                        =#{dto.reqMsg,jdbcType=VARCHAR},
+			           t1.resp_msg                       =#{dto.respMsg,jdbcType=VARCHAR},
+			           t1.fk_invest_id                   =#{dto.fkInvestId,jdbcType=DECIMAL},
+			           t1.sys_source                     =#{dto.sysSource,jdbcType=VARCHAR},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP},
+			           t1.validate_state                 ='1',
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.update_by                      =#{dto.updateBy,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_SH_CREDIT_QUERY_TRAIL -->
+<delete id="deleteExtWlShCreditQueryTrailByID" parameterType="java.util.Map">
+    	delete from ext_wl_sh_credit_query_trail t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_SH_CREDIT_QUERY_TRAIL -->
+<update id="deleteExtWlShCreditQueryTrailByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_sh_credit_query_trail t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

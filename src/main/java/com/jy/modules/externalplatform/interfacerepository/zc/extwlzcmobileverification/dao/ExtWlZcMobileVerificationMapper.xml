@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.zc.extwlzcmobileverification.dao.ExtWlZcMobileVerificationDao">
+<resultMap id="ExtWlZcMobileVerificationDTO" type="com.jy.modules.externalplatform.interfacerepository.zc.extwlzcmobileverification.dto.ExtWlZcMobileVerificationDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="keyId" column="KEY_ID" jdbcType="VARCHAR" />
+				<result property="type" column="TYPE" jdbcType="VARCHAR" />
+				<result property="desc" column="DESC_" jdbcType="VARCHAR" />
+				<result property="code" column="CODE" jdbcType="VARCHAR" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyBy" column="MODIFY_BY" jdbcType="DECIMAL" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="validateState" column="VALIDATE_STATE" jdbcType="VARCHAR" />
+</resultMap>
+				
+<!-- 分页查询 ext_wl_zc_mobile_verification -->	
+<select id="searchExtWlZcMobileVerificationByPaging" parameterType="java.util.Map" resultMap="ExtWlZcMobileVerificationDTO">
+    	 		select 
+						t1.id                             ,
+						t1.key_id                         ,
+						t1.type                           ,
+						t1.desc_                          ,
+						t1.code                           ,
+						t1.create_by                      ,
+						t1.create_time                    ,
+						t1.modify_by                      ,
+						t1.modify_time                    ,
+						t1.validate_state                 
+					
+				from ext_wl_zc_mobile_verification 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.keyId != null and dto.keyId != ''">
+						and t1.KEY_ID =#{dto.keyId}
+    			</if>
+    			<if test="dto.type != null and dto.type != ''">
+						and t1.TYPE =#{dto.type}
+    			</if>
+    			<if test="dto.desc != null and dto.desc != ''">
+						and t1.DESC_ =#{dto.desc}
+    			</if>
+    			<if test="dto.code != null and dto.code != ''">
+						and t1.CODE =#{dto.code}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY =#{dto.modifyBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE =#{dto.validateState}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 ext_wl_zc_mobile_verification  -->
+<select id="searchExtWlZcMobileVerification" parameterType="java.util.Map" resultMap="ExtWlZcMobileVerificationDTO">
+    	     select 
+						t1.id                             ,
+						t1.key_id                         ,
+						t1.type                           ,
+						t1.desc_                          ,
+						t1.code                           ,
+						t1.create_by                      ,
+						t1.create_time                    ,
+						t1.modify_by                      ,
+						t1.modify_time                    ,
+						t1.validate_state                 
+				from ext_wl_zc_mobile_verification 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.keyId != null and dto.keyId != ''">
+						and t1.KEY_ID = #{dto.keyId}
+    			</if>
+    			<if test="dto.type != null and dto.type != ''">
+						and t1.TYPE = #{dto.type}
+    			</if>
+    			<if test="dto.desc != null and dto.desc != ''">
+						and t1.DESC_ = #{dto.desc}
+    			</if>
+    			<if test="dto.code != null and dto.code != ''">
+						and t1.CODE = #{dto.code}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY = #{dto.modifyBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE = #{dto.validateState}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  ext_wl_zc_mobile_verification -->
+<select id="findExtWlZcMobileVerificationByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlZcMobileVerificationDTO">
+   	 		select 
+					t1.id                             ,
+					t1.key_id                         ,
+					t1.type                           ,
+					t1.desc_                          ,
+					t1.code                           ,
+					t1.create_by                      ,
+					t1.create_time                    ,
+					t1.modify_by                      ,
+					t1.modify_time                    ,
+					t1.validate_state                 
+			from ext_wl_zc_mobile_verification 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 ext_wl_zc_mobile_verification -->
+<insert id="insertExtWlZcMobileVerification" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_ext_wl_zc_mobile_verifica.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_zc_mobile_verification
+			(   		
+					id                             ,
+					key_id                         ,
+					type                           ,
+					desc_                          ,
+					code                           ,
+					create_by                      ,
+					create_time                    ,
+					modify_by                      ,
+					modify_time                    ,
+					validate_state                 
+			)
+			values(#{dto.id}
+					,#{dto.keyId,jdbcType=VARCHAR}
+					,#{dto.type,jdbcType=VARCHAR}
+					,#{dto.desc,jdbcType=VARCHAR}
+					,#{dto.code,jdbcType=VARCHAR}
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.createTime,jdbcType=TIMESTAMP}
+					,#{dto.modifyBy,jdbcType=DECIMAL}
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,'1'
+			)
+</insert>
+    
+<!-- 更新对象 ext_wl_zc_mobile_verification -->
+<update id="updateExtWlZcMobileVerification" parameterType="java.util.Map">
+	     update ext_wl_zc_mobile_verification t1
+	           set 
+			           t1.key_id                         =#{dto.keyId,jdbcType=VARCHAR},
+			           t1.type                           =#{dto.type,jdbcType=VARCHAR},
+			           t1.desc_                          =#{dto.desc,jdbcType=VARCHAR},
+			           t1.code                           =#{dto.code,jdbcType=VARCHAR},
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_by                      =#{dto.modifyBy,jdbcType=DECIMAL},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP},
+			           t1.validate_state                 ='1'
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 ext_wl_zc_mobile_verification -->
+<delete id="deleteExtWlZcMobileVerificationByID" parameterType="java.util.Map">
+    	delete from ext_wl_zc_mobile_verification t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 ext_wl_zc_mobile_verification -->
+<update id="deleteExtWlZcMobileVerificationByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_zc_mobile_verification t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+
+
+<insert id="batchInsertVerification" parameterType="java.util.Map">
+	begin
+	<foreach collection="mobileVerificationList" item="dto" index="index" > 
+		insert into ext_wl_zc_mobile_verification
+			(   		
+					id                             ,
+					key_id                         ,
+					type                           ,
+					desc_                          ,
+					code                           ,
+					create_by                      ,
+					validate_state                 ,            
+					create_time        
+			)
+			values(seq_ext_wl_zc_mobile_verifica.nextval
+					,#{dto.keyId,jdbcType=VARCHAR}
+					,#{dto.type,jdbcType=VARCHAR}
+					,#{dto.desc,jdbcType=VARCHAR}
+					,#{dto.code,jdbcType=VARCHAR}
+					,#{dto.createBy,jdbcType=VARCHAR}
+					,'1'
+					,systimestamp
+			);
+	</foreach>		
+	end ;
+</insert>
+
+</mapper>

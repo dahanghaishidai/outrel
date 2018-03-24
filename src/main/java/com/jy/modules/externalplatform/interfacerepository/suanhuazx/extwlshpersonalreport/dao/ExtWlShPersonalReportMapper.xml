@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.suanhuazx.extwlshpersonalreport.dao.ExtWlShPersonalReportDao">
+<resultMap id="ExtWlShPersonalReportDTO" type="com.jy.modules.externalplatform.interfacerepository.suanhuazx.extwlshpersonalreport.dto.ExtWlShPersonalReportDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="reportSN" column="REPORT_NUMBER" jdbcType="VARCHAR" />
+				<result property="reporttime" column="REPORT_TIME" jdbcType="VARCHAR" />
+				<result property="querytime" column="QUERY_TIME" jdbcType="VARCHAR" />
+				<result property="name" column="NAME" jdbcType="VARCHAR" />
+				<result property="IDtype" column="CERTIFICATES_TYPE" jdbcType="VARCHAR" />
+				<result property="IDnumber" column="CERTIFICATES_NUMBER" jdbcType="VARCHAR" />
+				<result property="marital" column="MARITAL" jdbcType="VARCHAR" />
+				<result property="pushMessage" column="PUSH_MESSAGE" jdbcType="VARCHAR" />
+				<result property="fkIntoAppId" column="FK_INTO_APP_ID" jdbcType="DECIMAL" />
+				<result property="fkCustId" column="FK_CUST_ID" jdbcType="DECIMAL" />
+				<result property="remark" column="REMARK" jdbcType="VARCHAR" />
+				<result property="creditVersionType" column="CREDIT_VERSION_TYPE" jdbcType="VARCHAR" />
+				<result property="fkTrailId" column="FK_TRAIL_ID" jdbcType="DECIMAL" />
+				<result property="validateState" column="VALIDATE_STATE" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="updateTime" column="UPDATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="updateBy" column="UPDATE_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_SH_PERSONAL_REPORT -->	
+<select id="searchExtWlShPersonalReportByPaging" parameterType="java.util.Map" resultMap="ExtWlShPersonalReportDTO">
+    	 		select 
+						t1.id                             ,
+						t1.report_number                  ,
+						t1.report_time                    ,
+						t1.query_time                     ,
+						t1.name                           ,
+						t1.certificates_type              ,
+						t1.certificates_number            ,
+						t1.marital                        ,
+						t1.push_message                   ,
+						t1.fk_into_app_id                 ,
+						t1.fk_cust_id                     ,
+						t1.remark                         ,
+						t1.credit_version_type            ,
+						t1.fk_trail_id                    ,
+						t1.validate_state                 ,
+						t1.create_time                    ,
+						t1.update_time                    ,
+						t1.create_by                      ,
+						t1.update_by                      
+					
+				from ext_wl_sh_personal_report 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.reportSN != null and dto.reportSN != ''">
+						and t1.REPORT_NUMBER =#{dto.reportSN}
+    			</if>
+    			<if test="dto.reporttime != null and dto.reporttime != ''">
+						and t1.REPORT_TIME =#{dto.reporttime}
+    			</if>
+    			<if test="dto.querytime != null and dto.querytime != ''">
+						and t1.QUERY_TIME =#{dto.querytime}
+    			</if>
+    			<if test="dto.name != null and dto.name != ''">
+						and t1.NAME =#{dto.name}
+    			</if>
+    			<if test="dto.IDtype != null and dto.IDtype != ''">
+						and t1.CERTIFICATES_TYPE =#{dto.IDtype}
+    			</if>
+    			<if test="dto.IDnumber != null and dto.IDnumber != ''">
+						and t1.CERTIFICATES_NUMBER =#{dto.IDnumber}
+    			</if>
+    			<if test="dto.marital != null and dto.marital != ''">
+						and t1.MARITAL =#{dto.marital}
+    			</if>
+    			<if test="dto.pushMessage != null and dto.pushMessage != ''">
+						and t1.PUSH_MESSAGE =#{dto.pushMessage}
+    			</if>
+    			<if test="dto.fkIntoAppId != null and dto.fkIntoAppId != ''">
+						and t1.FK_INTO_APP_ID =#{dto.fkIntoAppId}
+    			</if>
+    			<if test="dto.fkCustId != null and dto.fkCustId != ''">
+						and t1.FK_CUST_ID =#{dto.fkCustId}
+    			</if>
+    			<if test="dto.remark != null and dto.remark != ''">
+						and t1.REMARK =#{dto.remark}
+    			</if>
+    			<if test="dto.creditVersionType != null and dto.creditVersionType != ''">
+						and t1.CREDIT_VERSION_TYPE =#{dto.creditVersionType}
+    			</if>
+    			<if test="dto.fkTrailId != null and dto.fkTrailId != ''">
+						and t1.FK_TRAIL_ID =#{dto.fkTrailId}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE =#{dto.validateState}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.updateTime != null and dto.updateTime != ''">
+						and t1.UPDATE_TIME =#{dto.updateTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY =#{dto.updateBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_SH_PERSONAL_REPORT  -->
+<select id="searchExtWlShPersonalReport" parameterType="java.util.Map" resultMap="ExtWlShPersonalReportDTO">
+    	     select 
+						t1.id                             ,
+						t1.report_number                  ,
+						t1.report_time                    ,
+						t1.query_time                     ,
+						t1.name                           ,
+						t1.certificates_type              ,
+						t1.certificates_number            ,
+						t1.marital                        ,
+						t1.push_message                   ,
+						t1.fk_into_app_id                 ,
+						t1.fk_cust_id                     ,
+						t1.remark                         ,
+						t1.credit_version_type            ,
+						t1.fk_trail_id                    ,
+						t1.validate_state                 ,
+						t1.create_time                    ,
+						t1.update_time                    ,
+						t1.create_by                      ,
+						t1.update_by                      
+				from ext_wl_sh_personal_report 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.reportSN != null and dto.reportSN != ''">
+						and t1.REPORT_NUMBER = #{dto.reportSN}
+    			</if>
+    			<if test="dto.reporttime != null and dto.reporttime != ''">
+						and t1.REPORT_TIME = #{dto.reporttime}
+    			</if>
+    			<if test="dto.querytime != null and dto.querytime != ''">
+						and t1.QUERY_TIME = #{dto.querytime}
+    			</if>
+    			<if test="dto.name != null and dto.name != ''">
+						and t1.NAME = #{dto.name}
+    			</if>
+    			<if test="dto.IDtype != null and dto.IDtype != ''">
+						and t1.CERTIFICATES_TYPE = #{dto.IDtype}
+    			</if>
+    			<if test="dto.IDnumber != null and dto.IDnumber != ''">
+						and t1.CERTIFICATES_NUMBER = #{dto.IDnumber}
+    			</if>
+    			<if test="dto.marital != null and dto.marital != ''">
+						and t1.MARITAL = #{dto.marital}
+    			</if>
+    			<if test="dto.pushMessage != null and dto.pushMessage != ''">
+						and t1.PUSH_MESSAGE = #{dto.pushMessage}
+    			</if>
+    			<if test="dto.fkIntoAppId != null and dto.fkIntoAppId != ''">
+						and t1.FK_INTO_APP_ID = #{dto.fkIntoAppId}
+    			</if>
+    			<if test="dto.fkCustId != null and dto.fkCustId != ''">
+						and t1.FK_CUST_ID = #{dto.fkCustId}
+    			</if>
+    			<if test="dto.remark != null and dto.remark != ''">
+						and t1.REMARK = #{dto.remark}
+    			</if>
+    			<if test="dto.creditVersionType != null and dto.creditVersionType != ''">
+						and t1.CREDIT_VERSION_TYPE = #{dto.creditVersionType}
+    			</if>
+    			<if test="dto.fkTrailId != null and dto.fkTrailId != ''">
+						and t1.FK_TRAIL_ID = #{dto.fkTrailId}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE = #{dto.validateState}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.updateTime != null and dto.updateTime != ''">
+						and t1.UPDATE_TIME = #{dto.updateTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY = #{dto.updateBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_SH_PERSONAL_REPORT -->
+<select id="findExtWlShPersonalReportByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlShPersonalReportDTO">
+   	 		select 
+					t1.id                             ,
+					t1.report_number                  ,
+					t1.report_time                    ,
+					t1.query_time                     ,
+					t1.name                           ,
+					t1.certificates_type              ,
+					t1.certificates_number            ,
+					t1.marital                        ,
+					t1.push_message                   ,
+					t1.fk_into_app_id                 ,
+					t1.fk_cust_id                     ,
+					t1.remark                         ,
+					t1.credit_version_type            ,
+					t1.fk_trail_id                    ,
+					t1.validate_state                 ,
+					t1.create_time                    ,
+					t1.update_time                    ,
+					t1.create_by                      ,
+					t1.update_by                      
+			from ext_wl_sh_personal_report 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_SH_PERSONAL_REPORT -->
+<insert id="insertExtWlShPersonalReport" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_SH_PERSONAL_REPORT.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_sh_personal_report
+			(   		
+					id                             ,
+					report_number                  ,
+					report_time                    ,
+					query_time                     ,
+					name                           ,
+					certificates_type              ,
+					certificates_number            ,
+					marital                        ,
+					push_message                   ,
+					fk_into_app_id                 ,
+					fk_cust_id                     ,
+					remark                         ,
+					credit_version_type            ,
+					fk_trail_id                    ,
+					validate_state                 ,
+					create_time                    ,
+					update_time                    ,
+					create_by                      ,
+					update_by                      
+			)
+			values(#{dto.id}
+					,#{dto.reportSN,jdbcType=VARCHAR}
+					,#{dto.reporttime,jdbcType=VARCHAR}
+					,#{dto.querytime,jdbcType=VARCHAR}
+					,#{dto.name,jdbcType=VARCHAR}
+					,#{dto.IDtype,jdbcType=VARCHAR}
+					,#{dto.IDnumber,jdbcType=VARCHAR}
+					,#{dto.marital,jdbcType=VARCHAR}
+					,#{dto.pushMessage,jdbcType=VARCHAR}
+					,#{dto.fkIntoAppId,jdbcType=DECIMAL}
+					,#{dto.fkCustId,jdbcType=DECIMAL}
+					,#{dto.remark,jdbcType=VARCHAR}
+					,#{dto.creditVersionType,jdbcType=VARCHAR}
+					,#{dto.fkTrailId,jdbcType=DECIMAL}
+					,'1'
+					,systimestamp
+					,#{dto.updateTime,jdbcType=TIMESTAMP}
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.updateBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_SH_PERSONAL_REPORT -->
+<update id="updateExtWlShPersonalReport" parameterType="java.util.Map">
+	     update ext_wl_sh_personal_report t1
+	           set 
+			           t1.report_number                  =#{dto.reportSN,jdbcType=VARCHAR},
+			           t1.report_time                    =#{dto.reporttime,jdbcType=VARCHAR},
+			           t1.query_time                     =#{dto.querytime,jdbcType=VARCHAR},
+			           t1.name                           =#{dto.name,jdbcType=VARCHAR},
+			           t1.certificates_type              =#{dto.IDtype,jdbcType=VARCHAR},
+			           t1.certificates_number            =#{dto.IDnumber,jdbcType=VARCHAR},
+			           t1.marital                        =#{dto.marital,jdbcType=VARCHAR},
+			           t1.push_message                   =#{dto.pushMessage,jdbcType=VARCHAR},
+			           t1.fk_into_app_id                 =#{dto.fkIntoAppId,jdbcType=DECIMAL},
+			           t1.fk_cust_id                     =#{dto.fkCustId,jdbcType=DECIMAL},
+			           t1.remark                         =#{dto.remark,jdbcType=VARCHAR},
+			           t1.credit_version_type            =#{dto.creditVersionType,jdbcType=VARCHAR},
+			           t1.fk_trail_id                    =#{dto.fkTrailId,jdbcType=DECIMAL},
+			           t1.validate_state                 ='1',
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.update_time                    =#{dto.updateTime,jdbcType=TIMESTAMP},
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.update_by                      =#{dto.updateBy,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_SH_PERSONAL_REPORT -->
+<delete id="deleteExtWlShPersonalReportByID" parameterType="java.util.Map">
+    	delete from ext_wl_sh_personal_report t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_SH_PERSONAL_REPORT -->
+<update id="deleteExtWlShPersonalReportByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_sh_personal_report t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

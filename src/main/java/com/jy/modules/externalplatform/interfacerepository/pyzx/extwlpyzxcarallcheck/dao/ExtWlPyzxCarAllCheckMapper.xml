@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.pyzx.extwlpyzxcarallcheck.dao.ExtWlPyzxCarAllCheckDao">
+<resultMap id="ExtWlPyzxCarAllCheckDTO" type="com.jy.modules.externalplatform.interfacerepository.pyzx.extwlpyzxcarallcheck.dto.ExtWlPyzxCarAllCheckDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="fkIntoCustId" column="FK_INTO_CUST_ID" jdbcType="DECIMAL" />
+				<result property="name" column="NAME" jdbcType="VARCHAR" />
+				<result property="documentNo" column="DOCUMENT_NO" jdbcType="VARCHAR" />
+				<result property="licenseNo" column="LICENSE_NO" jdbcType="VARCHAR" />
+				<result property="carType" column="CAR_TYPE" jdbcType="VARCHAR" />
+				<result property="vin" column="VIN" jdbcType="VARCHAR" />
+				<result property="registTime" column="REGIST_TIME" jdbcType="VARCHAR" />
+				<result property="nameCheckResult" column="NAME_CHECK_RESULT" jdbcType="VARCHAR" />
+				<result property="documentNoCheckResult" column="DOCUMENT_NO_CHECK_RESULT" jdbcType="VARCHAR" />
+				<result property="licenseNoCheckResult" column="LICENSE_NO_CHECK_RESULT" jdbcType="VARCHAR" />
+				<result property="carCodeCheckResult" column="CAR_CODE_CHECK_RESULT" jdbcType="VARCHAR" />
+				<result property="carTypeCheckResult" column="CAR_TYPE_CHECK_RESULT" jdbcType="VARCHAR" />
+				<result property="registTimeCheckResult" column="REGIST_TIME_CHECK_RESULT" jdbcType="VARCHAR" />
+				<result property="carStatusDesc" column="CAR_STATUS_DESC" jdbcType="VARCHAR" />
+				<result property="cj" column="CJ" jdbcType="VARCHAR" />
+				<result property="pp" column="PP" jdbcType="VARCHAR" />
+				<result property="cx" column="CX" jdbcType="VARCHAR" />
+				<result property="chex" column="CHEX" jdbcType="VARCHAR" />
+				<result property="xsmc" column="XSMC" jdbcType="VARCHAR" />
+				<result property="nk" column="NK" jdbcType="VARCHAR" />
+				<result property="ssnf" column="SSNF" jdbcType="VARCHAR" />
+				<result property="cllb" column="CLLB" jdbcType="VARCHAR" />
+				<result property="cljb" column="CLJB" jdbcType="VARCHAR" />
+				<result property="zdjg" column="ZDJG" jdbcType="VARCHAR" />
+				<result property="sczt" column="SCZT" jdbcType="VARCHAR" />
+				<result property="gb" column="GB" jdbcType="VARCHAR" />
+				<result property="gchzjk" column="GCHZJK" jdbcType="VARCHAR" />
+				<result property="pfbz" column="PFBZ" jdbcType="VARCHAR" />
+				<result property="pl" column="PL" jdbcType="VARCHAR" />
+				<result property="gxbzhyh" column="GXBZHYH" jdbcType="VARCHAR" />
+				<result property="bsxlx" column="BSXLX" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="modifyBy" column="MODIFY_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 新增对象 EXT_WL_PYZX_CAR_ALL_CHECK -->
+<insert id="insertExtWlPyzxCarAllCheck" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_PYZX_CAR_ALL_CHECK.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_pyzx_car_all_check
+			(   		
+					id                             ,
+					fk_into_cust_id                ,
+					name                           ,
+					document_no                    ,
+					license_no                     ,
+					car_type                       ,
+					vin                            ,
+					regist_time                    ,
+					name_check_result              ,
+					document_no_check_result       ,
+					license_no_check_result        ,
+					car_code_check_result          ,
+					car_type_check_result          ,
+					regist_time_check_result       ,
+					car_status_desc                ,
+					cj                             ,
+					pp                             ,
+					cx                             ,
+					chex                           ,
+					xsmc                           ,
+					nk                             ,
+					ssnf                           ,
+					cllb                           ,
+					cljb                           ,
+					zdjg                           ,
+					sczt                           ,
+					gb                             ,
+					gchzjk                         ,
+					pfbz                           ,
+					pl                             ,
+					gxbzhyh                        ,
+					bsxlx                          ,
+					create_time                    ,
+					modify_time                    ,
+					create_by                      ,
+					modify_by                      
+			)
+			values(#{dto.id}
+					,#{dto.fkIntoCustId,jdbcType=DECIMAL}
+					,#{dto.name,jdbcType=VARCHAR}
+					,#{dto.documentNo,jdbcType=VARCHAR}
+					,#{dto.licenseNo,jdbcType=VARCHAR}
+					,#{dto.carType,jdbcType=VARCHAR}
+					,#{dto.vin,jdbcType=VARCHAR}
+					,#{dto.registTime,jdbcType=VARCHAR}
+					,#{dto.nameCheckResult,jdbcType=VARCHAR}
+					,#{dto.documentNoCheckResult,jdbcType=VARCHAR}
+					,#{dto.licenseNoCheckResult,jdbcType=VARCHAR}
+					,#{dto.carCodeCheckResult,jdbcType=VARCHAR}
+					,#{dto.carTypeCheckResult,jdbcType=VARCHAR}
+					,#{dto.registTimeCheckResult,jdbcType=VARCHAR}
+					,#{dto.carStatusDesc,jdbcType=VARCHAR}
+					,#{dto.cj,jdbcType=VARCHAR}
+					,#{dto.pp,jdbcType=VARCHAR}
+					,#{dto.cx,jdbcType=VARCHAR}
+					,#{dto.chex,jdbcType=VARCHAR}
+					,#{dto.xsmc,jdbcType=VARCHAR}
+					,#{dto.nk,jdbcType=VARCHAR}
+					,#{dto.ssnf,jdbcType=VARCHAR}
+					,#{dto.cllb,jdbcType=VARCHAR}
+					,#{dto.cljb,jdbcType=VARCHAR}
+					,#{dto.zdjg,jdbcType=VARCHAR}
+					,#{dto.sczt,jdbcType=VARCHAR}
+					,#{dto.gb,jdbcType=VARCHAR}
+					,#{dto.gchzjk,jdbcType=VARCHAR}
+					,#{dto.pfbz,jdbcType=VARCHAR}
+					,#{dto.pl,jdbcType=VARCHAR}
+					,#{dto.gxbzhyh,jdbcType=VARCHAR}
+					,#{dto.bsxlx,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.modifyBy,jdbcType=DECIMAL}
+			)
+</insert>
+</mapper>

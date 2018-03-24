@@ -1,0 +1,1330 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.suanhua.extshfranddetailstock.dao.ExtShFrandDetailStockDao">
+<resultMap id="ExtShFrandDetailStockDTO" type="com.jy.modules.externalplatform.interfacerepository.suanhua.extshfranddetailstock.dto.ExtShFrandDetailStockDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="idOrg7" column="ID_ORG_7" jdbcType="VARCHAR" />
+				<result property="idOrgOnlPaydayloan7" column="ID_ORG_ONL_PAYDAYLOAN_7" jdbcType="VARCHAR" />
+				<result property="idOrgOflFinlease7" column="ID_ORG_OFL_FINLEASE_7" jdbcType="VARCHAR" />
+				<result property="idOrgOnlCashloan7" column="ID_ORG_ONL_CASHLOAN_7" jdbcType="VARCHAR" />
+				<result property="idOrgOnlConsumeloan7" column="ID_ORG_ONL_CONSUMELOAN_7" jdbcType="VARCHAR" />
+				<result property="idOrgOnlEnterpriseloan7" column="ID_ORG_ONL_ENTERPRISELOAN_7" jdbcType="VARCHAR" />
+				<result property="idOrgOnlCashloanCredit7" column="ID_ORG_ONL_CASHLOAN_CREDIT_7" jdbcType="VARCHAR" />
+				<result property="idOrgOnlCashloanHouse7" column="ID_ORG_ONL_CASHLOAN_HOUSE_7" jdbcType="VARCHAR" />
+				<result property="idOrgOnlCashloanCar7" column="ID_ORG_ONL_CASHLOAN_CAR_7" jdbcType="VARCHAR" />
+				<result property="idOrgOnlConsumeloanMed7" column="ID_ORG_ONL_CONSUMELOAN_MED_7" jdbcType="VARCHAR" />
+				<result property="idOrgOnlConsumeloan3c7" column="ID_ORG_ONL_CONSUMELOAN_3C_7" jdbcType="VARCHAR" />
+				<result property="idOrgOnlConsumeloanEdu7" column="ID_ORG_ONL_CONSUMELOAN_EDU_7" jdbcType="VARCHAR" />
+				<result property="idOrgOnlConsumeloanCar7" column="ID_ORG_ONL_CONSUMELOAN_CAR_7" jdbcType="VARCHAR" />
+				<result property="idOrgOnlConsumeloanLux7" column="ID_ORG_ONL_CONSUMELOAN_LUX_7" jdbcType="VARCHAR" />
+				<result property="idOrgOflCashloan7" column="ID_ORG_OFL_CASHLOAN_7" jdbcType="VARCHAR" />
+				<result property="idOrgOflConsumeloan7" column="ID_ORG_OFL_CONSUMELOAN_7" jdbcType="VARCHAR" />
+				<result property="idOrgOflEnterpriseloan7" column="ID_ORG_OFL_ENTERPRISELOAN_7" jdbcType="VARCHAR" />
+				<result property="idOrgOflCashloanCredit7" column="ID_ORG_OFL_CASHLOAN_CREDIT_7" jdbcType="VARCHAR" />
+				<result property="idOrgOflCashloanHouse7" column="ID_ORG_OFL_CASHLOAN_HOUSE_7" jdbcType="VARCHAR" />
+				<result property="idOrgOflCashloanCar7" column="ID_ORG_OFL_CASHLOAN_CAR_7" jdbcType="VARCHAR" />
+				<result property="idOrgOflConsumeloanMed7" column="ID_ORG_OFL_CONSUMELOAN_MED_7" jdbcType="VARCHAR" />
+				<result property="idOrgOflConsumeloan3c7" column="ID_ORG_OFL_CONSUMELOAN_3C_7" jdbcType="VARCHAR" />
+				<result property="idOrgOflConsumeloanEdu7" column="ID_ORG_OFL_CONSUMELOAN_EDU_7" jdbcType="VARCHAR" />
+				<result property="idOrgOflConsumeloanCar7" column="ID_ORG_OFL_CONSUMELOAN_CAR_7" jdbcType="VARCHAR" />
+				<result property="idOrgOflConsumeloanLux7" column="ID_ORG_OFL_CONSUMELOAN_LUX_7" jdbcType="VARCHAR" />
+				<result property="idOrg30" column="ID_ORG_30" jdbcType="VARCHAR" />
+				<result property="idOrgOnlPaydayloan30" column="ID_ORG_ONL_PAYDAYLOAN_30" jdbcType="VARCHAR" />
+				<result property="idOrgOflFinlease30" column="ID_ORG_OFL_FINLEASE_30" jdbcType="VARCHAR" />
+				<result property="idOrgOnlCashloan30" column="ID_ORG_ONL_CASHLOAN_30" jdbcType="VARCHAR" />
+				<result property="idOrgOnlConsumeloan30" column="ID_ORG_ONL_CONSUMELOAN_30" jdbcType="VARCHAR" />
+				<result property="idOrgOnlEnterpriseloan30" column="ID_ORG_ONL_ENTERPRISELOAN_30" jdbcType="VARCHAR" />
+				<result property="idOrgOnlCashloanCredit30" column="ID_ORG_ONL_CASHLOAN_CREDIT_30" jdbcType="VARCHAR" />
+				<result property="idOrgOnlCashloanHouse30" column="ID_ORG_ONL_CASHLOAN_HOUSE_30" jdbcType="VARCHAR" />
+				<result property="idOrgOnlCashloanCar30" column="ID_ORG_ONL_CASHLOAN_CAR_30" jdbcType="VARCHAR" />
+				<result property="idOrgOnlConsumeloanMed30" column="ID_ORG_ONL_CONSUMELOAN_MED_30" jdbcType="VARCHAR" />
+				<result property="idOrgOnlConsumeloan3c30" column="ID_ORG_ONL_CONSUMELOAN_3C_30" jdbcType="VARCHAR" />
+				<result property="idOrgOnlConsumeloanEdu30" column="ID_ORG_ONL_CONSUMELOAN_EDU_30" jdbcType="VARCHAR" />
+				<result property="idOrgOnlConsumeloanCar30" column="ID_ORG_ONL_CONSUMELOAN_CAR_30" jdbcType="VARCHAR" />
+				<result property="idOrgOnlConsumeloanLux30" column="ID_ORG_ONL_CONSUMELOAN_LUX_30" jdbcType="VARCHAR" />
+				<result property="idOrgOflCashloan30" column="ID_ORG_OFL_CASHLOAN_30" jdbcType="VARCHAR" />
+				<result property="idOrgOflConsumeloan30" column="ID_ORG_OFL_CONSUMELOAN_30" jdbcType="VARCHAR" />
+				<result property="idOrgOflEnterpriseloan30" column="ID_ORG_OFL_ENTERPRISELOAN_30" jdbcType="VARCHAR" />
+				<result property="idOrgOflCashloanCredit30" column="ID_ORG_OFL_CASHLOAN_CREDIT_30" jdbcType="VARCHAR" />
+				<result property="idOrgOflCashloanHouse30" column="ID_ORG_OFL_CASHLOAN_HOUSE_30" jdbcType="VARCHAR" />
+				<result property="idOrgOflCashloanCar30" column="ID_ORG_OFL_CASHLOAN_CAR_30" jdbcType="VARCHAR" />
+				<result property="idOrgOflConsumeloanMed30" column="ID_ORG_OFL_CONSUMELOAN_MED_30" jdbcType="VARCHAR" />
+				<result property="idOrgOflConsumeloan3c30" column="ID_ORG_OFL_CONSUMELOAN_3C_30" jdbcType="VARCHAR" />
+				<result property="idOrgOflConsumeloanEdu30" column="ID_ORG_OFL_CONSUMELOAN_EDU_30" jdbcType="VARCHAR" />
+				<result property="idOrgOflConsumeloanCar30" column="ID_ORG_OFL_CONSUMELOAN_CAR_30" jdbcType="VARCHAR" />
+				<result property="idOrgOflConsumeloanLux30" column="ID_ORG_OFL_CONSUMELOAN_LUX_30" jdbcType="VARCHAR" />
+				<result property="idCellPhone" column="ID_CELL_PHONE" jdbcType="VARCHAR" />
+				<result property="idCellPhoneCityDetail" column="ID_CELL_PHONE_CITY_DETAIL" jdbcType="VARCHAR" />
+				<result property="idEmail" column="ID_EMAIL" jdbcType="VARCHAR" />
+				<result property="idHomeAddr" column="ID_HOME_ADDR" jdbcType="VARCHAR" />
+				<result property="idHomeAddrCityDetail" column="ID_HOME_ADDR_CITY_DETAIL" jdbcType="VARCHAR" />
+				<result property="idHomePhone" column="ID_HOME_PHONE" jdbcType="VARCHAR" />
+				<result property="idHomePhoneCityDetail" column="ID_HOME_PHONE_CITY_DETAIL" jdbcType="VARCHAR" />
+				<result property="idEmpName" column="ID_EMP_NAME" jdbcType="VARCHAR" />
+				<result property="idEmpAddr" column="ID_EMP_ADDR" jdbcType="VARCHAR" />
+				<result property="idEmpAddrCityDetail" column="ID_EMP_ADDR_CITY_DETAIL" jdbcType="VARCHAR" />
+				<result property="idEmpPhone" column="ID_EMP_PHONE" jdbcType="VARCHAR" />
+				<result property="idEmpPhoneCityDetail" column="ID_EMP_PHONE_CITY_DETAIL" jdbcType="VARCHAR" />
+				<result property="idContactsCellPhone" column="ID_CONTACTS_CELL_PHONE" jdbcType="VARCHAR" />
+				<result property="idCsCityDetail" column="ID_CS_CITY_DETAIL" jdbcType="VARCHAR" />
+				<result property="idOrgCreditcard7" column="ID_ORG_CREDITCARD_7" jdbcType="VARCHAR" />
+				<result property="idOrgCreditcard30" column="ID_ORG_CREDITCARD_30" jdbcType="VARCHAR" />
+				<result property="infoChange" column="INFO_CHANGE" jdbcType="VARCHAR" />
+				<result property="multiInfoChange" column="MULTI_INFO_CHANGE" jdbcType="VARCHAR" />
+				<result property="multiEmpInfo" column="MULTI_EMP_INFO" jdbcType="VARCHAR" />
+				<result property="multiHomeInfo" column="MULTI_HOME_INFO" jdbcType="VARCHAR" />
+				<result property="idCitys" column="ID_CITYS" jdbcType="VARCHAR" />
+				<result property="cellPhoneConsistencyCheck" column="CELL_PHONE_CONSISTENCY_CHECK" jdbcType="VARCHAR" />
+				<result property="emailConsistencyCheck" column="EMAIL_CONSISTENCY_CHECK" jdbcType="VARCHAR" />
+				<result property="homeAddrConsistencyCheck" column="HOME_ADDR_CONSISTENCY_CHECK" jdbcType="VARCHAR" />
+				<result property="homePhoneConsistencyCheck" column="HOME_PHONE_CONSISTENCY_CHECK" jdbcType="VARCHAR" />
+				<result property="empNameConsistencyCheck" column="EMP_NAME_CONSISTENCY_CHECK" jdbcType="VARCHAR" />
+				<result property="empAddrConsistencyCheck" column="EMP_ADDR_CONSISTENCY_CHECK" jdbcType="VARCHAR" />
+				<result property="empPhoneConsistencyCheck" column="EMP_PHONE_CONSISTENCY_CHECK" jdbcType="VARCHAR" />
+				<result property="csPhoneConsistencyCheck" column="CS_PHONE_CONSISTENCY_CHECK" jdbcType="VARCHAR" />
+				<result property="cellPhoneId" column="CELL_PHONE_ID" jdbcType="VARCHAR" />
+				<result property="homeInfoId" column="HOME_INFO_ID" jdbcType="VARCHAR" />
+				<result property="homePhoneId" column="HOME_PHONE_ID" jdbcType="VARCHAR" />
+				<result property="homeAddrId" column="HOME_ADDR_ID" jdbcType="VARCHAR" />
+				<result property="empInfoId" column="EMP_INFO_ID" jdbcType="VARCHAR" />
+				<result property="empNameId" column="EMP_NAME_ID" jdbcType="VARCHAR" />
+				<result property="empPhoneId" column="EMP_PHONE_ID" jdbcType="VARCHAR" />
+				<result property="empAddrId" column="EMP_ADDR_ID" jdbcType="VARCHAR" />
+				<result property="csPhoneId" column="CS_PHONE_ID" jdbcType="VARCHAR" />
+				<result property="empNameAddr" column="EMP_NAME_ADDR" jdbcType="VARCHAR" />
+				<result property="empNamePhone" column="EMP_NAME_PHONE" jdbcType="VARCHAR" />
+				<result property="empPhoneName" column="EMP_PHONE_NAME" jdbcType="VARCHAR" />
+				<result property="empPhoneAddr" column="EMP_PHONE_ADDR" jdbcType="VARCHAR" />
+				<result property="empAddrName" column="EMP_ADDR_NAME" jdbcType="VARCHAR" />
+				<result property="empAddrPhone" column="EMP_ADDR_PHONE" jdbcType="VARCHAR" />
+				<result property="fkFrandReportId" column="FK_FRAND_REPORT_ID" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 EXT_SH_FRAND_DETAIL_STOCK -->	
+<select id="searchExtShFrandDetailStockByPaging" parameterType="java.util.Map" resultMap="ExtShFrandDetailStockDTO">
+    	 		select 
+						t1.id                             ,
+						t1.id_org_7                       ,
+						t1.id_org_onl_paydayloan_7        ,
+						t1.id_org_ofl_finlease_7          ,
+						t1.id_org_onl_cashloan_7          ,
+						t1.id_org_onl_consumeloan_7       ,
+						t1.id_org_onl_enterpriseloan_7    ,
+						t1.id_org_onl_cashloan_credit_7   ,
+						t1.id_org_onl_cashloan_house_7    ,
+						t1.id_org_onl_cashloan_car_7      ,
+						t1.id_org_onl_consumeloan_med_7   ,
+						t1.id_org_onl_consumeloan_3c_7    ,
+						t1.id_org_onl_consumeloan_edu_7   ,
+						t1.id_org_onl_consumeloan_car_7   ,
+						t1.id_org_onl_consumeloan_lux_7   ,
+						t1.id_org_ofl_cashloan_7          ,
+						t1.id_org_ofl_consumeloan_7       ,
+						t1.id_org_ofl_enterpriseloan_7    ,
+						t1.id_org_ofl_cashloan_credit_7   ,
+						t1.id_org_ofl_cashloan_house_7    ,
+						t1.id_org_ofl_cashloan_car_7      ,
+						t1.id_org_ofl_consumeloan_med_7   ,
+						t1.id_org_ofl_consumeloan_3c_7    ,
+						t1.id_org_ofl_consumeloan_edu_7   ,
+						t1.id_org_ofl_consumeloan_car_7   ,
+						t1.id_org_ofl_consumeloan_lux_7   ,
+						t1.id_org_30                      ,
+						t1.id_org_onl_paydayloan_30       ,
+						t1.id_org_ofl_finlease_30         ,
+						t1.id_org_onl_cashloan_30         ,
+						t1.id_org_onl_consumeloan_30      ,
+						t1.id_org_onl_enterpriseloan_30   ,
+						t1.id_org_onl_cashloan_credit_30  ,
+						t1.id_org_onl_cashloan_house_30   ,
+						t1.id_org_onl_cashloan_car_30     ,
+						t1.id_org_onl_consumeloan_med_30  ,
+						t1.id_org_onl_consumeloan_3c_30   ,
+						t1.id_org_onl_consumeloan_edu_30  ,
+						t1.id_org_onl_consumeloan_car_30  ,
+						t1.id_org_onl_consumeloan_lux_30  ,
+						t1.id_org_ofl_cashloan_30         ,
+						t1.id_org_ofl_consumeloan_30      ,
+						t1.id_org_ofl_enterpriseloan_30   ,
+						t1.id_org_ofl_cashloan_credit_30  ,
+						t1.id_org_ofl_cashloan_house_30   ,
+						t1.id_org_ofl_cashloan_car_30     ,
+						t1.id_org_ofl_consumeloan_med_30  ,
+						t1.id_org_ofl_consumeloan_3c_30   ,
+						t1.id_org_ofl_consumeloan_edu_30  ,
+						t1.id_org_ofl_consumeloan_car_30  ,
+						t1.id_org_ofl_consumeloan_lux_30  ,
+						t1.id_cell_phone                  ,
+						t1.id_cell_phone_city_detail      ,
+						t1.id_email                       ,
+						t1.id_home_addr                   ,
+						t1.id_home_addr_city_detail       ,
+						t1.id_home_phone                  ,
+						t1.id_home_phone_city_detail      ,
+						t1.id_emp_name                    ,
+						t1.id_emp_addr                    ,
+						t1.id_emp_addr_city_detail        ,
+						t1.id_emp_phone                   ,
+						t1.id_emp_phone_city_detail       ,
+						t1.id_contacts_cell_phone         ,
+						t1.id_cs_city_detail              ,
+						t1.id_org_creditcard_7            ,
+						t1.id_org_creditcard_30           ,
+						t1.info_change                    ,
+						t1.multi_info_change              ,
+						t1.multi_emp_info                 ,
+						t1.multi_home_info                ,
+						t1.id_citys                       ,
+						t1.cell_phone_consistency_check   ,
+						t1.email_consistency_check        ,
+						t1.home_addr_consistency_check    ,
+						t1.home_phone_consistency_check   ,
+						t1.emp_name_consistency_check     ,
+						t1.emp_addr_consistency_check     ,
+						t1.emp_phone_consistency_check    ,
+						t1.cs_phone_consistency_check     ,
+						t1.cell_phone_id                  ,
+						t1.home_info_id                   ,
+						t1.home_phone_id                  ,
+						t1.home_addr_id                   ,
+						t1.emp_info_id                    ,
+						t1.emp_name_id                    ,
+						t1.emp_phone_id                   ,
+						t1.emp_addr_id                    ,
+						t1.cs_phone_id                    ,
+						t1.emp_name_addr                  ,
+						t1.emp_name_phone                 ,
+						t1.emp_phone_name                 ,
+						t1.emp_phone_addr                 ,
+						t1.emp_addr_name                  ,
+						t1.emp_addr_phone                 ,
+						t1.fk_frand_report_id             ,
+						t1.create_time                    ,
+						t1.modify_time                    
+					
+				from ext_sh_frand_detail_stock 	t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.idOrg7 != null and dto.idOrg7 != ''">
+						and t1.ID_ORG_7 =#{dto.idOrg7}
+    			</if>
+    			<if test="dto.idOrgOnlPaydayloan7 != null and dto.idOrgOnlPaydayloan7 != ''">
+						and t1.ID_ORG_ONL_PAYDAYLOAN_7 =#{dto.idOrgOnlPaydayloan7}
+    			</if>
+    			<if test="dto.idOrgOflFinlease7 != null and dto.idOrgOflFinlease7 != ''">
+						and t1.ID_ORG_OFL_FINLEASE_7 =#{dto.idOrgOflFinlease7}
+    			</if>
+    			<if test="dto.idOrgOnlCashloan7 != null and dto.idOrgOnlCashloan7 != ''">
+						and t1.ID_ORG_ONL_CASHLOAN_7 =#{dto.idOrgOnlCashloan7}
+    			</if>
+    			<if test="dto.idOrgOnlConsumeloan7 != null and dto.idOrgOnlConsumeloan7 != ''">
+						and t1.ID_ORG_ONL_CONSUMELOAN_7 =#{dto.idOrgOnlConsumeloan7}
+    			</if>
+    			<if test="dto.idOrgOnlEnterpriseloan7 != null and dto.idOrgOnlEnterpriseloan7 != ''">
+						and t1.ID_ORG_ONL_ENTERPRISELOAN_7 =#{dto.idOrgOnlEnterpriseloan7}
+    			</if>
+    			<if test="dto.idOrgOnlCashloanCredit7 != null and dto.idOrgOnlCashloanCredit7 != ''">
+						and t1.ID_ORG_ONL_CASHLOAN_CREDIT_7 =#{dto.idOrgOnlCashloanCredit7}
+    			</if>
+    			<if test="dto.idOrgOnlCashloanHouse7 != null and dto.idOrgOnlCashloanHouse7 != ''">
+						and t1.ID_ORG_ONL_CASHLOAN_HOUSE_7 =#{dto.idOrgOnlCashloanHouse7}
+    			</if>
+    			<if test="dto.idOrgOnlCashloanCar7 != null and dto.idOrgOnlCashloanCar7 != ''">
+						and t1.ID_ORG_ONL_CASHLOAN_CAR_7 =#{dto.idOrgOnlCashloanCar7}
+    			</if>
+    			<if test="dto.idOrgOnlConsumeloanMed7 != null and dto.idOrgOnlConsumeloanMed7 != ''">
+						and t1.ID_ORG_ONL_CONSUMELOAN_MED_7 =#{dto.idOrgOnlConsumeloanMed7}
+    			</if>
+    			<if test="dto.idOrgOnlConsumeloan3c7 != null and dto.idOrgOnlConsumeloan3c7 != ''">
+						and t1.ID_ORG_ONL_CONSUMELOAN_3C_7 =#{dto.idOrgOnlConsumeloan3c7}
+    			</if>
+    			<if test="dto.idOrgOnlConsumeloanEdu7 != null and dto.idOrgOnlConsumeloanEdu7 != ''">
+						and t1.ID_ORG_ONL_CONSUMELOAN_EDU_7 =#{dto.idOrgOnlConsumeloanEdu7}
+    			</if>
+    			<if test="dto.idOrgOnlConsumeloanCar7 != null and dto.idOrgOnlConsumeloanCar7 != ''">
+						and t1.ID_ORG_ONL_CONSUMELOAN_CAR_7 =#{dto.idOrgOnlConsumeloanCar7}
+    			</if>
+    			<if test="dto.idOrgOnlConsumeloanLux7 != null and dto.idOrgOnlConsumeloanLux7 != ''">
+						and t1.ID_ORG_ONL_CONSUMELOAN_LUX_7 =#{dto.idOrgOnlConsumeloanLux7}
+    			</if>
+    			<if test="dto.idOrgOflCashloan7 != null and dto.idOrgOflCashloan7 != ''">
+						and t1.ID_ORG_OFL_CASHLOAN_7 =#{dto.idOrgOflCashloan7}
+    			</if>
+    			<if test="dto.idOrgOflConsumeloan7 != null and dto.idOrgOflConsumeloan7 != ''">
+						and t1.ID_ORG_OFL_CONSUMELOAN_7 =#{dto.idOrgOflConsumeloan7}
+    			</if>
+    			<if test="dto.idOrgOflEnterpriseloan7 != null and dto.idOrgOflEnterpriseloan7 != ''">
+						and t1.ID_ORG_OFL_ENTERPRISELOAN_7 =#{dto.idOrgOflEnterpriseloan7}
+    			</if>
+    			<if test="dto.idOrgOflCashloanCredit7 != null and dto.idOrgOflCashloanCredit7 != ''">
+						and t1.ID_ORG_OFL_CASHLOAN_CREDIT_7 =#{dto.idOrgOflCashloanCredit7}
+    			</if>
+    			<if test="dto.idOrgOflCashloanHouse7 != null and dto.idOrgOflCashloanHouse7 != ''">
+						and t1.ID_ORG_OFL_CASHLOAN_HOUSE_7 =#{dto.idOrgOflCashloanHouse7}
+    			</if>
+    			<if test="dto.idOrgOflCashloanCar7 != null and dto.idOrgOflCashloanCar7 != ''">
+						and t1.ID_ORG_OFL_CASHLOAN_CAR_7 =#{dto.idOrgOflCashloanCar7}
+    			</if>
+    			<if test="dto.idOrgOflConsumeloanMed7 != null and dto.idOrgOflConsumeloanMed7 != ''">
+						and t1.ID_ORG_OFL_CONSUMELOAN_MED_7 =#{dto.idOrgOflConsumeloanMed7}
+    			</if>
+    			<if test="dto.idOrgOflConsumeloan3c7 != null and dto.idOrgOflConsumeloan3c7 != ''">
+						and t1.ID_ORG_OFL_CONSUMELOAN_3C_7 =#{dto.idOrgOflConsumeloan3c7}
+    			</if>
+    			<if test="dto.idOrgOflConsumeloanEdu7 != null and dto.idOrgOflConsumeloanEdu7 != ''">
+						and t1.ID_ORG_OFL_CONSUMELOAN_EDU_7 =#{dto.idOrgOflConsumeloanEdu7}
+    			</if>
+    			<if test="dto.idOrgOflConsumeloanCar7 != null and dto.idOrgOflConsumeloanCar7 != ''">
+						and t1.ID_ORG_OFL_CONSUMELOAN_CAR_7 =#{dto.idOrgOflConsumeloanCar7}
+    			</if>
+    			<if test="dto.idOrgOflConsumeloanLux7 != null and dto.idOrgOflConsumeloanLux7 != ''">
+						and t1.ID_ORG_OFL_CONSUMELOAN_LUX_7 =#{dto.idOrgOflConsumeloanLux7}
+    			</if>
+    			<if test="dto.idOrg30 != null and dto.idOrg30 != ''">
+						and t1.ID_ORG_30 =#{dto.idOrg30}
+    			</if>
+    			<if test="dto.idOrgOnlPaydayloan30 != null and dto.idOrgOnlPaydayloan30 != ''">
+						and t1.ID_ORG_ONL_PAYDAYLOAN_30 =#{dto.idOrgOnlPaydayloan30}
+    			</if>
+    			<if test="dto.idOrgOflFinlease30 != null and dto.idOrgOflFinlease30 != ''">
+						and t1.ID_ORG_OFL_FINLEASE_30 =#{dto.idOrgOflFinlease30}
+    			</if>
+    			<if test="dto.idOrgOnlCashloan30 != null and dto.idOrgOnlCashloan30 != ''">
+						and t1.ID_ORG_ONL_CASHLOAN_30 =#{dto.idOrgOnlCashloan30}
+    			</if>
+    			<if test="dto.idOrgOnlConsumeloan30 != null and dto.idOrgOnlConsumeloan30 != ''">
+						and t1.ID_ORG_ONL_CONSUMELOAN_30 =#{dto.idOrgOnlConsumeloan30}
+    			</if>
+    			<if test="dto.idOrgOnlEnterpriseloan30 != null and dto.idOrgOnlEnterpriseloan30 != ''">
+						and t1.ID_ORG_ONL_ENTERPRISELOAN_30 =#{dto.idOrgOnlEnterpriseloan30}
+    			</if>
+    			<if test="dto.idOrgOnlCashloanCredit30 != null and dto.idOrgOnlCashloanCredit30 != ''">
+						and t1.ID_ORG_ONL_CASHLOAN_CREDIT_30 =#{dto.idOrgOnlCashloanCredit30}
+    			</if>
+    			<if test="dto.idOrgOnlCashloanHouse30 != null and dto.idOrgOnlCashloanHouse30 != ''">
+						and t1.ID_ORG_ONL_CASHLOAN_HOUSE_30 =#{dto.idOrgOnlCashloanHouse30}
+    			</if>
+    			<if test="dto.idOrgOnlCashloanCar30 != null and dto.idOrgOnlCashloanCar30 != ''">
+						and t1.ID_ORG_ONL_CASHLOAN_CAR_30 =#{dto.idOrgOnlCashloanCar30}
+    			</if>
+    			<if test="dto.idOrgOnlConsumeloanMed30 != null and dto.idOrgOnlConsumeloanMed30 != ''">
+						and t1.ID_ORG_ONL_CONSUMELOAN_MED_30 =#{dto.idOrgOnlConsumeloanMed30}
+    			</if>
+    			<if test="dto.idOrgOnlConsumeloan3c30 != null and dto.idOrgOnlConsumeloan3c30 != ''">
+						and t1.ID_ORG_ONL_CONSUMELOAN_3C_30 =#{dto.idOrgOnlConsumeloan3c30}
+    			</if>
+    			<if test="dto.idOrgOnlConsumeloanEdu30 != null and dto.idOrgOnlConsumeloanEdu30 != ''">
+						and t1.ID_ORG_ONL_CONSUMELOAN_EDU_30 =#{dto.idOrgOnlConsumeloanEdu30}
+    			</if>
+    			<if test="dto.idOrgOnlConsumeloanCar30 != null and dto.idOrgOnlConsumeloanCar30 != ''">
+						and t1.ID_ORG_ONL_CONSUMELOAN_CAR_30 =#{dto.idOrgOnlConsumeloanCar30}
+    			</if>
+    			<if test="dto.idOrgOnlConsumeloanLux30 != null and dto.idOrgOnlConsumeloanLux30 != ''">
+						and t1.ID_ORG_ONL_CONSUMELOAN_LUX_30 =#{dto.idOrgOnlConsumeloanLux30}
+    			</if>
+    			<if test="dto.idOrgOflCashloan30 != null and dto.idOrgOflCashloan30 != ''">
+						and t1.ID_ORG_OFL_CASHLOAN_30 =#{dto.idOrgOflCashloan30}
+    			</if>
+    			<if test="dto.idOrgOflConsumeloan30 != null and dto.idOrgOflConsumeloan30 != ''">
+						and t1.ID_ORG_OFL_CONSUMELOAN_30 =#{dto.idOrgOflConsumeloan30}
+    			</if>
+    			<if test="dto.idOrgOflEnterpriseloan30 != null and dto.idOrgOflEnterpriseloan30 != ''">
+						and t1.ID_ORG_OFL_ENTERPRISELOAN_30 =#{dto.idOrgOflEnterpriseloan30}
+    			</if>
+    			<if test="dto.idOrgOflCashloanCredit30 != null and dto.idOrgOflCashloanCredit30 != ''">
+						and t1.ID_ORG_OFL_CASHLOAN_CREDIT_30 =#{dto.idOrgOflCashloanCredit30}
+    			</if>
+    			<if test="dto.idOrgOflCashloanHouse30 != null and dto.idOrgOflCashloanHouse30 != ''">
+						and t1.ID_ORG_OFL_CASHLOAN_HOUSE_30 =#{dto.idOrgOflCashloanHouse30}
+    			</if>
+    			<if test="dto.idOrgOflCashloanCar30 != null and dto.idOrgOflCashloanCar30 != ''">
+						and t1.ID_ORG_OFL_CASHLOAN_CAR_30 =#{dto.idOrgOflCashloanCar30}
+    			</if>
+    			<if test="dto.idOrgOflConsumeloanMed30 != null and dto.idOrgOflConsumeloanMed30 != ''">
+						and t1.ID_ORG_OFL_CONSUMELOAN_MED_30 =#{dto.idOrgOflConsumeloanMed30}
+    			</if>
+    			<if test="dto.idOrgOflConsumeloan3c30 != null and dto.idOrgOflConsumeloan3c30 != ''">
+						and t1.ID_ORG_OFL_CONSUMELOAN_3C_30 =#{dto.idOrgOflConsumeloan3c30}
+    			</if>
+    			<if test="dto.idOrgOflConsumeloanEdu30 != null and dto.idOrgOflConsumeloanEdu30 != ''">
+						and t1.ID_ORG_OFL_CONSUMELOAN_EDU_30 =#{dto.idOrgOflConsumeloanEdu30}
+    			</if>
+    			<if test="dto.idOrgOflConsumeloanCar30 != null and dto.idOrgOflConsumeloanCar30 != ''">
+						and t1.ID_ORG_OFL_CONSUMELOAN_CAR_30 =#{dto.idOrgOflConsumeloanCar30}
+    			</if>
+    			<if test="dto.idOrgOflConsumeloanLux30 != null and dto.idOrgOflConsumeloanLux30 != ''">
+						and t1.ID_ORG_OFL_CONSUMELOAN_LUX_30 =#{dto.idOrgOflConsumeloanLux30}
+    			</if>
+    			<if test="dto.idCellPhone != null and dto.idCellPhone != ''">
+						and t1.ID_CELL_PHONE =#{dto.idCellPhone}
+    			</if>
+    			<if test="dto.idCellPhoneCityDetail != null and dto.idCellPhoneCityDetail != ''">
+						and t1.ID_CELL_PHONE_CITY_DETAIL =#{dto.idCellPhoneCityDetail}
+    			</if>
+    			<if test="dto.idEmail != null and dto.idEmail != ''">
+						and t1.ID_EMAIL =#{dto.idEmail}
+    			</if>
+    			<if test="dto.idHomeAddr != null and dto.idHomeAddr != ''">
+						and t1.ID_HOME_ADDR =#{dto.idHomeAddr}
+    			</if>
+    			<if test="dto.idHomeAddrCityDetail != null and dto.idHomeAddrCityDetail != ''">
+						and t1.ID_HOME_ADDR_CITY_DETAIL =#{dto.idHomeAddrCityDetail}
+    			</if>
+    			<if test="dto.idHomePhone != null and dto.idHomePhone != ''">
+						and t1.ID_HOME_PHONE =#{dto.idHomePhone}
+    			</if>
+    			<if test="dto.idHomePhoneCityDetail != null and dto.idHomePhoneCityDetail != ''">
+						and t1.ID_HOME_PHONE_CITY_DETAIL =#{dto.idHomePhoneCityDetail}
+    			</if>
+    			<if test="dto.idEmpName != null and dto.idEmpName != ''">
+						and t1.ID_EMP_NAME =#{dto.idEmpName}
+    			</if>
+    			<if test="dto.idEmpAddr != null and dto.idEmpAddr != ''">
+						and t1.ID_EMP_ADDR =#{dto.idEmpAddr}
+    			</if>
+    			<if test="dto.idEmpAddrCityDetail != null and dto.idEmpAddrCityDetail != ''">
+						and t1.ID_EMP_ADDR_CITY_DETAIL =#{dto.idEmpAddrCityDetail}
+    			</if>
+    			<if test="dto.idEmpPhone != null and dto.idEmpPhone != ''">
+						and t1.ID_EMP_PHONE =#{dto.idEmpPhone}
+    			</if>
+    			<if test="dto.idEmpPhoneCityDetail != null and dto.idEmpPhoneCityDetail != ''">
+						and t1.ID_EMP_PHONE_CITY_DETAIL =#{dto.idEmpPhoneCityDetail}
+    			</if>
+    			<if test="dto.idContactsCellPhone != null and dto.idContactsCellPhone != ''">
+						and t1.ID_CONTACTS_CELL_PHONE =#{dto.idContactsCellPhone}
+    			</if>
+    			<if test="dto.idCsCityDetail != null and dto.idCsCityDetail != ''">
+						and t1.ID_CS_CITY_DETAIL =#{dto.idCsCityDetail}
+    			</if>
+    			<if test="dto.idOrgCreditcard7 != null and dto.idOrgCreditcard7 != ''">
+						and t1.ID_ORG_CREDITCARD_7 =#{dto.idOrgCreditcard7}
+    			</if>
+    			<if test="dto.idOrgCreditcard30 != null and dto.idOrgCreditcard30 != ''">
+						and t1.ID_ORG_CREDITCARD_30 =#{dto.idOrgCreditcard30}
+    			</if>
+    			<if test="dto.infoChange != null and dto.infoChange != ''">
+						and t1.INFO_CHANGE =#{dto.infoChange}
+    			</if>
+    			<if test="dto.multiInfoChange != null and dto.multiInfoChange != ''">
+						and t1.MULTI_INFO_CHANGE =#{dto.multiInfoChange}
+    			</if>
+    			<if test="dto.multiEmpInfo != null and dto.multiEmpInfo != ''">
+						and t1.MULTI_EMP_INFO =#{dto.multiEmpInfo}
+    			</if>
+    			<if test="dto.multiHomeInfo != null and dto.multiHomeInfo != ''">
+						and t1.MULTI_HOME_INFO =#{dto.multiHomeInfo}
+    			</if>
+    			<if test="dto.idCitys != null and dto.idCitys != ''">
+						and t1.ID_CITYS =#{dto.idCitys}
+    			</if>
+    			<if test="dto.cellPhoneConsistencyCheck != null and dto.cellPhoneConsistencyCheck != ''">
+						and t1.CELL_PHONE_CONSISTENCY_CHECK =#{dto.cellPhoneConsistencyCheck}
+    			</if>
+    			<if test="dto.emailConsistencyCheck != null and dto.emailConsistencyCheck != ''">
+						and t1.EMAIL_CONSISTENCY_CHECK =#{dto.emailConsistencyCheck}
+    			</if>
+    			<if test="dto.homeAddrConsistencyCheck != null and dto.homeAddrConsistencyCheck != ''">
+						and t1.HOME_ADDR_CONSISTENCY_CHECK =#{dto.homeAddrConsistencyCheck}
+    			</if>
+    			<if test="dto.homePhoneConsistencyCheck != null and dto.homePhoneConsistencyCheck != ''">
+						and t1.HOME_PHONE_CONSISTENCY_CHECK =#{dto.homePhoneConsistencyCheck}
+    			</if>
+    			<if test="dto.empNameConsistencyCheck != null and dto.empNameConsistencyCheck != ''">
+						and t1.EMP_NAME_CONSISTENCY_CHECK =#{dto.empNameConsistencyCheck}
+    			</if>
+    			<if test="dto.empAddrConsistencyCheck != null and dto.empAddrConsistencyCheck != ''">
+						and t1.EMP_ADDR_CONSISTENCY_CHECK =#{dto.empAddrConsistencyCheck}
+    			</if>
+    			<if test="dto.empPhoneConsistencyCheck != null and dto.empPhoneConsistencyCheck != ''">
+						and t1.EMP_PHONE_CONSISTENCY_CHECK =#{dto.empPhoneConsistencyCheck}
+    			</if>
+    			<if test="dto.csPhoneConsistencyCheck != null and dto.csPhoneConsistencyCheck != ''">
+						and t1.CS_PHONE_CONSISTENCY_CHECK =#{dto.csPhoneConsistencyCheck}
+    			</if>
+    			<if test="dto.cellPhoneId != null and dto.cellPhoneId != ''">
+						and t1.CELL_PHONE_ID =#{dto.cellPhoneId}
+    			</if>
+    			<if test="dto.homeInfoId != null and dto.homeInfoId != ''">
+						and t1.HOME_INFO_ID =#{dto.homeInfoId}
+    			</if>
+    			<if test="dto.homePhoneId != null and dto.homePhoneId != ''">
+						and t1.HOME_PHONE_ID =#{dto.homePhoneId}
+    			</if>
+    			<if test="dto.homeAddrId != null and dto.homeAddrId != ''">
+						and t1.HOME_ADDR_ID =#{dto.homeAddrId}
+    			</if>
+    			<if test="dto.empInfoId != null and dto.empInfoId != ''">
+						and t1.EMP_INFO_ID =#{dto.empInfoId}
+    			</if>
+    			<if test="dto.empNameId != null and dto.empNameId != ''">
+						and t1.EMP_NAME_ID =#{dto.empNameId}
+    			</if>
+    			<if test="dto.empPhoneId != null and dto.empPhoneId != ''">
+						and t1.EMP_PHONE_ID =#{dto.empPhoneId}
+    			</if>
+    			<if test="dto.empAddrId != null and dto.empAddrId != ''">
+						and t1.EMP_ADDR_ID =#{dto.empAddrId}
+    			</if>
+    			<if test="dto.csPhoneId != null and dto.csPhoneId != ''">
+						and t1.CS_PHONE_ID =#{dto.csPhoneId}
+    			</if>
+    			<if test="dto.empNameAddr != null and dto.empNameAddr != ''">
+						and t1.EMP_NAME_ADDR =#{dto.empNameAddr}
+    			</if>
+    			<if test="dto.empNamePhone != null and dto.empNamePhone != ''">
+						and t1.EMP_NAME_PHONE =#{dto.empNamePhone}
+    			</if>
+    			<if test="dto.empPhoneName != null and dto.empPhoneName != ''">
+						and t1.EMP_PHONE_NAME =#{dto.empPhoneName}
+    			</if>
+    			<if test="dto.empPhoneAddr != null and dto.empPhoneAddr != ''">
+						and t1.EMP_PHONE_ADDR =#{dto.empPhoneAddr}
+    			</if>
+    			<if test="dto.empAddrName != null and dto.empAddrName != ''">
+						and t1.EMP_ADDR_NAME =#{dto.empAddrName}
+    			</if>
+    			<if test="dto.empAddrPhone != null and dto.empAddrPhone != ''">
+						and t1.EMP_ADDR_PHONE =#{dto.empAddrPhone}
+    			</if>
+    			<if test="dto.fkFrandReportId != null and dto.fkFrandReportId != ''">
+						and t1.FK_FRAND_REPORT_ID =#{dto.fkFrandReportId}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_SH_FRAND_DETAIL_STOCK  -->
+<select id="searchExtShFrandDetailStock" parameterType="java.util.Map" resultMap="ExtShFrandDetailStockDTO">
+    	     select 
+						t1.id                             ,
+						t1.id_org_7                       ,
+						t1.id_org_onl_paydayloan_7        ,
+						t1.id_org_ofl_finlease_7          ,
+						t1.id_org_onl_cashloan_7          ,
+						t1.id_org_onl_consumeloan_7       ,
+						t1.id_org_onl_enterpriseloan_7    ,
+						t1.id_org_onl_cashloan_credit_7   ,
+						t1.id_org_onl_cashloan_house_7    ,
+						t1.id_org_onl_cashloan_car_7      ,
+						t1.id_org_onl_consumeloan_med_7   ,
+						t1.id_org_onl_consumeloan_3c_7    ,
+						t1.id_org_onl_consumeloan_edu_7   ,
+						t1.id_org_onl_consumeloan_car_7   ,
+						t1.id_org_onl_consumeloan_lux_7   ,
+						t1.id_org_ofl_cashloan_7          ,
+						t1.id_org_ofl_consumeloan_7       ,
+						t1.id_org_ofl_enterpriseloan_7    ,
+						t1.id_org_ofl_cashloan_credit_7   ,
+						t1.id_org_ofl_cashloan_house_7    ,
+						t1.id_org_ofl_cashloan_car_7      ,
+						t1.id_org_ofl_consumeloan_med_7   ,
+						t1.id_org_ofl_consumeloan_3c_7    ,
+						t1.id_org_ofl_consumeloan_edu_7   ,
+						t1.id_org_ofl_consumeloan_car_7   ,
+						t1.id_org_ofl_consumeloan_lux_7   ,
+						t1.id_org_30                      ,
+						t1.id_org_onl_paydayloan_30       ,
+						t1.id_org_ofl_finlease_30         ,
+						t1.id_org_onl_cashloan_30         ,
+						t1.id_org_onl_consumeloan_30      ,
+						t1.id_org_onl_enterpriseloan_30   ,
+						t1.id_org_onl_cashloan_credit_30  ,
+						t1.id_org_onl_cashloan_house_30   ,
+						t1.id_org_onl_cashloan_car_30     ,
+						t1.id_org_onl_consumeloan_med_30  ,
+						t1.id_org_onl_consumeloan_3c_30   ,
+						t1.id_org_onl_consumeloan_edu_30  ,
+						t1.id_org_onl_consumeloan_car_30  ,
+						t1.id_org_onl_consumeloan_lux_30  ,
+						t1.id_org_ofl_cashloan_30         ,
+						t1.id_org_ofl_consumeloan_30      ,
+						t1.id_org_ofl_enterpriseloan_30   ,
+						t1.id_org_ofl_cashloan_credit_30  ,
+						t1.id_org_ofl_cashloan_house_30   ,
+						t1.id_org_ofl_cashloan_car_30     ,
+						t1.id_org_ofl_consumeloan_med_30  ,
+						t1.id_org_ofl_consumeloan_3c_30   ,
+						t1.id_org_ofl_consumeloan_edu_30  ,
+						t1.id_org_ofl_consumeloan_car_30  ,
+						t1.id_org_ofl_consumeloan_lux_30  ,
+						t1.id_cell_phone                  ,
+						t1.id_cell_phone_city_detail      ,
+						t1.id_email                       ,
+						t1.id_home_addr                   ,
+						t1.id_home_addr_city_detail       ,
+						t1.id_home_phone                  ,
+						t1.id_home_phone_city_detail      ,
+						t1.id_emp_name                    ,
+						t1.id_emp_addr                    ,
+						t1.id_emp_addr_city_detail        ,
+						t1.id_emp_phone                   ,
+						t1.id_emp_phone_city_detail       ,
+						t1.id_contacts_cell_phone         ,
+						t1.id_cs_city_detail              ,
+						t1.id_org_creditcard_7            ,
+						t1.id_org_creditcard_30           ,
+						t1.info_change                    ,
+						t1.multi_info_change              ,
+						t1.multi_emp_info                 ,
+						t1.multi_home_info                ,
+						t1.id_citys                       ,
+						t1.cell_phone_consistency_check   ,
+						t1.email_consistency_check        ,
+						t1.home_addr_consistency_check    ,
+						t1.home_phone_consistency_check   ,
+						t1.emp_name_consistency_check     ,
+						t1.emp_addr_consistency_check     ,
+						t1.emp_phone_consistency_check    ,
+						t1.cs_phone_consistency_check     ,
+						t1.cell_phone_id                  ,
+						t1.home_info_id                   ,
+						t1.home_phone_id                  ,
+						t1.home_addr_id                   ,
+						t1.emp_info_id                    ,
+						t1.emp_name_id                    ,
+						t1.emp_phone_id                   ,
+						t1.emp_addr_id                    ,
+						t1.cs_phone_id                    ,
+						t1.emp_name_addr                  ,
+						t1.emp_name_phone                 ,
+						t1.emp_phone_name                 ,
+						t1.emp_phone_addr                 ,
+						t1.emp_addr_name                  ,
+						t1.emp_addr_phone                 ,
+						t1.fk_frand_report_id             ,
+						t1.create_time                    ,
+						t1.modify_time                    
+				from ext_sh_frand_detail_stock 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.idOrg7 != null and dto.idOrg7 != ''">
+						and t1.ID_ORG_7 = #{dto.idOrg7}
+    			</if>
+    			<if test="dto.idOrgOnlPaydayloan7 != null and dto.idOrgOnlPaydayloan7 != ''">
+						and t1.ID_ORG_ONL_PAYDAYLOAN_7 = #{dto.idOrgOnlPaydayloan7}
+    			</if>
+    			<if test="dto.idOrgOflFinlease7 != null and dto.idOrgOflFinlease7 != ''">
+						and t1.ID_ORG_OFL_FINLEASE_7 = #{dto.idOrgOflFinlease7}
+    			</if>
+    			<if test="dto.idOrgOnlCashloan7 != null and dto.idOrgOnlCashloan7 != ''">
+						and t1.ID_ORG_ONL_CASHLOAN_7 = #{dto.idOrgOnlCashloan7}
+    			</if>
+    			<if test="dto.idOrgOnlConsumeloan7 != null and dto.idOrgOnlConsumeloan7 != ''">
+						and t1.ID_ORG_ONL_CONSUMELOAN_7 = #{dto.idOrgOnlConsumeloan7}
+    			</if>
+    			<if test="dto.idOrgOnlEnterpriseloan7 != null and dto.idOrgOnlEnterpriseloan7 != ''">
+						and t1.ID_ORG_ONL_ENTERPRISELOAN_7 = #{dto.idOrgOnlEnterpriseloan7}
+    			</if>
+    			<if test="dto.idOrgOnlCashloanCredit7 != null and dto.idOrgOnlCashloanCredit7 != ''">
+						and t1.ID_ORG_ONL_CASHLOAN_CREDIT_7 = #{dto.idOrgOnlCashloanCredit7}
+    			</if>
+    			<if test="dto.idOrgOnlCashloanHouse7 != null and dto.idOrgOnlCashloanHouse7 != ''">
+						and t1.ID_ORG_ONL_CASHLOAN_HOUSE_7 = #{dto.idOrgOnlCashloanHouse7}
+    			</if>
+    			<if test="dto.idOrgOnlCashloanCar7 != null and dto.idOrgOnlCashloanCar7 != ''">
+						and t1.ID_ORG_ONL_CASHLOAN_CAR_7 = #{dto.idOrgOnlCashloanCar7}
+    			</if>
+    			<if test="dto.idOrgOnlConsumeloanMed7 != null and dto.idOrgOnlConsumeloanMed7 != ''">
+						and t1.ID_ORG_ONL_CONSUMELOAN_MED_7 = #{dto.idOrgOnlConsumeloanMed7}
+    			</if>
+    			<if test="dto.idOrgOnlConsumeloan3c7 != null and dto.idOrgOnlConsumeloan3c7 != ''">
+						and t1.ID_ORG_ONL_CONSUMELOAN_3C_7 = #{dto.idOrgOnlConsumeloan3c7}
+    			</if>
+    			<if test="dto.idOrgOnlConsumeloanEdu7 != null and dto.idOrgOnlConsumeloanEdu7 != ''">
+						and t1.ID_ORG_ONL_CONSUMELOAN_EDU_7 = #{dto.idOrgOnlConsumeloanEdu7}
+    			</if>
+    			<if test="dto.idOrgOnlConsumeloanCar7 != null and dto.idOrgOnlConsumeloanCar7 != ''">
+						and t1.ID_ORG_ONL_CONSUMELOAN_CAR_7 = #{dto.idOrgOnlConsumeloanCar7}
+    			</if>
+    			<if test="dto.idOrgOnlConsumeloanLux7 != null and dto.idOrgOnlConsumeloanLux7 != ''">
+						and t1.ID_ORG_ONL_CONSUMELOAN_LUX_7 = #{dto.idOrgOnlConsumeloanLux7}
+    			</if>
+    			<if test="dto.idOrgOflCashloan7 != null and dto.idOrgOflCashloan7 != ''">
+						and t1.ID_ORG_OFL_CASHLOAN_7 = #{dto.idOrgOflCashloan7}
+    			</if>
+    			<if test="dto.idOrgOflConsumeloan7 != null and dto.idOrgOflConsumeloan7 != ''">
+						and t1.ID_ORG_OFL_CONSUMELOAN_7 = #{dto.idOrgOflConsumeloan7}
+    			</if>
+    			<if test="dto.idOrgOflEnterpriseloan7 != null and dto.idOrgOflEnterpriseloan7 != ''">
+						and t1.ID_ORG_OFL_ENTERPRISELOAN_7 = #{dto.idOrgOflEnterpriseloan7}
+    			</if>
+    			<if test="dto.idOrgOflCashloanCredit7 != null and dto.idOrgOflCashloanCredit7 != ''">
+						and t1.ID_ORG_OFL_CASHLOAN_CREDIT_7 = #{dto.idOrgOflCashloanCredit7}
+    			</if>
+    			<if test="dto.idOrgOflCashloanHouse7 != null and dto.idOrgOflCashloanHouse7 != ''">
+						and t1.ID_ORG_OFL_CASHLOAN_HOUSE_7 = #{dto.idOrgOflCashloanHouse7}
+    			</if>
+    			<if test="dto.idOrgOflCashloanCar7 != null and dto.idOrgOflCashloanCar7 != ''">
+						and t1.ID_ORG_OFL_CASHLOAN_CAR_7 = #{dto.idOrgOflCashloanCar7}
+    			</if>
+    			<if test="dto.idOrgOflConsumeloanMed7 != null and dto.idOrgOflConsumeloanMed7 != ''">
+						and t1.ID_ORG_OFL_CONSUMELOAN_MED_7 = #{dto.idOrgOflConsumeloanMed7}
+    			</if>
+    			<if test="dto.idOrgOflConsumeloan3c7 != null and dto.idOrgOflConsumeloan3c7 != ''">
+						and t1.ID_ORG_OFL_CONSUMELOAN_3C_7 = #{dto.idOrgOflConsumeloan3c7}
+    			</if>
+    			<if test="dto.idOrgOflConsumeloanEdu7 != null and dto.idOrgOflConsumeloanEdu7 != ''">
+						and t1.ID_ORG_OFL_CONSUMELOAN_EDU_7 = #{dto.idOrgOflConsumeloanEdu7}
+    			</if>
+    			<if test="dto.idOrgOflConsumeloanCar7 != null and dto.idOrgOflConsumeloanCar7 != ''">
+						and t1.ID_ORG_OFL_CONSUMELOAN_CAR_7 = #{dto.idOrgOflConsumeloanCar7}
+    			</if>
+    			<if test="dto.idOrgOflConsumeloanLux7 != null and dto.idOrgOflConsumeloanLux7 != ''">
+						and t1.ID_ORG_OFL_CONSUMELOAN_LUX_7 = #{dto.idOrgOflConsumeloanLux7}
+    			</if>
+    			<if test="dto.idOrg30 != null and dto.idOrg30 != ''">
+						and t1.ID_ORG_30 = #{dto.idOrg30}
+    			</if>
+    			<if test="dto.idOrgOnlPaydayloan30 != null and dto.idOrgOnlPaydayloan30 != ''">
+						and t1.ID_ORG_ONL_PAYDAYLOAN_30 = #{dto.idOrgOnlPaydayloan30}
+    			</if>
+    			<if test="dto.idOrgOflFinlease30 != null and dto.idOrgOflFinlease30 != ''">
+						and t1.ID_ORG_OFL_FINLEASE_30 = #{dto.idOrgOflFinlease30}
+    			</if>
+    			<if test="dto.idOrgOnlCashloan30 != null and dto.idOrgOnlCashloan30 != ''">
+						and t1.ID_ORG_ONL_CASHLOAN_30 = #{dto.idOrgOnlCashloan30}
+    			</if>
+    			<if test="dto.idOrgOnlConsumeloan30 != null and dto.idOrgOnlConsumeloan30 != ''">
+						and t1.ID_ORG_ONL_CONSUMELOAN_30 = #{dto.idOrgOnlConsumeloan30}
+    			</if>
+    			<if test="dto.idOrgOnlEnterpriseloan30 != null and dto.idOrgOnlEnterpriseloan30 != ''">
+						and t1.ID_ORG_ONL_ENTERPRISELOAN_30 = #{dto.idOrgOnlEnterpriseloan30}
+    			</if>
+    			<if test="dto.idOrgOnlCashloanCredit30 != null and dto.idOrgOnlCashloanCredit30 != ''">
+						and t1.ID_ORG_ONL_CASHLOAN_CREDIT_30 = #{dto.idOrgOnlCashloanCredit30}
+    			</if>
+    			<if test="dto.idOrgOnlCashloanHouse30 != null and dto.idOrgOnlCashloanHouse30 != ''">
+						and t1.ID_ORG_ONL_CASHLOAN_HOUSE_30 = #{dto.idOrgOnlCashloanHouse30}
+    			</if>
+    			<if test="dto.idOrgOnlCashloanCar30 != null and dto.idOrgOnlCashloanCar30 != ''">
+						and t1.ID_ORG_ONL_CASHLOAN_CAR_30 = #{dto.idOrgOnlCashloanCar30}
+    			</if>
+    			<if test="dto.idOrgOnlConsumeloanMed30 != null and dto.idOrgOnlConsumeloanMed30 != ''">
+						and t1.ID_ORG_ONL_CONSUMELOAN_MED_30 = #{dto.idOrgOnlConsumeloanMed30}
+    			</if>
+    			<if test="dto.idOrgOnlConsumeloan3c30 != null and dto.idOrgOnlConsumeloan3c30 != ''">
+						and t1.ID_ORG_ONL_CONSUMELOAN_3C_30 = #{dto.idOrgOnlConsumeloan3c30}
+    			</if>
+    			<if test="dto.idOrgOnlConsumeloanEdu30 != null and dto.idOrgOnlConsumeloanEdu30 != ''">
+						and t1.ID_ORG_ONL_CONSUMELOAN_EDU_30 = #{dto.idOrgOnlConsumeloanEdu30}
+    			</if>
+    			<if test="dto.idOrgOnlConsumeloanCar30 != null and dto.idOrgOnlConsumeloanCar30 != ''">
+						and t1.ID_ORG_ONL_CONSUMELOAN_CAR_30 = #{dto.idOrgOnlConsumeloanCar30}
+    			</if>
+    			<if test="dto.idOrgOnlConsumeloanLux30 != null and dto.idOrgOnlConsumeloanLux30 != ''">
+						and t1.ID_ORG_ONL_CONSUMELOAN_LUX_30 = #{dto.idOrgOnlConsumeloanLux30}
+    			</if>
+    			<if test="dto.idOrgOflCashloan30 != null and dto.idOrgOflCashloan30 != ''">
+						and t1.ID_ORG_OFL_CASHLOAN_30 = #{dto.idOrgOflCashloan30}
+    			</if>
+    			<if test="dto.idOrgOflConsumeloan30 != null and dto.idOrgOflConsumeloan30 != ''">
+						and t1.ID_ORG_OFL_CONSUMELOAN_30 = #{dto.idOrgOflConsumeloan30}
+    			</if>
+    			<if test="dto.idOrgOflEnterpriseloan30 != null and dto.idOrgOflEnterpriseloan30 != ''">
+						and t1.ID_ORG_OFL_ENTERPRISELOAN_30 = #{dto.idOrgOflEnterpriseloan30}
+    			</if>
+    			<if test="dto.idOrgOflCashloanCredit30 != null and dto.idOrgOflCashloanCredit30 != ''">
+						and t1.ID_ORG_OFL_CASHLOAN_CREDIT_30 = #{dto.idOrgOflCashloanCredit30}
+    			</if>
+    			<if test="dto.idOrgOflCashloanHouse30 != null and dto.idOrgOflCashloanHouse30 != ''">
+						and t1.ID_ORG_OFL_CASHLOAN_HOUSE_30 = #{dto.idOrgOflCashloanHouse30}
+    			</if>
+    			<if test="dto.idOrgOflCashloanCar30 != null and dto.idOrgOflCashloanCar30 != ''">
+						and t1.ID_ORG_OFL_CASHLOAN_CAR_30 = #{dto.idOrgOflCashloanCar30}
+    			</if>
+    			<if test="dto.idOrgOflConsumeloanMed30 != null and dto.idOrgOflConsumeloanMed30 != ''">
+						and t1.ID_ORG_OFL_CONSUMELOAN_MED_30 = #{dto.idOrgOflConsumeloanMed30}
+    			</if>
+    			<if test="dto.idOrgOflConsumeloan3c30 != null and dto.idOrgOflConsumeloan3c30 != ''">
+						and t1.ID_ORG_OFL_CONSUMELOAN_3C_30 = #{dto.idOrgOflConsumeloan3c30}
+    			</if>
+    			<if test="dto.idOrgOflConsumeloanEdu30 != null and dto.idOrgOflConsumeloanEdu30 != ''">
+						and t1.ID_ORG_OFL_CONSUMELOAN_EDU_30 = #{dto.idOrgOflConsumeloanEdu30}
+    			</if>
+    			<if test="dto.idOrgOflConsumeloanCar30 != null and dto.idOrgOflConsumeloanCar30 != ''">
+						and t1.ID_ORG_OFL_CONSUMELOAN_CAR_30 = #{dto.idOrgOflConsumeloanCar30}
+    			</if>
+    			<if test="dto.idOrgOflConsumeloanLux30 != null and dto.idOrgOflConsumeloanLux30 != ''">
+						and t1.ID_ORG_OFL_CONSUMELOAN_LUX_30 = #{dto.idOrgOflConsumeloanLux30}
+    			</if>
+    			<if test="dto.idCellPhone != null and dto.idCellPhone != ''">
+						and t1.ID_CELL_PHONE = #{dto.idCellPhone}
+    			</if>
+    			<if test="dto.idCellPhoneCityDetail != null and dto.idCellPhoneCityDetail != ''">
+						and t1.ID_CELL_PHONE_CITY_DETAIL = #{dto.idCellPhoneCityDetail}
+    			</if>
+    			<if test="dto.idEmail != null and dto.idEmail != ''">
+						and t1.ID_EMAIL = #{dto.idEmail}
+    			</if>
+    			<if test="dto.idHomeAddr != null and dto.idHomeAddr != ''">
+						and t1.ID_HOME_ADDR = #{dto.idHomeAddr}
+    			</if>
+    			<if test="dto.idHomeAddrCityDetail != null and dto.idHomeAddrCityDetail != ''">
+						and t1.ID_HOME_ADDR_CITY_DETAIL = #{dto.idHomeAddrCityDetail}
+    			</if>
+    			<if test="dto.idHomePhone != null and dto.idHomePhone != ''">
+						and t1.ID_HOME_PHONE = #{dto.idHomePhone}
+    			</if>
+    			<if test="dto.idHomePhoneCityDetail != null and dto.idHomePhoneCityDetail != ''">
+						and t1.ID_HOME_PHONE_CITY_DETAIL = #{dto.idHomePhoneCityDetail}
+    			</if>
+    			<if test="dto.idEmpName != null and dto.idEmpName != ''">
+						and t1.ID_EMP_NAME = #{dto.idEmpName}
+    			</if>
+    			<if test="dto.idEmpAddr != null and dto.idEmpAddr != ''">
+						and t1.ID_EMP_ADDR = #{dto.idEmpAddr}
+    			</if>
+    			<if test="dto.idEmpAddrCityDetail != null and dto.idEmpAddrCityDetail != ''">
+						and t1.ID_EMP_ADDR_CITY_DETAIL = #{dto.idEmpAddrCityDetail}
+    			</if>
+    			<if test="dto.idEmpPhone != null and dto.idEmpPhone != ''">
+						and t1.ID_EMP_PHONE = #{dto.idEmpPhone}
+    			</if>
+    			<if test="dto.idEmpPhoneCityDetail != null and dto.idEmpPhoneCityDetail != ''">
+						and t1.ID_EMP_PHONE_CITY_DETAIL = #{dto.idEmpPhoneCityDetail}
+    			</if>
+    			<if test="dto.idContactsCellPhone != null and dto.idContactsCellPhone != ''">
+						and t1.ID_CONTACTS_CELL_PHONE = #{dto.idContactsCellPhone}
+    			</if>
+    			<if test="dto.idCsCityDetail != null and dto.idCsCityDetail != ''">
+						and t1.ID_CS_CITY_DETAIL = #{dto.idCsCityDetail}
+    			</if>
+    			<if test="dto.idOrgCreditcard7 != null and dto.idOrgCreditcard7 != ''">
+						and t1.ID_ORG_CREDITCARD_7 = #{dto.idOrgCreditcard7}
+    			</if>
+    			<if test="dto.idOrgCreditcard30 != null and dto.idOrgCreditcard30 != ''">
+						and t1.ID_ORG_CREDITCARD_30 = #{dto.idOrgCreditcard30}
+    			</if>
+    			<if test="dto.infoChange != null and dto.infoChange != ''">
+						and t1.INFO_CHANGE = #{dto.infoChange}
+    			</if>
+    			<if test="dto.multiInfoChange != null and dto.multiInfoChange != ''">
+						and t1.MULTI_INFO_CHANGE = #{dto.multiInfoChange}
+    			</if>
+    			<if test="dto.multiEmpInfo != null and dto.multiEmpInfo != ''">
+						and t1.MULTI_EMP_INFO = #{dto.multiEmpInfo}
+    			</if>
+    			<if test="dto.multiHomeInfo != null and dto.multiHomeInfo != ''">
+						and t1.MULTI_HOME_INFO = #{dto.multiHomeInfo}
+    			</if>
+    			<if test="dto.idCitys != null and dto.idCitys != ''">
+						and t1.ID_CITYS = #{dto.idCitys}
+    			</if>
+    			<if test="dto.cellPhoneConsistencyCheck != null and dto.cellPhoneConsistencyCheck != ''">
+						and t1.CELL_PHONE_CONSISTENCY_CHECK = #{dto.cellPhoneConsistencyCheck}
+    			</if>
+    			<if test="dto.emailConsistencyCheck != null and dto.emailConsistencyCheck != ''">
+						and t1.EMAIL_CONSISTENCY_CHECK = #{dto.emailConsistencyCheck}
+    			</if>
+    			<if test="dto.homeAddrConsistencyCheck != null and dto.homeAddrConsistencyCheck != ''">
+						and t1.HOME_ADDR_CONSISTENCY_CHECK = #{dto.homeAddrConsistencyCheck}
+    			</if>
+    			<if test="dto.homePhoneConsistencyCheck != null and dto.homePhoneConsistencyCheck != ''">
+						and t1.HOME_PHONE_CONSISTENCY_CHECK = #{dto.homePhoneConsistencyCheck}
+    			</if>
+    			<if test="dto.empNameConsistencyCheck != null and dto.empNameConsistencyCheck != ''">
+						and t1.EMP_NAME_CONSISTENCY_CHECK = #{dto.empNameConsistencyCheck}
+    			</if>
+    			<if test="dto.empAddrConsistencyCheck != null and dto.empAddrConsistencyCheck != ''">
+						and t1.EMP_ADDR_CONSISTENCY_CHECK = #{dto.empAddrConsistencyCheck}
+    			</if>
+    			<if test="dto.empPhoneConsistencyCheck != null and dto.empPhoneConsistencyCheck != ''">
+						and t1.EMP_PHONE_CONSISTENCY_CHECK = #{dto.empPhoneConsistencyCheck}
+    			</if>
+    			<if test="dto.csPhoneConsistencyCheck != null and dto.csPhoneConsistencyCheck != ''">
+						and t1.CS_PHONE_CONSISTENCY_CHECK = #{dto.csPhoneConsistencyCheck}
+    			</if>
+    			<if test="dto.cellPhoneId != null and dto.cellPhoneId != ''">
+						and t1.CELL_PHONE_ID = #{dto.cellPhoneId}
+    			</if>
+    			<if test="dto.homeInfoId != null and dto.homeInfoId != ''">
+						and t1.HOME_INFO_ID = #{dto.homeInfoId}
+    			</if>
+    			<if test="dto.homePhoneId != null and dto.homePhoneId != ''">
+						and t1.HOME_PHONE_ID = #{dto.homePhoneId}
+    			</if>
+    			<if test="dto.homeAddrId != null and dto.homeAddrId != ''">
+						and t1.HOME_ADDR_ID = #{dto.homeAddrId}
+    			</if>
+    			<if test="dto.empInfoId != null and dto.empInfoId != ''">
+						and t1.EMP_INFO_ID = #{dto.empInfoId}
+    			</if>
+    			<if test="dto.empNameId != null and dto.empNameId != ''">
+						and t1.EMP_NAME_ID = #{dto.empNameId}
+    			</if>
+    			<if test="dto.empPhoneId != null and dto.empPhoneId != ''">
+						and t1.EMP_PHONE_ID = #{dto.empPhoneId}
+    			</if>
+    			<if test="dto.empAddrId != null and dto.empAddrId != ''">
+						and t1.EMP_ADDR_ID = #{dto.empAddrId}
+    			</if>
+    			<if test="dto.csPhoneId != null and dto.csPhoneId != ''">
+						and t1.CS_PHONE_ID = #{dto.csPhoneId}
+    			</if>
+    			<if test="dto.empNameAddr != null and dto.empNameAddr != ''">
+						and t1.EMP_NAME_ADDR = #{dto.empNameAddr}
+    			</if>
+    			<if test="dto.empNamePhone != null and dto.empNamePhone != ''">
+						and t1.EMP_NAME_PHONE = #{dto.empNamePhone}
+    			</if>
+    			<if test="dto.empPhoneName != null and dto.empPhoneName != ''">
+						and t1.EMP_PHONE_NAME = #{dto.empPhoneName}
+    			</if>
+    			<if test="dto.empPhoneAddr != null and dto.empPhoneAddr != ''">
+						and t1.EMP_PHONE_ADDR = #{dto.empPhoneAddr}
+    			</if>
+    			<if test="dto.empAddrName != null and dto.empAddrName != ''">
+						and t1.EMP_ADDR_NAME = #{dto.empAddrName}
+    			</if>
+    			<if test="dto.empAddrPhone != null and dto.empAddrPhone != ''">
+						and t1.EMP_ADDR_PHONE = #{dto.empAddrPhone}
+    			</if>
+    			<if test="dto.fkFrandReportId != null and dto.fkFrandReportId != ''">
+						and t1.FK_FRAND_REPORT_ID = #{dto.fkFrandReportId}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_SH_FRAND_DETAIL_STOCK -->
+<select id="findExtShFrandDetailStockByPrimaryKey" parameterType="java.util.Map" resultMap="ExtShFrandDetailStockDTO">
+   	 		select 
+					t1.id                             ,
+					t1.id_org_7                       ,
+					t1.id_org_onl_paydayloan_7        ,
+					t1.id_org_ofl_finlease_7          ,
+					t1.id_org_onl_cashloan_7          ,
+					t1.id_org_onl_consumeloan_7       ,
+					t1.id_org_onl_enterpriseloan_7    ,
+					t1.id_org_onl_cashloan_credit_7   ,
+					t1.id_org_onl_cashloan_house_7    ,
+					t1.id_org_onl_cashloan_car_7      ,
+					t1.id_org_onl_consumeloan_med_7   ,
+					t1.id_org_onl_consumeloan_3c_7    ,
+					t1.id_org_onl_consumeloan_edu_7   ,
+					t1.id_org_onl_consumeloan_car_7   ,
+					t1.id_org_onl_consumeloan_lux_7   ,
+					t1.id_org_ofl_cashloan_7          ,
+					t1.id_org_ofl_consumeloan_7       ,
+					t1.id_org_ofl_enterpriseloan_7    ,
+					t1.id_org_ofl_cashloan_credit_7   ,
+					t1.id_org_ofl_cashloan_house_7    ,
+					t1.id_org_ofl_cashloan_car_7      ,
+					t1.id_org_ofl_consumeloan_med_7   ,
+					t1.id_org_ofl_consumeloan_3c_7    ,
+					t1.id_org_ofl_consumeloan_edu_7   ,
+					t1.id_org_ofl_consumeloan_car_7   ,
+					t1.id_org_ofl_consumeloan_lux_7   ,
+					t1.id_org_30                      ,
+					t1.id_org_onl_paydayloan_30       ,
+					t1.id_org_ofl_finlease_30         ,
+					t1.id_org_onl_cashloan_30         ,
+					t1.id_org_onl_consumeloan_30      ,
+					t1.id_org_onl_enterpriseloan_30   ,
+					t1.id_org_onl_cashloan_credit_30  ,
+					t1.id_org_onl_cashloan_house_30   ,
+					t1.id_org_onl_cashloan_car_30     ,
+					t1.id_org_onl_consumeloan_med_30  ,
+					t1.id_org_onl_consumeloan_3c_30   ,
+					t1.id_org_onl_consumeloan_edu_30  ,
+					t1.id_org_onl_consumeloan_car_30  ,
+					t1.id_org_onl_consumeloan_lux_30  ,
+					t1.id_org_ofl_cashloan_30         ,
+					t1.id_org_ofl_consumeloan_30      ,
+					t1.id_org_ofl_enterpriseloan_30   ,
+					t1.id_org_ofl_cashloan_credit_30  ,
+					t1.id_org_ofl_cashloan_house_30   ,
+					t1.id_org_ofl_cashloan_car_30     ,
+					t1.id_org_ofl_consumeloan_med_30  ,
+					t1.id_org_ofl_consumeloan_3c_30   ,
+					t1.id_org_ofl_consumeloan_edu_30  ,
+					t1.id_org_ofl_consumeloan_car_30  ,
+					t1.id_org_ofl_consumeloan_lux_30  ,
+					t1.id_cell_phone                  ,
+					t1.id_cell_phone_city_detail      ,
+					t1.id_email                       ,
+					t1.id_home_addr                   ,
+					t1.id_home_addr_city_detail       ,
+					t1.id_home_phone                  ,
+					t1.id_home_phone_city_detail      ,
+					t1.id_emp_name                    ,
+					t1.id_emp_addr                    ,
+					t1.id_emp_addr_city_detail        ,
+					t1.id_emp_phone                   ,
+					t1.id_emp_phone_city_detail       ,
+					t1.id_contacts_cell_phone         ,
+					t1.id_cs_city_detail              ,
+					t1.id_org_creditcard_7            ,
+					t1.id_org_creditcard_30           ,
+					t1.info_change                    ,
+					t1.multi_info_change              ,
+					t1.multi_emp_info                 ,
+					t1.multi_home_info                ,
+					t1.id_citys                       ,
+					t1.cell_phone_consistency_check   ,
+					t1.email_consistency_check        ,
+					t1.home_addr_consistency_check    ,
+					t1.home_phone_consistency_check   ,
+					t1.emp_name_consistency_check     ,
+					t1.emp_addr_consistency_check     ,
+					t1.emp_phone_consistency_check    ,
+					t1.cs_phone_consistency_check     ,
+					t1.cell_phone_id                  ,
+					t1.home_info_id                   ,
+					t1.home_phone_id                  ,
+					t1.home_addr_id                   ,
+					t1.emp_info_id                    ,
+					t1.emp_name_id                    ,
+					t1.emp_phone_id                   ,
+					t1.emp_addr_id                    ,
+					t1.cs_phone_id                    ,
+					t1.emp_name_addr                  ,
+					t1.emp_name_phone                 ,
+					t1.emp_phone_name                 ,
+					t1.emp_phone_addr                 ,
+					t1.emp_addr_name                  ,
+					t1.emp_addr_phone                 ,
+					t1.fk_frand_report_id             ,
+					t1.create_time                    ,
+					t1.modify_time                    
+			from ext_sh_frand_detail_stock 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_SH_FRAND_DETAIL_STOCK -->
+<insert id="insertExtShFrandDetailStock" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_SH_FRAND_DETAIL_STOCK.nextval as id from dual
+	</selectKey>
+			insert into ext_sh_frand_detail_stock
+			(   		
+					id                             ,
+					id_org_7                       ,
+					id_org_onl_paydayloan_7        ,
+					id_org_ofl_finlease_7          ,
+					id_org_onl_cashloan_7          ,
+					id_org_onl_consumeloan_7       ,
+					id_org_onl_enterpriseloan_7    ,
+					id_org_onl_cashloan_credit_7   ,
+					id_org_onl_cashloan_house_7    ,
+					id_org_onl_cashloan_car_7      ,
+					id_org_onl_consumeloan_med_7   ,
+					id_org_onl_consumeloan_3c_7    ,
+					id_org_onl_consumeloan_edu_7   ,
+					id_org_onl_consumeloan_car_7   ,
+					id_org_onl_consumeloan_lux_7   ,
+					id_org_ofl_cashloan_7          ,
+					id_org_ofl_consumeloan_7       ,
+					id_org_ofl_enterpriseloan_7    ,
+					id_org_ofl_cashloan_credit_7   ,
+					id_org_ofl_cashloan_house_7    ,
+					id_org_ofl_cashloan_car_7      ,
+					id_org_ofl_consumeloan_med_7   ,
+					id_org_ofl_consumeloan_3c_7    ,
+					id_org_ofl_consumeloan_edu_7   ,
+					id_org_ofl_consumeloan_car_7   ,
+					id_org_ofl_consumeloan_lux_7   ,
+					id_org_30                      ,
+					id_org_onl_paydayloan_30       ,
+					id_org_ofl_finlease_30         ,
+					id_org_onl_cashloan_30         ,
+					id_org_onl_consumeloan_30      ,
+					id_org_onl_enterpriseloan_30   ,
+					id_org_onl_cashloan_credit_30  ,
+					id_org_onl_cashloan_house_30   ,
+					id_org_onl_cashloan_car_30     ,
+					id_org_onl_consumeloan_med_30  ,
+					id_org_onl_consumeloan_3c_30   ,
+					id_org_onl_consumeloan_edu_30  ,
+					id_org_onl_consumeloan_car_30  ,
+					id_org_onl_consumeloan_lux_30  ,
+					id_org_ofl_cashloan_30         ,
+					id_org_ofl_consumeloan_30      ,
+					id_org_ofl_enterpriseloan_30   ,
+					id_org_ofl_cashloan_credit_30  ,
+					id_org_ofl_cashloan_house_30   ,
+					id_org_ofl_cashloan_car_30     ,
+					id_org_ofl_consumeloan_med_30  ,
+					id_org_ofl_consumeloan_3c_30   ,
+					id_org_ofl_consumeloan_edu_30  ,
+					id_org_ofl_consumeloan_car_30  ,
+					id_org_ofl_consumeloan_lux_30  ,
+					id_cell_phone                  ,
+					id_cell_phone_city_detail      ,
+					id_email                       ,
+					id_home_addr                   ,
+					id_home_addr_city_detail       ,
+					id_home_phone                  ,
+					id_home_phone_city_detail      ,
+					id_emp_name                    ,
+					id_emp_addr                    ,
+					id_emp_addr_city_detail        ,
+					id_emp_phone                   ,
+					id_emp_phone_city_detail       ,
+					id_contacts_cell_phone         ,
+					id_cs_city_detail              ,
+					id_org_creditcard_7            ,
+					id_org_creditcard_30           ,
+					info_change                    ,
+					multi_info_change              ,
+					multi_emp_info                 ,
+					multi_home_info                ,
+					id_citys                       ,
+					cell_phone_consistency_check   ,
+					email_consistency_check        ,
+					home_addr_consistency_check    ,
+					home_phone_consistency_check   ,
+					emp_name_consistency_check     ,
+					emp_addr_consistency_check     ,
+					emp_phone_consistency_check    ,
+					cs_phone_consistency_check     ,
+					cell_phone_id                  ,
+					home_info_id                   ,
+					home_phone_id                  ,
+					home_addr_id                   ,
+					emp_info_id                    ,
+					emp_name_id                    ,
+					emp_phone_id                   ,
+					emp_addr_id                    ,
+					cs_phone_id                    ,
+					emp_name_addr                  ,
+					emp_name_phone                 ,
+					emp_phone_name                 ,
+					emp_phone_addr                 ,
+					emp_addr_name                  ,
+					emp_addr_phone                 ,
+					fk_frand_report_id             ,
+					create_time                                    
+			)
+			values(#{dto.id}
+					,#{dto.idOrg7,jdbcType=VARCHAR}
+					,#{dto.idOrgOnlPaydayloan7,jdbcType=VARCHAR}
+					,#{dto.idOrgOflFinlease7,jdbcType=VARCHAR}
+					,#{dto.idOrgOnlCashloan7,jdbcType=VARCHAR}
+					,#{dto.idOrgOnlConsumeloan7,jdbcType=VARCHAR}
+					,#{dto.idOrgOnlEnterpriseloan7,jdbcType=VARCHAR}
+					,#{dto.idOrgOnlCashloanCredit7,jdbcType=VARCHAR}
+					,#{dto.idOrgOnlCashloanHouse7,jdbcType=VARCHAR}
+					,#{dto.idOrgOnlCashloanCar7,jdbcType=VARCHAR}
+					,#{dto.idOrgOnlConsumeloanMed7,jdbcType=VARCHAR}
+					,#{dto.idOrgOnlConsumeloan3c7,jdbcType=VARCHAR}
+					,#{dto.idOrgOnlConsumeloanEdu7,jdbcType=VARCHAR}
+					,#{dto.idOrgOnlConsumeloanCar7,jdbcType=VARCHAR}
+					,#{dto.idOrgOnlConsumeloanLux7,jdbcType=VARCHAR}
+					,#{dto.idOrgOflCashloan7,jdbcType=VARCHAR}
+					,#{dto.idOrgOflConsumeloan7,jdbcType=VARCHAR}
+					,#{dto.idOrgOflEnterpriseloan7,jdbcType=VARCHAR}
+					,#{dto.idOrgOflCashloanCredit7,jdbcType=VARCHAR}
+					,#{dto.idOrgOflCashloanHouse7,jdbcType=VARCHAR}
+					,#{dto.idOrgOflCashloanCar7,jdbcType=VARCHAR}
+					,#{dto.idOrgOflConsumeloanMed7,jdbcType=VARCHAR}
+					,#{dto.idOrgOflConsumeloan3c7,jdbcType=VARCHAR}
+					,#{dto.idOrgOflConsumeloanEdu7,jdbcType=VARCHAR}
+					,#{dto.idOrgOflConsumeloanCar7,jdbcType=VARCHAR}
+					,#{dto.idOrgOflConsumeloanLux7,jdbcType=VARCHAR}
+					,#{dto.idOrg30,jdbcType=VARCHAR}
+					,#{dto.idOrgOnlPaydayloan30,jdbcType=VARCHAR}
+					,#{dto.idOrgOflFinlease30,jdbcType=VARCHAR}
+					,#{dto.idOrgOnlCashloan30,jdbcType=VARCHAR}
+					,#{dto.idOrgOnlConsumeloan30,jdbcType=VARCHAR}
+					,#{dto.idOrgOnlEnterpriseloan30,jdbcType=VARCHAR}
+					,#{dto.idOrgOnlCashloanCredit30,jdbcType=VARCHAR}
+					,#{dto.idOrgOnlCashloanHouse30,jdbcType=VARCHAR}
+					,#{dto.idOrgOnlCashloanCar30,jdbcType=VARCHAR}
+					,#{dto.idOrgOnlConsumeloanMed30,jdbcType=VARCHAR}
+					,#{dto.idOrgOnlConsumeloan3c30,jdbcType=VARCHAR}
+					,#{dto.idOrgOnlConsumeloanEdu30,jdbcType=VARCHAR}
+					,#{dto.idOrgOnlConsumeloanCar30,jdbcType=VARCHAR}
+					,#{dto.idOrgOnlConsumeloanLux30,jdbcType=VARCHAR}
+					,#{dto.idOrgOflCashloan30,jdbcType=VARCHAR}
+					,#{dto.idOrgOflConsumeloan30,jdbcType=VARCHAR}
+					,#{dto.idOrgOflEnterpriseloan30,jdbcType=VARCHAR}
+					,#{dto.idOrgOflCashloanCredit30,jdbcType=VARCHAR}
+					,#{dto.idOrgOflCashloanHouse30,jdbcType=VARCHAR}
+					,#{dto.idOrgOflCashloanCar30,jdbcType=VARCHAR}
+					,#{dto.idOrgOflConsumeloanMed30,jdbcType=VARCHAR}
+					,#{dto.idOrgOflConsumeloan3c30,jdbcType=VARCHAR}
+					,#{dto.idOrgOflConsumeloanEdu30,jdbcType=VARCHAR}
+					,#{dto.idOrgOflConsumeloanCar30,jdbcType=VARCHAR}
+					,#{dto.idOrgOflConsumeloanLux30,jdbcType=VARCHAR}
+					,#{dto.idCellPhone,jdbcType=VARCHAR}
+					,#{dto.idCellPhoneCityDetail,jdbcType=VARCHAR}
+					,#{dto.idEmail,jdbcType=VARCHAR}
+					,#{dto.idHomeAddr,jdbcType=VARCHAR}
+					,#{dto.idHomeAddrCityDetail,jdbcType=VARCHAR}
+					,#{dto.idHomePhone,jdbcType=VARCHAR}
+					,#{dto.idHomePhoneCityDetail,jdbcType=VARCHAR}
+					,#{dto.idEmpName,jdbcType=VARCHAR}
+					,#{dto.idEmpAddr,jdbcType=VARCHAR}
+					,#{dto.idEmpAddrCityDetail,jdbcType=VARCHAR}
+					,#{dto.idEmpPhone,jdbcType=VARCHAR}
+					,#{dto.idEmpPhoneCityDetail,jdbcType=VARCHAR}
+					,#{dto.idContactsCellPhone,jdbcType=VARCHAR}
+					,#{dto.idCsCityDetail,jdbcType=VARCHAR}
+					,#{dto.idOrgCreditcard7,jdbcType=VARCHAR}
+					,#{dto.idOrgCreditcard30,jdbcType=VARCHAR}
+					,#{dto.infoChange,jdbcType=VARCHAR}
+					,#{dto.multiInfoChange,jdbcType=VARCHAR}
+					,#{dto.multiEmpInfo,jdbcType=VARCHAR}
+					,#{dto.multiHomeInfo,jdbcType=VARCHAR}
+					,#{dto.idCitys,jdbcType=VARCHAR}
+					,#{dto.cellPhoneConsistencyCheck,jdbcType=VARCHAR}
+					,#{dto.emailConsistencyCheck,jdbcType=VARCHAR}
+					,#{dto.homeAddrConsistencyCheck,jdbcType=VARCHAR}
+					,#{dto.homePhoneConsistencyCheck,jdbcType=VARCHAR}
+					,#{dto.empNameConsistencyCheck,jdbcType=VARCHAR}
+					,#{dto.empAddrConsistencyCheck,jdbcType=VARCHAR}
+					,#{dto.empPhoneConsistencyCheck,jdbcType=VARCHAR}
+					,#{dto.csPhoneConsistencyCheck,jdbcType=VARCHAR}
+					,#{dto.cellPhoneId,jdbcType=VARCHAR}
+					,#{dto.homeInfoId,jdbcType=VARCHAR}
+					,#{dto.homePhoneId,jdbcType=VARCHAR}
+					,#{dto.homeAddrId,jdbcType=VARCHAR}
+					,#{dto.empInfoId,jdbcType=VARCHAR}
+					,#{dto.empNameId,jdbcType=VARCHAR}
+					,#{dto.empPhoneId,jdbcType=VARCHAR}
+					,#{dto.empAddrId,jdbcType=VARCHAR}
+					,#{dto.csPhoneId,jdbcType=VARCHAR}
+					,#{dto.empNameAddr,jdbcType=VARCHAR}
+					,#{dto.empNamePhone,jdbcType=VARCHAR}
+					,#{dto.empPhoneName,jdbcType=VARCHAR}
+					,#{dto.empPhoneAddr,jdbcType=VARCHAR}
+					,#{dto.empAddrName,jdbcType=VARCHAR}
+					,#{dto.empAddrPhone,jdbcType=VARCHAR}
+					,#{dto.fkFrandReportId,jdbcType=DECIMAL}
+					,systimestamp
+			)
+</insert>
+    
+<!-- 更新对象 EXT_SH_FRAND_DETAIL_STOCK -->
+<update id="updateExtShFrandDetailStock" parameterType="java.util.Map">
+	     update ext_sh_frand_detail_stock t1
+	           set 
+			           t1.id_org_7                       =#{dto.idOrg7,jdbcType=VARCHAR},
+			           t1.id_org_onl_paydayloan_7        =#{dto.idOrgOnlPaydayloan7,jdbcType=VARCHAR},
+			           t1.id_org_ofl_finlease_7          =#{dto.idOrgOflFinlease7,jdbcType=VARCHAR},
+			           t1.id_org_onl_cashloan_7          =#{dto.idOrgOnlCashloan7,jdbcType=VARCHAR},
+			           t1.id_org_onl_consumeloan_7       =#{dto.idOrgOnlConsumeloan7,jdbcType=VARCHAR},
+			           t1.id_org_onl_enterpriseloan_7    =#{dto.idOrgOnlEnterpriseloan7,jdbcType=VARCHAR},
+			           t1.id_org_onl_cashloan_credit_7   =#{dto.idOrgOnlCashloanCredit7,jdbcType=VARCHAR},
+			           t1.id_org_onl_cashloan_house_7    =#{dto.idOrgOnlCashloanHouse7,jdbcType=VARCHAR},
+			           t1.id_org_onl_cashloan_car_7      =#{dto.idOrgOnlCashloanCar7,jdbcType=VARCHAR},
+			           t1.id_org_onl_consumeloan_med_7   =#{dto.idOrgOnlConsumeloanMed7,jdbcType=VARCHAR},
+			           t1.id_org_onl_consumeloan_3c_7    =#{dto.idOrgOnlConsumeloan3c7,jdbcType=VARCHAR},
+			           t1.id_org_onl_consumeloan_edu_7   =#{dto.idOrgOnlConsumeloanEdu7,jdbcType=VARCHAR},
+			           t1.id_org_onl_consumeloan_car_7   =#{dto.idOrgOnlConsumeloanCar7,jdbcType=VARCHAR},
+			           t1.id_org_onl_consumeloan_lux_7   =#{dto.idOrgOnlConsumeloanLux7,jdbcType=VARCHAR},
+			           t1.id_org_ofl_cashloan_7          =#{dto.idOrgOflCashloan7,jdbcType=VARCHAR},
+			           t1.id_org_ofl_consumeloan_7       =#{dto.idOrgOflConsumeloan7,jdbcType=VARCHAR},
+			           t1.id_org_ofl_enterpriseloan_7    =#{dto.idOrgOflEnterpriseloan7,jdbcType=VARCHAR},
+			           t1.id_org_ofl_cashloan_credit_7   =#{dto.idOrgOflCashloanCredit7,jdbcType=VARCHAR},
+			           t1.id_org_ofl_cashloan_house_7    =#{dto.idOrgOflCashloanHouse7,jdbcType=VARCHAR},
+			           t1.id_org_ofl_cashloan_car_7      =#{dto.idOrgOflCashloanCar7,jdbcType=VARCHAR},
+			           t1.id_org_ofl_consumeloan_med_7   =#{dto.idOrgOflConsumeloanMed7,jdbcType=VARCHAR},
+			           t1.id_org_ofl_consumeloan_3c_7    =#{dto.idOrgOflConsumeloan3c7,jdbcType=VARCHAR},
+			           t1.id_org_ofl_consumeloan_edu_7   =#{dto.idOrgOflConsumeloanEdu7,jdbcType=VARCHAR},
+			           t1.id_org_ofl_consumeloan_car_7   =#{dto.idOrgOflConsumeloanCar7,jdbcType=VARCHAR},
+			           t1.id_org_ofl_consumeloan_lux_7   =#{dto.idOrgOflConsumeloanLux7,jdbcType=VARCHAR},
+			           t1.id_org_30                      =#{dto.idOrg30,jdbcType=VARCHAR},
+			           t1.id_org_onl_paydayloan_30       =#{dto.idOrgOnlPaydayloan30,jdbcType=VARCHAR},
+			           t1.id_org_ofl_finlease_30         =#{dto.idOrgOflFinlease30,jdbcType=VARCHAR},
+			           t1.id_org_onl_cashloan_30         =#{dto.idOrgOnlCashloan30,jdbcType=VARCHAR},
+			           t1.id_org_onl_consumeloan_30      =#{dto.idOrgOnlConsumeloan30,jdbcType=VARCHAR},
+			           t1.id_org_onl_enterpriseloan_30   =#{dto.idOrgOnlEnterpriseloan30,jdbcType=VARCHAR},
+			           t1.id_org_onl_cashloan_credit_30  =#{dto.idOrgOnlCashloanCredit30,jdbcType=VARCHAR},
+			           t1.id_org_onl_cashloan_house_30   =#{dto.idOrgOnlCashloanHouse30,jdbcType=VARCHAR},
+			           t1.id_org_onl_cashloan_car_30     =#{dto.idOrgOnlCashloanCar30,jdbcType=VARCHAR},
+			           t1.id_org_onl_consumeloan_med_30  =#{dto.idOrgOnlConsumeloanMed30,jdbcType=VARCHAR},
+			           t1.id_org_onl_consumeloan_3c_30   =#{dto.idOrgOnlConsumeloan3c30,jdbcType=VARCHAR},
+			           t1.id_org_onl_consumeloan_edu_30  =#{dto.idOrgOnlConsumeloanEdu30,jdbcType=VARCHAR},
+			           t1.id_org_onl_consumeloan_car_30  =#{dto.idOrgOnlConsumeloanCar30,jdbcType=VARCHAR},
+			           t1.id_org_onl_consumeloan_lux_30  =#{dto.idOrgOnlConsumeloanLux30,jdbcType=VARCHAR},
+			           t1.id_org_ofl_cashloan_30         =#{dto.idOrgOflCashloan30,jdbcType=VARCHAR},
+			           t1.id_org_ofl_consumeloan_30      =#{dto.idOrgOflConsumeloan30,jdbcType=VARCHAR},
+			           t1.id_org_ofl_enterpriseloan_30   =#{dto.idOrgOflEnterpriseloan30,jdbcType=VARCHAR},
+			           t1.id_org_ofl_cashloan_credit_30  =#{dto.idOrgOflCashloanCredit30,jdbcType=VARCHAR},
+			           t1.id_org_ofl_cashloan_house_30   =#{dto.idOrgOflCashloanHouse30,jdbcType=VARCHAR},
+			           t1.id_org_ofl_cashloan_car_30     =#{dto.idOrgOflCashloanCar30,jdbcType=VARCHAR},
+			           t1.id_org_ofl_consumeloan_med_30  =#{dto.idOrgOflConsumeloanMed30,jdbcType=VARCHAR},
+			           t1.id_org_ofl_consumeloan_3c_30   =#{dto.idOrgOflConsumeloan3c30,jdbcType=VARCHAR},
+			           t1.id_org_ofl_consumeloan_edu_30  =#{dto.idOrgOflConsumeloanEdu30,jdbcType=VARCHAR},
+			           t1.id_org_ofl_consumeloan_car_30  =#{dto.idOrgOflConsumeloanCar30,jdbcType=VARCHAR},
+			           t1.id_org_ofl_consumeloan_lux_30  =#{dto.idOrgOflConsumeloanLux30,jdbcType=VARCHAR},
+			           t1.id_cell_phone                  =#{dto.idCellPhone,jdbcType=VARCHAR},
+			           t1.id_cell_phone_city_detail      =#{dto.idCellPhoneCityDetail,jdbcType=VARCHAR},
+			           t1.id_email                       =#{dto.idEmail,jdbcType=VARCHAR},
+			           t1.id_home_addr                   =#{dto.idHomeAddr,jdbcType=VARCHAR},
+			           t1.id_home_addr_city_detail       =#{dto.idHomeAddrCityDetail,jdbcType=VARCHAR},
+			           t1.id_home_phone                  =#{dto.idHomePhone,jdbcType=VARCHAR},
+			           t1.id_home_phone_city_detail      =#{dto.idHomePhoneCityDetail,jdbcType=VARCHAR},
+			           t1.id_emp_name                    =#{dto.idEmpName,jdbcType=VARCHAR},
+			           t1.id_emp_addr                    =#{dto.idEmpAddr,jdbcType=VARCHAR},
+			           t1.id_emp_addr_city_detail        =#{dto.idEmpAddrCityDetail,jdbcType=VARCHAR},
+			           t1.id_emp_phone                   =#{dto.idEmpPhone,jdbcType=VARCHAR},
+			           t1.id_emp_phone_city_detail       =#{dto.idEmpPhoneCityDetail,jdbcType=VARCHAR},
+			           t1.id_contacts_cell_phone         =#{dto.idContactsCellPhone,jdbcType=VARCHAR},
+			           t1.id_cs_city_detail              =#{dto.idCsCityDetail,jdbcType=VARCHAR},
+			           t1.id_org_creditcard_7            =#{dto.idOrgCreditcard7,jdbcType=VARCHAR},
+			           t1.id_org_creditcard_30           =#{dto.idOrgCreditcard30,jdbcType=VARCHAR},
+			           t1.info_change                    =#{dto.infoChange,jdbcType=VARCHAR},
+			           t1.multi_info_change              =#{dto.multiInfoChange,jdbcType=VARCHAR},
+			           t1.multi_emp_info                 =#{dto.multiEmpInfo,jdbcType=VARCHAR},
+			           t1.multi_home_info                =#{dto.multiHomeInfo,jdbcType=VARCHAR},
+			           t1.id_citys                       =#{dto.idCitys,jdbcType=VARCHAR},
+			           t1.cell_phone_consistency_check   =#{dto.cellPhoneConsistencyCheck,jdbcType=VARCHAR},
+			           t1.email_consistency_check        =#{dto.emailConsistencyCheck,jdbcType=VARCHAR},
+			           t1.home_addr_consistency_check    =#{dto.homeAddrConsistencyCheck,jdbcType=VARCHAR},
+			           t1.home_phone_consistency_check   =#{dto.homePhoneConsistencyCheck,jdbcType=VARCHAR},
+			           t1.emp_name_consistency_check     =#{dto.empNameConsistencyCheck,jdbcType=VARCHAR},
+			           t1.emp_addr_consistency_check     =#{dto.empAddrConsistencyCheck,jdbcType=VARCHAR},
+			           t1.emp_phone_consistency_check    =#{dto.empPhoneConsistencyCheck,jdbcType=VARCHAR},
+			           t1.cs_phone_consistency_check     =#{dto.csPhoneConsistencyCheck,jdbcType=VARCHAR},
+			           t1.cell_phone_id                  =#{dto.cellPhoneId,jdbcType=VARCHAR},
+			           t1.home_info_id                   =#{dto.homeInfoId,jdbcType=VARCHAR},
+			           t1.home_phone_id                  =#{dto.homePhoneId,jdbcType=VARCHAR},
+			           t1.home_addr_id                   =#{dto.homeAddrId,jdbcType=VARCHAR},
+			           t1.emp_info_id                    =#{dto.empInfoId,jdbcType=VARCHAR},
+			           t1.emp_name_id                    =#{dto.empNameId,jdbcType=VARCHAR},
+			           t1.emp_phone_id                   =#{dto.empPhoneId,jdbcType=VARCHAR},
+			           t1.emp_addr_id                    =#{dto.empAddrId,jdbcType=VARCHAR},
+			           t1.cs_phone_id                    =#{dto.csPhoneId,jdbcType=VARCHAR},
+			           t1.emp_name_addr                  =#{dto.empNameAddr,jdbcType=VARCHAR},
+			           t1.emp_name_phone                 =#{dto.empNamePhone,jdbcType=VARCHAR},
+			           t1.emp_phone_name                 =#{dto.empPhoneName,jdbcType=VARCHAR},
+			           t1.emp_phone_addr                 =#{dto.empPhoneAddr,jdbcType=VARCHAR},
+			           t1.emp_addr_name                  =#{dto.empAddrName,jdbcType=VARCHAR},
+			           t1.emp_addr_phone                 =#{dto.empAddrPhone,jdbcType=VARCHAR},
+			           t1.fk_frand_report_id             =#{dto.fkFrandReportId,jdbcType=DECIMAL},
+			           t1.modify_time                    = systimestamp
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_SH_FRAND_DETAIL_STOCK -->
+<delete id="deleteExtShFrandDetailStockByID" parameterType="java.util.Map">
+    	delete from ext_sh_frand_detail_stock t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_SH_FRAND_DETAIL_STOCK -->
+<update id="deleteExtShFrandDetailStockByPrimaryKey" parameterType="java.util.Map">
+	     update ext_sh_frand_detail_stock t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

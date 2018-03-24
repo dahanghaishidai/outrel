@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.sjt.extsjttrafficviostock.dao.ExtSjtTrafficVioStockDao">
+<resultMap id="ExtSjtTrafficVioStockDTO" type="com.jy.modules.externalplatform.interfacerepository.sjt.extsjttrafficviostock.dto.ExtSjtTrafficVioStockDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="time" column="TIME" jdbcType="VARCHAR" />
+				<result property="location" column="LOCATION" jdbcType="VARCHAR" />
+				<result property="reason" column="REASON" jdbcType="VARCHAR" />
+				<result property="count" column="COUNT" jdbcType="VARCHAR" />
+				<result property="status" column="STATUS" jdbcType="VARCHAR" />
+				<result property="department" column="DEPARTMENT" jdbcType="VARCHAR" />
+				<result property="degree" column="DEGREE" jdbcType="VARCHAR" />
+				<result property="code" column="CODE" jdbcType="VARCHAR" />
+				<result property="archive" column="ARCHIVE" jdbcType="VARCHAR" />
+				<result property="telephone" column="TELEPHONE" jdbcType="VARCHAR" />
+				<result property="executeLocation" column="EXECUTE_LOCATION" jdbcType="VARCHAR" />
+				<result property="executeDepartment" column="EXECUTE_DEPARTMENT" jdbcType="VARCHAR" />
+				<result property="category" column="CATEGORY" jdbcType="VARCHAR" />
+				<result property="latefine" column="LATEFINE" jdbcType="VARCHAR" />
+				<result property="punishmentAccordin" column="PUNISHMENT_ACCORDIN" jdbcType="VARCHAR" />
+				<result property="illegalEntry" column="ILLEGAL_ENTRY" jdbcType="VARCHAR" />
+				<result property="locationId" column="LOCATION_ID" jdbcType="VARCHAR" />
+				<result property="locationName" column="LOCATION_NAME" jdbcType="VARCHAR" />
+				<result property="dataSourceId" column="DATA_SOURCE_ID" jdbcType="VARCHAR" />
+				<result property="recordType" column="RECORD_TYPE" jdbcType="VARCHAR" />
+				<result property="poundage" column="POUNDAGE" jdbcType="VARCHAR" />
+				<result property="canProcess" column="CAN_PROCESS" jdbcType="VARCHAR" />
+				<result property="secondaryUniqueCode" column="SECONDARY_UNIQUE_CODE" jdbcType="VARCHAR" />
+				<result property="uniqueCode" column="UNIQUE_CODE" jdbcType="VARCHAR" />
+				<result property="degreePoundage" column="DEGREE_POUNDAGE" jdbcType="VARCHAR" />
+				<result property="canProcessMsg" column="CAN_PROCESS_MSG" jdbcType="VARCHAR" />
+				<result property="other" column="OTHER" jdbcType="VARCHAR" />
+				<result property="transNo" column="TRANS_NO" jdbcType="VARCHAR" />
+				<result property="validateState" column="VALIDATE_STATE" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="VARCHAR" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyBy" column="MODIFY_BY" jdbcType="VARCHAR" />
+				<result property="prodCode" column="PROD_CODE" jdbcType="VARCHAR" />
+				<result property="orgCode" column="ORG_CODE" jdbcType="VARCHAR" />
+				<result property="sysCode" column="SYS_CODE" jdbcType="VARCHAR" />
+				<result property="retcode" column="RETCODE" jdbcType="VARCHAR" />
+				<result property="errormsg" column="ERRORMSG" jdbcType="VARCHAR" />
+				<result property="interfaceId" column="INTERFACE_ID" jdbcType="VARCHAR" />
+				<result property="remark" column="REMARK" jdbcType="VARCHAR" />
+</resultMap>
+				
+<!-- 分页查询 EXT_SJT_TRAFFIC_VIO_STOCK -->	
+<select id="searchExtSjtTrafficVioStockByPaging" parameterType="java.util.Map" resultMap="ExtSjtTrafficVioStockDTO">
+    	 		select 
+						t1.id                             ,
+						t1.time                           ,
+						t1.location                       ,
+						t1.reason                         ,
+						t1.count                          ,
+						t1.status                         ,
+						t1.department                     ,
+						t1.degree                         ,
+						t1.code                           ,
+						t1.archive                        ,
+						t1.telephone                      ,
+						t1.execute_location               ,
+						t1.execute_department             ,
+						t1.category                       ,
+						t1.latefine                       ,
+						t1.punishment_accordin            ,
+						t1.illegal_entry                  ,
+						t1.location_id                    ,
+						t1.location_name                  ,
+						t1.data_source_id                 ,
+						t1.record_type                    ,
+						t1.poundage                       ,
+						t1.can_process                    ,
+						t1.secondary_unique_code          ,
+						t1.unique_code                    ,
+						t1.degree_poundage                ,
+						t1.can_process_msg                ,
+						t1.other                          ,
+						t1.trans_no                       ,
+						t1.validate_state                 ,
+						t1.create_time                    ,
+						t1.create_by                      ,
+						t1.modify_time                    ,
+						t1.modify_by                      ,
+						t1.prod_code                      ,
+						t1.org_code                       ,
+						t1.sys_code                       ,
+						t1.retcode                        ,
+						t1.errormsg                       ,
+						t1.interface_id                   ,
+						t1.remark                         
+					
+				from ext_sjt_traffic_vio_stock 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.time != null and dto.time != ''">
+						and t1.TIME =#{dto.time}
+    			</if>
+    			<if test="dto.location != null and dto.location != ''">
+						and t1.LOCATION =#{dto.location}
+    			</if>
+    			<if test="dto.reason != null and dto.reason != ''">
+						and t1.REASON =#{dto.reason}
+    			</if>
+    			<if test="dto.count != null and dto.count != ''">
+						and t1.COUNT =#{dto.count}
+    			</if>
+    			<if test="dto.status != null and dto.status != ''">
+						and t1.STATUS =#{dto.status}
+    			</if>
+    			<if test="dto.department != null and dto.department != ''">
+						and t1.DEPARTMENT =#{dto.department}
+    			</if>
+    			<if test="dto.degree != null and dto.degree != ''">
+						and t1.DEGREE =#{dto.degree}
+    			</if>
+    			<if test="dto.code != null and dto.code != ''">
+						and t1.CODE =#{dto.code}
+    			</if>
+    			<if test="dto.archive != null and dto.archive != ''">
+						and t1.ARCHIVE =#{dto.archive}
+    			</if>
+    			<if test="dto.telephone != null and dto.telephone != ''">
+						and t1.TELEPHONE =#{dto.telephone}
+    			</if>
+    			<if test="dto.executeLocation != null and dto.executeLocation != ''">
+						and t1.EXECUTE_LOCATION =#{dto.executeLocation}
+    			</if>
+    			<if test="dto.executeDepartment != null and dto.executeDepartment != ''">
+						and t1.EXECUTE_DEPARTMENT =#{dto.executeDepartment}
+    			</if>
+    			<if test="dto.category != null and dto.category != ''">
+						and t1.CATEGORY =#{dto.category}
+    			</if>
+    			<if test="dto.latefine != null and dto.latefine != ''">
+						and t1.LATEFINE =#{dto.latefine}
+    			</if>
+    			<if test="dto.punishmentAccordin != null and dto.punishmentAccordin != ''">
+						and t1.PUNISHMENT_ACCORDIN =#{dto.punishmentAccordin}
+    			</if>
+    			<if test="dto.illegalEntry != null and dto.illegalEntry != ''">
+						and t1.ILLEGAL_ENTRY =#{dto.illegalEntry}
+    			</if>
+    			<if test="dto.locationId != null and dto.locationId != ''">
+						and t1.LOCATION_ID =#{dto.locationId}
+    			</if>
+    			<if test="dto.locationName != null and dto.locationName != ''">
+						and t1.LOCATION_NAME =#{dto.locationName}
+    			</if>
+    			<if test="dto.dataSourceId != null and dto.dataSourceId != ''">
+						and t1.DATA_SOURCE_ID =#{dto.dataSourceId}
+    			</if>
+    			<if test="dto.recordType != null and dto.recordType != ''">
+						and t1.RECORD_TYPE =#{dto.recordType}
+    			</if>
+    			<if test="dto.poundage != null and dto.poundage != ''">
+						and t1.POUNDAGE =#{dto.poundage}
+    			</if>
+    			<if test="dto.canProcess != null and dto.canProcess != ''">
+						and t1.CAN_PROCESS =#{dto.canProcess}
+    			</if>
+    			<if test="dto.secondaryUniqueCode != null and dto.secondaryUniqueCode != ''">
+						and t1.SECONDARY_UNIQUE_CODE =#{dto.secondaryUniqueCode}
+    			</if>
+    			<if test="dto.uniqueCode != null and dto.uniqueCode != ''">
+						and t1.UNIQUE_CODE =#{dto.uniqueCode}
+    			</if>
+    			<if test="dto.degreePoundage != null and dto.degreePoundage != ''">
+						and t1.DEGREE_POUNDAGE =#{dto.degreePoundage}
+    			</if>
+    			<if test="dto.canProcessMsg != null and dto.canProcessMsg != ''">
+						and t1.CAN_PROCESS_MSG =#{dto.canProcessMsg}
+    			</if>
+    			<if test="dto.other != null and dto.other != ''">
+						and t1.OTHER =#{dto.other}
+    			</if>
+    			<if test="dto.transNo != null and dto.transNo != ''">
+						and t1.TRANS_NO =#{dto.transNo}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE =#{dto.validateState}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY =#{dto.modifyBy}
+    			</if>
+    			<if test="dto.prodCode != null and dto.prodCode != ''">
+						and t1.PROD_CODE =#{dto.prodCode}
+    			</if>
+    			<if test="dto.orgCode != null and dto.orgCode != ''">
+						and t1.ORG_CODE =#{dto.orgCode}
+    			</if>
+    			<if test="dto.sysCode != null and dto.sysCode != ''">
+						and t1.SYS_CODE =#{dto.sysCode}
+    			</if>
+    			<if test="dto.retcode != null and dto.retcode != ''">
+						and t1.RETCODE =#{dto.retcode}
+    			</if>
+    			<if test="dto.errormsg != null and dto.errormsg != ''">
+						and t1.ERRORMSG =#{dto.errormsg}
+    			</if>
+    			<if test="dto.interfaceId != null and dto.interfaceId != ''">
+						and t1.INTERFACE_ID =#{dto.interfaceId}
+    			</if>
+    			<if test="dto.remark != null and dto.remark != ''">
+						and t1.REMARK =#{dto.remark}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_SJT_TRAFFIC_VIO_STOCK  -->
+<select id="searchExtSjtTrafficVioStock" parameterType="java.util.Map" resultMap="ExtSjtTrafficVioStockDTO">
+    	     select 
+						t1.id                             ,
+						t1.time                           ,
+						t1.location                       ,
+						t1.reason                         ,
+						t1.count                          ,
+						t1.status                         ,
+						t1.department                     ,
+						t1.degree                         ,
+						t1.code                           ,
+						t1.archive                        ,
+						t1.telephone                      ,
+						t1.execute_location               ,
+						t1.execute_department             ,
+						t1.category                       ,
+						t1.latefine                       ,
+						t1.punishment_accordin            ,
+						t1.illegal_entry                  ,
+						t1.location_id                    ,
+						t1.location_name                  ,
+						t1.data_source_id                 ,
+						t1.record_type                    ,
+						t1.poundage                       ,
+						t1.can_process                    ,
+						t1.secondary_unique_code          ,
+						t1.unique_code                    ,
+						t1.degree_poundage                ,
+						t1.can_process_msg                ,
+						t1.other                          ,
+						t1.trans_no                       ,
+						t1.validate_state                 ,
+						t1.create_time                    ,
+						t1.create_by                      ,
+						t1.modify_time                    ,
+						t1.modify_by                      ,
+						t1.prod_code                      ,
+						t1.org_code                       ,
+						t1.sys_code                       ,
+						t1.retcode                        ,
+						t1.errormsg                       ,
+						t1.interface_id                   ,
+						t1.remark                         
+				from ext_sjt_traffic_vio_stock 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.time != null and dto.time != ''">
+						and t1.TIME = #{dto.time}
+    			</if>
+    			<if test="dto.location != null and dto.location != ''">
+						and t1.LOCATION = #{dto.location}
+    			</if>
+    			<if test="dto.reason != null and dto.reason != ''">
+						and t1.REASON = #{dto.reason}
+    			</if>
+    			<if test="dto.count != null and dto.count != ''">
+						and t1.COUNT = #{dto.count}
+    			</if>
+    			<if test="dto.status != null and dto.status != ''">
+						and t1.STATUS = #{dto.status}
+    			</if>
+    			<if test="dto.department != null and dto.department != ''">
+						and t1.DEPARTMENT = #{dto.department}
+    			</if>
+    			<if test="dto.degree != null and dto.degree != ''">
+						and t1.DEGREE = #{dto.degree}
+    			</if>
+    			<if test="dto.code != null and dto.code != ''">
+						and t1.CODE = #{dto.code}
+    			</if>
+    			<if test="dto.archive != null and dto.archive != ''">
+						and t1.ARCHIVE = #{dto.archive}
+    			</if>
+    			<if test="dto.telephone != null and dto.telephone != ''">
+						and t1.TELEPHONE = #{dto.telephone}
+    			</if>
+    			<if test="dto.executeLocation != null and dto.executeLocation != ''">
+						and t1.EXECUTE_LOCATION = #{dto.executeLocation}
+    			</if>
+    			<if test="dto.executeDepartment != null and dto.executeDepartment != ''">
+						and t1.EXECUTE_DEPARTMENT = #{dto.executeDepartment}
+    			</if>
+    			<if test="dto.category != null and dto.category != ''">
+						and t1.CATEGORY = #{dto.category}
+    			</if>
+    			<if test="dto.latefine != null and dto.latefine != ''">
+						and t1.LATEFINE = #{dto.latefine}
+    			</if>
+    			<if test="dto.punishmentAccordin != null and dto.punishmentAccordin != ''">
+						and t1.PUNISHMENT_ACCORDIN = #{dto.punishmentAccordin}
+    			</if>
+    			<if test="dto.illegalEntry != null and dto.illegalEntry != ''">
+						and t1.ILLEGAL_ENTRY = #{dto.illegalEntry}
+    			</if>
+    			<if test="dto.locationId != null and dto.locationId != ''">
+						and t1.LOCATION_ID = #{dto.locationId}
+    			</if>
+    			<if test="dto.locationName != null and dto.locationName != ''">
+						and t1.LOCATION_NAME = #{dto.locationName}
+    			</if>
+    			<if test="dto.dataSourceId != null and dto.dataSourceId != ''">
+						and t1.DATA_SOURCE_ID = #{dto.dataSourceId}
+    			</if>
+    			<if test="dto.recordType != null and dto.recordType != ''">
+						and t1.RECORD_TYPE = #{dto.recordType}
+    			</if>
+    			<if test="dto.poundage != null and dto.poundage != ''">
+						and t1.POUNDAGE = #{dto.poundage}
+    			</if>
+    			<if test="dto.canProcess != null and dto.canProcess != ''">
+						and t1.CAN_PROCESS = #{dto.canProcess}
+    			</if>
+    			<if test="dto.secondaryUniqueCode != null and dto.secondaryUniqueCode != ''">
+						and t1.SECONDARY_UNIQUE_CODE = #{dto.secondaryUniqueCode}
+    			</if>
+    			<if test="dto.uniqueCode != null and dto.uniqueCode != ''">
+						and t1.UNIQUE_CODE = #{dto.uniqueCode}
+    			</if>
+    			<if test="dto.degreePoundage != null and dto.degreePoundage != ''">
+						and t1.DEGREE_POUNDAGE = #{dto.degreePoundage}
+    			</if>
+    			<if test="dto.canProcessMsg != null and dto.canProcessMsg != ''">
+						and t1.CAN_PROCESS_MSG = #{dto.canProcessMsg}
+    			</if>
+    			<if test="dto.other != null and dto.other != ''">
+						and t1.OTHER = #{dto.other}
+    			</if>
+    			<if test="dto.transNo != null and dto.transNo != ''">
+						and t1.TRANS_NO = #{dto.transNo}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE = #{dto.validateState}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY = #{dto.modifyBy}
+    			</if>
+    			<if test="dto.prodCode != null and dto.prodCode != ''">
+						and t1.PROD_CODE = #{dto.prodCode}
+    			</if>
+    			<if test="dto.orgCode != null and dto.orgCode != ''">
+						and t1.ORG_CODE = #{dto.orgCode}
+    			</if>
+    			<if test="dto.sysCode != null and dto.sysCode != ''">
+						and t1.SYS_CODE = #{dto.sysCode}
+    			</if>
+    			<if test="dto.retcode != null and dto.retcode != ''">
+						and t1.RETCODE = #{dto.retcode}
+    			</if>
+    			<if test="dto.errormsg != null and dto.errormsg != ''">
+						and t1.ERRORMSG = #{dto.errormsg}
+    			</if>
+    			<if test="dto.interfaceId != null and dto.interfaceId != ''">
+						and t1.INTERFACE_ID = #{dto.interfaceId}
+    			</if>
+    			<if test="dto.remark != null and dto.remark != ''">
+						and t1.REMARK = #{dto.remark}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_SJT_TRAFFIC_VIO_STOCK -->
+<select id="findExtSjtTrafficVioStockByPrimaryKey" parameterType="java.util.Map" resultMap="ExtSjtTrafficVioStockDTO">
+   	 		select 
+					t1.id                             ,
+					t1.time                           ,
+					t1.location                       ,
+					t1.reason                         ,
+					t1.count                          ,
+					t1.status                         ,
+					t1.department                     ,
+					t1.degree                         ,
+					t1.code                           ,
+					t1.archive                        ,
+					t1.telephone                      ,
+					t1.execute_location               ,
+					t1.execute_department             ,
+					t1.category                       ,
+					t1.latefine                       ,
+					t1.punishment_accordin            ,
+					t1.illegal_entry                  ,
+					t1.location_id                    ,
+					t1.location_name                  ,
+					t1.data_source_id                 ,
+					t1.record_type                    ,
+					t1.poundage                       ,
+					t1.can_process                    ,
+					t1.secondary_unique_code          ,
+					t1.unique_code                    ,
+					t1.degree_poundage                ,
+					t1.can_process_msg                ,
+					t1.other                          ,
+					t1.trans_no                       ,
+					t1.validate_state                 ,
+					t1.create_time                    ,
+					t1.create_by                      ,
+					t1.modify_time                    ,
+					t1.modify_by                      ,
+					t1.prod_code                      ,
+					t1.org_code                       ,
+					t1.sys_code                       ,
+					t1.retcode                        ,
+					t1.errormsg                       ,
+					t1.interface_id                   ,
+					t1.remark                         
+			from ext_sjt_traffic_vio_stock 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_SJT_TRAFFIC_VIO_STOCK -->
+<insert id="insertExtSjtTrafficVioStock" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_SJT_TRAFFIC_VIO_STOCK.nextval as id from dual
+	</selectKey>
+			insert into ext_sjt_traffic_vio_stock
+			(   		
+					id                             ,
+					time                           ,
+					location                       ,
+					reason                         ,
+					count                          ,
+					status                         ,
+					department                     ,
+					degree                         ,
+					code                           ,
+					archive                        ,
+					telephone                      ,
+					execute_location               ,
+					execute_department             ,
+					category                       ,
+					latefine                       ,
+					punishment_accordin            ,
+					illegal_entry                  ,
+					location_id                    ,
+					location_name                  ,
+					data_source_id                 ,
+					record_type                    ,
+					poundage                       ,
+					can_process                    ,
+					secondary_unique_code          ,
+					unique_code                    ,
+					degree_poundage                ,
+					can_process_msg                ,
+					other                          ,
+					trans_no                       ,
+					validate_state                 ,
+					create_time                    ,
+					create_by                      ,
+					prod_code                      ,
+					org_code                       ,
+					sys_code                       ,
+					retcode                        ,
+					errormsg                       ,
+					interface_id                   ,
+					remark                         
+			)
+			values(#{dto.id}
+					,#{dto.time,jdbcType=VARCHAR}
+					,#{dto.location,jdbcType=VARCHAR}
+					,#{dto.reason,jdbcType=VARCHAR}
+					,#{dto.count,jdbcType=VARCHAR}
+					,#{dto.status,jdbcType=VARCHAR}
+					,#{dto.department,jdbcType=VARCHAR}
+					,#{dto.degree,jdbcType=VARCHAR}
+					,#{dto.code,jdbcType=VARCHAR}
+					,#{dto.archive,jdbcType=VARCHAR}
+					,#{dto.telephone,jdbcType=VARCHAR}
+					,#{dto.executeLocation,jdbcType=VARCHAR}
+					,#{dto.executeDepartment,jdbcType=VARCHAR}
+					,#{dto.category,jdbcType=VARCHAR}
+					,#{dto.latefine,jdbcType=VARCHAR}
+					,#{dto.punishmentAccordin,jdbcType=VARCHAR}
+					,#{dto.illegalEntry,jdbcType=VARCHAR}
+					,#{dto.locationId,jdbcType=VARCHAR}
+					,#{dto.locationName,jdbcType=VARCHAR}
+					,#{dto.dataSourceId,jdbcType=VARCHAR}
+					,#{dto.recordType,jdbcType=VARCHAR}
+					,#{dto.poundage,jdbcType=VARCHAR}
+					,#{dto.canProcess,jdbcType=VARCHAR}
+					,#{dto.secondaryUniqueCode,jdbcType=VARCHAR}
+					,#{dto.uniqueCode,jdbcType=VARCHAR}
+					,#{dto.degreePoundage,jdbcType=VARCHAR}
+					,#{dto.canProcessMsg,jdbcType=VARCHAR}
+					,#{dto.other,jdbcType=VARCHAR}
+					,#{dto.transNo,jdbcType=VARCHAR}
+					,'1'
+					,systimestamp
+					,#{dto.createBy,jdbcType=VARCHAR}
+					,#{dto.prodCode,jdbcType=VARCHAR}
+					,#{dto.orgCode,jdbcType=VARCHAR}
+					,#{dto.sysCode,jdbcType=VARCHAR}
+					,#{dto.retcode,jdbcType=VARCHAR}
+					,#{dto.errormsg,jdbcType=VARCHAR}
+					,#{dto.interfaceId,jdbcType=VARCHAR}
+					,#{dto.remark,jdbcType=VARCHAR}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_SJT_TRAFFIC_VIO_STOCK -->
+<update id="updateExtSjtTrafficVioStock" parameterType="java.util.Map">
+	     update ext_sjt_traffic_vio_stock t1
+	           set 
+			           t1.time                           =#{dto.time,jdbcType=VARCHAR},
+			           t1.location                       =#{dto.location,jdbcType=VARCHAR},
+			           t1.reason                         =#{dto.reason,jdbcType=VARCHAR},
+			           t1.count                          =#{dto.count,jdbcType=VARCHAR},
+			           t1.status                         =#{dto.status,jdbcType=VARCHAR},
+			           t1.department                     =#{dto.department,jdbcType=VARCHAR},
+			           t1.degree                         =#{dto.degree,jdbcType=VARCHAR},
+			           t1.code                           =#{dto.code,jdbcType=VARCHAR},
+			           t1.archive                        =#{dto.archive,jdbcType=VARCHAR},
+			           t1.telephone                      =#{dto.telephone,jdbcType=VARCHAR},
+			           t1.execute_location               =#{dto.executeLocation,jdbcType=VARCHAR},
+			           t1.execute_department             =#{dto.executeDepartment,jdbcType=VARCHAR},
+			           t1.category                       =#{dto.category,jdbcType=VARCHAR},
+			           t1.latefine                       =#{dto.latefine,jdbcType=VARCHAR},
+			           t1.punishment_accordin            =#{dto.punishmentAccordin,jdbcType=VARCHAR},
+			           t1.illegal_entry                  =#{dto.illegalEntry,jdbcType=VARCHAR},
+			           t1.location_id                    =#{dto.locationId,jdbcType=VARCHAR},
+			           t1.location_name                  =#{dto.locationName,jdbcType=VARCHAR},
+			           t1.data_source_id                 =#{dto.dataSourceId,jdbcType=VARCHAR},
+			           t1.record_type                    =#{dto.recordType,jdbcType=VARCHAR},
+			           t1.poundage                       =#{dto.poundage,jdbcType=VARCHAR},
+			           t1.can_process                    =#{dto.canProcess,jdbcType=VARCHAR},
+			           t1.secondary_unique_code          =#{dto.secondaryUniqueCode,jdbcType=VARCHAR},
+			           t1.unique_code                    =#{dto.uniqueCode,jdbcType=VARCHAR},
+			           t1.degree_poundage                =#{dto.degreePoundage,jdbcType=VARCHAR},
+			           t1.can_process_msg                =#{dto.canProcessMsg,jdbcType=VARCHAR},
+			           t1.other                          =#{dto.other,jdbcType=VARCHAR},
+			           t1.trans_no                       =#{dto.transNo,jdbcType=VARCHAR},
+			           t1.validate_state                 ='1',
+			           t1.modify_time                    =systimestamp,
+			           t1.modify_by                      =#{dto.modifyBy,jdbcType=VARCHAR},
+			           t1.prod_code                      =#{dto.prodCode,jdbcType=VARCHAR},
+			           t1.org_code                       =#{dto.orgCode,jdbcType=VARCHAR},
+			           t1.sys_code                       =#{dto.sysCode,jdbcType=VARCHAR},
+			           t1.retcode                        =#{dto.retcode,jdbcType=VARCHAR},
+			           t1.errormsg                       =#{dto.errormsg,jdbcType=VARCHAR},
+			           t1.interface_id                   =#{dto.interfaceId,jdbcType=VARCHAR},
+			           t1.remark                         =#{dto.remark,jdbcType=VARCHAR}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_SJT_TRAFFIC_VIO_STOCK -->
+<delete id="deleteExtSjtTrafficVioStockByID" parameterType="java.util.Map">
+    	delete from ext_sjt_traffic_vio_stock t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_SJT_TRAFFIC_VIO_STOCK -->
+<update id="deleteExtSjtTrafficVioStockByPrimaryKey" parameterType="java.util.Map">
+	     update ext_sjt_traffic_vio_stock t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

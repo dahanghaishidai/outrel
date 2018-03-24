@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.zzc.extwlzzcblackresult.dao.ExtWlZzcBlackResultDao">
+<resultMap id="ExtWlZzcBlackResultDTO" type="com.jy.modules.externalplatform.interfacerepository.zzc.extwlzzcblackresult.dto.ExtWlZzcBlackResultDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="intoCustRefId" column="INTO_CUST_REF_ID" jdbcType="DECIMAL" />
+				<result property="validateState" column="VALIDATE_STATE" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="modifyBy" column="MODIFY_BY" jdbcType="DECIMAL" />
+				<result property="pidBlacklevel" column="PID_BLACKLEVEL" jdbcType="VARCHAR" />
+				<result property="mobileBlacklevel" column="MOBILE_BLACKLEVEL" jdbcType="VARCHAR" />
+				<result property="homePhoneBlacklevel" column="HOME_PHONE_BLACKLEVEL" jdbcType="VARCHAR" />
+				<result property="homeAddressBlacklevel" column="HOME_ADDRESS_BLACKLEVEL" jdbcType="VARCHAR" />
+				<result property="deviceidBlacklevel" column="DEVICEID_BLACKLEVEL" jdbcType="VARCHAR" />
+				<result property="errormsg" column="ERRORMSG" jdbcType="VARCHAR" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_ZZC_BLACK_RESULT -->	
+<select id="searchExtWlZzcBlackResultByPaging" parameterType="java.util.Map" resultMap="ExtWlZzcBlackResultDTO">
+    	 		select 
+						t1.id                             ,
+						t1.into_cust_ref_id               ,
+						t1.validate_state                 ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.create_by                      ,
+						t1.modify_by                      ,
+						t1.pid_blacklevel                 ,
+						t1.mobile_blacklevel              ,
+						t1.home_phone_blacklevel          ,
+						t1.home_address_blacklevel        ,
+						t1.deviceid_blacklevel            ,
+						t1.errormsg                       
+					
+				from ext_wl_zzc_black_result 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.intoCustRefId != null and dto.intoCustRefId != ''">
+						and t1.INTO_CUST_REF_ID =#{dto.intoCustRefId}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE =#{dto.validateState}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY =#{dto.modifyBy}
+    			</if>
+    			<if test="dto.pidBlacklevel != null and dto.pidBlacklevel != ''">
+						and t1.PID_BLACKLEVEL =#{dto.pidBlacklevel}
+    			</if>
+    			<if test="dto.mobileBlacklevel != null and dto.mobileBlacklevel != ''">
+						and t1.MOBILE_BLACKLEVEL =#{dto.mobileBlacklevel}
+    			</if>
+    			<if test="dto.homePhoneBlacklevel != null and dto.homePhoneBlacklevel != ''">
+						and t1.HOME_PHONE_BLACKLEVEL =#{dto.homePhoneBlacklevel}
+    			</if>
+    			<if test="dto.homeAddressBlacklevel != null and dto.homeAddressBlacklevel != ''">
+						and t1.HOME_ADDRESS_BLACKLEVEL =#{dto.homeAddressBlacklevel}
+    			</if>
+    			<if test="dto.deviceidBlacklevel != null and dto.deviceidBlacklevel != ''">
+						and t1.DEVICEID_BLACKLEVEL =#{dto.deviceidBlacklevel}
+    			</if>
+    			<if test="dto.errormsg != null and dto.errormsg != ''">
+						and t1.ERRORMSG =#{dto.errormsg}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_ZZC_BLACK_RESULT  -->
+<select id="searchExtWlZzcBlackResult" parameterType="java.util.Map" resultMap="ExtWlZzcBlackResultDTO">
+    	     select 
+						t1.id                             ,
+						t1.into_cust_ref_id               ,
+						t1.validate_state                 ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.create_by                      ,
+						t1.modify_by                      ,
+						t1.pid_blacklevel                 ,
+						t1.mobile_blacklevel              ,
+						t1.home_phone_blacklevel          ,
+						t1.home_address_blacklevel        ,
+						t1.deviceid_blacklevel            ,
+						t1.errormsg                       
+				from ext_wl_zzc_black_result 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.intoCustRefId != null and dto.intoCustRefId != ''">
+						and t1.INTO_CUST_REF_ID = #{dto.intoCustRefId}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE = #{dto.validateState}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY = #{dto.modifyBy}
+    			</if>
+    			<if test="dto.pidBlacklevel != null and dto.pidBlacklevel != ''">
+						and t1.PID_BLACKLEVEL = #{dto.pidBlacklevel}
+    			</if>
+    			<if test="dto.mobileBlacklevel != null and dto.mobileBlacklevel != ''">
+						and t1.MOBILE_BLACKLEVEL = #{dto.mobileBlacklevel}
+    			</if>
+    			<if test="dto.homePhoneBlacklevel != null and dto.homePhoneBlacklevel != ''">
+						and t1.HOME_PHONE_BLACKLEVEL = #{dto.homePhoneBlacklevel}
+    			</if>
+    			<if test="dto.homeAddressBlacklevel != null and dto.homeAddressBlacklevel != ''">
+						and t1.HOME_ADDRESS_BLACKLEVEL = #{dto.homeAddressBlacklevel}
+    			</if>
+    			<if test="dto.deviceidBlacklevel != null and dto.deviceidBlacklevel != ''">
+						and t1.DEVICEID_BLACKLEVEL = #{dto.deviceidBlacklevel}
+    			</if>
+    			<if test="dto.errormsg != null and dto.errormsg != ''">
+						and t1.ERRORMSG = #{dto.errormsg}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_ZZC_BLACK_RESULT -->
+<select id="findExtWlZzcBlackResultByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlZzcBlackResultDTO">
+   	 		select 
+					t1.id                             ,
+					t1.into_cust_ref_id               ,
+					t1.validate_state                 ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.create_by                      ,
+					t1.modify_by                      ,
+					t1.pid_blacklevel                 ,
+					t1.mobile_blacklevel              ,
+					t1.home_phone_blacklevel          ,
+					t1.home_address_blacklevel        ,
+					t1.deviceid_blacklevel            ,
+					t1.errormsg                       
+			from ext_wl_zzc_black_result 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_ZZC_BLACK_RESULT -->
+<insert id="insertExtWlZzcBlackResult" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_ZZC_BLACK_RESULT.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_zzc_black_result
+			(   		
+					id                             ,
+					into_cust_ref_id               ,
+					validate_state                 ,
+					create_time                    ,
+					modify_time                    ,
+					create_by                      ,
+					modify_by                      ,
+					pid_blacklevel                 ,
+					mobile_blacklevel              ,
+					home_phone_blacklevel          ,
+					home_address_blacklevel        ,
+					deviceid_blacklevel            ,
+					errormsg                       
+			)
+			values(#{dto.id}
+					,#{dto.intoCustRefId,jdbcType=DECIMAL}
+					,'1'
+					,systimestamp
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.modifyBy,jdbcType=DECIMAL}
+					,#{dto.pidBlacklevel,jdbcType=VARCHAR}
+					,#{dto.mobileBlacklevel,jdbcType=VARCHAR}
+					,#{dto.homePhoneBlacklevel,jdbcType=VARCHAR}
+					,#{dto.homeAddressBlacklevel,jdbcType=VARCHAR}
+					,#{dto.deviceidBlacklevel,jdbcType=VARCHAR}
+					,#{dto.errormsg,jdbcType=VARCHAR}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_ZZC_BLACK_RESULT -->
+<update id="updateExtWlZzcBlackResult" parameterType="java.util.Map">
+	     update ext_wl_zzc_black_result t1
+	           set 
+			           t1.into_cust_ref_id               =#{dto.intoCustRefId,jdbcType=DECIMAL},
+			           t1.validate_state                 ='1',
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP},
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.modify_by                      =#{dto.modifyBy,jdbcType=DECIMAL},
+			           t1.pid_blacklevel                 =#{dto.pidBlacklevel,jdbcType=VARCHAR},
+			           t1.mobile_blacklevel              =#{dto.mobileBlacklevel,jdbcType=VARCHAR},
+			           t1.home_phone_blacklevel          =#{dto.homePhoneBlacklevel,jdbcType=VARCHAR},
+			           t1.home_address_blacklevel        =#{dto.homeAddressBlacklevel,jdbcType=VARCHAR},
+			           t1.deviceid_blacklevel            =#{dto.deviceidBlacklevel,jdbcType=VARCHAR},
+			           t1.errormsg                       =#{dto.errormsg,jdbcType=VARCHAR}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_ZZC_BLACK_RESULT -->
+<delete id="deleteExtWlZzcBlackResultByID" parameterType="java.util.Map">
+    	delete from ext_wl_zzc_black_result t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_ZZC_BLACK_RESULT -->
+<update id="deleteExtWlZzcBlackResultByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_zzc_black_result t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

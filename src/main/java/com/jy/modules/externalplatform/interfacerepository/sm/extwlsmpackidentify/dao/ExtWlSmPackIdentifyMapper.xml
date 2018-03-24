@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.sm.extwlsmpackidentify.dao.ExtWlSmPackIdentifyDao">
+<resultMap id="ExtWlSmPackIdentifyDTO" type="com.jy.modules.externalplatform.interfacerepository.sm.extwlsmpackidentify.dto.ExtWlSmPackIdentifyDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="intoCustRefId" column="INTO_CUST_REF_ID" jdbcType="DECIMAL" />
+				<result property="code" column="CODE" jdbcType="VARCHAR" />
+				<result property="message" column="MESSAGE" jdbcType="VARCHAR" />
+				<result property="incomingCallTimes" column="INCOMING_CALL_TIMES" jdbcType="VARCHAR" />
+				<result property="incomingCallDuration" column="INCOMING_CALL_DURATION" jdbcType="VARCHAR" />
+				<result property="outgoingCallTimes" column="OUTGOING_CALL_TIMES" jdbcType="VARCHAR" />
+				<result property="outgoingCallDuration" column="OUTGOING_CALL_DURATION" jdbcType="VARCHAR" />
+				<result property="contactMatch" column="CONTACT_MATCH" jdbcType="VARCHAR" />
+				<result property="validateState" column="VALIDATE_STATE" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="updateTime" column="UPDATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="updateBy" column="UPDATE_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_SM_PACK_IDENTIFY -->	
+<select id="searchExtWlSmPackIdentifyByPaging" parameterType="java.util.Map" resultMap="ExtWlSmPackIdentifyDTO">
+    	 		select 
+						t1.id                             ,
+						t1.into_cust_ref_id               ,
+						t1.code                           ,
+						t1.message                        ,
+						t1.incoming_call_times            ,
+						t1.incoming_call_duration         ,
+						t1.outgoing_call_times            ,
+						t1.outgoing_call_duration         ,
+						t1.contact_match                  ,
+						t1.validate_state                 ,
+						t1.create_time                    ,
+						t1.update_time                    ,
+						t1.create_by                      ,
+						t1.update_by                      
+					
+				from ext_wl_sm_pack_identify 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.intoCustRefId != null and dto.intoCustRefId != ''">
+						and t1.INTO_CUST_REF_ID =#{dto.intoCustRefId}
+    			</if>
+    			<if test="dto.code != null and dto.code != ''">
+						and t1.CODE =#{dto.code}
+    			</if>
+    			<if test="dto.message != null and dto.message != ''">
+						and t1.MESSAGE =#{dto.message}
+    			</if>
+    			<if test="dto.incomingCallTimes != null and dto.incomingCallTimes != ''">
+						and t1.INCOMING_CALL_TIMES =#{dto.incomingCallTimes}
+    			</if>
+    			<if test="dto.incomingCallDuration != null and dto.incomingCallDuration != ''">
+						and t1.INCOMING_CALL_DURATION =#{dto.incomingCallDuration}
+    			</if>
+    			<if test="dto.outgoingCallTimes != null and dto.outgoingCallTimes != ''">
+						and t1.OUTGOING_CALL_TIMES =#{dto.outgoingCallTimes}
+    			</if>
+    			<if test="dto.outgoingCallDuration != null and dto.outgoingCallDuration != ''">
+						and t1.OUTGOING_CALL_DURATION =#{dto.outgoingCallDuration}
+    			</if>
+    			<if test="dto.contactMatch != null and dto.contactMatch != ''">
+						and t1.CONTACT_MATCH =#{dto.contactMatch}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE =#{dto.validateState}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.updateTime != null and dto.updateTime != ''">
+						and t1.UPDATE_TIME =#{dto.updateTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY =#{dto.updateBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_SM_PACK_IDENTIFY  -->
+<select id="searchExtWlSmPackIdentify" parameterType="java.util.Map" resultMap="ExtWlSmPackIdentifyDTO">
+    	     select 
+						t1.id                             ,
+						t1.into_cust_ref_id               ,
+						t1.code                           ,
+						t1.message                        ,
+						t1.incoming_call_times            ,
+						t1.incoming_call_duration         ,
+						t1.outgoing_call_times            ,
+						t1.outgoing_call_duration         ,
+						t1.contact_match                  ,
+						t1.validate_state                 ,
+						t1.create_time                    ,
+						t1.update_time                    ,
+						t1.create_by                      ,
+						t1.update_by                      
+				from ext_wl_sm_pack_identify 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.intoCustRefId != null and dto.intoCustRefId != ''">
+						and t1.INTO_CUST_REF_ID = #{dto.intoCustRefId}
+    			</if>
+    			<if test="dto.code != null and dto.code != ''">
+						and t1.CODE = #{dto.code}
+    			</if>
+    			<if test="dto.message != null and dto.message != ''">
+						and t1.MESSAGE = #{dto.message}
+    			</if>
+    			<if test="dto.incomingCallTimes != null and dto.incomingCallTimes != ''">
+						and t1.INCOMING_CALL_TIMES = #{dto.incomingCallTimes}
+    			</if>
+    			<if test="dto.incomingCallDuration != null and dto.incomingCallDuration != ''">
+						and t1.INCOMING_CALL_DURATION = #{dto.incomingCallDuration}
+    			</if>
+    			<if test="dto.outgoingCallTimes != null and dto.outgoingCallTimes != ''">
+						and t1.OUTGOING_CALL_TIMES = #{dto.outgoingCallTimes}
+    			</if>
+    			<if test="dto.outgoingCallDuration != null and dto.outgoingCallDuration != ''">
+						and t1.OUTGOING_CALL_DURATION = #{dto.outgoingCallDuration}
+    			</if>
+    			<if test="dto.contactMatch != null and dto.contactMatch != ''">
+						and t1.CONTACT_MATCH = #{dto.contactMatch}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE = #{dto.validateState}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.updateTime != null and dto.updateTime != ''">
+						and t1.UPDATE_TIME = #{dto.updateTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY = #{dto.updateBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_SM_PACK_IDENTIFY -->
+<select id="findExtWlSmPackIdentifyByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlSmPackIdentifyDTO">
+   	 		select 
+					t1.id                             ,
+					t1.into_cust_ref_id               ,
+					t1.code                           ,
+					t1.message                        ,
+					t1.incoming_call_times            ,
+					t1.incoming_call_duration         ,
+					t1.outgoing_call_times            ,
+					t1.outgoing_call_duration         ,
+					t1.contact_match                  ,
+					t1.validate_state                 ,
+					t1.create_time                    ,
+					t1.update_time                    ,
+					t1.create_by                      ,
+					t1.update_by                      
+			from ext_wl_sm_pack_identify 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_SM_PACK_IDENTIFY -->
+<insert id="insertExtWlSmPackIdentify" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_SM_PACK_IDENTIFY.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_sm_pack_identify
+			(   		
+					id                             ,
+					into_cust_ref_id               ,
+					code                           ,
+					message                        ,
+					incoming_call_times            ,
+					incoming_call_duration         ,
+					outgoing_call_times            ,
+					outgoing_call_duration         ,
+					contact_match                  ,
+					validate_state                 ,
+					create_time                    ,
+					update_time                    ,
+					create_by                      ,
+					update_by                      
+			)
+			values(#{dto.id}
+					,#{dto.intoCustRefId,jdbcType=DECIMAL}
+					,#{dto.code,jdbcType=VARCHAR}
+					,#{dto.message,jdbcType=VARCHAR}
+					,#{dto.incomingCallTimes,jdbcType=VARCHAR}
+					,#{dto.incomingCallDuration,jdbcType=VARCHAR}
+					,#{dto.outgoingCallTimes,jdbcType=VARCHAR}
+					,#{dto.outgoingCallDuration,jdbcType=VARCHAR}
+					,#{dto.contactMatch,jdbcType=VARCHAR}
+					,'1'
+					,systimestamp
+					,#{dto.updateTime,jdbcType=TIMESTAMP}
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.updateBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_SM_PACK_IDENTIFY -->
+<update id="updateExtWlSmPackIdentify" parameterType="java.util.Map">
+	     update ext_wl_sm_pack_identify t1
+	           set 
+			           t1.into_cust_ref_id               =#{dto.intoCustRefId,jdbcType=DECIMAL},
+			           t1.code                           =#{dto.code,jdbcType=VARCHAR},
+			           t1.message                        =#{dto.message,jdbcType=VARCHAR},
+			           t1.incoming_call_times            =#{dto.incomingCallTimes,jdbcType=VARCHAR},
+			           t1.incoming_call_duration         =#{dto.incomingCallDuration,jdbcType=VARCHAR},
+			           t1.outgoing_call_times            =#{dto.outgoingCallTimes,jdbcType=VARCHAR},
+			           t1.outgoing_call_duration         =#{dto.outgoingCallDuration,jdbcType=VARCHAR},
+			           t1.contact_match                  =#{dto.contactMatch,jdbcType=VARCHAR},
+			           t1.validate_state                 ='1',
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.update_time                    =#{dto.updateTime,jdbcType=TIMESTAMP},
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.update_by                      =#{dto.updateBy,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_SM_PACK_IDENTIFY -->
+<delete id="deleteExtWlSmPackIdentifyByID" parameterType="java.util.Map">
+    	delete from ext_wl_sm_pack_identify t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_SM_PACK_IDENTIFY -->
+<update id="deleteExtWlSmPackIdentifyByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_sm_pack_identify t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

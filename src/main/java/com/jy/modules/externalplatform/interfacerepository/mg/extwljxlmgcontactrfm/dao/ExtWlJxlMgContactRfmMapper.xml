@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.mg.extwljxlmgcontactrfm.dao.ExtWlJxlMgContactRfmDao">
+<resultMap id="ExtWlJxlMgContactRfmDTO" type="com.jy.modules.externalplatform.interfacerepository.mg.extwljxlmgcontactrfm.dto.ExtWlJxlMgContactRfmDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="userGridId" column="USER_GRID_ID" jdbcType="VARCHAR" />
+				<result property="recentTimeToAll" column="RECENT_TIME_TO_ALL" jdbcType="DECIMAL" />
+				<result property="recentTimeBeAll" column="RECENT_TIME_BE_ALL" jdbcType="DECIMAL" />
+				<result property="recentTimeToBlack" column="RECENT_TIME_TO_BLACK" jdbcType="DECIMAL" />
+				<result property="recentTimeBeBlack" column="RECENT_TIME_BE_BLACK" jdbcType="DECIMAL" />
+				<result property="recentTimeToApplied" column="RECENT_TIME_TO_APPLIED" jdbcType="DECIMAL" />
+				<result property="recentTimeBeApplied" column="RECENT_TIME_BE_APPLIED" jdbcType="DECIMAL" />
+				<result property="callCntToAll" column="CALL_CNT_TO_ALL" jdbcType="DECIMAL" />
+				<result property="callCntBeAll" column="CALL_CNT_BE_ALL" jdbcType="DECIMAL" />
+				<result property="callCntToBlack" column="CALL_CNT_TO_BLACK" jdbcType="DECIMAL" />
+				<result property="callCntBeBlack" column="CALL_CNT_BE_BLACK" jdbcType="DECIMAL" />
+				<result property="callCntToApplied" column="CALL_CNT_TO_APPLIED" jdbcType="DECIMAL" />
+				<result property="callCntBeApplied" column="CALL_CNT_BE_APPLIED" jdbcType="DECIMAL" />
+				<result property="timeSpentToAll" column="TIME_SPENT_TO_ALL" jdbcType="DECIMAL" />
+				<result property="timeSpentBeAll" column="TIME_SPENT_BE_ALL" jdbcType="DECIMAL" />
+				<result property="timeSpentToBlack" column="TIME_SPENT_TO_BLACK" jdbcType="DECIMAL" />
+				<result property="timeSpentBeBlack" column="TIME_SPENT_BE_BLACK" jdbcType="DECIMAL" />
+				<result property="timeSpentToApplied" column="TIME_SPENT_TO_APPLIED" jdbcType="DECIMAL" />
+				<result property="timeSpentBeApplied" column="TIME_SPENT_BE_APPLIED" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyBy" column="MODIFY_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_JXL_MG_CONTACT_RFM -->	
+<select id="searchExtWlJxlMgContactRfmByPaging" parameterType="java.util.Map" resultMap="ExtWlJxlMgContactRfmDTO">
+    	 		select 
+						t1.id                             ,
+						t1.user_grid_id                   ,
+						t1.recent_time_to_all             ,
+						t1.recent_time_be_all             ,
+						t1.recent_time_to_black           ,
+						t1.recent_time_be_black           ,
+						t1.recent_time_to_applied         ,
+						t1.recent_time_be_applied         ,
+						t1.call_cnt_to_all                ,
+						t1.call_cnt_be_all                ,
+						t1.call_cnt_to_black              ,
+						t1.call_cnt_be_black              ,
+						t1.call_cnt_to_applied            ,
+						t1.call_cnt_be_applied            ,
+						t1.time_spent_to_all              ,
+						t1.time_spent_be_all              ,
+						t1.time_spent_to_black            ,
+						t1.time_spent_be_black            ,
+						t1.time_spent_to_applied          ,
+						t1.time_spent_be_applied          ,
+						t1.create_time                    ,
+						t1.create_by                      ,
+						t1.modify_time                    ,
+						t1.modify_by                      
+					
+				from ext_wl_jxl_mg_contact_rfm 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.userGridId != null and dto.userGridId != ''">
+						and t1.USER_GRID_ID =#{dto.userGridId}
+    			</if>
+    			<if test="dto.recentTimeToAll != null and dto.recentTimeToAll != ''">
+						and t1.RECENT_TIME_TO_ALL =#{dto.recentTimeToAll}
+    			</if>
+    			<if test="dto.recentTimeBeAll != null and dto.recentTimeBeAll != ''">
+						and t1.RECENT_TIME_BE_ALL =#{dto.recentTimeBeAll}
+    			</if>
+    			<if test="dto.recentTimeToBlack != null and dto.recentTimeToBlack != ''">
+						and t1.RECENT_TIME_TO_BLACK =#{dto.recentTimeToBlack}
+    			</if>
+    			<if test="dto.recentTimeBeBlack != null and dto.recentTimeBeBlack != ''">
+						and t1.RECENT_TIME_BE_BLACK =#{dto.recentTimeBeBlack}
+    			</if>
+    			<if test="dto.recentTimeToApplied != null and dto.recentTimeToApplied != ''">
+						and t1.RECENT_TIME_TO_APPLIED =#{dto.recentTimeToApplied}
+    			</if>
+    			<if test="dto.recentTimeBeApplied != null and dto.recentTimeBeApplied != ''">
+						and t1.RECENT_TIME_BE_APPLIED =#{dto.recentTimeBeApplied}
+    			</if>
+    			<if test="dto.callCntToAll != null and dto.callCntToAll != ''">
+						and t1.CALL_CNT_TO_ALL =#{dto.callCntToAll}
+    			</if>
+    			<if test="dto.callCntBeAll != null and dto.callCntBeAll != ''">
+						and t1.CALL_CNT_BE_ALL =#{dto.callCntBeAll}
+    			</if>
+    			<if test="dto.callCntToBlack != null and dto.callCntToBlack != ''">
+						and t1.CALL_CNT_TO_BLACK =#{dto.callCntToBlack}
+    			</if>
+    			<if test="dto.callCntBeBlack != null and dto.callCntBeBlack != ''">
+						and t1.CALL_CNT_BE_BLACK =#{dto.callCntBeBlack}
+    			</if>
+    			<if test="dto.callCntToApplied != null and dto.callCntToApplied != ''">
+						and t1.CALL_CNT_TO_APPLIED =#{dto.callCntToApplied}
+    			</if>
+    			<if test="dto.callCntBeApplied != null and dto.callCntBeApplied != ''">
+						and t1.CALL_CNT_BE_APPLIED =#{dto.callCntBeApplied}
+    			</if>
+    			<if test="dto.timeSpentToAll != null and dto.timeSpentToAll != ''">
+						and t1.TIME_SPENT_TO_ALL =#{dto.timeSpentToAll}
+    			</if>
+    			<if test="dto.timeSpentBeAll != null and dto.timeSpentBeAll != ''">
+						and t1.TIME_SPENT_BE_ALL =#{dto.timeSpentBeAll}
+    			</if>
+    			<if test="dto.timeSpentToBlack != null and dto.timeSpentToBlack != ''">
+						and t1.TIME_SPENT_TO_BLACK =#{dto.timeSpentToBlack}
+    			</if>
+    			<if test="dto.timeSpentBeBlack != null and dto.timeSpentBeBlack != ''">
+						and t1.TIME_SPENT_BE_BLACK =#{dto.timeSpentBeBlack}
+    			</if>
+    			<if test="dto.timeSpentToApplied != null and dto.timeSpentToApplied != ''">
+						and t1.TIME_SPENT_TO_APPLIED =#{dto.timeSpentToApplied}
+    			</if>
+    			<if test="dto.timeSpentBeApplied != null and dto.timeSpentBeApplied != ''">
+						and t1.TIME_SPENT_BE_APPLIED =#{dto.timeSpentBeApplied}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY =#{dto.modifyBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_JXL_MG_CONTACT_RFM  -->
+<select id="searchExtWlJxlMgContactRfm" parameterType="java.util.Map" resultMap="ExtWlJxlMgContactRfmDTO">
+    	     select 
+						t1.id                             ,
+						t1.user_grid_id                   ,
+						t1.recent_time_to_all             ,
+						t1.recent_time_be_all             ,
+						t1.recent_time_to_black           ,
+						t1.recent_time_be_black           ,
+						t1.recent_time_to_applied         ,
+						t1.recent_time_be_applied         ,
+						t1.call_cnt_to_all                ,
+						t1.call_cnt_be_all                ,
+						t1.call_cnt_to_black              ,
+						t1.call_cnt_be_black              ,
+						t1.call_cnt_to_applied            ,
+						t1.call_cnt_be_applied            ,
+						t1.time_spent_to_all              ,
+						t1.time_spent_be_all              ,
+						t1.time_spent_to_black            ,
+						t1.time_spent_be_black            ,
+						t1.time_spent_to_applied          ,
+						t1.time_spent_be_applied          ,
+						t1.create_time                    ,
+						t1.create_by                      ,
+						t1.modify_time                    ,
+						t1.modify_by                      
+				from ext_wl_jxl_mg_contact_rfm 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.userGridId != null and dto.userGridId != ''">
+						and t1.USER_GRID_ID = #{dto.userGridId}
+    			</if>
+    			<if test="dto.recentTimeToAll != null and dto.recentTimeToAll != ''">
+						and t1.RECENT_TIME_TO_ALL = #{dto.recentTimeToAll}
+    			</if>
+    			<if test="dto.recentTimeBeAll != null and dto.recentTimeBeAll != ''">
+						and t1.RECENT_TIME_BE_ALL = #{dto.recentTimeBeAll}
+    			</if>
+    			<if test="dto.recentTimeToBlack != null and dto.recentTimeToBlack != ''">
+						and t1.RECENT_TIME_TO_BLACK = #{dto.recentTimeToBlack}
+    			</if>
+    			<if test="dto.recentTimeBeBlack != null and dto.recentTimeBeBlack != ''">
+						and t1.RECENT_TIME_BE_BLACK = #{dto.recentTimeBeBlack}
+    			</if>
+    			<if test="dto.recentTimeToApplied != null and dto.recentTimeToApplied != ''">
+						and t1.RECENT_TIME_TO_APPLIED = #{dto.recentTimeToApplied}
+    			</if>
+    			<if test="dto.recentTimeBeApplied != null and dto.recentTimeBeApplied != ''">
+						and t1.RECENT_TIME_BE_APPLIED = #{dto.recentTimeBeApplied}
+    			</if>
+    			<if test="dto.callCntToAll != null and dto.callCntToAll != ''">
+						and t1.CALL_CNT_TO_ALL = #{dto.callCntToAll}
+    			</if>
+    			<if test="dto.callCntBeAll != null and dto.callCntBeAll != ''">
+						and t1.CALL_CNT_BE_ALL = #{dto.callCntBeAll}
+    			</if>
+    			<if test="dto.callCntToBlack != null and dto.callCntToBlack != ''">
+						and t1.CALL_CNT_TO_BLACK = #{dto.callCntToBlack}
+    			</if>
+    			<if test="dto.callCntBeBlack != null and dto.callCntBeBlack != ''">
+						and t1.CALL_CNT_BE_BLACK = #{dto.callCntBeBlack}
+    			</if>
+    			<if test="dto.callCntToApplied != null and dto.callCntToApplied != ''">
+						and t1.CALL_CNT_TO_APPLIED = #{dto.callCntToApplied}
+    			</if>
+    			<if test="dto.callCntBeApplied != null and dto.callCntBeApplied != ''">
+						and t1.CALL_CNT_BE_APPLIED = #{dto.callCntBeApplied}
+    			</if>
+    			<if test="dto.timeSpentToAll != null and dto.timeSpentToAll != ''">
+						and t1.TIME_SPENT_TO_ALL = #{dto.timeSpentToAll}
+    			</if>
+    			<if test="dto.timeSpentBeAll != null and dto.timeSpentBeAll != ''">
+						and t1.TIME_SPENT_BE_ALL = #{dto.timeSpentBeAll}
+    			</if>
+    			<if test="dto.timeSpentToBlack != null and dto.timeSpentToBlack != ''">
+						and t1.TIME_SPENT_TO_BLACK = #{dto.timeSpentToBlack}
+    			</if>
+    			<if test="dto.timeSpentBeBlack != null and dto.timeSpentBeBlack != ''">
+						and t1.TIME_SPENT_BE_BLACK = #{dto.timeSpentBeBlack}
+    			</if>
+    			<if test="dto.timeSpentToApplied != null and dto.timeSpentToApplied != ''">
+						and t1.TIME_SPENT_TO_APPLIED = #{dto.timeSpentToApplied}
+    			</if>
+    			<if test="dto.timeSpentBeApplied != null and dto.timeSpentBeApplied != ''">
+						and t1.TIME_SPENT_BE_APPLIED = #{dto.timeSpentBeApplied}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY = #{dto.modifyBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_JXL_MG_CONTACT_RFM -->
+<select id="findExtWlJxlMgContactRfmByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlJxlMgContactRfmDTO">
+   	 		select 
+					t1.id                             ,
+					t1.user_grid_id                   ,
+					t1.recent_time_to_all             ,
+					t1.recent_time_be_all             ,
+					t1.recent_time_to_black           ,
+					t1.recent_time_be_black           ,
+					t1.recent_time_to_applied         ,
+					t1.recent_time_be_applied         ,
+					t1.call_cnt_to_all                ,
+					t1.call_cnt_be_all                ,
+					t1.call_cnt_to_black              ,
+					t1.call_cnt_be_black              ,
+					t1.call_cnt_to_applied            ,
+					t1.call_cnt_be_applied            ,
+					t1.time_spent_to_all              ,
+					t1.time_spent_be_all              ,
+					t1.time_spent_to_black            ,
+					t1.time_spent_be_black            ,
+					t1.time_spent_to_applied          ,
+					t1.time_spent_be_applied          ,
+					t1.create_time                    ,
+					t1.create_by                      ,
+					t1.modify_time                    ,
+					t1.modify_by                      
+			from ext_wl_jxl_mg_contact_rfm 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_JXL_MG_CONTACT_RFM -->
+<insert id="insertExtWlJxlMgContactRfm" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_JXL_MG_CONTACT_RFM.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_jxl_mg_contact_rfm
+			(   		
+					id                             ,
+					user_grid_id                   ,
+					recent_time_to_all             ,
+					recent_time_be_all             ,
+					recent_time_to_black           ,
+					recent_time_be_black           ,
+					recent_time_to_applied         ,
+					recent_time_be_applied         ,
+					call_cnt_to_all                ,
+					call_cnt_be_all                ,
+					call_cnt_to_black              ,
+					call_cnt_be_black              ,
+					call_cnt_to_applied            ,
+					call_cnt_be_applied            ,
+					time_spent_to_all              ,
+					time_spent_be_all              ,
+					time_spent_to_black            ,
+					time_spent_be_black            ,
+					time_spent_to_applied          ,
+					time_spent_be_applied          ,
+					create_time                    ,
+					create_by                      ,
+					modify_time                    ,
+					modify_by                      
+			)
+			values(#{dto.id}
+					,#{dto.userGridId,jdbcType=VARCHAR}
+					,#{dto.recentTimeToAll,jdbcType=DECIMAL}
+					,#{dto.recentTimeBeAll,jdbcType=DECIMAL}
+					,#{dto.recentTimeToBlack,jdbcType=DECIMAL}
+					,#{dto.recentTimeBeBlack,jdbcType=DECIMAL}
+					,#{dto.recentTimeToApplied,jdbcType=DECIMAL}
+					,#{dto.recentTimeBeApplied,jdbcType=DECIMAL}
+					,#{dto.callCntToAll,jdbcType=DECIMAL}
+					,#{dto.callCntBeAll,jdbcType=DECIMAL}
+					,#{dto.callCntToBlack,jdbcType=DECIMAL}
+					,#{dto.callCntBeBlack,jdbcType=DECIMAL}
+					,#{dto.callCntToApplied,jdbcType=DECIMAL}
+					,#{dto.callCntBeApplied,jdbcType=DECIMAL}
+					,#{dto.timeSpentToAll,jdbcType=DECIMAL}
+					,#{dto.timeSpentBeAll,jdbcType=DECIMAL}
+					,#{dto.timeSpentToBlack,jdbcType=DECIMAL}
+					,#{dto.timeSpentBeBlack,jdbcType=DECIMAL}
+					,#{dto.timeSpentToApplied,jdbcType=DECIMAL}
+					,#{dto.timeSpentBeApplied,jdbcType=DECIMAL}
+					,systimestamp
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,#{dto.modifyBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_JXL_MG_CONTACT_RFM -->
+<update id="updateExtWlJxlMgContactRfm" parameterType="java.util.Map">
+	     update ext_wl_jxl_mg_contact_rfm t1
+	           set 
+			           t1.user_grid_id                   =#{dto.userGridId,jdbcType=VARCHAR},
+			           t1.recent_time_to_all             =#{dto.recentTimeToAll,jdbcType=DECIMAL},
+			           t1.recent_time_be_all             =#{dto.recentTimeBeAll,jdbcType=DECIMAL},
+			           t1.recent_time_to_black           =#{dto.recentTimeToBlack,jdbcType=DECIMAL},
+			           t1.recent_time_be_black           =#{dto.recentTimeBeBlack,jdbcType=DECIMAL},
+			           t1.recent_time_to_applied         =#{dto.recentTimeToApplied,jdbcType=DECIMAL},
+			           t1.recent_time_be_applied         =#{dto.recentTimeBeApplied,jdbcType=DECIMAL},
+			           t1.call_cnt_to_all                =#{dto.callCntToAll,jdbcType=DECIMAL},
+			           t1.call_cnt_be_all                =#{dto.callCntBeAll,jdbcType=DECIMAL},
+			           t1.call_cnt_to_black              =#{dto.callCntToBlack,jdbcType=DECIMAL},
+			           t1.call_cnt_be_black              =#{dto.callCntBeBlack,jdbcType=DECIMAL},
+			           t1.call_cnt_to_applied            =#{dto.callCntToApplied,jdbcType=DECIMAL},
+			           t1.call_cnt_be_applied            =#{dto.callCntBeApplied,jdbcType=DECIMAL},
+			           t1.time_spent_to_all              =#{dto.timeSpentToAll,jdbcType=DECIMAL},
+			           t1.time_spent_be_all              =#{dto.timeSpentBeAll,jdbcType=DECIMAL},
+			           t1.time_spent_to_black            =#{dto.timeSpentToBlack,jdbcType=DECIMAL},
+			           t1.time_spent_be_black            =#{dto.timeSpentBeBlack,jdbcType=DECIMAL},
+			           t1.time_spent_to_applied          =#{dto.timeSpentToApplied,jdbcType=DECIMAL},
+			           t1.time_spent_be_applied          =#{dto.timeSpentBeApplied,jdbcType=DECIMAL},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP},
+			           t1.modify_by                      =#{dto.modifyBy,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_JXL_MG_CONTACT_RFM -->
+<delete id="deleteExtWlJxlMgContactRfmByID" parameterType="java.util.Map">
+    	delete from ext_wl_jxl_mg_contact_rfm t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_JXL_MG_CONTACT_RFM -->
+<update id="deleteExtWlJxlMgContactRfmByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_jxl_mg_contact_rfm t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

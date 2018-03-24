@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.xayx.extwlfpxacontrctstatus.dao.ExtWlFpxaContrctStatusDao">
+<resultMap id="ExtWlFpxaContrctStatusDTO" type="com.jy.modules.externalplatform.interfacerepository.xayx.extwlfpxacontrctstatus.dto.ExtWlFpxaContrctStatusDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="modifyBy" column="MODIFY_BY" jdbcType="DECIMAL" />
+				<result property="fkId" column="FK_ID" jdbcType="DECIMAL" />
+				<result property="lendedTime" column="LENDED_TIME" jdbcType="VARCHAR" />
+				<result property="totalPeriod" column="TOTAL_PERIOD" jdbcType="DECIMAL" />
+				<result property="repayedPeriod" column="REPAYED_PERIOD" jdbcType="DECIMAL" />
+				<result property="repayedPricipal" column="REPAYED_PRICIPAL" jdbcType="VARCHAR" />
+				<result property="recentRepayedDate" column="RECENT_REPAYED_DATE" jdbcType="VARCHAR" />
+				<result property="currentOverduePeriods" column="CURRENT_OVERDUE_PERIODS" jdbcType="DECIMAL" />
+				<result property="recentRepaymentMoney" column="RECENT_REPAYMENT_MONEY" jdbcType="VARCHAR" />
+				<result property="principal" column="PRINCIPAL" jdbcType="VARCHAR" />
+				<result property="overDue" column="OVER_DUE" jdbcType="VARCHAR" />
+				<result property="currentDue" column="CURRENT_DUE" jdbcType="VARCHAR" />
+				<result property="maxOverDueDays" column="MAX_OVER_DUE_DAYS" jdbcType="VARCHAR" />
+				<result property="installmentOverdue" column="INSTALLMENT_OVERDUE" jdbcType="VARCHAR" />
+				<result property="carLoanOverdue" column="CAR_LOAN_OVERDUE" jdbcType="VARCHAR" />
+</resultMap>
+				
+
+<!-- 新增对象 EXT_WL_FPXA_CONTRCT_STATUS -->
+<insert id="insertExtWlFpxaContrctStatus" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_FPXA_CONTRCT_STATUS.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_fpxa_contrct_status
+			(   		
+					id                             ,
+					create_time                    ,
+					modify_time                    ,
+					create_by                      ,
+					modify_by                      ,
+					fk_id                          ,
+					lended_time                    ,
+					total_period                   ,
+					repayed_period                 ,
+					repayed_pricipal               ,
+					recent_repayed_date            ,
+					current_overdue_periods        ,
+					recent_repayment_money         ,
+					principal                      ,
+					over_due                       ,
+					current_due                    ,
+					max_over_due_days              ,
+					installment_overdue            ,
+					car_loan_overdue               
+			)
+			values(#{dto.id}
+					,systimestamp
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.modifyBy,jdbcType=DECIMAL}
+					,#{dto.fkId,jdbcType=DECIMAL}
+					,#{dto.lendedTime,jdbcType=VARCHAR}
+					,#{dto.totalPeriod,jdbcType=DECIMAL}
+					,#{dto.repayedPeriod,jdbcType=DECIMAL}
+					,#{dto.repayedPricipal,jdbcType=VARCHAR}
+					,#{dto.recentRepayedDate,jdbcType=VARCHAR}
+					,#{dto.currentOverduePeriods,jdbcType=DECIMAL}
+					,#{dto.recentRepaymentMoney,jdbcType=VARCHAR}
+					,#{dto.principal,jdbcType=VARCHAR}
+					,#{dto.overDue,jdbcType=VARCHAR}
+					,#{dto.currentDue,jdbcType=VARCHAR}
+					,#{dto.maxOverDueDays,jdbcType=VARCHAR}
+					,#{dto.installmentOverdue,jdbcType=VARCHAR}
+					,#{dto.carLoanOverdue,jdbcType=VARCHAR}
+			)
+</insert>
+    
+</mapper>

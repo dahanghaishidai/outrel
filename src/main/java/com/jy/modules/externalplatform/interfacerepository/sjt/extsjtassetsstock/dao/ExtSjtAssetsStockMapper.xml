@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.sjt.extsjtassetsstock.dao.ExtSjtAssetsStockDao">
+<resultMap id="ExtSjtAssetsStockDTO" type="com.jy.modules.externalplatform.interfacerepository.sjt.extsjtassetsstock.dto.ExtSjtAssetsStockDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="transNo" column="TRANS_NO" jdbcType="VARCHAR" />
+				<result property="intoId" column="INTO_ID" jdbcType="DECIMAL" />
+				<result property="hasHouse" column="HAS_HOUSE" jdbcType="VARCHAR" />
+				<result property="hasCar" column="HAS_CAR" jdbcType="VARCHAR" />
+				<result property="housePurTime" column="HOUSE_PUR_TIME" jdbcType="VARCHAR" />
+				<result property="carPurTime" column="CAR_PUR_TIME" jdbcType="VARCHAR" />
+				<result property="houseValue" column="HOUSE_VALUE" jdbcType="DECIMAL" />
+				<result property="carValue" column="CAR_VALUE" jdbcType="DECIMAL" />
+				<result property="fkId" column="FK_ID" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="VARCHAR" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyBy" column="MODIFY_BY" jdbcType="VARCHAR" />
+</resultMap>
+				
+<!-- 分页查询 EXT_SJT_ASSETS_STOCK -->	
+<select id="searchExtSjtAssetsStockByPaging" parameterType="java.util.Map" resultMap="ExtSjtAssetsStockDTO">
+    	 		select 
+						t1.id                             ,
+						t1.trans_no                       ,
+						t1.into_id                        ,
+						t1.has_house                      ,
+						t1.has_car                        ,
+						t1.house_pur_time                 ,
+						t1.car_pur_time                   ,
+						t1.house_value                    ,
+						t1.car_value                      ,
+						t1.fk_id                          ,
+						t1.create_time                    ,
+						t1.create_by                      ,
+						t1.modify_time                    ,
+						t1.modify_by                      
+					
+				from ext_sjt_assets_stock 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.transNo != null and dto.transNo != ''">
+						and t1.TRANS_NO =#{dto.transNo}
+    			</if>
+    			<if test="dto.intoId != null and dto.intoId != ''">
+						and t1.INTO_ID =#{dto.intoId}
+    			</if>
+    			<if test="dto.hasHouse != null and dto.hasHouse != ''">
+						and t1.HAS_HOUSE =#{dto.hasHouse}
+    			</if>
+    			<if test="dto.hasCar != null and dto.hasCar != ''">
+						and t1.HAS_CAR =#{dto.hasCar}
+    			</if>
+    			<if test="dto.housePurTime != null and dto.housePurTime != ''">
+						and t1.HOUSE_PUR_TIME =#{dto.housePurTime}
+    			</if>
+    			<if test="dto.carPurTime != null and dto.carPurTime != ''">
+						and t1.CAR_PUR_TIME =#{dto.carPurTime}
+    			</if>
+    			<if test="dto.houseValue != null and dto.houseValue != ''">
+						and t1.HOUSE_VALUE =#{dto.houseValue}
+    			</if>
+    			<if test="dto.carValue != null and dto.carValue != ''">
+						and t1.CAR_VALUE =#{dto.carValue}
+    			</if>
+    			<if test="dto.fkId != null and dto.fkId != ''">
+						and t1.FK_ID =#{dto.fkId}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY =#{dto.modifyBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_SJT_ASSETS_STOCK  -->
+<select id="searchExtSjtAssetsStock" parameterType="java.util.Map" resultMap="ExtSjtAssetsStockDTO">
+    	     select 
+						t1.id                             ,
+						t1.trans_no                       ,
+						t1.into_id                        ,
+						t1.has_house                      ,
+						t1.has_car                        ,
+						t1.house_pur_time                 ,
+						t1.car_pur_time                   ,
+						t1.house_value                    ,
+						t1.car_value                      ,
+						t1.fk_id                          ,
+						t1.create_time                    ,
+						t1.create_by                      ,
+						t1.modify_time                    ,
+						t1.modify_by                      
+				from ext_sjt_assets_stock 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.transNo != null and dto.transNo != ''">
+						and t1.TRANS_NO = #{dto.transNo}
+    			</if>
+    			<if test="dto.intoId != null and dto.intoId != ''">
+						and t1.INTO_ID = #{dto.intoId}
+    			</if>
+    			<if test="dto.hasHouse != null and dto.hasHouse != ''">
+						and t1.HAS_HOUSE = #{dto.hasHouse}
+    			</if>
+    			<if test="dto.hasCar != null and dto.hasCar != ''">
+						and t1.HAS_CAR = #{dto.hasCar}
+    			</if>
+    			<if test="dto.housePurTime != null and dto.housePurTime != ''">
+						and t1.HOUSE_PUR_TIME = #{dto.housePurTime}
+    			</if>
+    			<if test="dto.carPurTime != null and dto.carPurTime != ''">
+						and t1.CAR_PUR_TIME = #{dto.carPurTime}
+    			</if>
+    			<if test="dto.houseValue != null and dto.houseValue != ''">
+						and t1.HOUSE_VALUE = #{dto.houseValue}
+    			</if>
+    			<if test="dto.carValue != null and dto.carValue != ''">
+						and t1.CAR_VALUE = #{dto.carValue}
+    			</if>
+    			<if test="dto.fkId != null and dto.fkId != ''">
+						and t1.FK_ID = #{dto.fkId}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY = #{dto.modifyBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_SJT_ASSETS_STOCK -->
+<select id="findExtSjtAssetsStockByPrimaryKey" parameterType="java.util.Map" resultMap="ExtSjtAssetsStockDTO">
+   	 		select 
+					t1.id                             ,
+					t1.trans_no                       ,
+					t1.into_id                        ,
+					t1.has_house                      ,
+					t1.has_car                        ,
+					t1.house_pur_time                 ,
+					t1.car_pur_time                   ,
+					t1.house_value                    ,
+					t1.car_value                      ,
+					t1.fk_id                          ,
+					t1.create_time                    ,
+					t1.create_by                      ,
+					t1.modify_time                    ,
+					t1.modify_by                      
+			from ext_sjt_assets_stock 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_SJT_ASSETS_STOCK -->
+<insert id="insertExtSjtAssetsStock" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_SJT_ASSETS_STOCK.nextval as id from dual
+	</selectKey>
+			insert into ext_sjt_assets_stock
+			(   		
+					id                             ,
+					trans_no                       ,
+					into_id                        ,
+					has_house                      ,
+					has_car                        ,
+					house_pur_time                 ,
+					car_pur_time                   ,
+					house_value                    ,
+					car_value                      ,
+					fk_id                          ,
+					create_time                    ,
+					create_by                      
+			)
+			values(#{dto.id}
+					,#{dto.transNo,jdbcType=VARCHAR}
+					,#{dto.intoId,jdbcType=DECIMAL}
+					,#{dto.hasHouse,jdbcType=VARCHAR}
+					,#{dto.hasCar,jdbcType=VARCHAR}
+					,#{dto.housePurTime,jdbcType=VARCHAR}
+					,#{dto.carPurTime,jdbcType=VARCHAR}
+					,#{dto.houseValue,jdbcType=DECIMAL}
+					,#{dto.carValue,jdbcType=DECIMAL}
+					,#{dto.fkId,jdbcType=DECIMAL}
+					,systimestamp
+					,#{dto.createBy,jdbcType=VARCHAR}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_SJT_ASSETS_STOCK -->
+<update id="updateExtSjtAssetsStock" parameterType="java.util.Map">
+	     update ext_sjt_assets_stock t1
+	           set 
+			           t1.trans_no                       =#{dto.transNo,jdbcType=VARCHAR},
+			           t1.into_id                        =#{dto.intoId,jdbcType=DECIMAL},
+			           t1.has_house                      =#{dto.hasHouse,jdbcType=VARCHAR},
+			           t1.has_car                        =#{dto.hasCar,jdbcType=VARCHAR},
+			           t1.house_pur_time                 =#{dto.housePurTime,jdbcType=VARCHAR},
+			           t1.car_pur_time                   =#{dto.carPurTime,jdbcType=VARCHAR},
+			           t1.house_value                    =#{dto.houseValue,jdbcType=DECIMAL},
+			           t1.car_value                      =#{dto.carValue,jdbcType=DECIMAL},
+			           t1.fk_id                          =#{dto.fkId,jdbcType=DECIMAL},
+			           t1.modify_time                    =systimestamp,
+			           t1.modify_by                      =#{dto.modifyBy,jdbcType=VARCHAR}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_SJT_ASSETS_STOCK -->
+<delete id="deleteExtSjtAssetsStockByID" parameterType="java.util.Map">
+    	delete from ext_sjt_assets_stock t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_SJT_ASSETS_STOCK -->
+<update id="deleteExtSjtAssetsStockByPrimaryKey" parameterType="java.util.Map">
+	     update ext_sjt_assets_stock t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

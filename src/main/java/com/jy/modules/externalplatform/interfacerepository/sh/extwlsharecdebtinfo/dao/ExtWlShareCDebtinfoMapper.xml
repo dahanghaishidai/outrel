@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.sh.extwlsharecdebtinfo.dao.ExtWlShareCDebtinfoDao">
+<resultMap id="ExtWlShareCDebtinfoDTO" type="com.jy.modules.externalplatform.interfacerepository.sh.extwlsharecdebtinfo.dto.ExtWlShareCDebtinfoDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="scerttypeModule" column="SCERTTYPE_MODULE" jdbcType="VARCHAR" />
+				<result property="scerttype" column="SCERTTYPE" jdbcType="VARCHAR" />
+				<result property="orgNum" column="ORG_NUM" jdbcType="DECIMAL" />
+				<result property="total" column="TOTAL" jdbcType="DECIMAL" />
+				<result property="creditLimit" column="CREDIT_LIMIT" jdbcType="DECIMAL" />
+				<result property="balance" column="BALANCE" jdbcType="DECIMAL" />
+				<result property="averagePay" column="AVERAGE_PAY" jdbcType="DECIMAL" />
+				<result property="fkReportId" column="FK_REPORT_ID" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_SHARE_C_DEBTINFO -->	
+<select id="searchExtWlShareCDebtinfoByPaging" parameterType="java.util.Map" resultMap="ExtWlShareCDebtinfoDTO">
+    	 		select 
+						t1.id                             ,
+						t1.scerttype_module               ,
+						t1.scerttype                      ,
+						t1.org_num                        ,
+						t1.total                          ,
+						t1.credit_limit                   ,
+						t1.balance                        ,
+						t1.average_pay                    ,
+						t1.fk_report_id                   ,
+						t1.create_time                    ,
+						t1.modify_time                    
+					
+				from ext_wl_share_c_debtinfo 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.scerttypeModule != null and dto.scerttypeModule != ''">
+						and t1.SCERTTYPE_MODULE =#{dto.scerttypeModule}
+    			</if>
+    			<if test="dto.scerttype != null and dto.scerttype != ''">
+						and t1.SCERTTYPE =#{dto.scerttype}
+    			</if>
+    			<if test="dto.orgNum != null and dto.orgNum != ''">
+						and t1.ORG_NUM =#{dto.orgNum}
+    			</if>
+    			<if test="dto.total != null and dto.total != ''">
+						and t1.TOTAL =#{dto.total}
+    			</if>
+    			<if test="dto.creditLimit != null and dto.creditLimit != ''">
+						and t1.CREDIT_LIMIT =#{dto.creditLimit}
+    			</if>
+    			<if test="dto.balance != null and dto.balance != ''">
+						and t1.BALANCE =#{dto.balance}
+    			</if>
+    			<if test="dto.averagePay != null and dto.averagePay != ''">
+						and t1.AVERAGE_PAY =#{dto.averagePay}
+    			</if>
+    			<if test="dto.fkReportId != null and dto.fkReportId != ''">
+						and t1.FK_REPORT_ID =#{dto.fkReportId}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_SHARE_C_DEBTINFO  -->
+<select id="searchExtWlShareCDebtinfo" parameterType="java.util.Map" resultMap="ExtWlShareCDebtinfoDTO">
+    	     select 
+						t1.id                             ,
+						t1.scerttype_module               ,
+						t1.scerttype                      ,
+						t1.org_num                        ,
+						t1.total                          ,
+						t1.credit_limit                   ,
+						t1.balance                        ,
+						t1.average_pay                    ,
+						t1.fk_report_id                   ,
+						t1.create_time                    ,
+						t1.modify_time                    
+				from ext_wl_share_c_debtinfo 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.scerttypeModule != null and dto.scerttypeModule != ''">
+						and t1.SCERTTYPE_MODULE = #{dto.scerttypeModule}
+    			</if>
+    			<if test="dto.scerttype != null and dto.scerttype != ''">
+						and t1.SCERTTYPE = #{dto.scerttype}
+    			</if>
+    			<if test="dto.orgNum != null and dto.orgNum != ''">
+						and t1.ORG_NUM = #{dto.orgNum}
+    			</if>
+    			<if test="dto.total != null and dto.total != ''">
+						and t1.TOTAL = #{dto.total}
+    			</if>
+    			<if test="dto.creditLimit != null and dto.creditLimit != ''">
+						and t1.CREDIT_LIMIT = #{dto.creditLimit}
+    			</if>
+    			<if test="dto.balance != null and dto.balance != ''">
+						and t1.BALANCE = #{dto.balance}
+    			</if>
+    			<if test="dto.averagePay != null and dto.averagePay != ''">
+						and t1.AVERAGE_PAY = #{dto.averagePay}
+    			</if>
+    			<if test="dto.fkReportId != null and dto.fkReportId != ''">
+						and t1.FK_REPORT_ID = #{dto.fkReportId}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_SHARE_C_DEBTINFO -->
+<select id="findExtWlShareCDebtinfoByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlShareCDebtinfoDTO">
+   	 		select 
+					t1.id                             ,
+					t1.scerttype_module               ,
+					t1.scerttype                      ,
+					t1.org_num                        ,
+					t1.total                          ,
+					t1.credit_limit                   ,
+					t1.balance                        ,
+					t1.average_pay                    ,
+					t1.fk_report_id                   ,
+					t1.create_time                    ,
+					t1.modify_time                    
+			from ext_wl_share_c_debtinfo 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_SHARE_C_DEBTINFO -->
+<insert id="insertExtWlShareCDebtinfo" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_SHARE_C_DEBTINFO.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_share_c_debtinfo
+			(   		
+					id                             ,
+					scerttype_module               ,
+					scerttype                      ,
+					org_num                        ,
+					total                          ,
+					credit_limit                   ,
+					balance                        ,
+					average_pay                    ,
+					fk_report_id                   ,
+					create_time                    ,
+					modify_time                    
+			)
+			values(#{dto.id}
+					,#{dto.scerttypeModule,jdbcType=VARCHAR}
+					,#{dto.scerttype,jdbcType=VARCHAR}
+					,#{dto.orgNum,jdbcType=DECIMAL}
+					,#{dto.total,jdbcType=DECIMAL}
+					,#{dto.creditLimit,jdbcType=DECIMAL}
+					,#{dto.balance,jdbcType=DECIMAL}
+					,#{dto.averagePay,jdbcType=DECIMAL}
+					,#{dto.fkReportId,jdbcType=DECIMAL}
+					,#{dto.createTime,jdbcType=TIMESTAMP}
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_SHARE_C_DEBTINFO -->
+<update id="updateExtWlShareCDebtinfo" parameterType="java.util.Map">
+	     update ext_wl_share_c_debtinfo t1
+	           set 
+			           t1.scerttype_module               =#{dto.scerttypeModule,jdbcType=VARCHAR},
+			           t1.scerttype                      =#{dto.scerttype,jdbcType=VARCHAR},
+			           t1.org_num                        =#{dto.orgNum,jdbcType=DECIMAL},
+			           t1.total                          =#{dto.total,jdbcType=DECIMAL},
+			           t1.credit_limit                   =#{dto.creditLimit,jdbcType=DECIMAL},
+			           t1.balance                        =#{dto.balance,jdbcType=DECIMAL},
+			           t1.average_pay                    =#{dto.averagePay,jdbcType=DECIMAL},
+			           t1.fk_report_id                   =#{dto.fkReportId,jdbcType=DECIMAL},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_SHARE_C_DEBTINFO -->
+<delete id="deleteExtWlShareCDebtinfoByID" parameterType="java.util.Map">
+    	delete from ext_wl_share_c_debtinfo t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_SHARE_C_DEBTINFO -->
+<update id="deleteExtWlShareCDebtinfoByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_share_c_debtinfo t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+
+<insert id="insertExtWlShareCDebtinfoList" parameterType="java.util.Map">
+begin
+    <foreach collection="dtoList" item="dto" >
+			insert into ext_wl_share_c_debtinfo
+			(   		
+					id                             ,
+					scerttype_module               ,
+					scerttype                      ,
+					org_num                        ,
+					total                          ,
+					credit_limit                   ,
+					balance                        ,
+					average_pay                    ,
+					fk_report_id                   ,
+					create_time                    ,
+					modify_time                    
+			)
+			values(seq_EXT_WL_SHARE_C_DEBTINFO.nextval
+					,#{dto.scerttypeModule,jdbcType=VARCHAR}
+					,#{dto.scerttype,jdbcType=VARCHAR}
+					,#{dto.orgNum,jdbcType=DECIMAL}
+					,#{dto.total,jdbcType=DECIMAL}
+					,#{dto.creditLimit,jdbcType=DECIMAL}
+					,#{dto.balance,jdbcType=DECIMAL}
+					,#{dto.averagePay,jdbcType=DECIMAL}
+					,#{fkReportId}
+					,systimestamp
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+			);
+    </foreach>
+  end;
+</insert>
+  
+  
+</mapper>

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.suanhua.extshcreqryguarstock.dao.ExtShCreqryGuarStockDao">
+<resultMap id="ExtShCreqryGuarStockDTO" type="com.jy.modules.externalplatform.interfacerepository.suanhua.extshcreqryguarstock.dto.ExtShCreqryGuarStockDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="reportId" column="REPORT_ID" jdbcType="DECIMAL" />
+				<result property="sname" column="SNAME" jdbcType="VARCHAR" />
+				<result property="scerttype" column="SCERTTYPE" jdbcType="VARCHAR" />
+				<result property="scertno" column="SCERTNO" jdbcType="VARCHAR" />
+				<result property="istate" column="ISTATE" jdbcType="VARCHAR" />
+				<result property="ioccursum" column="IOCCURSUM" jdbcType="DECIMAL" />
+				<result property="saccount" column="SACCOUNT" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 EXT_SH_CREQRY_GUAR_STOCK -->	
+<select id="searchExtShCreqryGuarStockByPaging" parameterType="java.util.Map" resultMap="ExtShCreqryGuarStockDTO">
+    	 		select 
+						t1.id                             ,
+						t1.report_id                      ,
+						t1.sname                          ,
+						t1.scerttype                      ,
+						t1.scertno                        ,
+						t1.istate                         ,
+						t1.ioccursum                      ,
+						t1.saccount                       ,
+						t1.create_time                    ,
+						t1.modify_time                    
+					
+				from ext_sh_creqry_guar_stock 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.reportId != null and dto.reportId != ''">
+						and t1.REPORT_ID =#{dto.reportId}
+    			</if>
+    			<if test="dto.sname != null and dto.sname != ''">
+						and t1.SNAME =#{dto.sname}
+    			</if>
+    			<if test="dto.scerttype != null and dto.scerttype != ''">
+						and t1.SCERTTYPE =#{dto.scerttype}
+    			</if>
+    			<if test="dto.scertno != null and dto.scertno != ''">
+						and t1.SCERTNO =#{dto.scertno}
+    			</if>
+    			<if test="dto.istate != null and dto.istate != ''">
+						and t1.ISTATE =#{dto.istate}
+    			</if>
+    			<if test="dto.ioccursum != null and dto.ioccursum != ''">
+						and t1.IOCCURSUM =#{dto.ioccursum}
+    			</if>
+    			<if test="dto.saccount != null and dto.saccount != ''">
+						and t1.SACCOUNT =#{dto.saccount}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_SH_CREQRY_GUAR_STOCK  -->
+<select id="searchExtShCreqryGuarStock" parameterType="java.util.Map" resultMap="ExtShCreqryGuarStockDTO">
+    	     select 
+						t1.id                             ,
+						t1.report_id                      ,
+						t1.sname                          ,
+						t1.scerttype                      ,
+						t1.scertno                        ,
+						t1.istate                         ,
+						t1.ioccursum                      ,
+						t1.saccount                       ,
+						t1.create_time                    ,
+						t1.modify_time                    
+				from ext_sh_creqry_guar_stock 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.reportId != null and dto.reportId != ''">
+						and t1.REPORT_ID = #{dto.reportId}
+    			</if>
+    			<if test="dto.sname != null and dto.sname != ''">
+						and t1.SNAME = #{dto.sname}
+    			</if>
+    			<if test="dto.scerttype != null and dto.scerttype != ''">
+						and t1.SCERTTYPE = #{dto.scerttype}
+    			</if>
+    			<if test="dto.scertno != null and dto.scertno != ''">
+						and t1.SCERTNO = #{dto.scertno}
+    			</if>
+    			<if test="dto.istate != null and dto.istate != ''">
+						and t1.ISTATE = #{dto.istate}
+    			</if>
+    			<if test="dto.ioccursum != null and dto.ioccursum != ''">
+						and t1.IOCCURSUM = #{dto.ioccursum}
+    			</if>
+    			<if test="dto.saccount != null and dto.saccount != ''">
+						and t1.SACCOUNT = #{dto.saccount}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_SH_CREQRY_GUAR_STOCK -->
+<select id="findExtShCreqryGuarStockByPrimaryKey" parameterType="java.util.Map" resultMap="ExtShCreqryGuarStockDTO">
+   	 		select 
+					t1.id                             ,
+					t1.report_id                      ,
+					t1.sname                          ,
+					t1.scerttype                      ,
+					t1.scertno                        ,
+					t1.istate                         ,
+					t1.ioccursum                      ,
+					t1.saccount                       ,
+					t1.create_time                    ,
+					t1.modify_time                    
+			from ext_sh_creqry_guar_stock 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_SH_CREQRY_GUAR_STOCK -->
+<insert id="insertExtShCreqryGuarStock" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_SH_CREQRY_GUAR_STOCK.nextval as id from dual
+	</selectKey>
+			insert into ext_sh_creqry_guar_stock
+			(   		
+					id                             ,
+					report_id                      ,
+					sname                          ,
+					scerttype                      ,
+					scertno                        ,
+					istate                         ,
+					ioccursum                      ,
+					saccount                       ,
+					create_time                    
+			)
+			values(#{dto.id}
+					,#{dto.reportId,jdbcType=DECIMAL}
+					,#{dto.sname,jdbcType=VARCHAR}
+					,#{dto.scerttype,jdbcType=VARCHAR}
+					,#{dto.scertno,jdbcType=VARCHAR}
+					,#{dto.istate,jdbcType=VARCHAR}
+					,#{dto.ioccursum,jdbcType=DECIMAL}
+					,#{dto.saccount,jdbcType=VARCHAR}
+					,systimestamp
+			)
+</insert>
+    
+<!-- 更新对象 EXT_SH_CREQRY_GUAR_STOCK -->
+<update id="updateExtShCreqryGuarStock" parameterType="java.util.Map">
+	     update ext_sh_creqry_guar_stock t1
+	           set 
+			           t1.report_id                      =#{dto.reportId,jdbcType=DECIMAL},
+			           t1.sname                          =#{dto.sname,jdbcType=VARCHAR},
+			           t1.scerttype                      =#{dto.scerttype,jdbcType=VARCHAR},
+			           t1.scertno                        =#{dto.scertno,jdbcType=VARCHAR},
+			           t1.istate                         =#{dto.istate,jdbcType=VARCHAR},
+			           t1.ioccursum                      =#{dto.ioccursum,jdbcType=DECIMAL},
+			           t1.saccount                       =#{dto.saccount,jdbcType=VARCHAR},
+			           t1.modify_time                    =systimestamp
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_SH_CREQRY_GUAR_STOCK -->
+<delete id="deleteExtShCreqryGuarStockByID" parameterType="java.util.Map">
+    	delete from ext_sh_creqry_guar_stock t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_SH_CREQRY_GUAR_STOCK -->
+<update id="deleteExtShCreqryGuarStockByPrimaryKey" parameterType="java.util.Map">
+	     update ext_sh_creqry_guar_stock t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.xy.extwlxyoverduedetail.dao.ExtWlXyOverdueDetailDao">
+<resultMap id="ExtWlXyOverdueDetailDTO" type="com.jy.modules.externalplatform.interfacerepository.xy.extwlxyoverduedetail.dto.ExtWlXyOverdueDetailDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="fkId" column="FK_ID" jdbcType="DECIMAL" />
+				<result property="overdueDate" column="OVERDUE_DATE" jdbcType="VARCHAR" />
+				<result property="overdueCount" column="OVERDUE_COUNT" jdbcType="VARCHAR" />
+				<result property="amount" column="AMOUNT" jdbcType="VARCHAR" />
+				<result property="settlement" column="SETTLEMENT" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="modifyBy" column="MODIFY_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_XY_OVERDUE_DETAIL -->	
+<select id="searchExtWlXyOverdueDetailByPaging" parameterType="java.util.Map" resultMap="ExtWlXyOverdueDetailDTO">
+    	 		select 
+						t1.id                             ,
+						t1.fk_id                          ,
+						t1.overdue_date                   ,
+						t1.overdue_count                  ,
+						t1.amount                         ,
+						t1.settlement                     ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.create_by                      ,
+						t1.modify_by                      
+					
+				from ext_wl_xy_overdue_detail 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.fkId != null and dto.fkId != ''">
+						and t1.FK_ID =#{dto.fkId}
+    			</if>
+    			<if test="dto.overdueDate != null and dto.overdueDate != ''">
+						and t1.OVERDUE_DATE =#{dto.overdueDate}
+    			</if>
+    			<if test="dto.overdueCount != null and dto.overdueCount != ''">
+						and t1.OVERDUE_COUNT =#{dto.overdueCount}
+    			</if>
+    			<if test="dto.amount != null and dto.amount != ''">
+						and t1.AMOUNT =#{dto.amount}
+    			</if>
+    			<if test="dto.settlement != null and dto.settlement != ''">
+						and t1.SETTLEMENT =#{dto.settlement}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY =#{dto.modifyBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_XY_OVERDUE_DETAIL  -->
+<select id="searchExtWlXyOverdueDetail" parameterType="java.util.Map" resultMap="ExtWlXyOverdueDetailDTO">
+    	     select 
+						t1.id                             ,
+						t1.fk_id                          ,
+						t1.overdue_date                   ,
+						t1.overdue_count                  ,
+						t1.amount                         ,
+						t1.settlement                     ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.create_by                      ,
+						t1.modify_by                      
+				from ext_wl_xy_overdue_detail 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.fkId != null and dto.fkId != ''">
+						and t1.FK_ID = #{dto.fkId}
+    			</if>
+    			<if test="dto.overdueDate != null and dto.overdueDate != ''">
+						and t1.OVERDUE_DATE = #{dto.overdueDate}
+    			</if>
+    			<if test="dto.overdueCount != null and dto.overdueCount != ''">
+						and t1.OVERDUE_COUNT = #{dto.overdueCount}
+    			</if>
+    			<if test="dto.amount != null and dto.amount != ''">
+						and t1.AMOUNT = #{dto.amount}
+    			</if>
+    			<if test="dto.settlement != null and dto.settlement != ''">
+						and t1.SETTLEMENT = #{dto.settlement}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY = #{dto.modifyBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_XY_OVERDUE_DETAIL -->
+<select id="findExtWlXyOverdueDetailByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlXyOverdueDetailDTO">
+   	 		select 
+					t1.id                             ,
+					t1.fk_id                          ,
+					t1.overdue_date                   ,
+					t1.overdue_count                  ,
+					t1.amount                         ,
+					t1.settlement                     ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.create_by                      ,
+					t1.modify_by                      
+			from ext_wl_xy_overdue_detail 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_XY_OVERDUE_DETAIL -->
+<insert id="insertExtWlXyOverdueDetail" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_XY_OVERDUE_DETAIL.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_xy_overdue_detail
+			(   		
+					id                             ,
+					fk_id                          ,
+					overdue_date                   ,
+					overdue_count                  ,
+					amount                         ,
+					settlement                     ,
+					create_time                    ,
+					modify_time                    ,
+					create_by                      ,
+					modify_by                      
+			)
+			values(#{dto.id}
+					,#{dto.fkId,jdbcType=DECIMAL}
+					,#{dto.overdueDate,jdbcType=VARCHAR}
+					,#{dto.overdueCount,jdbcType=VARCHAR}
+					,#{dto.amount,jdbcType=VARCHAR}
+					,#{dto.settlement,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.modifyBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_XY_OVERDUE_DETAIL -->
+<update id="updateExtWlXyOverdueDetail" parameterType="java.util.Map">
+	     update ext_wl_xy_overdue_detail t1
+	           set 
+			           t1.fk_id                          =#{dto.fkId,jdbcType=DECIMAL},
+			           t1.overdue_date                   =#{dto.overdueDate,jdbcType=VARCHAR},
+			           t1.overdue_count                  =#{dto.overdueCount,jdbcType=VARCHAR},
+			           t1.amount                         =#{dto.amount,jdbcType=VARCHAR},
+			           t1.settlement                     =#{dto.settlement,jdbcType=VARCHAR},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP},
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.modify_by                      =#{dto.modifyBy,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_XY_OVERDUE_DETAIL -->
+<delete id="deleteExtWlXyOverdueDetailByID" parameterType="java.util.Map">
+    	delete from ext_wl_xy_overdue_detail t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_XY_OVERDUE_DETAIL -->
+<update id="deleteExtWlXyOverdueDetailByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_xy_overdue_detail t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.shzx.extpersonalreportspec.dao.ExtPersonalReportSpecDao">
+<resultMap id="ExtPersonalReportSpecDTO" type="com.jy.modules.externalplatform.interfacerepository.shzx.extpersonalreportspec.dto.ExtPersonalReportSpecDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="recordSource" column="RECORD_SOURCE" jdbcType="VARCHAR" />
+				<result property="recordType" column="RECORD_TYPE" jdbcType="VARCHAR" />
+				<result property="infoDate" column="INFO_DATE" jdbcType="VARCHAR" />
+				<result property="personalCreditReport" column="PERSONAL_CREDIT_REPORT" jdbcType="DECIMAL" />
+				<result property="happenDate" column="HAPPEN_DATE" jdbcType="VARCHAR" />
+				<result property="changeDate" column="CHANGE_DATE" jdbcType="VARCHAR" />
+				<result property="happenAmount" column="HAPPEN_AMOUNT" jdbcType="VARCHAR" />
+				<result property="info" column="INFO" jdbcType="VARCHAR" />
+				<result property="optlock" column="OPTLOCK" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 EXT_personal_report_spec -->	
+<select id="searchExtPersonalReportSpecByPaging" parameterType="java.util.Map" resultMap="ExtPersonalReportSpecDTO">
+    	 		select 
+						t1.id                             ,
+						t1.record_source                  ,
+						t1.record_type                    ,
+						t1.info_date                      ,
+						t1.personal_credit_report         ,
+						t1.happen_date                    ,
+						t1.change_date                    ,
+						t1.happen_amount                  ,
+						t1.info                           ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.optlock                        
+					
+				from ext_personal_report_spec 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.recordSource != null and dto.recordSource != ''">
+						and t1.RECORD_SOURCE =#{dto.recordSource}
+    			</if>
+    			<if test="dto.recordType != null and dto.recordType != ''">
+						and t1.RECORD_TYPE =#{dto.recordType}
+    			</if>
+    			<if test="dto.infoDate != null and dto.infoDate != ''">
+						and t1.INFO_DATE =#{dto.infoDate}
+    			</if>
+    			<if test="dto.personalCreditReport != null and dto.personalCreditReport != ''">
+						and t1.PERSONAL_CREDIT_REPORT =#{dto.personalCreditReport}
+    			</if>
+    			<if test="dto.happenDate != null and dto.happenDate != ''">
+						and t1.HAPPEN_DATE =#{dto.happenDate}
+    			</if>
+    			<if test="dto.changeDate != null and dto.changeDate != ''">
+						and t1.CHANGE_DATE =#{dto.changeDate}
+    			</if>
+    			<if test="dto.happenAmount != null and dto.happenAmount != ''">
+						and t1.HAPPEN_AMOUNT =#{dto.happenAmount}
+    			</if>
+    			<if test="dto.info != null and dto.info != ''">
+						and t1.INFO =#{dto.info}
+    			</if>
+    			<if test="dto.optlock != null and dto.optlock != ''">
+						and t1.OPTLOCK =#{dto.optlock}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_personal_report_spec  -->
+<select id="searchExtPersonalReportSpec" parameterType="java.util.Map" resultMap="ExtPersonalReportSpecDTO">
+    	     select 
+						t1.id                             ,
+						t1.record_source                  ,
+						t1.record_type                    ,
+						t1.info_date                      ,
+						t1.personal_credit_report         ,
+						t1.happen_date                    ,
+						t1.change_date                    ,
+						t1.happen_amount                  ,
+						t1.info                           ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.optlock                        
+				from ext_personal_report_spec 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.recordSource != null and dto.recordSource != ''">
+						and t1.RECORD_SOURCE = #{dto.recordSource}
+    			</if>
+    			<if test="dto.recordType != null and dto.recordType != ''">
+						and t1.RECORD_TYPE = #{dto.recordType}
+    			</if>
+    			<if test="dto.infoDate != null and dto.infoDate != ''">
+						and t1.INFO_DATE = #{dto.infoDate}
+    			</if>
+    			<if test="dto.personalCreditReport != null and dto.personalCreditReport != ''">
+						and t1.PERSONAL_CREDIT_REPORT = #{dto.personalCreditReport}
+    			</if>
+    			<if test="dto.happenDate != null and dto.happenDate != ''">
+						and t1.HAPPEN_DATE = #{dto.happenDate}
+    			</if>
+    			<if test="dto.changeDate != null and dto.changeDate != ''">
+						and t1.CHANGE_DATE = #{dto.changeDate}
+    			</if>
+    			<if test="dto.happenAmount != null and dto.happenAmount != ''">
+						and t1.HAPPEN_AMOUNT = #{dto.happenAmount}
+    			</if>
+    			<if test="dto.info != null and dto.info != ''">
+						and t1.INFO = #{dto.info}
+    			</if>
+    			<if test="dto.optlock != null and dto.optlock != ''">
+						and t1.OPTLOCK = #{dto.optlock}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_personal_report_spec -->
+<select id="findExtPersonalReportSpecByPrimaryKey" parameterType="java.util.Map" resultMap="ExtPersonalReportSpecDTO">
+   	 		select 
+					t1.id                             ,
+					t1.record_source                  ,
+					t1.record_type                    ,
+					t1.info_date                      ,
+					t1.personal_credit_report         ,
+					t1.happen_date                    ,
+					t1.change_date                    ,
+					t1.happen_amount                  ,
+					t1.info                           ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.optlock                        
+			from ext_personal_report_spec 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_personal_report_spec -->
+<insert id="insertExtPersonalReportSpec" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_personal_report_spec.nextval as id from dual
+	</selectKey>
+			insert into ext_personal_report_spec
+			(   		
+					id                             ,
+					record_source                  ,
+					record_type                    ,
+					info_date                      ,
+					personal_credit_report         ,
+					happen_date                    ,
+					change_date                    ,
+					happen_amount                  ,
+					info                           ,
+					create_time                    ,
+					optlock                        
+			)
+			values(#{dto.id}
+					,#{dto.recordSource,jdbcType=VARCHAR}
+					,#{dto.recordType,jdbcType=VARCHAR}
+					,#{dto.infoDate,jdbcType=VARCHAR}
+					,#{dto.personalCreditReport,jdbcType=DECIMAL}
+					,#{dto.happenDate,jdbcType=VARCHAR}
+					,#{dto.changeDate,jdbcType=VARCHAR}
+					,#{dto.happenAmount,jdbcType=VARCHAR}
+					,#{dto.info,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.optlock,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_personal_report_spec -->
+<update id="updateExtPersonalReportSpec" parameterType="java.util.Map">
+	     update ext_personal_report_spec t1
+	           set 
+			           t1.record_source                  =#{dto.recordSource,jdbcType=VARCHAR},
+			           t1.record_type                    =#{dto.recordType,jdbcType=VARCHAR},
+			           t1.info_date                      =#{dto.infoDate,jdbcType=VARCHAR},
+			           t1.personal_credit_report         =#{dto.personalCreditReport,jdbcType=DECIMAL},
+			           t1.happen_date                    =#{dto.happenDate,jdbcType=VARCHAR},
+			           t1.change_date                    =#{dto.changeDate,jdbcType=VARCHAR},
+			           t1.happen_amount                  =#{dto.happenAmount,jdbcType=VARCHAR},
+			           t1.info                           =#{dto.info,jdbcType=VARCHAR},
+					   t1.modify_time                    =systimestamp,
+			           t1.optlock                        =#{dto.optlock,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_personal_report_spec -->
+<delete id="deleteExtPersonalReportSpecByID" parameterType="java.util.Map">
+    	delete from ext_personal_report_spec t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_personal_report_spec -->
+<update id="deleteExtPersonalReportSpecByPrimaryKey" parameterType="java.util.Map">
+	     update ext_personal_report_spec t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.br.extbrreportlastweek.dao.ExtBrReportLastweekDao">
+<resultMap id="ExtBrReportLastweekDTO" type="com.jy.modules.externalplatform.interfacerepository.br.extbrreportlastweek.dto.ExtBrReportLastweekDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="brReportId" column="BR_REPORT_ID" jdbcType="DECIMAL" />
+				<result property="optlock" column="OPTLOCK" jdbcType="DECIMAL" />
+				<result property="onlineType" column="ONLINE_TYPE" jdbcType="VARCHAR" />
+				<result property="lastweekOnlineNum" column="LASTWEEK_ONLINE_NUM" jdbcType="VARCHAR" />
+				<result property="onlineTotal" column="ONLINE_TOTAL" jdbcType="VARCHAR" />
+				<result property="lastOnline" column="LAST_ONLINE" jdbcType="VARCHAR" />
+				<result property="onlineName" column="ONLINE_NAME" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="VARCHAR" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyBy" column="MODIFY_BY" jdbcType="VARCHAR" />
+</resultMap>
+				
+<!-- 分页查询 EXT_BR_REPORT_LASTWEEK -->	
+<select id="searchExtBrReportLastweekByPaging" parameterType="java.util.Map" resultMap="ExtBrReportLastweekDTO">
+    	 		select 
+						t1.id                             ,
+						t1.br_report_id                   ,
+						t1.optlock                        ,
+						t1.online_type                    ,
+						t1.lastweek_online_num            ,
+						t1.online_total                   ,
+						t1.last_online                    ,
+						t1.online_name                    ,
+						t1.create_time                    ,
+						t1.create_by                      ,
+						t1.modify_time                    ,
+						t1.modify_by                      
+					
+				from ext_br_report_lastweek 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.brReportId != null and dto.brReportId != ''">
+						and t1.BR_REPORT_ID =#{dto.brReportId}
+    			</if>
+    			<if test="dto.optlock != null and dto.optlock != ''">
+						and t1.OPTLOCK =#{dto.optlock}
+    			</if>
+    			<if test="dto.onlineType != null and dto.onlineType != ''">
+						and t1.ONLINE_TYPE =#{dto.onlineType}
+    			</if>
+    			<if test="dto.lastweekOnlineNum != null and dto.lastweekOnlineNum != ''">
+						and t1.LASTWEEK_ONLINE_NUM =#{dto.lastweekOnlineNum}
+    			</if>
+    			<if test="dto.onlineTotal != null and dto.onlineTotal != ''">
+						and t1.ONLINE_TOTAL =#{dto.onlineTotal}
+    			</if>
+    			<if test="dto.lastOnline != null and dto.lastOnline != ''">
+						and t1.LAST_ONLINE =#{dto.lastOnline}
+    			</if>
+    			<if test="dto.onlineName != null and dto.onlineName != ''">
+						and t1.ONLINE_NAME =#{dto.onlineName}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY =#{dto.modifyBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_BR_REPORT_LASTWEEK  -->
+<select id="searchExtBrReportLastweek" parameterType="java.util.Map" resultMap="ExtBrReportLastweekDTO">
+    	     select 
+						t1.id                             ,
+						t1.br_report_id                   ,
+						t1.optlock                        ,
+						t1.online_type                    ,
+						t1.lastweek_online_num            ,
+						t1.online_total                   ,
+						t1.last_online                    ,
+						t1.online_name                    ,
+						t1.create_time                    ,
+						t1.create_by                      ,
+						t1.modify_time                    ,
+						t1.modify_by                      
+				from ext_br_report_lastweek 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.brReportId != null and dto.brReportId != ''">
+						and t1.BR_REPORT_ID = #{dto.brReportId}
+    			</if>
+    			<if test="dto.optlock != null and dto.optlock != ''">
+						and t1.OPTLOCK = #{dto.optlock}
+    			</if>
+    			<if test="dto.onlineType != null and dto.onlineType != ''">
+						and t1.ONLINE_TYPE = #{dto.onlineType}
+    			</if>
+    			<if test="dto.lastweekOnlineNum != null and dto.lastweekOnlineNum != ''">
+						and t1.LASTWEEK_ONLINE_NUM = #{dto.lastweekOnlineNum}
+    			</if>
+    			<if test="dto.onlineTotal != null and dto.onlineTotal != ''">
+						and t1.ONLINE_TOTAL = #{dto.onlineTotal}
+    			</if>
+    			<if test="dto.lastOnline != null and dto.lastOnline != ''">
+						and t1.LAST_ONLINE = #{dto.lastOnline}
+    			</if>
+    			<if test="dto.onlineName != null and dto.onlineName != ''">
+						and t1.ONLINE_NAME = #{dto.onlineName}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY = #{dto.modifyBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_BR_REPORT_LASTWEEK -->
+<select id="findExtBrReportLastweekByPrimaryKey" parameterType="java.util.Map" resultMap="ExtBrReportLastweekDTO">
+   	 		select 
+					t1.id                             ,
+					t1.br_report_id                   ,
+					t1.optlock                        ,
+					t1.online_type                    ,
+					t1.lastweek_online_num            ,
+					t1.online_total                   ,
+					t1.last_online                    ,
+					t1.online_name                    ,
+					t1.create_time                    ,
+					t1.create_by                      ,
+					t1.modify_time                    ,
+					t1.modify_by                      
+			from ext_br_report_lastweek 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_BR_REPORT_LASTWEEK -->
+<insert id="insertExtBrReportLastweek" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_BR_REPORT_LASTWEEK.nextval as id from dual
+	</selectKey>
+			insert into ext_br_report_lastweek
+			(   		
+					id                             ,
+					br_report_id                   ,
+					optlock                        ,
+					online_type                    ,
+					lastweek_online_num            ,
+					online_total                   ,
+					last_online                    ,
+					online_name                    ,
+					create_time                    ,
+					create_by                      
+			)
+			values(#{dto.id}
+					,#{dto.brReportId,jdbcType=DECIMAL}
+					,#{dto.optlock,jdbcType=DECIMAL}
+					,#{dto.onlineType,jdbcType=VARCHAR}
+					,#{dto.lastweekOnlineNum,jdbcType=VARCHAR}
+					,#{dto.onlineTotal,jdbcType=VARCHAR}
+					,#{dto.lastOnline,jdbcType=VARCHAR}
+					,#{dto.onlineName,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.createBy,jdbcType=VARCHAR}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_BR_REPORT_LASTWEEK -->
+<update id="updateExtBrReportLastweek" parameterType="java.util.Map">
+	     update ext_br_report_lastweek t1
+	           set 
+			           t1.br_report_id                   =#{dto.brReportId,jdbcType=DECIMAL},
+			           t1.optlock                        =#{dto.optlock,jdbcType=DECIMAL},
+			           t1.online_type                    =#{dto.onlineType,jdbcType=VARCHAR},
+			           t1.lastweek_online_num            =#{dto.lastweekOnlineNum,jdbcType=VARCHAR},
+			           t1.online_total                   =#{dto.onlineTotal,jdbcType=VARCHAR},
+			           t1.last_online                    =#{dto.lastOnline,jdbcType=VARCHAR},
+			           t1.online_name                    =#{dto.onlineName,jdbcType=VARCHAR},
+			           t1.modify_time                    =systimestamp,
+			           t1.modify_by                      =#{dto.modifyBy,jdbcType=VARCHAR}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_BR_REPORT_LASTWEEK -->
+<delete id="deleteExtBrReportLastweekByID" parameterType="java.util.Map">
+    	delete from ext_br_report_lastweek t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_BR_REPORT_LASTWEEK -->
+<update id="deleteExtBrReportLastweekByPrimaryKey" parameterType="java.util.Map">
+	     update ext_br_report_lastweek t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

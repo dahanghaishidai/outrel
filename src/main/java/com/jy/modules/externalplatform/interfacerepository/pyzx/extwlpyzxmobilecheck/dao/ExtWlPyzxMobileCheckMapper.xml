@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.pyzx.extwlpyzxmobilecheck.dao.ExtWlPyzxMobileCheckDao">
+<resultMap id="ExtWlPyzxMobileCheckDTO" type="com.jy.modules.externalplatform.interfacerepository.pyzx.extwlpyzxmobilecheck.dto.ExtWlPyzxMobileCheckDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="fkIntoCustId" column="FK_INTO_CUST_ID" jdbcType="DECIMAL" />
+				<result property="nameCheckResult" column="NAME_CHECK_RESULT" jdbcType="VARCHAR" />
+				<result property="documentNoCheckResult" column="DOCUMENT_NO_CHECK_RESULT" jdbcType="VARCHAR" />
+				<result property="phoneCheckResult" column="PHONE_CHECK_RESULT" jdbcType="VARCHAR" />
+				<result property="operator" column="OPERATOR" jdbcType="VARCHAR" />
+				<result property="areaInfo" column="AREA_INFO" jdbcType="VARCHAR" />
+				<result property="ext1" column="EXT1" jdbcType="VARCHAR" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyBy" column="MODIFY_BY" jdbcType="DECIMAL" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="validateState" column="VALIDATE_STATE" jdbcType="VARCHAR" />
+</resultMap>
+				
+
+<!-- 新增对象 ext_wl_pyzx_mobile_check -->
+<insert id="insertExtWlPyzxMobileCheck" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_ext_wl_pyzx_mobile_check.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_pyzx_mobile_check
+			(   		
+					id                             ,
+					fk_into_cust_id                ,
+					name_check_result              ,
+					document_no_check_result       ,
+					phone_check_result             ,
+					operator                       ,
+					area_info                      ,
+					ext1                           ,
+					create_by                      ,
+					create_time                    ,
+					modify_by                      ,
+					modify_time                    ,
+					validate_state                 
+			)
+			values(#{dto.id}
+					,#{dto.fkIntoCustId,jdbcType=DECIMAL}
+					,#{dto.nameCheckResult,jdbcType=VARCHAR}
+					,#{dto.documentNoCheckResult,jdbcType=VARCHAR}
+					,#{dto.phoneCheckResult,jdbcType=VARCHAR}
+					,#{dto.operator,jdbcType=VARCHAR}
+					,#{dto.areaInfo,jdbcType=VARCHAR}
+					,#{dto.ext1,jdbcType=VARCHAR}
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,systimestamp
+					,#{dto.modifyBy,jdbcType=DECIMAL}
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,'1'
+			)
+</insert>
+    
+</mapper>

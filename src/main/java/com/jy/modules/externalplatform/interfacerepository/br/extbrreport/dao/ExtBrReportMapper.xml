@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.br.extbrreport.dao.ExtBrReportDao">
+<resultMap id="ExtBrReportDTO" type="com.jy.modules.externalplatform.interfacerepository.br.extbrreport.dto.ExtBrReportDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="objectId" column="OBJECT_ID" jdbcType="VARCHAR" />
+				<result property="authenticationIdNum" column="AUTHENTICATION_ID_NUM" jdbcType="VARCHAR" />
+				<result property="authenticationPhone" column="AUTHENTICATION_PHONE" jdbcType="VARCHAR" />
+				<result property="authenticationMail" column="AUTHENTICATION_MAIL" jdbcType="VARCHAR" />
+				<result property="authenticationName" column="AUTHENTICATION_NAME" jdbcType="VARCHAR" />
+				<result property="authenticationTelhome" column="AUTHENTICATION_TELHOME" jdbcType="VARCHAR" />
+				<result property="coreRelation" column="CORE_RELATION" jdbcType="VARCHAR" />
+				<result property="authenticationIdNumKey" column="AUTHENTICATION_ID_NUM_KEY" jdbcType="VARCHAR" />
+				<result property="authenticationPhoneKey" column="AUTHENTICATION_PHONE_KEY" jdbcType="VARCHAR" />
+				<result property="authenticationMailKey" column="AUTHENTICATION_MAIL_KEY" jdbcType="VARCHAR" />
+				<result property="authenticationNameKey" column="AUTHENTICATION_NAME_KEY" jdbcType="VARCHAR" />
+				<result property="authenticationTelephoneKey" column="AUTHENTICATION_TELEPHONE_KEY" jdbcType="VARCHAR" />
+				<result property="authenticationAddrKey" column="AUTHENTICATION_ADDR_KEY" jdbcType="VARCHAR" />
+				<result property="assessmentHouse" column="ASSESSMENT_HOUSE" jdbcType="VARCHAR" />
+				<result property="assessmentCar" column="ASSESSMENT_CAR" jdbcType="VARCHAR" />
+				<result property="assessmentMoney" column="ASSESSMENT_MONEY" jdbcType="VARCHAR" />
+				<result property="assessmentWealthType" column="ASSESSMENT_WEALTH_TYPE" jdbcType="VARCHAR" />
+				<result property="interestOne" column="INTEREST_ONE" jdbcType="VARCHAR" />
+				<result property="interestTwo" column="INTEREST_TWO" jdbcType="VARCHAR" />
+				<result property="interestThree" column="INTEREST_THREE" jdbcType="VARCHAR" />
+				<result property="interestFour" column="INTEREST_FOUR" jdbcType="VARCHAR" />
+				<result property="interestFive" column="INTEREST_FIVE" jdbcType="VARCHAR" />
+				<result property="optlock" column="OPTLOCK" jdbcType="DECIMAL" />
+				<result property="companyLevel" column="COMPANY_LEVEL" jdbcType="VARCHAR" />
+				<result property="swiftNumber" column="SWIFT_NUMBER" jdbcType="VARCHAR" />
+				<result property="authenticationTelbiz" column="AUTHENTICATION_TELBIZ" jdbcType="VARCHAR" />
+				<result property="lastweekMsg" column="LASTWEEK_MSG" jdbcType="VARCHAR" />
+				<result property="assessmentMsg" column="ASSESSMENT_MSG" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="VARCHAR" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyBy" column="MODIFY_BY" jdbcType="VARCHAR" />
+				<result property="prodCode" column="PROD_CODE" jdbcType="VARCHAR" />
+				<result property="orgCode" column="ORG_CODE" jdbcType="VARCHAR" />
+				<result property="sysCode" column="SYS_CODE" jdbcType="VARCHAR" />
+				<result property="retcode" column="RETCODE" jdbcType="VARCHAR" />
+				<result property="errormsg" column="ERRORMSG" jdbcType="VARCHAR" />
+				<result property="interfaceId" column="INTERFACE_ID" jdbcType="VARCHAR" />
+				<result property="remark" column="REMARK" jdbcType="VARCHAR" />
+				<result property="code" column="CODE" jdbcType="VARCHAR" />
+</resultMap>
+				
+<!-- 分页查询 EXT_BR_REPORT -->	
+<select id="searchExtBrReportByPaging" parameterType="java.util.Map" resultMap="ExtBrReportDTO">
+    	 		select 
+						t1.id                             ,
+						t1.object_id                      ,
+						t1.authentication_id_num          ,
+						t1.authentication_phone           ,
+						t1.authentication_mail            ,
+						t1.authentication_name            ,
+						t1.authentication_telhome         ,
+						t1.core_relation                  ,
+						t1.authentication_id_num_key      ,
+						t1.authentication_phone_key       ,
+						t1.authentication_mail_key        ,
+						t1.authentication_name_key        ,
+						t1.authentication_telephone_key   ,
+						t1.authentication_addr_key        ,
+						t1.assessment_house               ,
+						t1.assessment_car                 ,
+						t1.assessment_money               ,
+						t1.assessment_wealth_type         ,
+						t1.interest_one                   ,
+						t1.interest_two                   ,
+						t1.interest_three                 ,
+						t1.interest_four                  ,
+						t1.interest_five                  ,
+						t1.optlock                        ,
+						t1.company_level                  ,
+						t1.swift_number                   ,
+						t1.authentication_telbiz          ,
+						t1.lastweek_msg                   ,
+						t1.assessment_msg                 ,
+						t1.code                           ,
+						t1.create_time                    ,
+						t1.create_by                      ,
+						t1.modify_time                    ,
+						t1.modify_by                      ,
+						t1.prod_code                      ,
+						t1.org_code                       ,
+						t1.sys_code                       ,
+						t1.retcode                        ,
+						t1.errormsg                       ,
+						t1.interface_id                   ,
+						t1.remark                         
+					
+				from ext_br_report 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.objectId != null and dto.objectId != ''">
+						and t1.OBJECT_ID =#{dto.objectId}
+    			</if>
+    			<if test="dto.authenticationIdNum != null and dto.authenticationIdNum != ''">
+						and t1.AUTHENTICATION_ID_NUM =#{dto.authenticationIdNum}
+    			</if>
+    			<if test="dto.authenticationPhone != null and dto.authenticationPhone != ''">
+						and t1.AUTHENTICATION_PHONE =#{dto.authenticationPhone}
+    			</if>
+    			<if test="dto.authenticationMail != null and dto.authenticationMail != ''">
+						and t1.AUTHENTICATION_MAIL =#{dto.authenticationMail}
+    			</if>
+    			<if test="dto.authenticationName != null and dto.authenticationName != ''">
+						and t1.AUTHENTICATION_NAME =#{dto.authenticationName}
+    			</if>
+    			<if test="dto.authenticationTelhome != null and dto.authenticationTelhome != ''">
+						and t1.AUTHENTICATION_TELHOME =#{dto.authenticationTelhome}
+    			</if>
+    			<if test="dto.coreRelation != null and dto.coreRelation != ''">
+						and t1.CORE_RELATION =#{dto.coreRelation}
+    			</if>
+    			<if test="dto.authenticationIdNumKey != null and dto.authenticationIdNumKey != ''">
+						and t1.AUTHENTICATION_ID_NUM_KEY =#{dto.authenticationIdNumKey}
+    			</if>
+    			<if test="dto.authenticationPhoneKey != null and dto.authenticationPhoneKey != ''">
+						and t1.AUTHENTICATION_PHONE_KEY =#{dto.authenticationPhoneKey}
+    			</if>
+    			<if test="dto.authenticationMailKey != null and dto.authenticationMailKey != ''">
+						and t1.AUTHENTICATION_MAIL_KEY =#{dto.authenticationMailKey}
+    			</if>
+    			<if test="dto.authenticationNameKey != null and dto.authenticationNameKey != ''">
+						and t1.AUTHENTICATION_NAME_KEY =#{dto.authenticationNameKey}
+    			</if>
+    			<if test="dto.authenticationTelephoneKey != null and dto.authenticationTelephoneKey != ''">
+						and t1.AUTHENTICATION_TELEPHONE_KEY =#{dto.authenticationTelephoneKey}
+    			</if>
+    			<if test="dto.authenticationAddrKey != null and dto.authenticationAddrKey != ''">
+						and t1.AUTHENTICATION_ADDR_KEY =#{dto.authenticationAddrKey}
+    			</if>
+    			<if test="dto.assessmentHouse != null and dto.assessmentHouse != ''">
+						and t1.ASSESSMENT_HOUSE =#{dto.assessmentHouse}
+    			</if>
+    			<if test="dto.assessmentCar != null and dto.assessmentCar != ''">
+						and t1.ASSESSMENT_CAR =#{dto.assessmentCar}
+    			</if>
+    			<if test="dto.assessmentMoney != null and dto.assessmentMoney != ''">
+						and t1.ASSESSMENT_MONEY =#{dto.assessmentMoney}
+    			</if>
+    			<if test="dto.assessmentWealthType != null and dto.assessmentWealthType != ''">
+						and t1.ASSESSMENT_WEALTH_TYPE =#{dto.assessmentWealthType}
+    			</if>
+    			<if test="dto.interestOne != null and dto.interestOne != ''">
+						and t1.INTEREST_ONE =#{dto.interestOne}
+    			</if>
+    			<if test="dto.interestTwo != null and dto.interestTwo != ''">
+						and t1.INTEREST_TWO =#{dto.interestTwo}
+    			</if>
+    			<if test="dto.interestThree != null and dto.interestThree != ''">
+						and t1.INTEREST_THREE =#{dto.interestThree}
+    			</if>
+    			<if test="dto.interestFour != null and dto.interestFour != ''">
+						and t1.INTEREST_FOUR =#{dto.interestFour}
+    			</if>
+    			<if test="dto.interestFive != null and dto.interestFive != ''">
+						and t1.INTEREST_FIVE =#{dto.interestFive}
+    			</if>
+    			<if test="dto.optlock != null and dto.optlock != ''">
+						and t1.OPTLOCK =#{dto.optlock}
+    			</if>
+    			<if test="dto.companyLevel != null and dto.companyLevel != ''">
+						and t1.COMPANY_LEVEL =#{dto.companyLevel}
+    			</if>
+    			<if test="dto.swiftNumber != null and dto.swiftNumber != ''">
+						and t1.SWIFT_NUMBER =#{dto.swiftNumber}
+    			</if>
+    			<if test="dto.authenticationTelbiz != null and dto.authenticationTelbiz != ''">
+						and t1.AUTHENTICATION_TELBIZ =#{dto.authenticationTelbiz}
+    			</if>
+    			<if test="dto.lastweekMsg != null and dto.lastweekMsg != ''">
+						and t1.LASTWEEK_MSG =#{dto.lastweekMsg}
+    			</if>
+    			<if test="dto.assessmentMsg != null and dto.assessmentMsg != ''">
+						and t1.ASSESSMENT_MSG =#{dto.assessmentMsg}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY =#{dto.modifyBy}
+    			</if>
+    			<if test="dto.prodCode != null and dto.prodCode != ''">
+						and t1.PROD_CODE =#{dto.prodCode}
+    			</if>
+    			<if test="dto.orgCode != null and dto.orgCode != ''">
+						and t1.ORG_CODE =#{dto.orgCode}
+    			</if>
+    			<if test="dto.sysCode != null and dto.sysCode != ''">
+						and t1.SYS_CODE =#{dto.sysCode}
+    			</if>
+    			<if test="dto.retcode != null and dto.retcode != ''">
+						and t1.RETCODE =#{dto.retcode}
+    			</if>
+    			<if test="dto.errormsg != null and dto.errormsg != ''">
+						and t1.ERRORMSG =#{dto.errormsg}
+    			</if>
+    			<if test="dto.interfaceId != null and dto.interfaceId != ''">
+						and t1.INTERFACE_ID =#{dto.interfaceId}
+    			</if>
+    			<if test="dto.remark != null and dto.remark != ''">
+						and t1.REMARK =#{dto.remark}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_BR_REPORT  -->
+<select id="searchExtBrReport" parameterType="java.util.Map" resultMap="ExtBrReportDTO">
+    	     select 
+						t1.id                             ,
+						t1.object_id                      ,
+						t1.authentication_id_num          ,
+						t1.authentication_phone           ,
+						t1.authentication_mail            ,
+						t1.authentication_name            ,
+						t1.authentication_telhome         ,
+						t1.core_relation                  ,
+						t1.authentication_id_num_key      ,
+						t1.authentication_phone_key       ,
+						t1.authentication_mail_key        ,
+						t1.authentication_name_key        ,
+						t1.authentication_telephone_key   ,
+						t1.authentication_addr_key        ,
+						t1.assessment_house               ,
+						t1.assessment_car                 ,
+						t1.assessment_money               ,
+						t1.assessment_wealth_type         ,
+						t1.interest_one                   ,
+						t1.interest_two                   ,
+						t1.interest_three                 ,
+						t1.interest_four                  ,
+						t1.interest_five                  ,
+						t1.optlock                        ,
+						t1.company_level                  ,
+						t1.swift_number                   ,
+						t1.authentication_telbiz          ,
+						t1.lastweek_msg                   ,
+						t1.assessment_msg                 ,
+						t1.code                           ,
+						t1.create_time                    ,
+						t1.create_by                      ,
+						t1.modify_time                    ,
+						t1.modify_by                      ,
+						t1.prod_code                      ,
+						t1.org_code                       ,
+						t1.sys_code                       ,
+						t1.retcode                        ,
+						t1.errormsg                       ,
+						t1.interface_id                   ,
+						t1.remark                         
+				from ext_br_report 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.objectId != null and dto.objectId != ''">
+						and t1.OBJECT_ID = #{dto.objectId}
+    			</if>
+    			<if test="dto.authenticationIdNum != null and dto.authenticationIdNum != ''">
+						and t1.AUTHENTICATION_ID_NUM = #{dto.authenticationIdNum}
+    			</if>
+    			<if test="dto.authenticationPhone != null and dto.authenticationPhone != ''">
+						and t1.AUTHENTICATION_PHONE = #{dto.authenticationPhone}
+    			</if>
+    			<if test="dto.authenticationMail != null and dto.authenticationMail != ''">
+						and t1.AUTHENTICATION_MAIL = #{dto.authenticationMail}
+    			</if>
+    			<if test="dto.authenticationName != null and dto.authenticationName != ''">
+						and t1.AUTHENTICATION_NAME = #{dto.authenticationName}
+    			</if>
+    			<if test="dto.authenticationTelhome != null and dto.authenticationTelhome != ''">
+						and t1.AUTHENTICATION_TELHOME = #{dto.authenticationTelhome}
+    			</if>
+    			<if test="dto.coreRelation != null and dto.coreRelation != ''">
+						and t1.CORE_RELATION = #{dto.coreRelation}
+    			</if>
+    			<if test="dto.authenticationIdNumKey != null and dto.authenticationIdNumKey != ''">
+						and t1.AUTHENTICATION_ID_NUM_KEY = #{dto.authenticationIdNumKey}
+    			</if>
+    			<if test="dto.authenticationPhoneKey != null and dto.authenticationPhoneKey != ''">
+						and t1.AUTHENTICATION_PHONE_KEY = #{dto.authenticationPhoneKey}
+    			</if>
+    			<if test="dto.authenticationMailKey != null and dto.authenticationMailKey != ''">
+						and t1.AUTHENTICATION_MAIL_KEY = #{dto.authenticationMailKey}
+    			</if>
+    			<if test="dto.authenticationNameKey != null and dto.authenticationNameKey != ''">
+						and t1.AUTHENTICATION_NAME_KEY = #{dto.authenticationNameKey}
+    			</if>
+    			<if test="dto.authenticationTelephoneKey != null and dto.authenticationTelephoneKey != ''">
+						and t1.AUTHENTICATION_TELEPHONE_KEY = #{dto.authenticationTelephoneKey}
+    			</if>
+    			<if test="dto.authenticationAddrKey != null and dto.authenticationAddrKey != ''">
+						and t1.AUTHENTICATION_ADDR_KEY = #{dto.authenticationAddrKey}
+    			</if>
+    			<if test="dto.assessmentHouse != null and dto.assessmentHouse != ''">
+						and t1.ASSESSMENT_HOUSE = #{dto.assessmentHouse}
+    			</if>
+    			<if test="dto.assessmentCar != null and dto.assessmentCar != ''">
+						and t1.ASSESSMENT_CAR = #{dto.assessmentCar}
+    			</if>
+    			<if test="dto.assessmentMoney != null and dto.assessmentMoney != ''">
+						and t1.ASSESSMENT_MONEY = #{dto.assessmentMoney}
+    			</if>
+    			<if test="dto.assessmentWealthType != null and dto.assessmentWealthType != ''">
+						and t1.ASSESSMENT_WEALTH_TYPE = #{dto.assessmentWealthType}
+    			</if>
+    			<if test="dto.interestOne != null and dto.interestOne != ''">
+						and t1.INTEREST_ONE = #{dto.interestOne}
+    			</if>
+    			<if test="dto.interestTwo != null and dto.interestTwo != ''">
+						and t1.INTEREST_TWO = #{dto.interestTwo}
+    			</if>
+    			<if test="dto.interestThree != null and dto.interestThree != ''">
+						and t1.INTEREST_THREE = #{dto.interestThree}
+    			</if>
+    			<if test="dto.interestFour != null and dto.interestFour != ''">
+						and t1.INTEREST_FOUR = #{dto.interestFour}
+    			</if>
+    			<if test="dto.interestFive != null and dto.interestFive != ''">
+						and t1.INTEREST_FIVE = #{dto.interestFive}
+    			</if>
+    			<if test="dto.optlock != null and dto.optlock != ''">
+						and t1.OPTLOCK = #{dto.optlock}
+    			</if>
+    			<if test="dto.companyLevel != null and dto.companyLevel != ''">
+						and t1.COMPANY_LEVEL = #{dto.companyLevel}
+    			</if>
+    			<if test="dto.swiftNumber != null and dto.swiftNumber != ''">
+						and t1.SWIFT_NUMBER = #{dto.swiftNumber}
+    			</if>
+    			<if test="dto.authenticationTelbiz != null and dto.authenticationTelbiz != ''">
+						and t1.AUTHENTICATION_TELBIZ = #{dto.authenticationTelbiz}
+    			</if>
+    			<if test="dto.lastweekMsg != null and dto.lastweekMsg != ''">
+						and t1.LASTWEEK_MSG = #{dto.lastweekMsg}
+    			</if>
+    			<if test="dto.assessmentMsg != null and dto.assessmentMsg != ''">
+						and t1.ASSESSMENT_MSG = #{dto.assessmentMsg}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY = #{dto.modifyBy}
+    			</if>
+    			<if test="dto.prodCode != null and dto.prodCode != ''">
+						and t1.PROD_CODE = #{dto.prodCode}
+    			</if>
+    			<if test="dto.orgCode != null and dto.orgCode != ''">
+						and t1.ORG_CODE = #{dto.orgCode}
+    			</if>
+    			<if test="dto.sysCode != null and dto.sysCode != ''">
+						and t1.SYS_CODE = #{dto.sysCode}
+    			</if>
+    			<if test="dto.retcode != null and dto.retcode != ''">
+						and t1.RETCODE = #{dto.retcode}
+    			</if>
+    			<if test="dto.errormsg != null and dto.errormsg != ''">
+						and t1.ERRORMSG = #{dto.errormsg}
+    			</if>
+    			<if test="dto.interfaceId != null and dto.interfaceId != ''">
+						and t1.INTERFACE_ID = #{dto.interfaceId}
+    			</if>
+    			<if test="dto.remark != null and dto.remark != ''">
+						and t1.REMARK = #{dto.remark}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_BR_REPORT -->
+<select id="findExtBrReportByPrimaryKey" parameterType="java.util.Map" resultMap="ExtBrReportDTO">
+   	 		select 
+					t1.id                             ,
+					t1.object_id                      ,
+					t1.authentication_id_num          ,
+					t1.authentication_phone           ,
+					t1.authentication_mail            ,
+					t1.authentication_name            ,
+					t1.authentication_telhome         ,
+					t1.core_relation                  ,
+					t1.authentication_id_num_key      ,
+					t1.authentication_phone_key       ,
+					t1.authentication_mail_key        ,
+					t1.authentication_name_key        ,
+					t1.authentication_telephone_key   ,
+					t1.authentication_addr_key        ,
+					t1.assessment_house               ,
+					t1.assessment_car                 ,
+					t1.assessment_money               ,
+					t1.assessment_wealth_type         ,
+					t1.interest_one                   ,
+					t1.interest_two                   ,
+					t1.interest_three                 ,
+					t1.interest_four                  ,
+					t1.interest_five                  ,
+					t1.optlock                        ,
+					t1.company_level                  ,
+					t1.swift_number                   ,
+					t1.authentication_telbiz          ,
+					t1.lastweek_msg                   ,
+					t1.assessment_msg                 ,
+					t1.code                           ,
+					t1.create_time                    ,
+					t1.create_by                      ,
+					t1.modify_time                    ,
+					t1.modify_by                      ,
+					t1.prod_code                      ,
+					t1.org_code                       ,
+					t1.sys_code                       ,
+					t1.retcode                        ,
+					t1.errormsg                       ,
+					t1.interface_id                   ,
+					t1.remark                         
+			from ext_br_report 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_BR_REPORT -->
+<insert id="insertExtBrReport" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_BR_REPORT.nextval as id from dual
+	</selectKey>
+			insert into ext_br_report
+			(   		
+					id                             ,
+					object_id                      ,
+					authentication_id_num          ,
+					authentication_phone           ,
+					authentication_mail            ,
+					authentication_name            ,
+					authentication_telhome         ,
+					core_relation                  ,
+					authentication_id_num_key      ,
+					authentication_phone_key       ,
+					authentication_mail_key        ,
+					authentication_name_key        ,
+					authentication_telephone_key   ,
+					authentication_addr_key        ,
+					assessment_house               ,
+					assessment_car                 ,
+					assessment_money               ,
+					assessment_wealth_type         ,
+					interest_one                   ,
+					interest_two                   ,
+					interest_three                 ,
+					interest_four                  ,
+					interest_five                  ,
+					optlock                        ,
+					company_level                  ,
+					swift_number                   ,
+					authentication_telbiz          ,
+					lastweek_msg                   ,
+					assessment_msg                 ,
+					code                           ,
+					create_time                    ,
+					create_by                      ,
+					prod_code                      ,
+					org_code                       ,
+					sys_code                       ,
+					retcode                        ,
+					errormsg                       ,
+					interface_id                   ,
+					remark                         
+			)
+			values(#{dto.id}
+					,#{dto.objectId,jdbcType=VARCHAR}
+					,#{dto.authenticationIdNum,jdbcType=VARCHAR}
+					,#{dto.authenticationPhone,jdbcType=VARCHAR}
+					,#{dto.authenticationMail,jdbcType=VARCHAR}
+					,#{dto.authenticationName,jdbcType=VARCHAR}
+					,#{dto.authenticationTelhome,jdbcType=VARCHAR}
+					,#{dto.coreRelation,jdbcType=VARCHAR}
+					,#{dto.authenticationIdNumKey,jdbcType=VARCHAR}
+					,#{dto.authenticationPhoneKey,jdbcType=VARCHAR}
+					,#{dto.authenticationMailKey,jdbcType=VARCHAR}
+					,#{dto.authenticationNameKey,jdbcType=VARCHAR}
+					,#{dto.authenticationTelephoneKey,jdbcType=VARCHAR}
+					,#{dto.authenticationAddrKey,jdbcType=VARCHAR}
+					,#{dto.assessmentHouse,jdbcType=VARCHAR}
+					,#{dto.assessmentCar,jdbcType=VARCHAR}
+					,#{dto.assessmentMoney,jdbcType=VARCHAR}
+					,#{dto.assessmentWealthType,jdbcType=VARCHAR}
+					,#{dto.interestOne,jdbcType=VARCHAR}
+					,#{dto.interestTwo,jdbcType=VARCHAR}
+					,#{dto.interestThree,jdbcType=VARCHAR}
+					,#{dto.interestFour,jdbcType=VARCHAR}
+					,#{dto.interestFive,jdbcType=VARCHAR}
+					,#{dto.optlock,jdbcType=DECIMAL}
+					,#{dto.companyLevel,jdbcType=VARCHAR}
+					,#{dto.swiftNumber,jdbcType=VARCHAR}
+					,#{dto.authenticationTelbiz,jdbcType=VARCHAR}
+					,#{dto.lastweekMsg,jdbcType=VARCHAR}
+					,#{dto.assessmentMsg,jdbcType=VARCHAR}
+					,#{dto.code,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.createBy,jdbcType=VARCHAR}
+					,#{dto.prodCode,jdbcType=VARCHAR}
+					,#{dto.orgCode,jdbcType=VARCHAR}
+					,#{dto.sysCode,jdbcType=VARCHAR}
+					,#{dto.retcode,jdbcType=VARCHAR}
+					,#{dto.errormsg,jdbcType=VARCHAR}
+					,#{dto.interfaceId,jdbcType=VARCHAR}
+					,#{dto.remark,jdbcType=VARCHAR}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_BR_REPORT -->
+<update id="updateExtBrReport" parameterType="java.util.Map">
+	     update ext_br_report t1
+	           set 
+			           t1.object_id                      =#{dto.objectId,jdbcType=VARCHAR},
+			           t1.authentication_id_num          =#{dto.authenticationIdNum,jdbcType=VARCHAR},
+			           t1.authentication_phone           =#{dto.authenticationPhone,jdbcType=VARCHAR},
+			           t1.authentication_mail            =#{dto.authenticationMail,jdbcType=VARCHAR},
+			           t1.authentication_name            =#{dto.authenticationName,jdbcType=VARCHAR},
+			           t1.authentication_telhome         =#{dto.authenticationTelhome,jdbcType=VARCHAR},
+			           t1.core_relation                  =#{dto.coreRelation,jdbcType=VARCHAR},
+			           t1.authentication_id_num_key      =#{dto.authenticationIdNumKey,jdbcType=VARCHAR},
+			           t1.authentication_phone_key       =#{dto.authenticationPhoneKey,jdbcType=VARCHAR},
+			           t1.authentication_mail_key        =#{dto.authenticationMailKey,jdbcType=VARCHAR},
+			           t1.authentication_name_key        =#{dto.authenticationNameKey,jdbcType=VARCHAR},
+			           t1.authentication_telephone_key   =#{dto.authenticationTelephoneKey,jdbcType=VARCHAR},
+			           t1.authentication_addr_key        =#{dto.authenticationAddrKey,jdbcType=VARCHAR},
+			           t1.assessment_house               =#{dto.assessmentHouse,jdbcType=VARCHAR},
+			           t1.assessment_car                 =#{dto.assessmentCar,jdbcType=VARCHAR},
+			           t1.assessment_money               =#{dto.assessmentMoney,jdbcType=VARCHAR},
+			           t1.assessment_wealth_type         =#{dto.assessmentWealthType,jdbcType=VARCHAR},
+			           t1.interest_one                   =#{dto.interestOne,jdbcType=VARCHAR},
+			           t1.interest_two                   =#{dto.interestTwo,jdbcType=VARCHAR},
+			           t1.interest_three                 =#{dto.interestThree,jdbcType=VARCHAR},
+			           t1.interest_four                  =#{dto.interestFour,jdbcType=VARCHAR},
+			           t1.interest_five                  =#{dto.interestFive,jdbcType=VARCHAR},
+			           t1.optlock                        =#{dto.optlock,jdbcType=DECIMAL},
+			           t1.company_level                  =#{dto.companyLevel,jdbcType=VARCHAR},
+			           t1.swift_number                   =#{dto.swiftNumber,jdbcType=VARCHAR},
+			           t1.authentication_telbiz          =#{dto.authenticationTelbiz,jdbcType=VARCHAR},
+			           t1.lastweek_msg                   =#{dto.lastweekMsg,jdbcType=VARCHAR},
+			           t1.assessment_msg                 =#{dto.assessmentMsg,jdbcType=VARCHAR},
+			           t1.code                           =#{dto.code,jdbcType=VARCHAR},
+			           t1.modify_time                    =systimestamp,
+			           t1.modify_by                      =#{dto.modifyBy,jdbcType=VARCHAR},
+			           t1.prod_code                      =#{dto.prodCode,jdbcType=VARCHAR},
+			           t1.org_code                       =#{dto.orgCode,jdbcType=VARCHAR},
+			           t1.sys_code                       =#{dto.sysCode,jdbcType=VARCHAR},
+			           t1.retcode                        =#{dto.retcode,jdbcType=VARCHAR},
+			           t1.errormsg                       =#{dto.errormsg,jdbcType=VARCHAR},
+			           t1.interface_id                   =#{dto.interfaceId,jdbcType=VARCHAR},
+			           t1.remark                         =#{dto.remark,jdbcType=VARCHAR}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_BR_REPORT -->
+<delete id="deleteExtBrReportByID" parameterType="java.util.Map">
+    	delete from ext_br_report t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_BR_REPORT -->
+<update id="deleteExtBrReportByPrimaryKey" parameterType="java.util.Map">
+	     update ext_br_report t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.jxl.extjxltripinfostock.dao.ExtJxlTripInfoStockDao">
+<resultMap id="ExtJxlTripInfoStockDTO" type="com.jy.modules.externalplatform.interfacerepository.jxl.extjxltripinfostock.dto.ExtJxlTripInfoStockDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="fkJxlCustInfoId" column="FK_JXL_CUST_INFO_ID" jdbcType="DECIMAL" />
+				<result property="tripLeave" column="TRIP_LEAVE" jdbcType="VARCHAR" />
+				<result property="tripDest" column="TRIP_DEST" jdbcType="VARCHAR" />
+				<result property="tripType" column="TRIP_TYPE" jdbcType="VARCHAR" />
+				<result property="tripStartTime" column="TRIP_START_TIME" jdbcType="VARCHAR" />
+				<result property="tripEndTime" column="TRIP_END_TIME" jdbcType="VARCHAR" />
+				<result property="tripTransportation" column="TRIP_TRANSPORTATION" jdbcType="VARCHAR" />
+				<result property="tripPerson" column="TRIP_PERSON" jdbcType="VARCHAR" />
+				<result property="tripDataSource" column="TRIP_DATA_SOURCE" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 EXT_JXL_TRIP_INFO_STOCK -->	
+<select id="searchExtJxlTripInfoStockByPaging" parameterType="java.util.Map" resultMap="ExtJxlTripInfoStockDTO">
+    	 		select 
+						t1.id                             ,
+						t1.fk_jxl_cust_info_id            ,
+						t1.trip_leave                     ,
+						t1.trip_dest                      ,
+						t1.trip_type                      ,
+						t1.trip_start_time                ,
+						t1.trip_end_time                  ,
+						t1.trip_transportation            ,
+						t1.trip_person                    ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.trip_data_source               
+					
+				from ext_jxl_trip_info_stock 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.fkJxlCustInfoId != null and dto.fkJxlCustInfoId != ''">
+						and t1.FK_JXL_CUST_INFO_ID =#{dto.fkJxlCustInfoId}
+    			</if>
+    			<if test="dto.tripLeave != null and dto.tripLeave != ''">
+						and t1.TRIP_LEAVE =#{dto.tripLeave}
+    			</if>
+    			<if test="dto.tripDest != null and dto.tripDest != ''">
+						and t1.TRIP_DEST =#{dto.tripDest}
+    			</if>
+    			<if test="dto.tripType != null and dto.tripType != ''">
+						and t1.TRIP_TYPE =#{dto.tripType}
+    			</if>
+    			<if test="dto.tripStartTime != null and dto.tripStartTime != ''">
+						and t1.TRIP_START_TIME =#{dto.tripStartTime}
+    			</if>
+    			<if test="dto.tripEndTime != null and dto.tripEndTime != ''">
+						and t1.TRIP_END_TIME =#{dto.tripEndTime}
+    			</if>
+    			<if test="dto.tripTransportation != null and dto.tripTransportation != ''">
+						and t1.TRIP_TRANSPORTATION =#{dto.tripTransportation}
+    			</if>
+    			<if test="dto.tripPerson != null and dto.tripPerson != ''">
+						and t1.TRIP_PERSON =#{dto.tripPerson}
+    			</if>
+    			<if test="dto.tripDataSource != null and dto.tripDataSource != ''">
+						and t1.TRIP_DATA_SOURCE =#{dto.tripDataSource}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_JXL_TRIP_INFO_STOCK  -->
+<select id="searchExtJxlTripInfoStock" parameterType="java.util.Map" resultMap="ExtJxlTripInfoStockDTO">
+    	     select 
+						t1.id                             ,
+						t1.fk_jxl_cust_info_id            ,
+						t1.trip_leave                     ,
+						t1.trip_dest                      ,
+						t1.trip_type                      ,
+						t1.trip_start_time                ,
+						t1.trip_end_time                  ,
+						t1.trip_transportation            ,
+						t1.trip_person                    ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.trip_data_source               
+				from ext_jxl_trip_info_stock 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.fkJxlCustInfoId != null and dto.fkJxlCustInfoId != ''">
+						and t1.FK_JXL_CUST_INFO_ID = #{dto.fkJxlCustInfoId}
+    			</if>
+    			<if test="dto.tripLeave != null and dto.tripLeave != ''">
+						and t1.TRIP_LEAVE = #{dto.tripLeave}
+    			</if>
+    			<if test="dto.tripDest != null and dto.tripDest != ''">
+						and t1.TRIP_DEST = #{dto.tripDest}
+    			</if>
+    			<if test="dto.tripType != null and dto.tripType != ''">
+						and t1.TRIP_TYPE = #{dto.tripType}
+    			</if>
+    			<if test="dto.tripStartTime != null and dto.tripStartTime != ''">
+						and t1.TRIP_START_TIME = #{dto.tripStartTime}
+    			</if>
+    			<if test="dto.tripEndTime != null and dto.tripEndTime != ''">
+						and t1.TRIP_END_TIME = #{dto.tripEndTime}
+    			</if>
+    			<if test="dto.tripTransportation != null and dto.tripTransportation != ''">
+						and t1.TRIP_TRANSPORTATION = #{dto.tripTransportation}
+    			</if>
+    			<if test="dto.tripPerson != null and dto.tripPerson != ''">
+						and t1.TRIP_PERSON = #{dto.tripPerson}
+    			</if>
+    			<if test="dto.tripDataSource != null and dto.tripDataSource != ''">
+						and t1.TRIP_DATA_SOURCE = #{dto.tripDataSource}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_JXL_TRIP_INFO_STOCK -->
+<select id="findExtJxlTripInfoStockByPrimaryKey" parameterType="java.util.Map" resultMap="ExtJxlTripInfoStockDTO">
+   	 		select 
+					t1.id                             ,
+					t1.fk_jxl_cust_info_id            ,
+					t1.trip_leave                     ,
+					t1.trip_dest                      ,
+					t1.trip_type                      ,
+					t1.trip_start_time                ,
+					t1.trip_end_time                  ,
+					t1.trip_transportation            ,
+					t1.trip_person                    ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.trip_data_source               
+			from ext_jxl_trip_info_stock 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_JXL_TRIP_INFO_STOCK -->
+<insert id="insertExtJxlTripInfoStock" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_JXL_TRIP_INFO_STOCK.nextval as id from dual
+	</selectKey>
+			insert into ext_jxl_trip_info_stock
+			(   		
+					id                             ,
+					fk_jxl_cust_info_id            ,
+					trip_leave                     ,
+					trip_dest                      ,
+					trip_type                      ,
+					trip_start_time                ,
+					trip_end_time                  ,
+					trip_transportation            ,
+					trip_person                    ,
+					create_time                    ,
+					trip_data_source               
+			)
+			values(#{dto.id}
+					,#{dto.fkJxlCustInfoId,jdbcType=DECIMAL}
+					,#{dto.tripLeave,jdbcType=VARCHAR}
+					,#{dto.tripDest,jdbcType=VARCHAR}
+					,#{dto.tripType,jdbcType=VARCHAR}
+					,#{dto.tripStartTime,jdbcType=VARCHAR}
+					,#{dto.tripEndTime,jdbcType=VARCHAR}
+					,#{dto.tripTransportation,jdbcType=VARCHAR}
+					,#{dto.tripPerson,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.tripDataSource,jdbcType=VARCHAR}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_JXL_TRIP_INFO_STOCK -->
+<update id="updateExtJxlTripInfoStock" parameterType="java.util.Map">
+	     update ext_jxl_trip_info_stock t1
+	           set 
+			           t1.fk_jxl_cust_info_id            =#{dto.fkJxlCustInfoId,jdbcType=DECIMAL},
+			           t1.trip_leave                     =#{dto.tripLeave,jdbcType=VARCHAR},
+			           t1.trip_dest                      =#{dto.tripDest,jdbcType=VARCHAR},
+			           t1.trip_type                      =#{dto.tripType,jdbcType=VARCHAR},
+			           t1.trip_start_time                =#{dto.tripStartTime,jdbcType=VARCHAR},
+			           t1.trip_end_time                  =#{dto.tripEndTime,jdbcType=VARCHAR},
+			           t1.trip_transportation            =#{dto.tripTransportation,jdbcType=VARCHAR},
+			           t1.trip_person                    =#{dto.tripPerson,jdbcType=VARCHAR},
+					   t1.modify_time                    =systimestamp,
+			           t1.trip_data_source               =#{dto.tripDataSource,jdbcType=VARCHAR}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_JXL_TRIP_INFO_STOCK -->
+<delete id="deleteExtJxlTripInfoStockByID" parameterType="java.util.Map">
+    	delete from ext_jxl_trip_info_stock t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_JXL_TRIP_INFO_STOCK -->
+<update id="deleteExtJxlTripInfoStockByPrimaryKey" parameterType="java.util.Map">
+	     update ext_jxl_trip_info_stock t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

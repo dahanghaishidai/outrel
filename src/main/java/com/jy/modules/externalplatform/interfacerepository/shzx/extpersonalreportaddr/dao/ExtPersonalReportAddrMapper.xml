@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.shzx.extpersonalreportaddr.dao.ExtPersonalReportAddrDao">
+<resultMap id="ExtPersonalReportAddrDTO" type="com.jy.modules.externalplatform.interfacerepository.shzx.extpersonalreportaddr.dto.ExtPersonalReportAddrDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="addressNumber" column="ADDRESS_NUMBER" jdbcType="VARCHAR" />
+				<result property="addressInfo" column="ADDRESS_INFO" jdbcType="VARCHAR" />
+				<result property="infoDate" column="INFO_DATE" jdbcType="VARCHAR" />
+				<result property="personalCreditReport" column="PERSONAL_CREDIT_REPORT" jdbcType="DECIMAL" />
+				<result property="optlock" column="OPTLOCK" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 EXT_personal_report_addr -->	
+<select id="searchExtPersonalReportAddrByPaging" parameterType="java.util.Map" resultMap="ExtPersonalReportAddrDTO">
+    	 		select 
+						t1.id                             ,
+						t1.address_number                 ,
+						t1.address_info                   ,
+						t1.info_date                      ,
+						t1.personal_credit_report         ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.optlock                        
+					
+				from ext_personal_report_addr 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.addressNumber != null and dto.addressNumber != ''">
+						and t1.ADDRESS_NUMBER =#{dto.addressNumber}
+    			</if>
+    			<if test="dto.addressInfo != null and dto.addressInfo != ''">
+						and t1.ADDRESS_INFO =#{dto.addressInfo}
+    			</if>
+    			<if test="dto.infoDate != null and dto.infoDate != ''">
+						and t1.INFO_DATE =#{dto.infoDate}
+    			</if>
+    			<if test="dto.personalCreditReport != null and dto.personalCreditReport != ''">
+						and t1.PERSONAL_CREDIT_REPORT =#{dto.personalCreditReport}
+    			</if>
+    			<if test="dto.optlock != null and dto.optlock != ''">
+						and t1.OPTLOCK =#{dto.optlock}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_personal_report_addr  -->
+<select id="searchExtPersonalReportAddr" parameterType="java.util.Map" resultMap="ExtPersonalReportAddrDTO">
+    	     select 
+						t1.id                             ,
+						t1.address_number                 ,
+						t1.address_info                   ,
+						t1.info_date                      ,
+						t1.personal_credit_report         ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.optlock                        
+				from ext_personal_report_addr 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.addressNumber != null and dto.addressNumber != ''">
+						and t1.ADDRESS_NUMBER = #{dto.addressNumber}
+    			</if>
+    			<if test="dto.addressInfo != null and dto.addressInfo != ''">
+						and t1.ADDRESS_INFO = #{dto.addressInfo}
+    			</if>
+    			<if test="dto.infoDate != null and dto.infoDate != ''">
+						and t1.INFO_DATE = #{dto.infoDate}
+    			</if>
+    			<if test="dto.personalCreditReport != null and dto.personalCreditReport != ''">
+						and t1.PERSONAL_CREDIT_REPORT = #{dto.personalCreditReport}
+    			</if>
+    			<if test="dto.optlock != null and dto.optlock != ''">
+						and t1.OPTLOCK = #{dto.optlock}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_personal_report_addr -->
+<select id="findExtPersonalReportAddrByPrimaryKey" parameterType="java.util.Map" resultMap="ExtPersonalReportAddrDTO">
+   	 		select 
+					t1.id                             ,
+					t1.address_number                 ,
+					t1.address_info                   ,
+					t1.info_date                      ,
+					t1.personal_credit_report         ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.optlock                        
+			from ext_personal_report_addr 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_personal_report_addr -->
+<insert id="insertExtPersonalReportAddr" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_personal_report_addr.nextval as id from dual
+	</selectKey>
+			insert into ext_personal_report_addr
+			(   		
+					id                             ,
+					address_number                 ,
+					address_info                   ,
+					info_date                      ,
+					personal_credit_report         ,
+					create_time                    ,
+					optlock                        
+			)
+			values(#{dto.id}
+					,#{dto.addressNumber,jdbcType=VARCHAR}
+					,#{dto.addressInfo,jdbcType=VARCHAR}
+					,#{dto.infoDate,jdbcType=VARCHAR}
+					,#{dto.personalCreditReport,jdbcType=DECIMAL}
+					,systimestamp
+					,#{dto.optlock,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_personal_report_addr -->
+<update id="updateExtPersonalReportAddr" parameterType="java.util.Map">
+	     update ext_personal_report_addr t1
+	           set 
+			           t1.address_number                 =#{dto.addressNumber,jdbcType=VARCHAR},
+			           t1.address_info                   =#{dto.addressInfo,jdbcType=VARCHAR},
+			           t1.info_date                      =#{dto.infoDate,jdbcType=VARCHAR},
+			           t1.personal_credit_report         =#{dto.personalCreditReport,jdbcType=DECIMAL},
+					   t1.modify_time                    =systimestamp,
+			           t1.optlock                        =#{dto.optlock,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_personal_report_addr -->
+<delete id="deleteExtPersonalReportAddrByID" parameterType="java.util.Map">
+    	delete from ext_personal_report_addr t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_personal_report_addr -->
+<update id="deleteExtPersonalReportAddrByPrimaryKey" parameterType="java.util.Map">
+	     update ext_personal_report_addr t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

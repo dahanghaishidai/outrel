@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.suanhuazx.extwlshqrecordlist.dao.ExtWlShQrecordListDao">
+<resultMap id="ExtWlShQrecordListDTO" type="com.jy.modules.externalplatform.interfacerepository.suanhuazx.extwlshqrecordlist.dto.ExtWlShQrecordListDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="fkReportId" column="FK_REPORT_ID" jdbcType="DECIMAL" />
+				<result property="date" column="QUERY_TIME" jdbcType="VARCHAR" />
+				<result property="operator" column="QUERY_OPERATOR" jdbcType="VARCHAR" />
+				<result property="reason" column="QUERY_REASON" jdbcType="VARCHAR" />
+				<result property="queryType" column="QUERY_TYPE" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="validateState" column="VALIDATE_STATE" jdbcType="VARCHAR" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="updateBy" column="UPDATE_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_SH_QRECORD_LIST -->	
+<select id="searchExtWlShQrecordListByPaging" parameterType="java.util.Map" resultMap="ExtWlShQrecordListDTO">
+    	 		select 
+						t1.id                             ,
+						t1.fk_report_id                   ,
+						t1.query_time                     ,
+						t1.query_operator                 ,
+						t1.query_reason                   ,
+						t1.query_type                     ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.validate_state                 ,
+						t1.create_by                      ,
+						t1.update_by                      
+					
+				from ext_wl_sh_qrecord_list 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.fkReportId != null and dto.fkReportId != ''">
+						and t1.FK_REPORT_ID =#{dto.fkReportId}
+    			</if>
+    			<if test="dto.date != null and dto.date != ''">
+						and t1.QUERY_TIME =#{dto.date}
+    			</if>
+    			<if test="dto.operator != null and dto.operator != ''">
+						and t1.QUERY_OPERATOR =#{dto.operator}
+    			</if>
+    			<if test="dto.reason != null and dto.reason != ''">
+						and t1.QUERY_REASON =#{dto.reason}
+    			</if>
+    			<if test="dto.queryType != null and dto.queryType != ''">
+						and t1.QUERY_TYPE =#{dto.queryType}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE =#{dto.validateState}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY =#{dto.updateBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_SH_QRECORD_LIST  -->
+<select id="searchExtWlShQrecordList" parameterType="java.util.Map" resultMap="ExtWlShQrecordListDTO">
+    	     select 
+						t1.id                             ,
+						t1.fk_report_id                   ,
+						t1.query_time                     ,
+						t1.query_operator                 ,
+						t1.query_reason                   ,
+						t1.query_type                     ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.validate_state                 ,
+						t1.create_by                      ,
+						t1.update_by                      
+				from ext_wl_sh_qrecord_list 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.fkReportId != null and dto.fkReportId != ''">
+						and t1.FK_REPORT_ID = #{dto.fkReportId}
+    			</if>
+    			<if test="dto.date != null and dto.date != ''">
+						and t1.QUERY_TIME = #{dto.date}
+    			</if>
+    			<if test="dto.operator != null and dto.operator != ''">
+						and t1.QUERY_OPERATOR = #{dto.operator}
+    			</if>
+    			<if test="dto.reason != null and dto.reason != ''">
+						and t1.QUERY_REASON = #{dto.reason}
+    			</if>
+    			<if test="dto.queryType != null and dto.queryType != ''">
+						and t1.QUERY_TYPE = #{dto.queryType}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE = #{dto.validateState}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY = #{dto.updateBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_SH_QRECORD_LIST -->
+<select id="findExtWlShQrecordListByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlShQrecordListDTO">
+   	 		select 
+					t1.id                             ,
+					t1.fk_report_id                   ,
+					t1.query_time                     ,
+					t1.query_operator                 ,
+					t1.query_reason                   ,
+					t1.query_type                     ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.validate_state                 ,
+					t1.create_by                      ,
+					t1.update_by                      
+			from ext_wl_sh_qrecord_list 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_SH_QRECORD_LIST -->
+<insert id="insertExtWlShQrecordList" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_SH_QRECORD_LIST.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_sh_qrecord_list
+			(   		
+					id                             ,
+					fk_report_id                   ,
+					query_time                     ,
+					query_operator                 ,
+					query_reason                   ,
+					query_type                     ,
+					create_time                    ,
+					modify_time                    ,
+					validate_state                 ,
+					create_by                      ,
+					update_by                      
+			)
+			values(#{dto.id}
+					,#{dto.fkReportId,jdbcType=DECIMAL}
+					,#{dto.date,jdbcType=VARCHAR}
+					,#{dto.operator,jdbcType=VARCHAR}
+					,#{dto.reason,jdbcType=VARCHAR}
+					,#{dto.queryType,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,'1'
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.updateBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_SH_QRECORD_LIST -->
+<update id="updateExtWlShQrecordList" parameterType="java.util.Map">
+	     update ext_wl_sh_qrecord_list t1
+	           set 
+			           t1.fk_report_id                   =#{dto.fkReportId,jdbcType=DECIMAL},
+			           t1.query_time                     =#{dto.date,jdbcType=VARCHAR},
+			           t1.query_operator                 =#{dto.operator,jdbcType=VARCHAR},
+			           t1.query_reason                   =#{dto.reason,jdbcType=VARCHAR},
+			           t1.query_type                     =#{dto.queryType,jdbcType=VARCHAR},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP},
+			           t1.validate_state                 ='1',
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.update_by                      =#{dto.updateBy,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_SH_QRECORD_LIST -->
+<delete id="deleteExtWlShQrecordListByID" parameterType="java.util.Map">
+    	delete from ext_wl_sh_qrecord_list t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_SH_QRECORD_LIST -->
+<update id="deleteExtWlShQrecordListByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_sh_qrecord_list t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+
+	<!-- 新增对象 EXT_SH_QRECORD_LIST -->
+	<insert id="insertExtWlShQrecordList1" parameterType="java.util.Map" useGeneratedKeys="true">
+		begin
+		<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+			select seq_EXT_WL_SH_QRECORD_LIST.nextval as id from dual
+		</selectKey>
+		<foreach collection="dtoList" item="dto" >
+			insert into ext_wl_sh_qrecord_list
+			(
+			id,
+			fk_report_id,
+			query_time,
+			query_operator,
+			query_reason,
+			query_type,
+			create_time,
+			validate_state
+			)
+			values(seq_EXT_WL_SH_QRECORD_LIST.nextval
+			,#{fkReportId}
+			,#{dto.date,jdbcType=VARCHAR}
+			,#{dto.operator,jdbcType=VARCHAR}
+			,#{dto.reason,jdbcType=VARCHAR}
+			,#{dto.queryType,jdbcType=VARCHAR}
+			,systimestamp
+			,'1'
+			);
+		</foreach>
+		end;
+	</insert>
+</mapper>

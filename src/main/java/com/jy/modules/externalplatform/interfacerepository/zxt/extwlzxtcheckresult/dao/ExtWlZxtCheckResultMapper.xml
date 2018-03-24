@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.zxt.extwlzxtcheckresult.dao.ExtWlZxtCheckResultDao">
+<resultMap id="ExtWlZxtCheckResultDTO" type="com.jy.modules.externalplatform.interfacerepository.zxt.extwlzxtcheckresult.dto.ExtWlZxtCheckResultDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="verId" column="VER_ID" jdbcType="VARCHAR" />
+				<result property="status" column="STATUS" jdbcType="VARCHAR" />
+				<result property="message" column="MESSAGE" jdbcType="VARCHAR" />
+				<result property="lenderResult" column="LENDER_RESULT" jdbcType="VARCHAR" />
+				<result property="lenderResultMsg" column="LENDER_RESULT_MSG" jdbcType="VARCHAR" />
+				<result property="lenderAnserRight" column="LENDER_ANSER_RIGHT" jdbcType="VARCHAR" />
+				<result property="lenderAnserWorry" column="LENDER_ANSER_WORRY" jdbcType="VARCHAR" />
+				<result property="contactResult" column="CONTACT_RESULT" jdbcType="VARCHAR" />
+				<result property="contactResultMsg" column="CONTACT_RESULT_MSG" jdbcType="VARCHAR" />
+				<result property="contactAnserRight" column="CONTACT_ANSER_RIGHT" jdbcType="VARCHAR" />
+				<result property="contactAnserWorry" column="CONTACT_ANSER_WORRY" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="updateTime" column="UPDATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="updateBy" column="UPDATE_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 分页查询 ext_wl_zxt_check_result -->	
+<select id="searchExtWlZxtCheckResultByPaging" parameterType="java.util.Map" resultMap="ExtWlZxtCheckResultDTO">
+    	 		select 
+						t1.id                             ,
+						t1.ver_id                         ,
+						t1.status                         ,
+						t1.message                        ,
+						t1.lender_result                  ,
+						t1.lender_result_msg              ,
+						t1.lender_anser_right             ,
+						t1.lender_anser_worry             ,
+						t1.contact_result                 ,
+						t1.contact_result_msg             ,
+						t1.contact_anser_right            ,
+						t1.contact_anser_worry            ,
+						t1.create_time                    ,
+						t1.update_time                    ,
+						t1.create_by                      ,
+						t1.update_by                      
+					
+				from ext_wl_zxt_check_result 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.verId != null and dto.verId != ''">
+						and t1.VER_ID =#{dto.verId}
+    			</if>
+    			<if test="dto.status != null and dto.status != ''">
+						and t1.STATUS =#{dto.status}
+    			</if>
+    			<if test="dto.message != null and dto.message != ''">
+						and t1.MESSAGE =#{dto.message}
+    			</if>
+    			<if test="dto.lenderResult != null and dto.lenderResult != ''">
+						and t1.LENDER_RESULT =#{dto.lenderResult}
+    			</if>
+    			<if test="dto.lenderResultMsg != null and dto.lenderResultMsg != ''">
+						and t1.LENDER_RESULT_MSG =#{dto.lenderResultMsg}
+    			</if>
+    			<if test="dto.lenderAnserRight != null and dto.lenderAnserRight != ''">
+						and t1.LENDER_ANSER_RIGHT =#{dto.lenderAnserRight}
+    			</if>
+    			<if test="dto.lenderAnserWorry != null and dto.lenderAnserWorry != ''">
+						and t1.LENDER_ANSER_WORRY =#{dto.lenderAnserWorry}
+    			</if>
+    			<if test="dto.contactResult != null and dto.contactResult != ''">
+						and t1.CONTACT_RESULT =#{dto.contactResult}
+    			</if>
+    			<if test="dto.contactResultMsg != null and dto.contactResultMsg != ''">
+						and t1.CONTACT_RESULT_MSG =#{dto.contactResultMsg}
+    			</if>
+    			<if test="dto.contactAnserRight != null and dto.contactAnserRight != ''">
+						and t1.CONTACT_ANSER_RIGHT =#{dto.contactAnserRight}
+    			</if>
+    			<if test="dto.contactAnserWorry != null and dto.contactAnserWorry != ''">
+						and t1.CONTACT_ANSER_WORRY =#{dto.contactAnserWorry}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.updateTime != null and dto.updateTime != ''">
+						and t1.UPDATE_TIME =#{dto.updateTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY =#{dto.updateBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 ext_wl_zxt_check_result  -->
+<select id="searchExtWlZxtCheckResult" parameterType="java.util.Map" resultMap="ExtWlZxtCheckResultDTO">
+    	     select 
+						t1.id                             ,
+						t1.ver_id                         ,
+						t1.status                         ,
+						t1.message                        ,
+						t1.lender_result                  ,
+						t1.lender_result_msg              ,
+						t1.lender_anser_right             ,
+						t1.lender_anser_worry             ,
+						t1.contact_result                 ,
+						t1.contact_result_msg             ,
+						t1.contact_anser_right            ,
+						t1.contact_anser_worry            ,
+						t1.create_time                    ,
+						t1.update_time                    ,
+						t1.create_by                      ,
+						t1.update_by                      
+				from ext_wl_zxt_check_result 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.verId != null and dto.verId != ''">
+						and t1.VER_ID = #{dto.verId}
+    			</if>
+    			<if test="dto.status != null and dto.status != ''">
+						and t1.STATUS = #{dto.status}
+    			</if>
+    			<if test="dto.message != null and dto.message != ''">
+						and t1.MESSAGE = #{dto.message}
+    			</if>
+    			<if test="dto.lenderResult != null and dto.lenderResult != ''">
+						and t1.LENDER_RESULT = #{dto.lenderResult}
+    			</if>
+    			<if test="dto.lenderResultMsg != null and dto.lenderResultMsg != ''">
+						and t1.LENDER_RESULT_MSG = #{dto.lenderResultMsg}
+    			</if>
+    			<if test="dto.lenderAnserRight != null and dto.lenderAnserRight != ''">
+						and t1.LENDER_ANSER_RIGHT = #{dto.lenderAnserRight}
+    			</if>
+    			<if test="dto.lenderAnserWorry != null and dto.lenderAnserWorry != ''">
+						and t1.LENDER_ANSER_WORRY = #{dto.lenderAnserWorry}
+    			</if>
+    			<if test="dto.contactResult != null and dto.contactResult != ''">
+						and t1.CONTACT_RESULT = #{dto.contactResult}
+    			</if>
+    			<if test="dto.contactResultMsg != null and dto.contactResultMsg != ''">
+						and t1.CONTACT_RESULT_MSG = #{dto.contactResultMsg}
+    			</if>
+    			<if test="dto.contactAnserRight != null and dto.contactAnserRight != ''">
+						and t1.CONTACT_ANSER_RIGHT = #{dto.contactAnserRight}
+    			</if>
+    			<if test="dto.contactAnserWorry != null and dto.contactAnserWorry != ''">
+						and t1.CONTACT_ANSER_WORRY = #{dto.contactAnserWorry}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.updateTime != null and dto.updateTime != ''">
+						and t1.UPDATE_TIME = #{dto.updateTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY = #{dto.updateBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  ext_wl_zxt_check_result -->
+<select id="findExtWlZxtCheckResultByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlZxtCheckResultDTO">
+   	 		select 
+					t1.id                             ,
+					t1.ver_id                         ,
+					t1.status                         ,
+					t1.message                        ,
+					t1.lender_result                  ,
+					t1.lender_result_msg              ,
+					t1.lender_anser_right             ,
+					t1.lender_anser_worry             ,
+					t1.contact_result                 ,
+					t1.contact_result_msg             ,
+					t1.contact_anser_right            ,
+					t1.contact_anser_worry            ,
+					t1.create_time                    ,
+					t1.update_time                    ,
+					t1.create_by                      ,
+					t1.update_by                      
+			from ext_wl_zxt_check_result 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 ext_wl_zxt_check_result -->
+<insert id="insertExtWlZxtCheckResult" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_ext_wl_zxt_check_result.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_zxt_check_result
+			(   		
+					id                             ,
+					ver_id                         ,
+					status                         ,
+					message                        ,
+					lender_result                  ,
+					lender_result_msg              ,
+					lender_anser_right             ,
+					lender_anser_worry             ,
+					contact_result                 ,
+					contact_result_msg             ,
+					contact_anser_right            ,
+					contact_anser_worry            ,
+					create_time                    ,
+					update_time                    ,
+					create_by                      ,
+					update_by                      
+			)
+			values(#{dto.id}
+					,#{dto.verId,jdbcType=VARCHAR}
+					,#{dto.status,jdbcType=VARCHAR}
+					,#{dto.message,jdbcType=VARCHAR}
+					,#{dto.lenderResult,jdbcType=VARCHAR}
+					,#{dto.lenderResultMsg,jdbcType=VARCHAR}
+					,#{dto.lenderAnserRight,jdbcType=VARCHAR}
+					,#{dto.lenderAnserWorry,jdbcType=VARCHAR}
+					,#{dto.contactResult,jdbcType=VARCHAR}
+					,#{dto.contactResultMsg,jdbcType=VARCHAR}
+					,#{dto.contactAnserRight,jdbcType=VARCHAR}
+					,#{dto.contactAnserWorry,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.updateTime,jdbcType=TIMESTAMP}
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.updateBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 ext_wl_zxt_check_result -->
+<update id="updateExtWlZxtCheckResult" parameterType="java.util.Map">
+	     update ext_wl_zxt_check_result t1
+	           set 
+			           t1.ver_id                         =#{dto.verId,jdbcType=VARCHAR},
+			           t1.status                         =#{dto.status,jdbcType=VARCHAR},
+			           t1.message                        =#{dto.message,jdbcType=VARCHAR},
+			           t1.lender_result                  =#{dto.lenderResult,jdbcType=VARCHAR},
+			           t1.lender_result_msg              =#{dto.lenderResultMsg,jdbcType=VARCHAR},
+			           t1.lender_anser_right             =#{dto.lenderAnserRight,jdbcType=VARCHAR},
+			           t1.lender_anser_worry             =#{dto.lenderAnserWorry,jdbcType=VARCHAR},
+			           t1.contact_result                 =#{dto.contactResult,jdbcType=VARCHAR},
+			           t1.contact_result_msg             =#{dto.contactResultMsg,jdbcType=VARCHAR},
+			           t1.contact_anser_right            =#{dto.contactAnserRight,jdbcType=VARCHAR},
+			           t1.contact_anser_worry            =#{dto.contactAnserWorry,jdbcType=VARCHAR},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.update_time                    =#{dto.updateTime,jdbcType=TIMESTAMP},
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.update_by                      =#{dto.updateBy,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 ext_wl_zxt_check_result -->
+<delete id="deleteExtWlZxtCheckResultByID" parameterType="java.util.Map">
+    	delete from ext_wl_zxt_check_result t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 ext_wl_zxt_check_result -->
+<update id="deleteExtWlZxtCheckResultByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_zxt_check_result t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

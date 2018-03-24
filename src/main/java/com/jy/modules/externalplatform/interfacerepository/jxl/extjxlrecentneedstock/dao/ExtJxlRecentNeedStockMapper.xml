@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.jxl.extjxlrecentneedstock.dao.ExtJxlRecentNeedStockDao">
+<resultMap id="ExtJxlRecentNeedStockDTO" type="com.jy.modules.externalplatform.interfacerepository.jxl.extjxlrecentneedstock.dto.ExtJxlRecentNeedStockDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="fkJxlCustInfoId" column="FK_JXL_CUST_INFO_ID" jdbcType="DECIMAL" />
+				<result property="req_type" column="REQ_TYPE" jdbcType="VARCHAR" />
+				<result property="call_out_cnt" column="CALL_OUT_CNT" jdbcType="DECIMAL" />
+				<result property="call_in_cnt" column="CALL_IN_CNT" jdbcType="DECIMAL" />
+				<result property="call_out_time" column="CALL_OUT_TIME" jdbcType="DECIMAL" />
+				<result property="call_in_time" column="CALL_IN_TIME" jdbcType="DECIMAL" />
+				<result property="req_mth" column="REQ_MTH" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 EXT_JXL_RECENT_NEED_STOCK -->	
+<select id="searchExtJxlRecentNeedStockByPaging" parameterType="java.util.Map" resultMap="ExtJxlRecentNeedStockDTO">
+    	 		select 
+						t1.id                             ,
+						t1.fk_jxl_cust_info_id            ,
+						t1.req_type                       ,
+						t1.call_out_cnt                   ,
+						t1.call_in_cnt                    ,
+						t1.call_out_time                  ,
+						t1.call_in_time                   ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.req_mth                        
+					
+				from ext_jxl_recent_need_stock 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.fkJxlCustInfoId != null and dto.fkJxlCustInfoId != ''">
+						and t1.FK_JXL_CUST_INFO_ID =#{dto.fkJxlCustInfoId}
+    			</if>
+    			<if test="dto.req_type != null and dto.req_type != ''">
+						and t1.REQ_TYPE =#{dto.req_type}
+    			</if>
+    			<if test="dto.call_out_cnt != null and dto.call_out_cnt != ''">
+						and t1.CALL_OUT_CNT =#{dto.call_out_cnt}
+    			</if>
+    			<if test="dto.call_in_cnt != null and dto.call_in_cnt != ''">
+						and t1.CALL_IN_CNT =#{dto.call_in_cnt}
+    			</if>
+    			<if test="dto.call_out_time != null and dto.call_out_time != ''">
+						and t1.CALL_OUT_TIME =#{dto.call_out_time}
+    			</if>
+    			<if test="dto.call_in_time != null and dto.call_in_time != ''">
+						and t1.CALL_IN_TIME =#{dto.call_in_time}
+    			</if>
+    			<if test="dto.req_mth != null and dto.req_mth != ''">
+						and t1.REQ_MTH =#{dto.req_mth}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_JXL_RECENT_NEED_STOCK  -->
+<select id="searchExtJxlRecentNeedStock" parameterType="java.util.Map" resultMap="ExtJxlRecentNeedStockDTO">
+    	     select 
+						t1.id                             ,
+						t1.fk_jxl_cust_info_id            ,
+						t1.req_type                       ,
+						t1.call_out_cnt                   ,
+						t1.call_in_cnt                    ,
+						t1.call_out_time                  ,
+						t1.call_in_time                   ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.req_mth                        
+				from ext_jxl_recent_need_stock 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.fkJxlCustInfoId != null and dto.fkJxlCustInfoId != ''">
+						and t1.FK_JXL_CUST_INFO_ID = #{dto.fkJxlCustInfoId}
+    			</if>
+    			<if test="dto.req_type != null and dto.req_type != ''">
+						and t1.REQ_TYPE = #{dto.req_type}
+    			</if>
+    			<if test="dto.call_out_cnt != null and dto.call_out_cnt != ''">
+						and t1.CALL_OUT_CNT = #{dto.call_out_cnt}
+    			</if>
+    			<if test="dto.call_in_cnt != null and dto.call_in_cnt != ''">
+						and t1.CALL_IN_CNT = #{dto.call_in_cnt}
+    			</if>
+    			<if test="dto.call_out_time != null and dto.call_out_time != ''">
+						and t1.CALL_OUT_TIME = #{dto.call_out_time}
+    			</if>
+    			<if test="dto.call_in_time != null and dto.call_in_time != ''">
+						and t1.CALL_IN_TIME = #{dto.call_in_time}
+    			</if>
+    			<if test="dto.req_mth != null and dto.req_mth != ''">
+						and t1.REQ_MTH = #{dto.req_mth}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_JXL_RECENT_NEED_STOCK -->
+<select id="findExtJxlRecentNeedStockByPrimaryKey" parameterType="java.util.Map" resultMap="ExtJxlRecentNeedStockDTO">
+   	 		select 
+					t1.id                             ,
+					t1.fk_jxl_cust_info_id            ,
+					t1.req_type                       ,
+					t1.call_out_cnt                   ,
+					t1.call_in_cnt                    ,
+					t1.call_out_time                  ,
+					t1.call_in_time                   ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.req_mth                        
+			from ext_jxl_recent_need_stock 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_JXL_RECENT_NEED_STOCK -->
+<insert id="insertExtJxlRecentNeedStock" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_JXL_RECENT_NEED_STOCK.nextval as id from dual
+	</selectKey>
+			insert into ext_jxl_recent_need_stock
+			(   		
+					id                             ,
+					fk_jxl_cust_info_id            ,
+					req_type                       ,
+					call_out_cnt                   ,
+					call_in_cnt                    ,
+					call_out_time                  ,
+					call_in_time                   ,
+					create_time                    ,
+					req_mth                        
+			)
+			values(#{dto.id}
+					,#{dto.fkJxlCustInfoId,jdbcType=DECIMAL}
+					,#{dto.req_type,jdbcType=VARCHAR}
+					,#{dto.call_out_cnt,jdbcType=DECIMAL}
+					,#{dto.call_in_cnt,jdbcType=DECIMAL}
+					,#{dto.call_out_time,jdbcType=DECIMAL}
+					,#{dto.call_in_time,jdbcType=DECIMAL}
+					,systimestamp
+					,#{dto.req_mth,jdbcType=VARCHAR}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_JXL_RECENT_NEED_STOCK -->
+<update id="updateExtJxlRecentNeedStock" parameterType="java.util.Map">
+	     update ext_jxl_recent_need_stock t1
+	           set 
+			           t1.fk_jxl_cust_info_id            =#{dto.fkJxlCustInfoId,jdbcType=DECIMAL},
+			           t1.req_type                       =#{dto.req_type,jdbcType=VARCHAR},
+			           t1.call_out_cnt                   =#{dto.call_out_cnt,jdbcType=DECIMAL},
+			           t1.call_in_cnt                    =#{dto.call_in_cnt,jdbcType=DECIMAL},
+			           t1.call_out_time                  =#{dto.call_out_time,jdbcType=DECIMAL},
+			           t1.call_in_time                   =#{dto.call_in_time,jdbcType=DECIMAL},
+					   t1.modify_time                    =systimestamp,
+			           t1.req_mth                        =#{dto.req_mth,jdbcType=VARCHAR}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_JXL_RECENT_NEED_STOCK -->
+<delete id="deleteExtJxlRecentNeedStockByID" parameterType="java.util.Map">
+    	delete from ext_jxl_recent_need_stock t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_JXL_RECENT_NEED_STOCK -->
+<update id="deleteExtJxlRecentNeedStockByPrimaryKey" parameterType="java.util.Map">
+	     update ext_jxl_recent_need_stock t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

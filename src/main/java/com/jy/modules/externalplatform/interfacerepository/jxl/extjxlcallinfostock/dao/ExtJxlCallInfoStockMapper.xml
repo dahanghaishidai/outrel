@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.jxl.extjxlcallinfostock.dao.ExtJxlCallInfoStockDao">
+<resultMap id="ExtJxlCallInfoStockDTO" type="com.jy.modules.externalplatform.interfacerepository.jxl.extjxlcallinfostock.dto.ExtJxlCallInfoStockDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="fkContactInfoId" column="FK_CONTACT_INFO_ID" jdbcType="DECIMAL" />
+				<result property="phoneNum" column="PHONE_NUM" jdbcType="VARCHAR" />
+				<result property="phoneNumLoc" column="PHONE_NUM_LOC" jdbcType="VARCHAR" />
+				<result property="callCnt" column="CALL_CNT" jdbcType="DECIMAL" />
+				<result property="callLen" column="CALL_LEN" jdbcType="DECIMAL" />
+				<result property="callOutCnt" column="CALL_OUT_CNT" jdbcType="DECIMAL" />
+				<result property="callInCnt" column="CALL_IN_CNT" jdbcType="DECIMAL" />
+				<result property="smsCnt" column="SMS_CNT" jdbcType="DECIMAL" />
+				<result property="transStart" column="TRANS_START" jdbcType="VARCHAR" />
+				<result property="transEnd" column="TRANS_END" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 EXT_JXL_CALL_INFO_STOCK -->	
+<select id="searchExtJxlCallInfoStockByPaging" parameterType="java.util.Map" resultMap="ExtJxlCallInfoStockDTO">
+    	 		select 
+						t1.id                             ,
+						t1.fk_contact_info_id             ,
+						t1.phone_num                      ,
+						t1.phone_num_loc                  ,
+						t1.call_cnt                       ,
+						t1.call_len                       ,
+						t1.call_out_cnt                   ,
+						t1.call_in_cnt                    ,
+						t1.sms_cnt                        ,
+						t1.trans_start                    ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.trans_end                      
+					
+				from ext_jxl_call_info_stock 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.fkContactInfoId != null and dto.fkContactInfoId != ''">
+						and t1.FK_CONTACT_INFO_ID =#{dto.fkContactInfoId}
+    			</if>
+    			<if test="dto.phoneNum != null and dto.phoneNum != ''">
+						and t1.PHONE_NUM =#{dto.phoneNum}
+    			</if>
+    			<if test="dto.phoneNumLoc != null and dto.phoneNumLoc != ''">
+						and t1.PHONE_NUM_LOC =#{dto.phoneNumLoc}
+    			</if>
+    			<if test="dto.callCnt != null and dto.callCnt != ''">
+						and t1.CALL_CNT =#{dto.callCnt}
+    			</if>
+    			<if test="dto.callLen != null and dto.callLen != ''">
+						and t1.CALL_LEN =#{dto.callLen}
+    			</if>
+    			<if test="dto.callOutCnt != null and dto.callOutCnt != ''">
+						and t1.CALL_OUT_CNT =#{dto.callOutCnt}
+    			</if>
+    			<if test="dto.callInCnt != null and dto.callInCnt != ''">
+						and t1.CALL_IN_CNT =#{dto.callInCnt}
+    			</if>
+    			<if test="dto.smsCnt != null and dto.smsCnt != ''">
+						and t1.SMS_CNT =#{dto.smsCnt}
+    			</if>
+    			<if test="dto.transStart != null and dto.transStart != ''">
+						and t1.TRANS_START =#{dto.transStart}
+    			</if>
+    			<if test="dto.transEnd != null and dto.transEnd != ''">
+						and t1.TRANS_END =#{dto.transEnd}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_JXL_CALL_INFO_STOCK  -->
+<select id="searchExtJxlCallInfoStock" parameterType="java.util.Map" resultMap="ExtJxlCallInfoStockDTO">
+    	     select 
+						t1.id                             ,
+						t1.fk_contact_info_id             ,
+						t1.phone_num                      ,
+						t1.phone_num_loc                  ,
+						t1.call_cnt                       ,
+						t1.call_len                       ,
+						t1.call_out_cnt                   ,
+						t1.call_in_cnt                    ,
+						t1.sms_cnt                        ,
+						t1.trans_start                    ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.trans_end                      
+				from ext_jxl_call_info_stock 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.fkContactInfoId != null and dto.fkContactInfoId != ''">
+						and t1.FK_CONTACT_INFO_ID = #{dto.fkContactInfoId}
+    			</if>
+    			<if test="dto.phoneNum != null and dto.phoneNum != ''">
+						and t1.PHONE_NUM = #{dto.phoneNum}
+    			</if>
+    			<if test="dto.phoneNumLoc != null and dto.phoneNumLoc != ''">
+						and t1.PHONE_NUM_LOC = #{dto.phoneNumLoc}
+    			</if>
+    			<if test="dto.callCnt != null and dto.callCnt != ''">
+						and t1.CALL_CNT = #{dto.callCnt}
+    			</if>
+    			<if test="dto.callLen != null and dto.callLen != ''">
+						and t1.CALL_LEN = #{dto.callLen}
+    			</if>
+    			<if test="dto.callOutCnt != null and dto.callOutCnt != ''">
+						and t1.CALL_OUT_CNT = #{dto.callOutCnt}
+    			</if>
+    			<if test="dto.callInCnt != null and dto.callInCnt != ''">
+						and t1.CALL_IN_CNT = #{dto.callInCnt}
+    			</if>
+    			<if test="dto.smsCnt != null and dto.smsCnt != ''">
+						and t1.SMS_CNT = #{dto.smsCnt}
+    			</if>
+    			<if test="dto.transStart != null and dto.transStart != ''">
+						and t1.TRANS_START = #{dto.transStart}
+    			</if>
+    			<if test="dto.transEnd != null and dto.transEnd != ''">
+						and t1.TRANS_END = #{dto.transEnd}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_JXL_CALL_INFO_STOCK -->
+<select id="findExtJxlCallInfoStockByPrimaryKey" parameterType="java.util.Map" resultMap="ExtJxlCallInfoStockDTO">
+   	 		select 
+					t1.id                             ,
+					t1.fk_contact_info_id             ,
+					t1.phone_num                      ,
+					t1.phone_num_loc                  ,
+					t1.call_cnt                       ,
+					t1.call_len                       ,
+					t1.call_out_cnt                   ,
+					t1.call_in_cnt                    ,
+					t1.sms_cnt                        ,
+					t1.trans_start                    ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.trans_end                      
+			from ext_jxl_call_info_stock 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_JXL_CALL_INFO_STOCK -->
+<insert id="insertExtJxlCallInfoStock" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_JXL_CALL_INFO_STOCK.nextval as id from dual
+	</selectKey>
+			insert into ext_jxl_call_info_stock
+			(   		
+					id                             ,
+					fk_contact_info_id             ,
+					phone_num                      ,
+					phone_num_loc                  ,
+					call_cnt                       ,
+					call_len                       ,
+					call_out_cnt                   ,
+					call_in_cnt                    ,
+					sms_cnt                        ,
+					trans_start                    ,
+					create_time                    ,
+					trans_end                      
+			)
+			values(#{dto.id}
+					,#{dto.fkContactInfoId,jdbcType=DECIMAL}
+					,#{dto.phoneNum,jdbcType=VARCHAR}
+					,#{dto.phoneNumLoc,jdbcType=VARCHAR}
+					,#{dto.callCnt,jdbcType=DECIMAL}
+					,#{dto.callLen,jdbcType=DECIMAL}
+					,#{dto.callOutCnt,jdbcType=DECIMAL}
+					,#{dto.callInCnt,jdbcType=DECIMAL}
+					,#{dto.smsCnt,jdbcType=DECIMAL}
+					,#{dto.transStart,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.transEnd,jdbcType=VARCHAR}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_JXL_CALL_INFO_STOCK -->
+<update id="updateExtJxlCallInfoStock" parameterType="java.util.Map">
+	     update ext_jxl_call_info_stock t1
+	           set 
+			           t1.fk_contact_info_id             =#{dto.fkContactInfoId,jdbcType=DECIMAL},
+			           t1.phone_num                      =#{dto.phoneNum,jdbcType=VARCHAR},
+			           t1.phone_num_loc                  =#{dto.phoneNumLoc,jdbcType=VARCHAR},
+			           t1.call_cnt                       =#{dto.callCnt,jdbcType=DECIMAL},
+			           t1.call_len                       =#{dto.callLen,jdbcType=DECIMAL},
+			           t1.call_out_cnt                   =#{dto.callOutCnt,jdbcType=DECIMAL},
+			           t1.call_in_cnt                    =#{dto.callInCnt,jdbcType=DECIMAL},
+			           t1.sms_cnt                        =#{dto.smsCnt,jdbcType=DECIMAL},
+			           t1.trans_start                    =#{dto.transStart,jdbcType=VARCHAR},
+					   t1.modify_time                    =systimestamp,
+			           t1.trans_end                      =#{dto.transEnd,jdbcType=VARCHAR}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_JXL_CALL_INFO_STOCK -->
+<delete id="deleteExtJxlCallInfoStockByID" parameterType="java.util.Map">
+    	delete from ext_jxl_call_info_stock t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_JXL_CALL_INFO_STOCK -->
+<update id="deleteExtJxlCallInfoStockByPrimaryKey" parameterType="java.util.Map">
+	     update ext_jxl_call_info_stock t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

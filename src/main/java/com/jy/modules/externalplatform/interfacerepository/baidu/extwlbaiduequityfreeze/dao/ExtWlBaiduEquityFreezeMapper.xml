@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.baidu.extwlbaiduequityfreeze.dao.ExtWlBaiduEquityFreezeDao">
+<resultMap id="ExtWlBaiduEquityFreezeDTO" type="com.jy.modules.externalplatform.interfacerepository.baidu.extwlbaiduequityfreeze.dto.ExtWlBaiduEquityFreezeDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="keyId" column="KEY_ID" jdbcType="VARCHAR" />
+				<result property="executeCourt" column="EXECUTE_COURT" jdbcType="VARCHAR" />
+				<result property="adjudicateNo" column="ADJUDICATE_NO" jdbcType="VARCHAR" />
+				<result property="freezeAmount" column="FREEZE_AMOUNT" jdbcType="VARCHAR" />
+				<result property="pubDate" column="PUB_DATE" jdbcType="VARCHAR" />
+				<result property="corpName" column="CORP_NAME" jdbcType="VARCHAR" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyBy" column="MODIFY_BY" jdbcType="DECIMAL" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="validateState" column="VALIDATE_STATE" jdbcType="VARCHAR" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_BAIDU_EQUITY_FREEZE -->	
+<select id="searchExtWlBaiduEquityFreezeByPaging" parameterType="java.util.Map" resultMap="ExtWlBaiduEquityFreezeDTO">
+    	 		select 
+						t1.id                             ,
+						t1.key_id                         ,
+						t1.execute_court                  ,
+						t1.adjudicate_no                  ,
+						t1.freeze_amount                  ,
+						t1.pub_date                       ,
+						t1.corp_name                      ,
+						t1.create_by                      ,
+						t1.create_time                    ,
+						t1.modify_by                      ,
+						t1.modify_time                    ,
+						t1.validate_state                 
+					
+				from ext_wl_baidu_equity_freeze 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.keyId != null and dto.keyId != ''">
+						and t1.KEY_ID =#{dto.keyId}
+    			</if>
+    			<if test="dto.executeCourt != null and dto.executeCourt != ''">
+						and t1.EXECUTE_COURT =#{dto.executeCourt}
+    			</if>
+    			<if test="dto.adjudicateNo != null and dto.adjudicateNo != ''">
+						and t1.ADJUDICATE_NO =#{dto.adjudicateNo}
+    			</if>
+    			<if test="dto.freezeAmount != null and dto.freezeAmount != ''">
+						and t1.FREEZE_AMOUNT =#{dto.freezeAmount}
+    			</if>
+    			<if test="dto.pubDate != null and dto.pubDate != ''">
+						and t1.PUB_DATE =#{dto.pubDate}
+    			</if>
+    			<if test="dto.corpName != null and dto.corpName != ''">
+						and t1.CORP_NAME =#{dto.corpName}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY =#{dto.modifyBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE =#{dto.validateState}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_BAIDU_EQUITY_FREEZE  -->
+<select id="searchExtWlBaiduEquityFreeze" parameterType="java.util.Map" resultMap="ExtWlBaiduEquityFreezeDTO">
+    	     select 
+						t1.id                             ,
+						t1.key_id                         ,
+						t1.execute_court                  ,
+						t1.adjudicate_no                  ,
+						t1.freeze_amount                  ,
+						t1.pub_date                       ,
+						t1.corp_name                      ,
+						t1.create_by                      ,
+						t1.create_time                    ,
+						t1.modify_by                      ,
+						t1.modify_time                    ,
+						t1.validate_state                 
+				from ext_wl_baidu_equity_freeze 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.keyId != null and dto.keyId != ''">
+						and t1.KEY_ID = #{dto.keyId}
+    			</if>
+    			<if test="dto.executeCourt != null and dto.executeCourt != ''">
+						and t1.EXECUTE_COURT = #{dto.executeCourt}
+    			</if>
+    			<if test="dto.adjudicateNo != null and dto.adjudicateNo != ''">
+						and t1.ADJUDICATE_NO = #{dto.adjudicateNo}
+    			</if>
+    			<if test="dto.freezeAmount != null and dto.freezeAmount != ''">
+						and t1.FREEZE_AMOUNT = #{dto.freezeAmount}
+    			</if>
+    			<if test="dto.pubDate != null and dto.pubDate != ''">
+						and t1.PUB_DATE = #{dto.pubDate}
+    			</if>
+    			<if test="dto.corpName != null and dto.corpName != ''">
+						and t1.CORP_NAME = #{dto.corpName}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY = #{dto.modifyBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE = #{dto.validateState}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_BAIDU_EQUITY_FREEZE -->
+<select id="findExtWlBaiduEquityFreezeByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlBaiduEquityFreezeDTO">
+   	 		select 
+					t1.id                             ,
+					t1.key_id                         ,
+					t1.execute_court                  ,
+					t1.adjudicate_no                  ,
+					t1.freeze_amount                  ,
+					t1.pub_date                       ,
+					t1.corp_name                      ,
+					t1.create_by                      ,
+					t1.create_time                    ,
+					t1.modify_by                      ,
+					t1.modify_time                    ,
+					t1.validate_state                 
+			from ext_wl_baidu_equity_freeze 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_BAIDU_EQUITY_FREEZE -->
+<insert id="insertExtWlBaiduEquityFreeze" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_BAIDU_EQUITY_FREEZE.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_baidu_equity_freeze
+			(   		
+					id                             ,
+					key_id                         ,
+					execute_court                  ,
+					adjudicate_no                  ,
+					freeze_amount                  ,
+					pub_date                       ,
+					corp_name                      ,
+					create_by                      ,
+					create_time                    ,
+					modify_by                      ,
+					modify_time                    ,
+					validate_state                 
+			)
+			values(#{dto.id}
+					,#{dto.keyId,jdbcType=VARCHAR}
+					,#{dto.executeCourt,jdbcType=VARCHAR}
+					,#{dto.adjudicateNo,jdbcType=VARCHAR}
+					,#{dto.freezeAmount,jdbcType=VARCHAR}
+					,#{dto.pubDate,jdbcType=VARCHAR}
+					,#{dto.corpName,jdbcType=VARCHAR}
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,systimestamp
+					,#{dto.modifyBy,jdbcType=DECIMAL}
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,'1'
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_BAIDU_EQUITY_FREEZE -->
+<update id="updateExtWlBaiduEquityFreeze" parameterType="java.util.Map">
+	     update ext_wl_baidu_equity_freeze t1
+	           set 
+			           t1.key_id                         =#{dto.keyId,jdbcType=VARCHAR},
+			           t1.execute_court                  =#{dto.executeCourt,jdbcType=VARCHAR},
+			           t1.adjudicate_no                  =#{dto.adjudicateNo,jdbcType=VARCHAR},
+			           t1.freeze_amount                  =#{dto.freezeAmount,jdbcType=VARCHAR},
+			           t1.pub_date                       =#{dto.pubDate,jdbcType=VARCHAR},
+			           t1.corp_name                      =#{dto.corpName,jdbcType=VARCHAR},
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_by                      =#{dto.modifyBy,jdbcType=DECIMAL},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP},
+			           t1.validate_state                 ='1'
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_BAIDU_EQUITY_FREEZE -->
+<delete id="deleteExtWlBaiduEquityFreezeByID" parameterType="java.util.Map">
+    	delete from ext_wl_baidu_equity_freeze t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_BAIDU_EQUITY_FREEZE -->
+<update id="deleteExtWlBaiduEquityFreezeByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_baidu_equity_freeze t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+
+	<!-- 批量保存数据-->
+	<insert id="insertBatchEquityFreeze" parameterType="java.util.Map">
+		declare
+		detId number:=0;
+		begin
+
+		detId:=0;
+		<foreach collection="equityFreezeList" item="dto" index="index" >
+			select seq_EXT_WL_BAIDU_EQUITY_FREEZE.nextval into detId from dual;
+			insert into ext_wl_baidu_equity_freeze
+			(
+			id                             ,
+			key_id                         ,
+			execute_court                  ,
+			adjudicate_no                  ,
+			freeze_amount                  ,
+			pub_date                       ,
+			corp_name                      ,
+			create_by                      ,
+			create_time                    ,
+			validate_state
+			)
+			select detId
+			,#{dto.keyId,jdbcType=VARCHAR}
+			,#{dto.executeCourt,jdbcType=VARCHAR}
+			,#{dto.adjudicateNo,jdbcType=VARCHAR}
+			,#{dto.freezeAmount,jdbcType=VARCHAR}
+			,#{dto.pubDate,jdbcType=VARCHAR}
+			,#{dto.corpName,jdbcType=VARCHAR}
+			,#{dto.createBy,jdbcType=DECIMAL}
+			,systimestamp
+			,'1'
+			from dual           ;
+		</foreach>
+		end ;
+	</insert>
+</mapper>

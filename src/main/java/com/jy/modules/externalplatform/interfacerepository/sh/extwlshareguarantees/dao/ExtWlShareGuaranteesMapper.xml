@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.sh.extwlshareguarantees.dao.ExtWlShareGuaranteesDao">
+<resultMap id="ExtWlShareGuaranteesDTO" type="com.jy.modules.externalplatform.interfacerepository.sh.extwlshareguarantees.dto.ExtWlShareGuaranteesDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="orgCode" column="ORG_CODE" jdbcType="VARCHAR" />
+				<result property="creditLimit" column="CREDIT_LIMIT" jdbcType="DECIMAL" />
+				<result property="dateOpened" column="DATE_OPENED" jdbcType="VARCHAR" />
+				<result property="dateClosed" column="DATE_CLOSED" jdbcType="VARCHAR" />
+				<result property="occurSum" column="OCCUR_SUM" jdbcType="DECIMAL" />
+				<result property="guaranteeType" column="GUARANTEE_TYPE" jdbcType="VARCHAR" />
+				<result property="balance" column="BALANCE" jdbcType="DECIMAL" />
+				<result property="updateDate" column="UPDATE_DATE" jdbcType="VARCHAR" />
+				<result property="fkReportId" column="FK_REPORT_ID" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 Ext_Wl_Share_Guarantees -->	
+<select id="searchExtWlShareGuaranteesByPaging" parameterType="java.util.Map" resultMap="ExtWlShareGuaranteesDTO">
+    	 		select 
+						t1.id                             ,
+						t1.org_code                       ,
+						t1.credit_limit                   ,
+						t1.date_opened                    ,
+						t1.date_closed                    ,
+						t1.occur_sum                      ,
+						t1.guarantee_type                 ,
+						t1.balance                        ,
+						t1.update_date                    ,
+						t1.fk_report_id                   ,
+						t1.create_time                    ,
+						t1.modify_time                    
+					
+				from ext_wl_share_guarantees 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.orgCode != null and dto.orgCode != ''">
+						and t1.ORG_CODE =#{dto.orgCode}
+    			</if>
+    			<if test="dto.creditLimit != null and dto.creditLimit != ''">
+						and t1.CREDIT_LIMIT =#{dto.creditLimit}
+    			</if>
+    			<if test="dto.dateOpened != null and dto.dateOpened != ''">
+						and t1.DATE_OPENED =#{dto.dateOpened}
+    			</if>
+    			<if test="dto.dateClosed != null and dto.dateClosed != ''">
+						and t1.DATE_CLOSED =#{dto.dateClosed}
+    			</if>
+    			<if test="dto.occurSum != null and dto.occurSum != ''">
+						and t1.OCCUR_SUM =#{dto.occurSum}
+    			</if>
+    			<if test="dto.guaranteeType != null and dto.guaranteeType != ''">
+						and t1.GUARANTEE_TYPE =#{dto.guaranteeType}
+    			</if>
+    			<if test="dto.balance != null and dto.balance != ''">
+						and t1.BALANCE =#{dto.balance}
+    			</if>
+    			<if test="dto.updateDate != null and dto.updateDate != ''">
+						and t1.UPDATE_DATE =#{dto.updateDate}
+    			</if>
+    			<if test="dto.fkReportId != null and dto.fkReportId != ''">
+						and t1.FK_REPORT_ID =#{dto.fkReportId}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 Ext_Wl_Share_Guarantees  -->
+<select id="searchExtWlShareGuarantees" parameterType="java.util.Map" resultMap="ExtWlShareGuaranteesDTO">
+    	     select 
+						t1.id                             ,
+						t1.org_code                       ,
+						t1.credit_limit                   ,
+						t1.date_opened                    ,
+						t1.date_closed                    ,
+						t1.occur_sum                      ,
+						t1.guarantee_type                 ,
+						t1.balance                        ,
+						t1.update_date                    ,
+						t1.fk_report_id                   ,
+						t1.create_time                    ,
+						t1.modify_time                    
+				from ext_wl_share_guarantees 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.orgCode != null and dto.orgCode != ''">
+						and t1.ORG_CODE = #{dto.orgCode}
+    			</if>
+    			<if test="dto.creditLimit != null and dto.creditLimit != ''">
+						and t1.CREDIT_LIMIT = #{dto.creditLimit}
+    			</if>
+    			<if test="dto.dateOpened != null and dto.dateOpened != ''">
+						and t1.DATE_OPENED = #{dto.dateOpened}
+    			</if>
+    			<if test="dto.dateClosed != null and dto.dateClosed != ''">
+						and t1.DATE_CLOSED = #{dto.dateClosed}
+    			</if>
+    			<if test="dto.occurSum != null and dto.occurSum != ''">
+						and t1.OCCUR_SUM = #{dto.occurSum}
+    			</if>
+    			<if test="dto.guaranteeType != null and dto.guaranteeType != ''">
+						and t1.GUARANTEE_TYPE = #{dto.guaranteeType}
+    			</if>
+    			<if test="dto.balance != null and dto.balance != ''">
+						and t1.BALANCE = #{dto.balance}
+    			</if>
+    			<if test="dto.updateDate != null and dto.updateDate != ''">
+						and t1.UPDATE_DATE = #{dto.updateDate}
+    			</if>
+    			<if test="dto.fkReportId != null and dto.fkReportId != ''">
+						and t1.FK_REPORT_ID = #{dto.fkReportId}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  Ext_Wl_Share_Guarantees -->
+<select id="findExtWlShareGuaranteesByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlShareGuaranteesDTO">
+   	 		select 
+					t1.id                             ,
+					t1.org_code                       ,
+					t1.credit_limit                   ,
+					t1.date_opened                    ,
+					t1.date_closed                    ,
+					t1.occur_sum                      ,
+					t1.guarantee_type                 ,
+					t1.balance                        ,
+					t1.update_date                    ,
+					t1.fk_report_id                   ,
+					t1.create_time                    ,
+					t1.modify_time                    
+			from ext_wl_share_guarantees 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 Ext_Wl_Share_Guarantees -->
+<insert id="insertExtWlShareGuarantees" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_Ext_Wl_Share_Guarantees.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_share_guarantees
+			(   		
+					id                             ,
+					org_code                       ,
+					credit_limit                   ,
+					date_opened                    ,
+					date_closed                    ,
+					occur_sum                      ,
+					guarantee_type                 ,
+					balance                        ,
+					update_date                    ,
+					fk_report_id                   ,
+					create_time                    ,
+					modify_time                    
+			)
+			values(#{dto.id}
+					,#{dto.orgCode,jdbcType=VARCHAR}
+					,#{dto.creditLimit,jdbcType=DECIMAL}
+					,#{dto.dateOpened,jdbcType=VARCHAR}
+					,#{dto.dateClosed,jdbcType=VARCHAR}
+					,#{dto.occurSum,jdbcType=DECIMAL}
+					,#{dto.guaranteeType,jdbcType=VARCHAR}
+					,#{dto.balance,jdbcType=DECIMAL}
+					,#{dto.updateDate,jdbcType=VARCHAR}
+					,#{dto.fkReportId,jdbcType=DECIMAL}
+					,#{dto.createTime,jdbcType=TIMESTAMP}
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+			)
+</insert>
+    
+<!-- 更新对象 Ext_Wl_Share_Guarantees -->
+<update id="updateExtWlShareGuarantees" parameterType="java.util.Map">
+	     update ext_wl_share_guarantees t1
+	           set 
+			           t1.org_code                       =#{dto.orgCode,jdbcType=VARCHAR},
+			           t1.credit_limit                   =#{dto.creditLimit,jdbcType=DECIMAL},
+			           t1.date_opened                    =#{dto.dateOpened,jdbcType=VARCHAR},
+			           t1.date_closed                    =#{dto.dateClosed,jdbcType=VARCHAR},
+			           t1.occur_sum                      =#{dto.occurSum,jdbcType=DECIMAL},
+			           t1.guarantee_type                 =#{dto.guaranteeType,jdbcType=VARCHAR},
+			           t1.balance                        =#{dto.balance,jdbcType=DECIMAL},
+			           t1.update_date                    =#{dto.updateDate,jdbcType=VARCHAR},
+			           t1.fk_report_id                   =#{dto.fkReportId,jdbcType=DECIMAL},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 Ext_Wl_Share_Guarantees -->
+<delete id="deleteExtWlShareGuaranteesByID" parameterType="java.util.Map">
+    	delete from ext_wl_share_guarantees t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 Ext_Wl_Share_Guarantees -->
+<update id="deleteExtWlShareGuaranteesByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_share_guarantees t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+
+<insert id="insertExtWlShareGuaranteesList" parameterType="java.util.Map">
+begin
+    <foreach collection="dtoList" item="dto" >
+         insert into ext_wl_share_guarantees
+			(   		
+					id                             ,
+					org_code                       ,
+					credit_limit                   ,
+					date_opened                    ,
+					date_closed                    ,
+					occur_sum                      ,
+					guarantee_type                 ,
+					balance                        ,
+					update_date                    ,
+					fk_report_id                   ,
+					create_time                    ,
+					modify_time                    
+			)
+			values(seq_Ext_Wl_Share_Guarantees.nextval
+					,#{dto.orgCode,jdbcType=VARCHAR}
+					,#{dto.creditLimit,jdbcType=DECIMAL}
+					,#{dto.dateOpened,jdbcType=VARCHAR}
+					,#{dto.dateClosed,jdbcType=VARCHAR}
+					,#{dto.occurSum,jdbcType=DECIMAL}
+					,#{dto.guaranteeType,jdbcType=VARCHAR}
+					,#{dto.balance,jdbcType=DECIMAL}
+					,#{dto.updateDate,jdbcType=VARCHAR}
+					,#{fkReportId}
+					,systimestamp
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+			);
+    </foreach>
+  end;
+</insert>
+
+</mapper>

@@ -1,0 +1,33 @@
+.tabMove {
+    position: absolute;
+    top: 5px;
+    cursor: pointer;
+    z-index: 9999;
+
+    height: 30px;
+    width: 26px;
+    display: none;
+}
+.tab_moveLeft {
+    left: -1px;
+    background: #DAF3F5 url("icon/left.png");
+}
+
+.tab_moveRight {
+    right: 0px;
+    background: #DAF3F5 url("icon/right.png");
+}
+
+
+.tabRadius{
+	border-bottom-left-radius:0px !important;
+	border-bottom-right-radius:0px !important;
+	
+}
+.close-all{
+  	background: #f4f2f3;
+    border: 1px solid #aed0eb;
+    color: #2779aa;
+    font-size: 12px;
+    height: 30px;
+}

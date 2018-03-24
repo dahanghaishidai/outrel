@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.sh.extwlsharepoccupations.dao.ExtWlSharePOccupationsDao">
+<resultMap id="ExtWlSharePOccupationsDTO" type="com.jy.modules.externalplatform.interfacerepository.sh.extwlsharepoccupations.dto.ExtWlSharePOccupationsDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="company" column="COMPANY" jdbcType="VARCHAR" />
+				<result property="companyAddress" column="COMPANY_ADDRESS" jdbcType="VARCHAR" />
+				<result property="updateTime" column="UPDATE_TIME" jdbcType="VARCHAR" />
+				<result property="fkReportId" column="FK_REPORT_ID" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_SHARE_P_OCCUPATIONS -->	
+<select id="searchExtWlSharePOccupationsByPaging" parameterType="java.util.Map" resultMap="ExtWlSharePOccupationsDTO">
+    	 		select 
+						t1.id                             ,
+						t1.company                        ,
+						t1.company_address                ,
+						t1.update_time                    ,
+						t1.fk_report_id                   ,
+						t1.create_time                    ,
+						t1.modify_time                    
+					
+				from ext_wl_share_p_occupations 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.company != null and dto.company != ''">
+						and t1.COMPANY =#{dto.company}
+    			</if>
+    			<if test="dto.companyAddress != null and dto.companyAddress != ''">
+						and t1.COMPANY_ADDRESS =#{dto.companyAddress}
+    			</if>
+    			<if test="dto.updateTime != null and dto.updateTime != ''">
+						and t1.UPDATE_TIME =#{dto.updateTime}
+    			</if>
+    			<if test="dto.fkReportId != null and dto.fkReportId != ''">
+						and t1.FK_REPORT_ID =#{dto.fkReportId}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_SHARE_P_OCCUPATIONS  -->
+<select id="searchExtWlSharePOccupations" parameterType="java.util.Map" resultMap="ExtWlSharePOccupationsDTO">
+    	     select 
+						t1.id                             ,
+						t1.company                        ,
+						t1.company_address                ,
+						t1.update_time                    ,
+						t1.fk_report_id                   ,
+						t1.create_time                    ,
+						t1.modify_time                    
+				from ext_wl_share_p_occupations 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.company != null and dto.company != ''">
+						and t1.COMPANY = #{dto.company}
+    			</if>
+    			<if test="dto.companyAddress != null and dto.companyAddress != ''">
+						and t1.COMPANY_ADDRESS = #{dto.companyAddress}
+    			</if>
+    			<if test="dto.updateTime != null and dto.updateTime != ''">
+						and t1.UPDATE_TIME = #{dto.updateTime}
+    			</if>
+    			<if test="dto.fkReportId != null and dto.fkReportId != ''">
+						and t1.FK_REPORT_ID = #{dto.fkReportId}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_SHARE_P_OCCUPATIONS -->
+<select id="findExtWlSharePOccupationsByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlSharePOccupationsDTO">
+   	 		select 
+					t1.id                             ,
+					t1.company                        ,
+					t1.company_address                ,
+					t1.update_time                    ,
+					t1.fk_report_id                   ,
+					t1.create_time                    ,
+					t1.modify_time                    
+			from ext_wl_share_p_occupations 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_SHARE_P_OCCUPATIONS -->
+<insert id="insertExtWlSharePOccupations" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_SHARE_P_OCCUPATIONS.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_share_p_occupations
+			(   		
+					id                             ,
+					company                        ,
+					company_address                ,
+					update_time                    ,
+					fk_report_id                   ,
+					create_time                    ,
+					modify_time                    
+			)
+			values(#{dto.id}
+					,#{dto.company,jdbcType=VARCHAR}
+					,#{dto.companyAddress,jdbcType=VARCHAR}
+					,#{dto.updateTime,jdbcType=VARCHAR}
+					,#{dto.fkReportId,jdbcType=DECIMAL}
+					,#{dto.createTime,jdbcType=TIMESTAMP}
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_SHARE_P_OCCUPATIONS -->
+<update id="updateExtWlSharePOccupations" parameterType="java.util.Map">
+	     update ext_wl_share_p_occupations t1
+	           set 
+			           t1.company                        =#{dto.company,jdbcType=VARCHAR},
+			           t1.company_address                =#{dto.companyAddress,jdbcType=VARCHAR},
+			           t1.update_time                    =#{dto.updateTime,jdbcType=VARCHAR},
+			           t1.fk_report_id                   =#{dto.fkReportId,jdbcType=DECIMAL},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_SHARE_P_OCCUPATIONS -->
+<delete id="deleteExtWlSharePOccupationsByID" parameterType="java.util.Map">
+    	delete from ext_wl_share_p_occupations t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_SHARE_P_OCCUPATIONS -->
+<update id="deleteExtWlSharePOccupationsByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_share_p_occupations t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+
+<insert id="insertExtWlSharePOccupationsList" parameterType="java.util.Map">
+begin
+    <foreach collection="dtoList" item="dto" >
+         insert into ext_wl_share_p_occupations
+			(   		
+					id                             ,
+					company                        ,
+					company_address                ,
+					update_time                    ,
+					fk_report_id                   ,
+					create_time                    ,
+					modify_time                    
+			)
+			values(seq_EXT_WL_SHARE_P_OCCUPATIONS.nextval
+					,#{dto.company,jdbcType=VARCHAR}
+					,#{dto.companyAddress,jdbcType=VARCHAR}
+					,#{dto.updateTime,jdbcType=VARCHAR}
+					,#{fkReportId}
+					,systimestamp
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+			);
+    </foreach>
+  end;
+</insert>
+    
+</mapper>

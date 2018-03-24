@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.jxl.pbccrc.extjxlloaninfo.dao.ExtJxlLoanInfoDao">
+<resultMap id="ExtJxlLoanInfoDTO" type="com.jy.modules.externalplatform.interfacerepository.jxl.pbccrc.extjxlloaninfo.dto.ExtJxlLoanInfoDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="fkReportId" column="FK_REPORT_ID" jdbcType="DECIMAL" />
+				<result property="grantTime" column="GRANT_TIME" jdbcType="VARCHAR" />
+				<result property="grantCompany" column="GRANT_COMPANY" jdbcType="VARCHAR" />
+				<result property="grantAmount" column="GRANT_AMOUNT" jdbcType="VARCHAR" />
+				<result property="grantAmountType" column="GRANT_AMOUNT_TYPE" jdbcType="VARCHAR" />
+				<result property="grantName" column="GRANT_NAME" jdbcType="VARCHAR" />
+				<result property="expirationTime" column="EXPIRATION_TIME" jdbcType="VARCHAR" />
+				<result property="deadlineTime" column="DEADLINE_TIME" jdbcType="VARCHAR" />
+				<result property="balance" column="BALANCE" jdbcType="VARCHAR" />
+				<result property="monthOfFiveYear90" column="MONTH_OF_FIVE_YEAR_90" jdbcType="VARCHAR" />
+				<result property="monthOfFiveYear" column="MONTH_OF_FIVE_YEAR" jdbcType="VARCHAR" />
+				<result property="overdueAmount" column="OVERDUE_AMOUNT" jdbcType="VARCHAR" />
+				<result property="clearTime" column="CLEAR_TIME" jdbcType="VARCHAR" />
+				<result property="originalContent" column="ORIGINAL_CONTENT" jdbcType="VARCHAR" />
+				<result property="loanType" column="LOAN_TYPE" jdbcType="VARCHAR" />
+				<result property="overdueStatus" column="OVERDUE_STATUS" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+  
+<!-- 查询列表 EXT_JXL_LOAN_INFO  -->
+<select id="searchExtJxlLoanInfo" parameterType="java.util.Map" resultMap="ExtJxlLoanInfoDTO">
+    	     select 
+						t1.id                             ,
+						t1.fk_report_id                   ,
+						t1.grant_time                     ,
+						t1.grant_company                  ,
+						t1.grant_amount                   ,
+						t1.grant_amount_type              ,
+						t1.grant_name                     ,
+						t1.expiration_time                ,
+						t1.deadline_time                  ,
+						t1.balance                        ,
+						t1.month_of_five_year_90          ,
+						t1.month_of_five_year             ,
+						t1.overdue_amount                 ,
+						t1.clear_time                     ,
+						t1.original_content               ,
+						t1.loan_type                      ,
+						t1.overdue_status                 ,
+						t1.create_time                    ,
+						t1.modify_time                    
+				from ext_jxl_loan_info 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.fkReportId != null and dto.fkReportId != ''">
+						and t1.FK_REPORT_ID = #{dto.fkReportId}
+    			</if>
+    			<if test="dto.grantTime != null and dto.grantTime != ''">
+						and t1.GRANT_TIME = #{dto.grantTime}
+    			</if>
+    			<if test="dto.grantCompany != null and dto.grantCompany != ''">
+						and t1.GRANT_COMPANY = #{dto.grantCompany}
+    			</if>
+    			<if test="dto.grantAmount != null and dto.grantAmount != ''">
+						and t1.GRANT_AMOUNT = #{dto.grantAmount}
+    			</if>
+    			<if test="dto.grantAmountType != null and dto.grantAmountType != ''">
+						and t1.GRANT_AMOUNT_TYPE = #{dto.grantAmountType}
+    			</if>
+    			<if test="dto.grantName != null and dto.grantName != ''">
+						and t1.GRANT_NAME = #{dto.grantName}
+    			</if>
+    			<if test="dto.expirationTime != null and dto.expirationTime != ''">
+						and t1.EXPIRATION_TIME = #{dto.expirationTime}
+    			</if>
+    			<if test="dto.deadlineTime != null and dto.deadlineTime != ''">
+						and t1.DEADLINE_TIME = #{dto.deadlineTime}
+    			</if>
+    			<if test="dto.balance != null and dto.balance != ''">
+						and t1.BALANCE = #{dto.balance}
+    			</if>
+    			<if test="dto.monthOfFiveYear90 != null and dto.monthOfFiveYear90 != ''">
+						and t1.MONTH_OF_FIVE_YEAR_90 = #{dto.monthOfFiveYear90}
+    			</if>
+    			<if test="dto.monthOfFiveYear != null and dto.monthOfFiveYear != ''">
+						and t1.MONTH_OF_FIVE_YEAR = #{dto.monthOfFiveYear}
+    			</if>
+    			<if test="dto.overdueAmount != null and dto.overdueAmount != ''">
+						and t1.OVERDUE_AMOUNT = #{dto.overdueAmount}
+    			</if>
+    			<if test="dto.clearTime != null and dto.clearTime != ''">
+						and t1.CLEAR_TIME = #{dto.clearTime}
+    			</if>
+    			<if test="dto.originalContent != null and dto.originalContent != ''">
+						and t1.ORIGINAL_CONTENT = #{dto.originalContent}
+    			</if>
+    			<if test="dto.loanType != null and dto.loanType != ''">
+						and t1.LOAN_TYPE = #{dto.loanType}
+    			</if>
+    			<if test="dto.overdueStatus != null and dto.overdueStatus != ''">
+						and t1.OVERDUE_STATUS = #{dto.overdueStatus}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			order by t1.id desc
+</select>
+  
+<insert id="insertExtJxlLoanInfoList" parameterType="java.util.Map" useGeneratedKeys="true">
+begin
+    <selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+		 select seq_EXT_JXL_LOAN_INFO.nextval as id from dual
+	</selectKey>
+    <foreach collection="dtoList" item="dto" >
+          insert into ext_jxl_loan_info
+			(   		
+					id                             ,
+					fk_report_id                   ,
+					grant_time                     ,
+					grant_company                  ,
+					grant_amount                   ,
+					grant_amount_type              ,
+					grant_name                     ,
+					expiration_time                ,
+					deadline_time                  ,
+					balance                        ,
+					month_of_five_year_90          ,
+					month_of_five_year             ,
+					overdue_amount                 ,
+					clear_time                     ,
+					original_content               ,
+					loan_type                      ,
+					overdue_status                 ,
+					create_time                    
+			)
+			values(seq_EXT_JXL_LOAN_INFO.nextval
+					,#{fkReportId}
+					,#{dto.grantTime,jdbcType=VARCHAR}
+					,#{dto.grantCompany,jdbcType=VARCHAR}
+					,#{dto.grantAmount,jdbcType=VARCHAR}
+					,#{dto.grantAmountType,jdbcType=VARCHAR}
+					,#{dto.grantName,jdbcType=VARCHAR}
+					,#{dto.expirationTime,jdbcType=VARCHAR}
+					,#{dto.deadlineTime,jdbcType=VARCHAR}
+					,#{dto.balance,jdbcType=VARCHAR}
+					,#{dto.monthOfFiveYear90,jdbcType=VARCHAR}
+					,#{dto.monthOfFiveYear,jdbcType=VARCHAR}
+					,#{dto.overdueAmount,jdbcType=VARCHAR}
+					,#{dto.clearTime,jdbcType=VARCHAR}
+					,#{dto.originalContent,jdbcType=VARCHAR}
+					,#{dto.loanType,jdbcType=VARCHAR}
+				    ,#{dto.overdueStatus,jdbcType=VARCHAR}
+					,systimestamp
+			);
+    </foreach>
+  end;
+</insert>
+
+
+</mapper>

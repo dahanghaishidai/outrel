@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.zxt.extwlzxtnetbadp.dao.ExtWlZxtNetBadPDao">
+<resultMap id="ExtWlZxtNetBadPDTO" type="com.jy.modules.externalplatform.interfacerepository.zxt.extwlzxtnetbadp.dto.ExtWlZxtNetBadPDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="moduleFkId" column="MODULE_FK_ID" jdbcType="DECIMAL" />
+				<result property="title" column="TITLE" jdbcType="VARCHAR" />
+				<result property="mobileNo" column="MOBILE_NO" jdbcType="VARCHAR" />
+				<result property="abstract_" column="ABSTRACT" jdbcType="VARCHAR" />
+				<result property="url" column="URL" jdbcType="VARCHAR" />
+				<result property="negKeyWord" column="NEG_KEY_WORD" jdbcType="VARCHAR" />
+				<result property="searchKey" column="SEARCH_KEY" jdbcType="VARCHAR" />
+				<result property="time" column="TIME" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="updateTime" column="UPDATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="updateBy" column="UPDATE_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 分页查询 ext_wl_zxt_net_bad_p -->	
+<select id="searchExtWlZxtNetBadPByPaging" parameterType="java.util.Map" resultMap="ExtWlZxtNetBadPDTO">
+    	 		select 
+						t1.id                             ,
+						t1.module_fk_id                   ,
+						t1.title                          ,
+						t1.mobile_no                      ,
+						t1.abstract                       ,
+						t1.url                            ,
+						t1.neg_key_word                   ,
+						t1.search_key                     ,
+						t1.time                           ,
+						t1.create_time                    ,
+						t1.update_time                    ,
+						t1.create_by                      ,
+						t1.update_by                      
+					
+				from ext_wl_zxt_net_bad_p 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.moduleFkId != null and dto.moduleFkId != ''">
+						and t1.MODULE_FK_ID =#{dto.moduleFkId}
+    			</if>
+    			<if test="dto.title != null and dto.title != ''">
+						and t1.TITLE =#{dto.title}
+    			</if>
+    			<if test="dto.mobileNo != null and dto.mobileNo != ''">
+						and t1.MOBILE_NO =#{dto.mobileNo}
+    			</if>
+    			<if test="dto.abstract_ != null and dto.abstract_ != ''">
+						and t1.ABSTRACT =#{dto.abstract_}
+    			</if>
+    			<if test="dto.url != null and dto.url != ''">
+						and t1.URL =#{dto.url}
+    			</if>
+    			<if test="dto.negKeyWord != null and dto.negKeyWord != ''">
+						and t1.NEG_KEY_WORD =#{dto.negKeyWord}
+    			</if>
+    			<if test="dto.searchKey != null and dto.searchKey != ''">
+						and t1.SEARCH_KEY =#{dto.searchKey}
+    			</if>
+    			<if test="dto.time != null and dto.time != ''">
+						and t1.TIME =#{dto.time}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.updateTime != null and dto.updateTime != ''">
+						and t1.UPDATE_TIME =#{dto.updateTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY =#{dto.updateBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 ext_wl_zxt_net_bad_p  -->
+<select id="searchExtWlZxtNetBadP" parameterType="java.util.Map" resultMap="ExtWlZxtNetBadPDTO">
+    	     select 
+						t1.id                             ,
+						t1.module_fk_id                   ,
+						t1.title                          ,
+						t1.mobile_no                      ,
+						t1.abstract                       ,
+						t1.url                            ,
+						t1.neg_key_word                   ,
+						t1.search_key                     ,
+						t1.time                           ,
+						t1.create_time                    ,
+						t1.update_time                    ,
+						t1.create_by                      ,
+						t1.update_by                      
+				from ext_wl_zxt_net_bad_p 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.moduleFkId != null and dto.moduleFkId != ''">
+						and t1.MODULE_FK_ID = #{dto.moduleFkId}
+    			</if>
+    			<if test="dto.title != null and dto.title != ''">
+						and t1.TITLE = #{dto.title}
+    			</if>
+    			<if test="dto.mobileNo != null and dto.mobileNo != ''">
+						and t1.MOBILE_NO = #{dto.mobileNo}
+    			</if>
+    			<if test="dto.abstract_ != null and dto.abstract_ != ''">
+						and t1.ABSTRACT = #{dto.abstract_}
+    			</if>
+    			<if test="dto.url != null and dto.url != ''">
+						and t1.URL = #{dto.url}
+    			</if>
+    			<if test="dto.negKeyWord != null and dto.negKeyWord != ''">
+						and t1.NEG_KEY_WORD = #{dto.negKeyWord}
+    			</if>
+    			<if test="dto.searchKey != null and dto.searchKey != ''">
+						and t1.SEARCH_KEY = #{dto.searchKey}
+    			</if>
+    			<if test="dto.time != null and dto.time != ''">
+						and t1.TIME = #{dto.time}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.updateTime != null and dto.updateTime != ''">
+						and t1.UPDATE_TIME = #{dto.updateTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY = #{dto.updateBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  ext_wl_zxt_net_bad_p -->
+<select id="findExtWlZxtNetBadPByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlZxtNetBadPDTO">
+   	 		select 
+					t1.id                             ,
+					t1.module_fk_id                   ,
+					t1.title                          ,
+					t1.mobile_no                      ,
+					t1.abstract                       ,
+					t1.url                            ,
+					t1.neg_key_word                   ,
+					t1.search_key                     ,
+					t1.time                           ,
+					t1.create_time                    ,
+					t1.update_time                    ,
+					t1.create_by                      ,
+					t1.update_by                      
+			from ext_wl_zxt_net_bad_p 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 ext_wl_zxt_net_bad_p -->
+<insert id="insertExtWlZxtNetBadP" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_ext_wl_zxt_net_bad_p.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_zxt_net_bad_p
+			(   		
+					id                             ,
+					module_fk_id                   ,
+					title                          ,
+					mobile_no                      ,
+					abstract                       ,
+					url                            ,
+					neg_key_word                   ,
+					search_key                     ,
+					time                           ,
+					create_time                    ,
+					update_time                    ,
+					create_by                      ,
+					update_by                      
+			)
+			values(#{dto.id}
+					,#{dto.moduleFkId,jdbcType=DECIMAL}
+					,#{dto.title,jdbcType=VARCHAR}
+					,#{dto.mobileNo,jdbcType=VARCHAR}
+					,#{dto.abstract_,jdbcType=VARCHAR}
+					,#{dto.url,jdbcType=VARCHAR}
+					,#{dto.negKeyWord,jdbcType=VARCHAR}
+					,#{dto.searchKey,jdbcType=VARCHAR}
+					,#{dto.time,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.updateTime,jdbcType=TIMESTAMP}
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.updateBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 ext_wl_zxt_net_bad_p -->
+<update id="updateExtWlZxtNetBadP" parameterType="java.util.Map">
+	     update ext_wl_zxt_net_bad_p t1
+	           set 
+			           t1.module_fk_id                   =#{dto.moduleFkId,jdbcType=DECIMAL},
+			           t1.title                          =#{dto.title,jdbcType=VARCHAR},
+			           t1.mobile_no                      =#{dto.mobileNo,jdbcType=VARCHAR},
+			           t1.abstract                       =#{dto.abstract_,jdbcType=VARCHAR},
+			           t1.url                            =#{dto.url,jdbcType=VARCHAR},
+			           t1.neg_key_word                   =#{dto.negKeyWord,jdbcType=VARCHAR},
+			           t1.search_key                     =#{dto.searchKey,jdbcType=VARCHAR},
+			           t1.time                           =#{dto.time,jdbcType=VARCHAR},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.update_time                    =#{dto.updateTime,jdbcType=TIMESTAMP},
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.update_by                      =#{dto.updateBy,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 ext_wl_zxt_net_bad_p -->
+<delete id="deleteExtWlZxtNetBadPByID" parameterType="java.util.Map">
+    	delete from ext_wl_zxt_net_bad_p t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 ext_wl_zxt_net_bad_p -->
+<update id="deleteExtWlZxtNetBadPByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_zxt_net_bad_p t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

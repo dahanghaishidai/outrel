@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.suanhuazx.extwlshsrloans.dao.ExtWlShSrLoansDao">
+<resultMap id="ExtWlShSrLoansDTO" type="com.jy.modules.externalplatform.interfacerepository.suanhuazx.extwlshsrloans.dto.ExtWlShSrLoansDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="fkReportId" column="FK_REPORT_ID" jdbcType="DECIMAL" />
+				<result property="original" column="ORIGINAL" jdbcType="VARCHAR" />
+				<result property="creditStatus" column="CREDIT_STATUS" jdbcType="VARCHAR" />
+				<result property="accountStatus" column="ACCOUNT_STATUS" jdbcType="VARCHAR" />
+				<result property="loanBank" column="LOAN_BANK" jdbcType="VARCHAR" />
+				<result property="loanType" column="LOAN_TYPE" jdbcType="VARCHAR" />
+				<result property="loanTime" column="LOAN_TIME" jdbcType="VARCHAR" />
+				<result property="loanAmount" column="LOAN_AMOUNT" jdbcType="VARCHAR" />
+				<result property="loanBalance" column="LOAN_BALANCE" jdbcType="VARCHAR" />
+				<result property="loanDeadline" column="LOAN_DEADLINE" jdbcType="VARCHAR" />
+				<result property="recordOrCancellation" column="RECORD_OR_CANCELLATION" jdbcType="VARCHAR" />
+				<result property="overAmount" column="OVER_AMOUNT" jdbcType="VARCHAR" />
+				<result property="overMonth" column="OVER_MONTH" jdbcType="VARCHAR" />
+				<result property="overMonth90days" column="OVER_MONTH_90DAYS" jdbcType="VARCHAR" />
+				<result property="declaration" column="DECLARATION" jdbcType="VARCHAR" />
+				<result property="isfail" column="ISFAIL" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="validateState" column="VALIDATE_STATE" jdbcType="VARCHAR" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="updateBy" column="UPDATE_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_SH_SR_LOANS -->	
+<select id="searchExtWlShSrLoansByPaging" parameterType="java.util.Map" resultMap="ExtWlShSrLoansDTO">
+    	 		select 
+						t1.id                             ,
+						t1.fk_report_id                   ,
+						t1.original                       ,
+						t1.credit_status                  ,
+						t1.account_status                 ,
+						t1.loan_bank                      ,
+						t1.loan_type                      ,
+						t1.loan_time                      ,
+						t1.loan_amount                    ,
+						t1.loan_balance                   ,
+						t1.loan_deadline                  ,
+						t1.record_or_cancellation         ,
+						t1.over_amount                    ,
+						t1.over_month                     ,
+						t1.over_month_90days              ,
+						t1.declaration                    ,
+						t1.isfail                         ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.validate_state                 ,
+						t1.create_by                      ,
+						t1.update_by                      
+					
+				from ext_wl_sh_sr_loans 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.fkReportId != null and dto.fkReportId != ''">
+						and t1.FK_REPORT_ID =#{dto.fkReportId}
+    			</if>
+    			<if test="dto.original != null and dto.original != ''">
+						and t1.ORIGINAL =#{dto.original}
+    			</if>
+    			<if test="dto.creditStatus != null and dto.creditStatus != ''">
+						and t1.CREDIT_STATUS =#{dto.creditStatus}
+    			</if>
+    			<if test="dto.accountStatus != null and dto.accountStatus != ''">
+						and t1.ACCOUNT_STATUS =#{dto.accountStatus}
+    			</if>
+    			<if test="dto.loanBank != null and dto.loanBank != ''">
+						and t1.LOAN_BANK =#{dto.loanBank}
+    			</if>
+    			<if test="dto.loanType != null and dto.loanType != ''">
+						and t1.LOAN_TYPE =#{dto.loanType}
+    			</if>
+    			<if test="dto.loanTime != null and dto.loanTime != ''">
+						and t1.LOAN_TIME =#{dto.loanTime}
+    			</if>
+    			<if test="dto.loanAmount != null and dto.loanAmount != ''">
+						and t1.LOAN_AMOUNT =#{dto.loanAmount}
+    			</if>
+    			<if test="dto.loanBalance != null and dto.loanBalance != ''">
+						and t1.LOAN_BALANCE =#{dto.loanBalance}
+    			</if>
+    			<if test="dto.loanDeadline != null and dto.loanDeadline != ''">
+						and t1.LOAN_DEADLINE =#{dto.loanDeadline}
+    			</if>
+    			<if test="dto.recordOrCancellation != null and dto.recordOrCancellation != ''">
+						and t1.RECORD_OR_CANCELLATION =#{dto.recordOrCancellation}
+    			</if>
+    			<if test="dto.overAmount != null and dto.overAmount != ''">
+						and t1.OVER_AMOUNT =#{dto.overAmount}
+    			</if>
+    			<if test="dto.overMonth != null and dto.overMonth != ''">
+						and t1.OVER_MONTH =#{dto.overMonth}
+    			</if>
+    			<if test="dto.overMonth90days != null and dto.overMonth90days != ''">
+						and t1.OVER_MONTH_90DAYS =#{dto.overMonth90days}
+    			</if>
+    			<if test="dto.declaration != null and dto.declaration != ''">
+						and t1.DECLARATION =#{dto.declaration}
+    			</if>
+    			<if test="dto.isfail != null and dto.isfail != ''">
+						and t1.ISFAIL =#{dto.isfail}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE =#{dto.validateState}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY =#{dto.updateBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_SH_SR_LOANS  -->
+<select id="searchExtWlShSrLoans" parameterType="java.util.Map" resultMap="ExtWlShSrLoansDTO">
+    	     select 
+						t1.id                             ,
+						t1.fk_report_id                   ,
+						t1.original                       ,
+						t1.credit_status                  ,
+						t1.account_status                 ,
+						t1.loan_bank                      ,
+						t1.loan_type                      ,
+						t1.loan_time                      ,
+						t1.loan_amount                    ,
+						t1.loan_balance                   ,
+						t1.loan_deadline                  ,
+						t1.record_or_cancellation         ,
+						t1.over_amount                    ,
+						t1.over_month                     ,
+						t1.over_month_90days              ,
+						t1.declaration                    ,
+						t1.isfail                         ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.validate_state                 ,
+						t1.create_by                      ,
+						t1.update_by                      
+				from ext_wl_sh_sr_loans 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.fkReportId != null and dto.fkReportId != ''">
+						and t1.FK_REPORT_ID = #{dto.fkReportId}
+    			</if>
+    			<if test="dto.original != null and dto.original != ''">
+						and t1.ORIGINAL = #{dto.original}
+    			</if>
+    			<if test="dto.creditStatus != null and dto.creditStatus != ''">
+						and t1.CREDIT_STATUS = #{dto.creditStatus}
+    			</if>
+    			<if test="dto.accountStatus != null and dto.accountStatus != ''">
+						and t1.ACCOUNT_STATUS = #{dto.accountStatus}
+    			</if>
+    			<if test="dto.loanBank != null and dto.loanBank != ''">
+						and t1.LOAN_BANK = #{dto.loanBank}
+    			</if>
+    			<if test="dto.loanType != null and dto.loanType != ''">
+						and t1.LOAN_TYPE = #{dto.loanType}
+    			</if>
+    			<if test="dto.loanTime != null and dto.loanTime != ''">
+						and t1.LOAN_TIME = #{dto.loanTime}
+    			</if>
+    			<if test="dto.loanAmount != null and dto.loanAmount != ''">
+						and t1.LOAN_AMOUNT = #{dto.loanAmount}
+    			</if>
+    			<if test="dto.loanBalance != null and dto.loanBalance != ''">
+						and t1.LOAN_BALANCE = #{dto.loanBalance}
+    			</if>
+    			<if test="dto.loanDeadline != null and dto.loanDeadline != ''">
+						and t1.LOAN_DEADLINE = #{dto.loanDeadline}
+    			</if>
+    			<if test="dto.recordOrCancellation != null and dto.recordOrCancellation != ''">
+						and t1.RECORD_OR_CANCELLATION = #{dto.recordOrCancellation}
+    			</if>
+    			<if test="dto.overAmount != null and dto.overAmount != ''">
+						and t1.OVER_AMOUNT = #{dto.overAmount}
+    			</if>
+    			<if test="dto.overMonth != null and dto.overMonth != ''">
+						and t1.OVER_MONTH = #{dto.overMonth}
+    			</if>
+    			<if test="dto.overMonth90days != null and dto.overMonth90days != ''">
+						and t1.OVER_MONTH_90DAYS = #{dto.overMonth90days}
+    			</if>
+    			<if test="dto.declaration != null and dto.declaration != ''">
+						and t1.DECLARATION = #{dto.declaration}
+    			</if>
+    			<if test="dto.isfail != null and dto.isfail != ''">
+						and t1.ISFAIL = #{dto.isfail}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE = #{dto.validateState}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY = #{dto.updateBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_SH_SR_LOANS -->
+<select id="findExtWlShSrLoansByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlShSrLoansDTO">
+   	 		select 
+					t1.id                             ,
+					t1.fk_report_id                   ,
+					t1.original                       ,
+					t1.credit_status                  ,
+					t1.account_status                 ,
+					t1.loan_bank                      ,
+					t1.loan_type                      ,
+					t1.loan_time                      ,
+					t1.loan_amount                    ,
+					t1.loan_balance                   ,
+					t1.loan_deadline                  ,
+					t1.record_or_cancellation         ,
+					t1.over_amount                    ,
+					t1.over_month                     ,
+					t1.over_month_90days              ,
+					t1.declaration                    ,
+					t1.isfail                         ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.validate_state                 ,
+					t1.create_by                      ,
+					t1.update_by                      
+			from ext_wl_sh_sr_loans 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_SH_SR_LOANS -->
+<insert id="insertExtWlShSrLoans" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_SH_SR_LOANS.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_sh_sr_loans
+			(   		
+					id                             ,
+					fk_report_id                   ,
+					original                       ,
+					credit_status                  ,
+					account_status                 ,
+					loan_bank                      ,
+					loan_type                      ,
+					loan_time                      ,
+					loan_amount                    ,
+					loan_balance                   ,
+					loan_deadline                  ,
+					record_or_cancellation         ,
+					over_amount                    ,
+					over_month                     ,
+					over_month_90days              ,
+					declaration                    ,
+					isfail                         ,
+					create_time                    ,
+					modify_time                    ,
+					validate_state                 ,
+					create_by                      ,
+					update_by                      
+			)
+			values(#{dto.id}
+					,#{dto.fkReportId,jdbcType=DECIMAL}
+					,#{dto.original,jdbcType=VARCHAR}
+					,#{dto.creditStatus,jdbcType=VARCHAR}
+					,#{dto.accountStatus,jdbcType=VARCHAR}
+					,#{dto.loanBank,jdbcType=VARCHAR}
+					,#{dto.loanType,jdbcType=VARCHAR}
+					,#{dto.loanTime,jdbcType=VARCHAR}
+					,#{dto.loanAmount,jdbcType=VARCHAR}
+					,#{dto.loanBalance,jdbcType=VARCHAR}
+					,#{dto.loanDeadline,jdbcType=VARCHAR}
+					,#{dto.recordOrCancellation,jdbcType=VARCHAR}
+					,#{dto.overAmount,jdbcType=VARCHAR}
+					,#{dto.overMonth,jdbcType=VARCHAR}
+					,#{dto.overMonth90days,jdbcType=VARCHAR}
+					,#{dto.declaration,jdbcType=VARCHAR}
+					,#{dto.isfail,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,'1'
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.updateBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_SH_SR_LOANS -->
+<update id="updateExtWlShSrLoans" parameterType="java.util.Map">
+	     update ext_wl_sh_sr_loans t1
+	           set 
+			           t1.fk_report_id                   =#{dto.fkReportId,jdbcType=DECIMAL},
+			           t1.original                       =#{dto.original,jdbcType=VARCHAR},
+			           t1.credit_status                  =#{dto.creditStatus,jdbcType=VARCHAR},
+			           t1.account_status                 =#{dto.accountStatus,jdbcType=VARCHAR},
+			           t1.loan_bank                      =#{dto.loanBank,jdbcType=VARCHAR},
+			           t1.loan_type                      =#{dto.loanType,jdbcType=VARCHAR},
+			           t1.loan_time                      =#{dto.loanTime,jdbcType=VARCHAR},
+			           t1.loan_amount                    =#{dto.loanAmount,jdbcType=VARCHAR},
+			           t1.loan_balance                   =#{dto.loanBalance,jdbcType=VARCHAR},
+			           t1.loan_deadline                  =#{dto.loanDeadline,jdbcType=VARCHAR},
+			           t1.record_or_cancellation         =#{dto.recordOrCancellation,jdbcType=VARCHAR},
+			           t1.over_amount                    =#{dto.overAmount,jdbcType=VARCHAR},
+			           t1.over_month                     =#{dto.overMonth,jdbcType=VARCHAR},
+			           t1.over_month_90days              =#{dto.overMonth90days,jdbcType=VARCHAR},
+			           t1.declaration                    =#{dto.declaration,jdbcType=VARCHAR},
+			           t1.isfail                         =#{dto.isfail,jdbcType=VARCHAR},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP},
+			           t1.validate_state                 ='1',
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.update_by                      =#{dto.updateBy,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_SH_SR_LOANS -->
+<delete id="deleteExtWlShSrLoansByID" parameterType="java.util.Map">
+    	delete from ext_wl_sh_sr_loans t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_SH_SR_LOANS -->
+<update id="deleteExtWlShSrLoansByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_sh_sr_loans t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+
+	<!--批量新增 算话人行结构化版(贷款表)列表-->
+	<insert id="insertExtWlShSrLoansList" parameterType="java.util.Map" useGeneratedKeys="true">
+		begin
+		<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+			select seq_EXT_WL_SH_SR_LOANS.nextval as id from dual
+		</selectKey>
+		<foreach collection="dtoList" item="dto" >
+			insert into ext_wl_sh_sr_loans
+			(
+			id,
+			fk_report_id,
+			original,
+			credit_status,
+			account_status,
+			loan_bank,
+			loan_type,
+			loan_time,
+			loan_amount,
+			loan_balance,
+			loan_deadline,
+			record_or_cancellation,
+			over_amount,
+			over_month,
+			over_month_90days,
+			declaration,
+			isfail,
+			create_time,
+			validate_state
+			)
+			values(seq_EXT_WL_SH_SR_LOANS.nextval
+			,#{fkReportId}
+			,#{dto.original,jdbcType=VARCHAR}
+			,#{dto.creditStatus,jdbcType=VARCHAR}
+			,#{dto.accountStatus,jdbcType=VARCHAR}
+			,#{dto.loanBank,jdbcType=VARCHAR}
+			,#{dto.loanType,jdbcType=VARCHAR}
+			,#{dto.loanTime,jdbcType=VARCHAR}
+			,#{dto.loanAmount,jdbcType=VARCHAR}
+			,#{dto.loanBalance,jdbcType=VARCHAR}
+			,#{dto.loanDeadline,jdbcType=VARCHAR}
+			,#{dto.recordOrCancellation,jdbcType=VARCHAR}
+			,#{dto.overAmount,jdbcType=VARCHAR}
+			,#{dto.overMonth,jdbcType=VARCHAR}
+			,#{dto.overMonth90days,jdbcType=VARCHAR}
+			,#{dto.declaration,jdbcType=VARCHAR}
+			,#{dto.isfail,jdbcType=VARCHAR}
+			,systimestamp
+			,'1'
+			);
+		</foreach>
+		end;
+	</insert>
+</mapper>

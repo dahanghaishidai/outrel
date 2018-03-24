@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.jxl.pbccrc.extjxlqrecord.dao.ExtJxlQrecordDao">
+<resultMap id="ExtJxlQrecordDTO" type="com.jy.modules.externalplatform.interfacerepository.jxl.pbccrc.extjxlqrecord.dto.ExtJxlQrecordDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="fkReportId" column="FK_REPORT_ID" jdbcType="DECIMAL" />
+				<result property="queryTime" column="QUERY_TIME" jdbcType="VARCHAR" />
+				<result property="queryOperator" column="QUERY_OPERATOR" jdbcType="VARCHAR" />
+				<result property="queryReason" column="QUERY_REASON" jdbcType="VARCHAR" />
+				<result property="queryType" column="QUERY_TYPE" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+  
+<!-- 查询列表 EXT_JXL_QRECORD  -->
+<select id="searchExtJxlQrecord" parameterType="java.util.Map" resultMap="ExtJxlQrecordDTO">
+    	     select 
+						t1.id                             ,
+						t1.fk_report_id                   ,
+						t1.query_time                     ,
+						t1.query_operator                 ,
+						t1.query_reason                   ,
+						t1.query_type                     ,
+						t1.create_time                    ,
+						t1.modify_time                    
+				from ext_jxl_qrecord 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.fkReportId != null and dto.fkReportId != ''">
+						and t1.FK_REPORT_ID = #{dto.fkReportId}
+    			</if>
+    			<if test="dto.queryTime != null and dto.queryTime != ''">
+						and t1.QUERY_TIME = #{dto.queryTime}
+    			</if>
+    			<if test="dto.queryOperator != null and dto.queryOperator != ''">
+						and t1.QUERY_OPERATOR = #{dto.queryOperator}
+    			</if>
+    			<if test="dto.queryReason != null and dto.queryReason != ''">
+						and t1.QUERY_REASON = #{dto.queryReason}
+    			</if>
+    			<if test="dto.queryType != null and dto.queryType != ''">
+						and t1.QUERY_TYPE = #{dto.queryType}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			order by t1.id desc
+</select>
+  
+  
+<insert id="insertExtJxlQrecordList" parameterType="java.util.Map" useGeneratedKeys="true">
+begin
+    <selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+		 select seq_EXT_JXL_QRECORD.nextval as id from dual
+	</selectKey>
+    <foreach collection="dtoList" item="dto" >
+          insert into ext_jxl_qrecord
+			(   		
+					id                             ,
+					fk_report_id                   ,
+					query_time                     ,
+					query_operator                 ,
+					query_reason                   ,
+					query_type                     ,
+					create_time                    
+			)
+			values(seq_EXT_JXL_QRECORD.nextval
+					,#{fkReportId}
+					,#{dto.queryTime,jdbcType=VARCHAR}
+					,#{dto.queryOperator,jdbcType=VARCHAR}
+					,#{dto.queryReason,jdbcType=VARCHAR}
+					,#{dto.queryType,jdbcType=VARCHAR}
+					,systimestamp
+			);
+    </foreach>
+  end;
+</insert>
+
+    
+</mapper>

@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.suanhuazx.extwlshreportextend.dao.ExtWlShReportExtendDao">
+<resultMap id="ExtWlShReportExtendDTO" type="com.jy.modules.externalplatform.interfacerepository.suanhuazx.extwlshreportextend.dto.ExtWlShReportExtendDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="cusName" column="CUS_NAME" jdbcType="VARCHAR" />
+				<result property="cusIdNo" column="CUS_ID_NO" jdbcType="VARCHAR" />
+				<result property="binderName" column="BINDER_NAME" jdbcType="VARCHAR" />
+				<result property="binderIdNo" column="BINDER_ID_NO" jdbcType="VARCHAR" />
+				<result property="operatorId" column="OPERATOR_ID" jdbcType="VARCHAR" />
+				<result property="extend_1" column="EXTEND_1" jdbcType="VARCHAR" />
+				<result property="extend_2" column="EXTEND_2" jdbcType="VARCHAR" />
+				<result property="extend_3" column="EXTEND_3" jdbcType="VARCHAR" />
+				<result property="fkTrailId" column="FK_TRAIL_ID" jdbcType="DECIMAL" />
+				<result property="respMsg" column="RESP_MSG" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="validateState" column="VALIDATE_STATE" jdbcType="VARCHAR" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="updateBy" column="UPDATE_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_SH_REPORT_EXTEND -->	
+<select id="searchExtWlShReportExtendByPaging" parameterType="java.util.Map" resultMap="ExtWlShReportExtendDTO">
+    	 		select 
+						t1.id                             ,
+						t1.cus_name                       ,
+						t1.cus_id_no                      ,
+						t1.binder_name                    ,
+						t1.binder_id_no                   ,
+						t1.operator_id                    ,
+						t1.extend_1                       ,
+						t1.extend_2                       ,
+						t1.extend_3                       ,
+						t1.fk_trail_id                    ,
+						t1.resp_msg                       ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.validate_state                 ,
+						t1.create_by                      ,
+						t1.update_by                      
+					
+				from ext_wl_sh_report_extend 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.cusName != null and dto.cusName != ''">
+						and t1.CUS_NAME =#{dto.cusName}
+    			</if>
+    			<if test="dto.cusIdNo != null and dto.cusIdNo != ''">
+						and t1.CUS_ID_NO =#{dto.cusIdNo}
+    			</if>
+    			<if test="dto.binderName != null and dto.binderName != ''">
+						and t1.BINDER_NAME =#{dto.binderName}
+    			</if>
+    			<if test="dto.binderIdNo != null and dto.binderIdNo != ''">
+						and t1.BINDER_ID_NO =#{dto.binderIdNo}
+    			</if>
+    			<if test="dto.operatorId != null and dto.operatorId != ''">
+						and t1.OPERATOR_ID =#{dto.operatorId}
+    			</if>
+    			<if test="dto.extend_1 != null and dto.extend_1 != ''">
+						and t1.EXTEND_1 =#{dto.extend_1}
+    			</if>
+    			<if test="dto.extend_2 != null and dto.extend_2 != ''">
+						and t1.EXTEND_2 =#{dto.extend_2}
+    			</if>
+    			<if test="dto.extend_3 != null and dto.extend_3 != ''">
+						and t1.EXTEND_3 =#{dto.extend_3}
+    			</if>
+    			<if test="dto.fkTrailId != null and dto.fkTrailId != ''">
+						and t1.FK_TRAIL_ID =#{dto.fkTrailId}
+    			</if>
+    			<if test="dto.respMsg != null and dto.respMsg != ''">
+						and t1.RESP_MSG =#{dto.respMsg}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE =#{dto.validateState}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY =#{dto.updateBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_SH_REPORT_EXTEND  -->
+<select id="searchExtWlShReportExtend" parameterType="java.util.Map" resultMap="ExtWlShReportExtendDTO">
+    	     select 
+						t1.id                             ,
+						t1.cus_name                       ,
+						t1.cus_id_no                      ,
+						t1.binder_name                    ,
+						t1.binder_id_no                   ,
+						t1.operator_id                    ,
+						t1.extend_1                       ,
+						t1.extend_2                       ,
+						t1.extend_3                       ,
+						t1.fk_trail_id                    ,
+						t1.resp_msg                       ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.validate_state                 ,
+						t1.create_by                      ,
+						t1.update_by                      
+				from ext_wl_sh_report_extend 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.cusName != null and dto.cusName != ''">
+						and t1.CUS_NAME = #{dto.cusName}
+    			</if>
+    			<if test="dto.cusIdNo != null and dto.cusIdNo != ''">
+						and t1.CUS_ID_NO = #{dto.cusIdNo}
+    			</if>
+    			<if test="dto.binderName != null and dto.binderName != ''">
+						and t1.BINDER_NAME = #{dto.binderName}
+    			</if>
+    			<if test="dto.binderIdNo != null and dto.binderIdNo != ''">
+						and t1.BINDER_ID_NO = #{dto.binderIdNo}
+    			</if>
+    			<if test="dto.operatorId != null and dto.operatorId != ''">
+						and t1.OPERATOR_ID = #{dto.operatorId}
+    			</if>
+    			<if test="dto.extend_1 != null and dto.extend_1 != ''">
+						and t1.EXTEND_1 = #{dto.extend_1}
+    			</if>
+    			<if test="dto.extend_2 != null and dto.extend_2 != ''">
+						and t1.EXTEND_2 = #{dto.extend_2}
+    			</if>
+    			<if test="dto.extend_3 != null and dto.extend_3 != ''">
+						and t1.EXTEND_3 = #{dto.extend_3}
+    			</if>
+    			<if test="dto.fkTrailId != null and dto.fkTrailId != ''">
+						and t1.FK_TRAIL_ID = #{dto.fkTrailId}
+    			</if>
+    			<if test="dto.respMsg != null and dto.respMsg != ''">
+						and t1.RESP_MSG = #{dto.respMsg}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE = #{dto.validateState}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY = #{dto.updateBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_SH_REPORT_EXTEND -->
+<select id="findExtWlShReportExtendByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlShReportExtendDTO">
+   	 		select 
+					t1.id                             ,
+					t1.cus_name                       ,
+					t1.cus_id_no                      ,
+					t1.binder_name                    ,
+					t1.binder_id_no                   ,
+					t1.operator_id                    ,
+					t1.extend_1                       ,
+					t1.extend_2                       ,
+					t1.extend_3                       ,
+					t1.fk_trail_id                    ,
+					t1.resp_msg                       ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.validate_state                 ,
+					t1.create_by                      ,
+					t1.update_by                      
+			from ext_wl_sh_report_extend 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_SH_REPORT_EXTEND -->
+<insert id="insertExtWlShReportExtend" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_SH_REPORT_EXTEND.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_sh_report_extend
+			(   		
+					id                             ,
+					cus_name                       ,
+					cus_id_no                      ,
+					binder_name                    ,
+					binder_id_no                   ,
+					operator_id                    ,
+					extend_1                       ,
+					extend_2                       ,
+					extend_3                       ,
+					fk_trail_id                    ,
+					resp_msg                       ,
+					create_time                    ,
+					modify_time                    ,
+					validate_state                 ,
+					create_by                      ,
+					update_by                      
+			)
+			values(#{dto.id}
+					,#{dto.cusName,jdbcType=VARCHAR}
+					,#{dto.cusIdNo,jdbcType=VARCHAR}
+					,#{dto.binderName,jdbcType=VARCHAR}
+					,#{dto.binderIdNo,jdbcType=VARCHAR}
+					,#{dto.operatorId,jdbcType=VARCHAR}
+					,#{dto.extend_1,jdbcType=VARCHAR}
+					,#{dto.extend_2,jdbcType=VARCHAR}
+					,#{dto.extend_3,jdbcType=VARCHAR}
+					,#{dto.fkTrailId,jdbcType=DECIMAL}
+					,#{dto.respMsg,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,'1'
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.updateBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_SH_REPORT_EXTEND -->
+<update id="updateExtWlShReportExtend" parameterType="java.util.Map">
+	     update ext_wl_sh_report_extend t1
+	           set 
+			           t1.cus_name                       =#{dto.cusName,jdbcType=VARCHAR},
+			           t1.cus_id_no                      =#{dto.cusIdNo,jdbcType=VARCHAR},
+			           t1.binder_name                    =#{dto.binderName,jdbcType=VARCHAR},
+			           t1.binder_id_no                   =#{dto.binderIdNo,jdbcType=VARCHAR},
+			           t1.operator_id                    =#{dto.operatorId,jdbcType=VARCHAR},
+			           t1.extend_1                       =#{dto.extend_1,jdbcType=VARCHAR},
+			           t1.extend_2                       =#{dto.extend_2,jdbcType=VARCHAR},
+			           t1.extend_3                       =#{dto.extend_3,jdbcType=VARCHAR},
+			           t1.fk_trail_id                    =#{dto.fkTrailId,jdbcType=DECIMAL},
+			           t1.resp_msg                       =#{dto.respMsg,jdbcType=VARCHAR},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP},
+			           t1.validate_state                 ='1',
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.update_by                      =#{dto.updateBy,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_SH_REPORT_EXTEND -->
+<delete id="deleteExtWlShReportExtendByID" parameterType="java.util.Map">
+    	delete from ext_wl_sh_report_extend t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_SH_REPORT_EXTEND -->
+<update id="deleteExtWlShReportExtendByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_sh_report_extend t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

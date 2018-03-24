@@ -1,0 +1,942 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.shzx.extpersonalreport.dao.ExtPersonalReportDao">
+<resultMap id="ExtPersonalReportDTO" type="com.jy.modules.externalplatform.interfacerepository.shzx.extpersonalreport.dto.ExtPersonalReportDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="queryCauses" column="QUERY_CAUSES" jdbcType="VARCHAR" />
+				<result property="reportNumber" column="REPORT_NUMBER" jdbcType="VARCHAR" />
+				<result property="reportTime" column="REPORT_TIME" jdbcType="VARCHAR" />
+				<result property="name" column="NAME" jdbcType="VARCHAR" />
+				<result property="certificatesType" column="CERTIFICATES_TYPE" jdbcType="VARCHAR" />
+				<result property="certificatesNumber" column="CERTIFICATES_NUMBER" jdbcType="VARCHAR" />
+				<result property="sex" column="SEX" jdbcType="VARCHAR" />
+				<result property="birthDate" column="BIRTH_DATE" jdbcType="VARCHAR" />
+				<result property="marriage" column="MARRIAGE" jdbcType="VARCHAR" />
+				<result property="marriageObtainDate" column="MARRIAGE_OBTAIN_DATE" jdbcType="VARCHAR" />
+				<result property="education" column="EDUCATION" jdbcType="VARCHAR" />
+				<result property="educationObtainDate" column="EDUCATION_OBTAIN_DATE" jdbcType="VARCHAR" />
+				<result property="title" column="TITLE" jdbcType="VARCHAR" />
+				<result property="titleObtainDate" column="TITLE_OBTAIN_DATE" jdbcType="VARCHAR" />
+				<result property="telephone" column="TELEPHONE" jdbcType="VARCHAR" />
+				<result property="telephoneObtainDate" column="TELEPHONE_OBTAIN_DATE" jdbcType="VARCHAR" />
+				<result property="phoneNumber" column="PHONE_NUMBER" jdbcType="VARCHAR" />
+				<result property="phoneNumberObtainDate" column="PHONE_NUMBER_OBTAIN_DATE" jdbcType="VARCHAR" />
+				<result property="email" column="EMAIL" jdbcType="VARCHAR" />
+				<result property="emailObtainDate" column="EMAIL_OBTAIN_DATE" jdbcType="VARCHAR" />
+				<result property="contactsNameFirest" column="CONTACTS_NAME_FIREST" jdbcType="VARCHAR" />
+				<result property="contactsRelationFirest" column="CONTACTS_RELATION_FIREST" jdbcType="VARCHAR" />
+				<result property="contactsPhoneNumberFirest" column="CONTACTS_PHONE_NUMBER_FIREST" jdbcType="VARCHAR" />
+				<result property="contactsObtainDateFirest" column="CONTACTS_OBTAIN_DATE_FIREST" jdbcType="VARCHAR" />
+				<result property="loanApplyInfo" column="LOAN_APPLY_INFO" jdbcType="VARCHAR" />
+				<result property="forOtherGuaranteeInfo" column="FOR_OTHER_GUARANTEE_INFO" jdbcType="VARCHAR" />
+				<result property="queryInfo" column="QUERY_INFO" jdbcType="VARCHAR" />
+				<result property="personalstatementInfo" column="PERSONALSTATEMENT_INFO" jdbcType="VARCHAR" />
+				<result property="objectId" column="OBJECT_ID" jdbcType="VARCHAR" />
+				<result property="wifeName" column="WIFE_NAME" jdbcType="VARCHAR" />
+				<result property="wifeCertificatesType" column="WIFE_CERTIFICATES_TYPE" jdbcType="VARCHAR" />
+				<result property="wifeCertificatesNumber" column="WIFE_CERTIFICATES_NUMBER" jdbcType="VARCHAR" />
+				<result property="wifeSex" column="WIFE_SEX" jdbcType="VARCHAR" />
+				<result property="wifeBirthDate" column="WIFE_BIRTH_DATE" jdbcType="VARCHAR" />
+				<result property="wifeWorkInfo" column="WIFE_WORK_INFO" jdbcType="VARCHAR" />
+				<result property="wifeWorkInfoDate" column="WIFE_WORK_INFO_DATE" jdbcType="VARCHAR" />
+				<result property="wifeTel" column="WIFE_TEL" jdbcType="VARCHAR" />
+				<result property="wifeTelDate" column="WIFE_TEL_DATE" jdbcType="VARCHAR" />
+				<result property="contactsNameSecond" column="CONTACTS_NAME_SECOND" jdbcType="VARCHAR" />
+				<result property="contactsRelationSecond" column="CONTACTS_RELATION_SECOND" jdbcType="VARCHAR" />
+				<result property="contactsPhoneNumberSecond" column="CONTACTS_PHONE_NUMBER_SECOND" jdbcType="VARCHAR" />
+				<result property="contactsObtainDateSecond" column="CONTACTS_OBTAIN_DATE_SECOND" jdbcType="VARCHAR" />
+				<result property="loanCount" column="LOAN_COUNT" jdbcType="VARCHAR" />
+				<result property="loanFirstDate" column="LOAN_FIRST_DATE" jdbcType="VARCHAR" />
+				<result property="creditMax" column="CREDIT_MAX" jdbcType="VARCHAR" />
+				<result property="loanTotal" column="LOAN_TOTAL" jdbcType="VARCHAR" />
+				<result property="loanOver" column="LOAN_OVER" jdbcType="VARCHAR" />
+				<result property="repaymentMonth" column="REPAYMENT_MONTH" jdbcType="VARCHAR" />
+				<result property="overdueTotal" column="OVERDUE_TOTAL" jdbcType="VARCHAR" />
+				<result property="overdueMax" column="OVERDUE_MAX" jdbcType="VARCHAR" />
+				<result property="overdueIssue" column="OVERDUE_ISSUE" jdbcType="VARCHAR" />
+				<result property="optlock" column="OPTLOCK" jdbcType="DECIMAL" />
+				<result property="error" column="ERROR" jdbcType="VARCHAR" />
+				<result property="credMsg" column="CRED_MSG" jdbcType="VARCHAR" />
+				<result property="sechMsg" column="SECH_MSG" jdbcType="VARCHAR" />
+				<result property="addrMsg" column="ADDR_MSG" jdbcType="VARCHAR" />
+				<result property="spelMsg" column="SPEL_MSG" jdbcType="VARCHAR" />
+				<result property="oterMsg" column="OTER_MSG" jdbcType="VARCHAR" />
+				<result property="workMsg" column="WORK_MSG" jdbcType="VARCHAR" />
+				<result property="prodCode" column="PROD_CODE" jdbcType="VARCHAR" />
+				<result property="orgCode" column="ORG_CODE" jdbcType="VARCHAR" />
+				<result property="sysCode" column="SYS_CODE" jdbcType="VARCHAR" />
+				<result property="retcode" column="RETCODE" jdbcType="VARCHAR" />
+				<result property="errormsg" column="ERRORMSG" jdbcType="VARCHAR" />
+				<result property="interfaceId" column="INTERFACE_ID" jdbcType="VARCHAR" />
+				<result property="remark" column="REMARK" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 EXT_personal_report -->	
+<select id="searchExtPersonalReportByPaging" parameterType="java.util.Map" resultMap="ExtPersonalReportDTO">
+    	 		select 
+						t1.id                             ,
+						t1.query_causes                   ,
+						t1.report_number                  ,
+						t1.report_time                    ,
+						t1.name                           ,
+						t1.certificates_type              ,
+						t1.certificates_number            ,
+						t1.sex                            ,
+						t1.birth_date                     ,
+						t1.marriage                       ,
+						t1.marriage_obtain_date           ,
+						t1.education                      ,
+						t1.education_obtain_date          ,
+						t1.title                          ,
+						t1.title_obtain_date              ,
+						t1.telephone                      ,
+						t1.telephone_obtain_date          ,
+						t1.phone_number                   ,
+						t1.phone_number_obtain_date       ,
+						t1.email                          ,
+						t1.email_obtain_date              ,
+						t1.contacts_name_firest           ,
+						t1.contacts_relation_firest       ,
+						t1.contacts_phone_number_firest   ,
+						t1.contacts_obtain_date_firest    ,
+						t1.loan_apply_info                ,
+						t1.for_other_guarantee_info       ,
+						t1.query_info                     ,
+						t1.personalstatement_info         ,
+						t1.object_id                      ,
+						t1.wife_name                      ,
+						t1.wife_certificates_type         ,
+						t1.wife_certificates_number       ,
+						t1.wife_sex                       ,
+						t1.wife_birth_date                ,
+						t1.wife_work_info                 ,
+						t1.wife_work_info_date            ,
+						t1.wife_tel                       ,
+						t1.wife_tel_date                  ,
+						t1.contacts_name_second           ,
+						t1.contacts_relation_second       ,
+						t1.contacts_phone_number_second   ,
+						t1.contacts_obtain_date_second    ,
+						t1.loan_count                     ,
+						t1.loan_first_date                ,
+						t1.credit_max                     ,
+						t1.loan_total                     ,
+						t1.loan_over                      ,
+						t1.repayment_month                ,
+						t1.overdue_total                  ,
+						t1.overdue_max                    ,
+						t1.overdue_issue                  ,
+						t1.optlock                        ,
+						t1.error                          ,
+						t1.cred_msg                       ,
+						t1.sech_msg                       ,
+						t1.addr_msg                       ,
+						t1.spel_msg                       ,
+						t1.oter_msg                       ,
+						t1.work_msg                       ,
+						t1.prod_code                      ,
+						t1.org_code                       ,
+						t1.sys_code                       ,
+						t1.retcode                        ,
+						t1.errormsg                       ,
+						t1.interface_id                   ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.remark                         
+					
+				from ext_personal_report 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.queryCauses != null and dto.queryCauses != ''">
+						and t1.QUERY_CAUSES =#{dto.queryCauses}
+    			</if>
+    			<if test="dto.reportNumber != null and dto.reportNumber != ''">
+						and t1.REPORT_NUMBER =#{dto.reportNumber}
+    			</if>
+    			<if test="dto.reportTime != null and dto.reportTime != ''">
+						and t1.REPORT_TIME =#{dto.reportTime}
+    			</if>
+    			<if test="dto.name != null and dto.name != ''">
+						and t1.NAME =#{dto.name}
+    			</if>
+    			<if test="dto.certificatesType != null and dto.certificatesType != ''">
+						and t1.CERTIFICATES_TYPE =#{dto.certificatesType}
+    			</if>
+    			<if test="dto.certificatesNumber != null and dto.certificatesNumber != ''">
+						and t1.CERTIFICATES_NUMBER =#{dto.certificatesNumber}
+    			</if>
+    			<if test="dto.sex != null and dto.sex != ''">
+						and t1.SEX =#{dto.sex}
+    			</if>
+    			<if test="dto.birthDate != null and dto.birthDate != ''">
+						and t1.BIRTH_DATE =#{dto.birthDate}
+    			</if>
+    			<if test="dto.marriage != null and dto.marriage != ''">
+						and t1.MARRIAGE =#{dto.marriage}
+    			</if>
+    			<if test="dto.marriageObtainDate != null and dto.marriageObtainDate != ''">
+						and t1.MARRIAGE_OBTAIN_DATE =#{dto.marriageObtainDate}
+    			</if>
+    			<if test="dto.education != null and dto.education != ''">
+						and t1.EDUCATION =#{dto.education}
+    			</if>
+    			<if test="dto.educationObtainDate != null and dto.educationObtainDate != ''">
+						and t1.EDUCATION_OBTAIN_DATE =#{dto.educationObtainDate}
+    			</if>
+    			<if test="dto.title != null and dto.title != ''">
+						and t1.TITLE =#{dto.title}
+    			</if>
+    			<if test="dto.titleObtainDate != null and dto.titleObtainDate != ''">
+						and t1.TITLE_OBTAIN_DATE =#{dto.titleObtainDate}
+    			</if>
+    			<if test="dto.telephone != null and dto.telephone != ''">
+						and t1.TELEPHONE =#{dto.telephone}
+    			</if>
+    			<if test="dto.telephoneObtainDate != null and dto.telephoneObtainDate != ''">
+						and t1.TELEPHONE_OBTAIN_DATE =#{dto.telephoneObtainDate}
+    			</if>
+    			<if test="dto.phoneNumber != null and dto.phoneNumber != ''">
+						and t1.PHONE_NUMBER =#{dto.phoneNumber}
+    			</if>
+    			<if test="dto.phoneNumberObtainDate != null and dto.phoneNumberObtainDate != ''">
+						and t1.PHONE_NUMBER_OBTAIN_DATE =#{dto.phoneNumberObtainDate}
+    			</if>
+    			<if test="dto.email != null and dto.email != ''">
+						and t1.EMAIL =#{dto.email}
+    			</if>
+    			<if test="dto.emailObtainDate != null and dto.emailObtainDate != ''">
+						and t1.EMAIL_OBTAIN_DATE =#{dto.emailObtainDate}
+    			</if>
+    			<if test="dto.contactsNameFirest != null and dto.contactsNameFirest != ''">
+						and t1.CONTACTS_NAME_FIREST =#{dto.contactsNameFirest}
+    			</if>
+    			<if test="dto.contactsRelationFirest != null and dto.contactsRelationFirest != ''">
+						and t1.CONTACTS_RELATION_FIREST =#{dto.contactsRelationFirest}
+    			</if>
+    			<if test="dto.contactsPhoneNumberFirest != null and dto.contactsPhoneNumberFirest != ''">
+						and t1.CONTACTS_PHONE_NUMBER_FIREST =#{dto.contactsPhoneNumberFirest}
+    			</if>
+    			<if test="dto.contactsObtainDateFirest != null and dto.contactsObtainDateFirest != ''">
+						and t1.CONTACTS_OBTAIN_DATE_FIREST =#{dto.contactsObtainDateFirest}
+    			</if>
+    			<if test="dto.loanApplyInfo != null and dto.loanApplyInfo != ''">
+						and t1.LOAN_APPLY_INFO =#{dto.loanApplyInfo}
+    			</if>
+    			<if test="dto.forOtherGuaranteeInfo != null and dto.forOtherGuaranteeInfo != ''">
+						and t1.FOR_OTHER_GUARANTEE_INFO =#{dto.forOtherGuaranteeInfo}
+    			</if>
+    			<if test="dto.queryInfo != null and dto.queryInfo != ''">
+						and t1.QUERY_INFO =#{dto.queryInfo}
+    			</if>
+    			<if test="dto.personalstatementInfo != null and dto.personalstatementInfo != ''">
+						and t1.PERSONALSTATEMENT_INFO =#{dto.personalstatementInfo}
+    			</if>
+    			<if test="dto.objectId != null and dto.objectId != ''">
+						and t1.OBJECT_ID =#{dto.objectId}
+    			</if>
+    			<if test="dto.wifeName != null and dto.wifeName != ''">
+						and t1.WIFE_NAME =#{dto.wifeName}
+    			</if>
+    			<if test="dto.wifeCertificatesType != null and dto.wifeCertificatesType != ''">
+						and t1.WIFE_CERTIFICATES_TYPE =#{dto.wifeCertificatesType}
+    			</if>
+    			<if test="dto.wifeCertificatesNumber != null and dto.wifeCertificatesNumber != ''">
+						and t1.WIFE_CERTIFICATES_NUMBER =#{dto.wifeCertificatesNumber}
+    			</if>
+    			<if test="dto.wifeSex != null and dto.wifeSex != ''">
+						and t1.WIFE_SEX =#{dto.wifeSex}
+    			</if>
+    			<if test="dto.wifeBirthDate != null and dto.wifeBirthDate != ''">
+						and t1.WIFE_BIRTH_DATE =#{dto.wifeBirthDate}
+    			</if>
+    			<if test="dto.wifeWorkInfo != null and dto.wifeWorkInfo != ''">
+						and t1.WIFE_WORK_INFO =#{dto.wifeWorkInfo}
+    			</if>
+    			<if test="dto.wifeWorkInfoDate != null and dto.wifeWorkInfoDate != ''">
+						and t1.WIFE_WORK_INFO_DATE =#{dto.wifeWorkInfoDate}
+    			</if>
+    			<if test="dto.wifeTel != null and dto.wifeTel != ''">
+						and t1.WIFE_TEL =#{dto.wifeTel}
+    			</if>
+    			<if test="dto.wifeTelDate != null and dto.wifeTelDate != ''">
+						and t1.WIFE_TEL_DATE =#{dto.wifeTelDate}
+    			</if>
+    			<if test="dto.contactsNameSecond != null and dto.contactsNameSecond != ''">
+						and t1.CONTACTS_NAME_SECOND =#{dto.contactsNameSecond}
+    			</if>
+    			<if test="dto.contactsRelationSecond != null and dto.contactsRelationSecond != ''">
+						and t1.CONTACTS_RELATION_SECOND =#{dto.contactsRelationSecond}
+    			</if>
+    			<if test="dto.contactsPhoneNumberSecond != null and dto.contactsPhoneNumberSecond != ''">
+						and t1.CONTACTS_PHONE_NUMBER_SECOND =#{dto.contactsPhoneNumberSecond}
+    			</if>
+    			<if test="dto.contactsObtainDateSecond != null and dto.contactsObtainDateSecond != ''">
+						and t1.CONTACTS_OBTAIN_DATE_SECOND =#{dto.contactsObtainDateSecond}
+    			</if>
+    			<if test="dto.loanCount != null and dto.loanCount != ''">
+						and t1.LOAN_COUNT =#{dto.loanCount}
+    			</if>
+    			<if test="dto.loanFirstDate != null and dto.loanFirstDate != ''">
+						and t1.LOAN_FIRST_DATE =#{dto.loanFirstDate}
+    			</if>
+    			<if test="dto.creditMax != null and dto.creditMax != ''">
+						and t1.CREDIT_MAX =#{dto.creditMax}
+    			</if>
+    			<if test="dto.loanTotal != null and dto.loanTotal != ''">
+						and t1.LOAN_TOTAL =#{dto.loanTotal}
+    			</if>
+    			<if test="dto.loanOver != null and dto.loanOver != ''">
+						and t1.LOAN_OVER =#{dto.loanOver}
+    			</if>
+    			<if test="dto.repaymentMonth != null and dto.repaymentMonth != ''">
+						and t1.REPAYMENT_MONTH =#{dto.repaymentMonth}
+    			</if>
+    			<if test="dto.overdueTotal != null and dto.overdueTotal != ''">
+						and t1.OVERDUE_TOTAL =#{dto.overdueTotal}
+    			</if>
+    			<if test="dto.overdueMax != null and dto.overdueMax != ''">
+						and t1.OVERDUE_MAX =#{dto.overdueMax}
+    			</if>
+    			<if test="dto.overdueIssue != null and dto.overdueIssue != ''">
+						and t1.OVERDUE_ISSUE =#{dto.overdueIssue}
+    			</if>
+    			<if test="dto.optlock != null and dto.optlock != ''">
+						and t1.OPTLOCK =#{dto.optlock}
+    			</if>
+    			<if test="dto.error != null and dto.error != ''">
+						and t1.ERROR =#{dto.error}
+    			</if>
+    			<if test="dto.credMsg != null and dto.credMsg != ''">
+						and t1.CRED_MSG =#{dto.credMsg}
+    			</if>
+    			<if test="dto.sechMsg != null and dto.sechMsg != ''">
+						and t1.SECH_MSG =#{dto.sechMsg}
+    			</if>
+    			<if test="dto.addrMsg != null and dto.addrMsg != ''">
+						and t1.ADDR_MSG =#{dto.addrMsg}
+    			</if>
+    			<if test="dto.spelMsg != null and dto.spelMsg != ''">
+						and t1.SPEL_MSG =#{dto.spelMsg}
+    			</if>
+    			<if test="dto.oterMsg != null and dto.oterMsg != ''">
+						and t1.OTER_MSG =#{dto.oterMsg}
+    			</if>
+    			<if test="dto.workMsg != null and dto.workMsg != ''">
+						and t1.WORK_MSG =#{dto.workMsg}
+    			</if>
+    			<if test="dto.prodCode != null and dto.prodCode != ''">
+						and t1.PROD_CODE =#{dto.prodCode}
+    			</if>
+    			<if test="dto.orgCode != null and dto.orgCode != ''">
+						and t1.ORG_CODE =#{dto.orgCode}
+    			</if>
+    			<if test="dto.sysCode != null and dto.sysCode != ''">
+						and t1.SYS_CODE =#{dto.sysCode}
+    			</if>
+    			<if test="dto.retcode != null and dto.retcode != ''">
+						and t1.RETCODE =#{dto.retcode}
+    			</if>
+    			<if test="dto.errormsg != null and dto.errormsg != ''">
+						and t1.ERRORMSG =#{dto.errormsg}
+    			</if>
+    			<if test="dto.interfaceId != null and dto.interfaceId != ''">
+						and t1.INTERFACE_ID =#{dto.interfaceId}
+    			</if>
+    			<if test="dto.remark != null and dto.remark != ''">
+						and t1.REMARK =#{dto.remark}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_personal_report  -->
+<select id="searchExtPersonalReport" parameterType="java.util.Map" resultMap="ExtPersonalReportDTO">
+    	     select 
+						t1.id                             ,
+						t1.query_causes                   ,
+						t1.report_number                  ,
+						t1.report_time                    ,
+						t1.name                           ,
+						t1.certificates_type              ,
+						t1.certificates_number            ,
+						t1.sex                            ,
+						t1.birth_date                     ,
+						t1.marriage                       ,
+						t1.marriage_obtain_date           ,
+						t1.education                      ,
+						t1.education_obtain_date          ,
+						t1.title                          ,
+						t1.title_obtain_date              ,
+						t1.telephone                      ,
+						t1.telephone_obtain_date          ,
+						t1.phone_number                   ,
+						t1.phone_number_obtain_date       ,
+						t1.email                          ,
+						t1.email_obtain_date              ,
+						t1.contacts_name_firest           ,
+						t1.contacts_relation_firest       ,
+						t1.contacts_phone_number_firest   ,
+						t1.contacts_obtain_date_firest    ,
+						t1.loan_apply_info                ,
+						t1.for_other_guarantee_info       ,
+						t1.query_info                     ,
+						t1.personalstatement_info         ,
+						t1.object_id                      ,
+						t1.wife_name                      ,
+						t1.wife_certificates_type         ,
+						t1.wife_certificates_number       ,
+						t1.wife_sex                       ,
+						t1.wife_birth_date                ,
+						t1.wife_work_info                 ,
+						t1.wife_work_info_date            ,
+						t1.wife_tel                       ,
+						t1.wife_tel_date                  ,
+						t1.contacts_name_second           ,
+						t1.contacts_relation_second       ,
+						t1.contacts_phone_number_second   ,
+						t1.contacts_obtain_date_second    ,
+						t1.loan_count                     ,
+						t1.loan_first_date                ,
+						t1.credit_max                     ,
+						t1.loan_total                     ,
+						t1.loan_over                      ,
+						t1.repayment_month                ,
+						t1.overdue_total                  ,
+						t1.overdue_max                    ,
+						t1.overdue_issue                  ,
+						t1.optlock                        ,
+						t1.error                          ,
+						t1.cred_msg                       ,
+						t1.sech_msg                       ,
+						t1.addr_msg                       ,
+						t1.spel_msg                       ,
+						t1.oter_msg                       ,
+						t1.work_msg                       ,
+						t1.prod_code                      ,
+						t1.org_code                       ,
+						t1.sys_code                       ,
+						t1.retcode                        ,
+						t1.errormsg                       ,
+						t1.interface_id                   ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.remark                         
+				from ext_personal_report 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.queryCauses != null and dto.queryCauses != ''">
+						and t1.QUERY_CAUSES = #{dto.queryCauses}
+    			</if>
+    			<if test="dto.reportNumber != null and dto.reportNumber != ''">
+						and t1.REPORT_NUMBER = #{dto.reportNumber}
+    			</if>
+    			<if test="dto.reportTime != null and dto.reportTime != ''">
+						and t1.REPORT_TIME = #{dto.reportTime}
+    			</if>
+    			<if test="dto.name != null and dto.name != ''">
+						and t1.NAME = #{dto.name}
+    			</if>
+    			<if test="dto.certificatesType != null and dto.certificatesType != ''">
+						and t1.CERTIFICATES_TYPE = #{dto.certificatesType}
+    			</if>
+    			<if test="dto.certificatesNumber != null and dto.certificatesNumber != ''">
+						and t1.CERTIFICATES_NUMBER = #{dto.certificatesNumber}
+    			</if>
+    			<if test="dto.sex != null and dto.sex != ''">
+						and t1.SEX = #{dto.sex}
+    			</if>
+    			<if test="dto.birthDate != null and dto.birthDate != ''">
+						and t1.BIRTH_DATE = #{dto.birthDate}
+    			</if>
+    			<if test="dto.marriage != null and dto.marriage != ''">
+						and t1.MARRIAGE = #{dto.marriage}
+    			</if>
+    			<if test="dto.marriageObtainDate != null and dto.marriageObtainDate != ''">
+						and t1.MARRIAGE_OBTAIN_DATE = #{dto.marriageObtainDate}
+    			</if>
+    			<if test="dto.education != null and dto.education != ''">
+						and t1.EDUCATION = #{dto.education}
+    			</if>
+    			<if test="dto.educationObtainDate != null and dto.educationObtainDate != ''">
+						and t1.EDUCATION_OBTAIN_DATE = #{dto.educationObtainDate}
+    			</if>
+    			<if test="dto.title != null and dto.title != ''">
+						and t1.TITLE = #{dto.title}
+    			</if>
+    			<if test="dto.titleObtainDate != null and dto.titleObtainDate != ''">
+						and t1.TITLE_OBTAIN_DATE = #{dto.titleObtainDate}
+    			</if>
+    			<if test="dto.telephone != null and dto.telephone != ''">
+						and t1.TELEPHONE = #{dto.telephone}
+    			</if>
+    			<if test="dto.telephoneObtainDate != null and dto.telephoneObtainDate != ''">
+						and t1.TELEPHONE_OBTAIN_DATE = #{dto.telephoneObtainDate}
+    			</if>
+    			<if test="dto.phoneNumber != null and dto.phoneNumber != ''">
+						and t1.PHONE_NUMBER = #{dto.phoneNumber}
+    			</if>
+    			<if test="dto.phoneNumberObtainDate != null and dto.phoneNumberObtainDate != ''">
+						and t1.PHONE_NUMBER_OBTAIN_DATE = #{dto.phoneNumberObtainDate}
+    			</if>
+    			<if test="dto.email != null and dto.email != ''">
+						and t1.EMAIL = #{dto.email}
+    			</if>
+    			<if test="dto.emailObtainDate != null and dto.emailObtainDate != ''">
+						and t1.EMAIL_OBTAIN_DATE = #{dto.emailObtainDate}
+    			</if>
+    			<if test="dto.contactsNameFirest != null and dto.contactsNameFirest != ''">
+						and t1.CONTACTS_NAME_FIREST = #{dto.contactsNameFirest}
+    			</if>
+    			<if test="dto.contactsRelationFirest != null and dto.contactsRelationFirest != ''">
+						and t1.CONTACTS_RELATION_FIREST = #{dto.contactsRelationFirest}
+    			</if>
+    			<if test="dto.contactsPhoneNumberFirest != null and dto.contactsPhoneNumberFirest != ''">
+						and t1.CONTACTS_PHONE_NUMBER_FIREST = #{dto.contactsPhoneNumberFirest}
+    			</if>
+    			<if test="dto.contactsObtainDateFirest != null and dto.contactsObtainDateFirest != ''">
+						and t1.CONTACTS_OBTAIN_DATE_FIREST = #{dto.contactsObtainDateFirest}
+    			</if>
+    			<if test="dto.loanApplyInfo != null and dto.loanApplyInfo != ''">
+						and t1.LOAN_APPLY_INFO = #{dto.loanApplyInfo}
+    			</if>
+    			<if test="dto.forOtherGuaranteeInfo != null and dto.forOtherGuaranteeInfo != ''">
+						and t1.FOR_OTHER_GUARANTEE_INFO = #{dto.forOtherGuaranteeInfo}
+    			</if>
+    			<if test="dto.queryInfo != null and dto.queryInfo != ''">
+						and t1.QUERY_INFO = #{dto.queryInfo}
+    			</if>
+    			<if test="dto.personalstatementInfo != null and dto.personalstatementInfo != ''">
+						and t1.PERSONALSTATEMENT_INFO = #{dto.personalstatementInfo}
+    			</if>
+    			<if test="dto.objectId != null and dto.objectId != ''">
+						and t1.OBJECT_ID = #{dto.objectId}
+    			</if>
+    			<if test="dto.wifeName != null and dto.wifeName != ''">
+						and t1.WIFE_NAME = #{dto.wifeName}
+    			</if>
+    			<if test="dto.wifeCertificatesType != null and dto.wifeCertificatesType != ''">
+						and t1.WIFE_CERTIFICATES_TYPE = #{dto.wifeCertificatesType}
+    			</if>
+    			<if test="dto.wifeCertificatesNumber != null and dto.wifeCertificatesNumber != ''">
+						and t1.WIFE_CERTIFICATES_NUMBER = #{dto.wifeCertificatesNumber}
+    			</if>
+    			<if test="dto.wifeSex != null and dto.wifeSex != ''">
+						and t1.WIFE_SEX = #{dto.wifeSex}
+    			</if>
+    			<if test="dto.wifeBirthDate != null and dto.wifeBirthDate != ''">
+						and t1.WIFE_BIRTH_DATE = #{dto.wifeBirthDate}
+    			</if>
+    			<if test="dto.wifeWorkInfo != null and dto.wifeWorkInfo != ''">
+						and t1.WIFE_WORK_INFO = #{dto.wifeWorkInfo}
+    			</if>
+    			<if test="dto.wifeWorkInfoDate != null and dto.wifeWorkInfoDate != ''">
+						and t1.WIFE_WORK_INFO_DATE = #{dto.wifeWorkInfoDate}
+    			</if>
+    			<if test="dto.wifeTel != null and dto.wifeTel != ''">
+						and t1.WIFE_TEL = #{dto.wifeTel}
+    			</if>
+    			<if test="dto.wifeTelDate != null and dto.wifeTelDate != ''">
+						and t1.WIFE_TEL_DATE = #{dto.wifeTelDate}
+    			</if>
+    			<if test="dto.contactsNameSecond != null and dto.contactsNameSecond != ''">
+						and t1.CONTACTS_NAME_SECOND = #{dto.contactsNameSecond}
+    			</if>
+    			<if test="dto.contactsRelationSecond != null and dto.contactsRelationSecond != ''">
+						and t1.CONTACTS_RELATION_SECOND = #{dto.contactsRelationSecond}
+    			</if>
+    			<if test="dto.contactsPhoneNumberSecond != null and dto.contactsPhoneNumberSecond != ''">
+						and t1.CONTACTS_PHONE_NUMBER_SECOND = #{dto.contactsPhoneNumberSecond}
+    			</if>
+    			<if test="dto.contactsObtainDateSecond != null and dto.contactsObtainDateSecond != ''">
+						and t1.CONTACTS_OBTAIN_DATE_SECOND = #{dto.contactsObtainDateSecond}
+    			</if>
+    			<if test="dto.loanCount != null and dto.loanCount != ''">
+						and t1.LOAN_COUNT = #{dto.loanCount}
+    			</if>
+    			<if test="dto.loanFirstDate != null and dto.loanFirstDate != ''">
+						and t1.LOAN_FIRST_DATE = #{dto.loanFirstDate}
+    			</if>
+    			<if test="dto.creditMax != null and dto.creditMax != ''">
+						and t1.CREDIT_MAX = #{dto.creditMax}
+    			</if>
+    			<if test="dto.loanTotal != null and dto.loanTotal != ''">
+						and t1.LOAN_TOTAL = #{dto.loanTotal}
+    			</if>
+    			<if test="dto.loanOver != null and dto.loanOver != ''">
+						and t1.LOAN_OVER = #{dto.loanOver}
+    			</if>
+    			<if test="dto.repaymentMonth != null and dto.repaymentMonth != ''">
+						and t1.REPAYMENT_MONTH = #{dto.repaymentMonth}
+    			</if>
+    			<if test="dto.overdueTotal != null and dto.overdueTotal != ''">
+						and t1.OVERDUE_TOTAL = #{dto.overdueTotal}
+    			</if>
+    			<if test="dto.overdueMax != null and dto.overdueMax != ''">
+						and t1.OVERDUE_MAX = #{dto.overdueMax}
+    			</if>
+    			<if test="dto.overdueIssue != null and dto.overdueIssue != ''">
+						and t1.OVERDUE_ISSUE = #{dto.overdueIssue}
+    			</if>
+    			<if test="dto.optlock != null and dto.optlock != ''">
+						and t1.OPTLOCK = #{dto.optlock}
+    			</if>
+    			<if test="dto.error != null and dto.error != ''">
+						and t1.ERROR = #{dto.error}
+    			</if>
+    			<if test="dto.credMsg != null and dto.credMsg != ''">
+						and t1.CRED_MSG = #{dto.credMsg}
+    			</if>
+    			<if test="dto.sechMsg != null and dto.sechMsg != ''">
+						and t1.SECH_MSG = #{dto.sechMsg}
+    			</if>
+    			<if test="dto.addrMsg != null and dto.addrMsg != ''">
+						and t1.ADDR_MSG = #{dto.addrMsg}
+    			</if>
+    			<if test="dto.spelMsg != null and dto.spelMsg != ''">
+						and t1.SPEL_MSG = #{dto.spelMsg}
+    			</if>
+    			<if test="dto.oterMsg != null and dto.oterMsg != ''">
+						and t1.OTER_MSG = #{dto.oterMsg}
+    			</if>
+    			<if test="dto.workMsg != null and dto.workMsg != ''">
+						and t1.WORK_MSG = #{dto.workMsg}
+    			</if>
+    			<if test="dto.prodCode != null and dto.prodCode != ''">
+						and t1.PROD_CODE = #{dto.prodCode}
+    			</if>
+    			<if test="dto.orgCode != null and dto.orgCode != ''">
+						and t1.ORG_CODE = #{dto.orgCode}
+    			</if>
+    			<if test="dto.sysCode != null and dto.sysCode != ''">
+						and t1.SYS_CODE = #{dto.sysCode}
+    			</if>
+    			<if test="dto.retcode != null and dto.retcode != ''">
+						and t1.RETCODE = #{dto.retcode}
+    			</if>
+    			<if test="dto.errormsg != null and dto.errormsg != ''">
+						and t1.ERRORMSG = #{dto.errormsg}
+    			</if>
+    			<if test="dto.interfaceId != null and dto.interfaceId != ''">
+						and t1.INTERFACE_ID = #{dto.interfaceId}
+    			</if>
+    			<if test="dto.remark != null and dto.remark != ''">
+						and t1.REMARK = #{dto.remark}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_personal_report -->
+<select id="findExtPersonalReportByPrimaryKey" parameterType="java.util.Map" resultMap="ExtPersonalReportDTO">
+   	 		select 
+					t1.id                             ,
+					t1.query_causes                   ,
+					t1.report_number                  ,
+					t1.report_time                    ,
+					t1.name                           ,
+					t1.certificates_type              ,
+					t1.certificates_number            ,
+					t1.sex                            ,
+					t1.birth_date                     ,
+					t1.marriage                       ,
+					t1.marriage_obtain_date           ,
+					t1.education                      ,
+					t1.education_obtain_date          ,
+					t1.title                          ,
+					t1.title_obtain_date              ,
+					t1.telephone                      ,
+					t1.telephone_obtain_date          ,
+					t1.phone_number                   ,
+					t1.phone_number_obtain_date       ,
+					t1.email                          ,
+					t1.email_obtain_date              ,
+					t1.contacts_name_firest           ,
+					t1.contacts_relation_firest       ,
+					t1.contacts_phone_number_firest   ,
+					t1.contacts_obtain_date_firest    ,
+					t1.loan_apply_info                ,
+					t1.for_other_guarantee_info       ,
+					t1.query_info                     ,
+					t1.personalstatement_info         ,
+					t1.object_id                      ,
+					t1.wife_name                      ,
+					t1.wife_certificates_type         ,
+					t1.wife_certificates_number       ,
+					t1.wife_sex                       ,
+					t1.wife_birth_date                ,
+					t1.wife_work_info                 ,
+					t1.wife_work_info_date            ,
+					t1.wife_tel                       ,
+					t1.wife_tel_date                  ,
+					t1.contacts_name_second           ,
+					t1.contacts_relation_second       ,
+					t1.contacts_phone_number_second   ,
+					t1.contacts_obtain_date_second    ,
+					t1.loan_count                     ,
+					t1.loan_first_date                ,
+					t1.credit_max                     ,
+					t1.loan_total                     ,
+					t1.loan_over                      ,
+					t1.repayment_month                ,
+					t1.overdue_total                  ,
+					t1.overdue_max                    ,
+					t1.overdue_issue                  ,
+					t1.optlock                        ,
+					t1.error                          ,
+					t1.cred_msg                       ,
+					t1.sech_msg                       ,
+					t1.addr_msg                       ,
+					t1.spel_msg                       ,
+					t1.oter_msg                       ,
+					t1.work_msg                       ,
+					t1.prod_code                      ,
+					t1.org_code                       ,
+					t1.sys_code                       ,
+					t1.retcode                        ,
+					t1.errormsg                       ,
+					t1.interface_id                   ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.remark                         
+			from ext_personal_report 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_personal_report -->
+<insert id="insertExtPersonalReport" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_personal_report.nextval as id from dual
+	</selectKey>
+			insert into ext_personal_report
+			(   		
+					id                             ,
+					query_causes                   ,
+					report_number                  ,
+					report_time                    ,
+					name                           ,
+					certificates_type              ,
+					certificates_number            ,
+					sex                            ,
+					birth_date                     ,
+					marriage                       ,
+					marriage_obtain_date           ,
+					education                      ,
+					education_obtain_date          ,
+					title                          ,
+					title_obtain_date              ,
+					telephone                      ,
+					telephone_obtain_date          ,
+					phone_number                   ,
+					phone_number_obtain_date       ,
+					email                          ,
+					email_obtain_date              ,
+					contacts_name_firest           ,
+					contacts_relation_firest       ,
+					contacts_phone_number_firest   ,
+					contacts_obtain_date_firest    ,
+					loan_apply_info                ,
+					for_other_guarantee_info       ,
+					query_info                     ,
+					personalstatement_info         ,
+					object_id                      ,
+					wife_name                      ,
+					wife_certificates_type         ,
+					wife_certificates_number       ,
+					wife_sex                       ,
+					wife_birth_date                ,
+					wife_work_info                 ,
+					wife_work_info_date            ,
+					wife_tel                       ,
+					wife_tel_date                  ,
+					contacts_name_second           ,
+					contacts_relation_second       ,
+					contacts_phone_number_second   ,
+					contacts_obtain_date_second    ,
+					loan_count                     ,
+					loan_first_date                ,
+					credit_max                     ,
+					loan_total                     ,
+					loan_over                      ,
+					repayment_month                ,
+					overdue_total                  ,
+					overdue_max                    ,
+					overdue_issue                  ,
+					optlock                        ,
+					error                          ,
+					cred_msg                       ,
+					sech_msg                       ,
+					addr_msg                       ,
+					spel_msg                       ,
+					oter_msg                       ,
+					work_msg                       ,
+					prod_code                      ,
+					org_code                       ,
+					sys_code                       ,
+					retcode                        ,
+					errormsg                       ,
+					interface_id                   ,
+					remark                         ,
+					create_time
+			)
+			values(#{dto.id}
+					,#{dto.queryCauses,jdbcType=VARCHAR}
+					,#{dto.reportNumber,jdbcType=VARCHAR}
+					,#{dto.reportTime,jdbcType=VARCHAR}
+					,#{dto.name,jdbcType=VARCHAR}
+					,#{dto.certificatesType,jdbcType=VARCHAR}
+					,#{dto.certificatesNumber,jdbcType=VARCHAR}
+					,#{dto.sex,jdbcType=VARCHAR}
+					,#{dto.birthDate,jdbcType=VARCHAR}
+					,#{dto.marriage,jdbcType=VARCHAR}
+					,#{dto.marriageObtainDate,jdbcType=VARCHAR}
+					,#{dto.education,jdbcType=VARCHAR}
+					,#{dto.educationObtainDate,jdbcType=VARCHAR}
+					,#{dto.title,jdbcType=VARCHAR}
+					,#{dto.titleObtainDate,jdbcType=VARCHAR}
+					,#{dto.telephone,jdbcType=VARCHAR}
+					,#{dto.telephoneObtainDate,jdbcType=VARCHAR}
+					,#{dto.phoneNumber,jdbcType=VARCHAR}
+					,#{dto.phoneNumberObtainDate,jdbcType=VARCHAR}
+					,#{dto.email,jdbcType=VARCHAR}
+					,#{dto.emailObtainDate,jdbcType=VARCHAR}
+					,#{dto.contactsNameFirest,jdbcType=VARCHAR}
+					,#{dto.contactsRelationFirest,jdbcType=VARCHAR}
+					,#{dto.contactsPhoneNumberFirest,jdbcType=VARCHAR}
+					,#{dto.contactsObtainDateFirest,jdbcType=VARCHAR}
+					,#{dto.loanApplyInfo,jdbcType=VARCHAR}
+					,#{dto.forOtherGuaranteeInfo,jdbcType=VARCHAR}
+					,#{dto.queryInfo,jdbcType=VARCHAR}
+					,#{dto.personalstatementInfo,jdbcType=VARCHAR}
+					,#{dto.objectId,jdbcType=VARCHAR}
+					,#{dto.wifeName,jdbcType=VARCHAR}
+					,#{dto.wifeCertificatesType,jdbcType=VARCHAR}
+					,#{dto.wifeCertificatesNumber,jdbcType=VARCHAR}
+					,#{dto.wifeSex,jdbcType=VARCHAR}
+					,#{dto.wifeBirthDate,jdbcType=VARCHAR}
+					,#{dto.wifeWorkInfo,jdbcType=VARCHAR}
+					,#{dto.wifeWorkInfoDate,jdbcType=VARCHAR}
+					,#{dto.wifeTel,jdbcType=VARCHAR}
+					,#{dto.wifeTelDate,jdbcType=VARCHAR}
+					,#{dto.contactsNameSecond,jdbcType=VARCHAR}
+					,#{dto.contactsRelationSecond,jdbcType=VARCHAR}
+					,#{dto.contactsPhoneNumberSecond,jdbcType=VARCHAR}
+					,#{dto.contactsObtainDateSecond,jdbcType=VARCHAR}
+					,#{dto.loanCount,jdbcType=VARCHAR}
+					,#{dto.loanFirstDate,jdbcType=VARCHAR}
+					,#{dto.creditMax,jdbcType=VARCHAR}
+					,#{dto.loanTotal,jdbcType=VARCHAR}
+					,#{dto.loanOver,jdbcType=VARCHAR}
+					,#{dto.repaymentMonth,jdbcType=VARCHAR}
+					,#{dto.overdueTotal,jdbcType=VARCHAR}
+					,#{dto.overdueMax,jdbcType=VARCHAR}
+					,#{dto.overdueIssue,jdbcType=VARCHAR}
+					,#{dto.optlock,jdbcType=DECIMAL}
+					,#{dto.error,jdbcType=VARCHAR}
+					,#{dto.credMsg,jdbcType=VARCHAR}
+					,#{dto.sechMsg,jdbcType=VARCHAR}
+					,#{dto.addrMsg,jdbcType=VARCHAR}
+					,#{dto.spelMsg,jdbcType=VARCHAR}
+					,#{dto.oterMsg,jdbcType=VARCHAR}
+					,#{dto.workMsg,jdbcType=VARCHAR}
+					,#{dto.prodCode,jdbcType=VARCHAR}
+					,#{dto.orgCode,jdbcType=VARCHAR}
+					,#{dto.sysCode,jdbcType=VARCHAR}
+					,#{dto.retcode,jdbcType=VARCHAR}
+					,#{dto.errormsg,jdbcType=VARCHAR}
+					,#{dto.interfaceId,jdbcType=VARCHAR}
+					,#{dto.remark,jdbcType=VARCHAR}
+					,systimestamp
+			)
+</insert>
+    
+<!-- 更新对象 EXT_personal_report -->
+<update id="updateExtPersonalReport" parameterType="java.util.Map">
+	     update ext_personal_report t1
+	           set 
+			           t1.query_causes                   =#{dto.queryCauses,jdbcType=VARCHAR},
+			           t1.report_number                  =#{dto.reportNumber,jdbcType=VARCHAR},
+			           t1.report_time                    =#{dto.reportTime,jdbcType=VARCHAR},
+			           t1.name                           =#{dto.name,jdbcType=VARCHAR},
+			           t1.certificates_type              =#{dto.certificatesType,jdbcType=VARCHAR},
+			           t1.certificates_number            =#{dto.certificatesNumber,jdbcType=VARCHAR},
+			           t1.sex                            =#{dto.sex,jdbcType=VARCHAR},
+			           t1.birth_date                     =#{dto.birthDate,jdbcType=VARCHAR},
+			           t1.marriage                       =#{dto.marriage,jdbcType=VARCHAR},
+			           t1.marriage_obtain_date           =#{dto.marriageObtainDate,jdbcType=VARCHAR},
+			           t1.education                      =#{dto.education,jdbcType=VARCHAR},
+			           t1.education_obtain_date          =#{dto.educationObtainDate,jdbcType=VARCHAR},
+			           t1.title                          =#{dto.title,jdbcType=VARCHAR},
+			           t1.title_obtain_date              =#{dto.titleObtainDate,jdbcType=VARCHAR},
+			           t1.telephone                      =#{dto.telephone,jdbcType=VARCHAR},
+			           t1.telephone_obtain_date          =#{dto.telephoneObtainDate,jdbcType=VARCHAR},
+			           t1.phone_number                   =#{dto.phoneNumber,jdbcType=VARCHAR},
+			           t1.phone_number_obtain_date       =#{dto.phoneNumberObtainDate,jdbcType=VARCHAR},
+			           t1.email                          =#{dto.email,jdbcType=VARCHAR},
+			           t1.email_obtain_date              =#{dto.emailObtainDate,jdbcType=VARCHAR},
+			           t1.contacts_name_firest           =#{dto.contactsNameFirest,jdbcType=VARCHAR},
+			           t1.contacts_relation_firest       =#{dto.contactsRelationFirest,jdbcType=VARCHAR},
+			           t1.contacts_phone_number_firest   =#{dto.contactsPhoneNumberFirest,jdbcType=VARCHAR},
+			           t1.contacts_obtain_date_firest    =#{dto.contactsObtainDateFirest,jdbcType=VARCHAR},
+			           t1.loan_apply_info                =#{dto.loanApplyInfo,jdbcType=VARCHAR},
+			           t1.for_other_guarantee_info       =#{dto.forOtherGuaranteeInfo,jdbcType=VARCHAR},
+			           t1.query_info                     =#{dto.queryInfo,jdbcType=VARCHAR},
+			           t1.personalstatement_info         =#{dto.personalstatementInfo,jdbcType=VARCHAR},
+			           t1.object_id                      =#{dto.objectId,jdbcType=VARCHAR},
+			           t1.wife_name                      =#{dto.wifeName,jdbcType=VARCHAR},
+			           t1.wife_certificates_type         =#{dto.wifeCertificatesType,jdbcType=VARCHAR},
+			           t1.wife_certificates_number       =#{dto.wifeCertificatesNumber,jdbcType=VARCHAR},
+			           t1.wife_sex                       =#{dto.wifeSex,jdbcType=VARCHAR},
+			           t1.wife_birth_date                =#{dto.wifeBirthDate,jdbcType=VARCHAR},
+			           t1.wife_work_info                 =#{dto.wifeWorkInfo,jdbcType=VARCHAR},
+			           t1.wife_work_info_date            =#{dto.wifeWorkInfoDate,jdbcType=VARCHAR},
+			           t1.wife_tel                       =#{dto.wifeTel,jdbcType=VARCHAR},
+			           t1.wife_tel_date                  =#{dto.wifeTelDate,jdbcType=VARCHAR},
+			           t1.contacts_name_second           =#{dto.contactsNameSecond,jdbcType=VARCHAR},
+			           t1.contacts_relation_second       =#{dto.contactsRelationSecond,jdbcType=VARCHAR},
+			           t1.contacts_phone_number_second   =#{dto.contactsPhoneNumberSecond,jdbcType=VARCHAR},
+			           t1.contacts_obtain_date_second    =#{dto.contactsObtainDateSecond,jdbcType=VARCHAR},
+			           t1.loan_count                     =#{dto.loanCount,jdbcType=VARCHAR},
+			           t1.loan_first_date                =#{dto.loanFirstDate,jdbcType=VARCHAR},
+			           t1.credit_max                     =#{dto.creditMax,jdbcType=VARCHAR},
+			           t1.loan_total                     =#{dto.loanTotal,jdbcType=VARCHAR},
+			           t1.loan_over                      =#{dto.loanOver,jdbcType=VARCHAR},
+			           t1.repayment_month                =#{dto.repaymentMonth,jdbcType=VARCHAR},
+			           t1.overdue_total                  =#{dto.overdueTotal,jdbcType=VARCHAR},
+			           t1.overdue_max                    =#{dto.overdueMax,jdbcType=VARCHAR},
+			           t1.overdue_issue                  =#{dto.overdueIssue,jdbcType=VARCHAR},
+			           t1.optlock                        =#{dto.optlock,jdbcType=DECIMAL},
+			           t1.error                          =#{dto.error,jdbcType=VARCHAR},
+			           t1.cred_msg                       =#{dto.credMsg,jdbcType=VARCHAR},
+			           t1.sech_msg                       =#{dto.sechMsg,jdbcType=VARCHAR},
+			           t1.addr_msg                       =#{dto.addrMsg,jdbcType=VARCHAR},
+			           t1.spel_msg                       =#{dto.spelMsg,jdbcType=VARCHAR},
+			           t1.oter_msg                       =#{dto.oterMsg,jdbcType=VARCHAR},
+			           t1.work_msg                       =#{dto.workMsg,jdbcType=VARCHAR},
+			           t1.prod_code                      =#{dto.prodCode,jdbcType=VARCHAR},
+			           t1.org_code                       =#{dto.orgCode,jdbcType=VARCHAR},
+			           t1.sys_code                       =#{dto.sysCode,jdbcType=VARCHAR},
+			           t1.retcode                        =#{dto.retcode,jdbcType=VARCHAR},
+			           t1.errormsg                       =#{dto.errormsg,jdbcType=VARCHAR},
+			           t1.interface_id                   =#{dto.interfaceId,jdbcType=VARCHAR},
+					   t1.modify_time                    =systimestamp,
+			           t1.remark                         =#{dto.remark,jdbcType=VARCHAR}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_personal_report -->
+<delete id="deleteExtPersonalReportByID" parameterType="java.util.Map">
+    	delete from ext_personal_report t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_personal_report -->
+<update id="deleteExtPersonalReportByPrimaryKey" parameterType="java.util.Map">
+	     update ext_personal_report t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

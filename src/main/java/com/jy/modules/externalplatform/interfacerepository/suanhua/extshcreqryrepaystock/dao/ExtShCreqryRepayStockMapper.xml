@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.suanhua.extshcreqryrepaystock.dao.ExtShCreqryRepayStockDao">
+<resultMap id="ExtShCreqryRepayStockDTO" type="com.jy.modules.externalplatform.interfacerepository.suanhua.extshcreqryrepaystock.dto.ExtShCreqryRepayStockDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="reportId" column="REPORT_ID" jdbcType="DECIMAL" />
+				<result property="iperiodnumber" column="IPERIODNUMBER" jdbcType="DECIMAL" />
+				<result property="soverdue" column="SOVERDUE" jdbcType="VARCHAR" />
+				<result property="dbillingdate" column="DBILLINGDATE" jdbcType="VARCHAR" />
+				<result property="iactualpayamount" column="IACTUALPAYAMOUNT" jdbcType="DECIMAL" />
+				<result property="drecentpaydate" column="DRECENTPAYDATE" jdbcType="VARCHAR" />
+				<result property="ischeduledamount" column="ISCHEDULEDAMOUNT" jdbcType="DECIMAL" />
+				<result property="ibalance" column="IBALANCE" jdbcType="DECIMAL" />
+				<result property="iaccountstat" column="IACCOUNTSTAT" jdbcType="DECIMAL" />
+				<result property="saccount" column="SACCOUNT" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 EXT_SH_CREQRY_REPAY_STOCK -->	
+<select id="searchExtShCreqryRepayStockByPaging" parameterType="java.util.Map" resultMap="ExtShCreqryRepayStockDTO">
+    	 		select 
+						t1.id                             ,
+						t1.report_id                      ,
+						t1.iperiodnumber                  ,
+						t1.soverdue                       ,
+						t1.dbillingdate                   ,
+						t1.iactualpayamount               ,
+						t1.drecentpaydate                 ,
+						t1.ischeduledamount               ,
+						t1.ibalance                       ,
+						t1.iaccountstat                   ,
+						t1.saccount                       ,
+						t1.create_time                    ,
+						t1.modify_time                    
+					
+				from ext_sh_creqry_repay_stock 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.reportId != null and dto.reportId != ''">
+						and t1.REPORT_ID =#{dto.reportId}
+    			</if>
+    			<if test="dto.iperiodnumber != null and dto.iperiodnumber != ''">
+						and t1.IPERIODNUMBER =#{dto.iperiodnumber}
+    			</if>
+    			<if test="dto.soverdue != null and dto.soverdue != ''">
+						and t1.SOVERDUE =#{dto.soverdue}
+    			</if>
+    			<if test="dto.dbillingdate != null and dto.dbillingdate != ''">
+						and t1.DBILLINGDATE =#{dto.dbillingdate}
+    			</if>
+    			<if test="dto.iactualpayamount != null and dto.iactualpayamount != ''">
+						and t1.IACTUALPAYAMOUNT =#{dto.iactualpayamount}
+    			</if>
+    			<if test="dto.drecentpaydate != null and dto.drecentpaydate != ''">
+						and t1.DRECENTPAYDATE =#{dto.drecentpaydate}
+    			</if>
+    			<if test="dto.ischeduledamount != null and dto.ischeduledamount != ''">
+						and t1.ISCHEDULEDAMOUNT =#{dto.ischeduledamount}
+    			</if>
+    			<if test="dto.ibalance != null and dto.ibalance != ''">
+						and t1.IBALANCE =#{dto.ibalance}
+    			</if>
+    			<if test="dto.iaccountstat != null and dto.iaccountstat != ''">
+						and t1.IACCOUNTSTAT =#{dto.iaccountstat}
+    			</if>
+    			<if test="dto.saccount != null and dto.saccount != ''">
+						and t1.SACCOUNT =#{dto.saccount}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_SH_CREQRY_REPAY_STOCK  -->
+<select id="searchExtShCreqryRepayStock" parameterType="java.util.Map" resultMap="ExtShCreqryRepayStockDTO">
+    	     select 
+						t1.id                             ,
+						t1.report_id                      ,
+						t1.iperiodnumber                  ,
+						t1.soverdue                       ,
+						t1.dbillingdate                   ,
+						t1.iactualpayamount               ,
+						t1.drecentpaydate                 ,
+						t1.ischeduledamount               ,
+						t1.ibalance                       ,
+						t1.iaccountstat                   ,
+						t1.saccount                       ,
+						t1.create_time                    ,
+						t1.modify_time                    
+				from ext_sh_creqry_repay_stock 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.reportId != null and dto.reportId != ''">
+						and t1.REPORT_ID = #{dto.reportId}
+    			</if>
+    			<if test="dto.iperiodnumber != null and dto.iperiodnumber != ''">
+						and t1.IPERIODNUMBER = #{dto.iperiodnumber}
+    			</if>
+    			<if test="dto.soverdue != null and dto.soverdue != ''">
+						and t1.SOVERDUE = #{dto.soverdue}
+    			</if>
+    			<if test="dto.dbillingdate != null and dto.dbillingdate != ''">
+						and t1.DBILLINGDATE = #{dto.dbillingdate}
+    			</if>
+    			<if test="dto.iactualpayamount != null and dto.iactualpayamount != ''">
+						and t1.IACTUALPAYAMOUNT = #{dto.iactualpayamount}
+    			</if>
+    			<if test="dto.drecentpaydate != null and dto.drecentpaydate != ''">
+						and t1.DRECENTPAYDATE = #{dto.drecentpaydate}
+    			</if>
+    			<if test="dto.ischeduledamount != null and dto.ischeduledamount != ''">
+						and t1.ISCHEDULEDAMOUNT = #{dto.ischeduledamount}
+    			</if>
+    			<if test="dto.ibalance != null and dto.ibalance != ''">
+						and t1.IBALANCE = #{dto.ibalance}
+    			</if>
+    			<if test="dto.iaccountstat != null and dto.iaccountstat != ''">
+						and t1.IACCOUNTSTAT = #{dto.iaccountstat}
+    			</if>
+    			<if test="dto.saccount != null and dto.saccount != ''">
+						and t1.SACCOUNT = #{dto.saccount}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_SH_CREQRY_REPAY_STOCK -->
+<select id="findExtShCreqryRepayStockByPrimaryKey" parameterType="java.util.Map" resultMap="ExtShCreqryRepayStockDTO">
+   	 		select 
+					t1.id                             ,
+					t1.report_id                      ,
+					t1.iperiodnumber                  ,
+					t1.soverdue                       ,
+					t1.dbillingdate                   ,
+					t1.iactualpayamount               ,
+					t1.drecentpaydate                 ,
+					t1.ischeduledamount               ,
+					t1.ibalance                       ,
+					t1.iaccountstat                   ,
+					t1.saccount                       ,
+					t1.create_time                    ,
+					t1.modify_time                    
+			from ext_sh_creqry_repay_stock 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_SH_CREQRY_REPAY_STOCK -->
+<insert id="insertExtShCreqryRepayStock" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_SH_CREQRY_REPAY_STOCK.nextval as id from dual
+	</selectKey>
+			insert into ext_sh_creqry_repay_stock
+			(   		
+					id                             ,
+					report_id                      ,
+					iperiodnumber                  ,
+					soverdue                       ,
+					dbillingdate                   ,
+					iactualpayamount               ,
+					drecentpaydate                 ,
+					ischeduledamount               ,
+					ibalance                       ,
+					iaccountstat                   ,
+					saccount                       ,
+					create_time                    
+			)
+			values(#{dto.id}
+					,#{dto.reportId,jdbcType=DECIMAL}
+					,#{dto.iperiodnumber,jdbcType=DECIMAL}
+					,#{dto.soverdue,jdbcType=VARCHAR}
+					,#{dto.dbillingdate,jdbcType=VARCHAR}
+					,#{dto.iactualpayamount,jdbcType=DECIMAL}
+					,#{dto.drecentpaydate,jdbcType=VARCHAR}
+					,#{dto.ischeduledamount,jdbcType=DECIMAL}
+					,#{dto.ibalance,jdbcType=DECIMAL}
+					,#{dto.iaccountstat,jdbcType=DECIMAL}
+					,#{dto.saccount,jdbcType=VARCHAR}
+					,systimestamp
+			)
+</insert>
+    
+<!-- 更新对象 EXT_SH_CREQRY_REPAY_STOCK -->
+<update id="updateExtShCreqryRepayStock" parameterType="java.util.Map">
+	     update ext_sh_creqry_repay_stock t1
+	           set 
+			           t1.report_id                      =#{dto.reportId,jdbcType=DECIMAL},
+			           t1.iperiodnumber                  =#{dto.iperiodnumber,jdbcType=DECIMAL},
+			           t1.soverdue                       =#{dto.soverdue,jdbcType=VARCHAR},
+			           t1.dbillingdate                   =#{dto.dbillingdate,jdbcType=VARCHAR},
+			           t1.iactualpayamount               =#{dto.iactualpayamount,jdbcType=DECIMAL},
+			           t1.drecentpaydate                 =#{dto.drecentpaydate,jdbcType=VARCHAR},
+			           t1.ischeduledamount               =#{dto.ischeduledamount,jdbcType=DECIMAL},
+			           t1.ibalance                       =#{dto.ibalance,jdbcType=DECIMAL},
+			           t1.iaccountstat                   =#{dto.iaccountstat,jdbcType=DECIMAL},
+			           t1.saccount                       =#{dto.saccount,jdbcType=VARCHAR},
+			           t1.modify_time                    =systimestamp
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_SH_CREQRY_REPAY_STOCK -->
+<delete id="deleteExtShCreqryRepayStockByID" parameterType="java.util.Map">
+    	delete from ext_sh_creqry_repay_stock t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_SH_CREQRY_REPAY_STOCK -->
+<update id="deleteExtShCreqryRepayStockByPrimaryKey" parameterType="java.util.Map">
+	     update ext_sh_creqry_repay_stock t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

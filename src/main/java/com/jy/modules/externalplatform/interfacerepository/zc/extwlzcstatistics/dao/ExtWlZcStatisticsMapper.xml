@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.zc.extwlzcstatistics.dao.ExtWlZcStatisticsDao">
+<resultMap id="ExtWlZcStatisticsDTO" type="com.jy.modules.externalplatform.interfacerepository.zc.extwlzcstatistics.dto.ExtWlZcStatisticsDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="keyId" column="KEY_ID" jdbcType="VARCHAR" />
+				<result property="timesByOtherOrg" column="TIMES_BY_OTHER_ORG" jdbcType="VARCHAR" />
+				<result property="otherOrgCount" column="OTHER_ORG_COUNT" jdbcType="VARCHAR" />
+				<result property="timesByCurrentOrg" column="TIMES_BY_CURRENT_ORG" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 ext_wl_zc_statistics -->	
+<select id="searchExtWlZcStatisticsByPaging" parameterType="java.util.Map" resultMap="ExtWlZcStatisticsDTO">
+    	 		select 
+						t1.id                             ,
+						t1.key_id                         ,
+						t1.times_by_other_org             ,
+						t1.other_org_count                ,
+						t1.times_by_current_org           ,
+						t1.create_time                    ,
+						t1.modify_time                    
+					
+				from ext_wl_zc_statistics 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.keyId != null and dto.keyId != ''">
+						and t1.KEY_ID =#{dto.keyId}
+    			</if>
+    			<if test="dto.timesByOtherOrg != null and dto.timesByOtherOrg != ''">
+						and t1.TIMES_BY_OTHER_ORG =#{dto.timesByOtherOrg}
+    			</if>
+    			<if test="dto.otherOrgCount != null and dto.otherOrgCount != ''">
+						and t1.OTHER_ORG_COUNT =#{dto.otherOrgCount}
+    			</if>
+    			<if test="dto.timesByCurrentOrg != null and dto.timesByCurrentOrg != ''">
+						and t1.TIMES_BY_CURRENT_ORG =#{dto.timesByCurrentOrg}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 ext_wl_zc_statistics  -->
+<select id="searchExtWlZcStatistics" parameterType="java.util.Map" resultMap="ExtWlZcStatisticsDTO">
+    	     select 
+						t1.id                             ,
+						t1.key_id                         ,
+						t1.times_by_other_org             ,
+						t1.other_org_count                ,
+						t1.times_by_current_org           ,
+						t1.create_time                    ,
+						t1.modify_time                    
+				from ext_wl_zc_statistics 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.keyId != null and dto.keyId != ''">
+						and t1.KEY_ID = #{dto.keyId}
+    			</if>
+    			<if test="dto.timesByOtherOrg != null and dto.timesByOtherOrg != ''">
+						and t1.TIMES_BY_OTHER_ORG = #{dto.timesByOtherOrg}
+    			</if>
+    			<if test="dto.otherOrgCount != null and dto.otherOrgCount != ''">
+						and t1.OTHER_ORG_COUNT = #{dto.otherOrgCount}
+    			</if>
+    			<if test="dto.timesByCurrentOrg != null and dto.timesByCurrentOrg != ''">
+						and t1.TIMES_BY_CURRENT_ORG = #{dto.timesByCurrentOrg}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  ext_wl_zc_statistics -->
+<select id="findExtWlZcStatisticsByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlZcStatisticsDTO">
+   	 		select 
+					t1.id                             ,
+					t1.key_id                         ,
+					t1.times_by_other_org             ,
+					t1.other_org_count                ,
+					t1.times_by_current_org           ,
+					t1.create_time                    ,
+					t1.modify_time                    
+			from ext_wl_zc_statistics 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 ext_wl_zc_statistics -->
+<insert id="insertExtWlZcStatistics" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_ext_wl_zc_statistics.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_zc_statistics
+			(   		
+					id                             ,
+					key_id                         ,
+					times_by_other_org             ,
+					other_org_count                ,
+					times_by_current_org           ,
+					create_time                    ,
+					modify_time                    
+			)
+			values(#{dto.id}
+					,#{dto.keyId,jdbcType=VARCHAR}
+					,#{dto.timesByOtherOrg,jdbcType=VARCHAR}
+					,#{dto.otherOrgCount,jdbcType=VARCHAR}
+					,#{dto.timesByCurrentOrg,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+			)
+</insert>
+    
+<!-- 更新对象 ext_wl_zc_statistics -->
+<update id="updateExtWlZcStatistics" parameterType="java.util.Map">
+	     update ext_wl_zc_statistics t1
+	           set 
+			           t1.key_id                         =#{dto.keyId,jdbcType=VARCHAR},
+			           t1.times_by_other_org             =#{dto.timesByOtherOrg,jdbcType=VARCHAR},
+			           t1.other_org_count                =#{dto.otherOrgCount,jdbcType=VARCHAR},
+			           t1.times_by_current_org           =#{dto.timesByCurrentOrg,jdbcType=VARCHAR},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 ext_wl_zc_statistics -->
+<delete id="deleteExtWlZcStatisticsByID" parameterType="java.util.Map">
+    	delete from ext_wl_zc_statistics t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 ext_wl_zc_statistics -->
+<update id="deleteExtWlZcStatisticsByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_zc_statistics t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.shzx.extpersonalreportwork.dao.ExtPersonalReportWorkDao">
+<resultMap id="ExtPersonalReportWorkDTO" type="com.jy.modules.externalplatform.interfacerepository.shzx.extpersonalreportwork.dto.ExtPersonalReportWorkDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="workNumber" column="WORK_NUMBER" jdbcType="VARCHAR" />
+				<result property="career" column="CAREER" jdbcType="VARCHAR" />
+				<result property="infoDate" column="INFO_DATE" jdbcType="VARCHAR" />
+				<result property="personalCreditReport" column="PERSONAL_CREDIT_REPORT" jdbcType="DECIMAL" />
+				<result property="workInfo" column="WORK_INFO" jdbcType="VARCHAR" />
+				<result property="optlock" column="OPTLOCK" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 ext_personal_report_work -->	
+<select id="searchExtPersonalReportWorkByPaging" parameterType="java.util.Map" resultMap="ExtPersonalReportWorkDTO">
+    	 		select 
+						t1.id                             ,
+						t1.work_number                    ,
+						t1.career                         ,
+						t1.info_date                      ,
+						t1.personal_credit_report         ,
+						t1.work_info                      ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.optlock                        
+					
+				from ext_personal_report_work 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.workNumber != null and dto.workNumber != ''">
+						and t1.WORK_NUMBER =#{dto.workNumber}
+    			</if>
+    			<if test="dto.career != null and dto.career != ''">
+						and t1.CAREER =#{dto.career}
+    			</if>
+    			<if test="dto.infoDate != null and dto.infoDate != ''">
+						and t1.INFO_DATE =#{dto.infoDate}
+    			</if>
+    			<if test="dto.personalCreditReport != null and dto.personalCreditReport != ''">
+						and t1.PERSONAL_CREDIT_REPORT =#{dto.personalCreditReport}
+    			</if>
+    			<if test="dto.workInfo != null and dto.workInfo != ''">
+						and t1.WORK_INFO =#{dto.workInfo}
+    			</if>
+    			<if test="dto.optlock != null and dto.optlock != ''">
+						and t1.OPTLOCK =#{dto.optlock}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 ext_personal_report_work  -->
+<select id="searchExtPersonalReportWork" parameterType="java.util.Map" resultMap="ExtPersonalReportWorkDTO">
+    	     select 
+						t1.id                             ,
+						t1.work_number                    ,
+						t1.career                         ,
+						t1.info_date                      ,
+						t1.personal_credit_report         ,
+						t1.work_info                      ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.optlock                        
+				from ext_personal_report_work 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.workNumber != null and dto.workNumber != ''">
+						and t1.WORK_NUMBER = #{dto.workNumber}
+    			</if>
+    			<if test="dto.career != null and dto.career != ''">
+						and t1.CAREER = #{dto.career}
+    			</if>
+    			<if test="dto.infoDate != null and dto.infoDate != ''">
+						and t1.INFO_DATE = #{dto.infoDate}
+    			</if>
+    			<if test="dto.personalCreditReport != null and dto.personalCreditReport != ''">
+						and t1.PERSONAL_CREDIT_REPORT = #{dto.personalCreditReport}
+    			</if>
+    			<if test="dto.workInfo != null and dto.workInfo != ''">
+						and t1.WORK_INFO = #{dto.workInfo}
+    			</if>
+    			<if test="dto.optlock != null and dto.optlock != ''">
+						and t1.OPTLOCK = #{dto.optlock}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  ext_personal_report_work -->
+<select id="findExtPersonalReportWorkByPrimaryKey" parameterType="java.util.Map" resultMap="ExtPersonalReportWorkDTO">
+   	 		select 
+					t1.id                             ,
+					t1.work_number                    ,
+					t1.career                         ,
+					t1.info_date                      ,
+					t1.personal_credit_report         ,
+					t1.work_info                      ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.optlock                        
+			from ext_personal_report_work 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 ext_personal_report_work -->
+<insert id="insertExtPersonalReportWork" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_ext_personal_report_work.nextval as id from dual
+	</selectKey>
+			insert into ext_personal_report_work
+			(   		
+					id                             ,
+					work_number                    ,
+					career                         ,
+					info_date                      ,
+					personal_credit_report         ,
+					work_info                      ,
+					create_time                    ,
+					optlock                        
+			)
+			values(#{dto.id}
+					,#{dto.workNumber,jdbcType=VARCHAR}
+					,#{dto.career,jdbcType=VARCHAR}
+					,#{dto.infoDate,jdbcType=VARCHAR}
+					,#{dto.personalCreditReport,jdbcType=DECIMAL}
+					,#{dto.workInfo,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.optlock,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 ext_personal_report_work -->
+<update id="updateExtPersonalReportWork" parameterType="java.util.Map">
+	     update ext_personal_report_work t1
+	           set 
+			           t1.work_number                    =#{dto.workNumber,jdbcType=VARCHAR},
+			           t1.career                         =#{dto.career,jdbcType=VARCHAR},
+			           t1.info_date                      =#{dto.infoDate,jdbcType=VARCHAR},
+			           t1.personal_credit_report         =#{dto.personalCreditReport,jdbcType=DECIMAL},
+			           t1.work_info                      =#{dto.workInfo,jdbcType=VARCHAR},
+					   t1.modify_time                    =systimestamp,
+			           t1.optlock                        =#{dto.optlock,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 ext_personal_report_work -->
+<delete id="deleteExtPersonalReportWorkByID" parameterType="java.util.Map">
+    	delete from ext_personal_report_work t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 ext_personal_report_work -->
+<update id="deleteExtPersonalReportWorkByPrimaryKey" parameterType="java.util.Map">
+	     update ext_personal_report_work t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

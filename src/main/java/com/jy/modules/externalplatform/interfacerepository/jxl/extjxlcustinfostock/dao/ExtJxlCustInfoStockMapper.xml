@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.jxl.extjxlcustinfostock.dao.ExtJxlCustInfoStockDao">
+<resultMap id="ExtJxlCustInfoStockDTO" type="com.jy.modules.externalplatform.interfacerepository.jxl.extjxlcustinfostock.dto.ExtJxlCustInfoStockDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="realName" column="REAL_NAME" jdbcType="VARCHAR" />
+				<result property="idCardNum" column="ID_CARD_NUM" jdbcType="VARCHAR" />
+				<result property="gender" column="GENDER" jdbcType="VARCHAR" />
+				<result property="sign" column="SIGN" jdbcType="VARCHAR" />
+				<result property="age" column="AGE" jdbcType="VARCHAR" />
+				<result property="province" column="PROVINCE" jdbcType="VARCHAR" />
+				<result property="city" column="CITY" jdbcType="VARCHAR" />
+				<result property="region" column="REGION" jdbcType="VARCHAR" />
+				<result property="callInfoMsg" column="CALL_INFO_MSG" jdbcType="VARCHAR" />
+				<result property="cellBehaviorMsg" column="CELL_BEHAVIOR_MSG" jdbcType="VARCHAR" />
+				<result property="checkInfoMsg" column="CHECK_INFO_MSG" jdbcType="VARCHAR" />
+				<result property="contactInfoMsg" column="CONTACT_INFO_MSG" jdbcType="VARCHAR" />
+				<result property="contactListMsg" column="CONTACT_LIST_MSG" jdbcType="VARCHAR" />
+				<result property="contactRegionMsg" column="CONTACT_REGION_MSG" jdbcType="VARCHAR" />
+				<result property="dataSourceMsg" column="DATA_SOURCE_MSG" jdbcType="VARCHAR" />
+				<result property="deliverAddressMsg" column="DELIVER_ADDRESS_MSG" jdbcType="VARCHAR" />
+				<result property="demandsInfoMsg" column="DEMANDS_INFO_MSG" jdbcType="VARCHAR" />
+				<result property="ebusinessExpenseMsg" column="EBUSINESS_EXPENSE_MSG" jdbcType="VARCHAR" />
+				<result property="receiverMsg" column="RECEIVER_MSG" jdbcType="VARCHAR" />
+				<result property="recentNeedMsg" column="RECENT_NEED_MSG" jdbcType="VARCHAR" />
+				<result property="tripInfoMsg" column="TRIP_INFO_MSG" jdbcType="VARCHAR" />
+				<result property="prodCode" column="PROD_CODE" jdbcType="VARCHAR" />
+				<result property="orgCode" column="ORG_CODE" jdbcType="VARCHAR" />
+				<result property="sysCode" column="SYS_CODE" jdbcType="VARCHAR" />
+				<result property="retcode" column="RETCODE" jdbcType="VARCHAR" />
+				<result property="errormsg" column="ERRORMSG" jdbcType="VARCHAR" />
+				<result property="interfaceId" column="INTERFACE_ID" jdbcType="VARCHAR" />
+				<result property="remark" column="REMARK" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 EXT_JXL_CUST_INFO_STOCK -->	
+<select id="searchExtJxlCustInfoStockByPaging" parameterType="java.util.Map" resultMap="ExtJxlCustInfoStockDTO">
+    	 		select 
+						t1.id                             ,
+						t1.real_name                      ,
+						t1.id_card_num                    ,
+						t1.gender                         ,
+						t1.sign                           ,
+						t1.age                            ,
+						t1.province                       ,
+						t1.city                           ,
+						t1.region                         ,
+						t1.call_info_msg                  ,
+						t1.cell_behavior_msg              ,
+						t1.check_info_msg                 ,
+						t1.contact_info_msg               ,
+						t1.contact_list_msg               ,
+						t1.contact_region_msg             ,
+						t1.data_source_msg                ,
+						t1.deliver_address_msg            ,
+						t1.demands_info_msg               ,
+						t1.ebusiness_expense_msg          ,
+						t1.receiver_msg                   ,
+						t1.recent_need_msg                ,
+						t1.trip_info_msg                  ,
+						t1.prod_code                      ,
+						t1.org_code                       ,
+						t1.sys_code                       ,
+						t1.retcode                        ,
+						t1.errormsg                       ,
+						t1.interface_id                   ,
+						t1.remark                         ,
+						t1.modify_time                    ,
+						t1.create_time                    
+					
+				from ext_jxl_cust_info_stock 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.realName != null and dto.realName != ''">
+						and t1.REAL_NAME =#{dto.realName}
+    			</if>
+    			<if test="dto.idCardNum != null and dto.idCardNum != ''">
+						and t1.ID_CARD_NUM =#{dto.idCardNum}
+    			</if>
+    			<if test="dto.gender != null and dto.gender != ''">
+						and t1.GENDER =#{dto.gender}
+    			</if>
+    			<if test="dto.sign != null and dto.sign != ''">
+						and t1.SIGN =#{dto.sign}
+    			</if>
+    			<if test="dto.age != null and dto.age != ''">
+						and t1.AGE =#{dto.age}
+    			</if>
+    			<if test="dto.province != null and dto.province != ''">
+						and t1.PROVINCE =#{dto.province}
+    			</if>
+    			<if test="dto.city != null and dto.city != ''">
+						and t1.CITY =#{dto.city}
+    			</if>
+    			<if test="dto.region != null and dto.region != ''">
+						and t1.REGION =#{dto.region}
+    			</if>
+    			<if test="dto.callInfoMsg != null and dto.callInfoMsg != ''">
+						and t1.CALL_INFO_MSG =#{dto.callInfoMsg}
+    			</if>
+    			<if test="dto.cellBehaviorMsg != null and dto.cellBehaviorMsg != ''">
+						and t1.CELL_BEHAVIOR_MSG =#{dto.cellBehaviorMsg}
+    			</if>
+    			<if test="dto.checkInfoMsg != null and dto.checkInfoMsg != ''">
+						and t1.CHECK_INFO_MSG =#{dto.checkInfoMsg}
+    			</if>
+    			<if test="dto.contactInfoMsg != null and dto.contactInfoMsg != ''">
+						and t1.CONTACT_INFO_MSG =#{dto.contactInfoMsg}
+    			</if>
+    			<if test="dto.contactListMsg != null and dto.contactListMsg != ''">
+						and t1.CONTACT_LIST_MSG =#{dto.contactListMsg}
+    			</if>
+    			<if test="dto.contactRegionMsg != null and dto.contactRegionMsg != ''">
+						and t1.CONTACT_REGION_MSG =#{dto.contactRegionMsg}
+    			</if>
+    			<if test="dto.dataSourceMsg != null and dto.dataSourceMsg != ''">
+						and t1.DATA_SOURCE_MSG =#{dto.dataSourceMsg}
+    			</if>
+    			<if test="dto.deliverAddressMsg != null and dto.deliverAddressMsg != ''">
+						and t1.DELIVER_ADDRESS_MSG =#{dto.deliverAddressMsg}
+    			</if>
+    			<if test="dto.demandsInfoMsg != null and dto.demandsInfoMsg != ''">
+						and t1.DEMANDS_INFO_MSG =#{dto.demandsInfoMsg}
+    			</if>
+    			<if test="dto.ebusinessExpenseMsg != null and dto.ebusinessExpenseMsg != ''">
+						and t1.EBUSINESS_EXPENSE_MSG =#{dto.ebusinessExpenseMsg}
+    			</if>
+    			<if test="dto.receiverMsg != null and dto.receiverMsg != ''">
+						and t1.RECEIVER_MSG =#{dto.receiverMsg}
+    			</if>
+    			<if test="dto.recentNeedMsg != null and dto.recentNeedMsg != ''">
+						and t1.RECENT_NEED_MSG =#{dto.recentNeedMsg}
+    			</if>
+    			<if test="dto.tripInfoMsg != null and dto.tripInfoMsg != ''">
+						and t1.TRIP_INFO_MSG =#{dto.tripInfoMsg}
+    			</if>
+    			<if test="dto.prodCode != null and dto.prodCode != ''">
+						and t1.PROD_CODE =#{dto.prodCode}
+    			</if>
+    			<if test="dto.orgCode != null and dto.orgCode != ''">
+						and t1.ORG_CODE =#{dto.orgCode}
+    			</if>
+    			<if test="dto.sysCode != null and dto.sysCode != ''">
+						and t1.SYS_CODE =#{dto.sysCode}
+    			</if>
+    			<if test="dto.retcode != null and dto.retcode != ''">
+						and t1.RETCODE =#{dto.retcode}
+    			</if>
+    			<if test="dto.errormsg != null and dto.errormsg != ''">
+						and t1.ERRORMSG =#{dto.errormsg}
+    			</if>
+    			<if test="dto.interfaceId != null and dto.interfaceId != ''">
+						and t1.INTERFACE_ID =#{dto.interfaceId}
+    			</if>
+    			<if test="dto.remark != null and dto.remark != ''">
+						and t1.REMARK =#{dto.remark}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_JXL_CUST_INFO_STOCK  -->
+<select id="searchExtJxlCustInfoStock" parameterType="java.util.Map" resultMap="ExtJxlCustInfoStockDTO">
+    	     select 
+						t1.id                             ,
+						t1.real_name                      ,
+						t1.id_card_num                    ,
+						t1.gender                         ,
+						t1.sign                           ,
+						t1.age                            ,
+						t1.province                       ,
+						t1.city                           ,
+						t1.region                         ,
+						t1.call_info_msg                  ,
+						t1.cell_behavior_msg              ,
+						t1.check_info_msg                 ,
+						t1.contact_info_msg               ,
+						t1.contact_list_msg               ,
+						t1.contact_region_msg             ,
+						t1.data_source_msg                ,
+						t1.deliver_address_msg            ,
+						t1.demands_info_msg               ,
+						t1.ebusiness_expense_msg          ,
+						t1.receiver_msg                   ,
+						t1.recent_need_msg                ,
+						t1.trip_info_msg                  ,
+						t1.prod_code                      ,
+						t1.org_code                       ,
+						t1.sys_code                       ,
+						t1.retcode                        ,
+						t1.errormsg                       ,
+						t1.interface_id                   ,
+						t1.remark                         ,
+						t1.modify_time                    ,
+						t1.create_time                    
+				from ext_jxl_cust_info_stock 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.realName != null and dto.realName != ''">
+						and t1.REAL_NAME = #{dto.realName}
+    			</if>
+    			<if test="dto.idCardNum != null and dto.idCardNum != ''">
+						and t1.ID_CARD_NUM = #{dto.idCardNum}
+    			</if>
+    			<if test="dto.gender != null and dto.gender != ''">
+						and t1.GENDER = #{dto.gender}
+    			</if>
+    			<if test="dto.sign != null and dto.sign != ''">
+						and t1.SIGN = #{dto.sign}
+    			</if>
+    			<if test="dto.age != null and dto.age != ''">
+						and t1.AGE = #{dto.age}
+    			</if>
+    			<if test="dto.province != null and dto.province != ''">
+						and t1.PROVINCE = #{dto.province}
+    			</if>
+    			<if test="dto.city != null and dto.city != ''">
+						and t1.CITY = #{dto.city}
+    			</if>
+    			<if test="dto.region != null and dto.region != ''">
+						and t1.REGION = #{dto.region}
+    			</if>
+    			<if test="dto.callInfoMsg != null and dto.callInfoMsg != ''">
+						and t1.CALL_INFO_MSG = #{dto.callInfoMsg}
+    			</if>
+    			<if test="dto.cellBehaviorMsg != null and dto.cellBehaviorMsg != ''">
+						and t1.CELL_BEHAVIOR_MSG = #{dto.cellBehaviorMsg}
+    			</if>
+    			<if test="dto.checkInfoMsg != null and dto.checkInfoMsg != ''">
+						and t1.CHECK_INFO_MSG = #{dto.checkInfoMsg}
+    			</if>
+    			<if test="dto.contactInfoMsg != null and dto.contactInfoMsg != ''">
+						and t1.CONTACT_INFO_MSG = #{dto.contactInfoMsg}
+    			</if>
+    			<if test="dto.contactListMsg != null and dto.contactListMsg != ''">
+						and t1.CONTACT_LIST_MSG = #{dto.contactListMsg}
+    			</if>
+    			<if test="dto.contactRegionMsg != null and dto.contactRegionMsg != ''">
+						and t1.CONTACT_REGION_MSG = #{dto.contactRegionMsg}
+    			</if>
+    			<if test="dto.dataSourceMsg != null and dto.dataSourceMsg != ''">
+						and t1.DATA_SOURCE_MSG = #{dto.dataSourceMsg}
+    			</if>
+    			<if test="dto.deliverAddressMsg != null and dto.deliverAddressMsg != ''">
+						and t1.DELIVER_ADDRESS_MSG = #{dto.deliverAddressMsg}
+    			</if>
+    			<if test="dto.demandsInfoMsg != null and dto.demandsInfoMsg != ''">
+						and t1.DEMANDS_INFO_MSG = #{dto.demandsInfoMsg}
+    			</if>
+    			<if test="dto.ebusinessExpenseMsg != null and dto.ebusinessExpenseMsg != ''">
+						and t1.EBUSINESS_EXPENSE_MSG = #{dto.ebusinessExpenseMsg}
+    			</if>
+    			<if test="dto.receiverMsg != null and dto.receiverMsg != ''">
+						and t1.RECEIVER_MSG = #{dto.receiverMsg}
+    			</if>
+    			<if test="dto.recentNeedMsg != null and dto.recentNeedMsg != ''">
+						and t1.RECENT_NEED_MSG = #{dto.recentNeedMsg}
+    			</if>
+    			<if test="dto.tripInfoMsg != null and dto.tripInfoMsg != ''">
+						and t1.TRIP_INFO_MSG = #{dto.tripInfoMsg}
+    			</if>
+    			<if test="dto.prodCode != null and dto.prodCode != ''">
+						and t1.PROD_CODE = #{dto.prodCode}
+    			</if>
+    			<if test="dto.orgCode != null and dto.orgCode != ''">
+						and t1.ORG_CODE = #{dto.orgCode}
+    			</if>
+    			<if test="dto.sysCode != null and dto.sysCode != ''">
+						and t1.SYS_CODE = #{dto.sysCode}
+    			</if>
+    			<if test="dto.retcode != null and dto.retcode != ''">
+						and t1.RETCODE = #{dto.retcode}
+    			</if>
+    			<if test="dto.errormsg != null and dto.errormsg != ''">
+						and t1.ERRORMSG = #{dto.errormsg}
+    			</if>
+    			<if test="dto.interfaceId != null and dto.interfaceId != ''">
+						and t1.INTERFACE_ID = #{dto.interfaceId}
+    			</if>
+    			<if test="dto.remark != null and dto.remark != ''">
+						and t1.REMARK = #{dto.remark}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_JXL_CUST_INFO_STOCK -->
+<select id="findExtJxlCustInfoStockByPrimaryKey" parameterType="java.util.Map" resultMap="ExtJxlCustInfoStockDTO">
+   	 		select 
+					t1.id                             ,
+					t1.real_name                      ,
+					t1.id_card_num                    ,
+					t1.gender                         ,
+					t1.sign                           ,
+					t1.age                            ,
+					t1.province                       ,
+					t1.city                           ,
+					t1.region                         ,
+					t1.call_info_msg                  ,
+					t1.cell_behavior_msg              ,
+					t1.check_info_msg                 ,
+					t1.contact_info_msg               ,
+					t1.contact_list_msg               ,
+					t1.contact_region_msg             ,
+					t1.data_source_msg                ,
+					t1.deliver_address_msg            ,
+					t1.demands_info_msg               ,
+					t1.ebusiness_expense_msg          ,
+					t1.receiver_msg                   ,
+					t1.recent_need_msg                ,
+					t1.trip_info_msg                  ,
+					t1.prod_code                      ,
+					t1.org_code                       ,
+					t1.sys_code                       ,
+					t1.retcode                        ,
+					t1.errormsg                       ,
+					t1.interface_id                   ,
+					t1.remark                         ,
+					t1.modify_time                    ,
+					t1.create_time                    
+			from ext_jxl_cust_info_stock 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_JXL_CUST_INFO_STOCK -->
+<insert id="insertExtJxlCustInfoStock" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_JXL_CUST_INFO_STOCK.nextval as id from dual
+	</selectKey>
+			insert into ext_jxl_cust_info_stock
+			(   		
+					id                             ,
+					real_name                      ,
+					id_card_num                    ,
+					gender                         ,
+					sign                           ,
+					age                            ,
+					province                       ,
+					city                           ,
+					region                         ,
+					call_info_msg                  ,
+					cell_behavior_msg              ,
+					check_info_msg                 ,
+					contact_info_msg               ,
+					contact_list_msg               ,
+					contact_region_msg             ,
+					data_source_msg                ,
+					deliver_address_msg            ,
+					demands_info_msg               ,
+					ebusiness_expense_msg          ,
+					receiver_msg                   ,
+					recent_need_msg                ,
+					trip_info_msg                  ,
+					prod_code                      ,
+					org_code                       ,
+					sys_code                       ,
+					retcode                        ,
+					errormsg                       ,
+					interface_id                   ,
+					remark                         ,
+					create_time                    
+			)
+			values(#{dto.id}
+					,#{dto.realName,jdbcType=VARCHAR}
+					,#{dto.idCardNum,jdbcType=VARCHAR}
+					,#{dto.gender,jdbcType=VARCHAR}
+					,#{dto.sign,jdbcType=VARCHAR}
+					,#{dto.age,jdbcType=VARCHAR}
+					,#{dto.province,jdbcType=VARCHAR}
+					,#{dto.city,jdbcType=VARCHAR}
+					,#{dto.region,jdbcType=VARCHAR}
+					,#{dto.callInfoMsg,jdbcType=VARCHAR}
+					,#{dto.cellBehaviorMsg,jdbcType=VARCHAR}
+					,#{dto.checkInfoMsg,jdbcType=VARCHAR}
+					,#{dto.contactInfoMsg,jdbcType=VARCHAR}
+					,#{dto.contactListMsg,jdbcType=VARCHAR}
+					,#{dto.contactRegionMsg,jdbcType=VARCHAR}
+					,#{dto.dataSourceMsg,jdbcType=VARCHAR}
+					,#{dto.deliverAddressMsg,jdbcType=VARCHAR}
+					,#{dto.demandsInfoMsg,jdbcType=VARCHAR}
+					,#{dto.ebusinessExpenseMsg,jdbcType=VARCHAR}
+					,#{dto.receiverMsg,jdbcType=VARCHAR}
+					,#{dto.recentNeedMsg,jdbcType=VARCHAR}
+					,#{dto.tripInfoMsg,jdbcType=VARCHAR}
+					,#{dto.prodCode,jdbcType=VARCHAR}
+					,#{dto.orgCode,jdbcType=VARCHAR}
+					,#{dto.sysCode,jdbcType=VARCHAR}
+					,#{dto.retcode,jdbcType=VARCHAR}
+					,#{dto.errormsg,jdbcType=VARCHAR}
+					,#{dto.interfaceId,jdbcType=VARCHAR}
+					,#{dto.remark,jdbcType=VARCHAR}
+					,systimestamp
+			)
+</insert>
+    
+<!-- 更新对象 EXT_JXL_CUST_INFO_STOCK -->
+<update id="updateExtJxlCustInfoStock" parameterType="java.util.Map">
+	     update ext_jxl_cust_info_stock t1
+	           set 
+			           t1.real_name                      =#{dto.realName,jdbcType=VARCHAR},
+			           t1.id_card_num                    =#{dto.idCardNum,jdbcType=VARCHAR},
+			           t1.gender                         =#{dto.gender,jdbcType=VARCHAR},
+			           t1.sign                           =#{dto.sign,jdbcType=VARCHAR},
+			           t1.age                            =#{dto.age,jdbcType=VARCHAR},
+			           t1.province                       =#{dto.province,jdbcType=VARCHAR},
+			           t1.city                           =#{dto.city,jdbcType=VARCHAR},
+			           t1.region                         =#{dto.region,jdbcType=VARCHAR},
+			           t1.call_info_msg                  =#{dto.callInfoMsg,jdbcType=VARCHAR},
+			           t1.cell_behavior_msg              =#{dto.cellBehaviorMsg,jdbcType=VARCHAR},
+			           t1.check_info_msg                 =#{dto.checkInfoMsg,jdbcType=VARCHAR},
+			           t1.contact_info_msg               =#{dto.contactInfoMsg,jdbcType=VARCHAR},
+			           t1.contact_list_msg               =#{dto.contactListMsg,jdbcType=VARCHAR},
+			           t1.contact_region_msg             =#{dto.contactRegionMsg,jdbcType=VARCHAR},
+			           t1.data_source_msg                =#{dto.dataSourceMsg,jdbcType=VARCHAR},
+			           t1.deliver_address_msg            =#{dto.deliverAddressMsg,jdbcType=VARCHAR},
+			           t1.demands_info_msg               =#{dto.demandsInfoMsg,jdbcType=VARCHAR},
+			           t1.ebusiness_expense_msg          =#{dto.ebusinessExpenseMsg,jdbcType=VARCHAR},
+			           t1.receiver_msg                   =#{dto.receiverMsg,jdbcType=VARCHAR},
+			           t1.recent_need_msg                =#{dto.recentNeedMsg,jdbcType=VARCHAR},
+			           t1.trip_info_msg                  =#{dto.tripInfoMsg,jdbcType=VARCHAR},
+			           t1.prod_code                      =#{dto.prodCode,jdbcType=VARCHAR},
+			           t1.org_code                       =#{dto.orgCode,jdbcType=VARCHAR},
+			           t1.sys_code                       =#{dto.sysCode,jdbcType=VARCHAR},
+			           t1.retcode                        =#{dto.retcode,jdbcType=VARCHAR},
+			           t1.errormsg                       =#{dto.errormsg,jdbcType=VARCHAR},
+			           t1.interface_id                   =#{dto.interfaceId,jdbcType=VARCHAR},
+					   t1.modify_time                    =systimestamp,
+			           t1.remark                         =#{dto.remark,jdbcType=VARCHAR}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_JXL_CUST_INFO_STOCK -->
+<delete id="deleteExtJxlCustInfoStockByID" parameterType="java.util.Map">
+    	delete from ext_jxl_cust_info_stock t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_JXL_CUST_INFO_STOCK -->
+<update id="deleteExtJxlCustInfoStockByPrimaryKey" parameterType="java.util.Map">
+	     update ext_jxl_cust_info_stock t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

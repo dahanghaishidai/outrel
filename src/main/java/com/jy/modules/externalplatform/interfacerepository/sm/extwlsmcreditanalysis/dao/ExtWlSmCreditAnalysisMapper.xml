@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.sm.extwlsmcreditanalysis.dao.ExtWlSmCreditAnalysisDao">
+<resultMap id="ExtWlSmCreditAnalysisDTO" type="com.jy.modules.externalplatform.interfacerepository.sm.extwlsmcreditanalysis.dto.ExtWlSmCreditAnalysisDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="itfinRegisters" column="ITFIN_REGISTERS" jdbcType="DECIMAL" />
+				<result property="itfinLoanApplications" column="ITFIN_LOAN_APPLICATIONS" jdbcType="DECIMAL" />
+				<result property="itfinLoanRefuses" column="ITFIN_LOAN_REFUSES" jdbcType="DECIMAL" />
+				<result property="itfinLoanOverdues" column="ITFIN_LOAN_OVERDUES" jdbcType="DECIMAL" />
+				<result property="itfinLoanApprovals" column="ITFIN_LOAN_APPROVALS" jdbcType="DECIMAL" />
+				<result property="itfinLoanApprovalLevel" column="ITFIN_LOAN_APPROVAL_LEVEL" jdbcType="DECIMAL" />
+				<result property="itfinLoanOverdueDuration" column="ITFIN_LOAN_OVERDUE_DURATION" jdbcType="VARCHAR" />
+				<result property="itfinLoanOverdueLevel" column="ITFIN_LOAN_OVERDUE_LEVEL" jdbcType="DECIMAL" />
+				<result property="debitSalaryLevel" column="DEBIT_SALARY_LEVEL" jdbcType="DECIMAL" />
+				<result property="creditRegisters" column="CREDIT_REGISTERS" jdbcType="DECIMAL" />
+				<result property="creditLoanApplications" column="CREDIT_LOAN_APPLICATIONS" jdbcType="DECIMAL" />
+				<result property="creditLoanApprovals" column="CREDIT_LOAN_APPROVALS" jdbcType="DECIMAL" />
+				<result property="creditLoanRefuses" column="CREDIT_LOAN_REFUSES" jdbcType="DECIMAL" />
+				<result property="creditLoanOverdues" column="CREDIT_LOAN_OVERDUES" jdbcType="DECIMAL" />
+				<result property="creditLoanApprovalLevel" column="CREDIT_LOAN_APPROVAL_LEVEL" jdbcType="DECIMAL" />
+				<result property="creditLoanOverdueLevel" column="CREDIT_LOAN_OVERDUE_LEVEL" jdbcType="DECIMAL" />
+				<result property="creditLoanOverdueDuration" column="CREDIT_LOAN_OVERDUE_DURATION" jdbcType="VARCHAR" />
+				<result property="requestId" column="REQUEST_ID" jdbcType="VARCHAR" />
+				<result property="validateState" column="VALIDATE_STATE" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="updateTime" column="UPDATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="updateBy" column="UPDATE_BY" jdbcType="DECIMAL" />
+				<result property="intoCustRefId" column="INTO_CUST_REF_ID" jdbcType="DECIMAL" />
+				<result property="code" column="CODE" jdbcType="DECIMAL" />
+				<result property="message" column="MESSAGE" jdbcType="VARCHAR" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_SM_CREDIT_ANALYSIS -->	
+<select id="searchExtWlSmCreditAnalysisByPaging" parameterType="java.util.Map" resultMap="ExtWlSmCreditAnalysisDTO">
+    	 		select 
+						t1.id                             ,
+						t1.itfin_registers                ,
+						t1.itfin_loan_applications        ,
+						t1.itfin_loan_refuses             ,
+						t1.itfin_loan_overdues            ,
+						t1.itfin_loan_approvals           ,
+						t1.itfin_loan_approval_level      ,
+						t1.itfin_loan_overdue_duration    ,
+						t1.itfin_loan_overdue_level       ,
+						t1.debit_salary_level             ,
+						t1.credit_registers               ,
+						t1.credit_loan_applications       ,
+						t1.credit_loan_approvals          ,
+						t1.credit_loan_refuses            ,
+						t1.credit_loan_overdues           ,
+						t1.credit_loan_approval_level     ,
+						t1.credit_loan_overdue_level      ,
+						t1.credit_loan_overdue_duration   ,
+						t1.request_id                     ,
+						t1.validate_state                 ,
+						t1.create_time                    ,
+						t1.update_time                    ,
+						t1.create_by                      ,
+						t1.update_by                      ,
+						t1.into_cust_ref_id               ,
+						t1.code                           ,
+						t1.message                        
+					
+				from ext_wl_sm_credit_analysis 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.itfinRegisters != null and dto.itfinRegisters != ''">
+						and t1.ITFIN_REGISTERS =#{dto.itfinRegisters}
+    			</if>
+    			<if test="dto.itfinLoanApplications != null and dto.itfinLoanApplications != ''">
+						and t1.ITFIN_LOAN_APPLICATIONS =#{dto.itfinLoanApplications}
+    			</if>
+    			<if test="dto.itfinLoanRefuses != null and dto.itfinLoanRefuses != ''">
+						and t1.ITFIN_LOAN_REFUSES =#{dto.itfinLoanRefuses}
+    			</if>
+    			<if test="dto.itfinLoanOverdues != null and dto.itfinLoanOverdues != ''">
+						and t1.ITFIN_LOAN_OVERDUES =#{dto.itfinLoanOverdues}
+    			</if>
+    			<if test="dto.itfinLoanApprovals != null and dto.itfinLoanApprovals != ''">
+						and t1.ITFIN_LOAN_APPROVALS =#{dto.itfinLoanApprovals}
+    			</if>
+    			<if test="dto.itfinLoanApprovalLevel != null and dto.itfinLoanApprovalLevel != ''">
+						and t1.ITFIN_LOAN_APPROVAL_LEVEL =#{dto.itfinLoanApprovalLevel}
+    			</if>
+    			<if test="dto.itfinLoanOverdueDuration != null and dto.itfinLoanOverdueDuration != ''">
+						and t1.ITFIN_LOAN_OVERDUE_DURATION =#{dto.itfinLoanOverdueDuration}
+    			</if>
+    			<if test="dto.itfinLoanOverdueLevel != null and dto.itfinLoanOverdueLevel != ''">
+						and t1.ITFIN_LOAN_OVERDUE_LEVEL =#{dto.itfinLoanOverdueLevel}
+    			</if>
+    			<if test="dto.debitSalaryLevel != null and dto.debitSalaryLevel != ''">
+						and t1.DEBIT_SALARY_LEVEL =#{dto.debitSalaryLevel}
+    			</if>
+    			<if test="dto.creditRegisters != null and dto.creditRegisters != ''">
+						and t1.CREDIT_REGISTERS =#{dto.creditRegisters}
+    			</if>
+    			<if test="dto.creditLoanApplications != null and dto.creditLoanApplications != ''">
+						and t1.CREDIT_LOAN_APPLICATIONS =#{dto.creditLoanApplications}
+    			</if>
+    			<if test="dto.creditLoanApprovals != null and dto.creditLoanApprovals != ''">
+						and t1.CREDIT_LOAN_APPROVALS =#{dto.creditLoanApprovals}
+    			</if>
+    			<if test="dto.creditLoanRefuses != null and dto.creditLoanRefuses != ''">
+						and t1.CREDIT_LOAN_REFUSES =#{dto.creditLoanRefuses}
+    			</if>
+    			<if test="dto.creditLoanOverdues != null and dto.creditLoanOverdues != ''">
+						and t1.CREDIT_LOAN_OVERDUES =#{dto.creditLoanOverdues}
+    			</if>
+    			<if test="dto.creditLoanApprovalLevel != null and dto.creditLoanApprovalLevel != ''">
+						and t1.CREDIT_LOAN_APPROVAL_LEVEL =#{dto.creditLoanApprovalLevel}
+    			</if>
+    			<if test="dto.creditLoanOverdueLevel != null and dto.creditLoanOverdueLevel != ''">
+						and t1.CREDIT_LOAN_OVERDUE_LEVEL =#{dto.creditLoanOverdueLevel}
+    			</if>
+    			<if test="dto.creditLoanOverdueDuration != null and dto.creditLoanOverdueDuration != ''">
+						and t1.CREDIT_LOAN_OVERDUE_DURATION =#{dto.creditLoanOverdueDuration}
+    			</if>
+    			<if test="dto.requestId != null and dto.requestId != ''">
+						and t1.REQUEST_ID =#{dto.requestId}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE =#{dto.validateState}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.updateTime != null and dto.updateTime != ''">
+						and t1.UPDATE_TIME =#{dto.updateTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY =#{dto.updateBy}
+    			</if>
+    			<if test="dto.intoCustRefId != null and dto.intoCustRefId != ''">
+						and t1.INTO_CUST_REF_ID =#{dto.intoCustRefId}
+    			</if>
+    			<if test="dto.code != null and dto.code != ''">
+						and t1.CODE =#{dto.code}
+    			</if>
+    			<if test="dto.message != null and dto.message != ''">
+						and t1.MESSAGE =#{dto.message}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_SM_CREDIT_ANALYSIS  -->
+<select id="searchExtWlSmCreditAnalysis" parameterType="java.util.Map" resultMap="ExtWlSmCreditAnalysisDTO">
+    	     select 
+						t1.id                             ,
+						t1.itfin_registers                ,
+						t1.itfin_loan_applications        ,
+						t1.itfin_loan_refuses             ,
+						t1.itfin_loan_overdues            ,
+						t1.itfin_loan_approvals           ,
+						t1.itfin_loan_approval_level      ,
+						t1.itfin_loan_overdue_duration    ,
+						t1.itfin_loan_overdue_level       ,
+						t1.debit_salary_level             ,
+						t1.credit_registers               ,
+						t1.credit_loan_applications       ,
+						t1.credit_loan_approvals          ,
+						t1.credit_loan_refuses            ,
+						t1.credit_loan_overdues           ,
+						t1.credit_loan_approval_level     ,
+						t1.credit_loan_overdue_level      ,
+						t1.credit_loan_overdue_duration   ,
+						t1.request_id                     ,
+						t1.validate_state                 ,
+						t1.create_time                    ,
+						t1.update_time                    ,
+						t1.create_by                      ,
+						t1.update_by                      ,
+						t1.into_cust_ref_id               ,
+						t1.code                           ,
+						t1.message                        
+				from ext_wl_sm_credit_analysis 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.itfinRegisters != null and dto.itfinRegisters != ''">
+						and t1.ITFIN_REGISTERS = #{dto.itfinRegisters}
+    			</if>
+    			<if test="dto.itfinLoanApplications != null and dto.itfinLoanApplications != ''">
+						and t1.ITFIN_LOAN_APPLICATIONS = #{dto.itfinLoanApplications}
+    			</if>
+    			<if test="dto.itfinLoanRefuses != null and dto.itfinLoanRefuses != ''">
+						and t1.ITFIN_LOAN_REFUSES = #{dto.itfinLoanRefuses}
+    			</if>
+    			<if test="dto.itfinLoanOverdues != null and dto.itfinLoanOverdues != ''">
+						and t1.ITFIN_LOAN_OVERDUES = #{dto.itfinLoanOverdues}
+    			</if>
+    			<if test="dto.itfinLoanApprovals != null and dto.itfinLoanApprovals != ''">
+						and t1.ITFIN_LOAN_APPROVALS = #{dto.itfinLoanApprovals}
+    			</if>
+    			<if test="dto.itfinLoanApprovalLevel != null and dto.itfinLoanApprovalLevel != ''">
+						and t1.ITFIN_LOAN_APPROVAL_LEVEL = #{dto.itfinLoanApprovalLevel}
+    			</if>
+    			<if test="dto.itfinLoanOverdueDuration != null and dto.itfinLoanOverdueDuration != ''">
+						and t1.ITFIN_LOAN_OVERDUE_DURATION = #{dto.itfinLoanOverdueDuration}
+    			</if>
+    			<if test="dto.itfinLoanOverdueLevel != null and dto.itfinLoanOverdueLevel != ''">
+						and t1.ITFIN_LOAN_OVERDUE_LEVEL = #{dto.itfinLoanOverdueLevel}
+    			</if>
+    			<if test="dto.debitSalaryLevel != null and dto.debitSalaryLevel != ''">
+						and t1.DEBIT_SALARY_LEVEL = #{dto.debitSalaryLevel}
+    			</if>
+    			<if test="dto.creditRegisters != null and dto.creditRegisters != ''">
+						and t1.CREDIT_REGISTERS = #{dto.creditRegisters}
+    			</if>
+    			<if test="dto.creditLoanApplications != null and dto.creditLoanApplications != ''">
+						and t1.CREDIT_LOAN_APPLICATIONS = #{dto.creditLoanApplications}
+    			</if>
+    			<if test="dto.creditLoanApprovals != null and dto.creditLoanApprovals != ''">
+						and t1.CREDIT_LOAN_APPROVALS = #{dto.creditLoanApprovals}
+    			</if>
+    			<if test="dto.creditLoanRefuses != null and dto.creditLoanRefuses != ''">
+						and t1.CREDIT_LOAN_REFUSES = #{dto.creditLoanRefuses}
+    			</if>
+    			<if test="dto.creditLoanOverdues != null and dto.creditLoanOverdues != ''">
+						and t1.CREDIT_LOAN_OVERDUES = #{dto.creditLoanOverdues}
+    			</if>
+    			<if test="dto.creditLoanApprovalLevel != null and dto.creditLoanApprovalLevel != ''">
+						and t1.CREDIT_LOAN_APPROVAL_LEVEL = #{dto.creditLoanApprovalLevel}
+    			</if>
+    			<if test="dto.creditLoanOverdueLevel != null and dto.creditLoanOverdueLevel != ''">
+						and t1.CREDIT_LOAN_OVERDUE_LEVEL = #{dto.creditLoanOverdueLevel}
+    			</if>
+    			<if test="dto.creditLoanOverdueDuration != null and dto.creditLoanOverdueDuration != ''">
+						and t1.CREDIT_LOAN_OVERDUE_DURATION = #{dto.creditLoanOverdueDuration}
+    			</if>
+    			<if test="dto.requestId != null and dto.requestId != ''">
+						and t1.REQUEST_ID = #{dto.requestId}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE = #{dto.validateState}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.updateTime != null and dto.updateTime != ''">
+						and t1.UPDATE_TIME = #{dto.updateTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY = #{dto.updateBy}
+    			</if>
+    			<if test="dto.intoCustRefId != null and dto.intoCustRefId != ''">
+						and t1.INTO_CUST_REF_ID = #{dto.intoCustRefId}
+    			</if>
+    			<if test="dto.code != null and dto.code != ''">
+						and t1.CODE = #{dto.code}
+    			</if>
+    			<if test="dto.message != null and dto.message != ''">
+						and t1.MESSAGE = #{dto.message}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_SM_CREDIT_ANALYSIS -->
+<select id="findExtWlSmCreditAnalysisByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlSmCreditAnalysisDTO">
+   	 		select 
+					t1.id                             ,
+					t1.itfin_registers                ,
+					t1.itfin_loan_applications        ,
+					t1.itfin_loan_refuses             ,
+					t1.itfin_loan_overdues            ,
+					t1.itfin_loan_approvals           ,
+					t1.itfin_loan_approval_level      ,
+					t1.itfin_loan_overdue_duration    ,
+					t1.itfin_loan_overdue_level       ,
+					t1.debit_salary_level             ,
+					t1.credit_registers               ,
+					t1.credit_loan_applications       ,
+					t1.credit_loan_approvals          ,
+					t1.credit_loan_refuses            ,
+					t1.credit_loan_overdues           ,
+					t1.credit_loan_approval_level     ,
+					t1.credit_loan_overdue_level      ,
+					t1.credit_loan_overdue_duration   ,
+					t1.request_id                     ,
+					t1.validate_state                 ,
+					t1.create_time                    ,
+					t1.update_time                    ,
+					t1.create_by                      ,
+					t1.update_by                      ,
+					t1.into_cust_ref_id               ,
+					t1.code                           ,
+					t1.message                        
+			from ext_wl_sm_credit_analysis 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_SM_CREDIT_ANALYSIS -->
+<insert id="insertExtWlSmCreditAnalysis" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_SM_CREDIT_ANALYSIS.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_sm_credit_analysis
+			(   		
+					id                             ,
+					itfin_registers                ,
+					itfin_loan_applications        ,
+					itfin_loan_refuses             ,
+					itfin_loan_overdues            ,
+					itfin_loan_approvals           ,
+					itfin_loan_approval_level      ,
+					itfin_loan_overdue_duration    ,
+					itfin_loan_overdue_level       ,
+					debit_salary_level             ,
+					credit_registers               ,
+					credit_loan_applications       ,
+					credit_loan_approvals          ,
+					credit_loan_refuses            ,
+					credit_loan_overdues           ,
+					credit_loan_approval_level     ,
+					credit_loan_overdue_level      ,
+					credit_loan_overdue_duration   ,
+					request_id                     ,
+					validate_state                 ,
+					create_time                    ,
+					update_time                    ,
+					create_by                      ,
+					update_by                      ,
+					into_cust_ref_id               ,
+					code                           ,
+					message                        
+			)
+			values(#{dto.id}
+					,#{dto.itfinRegisters,jdbcType=DECIMAL}
+					,#{dto.itfinLoanApplications,jdbcType=DECIMAL}
+					,#{dto.itfinLoanRefuses,jdbcType=DECIMAL}
+					,#{dto.itfinLoanOverdues,jdbcType=DECIMAL}
+					,#{dto.itfinLoanApprovals,jdbcType=DECIMAL}
+					,#{dto.itfinLoanApprovalLevel,jdbcType=DECIMAL}
+					,#{dto.itfinLoanOverdueDuration,jdbcType=VARCHAR}
+					,#{dto.itfinLoanOverdueLevel,jdbcType=DECIMAL}
+					,#{dto.debitSalaryLevel,jdbcType=DECIMAL}
+					,#{dto.creditRegisters,jdbcType=DECIMAL}
+					,#{dto.creditLoanApplications,jdbcType=DECIMAL}
+					,#{dto.creditLoanApprovals,jdbcType=DECIMAL}
+					,#{dto.creditLoanRefuses,jdbcType=DECIMAL}
+					,#{dto.creditLoanOverdues,jdbcType=DECIMAL}
+					,#{dto.creditLoanApprovalLevel,jdbcType=DECIMAL}
+					,#{dto.creditLoanOverdueLevel,jdbcType=DECIMAL}
+					,#{dto.creditLoanOverdueDuration,jdbcType=VARCHAR}
+					,#{dto.requestId,jdbcType=VARCHAR}
+					,'1'
+					,systimestamp
+					,#{dto.updateTime,jdbcType=TIMESTAMP}
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.updateBy,jdbcType=DECIMAL}
+					,#{dto.intoCustRefId,jdbcType=DECIMAL}
+					,#{dto.code,jdbcType=DECIMAL}
+					,#{dto.message,jdbcType=VARCHAR}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_SM_CREDIT_ANALYSIS -->
+<update id="updateExtWlSmCreditAnalysis" parameterType="java.util.Map">
+	     update ext_wl_sm_credit_analysis t1
+	           set 
+			           t1.itfin_registers                =#{dto.itfinRegisters,jdbcType=DECIMAL},
+			           t1.itfin_loan_applications        =#{dto.itfinLoanApplications,jdbcType=DECIMAL},
+			           t1.itfin_loan_refuses             =#{dto.itfinLoanRefuses,jdbcType=DECIMAL},
+			           t1.itfin_loan_overdues            =#{dto.itfinLoanOverdues,jdbcType=DECIMAL},
+			           t1.itfin_loan_approvals           =#{dto.itfinLoanApprovals,jdbcType=DECIMAL},
+			           t1.itfin_loan_approval_level      =#{dto.itfinLoanApprovalLevel,jdbcType=DECIMAL},
+			           t1.itfin_loan_overdue_duration    =#{dto.itfinLoanOverdueDuration,jdbcType=VARCHAR},
+			           t1.itfin_loan_overdue_level       =#{dto.itfinLoanOverdueLevel,jdbcType=DECIMAL},
+			           t1.debit_salary_level             =#{dto.debitSalaryLevel,jdbcType=DECIMAL},
+			           t1.credit_registers               =#{dto.creditRegisters,jdbcType=DECIMAL},
+			           t1.credit_loan_applications       =#{dto.creditLoanApplications,jdbcType=DECIMAL},
+			           t1.credit_loan_approvals          =#{dto.creditLoanApprovals,jdbcType=DECIMAL},
+			           t1.credit_loan_refuses            =#{dto.creditLoanRefuses,jdbcType=DECIMAL},
+			           t1.credit_loan_overdues           =#{dto.creditLoanOverdues,jdbcType=DECIMAL},
+			           t1.credit_loan_approval_level     =#{dto.creditLoanApprovalLevel,jdbcType=DECIMAL},
+			           t1.credit_loan_overdue_level      =#{dto.creditLoanOverdueLevel,jdbcType=DECIMAL},
+			           t1.credit_loan_overdue_duration   =#{dto.creditLoanOverdueDuration,jdbcType=VARCHAR},
+			           t1.request_id                     =#{dto.requestId,jdbcType=VARCHAR},
+			           t1.validate_state                 ='1',
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.update_time                    =#{dto.updateTime,jdbcType=TIMESTAMP},
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.update_by                      =#{dto.updateBy,jdbcType=DECIMAL},
+			           t1.into_cust_ref_id               =#{dto.intoCustRefId,jdbcType=DECIMAL},
+			           t1.code                           =#{dto.code,jdbcType=DECIMAL},
+			           t1.message                        =#{dto.message,jdbcType=VARCHAR}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_SM_CREDIT_ANALYSIS -->
+<delete id="deleteExtWlSmCreditAnalysisByID" parameterType="java.util.Map">
+    	delete from ext_wl_sm_credit_analysis t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_SM_CREDIT_ANALYSIS -->
+<update id="deleteExtWlSmCreditAnalysisByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_sm_credit_analysis t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

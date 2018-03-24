@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.sh.extwlsharepaddresses.dao.ExtWlSharePAddressesDao">
+<resultMap id="ExtWlSharePAddressesDTO" type="com.jy.modules.externalplatform.interfacerepository.sh.extwlsharepaddresses.dto.ExtWlSharePAddressesDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="contactAddress" column="CONTACT_ADDRESS" jdbcType="VARCHAR" />
+				<result property="updateTime" column="UPDATE_TIME" jdbcType="VARCHAR" />
+				<result property="fkReportId" column="FK_REPORT_ID" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_SHARE_P_ADDRESSES -->	
+<select id="searchExtWlSharePAddressesByPaging" parameterType="java.util.Map" resultMap="ExtWlSharePAddressesDTO">
+    	 		select 
+						t1.id                             ,
+						t1.contact_address                ,
+						t1.update_time                    ,
+						t1.fk_report_id                   ,
+						t1.create_time                    ,
+						t1.modify_time                    
+					
+				from ext_wl_share_p_addresses 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.contactAddress != null and dto.contactAddress != ''">
+						and t1.CONTACT_ADDRESS =#{dto.contactAddress}
+    			</if>
+    			<if test="dto.updateTime != null and dto.updateTime != ''">
+						and t1.UPDATE_TIME =#{dto.updateTime}
+    			</if>
+    			<if test="dto.fkReportId != null and dto.fkReportId != ''">
+						and t1.FK_REPORT_ID =#{dto.fkReportId}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_SHARE_P_ADDRESSES  -->
+<select id="searchExtWlSharePAddresses" parameterType="java.util.Map" resultMap="ExtWlSharePAddressesDTO">
+    	     select 
+						t1.id                             ,
+						t1.contact_address                ,
+						t1.update_time                    ,
+						t1.fk_report_id                   ,
+						t1.create_time                    ,
+						t1.modify_time                    
+				from ext_wl_share_p_addresses 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.contactAddress != null and dto.contactAddress != ''">
+						and t1.CONTACT_ADDRESS = #{dto.contactAddress}
+    			</if>
+    			<if test="dto.updateTime != null and dto.updateTime != ''">
+						and t1.UPDATE_TIME = #{dto.updateTime}
+    			</if>
+    			<if test="dto.fkReportId != null and dto.fkReportId != ''">
+						and t1.FK_REPORT_ID = #{dto.fkReportId}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_SHARE_P_ADDRESSES -->
+<select id="findExtWlSharePAddressesByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlSharePAddressesDTO">
+   	 		select 
+					t1.id                             ,
+					t1.contact_address                ,
+					t1.update_time                    ,
+					t1.fk_report_id                   ,
+					t1.create_time                    ,
+					t1.modify_time                    
+			from ext_wl_share_p_addresses 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_SHARE_P_ADDRESSES -->
+<insert id="insertExtWlSharePAddresses" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_SHARE_P_ADDRESSES.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_share_p_addresses
+			(   		
+					id                             ,
+					contact_address                ,
+					update_time                    ,
+					fk_report_id                   ,
+					create_time                    ,
+					modify_time                    
+			)
+			values(#{dto.id}
+					,#{dto.contactAddress,jdbcType=VARCHAR}
+					,#{dto.updateTime,jdbcType=VARCHAR}
+					,#{dto.fkReportId,jdbcType=DECIMAL}
+					,#{dto.createTime,jdbcType=TIMESTAMP}
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_SHARE_P_ADDRESSES -->
+<update id="updateExtWlSharePAddresses" parameterType="java.util.Map">
+	     update ext_wl_share_p_addresses t1
+	           set 
+			           t1.contact_address                =#{dto.contactAddress,jdbcType=VARCHAR},
+			           t1.update_time                    =#{dto.updateTime,jdbcType=VARCHAR},
+			           t1.fk_report_id                   =#{dto.fkReportId,jdbcType=DECIMAL},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_SHARE_P_ADDRESSES -->
+<delete id="deleteExtWlSharePAddressesByID" parameterType="java.util.Map">
+    	delete from ext_wl_share_p_addresses t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_SHARE_P_ADDRESSES -->
+<update id="deleteExtWlSharePAddressesByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_share_p_addresses t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+
+  
+<insert id="insertExtWlSharePAddressesList" parameterType="java.util.Map">
+begin
+    <foreach collection="dtoList" item="dto" >
+    		insert into ext_wl_share_p_addresses
+			(   		
+					id                             ,
+					contact_address                ,
+					update_time                    ,
+					fk_report_id                   ,
+					create_time                    ,
+					modify_time                    
+			)
+			values(seq_EXT_WL_SHARE_P_ADDRESSES.nextval
+					,#{dto.contactAddress,jdbcType=VARCHAR}
+					,#{dto.updateTime,jdbcType=VARCHAR}
+					,#{fkReportId}
+					,systimestamp
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+			);
+    </foreach>
+  end;
+</insert>
+
+</mapper>

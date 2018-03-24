@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.xayx.extwlfpxafraudrisk.dao.ExtWlFpxaFraudRiskDao">
+<resultMap id="ExtWlFpxaFraudRiskDTO" type="com.jy.modules.externalplatform.interfacerepository.xayx.extwlfpxafraudrisk.dto.ExtWlFpxaFraudRiskDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="modifyBy" column="MODIFY_BY" jdbcType="DECIMAL" />
+				<result property="fkId" column="FK_ID" jdbcType="DECIMAL" />
+				<result property="isCheat" column="IS_CHEAT" jdbcType="VARCHAR" />
+				<result property="beBlackDate" column="BE_BLACK_DATE" jdbcType="VARCHAR" />
+				<result property="touchRiskDate" column="TOUCH_RISK_DATE" jdbcType="VARCHAR" />
+				<result property="riskScore" column="RISK_SCORE" jdbcType="VARCHAR" />
+</resultMap>
+
+
+  
+<!-- 新增对象 EXT_WL_FPXA_FRAUD_RISK -->
+<insert id="insertExtWlFpxaFraudRisk" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_FPXA_FRAUD_RISK.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_fpxa_fraud_risk
+			(   		
+					id                             ,
+					create_time                    ,
+					modify_time                    ,
+					create_by                      ,
+					modify_by                      ,
+					fk_id                          ,
+					is_cheat                       ,
+					be_black_date                  ,
+					touch_risk_date                ,
+					risk_score                     
+			)
+			values(#{dto.id}
+					,systimestamp
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.modifyBy,jdbcType=DECIMAL}
+					,#{dto.fkId,jdbcType=DECIMAL}
+					,#{dto.isCheat,jdbcType=VARCHAR}
+					,#{dto.beBlackDate,jdbcType=VARCHAR}
+					,#{dto.touchRiskDate,jdbcType=VARCHAR}
+					,#{dto.riskScore,jdbcType=VARCHAR}
+			)
+</insert>
+    
+
+</mapper>

@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.zc.extwlzcmixedriskinfo.dao.ExtWlZcMixedRiskInfoDao">
+<resultMap id="ExtWlZcMixedRiskInfoDTO" type="com.jy.modules.externalplatform.interfacerepository.zc.extwlzcmixedriskinfo.dto.ExtWlZcMixedRiskInfoDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="intoId" column="INTO_ID" jdbcType="VARCHAR" />
+				<result property="cardId" column="CARD_ID" jdbcType="VARCHAR" />
+				<result property="custName" column="CUST_NAME" jdbcType="VARCHAR" />
+				<result property="message" column="MESSAGE" jdbcType="VARCHAR" />
+				<result property="errorCode" column="ERROR_CODE" jdbcType="VARCHAR" />
+				<result property="bankCheckAuth3" column="BANK_CHECK_AUTH3" jdbcType="VARCHAR" />
+				<result property="bankCheckAuth3Code" column="BANK_CHECK_AUTH3_CODE" jdbcType="VARCHAR" />
+				<result property="bankCheckAuth4" column="BANK_CHECK_AUTH4" jdbcType="VARCHAR" />
+				<result property="bankCheckAuth4Code" column="BANK_CHECK_AUTH4_CODE" jdbcType="VARCHAR" />
+				<result property="identityVerify" column="IDENTITY_VERIFY" jdbcType="VARCHAR" />
+				<result property="identityVerifyCode" column="IDENTITY_VERIFY_CODE" jdbcType="VARCHAR" />
+				<result property="zcFraudScore" column="ZC_FRAUD_SCORE" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="validateState" column="VALIDATE_STATE" jdbcType="VARCHAR" />
+</resultMap>
+				
+<!-- 分页查询 ext_wl_zc_mixed_risk_info -->	
+<select id="searchExtWlZcMixedRiskInfoByPaging" parameterType="java.util.Map" resultMap="ExtWlZcMixedRiskInfoDTO">
+    	 		select 
+						t1.id                             ,
+						t1.into_id                        ,
+						t1.card_id                        ,
+						t1.cust_name                      ,
+						t1.message                        ,
+						t1.error_code                     ,
+						t1.bank_check_auth3               ,
+						t1.bank_check_auth3_code          ,
+						t1.bank_check_auth4               ,
+						t1.bank_check_auth4_code          ,
+						t1.identity_verify                ,
+						t1.identity_verify_code           ,
+						t1.zc_fraud_score                 ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.validate_state                 
+					
+				from ext_wl_zc_mixed_risk_info 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.intoId != null and dto.intoId != ''">
+						and t1.INTO_ID =#{dto.intoId}
+    			</if>
+    			<if test="dto.cardId != null and dto.cardId != ''">
+						and t1.CARD_ID =#{dto.cardId}
+    			</if>
+    			<if test="dto.custName != null and dto.custName != ''">
+						and t1.CUST_NAME =#{dto.custName}
+    			</if>
+    			<if test="dto.message != null and dto.message != ''">
+						and t1.MESSAGE =#{dto.message}
+    			</if>
+    			<if test="dto.errorCode != null and dto.errorCode != ''">
+						and t1.ERROR_CODE =#{dto.errorCode}
+    			</if>
+    			<if test="dto.bankCheckAuth3 != null and dto.bankCheckAuth3 != ''">
+						and t1.BANK_CHECK_AUTH3 =#{dto.bankCheckAuth3}
+    			</if>
+    			<if test="dto.bankCheckAuth3Code != null and dto.bankCheckAuth3Code != ''">
+						and t1.BANK_CHECK_AUTH3_CODE =#{dto.bankCheckAuth3Code}
+    			</if>
+    			<if test="dto.bankCheckAuth4 != null and dto.bankCheckAuth4 != ''">
+						and t1.BANK_CHECK_AUTH4 =#{dto.bankCheckAuth4}
+    			</if>
+    			<if test="dto.bankCheckAuth4Code != null and dto.bankCheckAuth4Code != ''">
+						and t1.BANK_CHECK_AUTH4_CODE =#{dto.bankCheckAuth4Code}
+    			</if>
+    			<if test="dto.identityVerify != null and dto.identityVerify != ''">
+						and t1.IDENTITY_VERIFY =#{dto.identityVerify}
+    			</if>
+    			<if test="dto.identityVerifyCode != null and dto.identityVerifyCode != ''">
+						and t1.IDENTITY_VERIFY_CODE =#{dto.identityVerifyCode}
+    			</if>
+    			<if test="dto.zcFraudScore != null and dto.zcFraudScore != ''">
+						and t1.ZC_FRAUD_SCORE =#{dto.zcFraudScore}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE =#{dto.validateState}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 ext_wl_zc_mixed_risk_info  -->
+<select id="searchExtWlZcMixedRiskInfo" parameterType="java.util.Map" resultMap="ExtWlZcMixedRiskInfoDTO">
+    	     select 
+						t1.id                             ,
+						t1.into_id                        ,
+						t1.card_id                        ,
+						t1.cust_name                      ,
+						t1.message                        ,
+						t1.error_code                     ,
+						t1.bank_check_auth3               ,
+						t1.bank_check_auth3_code          ,
+						t1.bank_check_auth4               ,
+						t1.bank_check_auth4_code          ,
+						t1.identity_verify                ,
+						t1.identity_verify_code           ,
+						t1.zc_fraud_score                 ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.validate_state                 
+				from ext_wl_zc_mixed_risk_info 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.intoId != null and dto.intoId != ''">
+						and t1.INTO_ID = #{dto.intoId}
+    			</if>
+    			<if test="dto.cardId != null and dto.cardId != ''">
+						and t1.CARD_ID = #{dto.cardId}
+    			</if>
+    			<if test="dto.custName != null and dto.custName != ''">
+						and t1.CUST_NAME = #{dto.custName}
+    			</if>
+    			<if test="dto.message != null and dto.message != ''">
+						and t1.MESSAGE = #{dto.message}
+    			</if>
+    			<if test="dto.errorCode != null and dto.errorCode != ''">
+						and t1.ERROR_CODE = #{dto.errorCode}
+    			</if>
+    			<if test="dto.bankCheckAuth3 != null and dto.bankCheckAuth3 != ''">
+						and t1.BANK_CHECK_AUTH3 = #{dto.bankCheckAuth3}
+    			</if>
+    			<if test="dto.bankCheckAuth3Code != null and dto.bankCheckAuth3Code != ''">
+						and t1.BANK_CHECK_AUTH3_CODE = #{dto.bankCheckAuth3Code}
+    			</if>
+    			<if test="dto.bankCheckAuth4 != null and dto.bankCheckAuth4 != ''">
+						and t1.BANK_CHECK_AUTH4 = #{dto.bankCheckAuth4}
+    			</if>
+    			<if test="dto.bankCheckAuth4Code != null and dto.bankCheckAuth4Code != ''">
+						and t1.BANK_CHECK_AUTH4_CODE = #{dto.bankCheckAuth4Code}
+    			</if>
+    			<if test="dto.identityVerify != null and dto.identityVerify != ''">
+						and t1.IDENTITY_VERIFY = #{dto.identityVerify}
+    			</if>
+    			<if test="dto.identityVerifyCode != null and dto.identityVerifyCode != ''">
+						and t1.IDENTITY_VERIFY_CODE = #{dto.identityVerifyCode}
+    			</if>
+    			<if test="dto.zcFraudScore != null and dto.zcFraudScore != ''">
+						and t1.ZC_FRAUD_SCORE = #{dto.zcFraudScore}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE = #{dto.validateState}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  ext_wl_zc_mixed_risk_info -->
+<select id="findExtWlZcMixedRiskInfoByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlZcMixedRiskInfoDTO">
+   	 		select 
+					t1.id                             ,
+					t1.into_id                        ,
+					t1.card_id                        ,
+					t1.cust_name                      ,
+					t1.message                        ,
+					t1.error_code                     ,
+					t1.bank_check_auth3               ,
+					t1.bank_check_auth3_code          ,
+					t1.bank_check_auth4               ,
+					t1.bank_check_auth4_code          ,
+					t1.identity_verify                ,
+					t1.identity_verify_code           ,
+					t1.zc_fraud_score                 ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.validate_state                 
+			from ext_wl_zc_mixed_risk_info 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 ext_wl_zc_mixed_risk_info -->
+<insert id="insertExtWlZcMixedRiskInfo" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_ext_wl_zc_mixed_risk_info.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_zc_mixed_risk_info
+			(   		
+					id                             ,
+					into_id                        ,
+					card_id                        ,
+					cust_name                      ,
+					message                        ,
+					error_code                     ,
+					bank_check_auth3               ,
+					bank_check_auth3_code          ,
+					bank_check_auth4               ,
+					bank_check_auth4_code          ,
+					identity_verify                ,
+					identity_verify_code           ,
+					zc_fraud_score                 ,
+					create_time                    ,
+					modify_time                    ,
+					validate_state                 
+			)
+			values(#{dto.id}
+					,#{dto.intoId,jdbcType=VARCHAR}
+					,#{dto.cardId,jdbcType=VARCHAR}
+					,#{dto.custName,jdbcType=VARCHAR}
+					,#{dto.message,jdbcType=VARCHAR}
+					,#{dto.errorCode,jdbcType=VARCHAR}
+					,#{dto.bankCheckAuth3,jdbcType=VARCHAR}
+					,#{dto.bankCheckAuth3Code,jdbcType=VARCHAR}
+					,#{dto.bankCheckAuth4,jdbcType=VARCHAR}
+					,#{dto.bankCheckAuth4Code,jdbcType=VARCHAR}
+					,#{dto.identityVerify,jdbcType=VARCHAR}
+					,#{dto.identityVerifyCode,jdbcType=VARCHAR}
+					,#{dto.zcFraudScore,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,'1'
+			)
+</insert>
+    
+<!-- 更新对象 ext_wl_zc_mixed_risk_info -->
+<update id="updateExtWlZcMixedRiskInfo" parameterType="java.util.Map">
+	     update ext_wl_zc_mixed_risk_info t1
+	           set 
+			           t1.into_id                        =#{dto.intoId,jdbcType=VARCHAR},
+			           t1.card_id                        =#{dto.cardId,jdbcType=VARCHAR},
+			           t1.cust_name                      =#{dto.custName,jdbcType=VARCHAR},
+			           t1.message                        =#{dto.message,jdbcType=VARCHAR},
+			           t1.error_code                     =#{dto.errorCode,jdbcType=VARCHAR},
+			           t1.bank_check_auth3               =#{dto.bankCheckAuth3,jdbcType=VARCHAR},
+			           t1.bank_check_auth3_code          =#{dto.bankCheckAuth3Code,jdbcType=VARCHAR},
+			           t1.bank_check_auth4               =#{dto.bankCheckAuth4,jdbcType=VARCHAR},
+			           t1.bank_check_auth4_code          =#{dto.bankCheckAuth4Code,jdbcType=VARCHAR},
+			           t1.identity_verify                =#{dto.identityVerify,jdbcType=VARCHAR},
+			           t1.identity_verify_code           =#{dto.identityVerifyCode,jdbcType=VARCHAR},
+			           t1.zc_fraud_score                 =#{dto.zcFraudScore,jdbcType=VARCHAR},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP},
+			           t1.validate_state                 ='1'
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 ext_wl_zc_mixed_risk_info -->
+<delete id="deleteExtWlZcMixedRiskInfoByID" parameterType="java.util.Map">
+    	delete from ext_wl_zc_mixed_risk_info t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 ext_wl_zc_mixed_risk_info -->
+<update id="deleteExtWlZcMixedRiskInfoByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_zc_mixed_risk_info t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

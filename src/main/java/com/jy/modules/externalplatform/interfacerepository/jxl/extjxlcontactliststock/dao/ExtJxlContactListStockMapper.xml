@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.jxl.extjxlcontactliststock.dao.ExtJxlContactListStockDao">
+<resultMap id="ExtJxlContactListStockDTO" type="com.jy.modules.externalplatform.interfacerepository.jxl.extjxlcontactliststock.dto.ExtJxlContactListStockDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="fkJxlCustInfoId" column="FK_JXL_CUST_INFO_ID" jdbcType="DECIMAL" />
+				<result property="phoneNum" column="PHONE_NUM" jdbcType="VARCHAR" />
+				<result property="phoneNumLoc" column="PHONE_NUM_LOC" jdbcType="VARCHAR" />
+				<result property="contactName" column="CONTACT_NAME" jdbcType="VARCHAR" />
+				<result property="needsType" column="NEEDS_TYPE" jdbcType="VARCHAR" />
+				<result property="callCnt" column="CALL_CNT" jdbcType="DECIMAL" />
+				<result property="callLen" column="CALL_LEN" jdbcType="DECIMAL" />
+				<result property="callOutCnt" column="CALL_OUT_CNT" jdbcType="DECIMAL" />
+				<result property="callOutLen" column="CALL_OUT_LEN" jdbcType="DECIMAL" />
+				<result property="callInCnt" column="CALL_IN_CNT" jdbcType="DECIMAL" />
+				<result property="callInLen" column="CALL_IN_LEN" jdbcType="DECIMAL" />
+				<result property="pRelation" column="P_RELATION" jdbcType="VARCHAR" />
+				<result property="contact1w" column="CONTACT_1W" jdbcType="DECIMAL" />
+				<result property="contact1m" column="CONTACT_1M" jdbcType="DECIMAL" />
+				<result property="contact3m" column="CONTACT_3M" jdbcType="DECIMAL" />
+				<result property="contactEarlyMorning" column="CONTACT_EARLY_MORNING" jdbcType="DECIMAL" />
+				<result property="contactMorning" column="CONTACT_MORNING" jdbcType="DECIMAL" />
+				<result property="contactNoon" column="CONTACT_NOON" jdbcType="DECIMAL" />
+				<result property="contactAfternoon" column="CONTACT_AFTERNOON" jdbcType="DECIMAL" />
+				<result property="contactNight" column="CONTACT_NIGHT" jdbcType="DECIMAL" />
+				<result property="contactAllDay" column="CONTACT_ALL_DAY" jdbcType="VARCHAR" />
+				<result property="contactWeekday" column="CONTACT_WEEKDAY" jdbcType="DECIMAL" />
+				<result property="contactWeekend" column="CONTACT_WEEKEND" jdbcType="DECIMAL" />
+				<result property="contactHoliday" column="CONTACT_HOLIDAY" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 EXT_JXL_CONTACT_LIST_STOCK -->	
+<select id="searchExtJxlContactListStockByPaging" parameterType="java.util.Map" resultMap="ExtJxlContactListStockDTO">
+    	 		select 
+						t1.id                             ,
+						t1.fk_jxl_cust_info_id            ,
+						t1.phone_num                      ,
+						t1.phone_num_loc                  ,
+						t1.contact_name                   ,
+						t1.needs_type                     ,
+						t1.call_cnt                       ,
+						t1.call_len                       ,
+						t1.call_out_cnt                   ,
+						t1.call_out_len                   ,
+						t1.call_in_cnt                    ,
+						t1.call_in_len                    ,
+						t1.p_relation                     ,
+						t1.contact_1w                     ,
+						t1.contact_1m                     ,
+						t1.contact_3m                     ,
+						t1.contact_early_morning          ,
+						t1.contact_morning                ,
+						t1.contact_noon                   ,
+						t1.contact_afternoon              ,
+						t1.contact_night                  ,
+						t1.contact_all_day                ,
+						t1.contact_weekday                ,
+						t1.contact_weekend                ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.contact_holiday                
+					
+				from ext_jxl_contact_list_stock 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.fkJxlCustInfoId != null and dto.fkJxlCustInfoId != ''">
+						and t1.FK_JXL_CUST_INFO_ID =#{dto.fkJxlCustInfoId}
+    			</if>
+    			<if test="dto.phoneNum != null and dto.phoneNum != ''">
+						and t1.PHONE_NUM =#{dto.phoneNum}
+    			</if>
+    			<if test="dto.phoneNumLoc != null and dto.phoneNumLoc != ''">
+						and t1.PHONE_NUM_LOC =#{dto.phoneNumLoc}
+    			</if>
+    			<if test="dto.contactName != null and dto.contactName != ''">
+						and t1.CONTACT_NAME =#{dto.contactName}
+    			</if>
+    			<if test="dto.needsType != null and dto.needsType != ''">
+						and t1.NEEDS_TYPE =#{dto.needsType}
+    			</if>
+    			<if test="dto.callCnt != null and dto.callCnt != ''">
+						and t1.CALL_CNT =#{dto.callCnt}
+    			</if>
+    			<if test="dto.callLen != null and dto.callLen != ''">
+						and t1.CALL_LEN =#{dto.callLen}
+    			</if>
+    			<if test="dto.callOutCnt != null and dto.callOutCnt != ''">
+						and t1.CALL_OUT_CNT =#{dto.callOutCnt}
+    			</if>
+    			<if test="dto.callOutLen != null and dto.callOutLen != ''">
+						and t1.CALL_OUT_LEN =#{dto.callOutLen}
+    			</if>
+    			<if test="dto.callInCnt != null and dto.callInCnt != ''">
+						and t1.CALL_IN_CNT =#{dto.callInCnt}
+    			</if>
+    			<if test="dto.callInLen != null and dto.callInLen != ''">
+						and t1.CALL_IN_LEN =#{dto.callInLen}
+    			</if>
+    			<if test="dto.pRelation != null and dto.pRelation != ''">
+						and t1.P_RELATION =#{dto.pRelation}
+    			</if>
+    			<if test="dto.contact1w != null and dto.contact1w != ''">
+						and t1.CONTACT_1W =#{dto.contact1w}
+    			</if>
+    			<if test="dto.contact1m != null and dto.contact1m != ''">
+						and t1.CONTACT_1M =#{dto.contact1m}
+    			</if>
+    			<if test="dto.contact3m != null and dto.contact3m != ''">
+						and t1.CONTACT_3M =#{dto.contact3m}
+    			</if>
+    			<if test="dto.contactEarlyMorning != null and dto.contactEarlyMorning != ''">
+						and t1.CONTACT_EARLY_MORNING =#{dto.contactEarlyMorning}
+    			</if>
+    			<if test="dto.contactMorning != null and dto.contactMorning != ''">
+						and t1.CONTACT_MORNING =#{dto.contactMorning}
+    			</if>
+    			<if test="dto.contactNoon != null and dto.contactNoon != ''">
+						and t1.CONTACT_NOON =#{dto.contactNoon}
+    			</if>
+    			<if test="dto.contactAfternoon != null and dto.contactAfternoon != ''">
+						and t1.CONTACT_AFTERNOON =#{dto.contactAfternoon}
+    			</if>
+    			<if test="dto.contactNight != null and dto.contactNight != ''">
+						and t1.CONTACT_NIGHT =#{dto.contactNight}
+    			</if>
+    			<if test="dto.contactAllDay != null and dto.contactAllDay != ''">
+						and t1.CONTACT_ALL_DAY =#{dto.contactAllDay}
+    			</if>
+    			<if test="dto.contactWeekday != null and dto.contactWeekday != ''">
+						and t1.CONTACT_WEEKDAY =#{dto.contactWeekday}
+    			</if>
+    			<if test="dto.contactWeekend != null and dto.contactWeekend != ''">
+						and t1.CONTACT_WEEKEND =#{dto.contactWeekend}
+    			</if>
+    			<if test="dto.contactHoliday != null and dto.contactHoliday != ''">
+						and t1.CONTACT_HOLIDAY =#{dto.contactHoliday}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_JXL_CONTACT_LIST_STOCK  -->
+<select id="searchExtJxlContactListStock" parameterType="java.util.Map" resultMap="ExtJxlContactListStockDTO">
+    	     select 
+						t1.id                             ,
+						t1.fk_jxl_cust_info_id            ,
+						t1.phone_num                      ,
+						t1.phone_num_loc                  ,
+						t1.contact_name                   ,
+						t1.needs_type                     ,
+						t1.call_cnt                       ,
+						t1.call_len                       ,
+						t1.call_out_cnt                   ,
+						t1.call_out_len                   ,
+						t1.call_in_cnt                    ,
+						t1.call_in_len                    ,
+						t1.p_relation                     ,
+						t1.contact_1w                     ,
+						t1.contact_1m                     ,
+						t1.contact_3m                     ,
+						t1.contact_early_morning          ,
+						t1.contact_morning                ,
+						t1.contact_noon                   ,
+						t1.contact_afternoon              ,
+						t1.contact_night                  ,
+						t1.contact_all_day                ,
+						t1.contact_weekday                ,
+						t1.contact_weekend                ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.contact_holiday                
+				from ext_jxl_contact_list_stock 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.fkJxlCustInfoId != null and dto.fkJxlCustInfoId != ''">
+						and t1.FK_JXL_CUST_INFO_ID = #{dto.fkJxlCustInfoId}
+    			</if>
+    			<if test="dto.phoneNum != null and dto.phoneNum != ''">
+						and t1.PHONE_NUM = #{dto.phoneNum}
+    			</if>
+    			<if test="dto.phoneNumLoc != null and dto.phoneNumLoc != ''">
+						and t1.PHONE_NUM_LOC = #{dto.phoneNumLoc}
+    			</if>
+    			<if test="dto.contactName != null and dto.contactName != ''">
+						and t1.CONTACT_NAME = #{dto.contactName}
+    			</if>
+    			<if test="dto.needsType != null and dto.needsType != ''">
+						and t1.NEEDS_TYPE = #{dto.needsType}
+    			</if>
+    			<if test="dto.callCnt != null and dto.callCnt != ''">
+						and t1.CALL_CNT = #{dto.callCnt}
+    			</if>
+    			<if test="dto.callLen != null and dto.callLen != ''">
+						and t1.CALL_LEN = #{dto.callLen}
+    			</if>
+    			<if test="dto.callOutCnt != null and dto.callOutCnt != ''">
+						and t1.CALL_OUT_CNT = #{dto.callOutCnt}
+    			</if>
+    			<if test="dto.callOutLen != null and dto.callOutLen != ''">
+						and t1.CALL_OUT_LEN = #{dto.callOutLen}
+    			</if>
+    			<if test="dto.callInCnt != null and dto.callInCnt != ''">
+						and t1.CALL_IN_CNT = #{dto.callInCnt}
+    			</if>
+    			<if test="dto.callInLen != null and dto.callInLen != ''">
+						and t1.CALL_IN_LEN = #{dto.callInLen}
+    			</if>
+    			<if test="dto.pRelation != null and dto.pRelation != ''">
+						and t1.P_RELATION = #{dto.pRelation}
+    			</if>
+    			<if test="dto.contact1w != null and dto.contact1w != ''">
+						and t1.CONTACT_1W = #{dto.contact1w}
+    			</if>
+    			<if test="dto.contact1m != null and dto.contact1m != ''">
+						and t1.CONTACT_1M = #{dto.contact1m}
+    			</if>
+    			<if test="dto.contact3m != null and dto.contact3m != ''">
+						and t1.CONTACT_3M = #{dto.contact3m}
+    			</if>
+    			<if test="dto.contactEarlyMorning != null and dto.contactEarlyMorning != ''">
+						and t1.CONTACT_EARLY_MORNING = #{dto.contactEarlyMorning}
+    			</if>
+    			<if test="dto.contactMorning != null and dto.contactMorning != ''">
+						and t1.CONTACT_MORNING = #{dto.contactMorning}
+    			</if>
+    			<if test="dto.contactNoon != null and dto.contactNoon != ''">
+						and t1.CONTACT_NOON = #{dto.contactNoon}
+    			</if>
+    			<if test="dto.contactAfternoon != null and dto.contactAfternoon != ''">
+						and t1.CONTACT_AFTERNOON = #{dto.contactAfternoon}
+    			</if>
+    			<if test="dto.contactNight != null and dto.contactNight != ''">
+						and t1.CONTACT_NIGHT = #{dto.contactNight}
+    			</if>
+    			<if test="dto.contactAllDay != null and dto.contactAllDay != ''">
+						and t1.CONTACT_ALL_DAY = #{dto.contactAllDay}
+    			</if>
+    			<if test="dto.contactWeekday != null and dto.contactWeekday != ''">
+						and t1.CONTACT_WEEKDAY = #{dto.contactWeekday}
+    			</if>
+    			<if test="dto.contactWeekend != null and dto.contactWeekend != ''">
+						and t1.CONTACT_WEEKEND = #{dto.contactWeekend}
+    			</if>
+    			<if test="dto.contactHoliday != null and dto.contactHoliday != ''">
+						and t1.CONTACT_HOLIDAY = #{dto.contactHoliday}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_JXL_CONTACT_LIST_STOCK -->
+<select id="findExtJxlContactListStockByPrimaryKey" parameterType="java.util.Map" resultMap="ExtJxlContactListStockDTO">
+   	 		select 
+					t1.id                             ,
+					t1.fk_jxl_cust_info_id            ,
+					t1.phone_num                      ,
+					t1.phone_num_loc                  ,
+					t1.contact_name                   ,
+					t1.needs_type                     ,
+					t1.call_cnt                       ,
+					t1.call_len                       ,
+					t1.call_out_cnt                   ,
+					t1.call_out_len                   ,
+					t1.call_in_cnt                    ,
+					t1.call_in_len                    ,
+					t1.p_relation                     ,
+					t1.contact_1w                     ,
+					t1.contact_1m                     ,
+					t1.contact_3m                     ,
+					t1.contact_early_morning          ,
+					t1.contact_morning                ,
+					t1.contact_noon                   ,
+					t1.contact_afternoon              ,
+					t1.contact_night                  ,
+					t1.contact_all_day                ,
+					t1.contact_weekday                ,
+					t1.contact_weekend                ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.contact_holiday                
+			from ext_jxl_contact_list_stock 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_JXL_CONTACT_LIST_STOCK -->
+<insert id="insertExtJxlContactListStock" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_JXL_CONTACT_LIST_STOCK.nextval as id from dual
+	</selectKey>
+			insert into ext_jxl_contact_list_stock
+			(   		
+					id                             ,
+					fk_jxl_cust_info_id            ,
+					phone_num                      ,
+					phone_num_loc                  ,
+					contact_name                   ,
+					needs_type                     ,
+					call_cnt                       ,
+					call_len                       ,
+					call_out_cnt                   ,
+					call_out_len                   ,
+					call_in_cnt                    ,
+					call_in_len                    ,
+					p_relation                     ,
+					contact_1w                     ,
+					contact_1m                     ,
+					contact_3m                     ,
+					contact_early_morning          ,
+					contact_morning                ,
+					contact_noon                   ,
+					contact_afternoon              ,
+					contact_night                  ,
+					contact_all_day                ,
+					contact_weekday                ,
+					contact_weekend                ,
+					create_time                    ,
+					contact_holiday                
+			)
+			values(#{dto.id}
+					,#{dto.fkJxlCustInfoId,jdbcType=DECIMAL}
+					,#{dto.phoneNum,jdbcType=VARCHAR}
+					,#{dto.phoneNumLoc,jdbcType=VARCHAR}
+					,#{dto.contactName,jdbcType=VARCHAR}
+					,#{dto.needsType,jdbcType=VARCHAR}
+					,#{dto.callCnt,jdbcType=DECIMAL}
+					,#{dto.callLen,jdbcType=DECIMAL}
+					,#{dto.callOutCnt,jdbcType=DECIMAL}
+					,#{dto.callOutLen,jdbcType=DECIMAL}
+					,#{dto.callInCnt,jdbcType=DECIMAL}
+					,#{dto.callInLen,jdbcType=DECIMAL}
+					,#{dto.pRelation,jdbcType=VARCHAR}
+					,#{dto.contact1w,jdbcType=DECIMAL}
+					,#{dto.contact1m,jdbcType=DECIMAL}
+					,#{dto.contact3m,jdbcType=DECIMAL}
+					,#{dto.contactEarlyMorning,jdbcType=DECIMAL}
+					,#{dto.contactMorning,jdbcType=DECIMAL}
+					,#{dto.contactNoon,jdbcType=DECIMAL}
+					,#{dto.contactAfternoon,jdbcType=DECIMAL}
+					,#{dto.contactNight,jdbcType=DECIMAL}
+					,#{dto.contactAllDay,jdbcType=VARCHAR}
+					,#{dto.contactWeekday,jdbcType=DECIMAL}
+					,#{dto.contactWeekend,jdbcType=DECIMAL}
+					,systimestamp
+					,#{dto.contactHoliday,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_JXL_CONTACT_LIST_STOCK -->
+<update id="updateExtJxlContactListStock" parameterType="java.util.Map">
+	     update ext_jxl_contact_list_stock t1
+	           set 
+			           t1.fk_jxl_cust_info_id            =#{dto.fkJxlCustInfoId,jdbcType=DECIMAL},
+			           t1.phone_num                      =#{dto.phoneNum,jdbcType=VARCHAR},
+			           t1.phone_num_loc                  =#{dto.phoneNumLoc,jdbcType=VARCHAR},
+			           t1.contact_name                   =#{dto.contactName,jdbcType=VARCHAR},
+			           t1.needs_type                     =#{dto.needsType,jdbcType=VARCHAR},
+			           t1.call_cnt                       =#{dto.callCnt,jdbcType=DECIMAL},
+			           t1.call_len                       =#{dto.callLen,jdbcType=DECIMAL},
+			           t1.call_out_cnt                   =#{dto.callOutCnt,jdbcType=DECIMAL},
+			           t1.call_out_len                   =#{dto.callOutLen,jdbcType=DECIMAL},
+			           t1.call_in_cnt                    =#{dto.callInCnt,jdbcType=DECIMAL},
+			           t1.call_in_len                    =#{dto.callInLen,jdbcType=DECIMAL},
+			           t1.p_relation                     =#{dto.pRelation,jdbcType=VARCHAR},
+			           t1.contact_1w                     =#{dto.contact1w,jdbcType=DECIMAL},
+			           t1.contact_1m                     =#{dto.contact1m,jdbcType=DECIMAL},
+			           t1.contact_3m                     =#{dto.contact3m,jdbcType=DECIMAL},
+			           t1.contact_early_morning          =#{dto.contactEarlyMorning,jdbcType=DECIMAL},
+			           t1.contact_morning                =#{dto.contactMorning,jdbcType=DECIMAL},
+			           t1.contact_noon                   =#{dto.contactNoon,jdbcType=DECIMAL},
+			           t1.contact_afternoon              =#{dto.contactAfternoon,jdbcType=DECIMAL},
+			           t1.contact_night                  =#{dto.contactNight,jdbcType=DECIMAL},
+			           t1.contact_all_day                =#{dto.contactAllDay,jdbcType=VARCHAR},
+			           t1.contact_weekday                =#{dto.contactWeekday,jdbcType=DECIMAL},
+			           t1.contact_weekend                =#{dto.contactWeekend,jdbcType=DECIMAL},
+					   t1.modify_time                    =systimestamp,
+			           t1.contact_holiday                =#{dto.contactHoliday,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_JXL_CONTACT_LIST_STOCK -->
+<delete id="deleteExtJxlContactListStockByID" parameterType="java.util.Map">
+    	delete from ext_jxl_contact_list_stock t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_JXL_CONTACT_LIST_STOCK -->
+<update id="deleteExtJxlContactListStockByPrimaryKey" parameterType="java.util.Map">
+	     update ext_jxl_contact_list_stock t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

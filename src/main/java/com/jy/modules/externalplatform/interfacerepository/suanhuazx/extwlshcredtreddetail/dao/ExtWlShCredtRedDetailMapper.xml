@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.suanhuazx.extwlshcredtreddetail.dao.ExtWlShCredtRedDetailDao">
+<resultMap id="ExtWlShCredtRedDetailDTO" type="com.jy.modules.externalplatform.interfacerepository.suanhuazx.extwlshcredtreddetail.dto.ExtWlShCredtRedDetailDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="fkReportId" column="FK_REPORT_ID" jdbcType="DECIMAL" />
+				<result property="creditType" column="CREDIT_TYPE" jdbcType="VARCHAR" />
+				<result property="orginalContent" column="ORGINAL_CONTENT" jdbcType="VARCHAR" />
+				<result property="overdueStatus" column="OVERDUE_STATUS" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="validateState" column="VALIDATE_STATE" jdbcType="VARCHAR" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="updateBy" column="UPDATE_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_SH_CREDT_RED_DETAIL -->	
+<select id="searchExtWlShCredtRedDetailByPaging" parameterType="java.util.Map" resultMap="ExtWlShCredtRedDetailDTO">
+    	 		select 
+						t1.id                             ,
+						t1.fk_report_id                   ,
+						t1.credit_type                    ,
+						t1.orginal_content                ,
+						t1.overdue_status                 ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.validate_state                 ,
+						t1.create_by                      ,
+						t1.update_by                      
+					
+				from ext_wl_sh_credt_red_detail 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.fkReportId != null and dto.fkReportId != ''">
+						and t1.FK_REPORT_ID =#{dto.fkReportId}
+    			</if>
+    			<if test="dto.creditType != null and dto.creditType != ''">
+						and t1.CREDIT_TYPE =#{dto.creditType}
+    			</if>
+    			<if test="dto.orginalContent != null and dto.orginalContent != ''">
+						and t1.ORGINAL_CONTENT =#{dto.orginalContent}
+    			</if>
+    			<if test="dto.overdueStatus != null and dto.overdueStatus != ''">
+						and t1.OVERDUE_STATUS =#{dto.overdueStatus}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE =#{dto.validateState}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY =#{dto.updateBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_SH_CREDT_RED_DETAIL  -->
+<select id="searchExtWlShCredtRedDetail" parameterType="java.util.Map" resultMap="ExtWlShCredtRedDetailDTO">
+    	     select 
+						t1.id                             ,
+						t1.fk_report_id                   ,
+						t1.credit_type                    ,
+						t1.orginal_content                ,
+						t1.overdue_status                 ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.validate_state                 ,
+						t1.create_by                      ,
+						t1.update_by                      
+				from ext_wl_sh_credt_red_detail 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.fkReportId != null and dto.fkReportId != ''">
+						and t1.FK_REPORT_ID = #{dto.fkReportId}
+    			</if>
+    			<if test="dto.creditType != null and dto.creditType != ''">
+						and t1.CREDIT_TYPE = #{dto.creditType}
+    			</if>
+    			<if test="dto.orginalContent != null and dto.orginalContent != ''">
+						and t1.ORGINAL_CONTENT = #{dto.orginalContent}
+    			</if>
+    			<if test="dto.overdueStatus != null and dto.overdueStatus != ''">
+						and t1.OVERDUE_STATUS = #{dto.overdueStatus}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE = #{dto.validateState}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY = #{dto.updateBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_SH_CREDT_RED_DETAIL -->
+<select id="findExtWlShCredtRedDetailByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlShCredtRedDetailDTO">
+   	 		select 
+					t1.id                             ,
+					t1.fk_report_id                   ,
+					t1.credit_type                    ,
+					t1.orginal_content                ,
+					t1.overdue_status                 ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.validate_state                 ,
+					t1.create_by                      ,
+					t1.update_by                      
+			from ext_wl_sh_credt_red_detail 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_SH_CREDT_RED_DETAIL -->
+<insert id="insertExtWlShCredtRedDetail" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_SH_CREDT_RED_DETAIL.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_sh_credt_red_detail
+			(   		
+					id                             ,
+					fk_report_id                   ,
+					credit_type                    ,
+					orginal_content                ,
+					overdue_status                 ,
+					create_time                    ,
+					modify_time                    ,
+					validate_state                 ,
+					create_by                      ,
+					update_by                      
+			)
+			values(#{dto.id}
+					,#{dto.fkReportId,jdbcType=DECIMAL}
+					,#{dto.creditType,jdbcType=VARCHAR}
+					,#{dto.orginalContent,jdbcType=VARCHAR}
+					,#{dto.overdueStatus,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,'1'
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.updateBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_SH_CREDT_RED_DETAIL -->
+<update id="updateExtWlShCredtRedDetail" parameterType="java.util.Map">
+	     update ext_wl_sh_credt_red_detail t1
+	           set 
+			           t1.fk_report_id                   =#{dto.fkReportId,jdbcType=DECIMAL},
+			           t1.credit_type                    =#{dto.creditType,jdbcType=VARCHAR},
+			           t1.orginal_content                =#{dto.orginalContent,jdbcType=VARCHAR},
+			           t1.overdue_status                 =#{dto.overdueStatus,jdbcType=VARCHAR},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP},
+			           t1.validate_state                 ='1',
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.update_by                      =#{dto.updateBy,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_SH_CREDT_RED_DETAIL -->
+<delete id="deleteExtWlShCredtRedDetailByID" parameterType="java.util.Map">
+    	delete from ext_wl_sh_credt_red_detail t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_SH_CREDT_RED_DETAIL -->
+<update id="deleteExtWlShCredtRedDetailByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_sh_credt_red_detail t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+
+	<!--批量添加数据-->
+	<insert id="insertExtWlShCreditRecordDetailList" parameterType="java.util.Map" useGeneratedKeys="true">
+		begin
+		<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+			select seq_EXT_WL_SH_CREDT_RED_DETAIL.nextval as id from dual
+		</selectKey>
+		<foreach collection="dtoList" item="dto" >
+			insert into ext_wl_sh_credt_red_detail
+			(
+			id,
+			fk_report_id,
+			credit_type,
+			orginal_content,
+			overdue_status,
+			create_time,
+			validate_state
+			)
+			values(seq_EXT_WL_SH_CREDT_RED_DETAIL.nextval
+			,#{fkReportId}
+			,#{dto.creditType,jdbcType=VARCHAR}
+			,#{dto.orginalContent,jdbcType=VARCHAR}
+			,#{dto.overdueStatus,jdbcType=VARCHAR}
+			,systimestamp
+			,'1'
+			);
+		</foreach>
+		end;
+	</insert>
+</mapper>

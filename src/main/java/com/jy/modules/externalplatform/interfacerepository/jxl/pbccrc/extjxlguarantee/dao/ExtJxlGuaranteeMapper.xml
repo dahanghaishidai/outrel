@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.jxl.pbccrc.extjxlguarantee.dao.ExtJxlGuaranteeDao">
+<resultMap id="ExtJxlGuaranteeDTO" type="com.jy.modules.externalplatform.interfacerepository.jxl.pbccrc.extjxlguarantee.dto.ExtJxlGuaranteeDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="fkReportId" column="FK_REPORT_ID" jdbcType="DECIMAL" />
+				<result property="guaranteeMadeTime" column="GUARANTEE_MADE_TIME" jdbcType="VARCHAR" />
+				<result property="guaranteedName" column="GUARANTEED_NAME" jdbcType="VARCHAR" />
+				<result property="guaranteedCardType" column="GUARANTEED_CARD_TYPE" jdbcType="VARCHAR" />
+				<result property="guaranteedCardNumber" column="GUARANTEED_CARD_NUMBER" jdbcType="VARCHAR" />
+				<result property="guaranteeMadeEmployer" column="GUARANTEE_MADE_EMPLOYER" jdbcType="VARCHAR" />
+				<result property="guaranteeMadeType" column="GUARANTEE_MADE_TYPE" jdbcType="VARCHAR" />
+				<result property="guaranteeContractAmount" column="GUARANTEE_CONTRACT_AMOUNT" jdbcType="VARCHAR" />
+				<result property="guaranteeAmount" column="GUARANTEE_AMOUNT" jdbcType="VARCHAR" />
+				<result property="deadlineTime" column="DEADLINE_TIME" jdbcType="VARCHAR" />
+				<result property="guaranteeBalance" column="GUARANTEE_BALANCE" jdbcType="VARCHAR" />
+				<result property="originalContent" column="ORIGINAL_CONTENT" jdbcType="VARCHAR" />
+				<result property="status" column="STATUS" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+  
+<!-- 查询列表 EXT_JXL_GUARANTEE  -->
+<select id="searchExtJxlGuarantee" parameterType="java.util.Map" resultMap="ExtJxlGuaranteeDTO">
+    	     select 
+						t1.id                             ,
+						t1.fk_report_id                   ,
+						t1.guarantee_made_time            ,
+						t1.guaranteed_name                ,
+						t1.guaranteed_card_type           ,
+						t1.guaranteed_card_number         ,
+						t1.guarantee_made_employer        ,
+						t1.guarantee_made_type            ,
+						t1.guarantee_contract_amount      ,
+						t1.guarantee_amount               ,
+						t1.deadline_time                  ,
+						t1.guarantee_balance              ,
+						t1.original_content               ,
+						t1.status                         ,
+						t1.create_time                    ,
+						t1.modify_time                    
+				from ext_jxl_guarantee 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.fkReportId != null and dto.fkReportId != ''">
+						and t1.FK_REPORT_ID = #{dto.fkReportId}
+    			</if>
+    			<if test="dto.guaranteeMadeTime != null and dto.guaranteeMadeTime != ''">
+						and t1.GUARANTEE_MADE_TIME = #{dto.guaranteeMadeTime}
+    			</if>
+    			<if test="dto.guaranteedName != null and dto.guaranteedName != ''">
+						and t1.GUARANTEED_NAME = #{dto.guaranteedName}
+    			</if>
+    			<if test="dto.guaranteedCardType != null and dto.guaranteedCardType != ''">
+						and t1.GUARANTEED_CARD_TYPE = #{dto.guaranteedCardType}
+    			</if>
+    			<if test="dto.guaranteedCardNumber != null and dto.guaranteedCardNumber != ''">
+						and t1.GUARANTEED_CARD_NUMBER = #{dto.guaranteedCardNumber}
+    			</if>
+    			<if test="dto.guaranteeMadeEmployer != null and dto.guaranteeMadeEmployer != ''">
+						and t1.GUARANTEE_MADE_EMPLOYER = #{dto.guaranteeMadeEmployer}
+    			</if>
+    			<if test="dto.guaranteeMadeType != null and dto.guaranteeMadeType != ''">
+						and t1.GUARANTEE_MADE_TYPE = #{dto.guaranteeMadeType}
+    			</if>
+    			<if test="dto.guaranteeContractAmount != null and dto.guaranteeContractAmount != ''">
+						and t1.GUARANTEE_CONTRACT_AMOUNT = #{dto.guaranteeContractAmount}
+    			</if>
+    			<if test="dto.guaranteeAmount != null and dto.guaranteeAmount != ''">
+						and t1.GUARANTEE_AMOUNT = #{dto.guaranteeAmount}
+    			</if>
+    			<if test="dto.deadlineTime != null and dto.deadlineTime != ''">
+						and t1.DEADLINE_TIME = #{dto.deadlineTime}
+    			</if>
+    			<if test="dto.guaranteeBalance != null and dto.guaranteeBalance != ''">
+						and t1.GUARANTEE_BALANCE = #{dto.guaranteeBalance}
+    			</if>
+    			<if test="dto.originalContent != null and dto.originalContent != ''">
+						and t1.ORIGINAL_CONTENT = #{dto.originalContent}
+    			</if>
+    			<if test="dto.status != null and dto.status != ''">
+						and t1.STATUS = #{dto.status}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			order by t1.id desc
+</select>
+  
+<insert id="insertExtJxlGuaranteeList" parameterType="java.util.Map" useGeneratedKeys="true">
+begin
+    <selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+		 select seq_EXT_JXL_GUARANTEE.nextval as id from dual
+	</selectKey>
+    <foreach collection="dtoList" item="dto" >
+          insert into ext_jxl_guarantee
+			(   		
+					id                             ,
+					fk_report_id                   ,
+					guarantee_made_time            ,
+					guaranteed_name                ,
+					guaranteed_card_type           ,
+					guaranteed_card_number         ,
+					guarantee_made_employer        ,
+					guarantee_made_type            ,
+					guarantee_contract_amount      ,
+					guarantee_amount               ,
+					deadline_time                  ,
+					guarantee_balance              ,
+					original_content               ,
+					status                         ,
+					create_time                                      
+			)
+			values(seq_EXT_JXL_GUARANTEE.nextval
+					,#{fkReportId}
+					,#{dto.guaranteeMadeTime,jdbcType=VARCHAR}
+					,#{dto.guaranteedName,jdbcType=VARCHAR}
+					,#{dto.guaranteedCardType,jdbcType=VARCHAR}
+					,#{dto.guaranteedCardNumber,jdbcType=VARCHAR}
+					,#{dto.guaranteeMadeEmployer,jdbcType=VARCHAR}
+					,#{dto.guaranteeMadeType,jdbcType=VARCHAR}
+					,#{dto.guaranteeContractAmount,jdbcType=VARCHAR}
+					,#{dto.guaranteeAmount,jdbcType=VARCHAR}
+					,#{dto.deadlineTime,jdbcType=VARCHAR}
+					,#{dto.guaranteeBalance,jdbcType=VARCHAR}
+					,#{dto.originalContent,jdbcType=VARCHAR}
+					,#{dto.status,jdbcType=VARCHAR}
+					,systimestamp
+			);
+    </foreach>
+  end;
+</insert>
+    
+</mapper>

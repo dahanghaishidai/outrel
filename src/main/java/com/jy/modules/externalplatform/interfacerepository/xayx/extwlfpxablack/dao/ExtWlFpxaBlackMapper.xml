@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.xayx.extwlfpxablack.dao.ExtWlFpxaBlackDao">
+<resultMap id="ExtWlFpxaBlackDTO" type="com.jy.modules.externalplatform.interfacerepository.xayx.extwlfpxablack.dto.ExtWlFpxaBlackDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="modifyBy" column="MODIFY_BY" jdbcType="DECIMAL" />
+				<result property="fkRisklinkId" column="FK_RISKLINK_ID" jdbcType="DECIMAL" />
+				<result property="linkType" column="LINK_TYPE" jdbcType="VARCHAR" />
+				<result property="blackType" column="BLACK_TYPE" jdbcType="VARCHAR" />
+				<result property="blackTypeOne" column="BLACK_TYPE_ONE" jdbcType="VARCHAR" />
+				<result property="blackTypeTwo" column="BLACK_TYPE_TWO" jdbcType="VARCHAR" />
+				<result property="touchType" column="TOUCH_TYPE" jdbcType="VARCHAR" />
+</resultMap>
+				
+
+  
+<!-- 新增对象 EXT_WL_FPXA_BLACK -->
+<insert id="insertExtWlFpxaBlack" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_FPXA_BLACK.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_fpxa_black
+			(   		
+					id                             ,
+					create_time                    ,
+					modify_time                    ,
+					create_by                      ,
+					modify_by                      ,
+					fk_risklink_id                 ,
+					link_type                      ,
+					black_type                     ,
+					black_type_one                 ,
+					black_type_two                 ,
+					touch_type                     
+			)
+			values(#{dto.id}
+					,systimestamp
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.modifyBy,jdbcType=DECIMAL}
+					,#{dto.fkRisklinkId,jdbcType=DECIMAL}
+					,#{dto.linkType,jdbcType=VARCHAR}
+					,#{dto.blackType,jdbcType=VARCHAR}
+					,#{dto.blackTypeOne,jdbcType=VARCHAR}
+					,#{dto.blackTypeTwo,jdbcType=VARCHAR}
+					,#{dto.touchType,jdbcType=VARCHAR}
+			)
+</insert>
+
+</mapper>

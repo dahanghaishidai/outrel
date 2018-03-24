@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.mg.extwljxlmgbaseinfo.dao.ExtWlJxlMgBaseInfoDao">
+<resultMap id="ExtWlJxlMgBaseInfoDTO" type="com.jy.modules.externalplatform.interfacerepository.mg.extwljxlmgbaseinfo.dto.ExtWlJxlMgBaseInfoDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="userGridId" column="USER_GRID_ID" jdbcType="VARCHAR" />
+				<result property="message" column="MESSAGE" jdbcType="VARCHAR" />
+				<result property="code" column="CODE" jdbcType="VARCHAR" />
+				<result property="data" column="DATA" jdbcType="VARCHAR" />
+				<result property="spendTime" column="SPEND_TIME" jdbcType="DECIMAL" />
+				<result property="validState" column="VALID_STATE" jdbcType="VARCHAR" />
+				<result property="searchedOrgCnt" column="SEARCHED_ORG_CNT" jdbcType="DECIMAL" />
+				<result property="registerCnt" column="REGISTER_CNT" jdbcType="DECIMAL" />
+				<result property="username" column="USERNAME" jdbcType="VARCHAR" />
+				<result property="idcard" column="IDCARD" jdbcType="VARCHAR" />
+				<result property="intoid" column="INTOID" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyBy" column="MODIFY_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_JXL_MG_BASE_INFO -->	
+<select id="searchExtWlJxlMgBaseInfoByPaging" parameterType="java.util.Map" resultMap="ExtWlJxlMgBaseInfoDTO">
+    	 		select 
+						t1.id                             ,
+						t1.user_grid_id                   ,
+						t1.message                        ,
+						t1.code                           ,
+						t1.data                           ,
+						t1.spend_time                     ,
+						t1.valid_state                    ,
+						t1.searched_org_cnt               ,
+						t1.register_cnt                   ,
+						t1.username                       ,
+						t1.idcard                         ,
+						t1.intoid                         ,
+						t1.create_time                    ,
+						t1.create_by                      ,
+						t1.modify_time                    ,
+						t1.modify_by                      
+					
+				from ext_wl_jxl_mg_base_info 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.userGridId != null and dto.userGridId != ''">
+						and t1.USER_GRID_ID =#{dto.userGridId}
+    			</if>
+    			<if test="dto.message != null and dto.message != ''">
+						and t1.MESSAGE =#{dto.message}
+    			</if>
+    			<if test="dto.code != null and dto.code != ''">
+						and t1.CODE =#{dto.code}
+    			</if>
+    			<if test="dto.data != null and dto.data != ''">
+						and t1.DATA =#{dto.data}
+    			</if>
+    			<if test="dto.spendTime != null and dto.spendTime != ''">
+						and t1.SPEND_TIME =#{dto.spendTime}
+    			</if>
+    			<if test="dto.validState != null and dto.validState != ''">
+						and t1.VALID_STATE =#{dto.validState}
+    			</if>
+    			<if test="dto.searchedOrgCnt != null and dto.searchedOrgCnt != ''">
+						and t1.SEARCHED_ORG_CNT =#{dto.searchedOrgCnt}
+    			</if>
+    			<if test="dto.registerCnt != null and dto.registerCnt != ''">
+						and t1.REGISTER_CNT =#{dto.registerCnt}
+    			</if>
+    			<if test="dto.username != null and dto.username != ''">
+						and t1.USERNAME =#{dto.username}
+    			</if>
+    			<if test="dto.idcard != null and dto.idcard != ''">
+						and t1.IDCARD =#{dto.idcard}
+    			</if>
+    			<if test="dto.intoid != null and dto.intoid != ''">
+						and t1.INTOID =#{dto.intoid}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY =#{dto.modifyBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_JXL_MG_BASE_INFO  -->
+<select id="searchExtWlJxlMgBaseInfo" parameterType="java.util.Map" resultMap="ExtWlJxlMgBaseInfoDTO">
+    	     select 
+						t1.id                             ,
+						t1.user_grid_id                   ,
+						t1.message                        ,
+						t1.code                           ,
+						t1.data                           ,
+						t1.spend_time                     ,
+						t1.valid_state                    ,
+						t1.searched_org_cnt               ,
+						t1.register_cnt                   ,
+						t1.username                       ,
+						t1.idcard                         ,
+						t1.intoid                         ,
+						t1.create_time                    ,
+						t1.create_by                      ,
+						t1.modify_time                    ,
+						t1.modify_by                      
+				from ext_wl_jxl_mg_base_info 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.userGridId != null and dto.userGridId != ''">
+						and t1.USER_GRID_ID = #{dto.userGridId}
+    			</if>
+    			<if test="dto.message != null and dto.message != ''">
+						and t1.MESSAGE = #{dto.message}
+    			</if>
+    			<if test="dto.code != null and dto.code != ''">
+						and t1.CODE = #{dto.code}
+    			</if>
+    			<if test="dto.data != null and dto.data != ''">
+						and t1.DATA = #{dto.data}
+    			</if>
+    			<if test="dto.spendTime != null and dto.spendTime != ''">
+						and t1.SPEND_TIME = #{dto.spendTime}
+    			</if>
+    			<if test="dto.validState != null and dto.validState != ''">
+						and t1.VALID_STATE = #{dto.validState}
+    			</if>
+    			<if test="dto.searchedOrgCnt != null and dto.searchedOrgCnt != ''">
+						and t1.SEARCHED_ORG_CNT = #{dto.searchedOrgCnt}
+    			</if>
+    			<if test="dto.registerCnt != null and dto.registerCnt != ''">
+						and t1.REGISTER_CNT = #{dto.registerCnt}
+    			</if>
+    			<if test="dto.username != null and dto.username != ''">
+						and t1.USERNAME = #{dto.username}
+    			</if>
+    			<if test="dto.idcard != null and dto.idcard != ''">
+						and t1.IDCARD = #{dto.idcard}
+    			</if>
+    			<if test="dto.intoid != null and dto.intoid != ''">
+						and t1.INTOID = #{dto.intoid}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY = #{dto.modifyBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_JXL_MG_BASE_INFO -->
+<select id="findExtWlJxlMgBaseInfoByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlJxlMgBaseInfoDTO">
+   	 		select 
+					t1.id                             ,
+					t1.user_grid_id                   ,
+					t1.message                        ,
+					t1.code                           ,
+					t1.data                           ,
+					t1.spend_time                     ,
+					t1.valid_state                    ,
+					t1.searched_org_cnt               ,
+					t1.register_cnt                   ,
+					t1.username                       ,
+					t1.idcard                         ,
+					t1.intoid                         ,
+					t1.create_time                    ,
+					t1.create_by                      ,
+					t1.modify_time                    ,
+					t1.modify_by                      
+			from ext_wl_jxl_mg_base_info 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_JXL_MG_BASE_INFO -->
+<insert id="insertExtWlJxlMgBaseInfo" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_JXL_MG_BASE_INFO.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_jxl_mg_base_info
+			(   		
+					id                             ,
+					user_grid_id                   ,
+					message                        ,
+					code                           ,
+					data                           ,
+					spend_time                     ,
+					valid_state                    ,
+					searched_org_cnt               ,
+					register_cnt                   ,
+					username                       ,
+					idcard                         ,
+					intoid                         ,
+					create_time                    ,
+					create_by                      ,
+					modify_time                    ,
+					modify_by                      
+			)
+			values(#{dto.id}
+					,#{dto.userGridId,jdbcType=VARCHAR}
+					,#{dto.message,jdbcType=VARCHAR}
+					,#{dto.code,jdbcType=VARCHAR}
+					,#{dto.data,jdbcType=VARCHAR}
+					,#{dto.spendTime,jdbcType=DECIMAL}
+					,#{dto.validState,jdbcType=VARCHAR}
+					,#{dto.searchedOrgCnt,jdbcType=DECIMAL}
+					,#{dto.registerCnt,jdbcType=DECIMAL}
+					,#{dto.username,jdbcType=VARCHAR}
+					,#{dto.idcard,jdbcType=VARCHAR}
+					,#{dto.intoid,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,#{dto.modifyBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_JXL_MG_BASE_INFO -->
+<update id="updateExtWlJxlMgBaseInfo" parameterType="java.util.Map">
+	     update ext_wl_jxl_mg_base_info t1
+	           set 
+			           t1.user_grid_id                   =#{dto.userGridId,jdbcType=VARCHAR},
+			           t1.message                        =#{dto.message,jdbcType=VARCHAR},
+			           t1.code                           =#{dto.code,jdbcType=VARCHAR},
+			           t1.data                           =#{dto.data,jdbcType=VARCHAR},
+			           t1.spend_time                     =#{dto.spendTime,jdbcType=DECIMAL},
+			           t1.valid_state                    =#{dto.validState,jdbcType=VARCHAR},
+			           t1.searched_org_cnt               =#{dto.searchedOrgCnt,jdbcType=DECIMAL},
+			           t1.register_cnt                   =#{dto.registerCnt,jdbcType=DECIMAL},
+			           t1.username                       =#{dto.username,jdbcType=VARCHAR},
+			           t1.idcard                         =#{dto.idcard,jdbcType=VARCHAR},
+			           t1.intoid                         =#{dto.intoid,jdbcType=VARCHAR},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP},
+			           t1.modify_by                      =#{dto.modifyBy,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_JXL_MG_BASE_INFO -->
+<delete id="deleteExtWlJxlMgBaseInfoByID" parameterType="java.util.Map">
+    	delete from ext_wl_jxl_mg_base_info t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_JXL_MG_BASE_INFO -->
+<update id="deleteExtWlJxlMgBaseInfoByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_jxl_mg_base_info t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

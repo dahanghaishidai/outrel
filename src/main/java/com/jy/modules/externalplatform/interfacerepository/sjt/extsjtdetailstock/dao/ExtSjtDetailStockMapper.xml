@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.sjt.extsjtdetailstock.dao.ExtSjtDetailStockDao">
+<resultMap id="ExtSjtDetailStockDTO" type="com.jy.modules.externalplatform.interfacerepository.sjt.extsjtdetailstock.dto.ExtSjtDetailStockDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="transNo" column="TRANS_NO" jdbcType="VARCHAR" />
+				<result property="intoId" column="INTO_ID" jdbcType="DECIMAL" />
+				<result property="detailType" column="DETAIL_TYPE" jdbcType="VARCHAR" />
+				<result property="name" column="NAME" jdbcType="VARCHAR" />
+				<result property="amount" column="AMOUNT" jdbcType="DECIMAL" />
+				<result property="count" column="COUNT" jdbcType="DECIMAL" />
+				<result property="amountranking" column="AMOUNTRANKING" jdbcType="DECIMAL" />
+				<result property="countranking" column="COUNTRANKING" jdbcType="DECIMAL" />
+				<result property="fkId" column="FK_ID" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="VARCHAR" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyBy" column="MODIFY_BY" jdbcType="VARCHAR" />
+</resultMap>
+				
+<!-- 分页查询 EXT_SJT_DETAIL_STOCK -->	
+<select id="searchExtSjtDetailStockByPaging" parameterType="java.util.Map" resultMap="ExtSjtDetailStockDTO">
+    	 		select 
+						t1.id                             ,
+						t1.trans_no                       ,
+						t1.into_id                        ,
+						t1.detail_type                    ,
+						t1.name                           ,
+						t1.amount                         ,
+						t1.count                          ,
+						t1.amountranking                  ,
+						t1.countranking                   ,
+						t1.fk_id                          ,
+						t1.create_time                    ,
+						t1.create_by                      ,
+						t1.modify_time                    ,
+						t1.modify_by                      
+					
+				from ext_sjt_detail_stock 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.transNo != null and dto.transNo != ''">
+						and t1.TRANS_NO =#{dto.transNo}
+    			</if>
+    			<if test="dto.intoId != null and dto.intoId != ''">
+						and t1.INTO_ID =#{dto.intoId}
+    			</if>
+    			<if test="dto.detailType != null and dto.detailType != ''">
+						and t1.DETAIL_TYPE =#{dto.detailType}
+    			</if>
+    			<if test="dto.name != null and dto.name != ''">
+						and t1.NAME =#{dto.name}
+    			</if>
+    			<if test="dto.amount != null and dto.amount != ''">
+						and t1.AMOUNT =#{dto.amount}
+    			</if>
+    			<if test="dto.count != null and dto.count != ''">
+						and t1.COUNT =#{dto.count}
+    			</if>
+    			<if test="dto.amountranking != null and dto.amountranking != ''">
+						and t1.AMOUNTRANKING =#{dto.amountranking}
+    			</if>
+    			<if test="dto.countranking != null and dto.countranking != ''">
+						and t1.COUNTRANKING =#{dto.countranking}
+    			</if>
+    			<if test="dto.fkId != null and dto.fkId != ''">
+						and t1.FK_ID =#{dto.fkId}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY =#{dto.modifyBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_SJT_DETAIL_STOCK  -->
+<select id="searchExtSjtDetailStock" parameterType="java.util.Map" resultMap="ExtSjtDetailStockDTO">
+    	     select 
+						t1.id                             ,
+						t1.trans_no                       ,
+						t1.into_id                        ,
+						t1.detail_type                    ,
+						t1.name                           ,
+						t1.amount                         ,
+						t1.count                          ,
+						t1.amountranking                  ,
+						t1.countranking                   ,
+						t1.fk_id                          ,
+						t1.create_time                    ,
+						t1.create_by                      ,
+						t1.modify_time                    ,
+						t1.modify_by                      
+				from ext_sjt_detail_stock 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.transNo != null and dto.transNo != ''">
+						and t1.TRANS_NO = #{dto.transNo}
+    			</if>
+    			<if test="dto.intoId != null and dto.intoId != ''">
+						and t1.INTO_ID = #{dto.intoId}
+    			</if>
+    			<if test="dto.detailType != null and dto.detailType != ''">
+						and t1.DETAIL_TYPE = #{dto.detailType}
+    			</if>
+    			<if test="dto.name != null and dto.name != ''">
+						and t1.NAME = #{dto.name}
+    			</if>
+    			<if test="dto.amount != null and dto.amount != ''">
+						and t1.AMOUNT = #{dto.amount}
+    			</if>
+    			<if test="dto.count != null and dto.count != ''">
+						and t1.COUNT = #{dto.count}
+    			</if>
+    			<if test="dto.amountranking != null and dto.amountranking != ''">
+						and t1.AMOUNTRANKING = #{dto.amountranking}
+    			</if>
+    			<if test="dto.countranking != null and dto.countranking != ''">
+						and t1.COUNTRANKING = #{dto.countranking}
+    			</if>
+    			<if test="dto.fkId != null and dto.fkId != ''">
+						and t1.FK_ID = #{dto.fkId}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY = #{dto.modifyBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_SJT_DETAIL_STOCK -->
+<select id="findExtSjtDetailStockByPrimaryKey" parameterType="java.util.Map" resultMap="ExtSjtDetailStockDTO">
+   	 		select 
+					t1.id                             ,
+					t1.trans_no                       ,
+					t1.into_id                        ,
+					t1.detail_type                    ,
+					t1.name                           ,
+					t1.amount                         ,
+					t1.count                          ,
+					t1.amountranking                  ,
+					t1.countranking                   ,
+					t1.fk_id                          ,
+					t1.create_time                    ,
+					t1.create_by                      ,
+					t1.modify_time                    ,
+					t1.modify_by                      
+			from ext_sjt_detail_stock 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_SJT_DETAIL_STOCK -->
+<insert id="insertExtSjtDetailStock" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_SJT_DETAIL_STOCK.nextval as id from dual
+	</selectKey>
+			insert into ext_sjt_detail_stock
+			(   		
+					id                             ,
+					trans_no                       ,
+					into_id                        ,
+					detail_type                    ,
+					name                           ,
+					amount                         ,
+					count                          ,
+					amountranking                  ,
+					countranking                   ,
+					fk_id                          ,
+					create_time                    ,
+					create_by                      
+			)
+			values(#{dto.id}
+					,#{dto.transNo,jdbcType=VARCHAR}
+					,#{dto.intoId,jdbcType=DECIMAL}
+					,#{dto.detailType,jdbcType=VARCHAR}
+					,#{dto.name,jdbcType=VARCHAR}
+					,#{dto.amount,jdbcType=DECIMAL}
+					,#{dto.count,jdbcType=DECIMAL}
+					,#{dto.amountranking,jdbcType=DECIMAL}
+					,#{dto.countranking,jdbcType=DECIMAL}
+					,#{dto.fkId,jdbcType=DECIMAL}
+					,systimestamp
+					,#{dto.createBy,jdbcType=VARCHAR}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_SJT_DETAIL_STOCK -->
+<update id="updateExtSjtDetailStock" parameterType="java.util.Map">
+	     update ext_sjt_detail_stock t1
+	           set 
+			           t1.trans_no                       =#{dto.transNo,jdbcType=VARCHAR},
+			           t1.into_id                        =#{dto.intoId,jdbcType=DECIMAL},
+			           t1.detail_type                    =#{dto.detailType,jdbcType=VARCHAR},
+			           t1.name                           =#{dto.name,jdbcType=VARCHAR},
+			           t1.amount                         =#{dto.amount,jdbcType=DECIMAL},
+			           t1.count                          =#{dto.count,jdbcType=DECIMAL},
+			           t1.amountranking                  =#{dto.amountranking,jdbcType=DECIMAL},
+			           t1.countranking                   =#{dto.countranking,jdbcType=DECIMAL},
+			           t1.fk_id                          =#{dto.fkId,jdbcType=DECIMAL},
+			           t1.modify_time                    =systimestamp,
+			           t1.modify_by                      =#{dto.modifyBy,jdbcType=VARCHAR}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_SJT_DETAIL_STOCK -->
+<delete id="deleteExtSjtDetailStockByID" parameterType="java.util.Map">
+    	delete from ext_sjt_detail_stock t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_SJT_DETAIL_STOCK -->
+<update id="deleteExtSjtDetailStockByPrimaryKey" parameterType="java.util.Map">
+	     update ext_sjt_detail_stock t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+
+<insert id="batchInsertExtSjtCreditDetailInfo" parameterType="java.util.Map">
+	declare
+	  detId number:=0;
+	begin
+
+	detId:=0;
+	<foreach collection="batchList" item="dto" index="index" > 
+	select SEQ_EXT_SJT_DETAIL_STOCK.nextval into detId from dual;
+	insert into EXT_SJT_DETAIL_STOCK
+			(   		
+					id                             ,
+					trans_no                       ,
+					into_id                        ,
+					detail_type                    ,
+					name                           ,
+					amount                         ,
+					count                          ,
+					amountranking                  ,
+					countranking                   ,
+					create_time
+			)
+		select detId
+					,#{dto.transNo,jdbcType=VARCHAR}
+					,#{dto.intoId,jdbcType=DECIMAL}
+					,#{dto.detailType,jdbcType=VARCHAR}
+					,#{dto.name,jdbcType=VARCHAR}
+					,#{dto.amount,jdbcType=DECIMAL}
+					,#{dto.count,jdbcType=DECIMAL}
+					,#{dto.amountranking,jdbcType=DECIMAL}
+					,#{dto.countranking,jdbcType=DECIMAL}
+					,systimestamp
+		from dual 			;
+	</foreach>		
+	end ;
+</insert>
+</mapper>

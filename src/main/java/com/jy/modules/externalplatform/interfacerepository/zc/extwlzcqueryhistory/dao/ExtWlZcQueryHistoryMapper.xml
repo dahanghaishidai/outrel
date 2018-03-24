@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.zc.extwlzcqueryhistory.dao.ExtWlZcQueryHistoryDao">
+<resultMap id="ExtWlZcQueryHistoryDTO" type="com.jy.modules.externalplatform.interfacerepository.zc.extwlzcqueryhistory.dto.ExtWlZcQueryHistoryDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="keyId" column="KEY_ID" jdbcType="VARCHAR" />
+				<result property="orgName" column="ORG_NAME" jdbcType="VARCHAR" />
+				<result property="orgType" column="ORG_TYPE" jdbcType="VARCHAR" />
+				<result property="queryReason" column="QUERY_REASON" jdbcType="VARCHAR" />
+				<result property="time" column="TIME" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 ext_wl_zc_query_history -->	
+<select id="searchExtWlZcQueryHistoryByPaging" parameterType="java.util.Map" resultMap="ExtWlZcQueryHistoryDTO">
+    	 		select 
+						t1.id                             ,
+						t1.key_id                         ,
+						t1.org_name                       ,
+						t1.org_type                       ,
+						t1.query_reason                   ,
+						t1.time                           ,
+						t1.create_time                    ,
+						t1.modify_time                    
+					
+				from ext_wl_zc_query_history 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.keyId != null and dto.keyId != ''">
+						and t1.KEY_ID =#{dto.keyId}
+    			</if>
+    			<if test="dto.orgName != null and dto.orgName != ''">
+						and t1.ORG_NAME =#{dto.orgName}
+    			</if>
+    			<if test="dto.orgType != null and dto.orgType != ''">
+						and t1.ORG_TYPE =#{dto.orgType}
+    			</if>
+    			<if test="dto.queryReason != null and dto.queryReason != ''">
+						and t1.QUERY_REASON =#{dto.queryReason}
+    			</if>
+    			<if test="dto.time != null and dto.time != ''">
+						and t1.TIME =#{dto.time}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 ext_wl_zc_query_history  -->
+<select id="searchExtWlZcQueryHistory" parameterType="java.util.Map" resultMap="ExtWlZcQueryHistoryDTO">
+    	     select 
+						t1.id                             ,
+						t1.key_id                         ,
+						t1.org_name                       ,
+						t1.org_type                       ,
+						t1.query_reason                   ,
+						t1.time                           ,
+						t1.create_time                    ,
+						t1.modify_time                    
+				from ext_wl_zc_query_history 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.keyId != null and dto.keyId != ''">
+						and t1.KEY_ID = #{dto.keyId}
+    			</if>
+    			<if test="dto.orgName != null and dto.orgName != ''">
+						and t1.ORG_NAME = #{dto.orgName}
+    			</if>
+    			<if test="dto.orgType != null and dto.orgType != ''">
+						and t1.ORG_TYPE = #{dto.orgType}
+    			</if>
+    			<if test="dto.queryReason != null and dto.queryReason != ''">
+						and t1.QUERY_REASON = #{dto.queryReason}
+    			</if>
+    			<if test="dto.time != null and dto.time != ''">
+						and t1.TIME = #{dto.time}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  ext_wl_zc_query_history -->
+<select id="findExtWlZcQueryHistoryByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlZcQueryHistoryDTO">
+   	 		select 
+					t1.id                             ,
+					t1.key_id                         ,
+					t1.org_name                       ,
+					t1.org_type                       ,
+					t1.query_reason                   ,
+					t1.time                           ,
+					t1.create_time                    ,
+					t1.modify_time                    
+			from ext_wl_zc_query_history 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 ext_wl_zc_query_history -->
+<insert id="insertExtWlZcQueryHistory" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_ext_wl_zc_query_history.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_zc_query_history
+			(   		
+					id                             ,
+					key_id                         ,
+					org_name                       ,
+					org_type                       ,
+					query_reason                   ,
+					time                           ,
+					create_time                    ,
+					modify_time                    
+			)
+			values(#{dto.id}
+					,#{dto.keyId,jdbcType=VARCHAR}
+					,#{dto.orgName,jdbcType=VARCHAR}
+					,#{dto.orgType,jdbcType=VARCHAR}
+					,#{dto.queryReason,jdbcType=VARCHAR}
+					,#{dto.time,jdbcType=VARCHAR}
+					,#{dto.createTime,jdbcType=TIMESTAMP}
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+			)
+</insert>
+    
+<!-- 更新对象 ext_wl_zc_query_history -->
+<update id="updateExtWlZcQueryHistory" parameterType="java.util.Map">
+	     update ext_wl_zc_query_history t1
+	           set 
+			           t1.key_id                         =#{dto.keyId,jdbcType=VARCHAR},
+			           t1.org_name                       =#{dto.orgName,jdbcType=VARCHAR},
+			           t1.org_type                       =#{dto.orgType,jdbcType=VARCHAR},
+			           t1.query_reason                   =#{dto.queryReason,jdbcType=VARCHAR},
+			           t1.time                           =#{dto.time,jdbcType=VARCHAR},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 ext_wl_zc_query_history -->
+<delete id="deleteExtWlZcQueryHistoryByID" parameterType="java.util.Map">
+    	delete from ext_wl_zc_query_history t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 ext_wl_zc_query_history -->
+<update id="deleteExtWlZcQueryHistoryByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_zc_query_history t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+<insert id="batchInsertHistory" parameterType="java.util.Map">
+	begin
+	<foreach collection="historyList" item="dto" index="index" > 
+			insert into ext_wl_zc_query_history
+			(   		
+					id                             ,
+					key_id                         ,
+					org_name                       ,
+					org_type                       ,
+					query_reason                   ,
+					time                           ,
+					create_time                     
+			)
+			values(seq_ext_wl_zc_query_history.nextval
+					,#{dto.keyId,jdbcType=VARCHAR}
+					,#{dto.orgName,jdbcType=VARCHAR}
+					,#{dto.orgType,jdbcType=VARCHAR}
+					,#{dto.queryReason,jdbcType=VARCHAR}
+					,#{dto.time,jdbcType=VARCHAR}
+					,systimestamp
+			);
+	</foreach>		
+	end ;
+</insert>
+
+</mapper>

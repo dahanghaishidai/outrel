@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.sh.extwlsharepidentification.dao.ExtWlSharePIdentificationDao">
+<resultMap id="ExtWlSharePIdentificationDTO" type="com.jy.modules.externalplatform.interfacerepository.sh.extwlsharepidentification.dto.ExtWlSharePIdentificationDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="gender" column="GENDER" jdbcType="VARCHAR" />
+				<result property="birthday" column="BIRTHDAY" jdbcType="VARCHAR" />
+				<result property="idType" column="ID_TYPE" jdbcType="VARCHAR" />
+				<result property="idCard" column="ID_CARD" jdbcType="VARCHAR" />
+				<result property="marriage" column="MARRIAGE" jdbcType="VARCHAR" />
+				<result property="eduLevel" column="EDU_LEVEL" jdbcType="DECIMAL" />
+				<result property="fkReportId" column="FK_REPORT_ID" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_SHARE_P_IDENTIFICATION -->	
+<select id="searchExtWlSharePIdentificationByPaging" parameterType="java.util.Map" resultMap="ExtWlSharePIdentificationDTO">
+    	 		select 
+						t1.id                             ,
+						t1.gender                         ,
+						t1.birthday                       ,
+						t1.id_type                        ,
+						t1.id_card                        ,
+						t1.marriage                       ,
+						t1.edu_level                      ,
+						t1.fk_report_id                   ,
+						t1.create_time                    ,
+						t1.modify_time                    
+					
+				from ext_wl_share_p_identification 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.gender != null and dto.gender != ''">
+						and t1.GENDER =#{dto.gender}
+    			</if>
+    			<if test="dto.birthday != null and dto.birthday != ''">
+						and t1.BIRTHDAY =#{dto.birthday}
+    			</if>
+    			<if test="dto.idType != null and dto.idType != ''">
+						and t1.ID_TYPE =#{dto.idType}
+    			</if>
+    			<if test="dto.idCard != null and dto.idCard != ''">
+						and t1.ID_CARD =#{dto.idCard}
+    			</if>
+    			<if test="dto.marriage != null and dto.marriage != ''">
+						and t1.MARRIAGE =#{dto.marriage}
+    			</if>
+    			<if test="dto.eduLevel != null and dto.eduLevel != ''">
+						and t1.EDU_LEVEL =#{dto.eduLevel}
+    			</if>
+    			<if test="dto.fkReportId != null and dto.fkReportId != ''">
+						and t1.FK_REPORT_ID =#{dto.fkReportId}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_SHARE_P_IDENTIFICATION  -->
+<select id="searchExtWlSharePIdentification" parameterType="java.util.Map" resultMap="ExtWlSharePIdentificationDTO">
+    	     select 
+						t1.id                             ,
+						t1.gender                         ,
+						t1.birthday                       ,
+						t1.id_type                        ,
+						t1.id_card                        ,
+						t1.marriage                       ,
+						t1.edu_level                      ,
+						t1.fk_report_id                   ,
+						t1.create_time                    ,
+						t1.modify_time                    
+				from ext_wl_share_p_identification 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.gender != null and dto.gender != ''">
+						and t1.GENDER = #{dto.gender}
+    			</if>
+    			<if test="dto.birthday != null and dto.birthday != ''">
+						and t1.BIRTHDAY = #{dto.birthday}
+    			</if>
+    			<if test="dto.idType != null and dto.idType != ''">
+						and t1.ID_TYPE = #{dto.idType}
+    			</if>
+    			<if test="dto.idCard != null and dto.idCard != ''">
+						and t1.ID_CARD = #{dto.idCard}
+    			</if>
+    			<if test="dto.marriage != null and dto.marriage != ''">
+						and t1.MARRIAGE = #{dto.marriage}
+    			</if>
+    			<if test="dto.eduLevel != null and dto.eduLevel != ''">
+						and t1.EDU_LEVEL = #{dto.eduLevel}
+    			</if>
+    			<if test="dto.fkReportId != null and dto.fkReportId != ''">
+						and t1.FK_REPORT_ID = #{dto.fkReportId}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_SHARE_P_IDENTIFICATION -->
+<select id="findExtWlSharePIdentificationByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlSharePIdentificationDTO">
+   	 		select 
+					t1.id                             ,
+					t1.gender                         ,
+					t1.birthday                       ,
+					t1.id_type                        ,
+					t1.id_card                        ,
+					t1.marriage                       ,
+					t1.edu_level                      ,
+					t1.fk_report_id                   ,
+					t1.create_time                    ,
+					t1.modify_time                    
+			from ext_wl_share_p_identification 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_SHARE_P_IDENTIFICATION -->
+<insert id="insertExtWlSharePIdentification" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_SHARE_P_IDENTIFY.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_share_p_identification
+			(   		
+					id                             ,
+					gender                         ,
+					birthday                       ,
+					id_type                        ,
+					id_card                        ,
+					marriage                       ,
+					edu_level                      ,
+					fk_report_id                   ,
+					create_time                    ,
+					modify_time                    
+			)
+			values(#{dto.id}
+					,#{dto.gender,jdbcType=VARCHAR}
+					,#{dto.birthday,jdbcType=VARCHAR}
+					,#{dto.idType,jdbcType=VARCHAR}
+					,#{dto.idCard,jdbcType=VARCHAR}
+					,#{dto.marriage,jdbcType=VARCHAR}
+					,#{dto.eduLevel,jdbcType=DECIMAL}
+					,#{dto.fkReportId,jdbcType=DECIMAL}
+					,systimestamp
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_SHARE_P_IDENTIFICATION -->
+<update id="updateExtWlSharePIdentification" parameterType="java.util.Map">
+	     update ext_wl_share_p_identification t1
+	           set 
+			           t1.gender                         =#{dto.gender,jdbcType=VARCHAR},
+			           t1.birthday                       =#{dto.birthday,jdbcType=VARCHAR},
+			           t1.id_type                        =#{dto.idType,jdbcType=VARCHAR},
+			           t1.id_card                        =#{dto.idCard,jdbcType=VARCHAR},
+			           t1.marriage                       =#{dto.marriage,jdbcType=VARCHAR},
+			           t1.edu_level                      =#{dto.eduLevel,jdbcType=DECIMAL},
+			           t1.fk_report_id                   =#{dto.fkReportId,jdbcType=DECIMAL},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_SHARE_P_IDENTIFICATION -->
+<delete id="deleteExtWlSharePIdentificationByID" parameterType="java.util.Map">
+    	delete from ext_wl_share_p_identification t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_SHARE_P_IDENTIFICATION -->
+<update id="deleteExtWlSharePIdentificationByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_share_p_identification t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

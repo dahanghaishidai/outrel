@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.td.extwltdhitrules.dao.ExtWlTdHitRulesDao">
+<resultMap id="ExtWlTdHitRulesDTO" type="com.jy.modules.externalplatform.interfacerepository.td.extwltdhitrules.dto.ExtWlTdHitRulesDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="fkPolicyId" column="FK_POLICY_ID" jdbcType="DECIMAL" />
+	            <result property="fkPoSetId" column="FK_PO_SET_ID" jdbcType="DECIMAL" />
+                <result property="hitPolicy" column="HIT_POLICY" jdbcType="VARCHAR" />
+				<result property="retId" column="RET_ID" jdbcType="VARCHAR" />
+				<result property="parentUuid" column="PARENT_UUID" jdbcType="VARCHAR" />
+				<result property="name" column="NAME" jdbcType="VARCHAR" />
+				<result property="score" column="SCORE" jdbcType="DECIMAL" />
+				<result property="uuid" column="UUID" jdbcType="VARCHAR" />
+				<result property="decision" column="DECISION" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="updateTime" column="UPDATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="updateBy" column="UPDATE_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 新增对象 ext_wl_td_hit_rules -->
+<insert id="insertExtWlTdHitRules" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_ext_wl_td_hit_rules.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_td_hit_rules
+			(   		
+					id                             ,
+					fk_policy_id                   ,
+                    fk_po_set_id                   ,
+                    hit_policy                     ,
+					ret_id                         ,
+					parent_uuid                    ,
+					name                           ,
+					score                          ,
+					uuid                           ,
+					decision                       ,
+					create_time                    ,
+					update_time                    ,
+					create_by                      ,
+					update_by                      
+			)
+			values(#{dto.id}
+					,#{dto.fkPolicyId,jdbcType=DECIMAL}
+                    ,#{dto.fkPoSetId,jdbcType=DECIMAL}
+                    ,#{dto.hitPolicy,jdbcType=VARCHAR}
+					,#{dto.retId,jdbcType=VARCHAR}
+					,#{dto.parentUuid,jdbcType=VARCHAR}
+					,#{dto.name,jdbcType=VARCHAR}
+					,#{dto.score,jdbcType=DECIMAL}
+					,#{dto.uuid,jdbcType=VARCHAR}
+					,#{dto.decision,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.updateTime,jdbcType=TIMESTAMP}
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.updateBy,jdbcType=DECIMAL}
+			)
+</insert>
+
+</mapper>

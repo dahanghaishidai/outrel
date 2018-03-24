@@ -1,0 +1,710 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.mg.extwljxlmgcontaquery.dao.ExtWlJxlMgContaQueryDao">
+<resultMap id="ExtWlJxlMgContaQueryDTO" type="com.jy.modules.externalplatform.interfacerepository.mg.extwljxlmgcontaquery.dto.ExtWlJxlMgContaQueryDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="userGridId" column="USER_GRID_ID" jdbcType="VARCHAR" />
+				<result property="toRecentQueryTime" column="TO_RECENT_QUERY_TIME" jdbcType="DECIMAL" />
+				<result property="beRecentQueryTime" column="BE_RECENT_QUERY_TIME" jdbcType="DECIMAL" />
+				<result property="toQueryCnt05" column="TO_QUERY_CNT_05" jdbcType="DECIMAL" />
+				<result property="beQueryCnt05" column="BE_QUERY_CNT_05" jdbcType="DECIMAL" />
+				<result property="queryCnt05" column="QUERY_CNT_05" jdbcType="DECIMAL" />
+				<result property="toQueryCnt1" column="TO_QUERY_CNT_1" jdbcType="DECIMAL" />
+				<result property="beQueryCnt1" column="BE_QUERY_CNT_1" jdbcType="DECIMAL" />
+				<result property="queryCnt1" column="QUERY_CNT_1" jdbcType="DECIMAL" />
+				<result property="toQueryCnt2" column="TO_QUERY_CNT_2" jdbcType="DECIMAL" />
+				<result property="beQueryCnt2" column="BE_QUERY_CNT_2" jdbcType="DECIMAL" />
+				<result property="queryCnt2" column="QUERY_CNT_2" jdbcType="DECIMAL" />
+				<result property="toQueryCnt3" column="TO_QUERY_CNT_3" jdbcType="DECIMAL" />
+				<result property="beQueryCnt3" column="BE_QUERY_CNT_3" jdbcType="DECIMAL" />
+				<result property="queryCnt3" column="QUERY_CNT_3" jdbcType="DECIMAL" />
+				<result property="toQueryCnt6" column="TO_QUERY_CNT_6" jdbcType="DECIMAL" />
+				<result property="beQueryCnt6" column="BE_QUERY_CNT_6" jdbcType="DECIMAL" />
+				<result property="queryCnt6" column="QUERY_CNT_6" jdbcType="DECIMAL" />
+				<result property="toQueryCnt9" column="TO_QUERY_CNT_9" jdbcType="DECIMAL" />
+				<result property="beQueryCnt9" column="BE_QUERY_CNT_9" jdbcType="DECIMAL" />
+				<result property="queryCnt9" column="QUERY_CNT_9" jdbcType="DECIMAL" />
+				<result property="toQueryCnt12" column="TO_QUERY_CNT_12" jdbcType="DECIMAL" />
+				<result property="beQueryCnt12" column="BE_QUERY_CNT_12" jdbcType="DECIMAL" />
+				<result property="queryCnt12" column="QUERY_CNT_12" jdbcType="DECIMAL" />
+				<result property="toOrgCnt05" column="TO_ORG_CNT_05" jdbcType="DECIMAL" />
+				<result property="beOrgCnt05" column="BE_ORG_CNT_05" jdbcType="DECIMAL" />
+				<result property="orgCnt05" column="ORG_CNT_05" jdbcType="DECIMAL" />
+				<result property="toOrgCnt1" column="TO_ORG_CNT_1" jdbcType="DECIMAL" />
+				<result property="beOrgCnt1" column="BE_ORG_CNT_1" jdbcType="DECIMAL" />
+				<result property="orgCnt1" column="ORG_CNT_1" jdbcType="DECIMAL" />
+				<result property="toOrgCnt2" column="TO_ORG_CNT_2" jdbcType="DECIMAL" />
+				<result property="beOrgCnt2" column="BE_ORG_CNT_2" jdbcType="DECIMAL" />
+				<result property="orgCnt2" column="ORG_CNT_2" jdbcType="DECIMAL" />
+				<result property="toOrgCnt3" column="TO_ORG_CNT_3" jdbcType="DECIMAL" />
+				<result property="beOrgCnt3" column="BE_ORG_CNT_3" jdbcType="DECIMAL" />
+				<result property="orgCnt3" column="ORG_CNT_3" jdbcType="DECIMAL" />
+				<result property="toOrgCnt6" column="TO_ORG_CNT_6" jdbcType="DECIMAL" />
+				<result property="beOrgCnt6" column="BE_ORG_CNT_6" jdbcType="DECIMAL" />
+				<result property="orgCnt6" column="ORG_CNT_6" jdbcType="DECIMAL" />
+				<result property="toOrgCnt9" column="TO_ORG_CNT_9" jdbcType="DECIMAL" />
+				<result property="beOrgCnt9" column="BE_ORG_CNT_9" jdbcType="DECIMAL" />
+				<result property="orgCnt9" column="ORG_CNT_9" jdbcType="DECIMAL" />
+				<result property="toOrgCnt12" column="TO_ORG_CNT_12" jdbcType="DECIMAL" />
+				<result property="beOrgCnt12" column="BE_ORG_CNT_12" jdbcType="DECIMAL" />
+				<result property="orgCnt12" column="ORG_CNT_12" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyBy" column="MODIFY_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_JXL_MG_CONTA_QUERY -->	
+<select id="searchExtWlJxlMgContaQueryByPaging" parameterType="java.util.Map" resultMap="ExtWlJxlMgContaQueryDTO">
+    	 		select 
+						t1.id                             ,
+						t1.user_grid_id                   ,
+						t1.to_recent_query_time           ,
+						t1.be_recent_query_time           ,
+						t1.to_query_cnt_05                ,
+						t1.be_query_cnt_05                ,
+						t1.query_cnt_05                   ,
+						t1.to_query_cnt_1                 ,
+						t1.be_query_cnt_1                 ,
+						t1.query_cnt_1                    ,
+						t1.to_query_cnt_2                 ,
+						t1.be_query_cnt_2                 ,
+						t1.query_cnt_2                    ,
+						t1.to_query_cnt_3                 ,
+						t1.be_query_cnt_3                 ,
+						t1.query_cnt_3                    ,
+						t1.to_query_cnt_6                 ,
+						t1.be_query_cnt_6                 ,
+						t1.query_cnt_6                    ,
+						t1.to_query_cnt_9                 ,
+						t1.be_query_cnt_9                 ,
+						t1.query_cnt_9                    ,
+						t1.to_query_cnt_12                ,
+						t1.be_query_cnt_12                ,
+						t1.query_cnt_12                   ,
+						t1.to_org_cnt_05                  ,
+						t1.be_org_cnt_05                  ,
+						t1.org_cnt_05                     ,
+						t1.to_org_cnt_1                   ,
+						t1.be_org_cnt_1                   ,
+						t1.org_cnt_1                      ,
+						t1.to_org_cnt_2                   ,
+						t1.be_org_cnt_2                   ,
+						t1.org_cnt_2                      ,
+						t1.to_org_cnt_3                   ,
+						t1.be_org_cnt_3                   ,
+						t1.org_cnt_3                      ,
+						t1.to_org_cnt_6                   ,
+						t1.be_org_cnt_6                   ,
+						t1.org_cnt_6                      ,
+						t1.to_org_cnt_9                   ,
+						t1.be_org_cnt_9                   ,
+						t1.org_cnt_9                      ,
+						t1.to_org_cnt_12                  ,
+						t1.be_org_cnt_12                  ,
+						t1.org_cnt_12                     ,
+						t1.create_time                    ,
+						t1.create_by                      ,
+						t1.modify_time                    ,
+						t1.modify_by                      
+					
+				from ext_wl_jxl_mg_conta_query 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.userGridId != null and dto.userGridId != ''">
+						and t1.USER_GRID_ID =#{dto.userGridId}
+    			</if>
+    			<if test="dto.toRecentQueryTime != null and dto.toRecentQueryTime != ''">
+						and t1.TO_RECENT_QUERY_TIME =#{dto.toRecentQueryTime}
+    			</if>
+    			<if test="dto.beRecentQueryTime != null and dto.beRecentQueryTime != ''">
+						and t1.BE_RECENT_QUERY_TIME =#{dto.beRecentQueryTime}
+    			</if>
+    			<if test="dto.toQueryCnt05 != null and dto.toQueryCnt05 != ''">
+						and t1.TO_QUERY_CNT_05 =#{dto.toQueryCnt05}
+    			</if>
+    			<if test="dto.beQueryCnt05 != null and dto.beQueryCnt05 != ''">
+						and t1.BE_QUERY_CNT_05 =#{dto.beQueryCnt05}
+    			</if>
+    			<if test="dto.queryCnt05 != null and dto.queryCnt05 != ''">
+						and t1.QUERY_CNT_05 =#{dto.queryCnt05}
+    			</if>
+    			<if test="dto.toQueryCnt1 != null and dto.toQueryCnt1 != ''">
+						and t1.TO_QUERY_CNT_1 =#{dto.toQueryCnt1}
+    			</if>
+    			<if test="dto.beQueryCnt1 != null and dto.beQueryCnt1 != ''">
+						and t1.BE_QUERY_CNT_1 =#{dto.beQueryCnt1}
+    			</if>
+    			<if test="dto.queryCnt1 != null and dto.queryCnt1 != ''">
+						and t1.QUERY_CNT_1 =#{dto.queryCnt1}
+    			</if>
+    			<if test="dto.toQueryCnt2 != null and dto.toQueryCnt2 != ''">
+						and t1.TO_QUERY_CNT_2 =#{dto.toQueryCnt2}
+    			</if>
+    			<if test="dto.beQueryCnt2 != null and dto.beQueryCnt2 != ''">
+						and t1.BE_QUERY_CNT_2 =#{dto.beQueryCnt2}
+    			</if>
+    			<if test="dto.queryCnt2 != null and dto.queryCnt2 != ''">
+						and t1.QUERY_CNT_2 =#{dto.queryCnt2}
+    			</if>
+    			<if test="dto.toQueryCnt3 != null and dto.toQueryCnt3 != ''">
+						and t1.TO_QUERY_CNT_3 =#{dto.toQueryCnt3}
+    			</if>
+    			<if test="dto.beQueryCnt3 != null and dto.beQueryCnt3 != ''">
+						and t1.BE_QUERY_CNT_3 =#{dto.beQueryCnt3}
+    			</if>
+    			<if test="dto.queryCnt3 != null and dto.queryCnt3 != ''">
+						and t1.QUERY_CNT_3 =#{dto.queryCnt3}
+    			</if>
+    			<if test="dto.toQueryCnt6 != null and dto.toQueryCnt6 != ''">
+						and t1.TO_QUERY_CNT_6 =#{dto.toQueryCnt6}
+    			</if>
+    			<if test="dto.beQueryCnt6 != null and dto.beQueryCnt6 != ''">
+						and t1.BE_QUERY_CNT_6 =#{dto.beQueryCnt6}
+    			</if>
+    			<if test="dto.queryCnt6 != null and dto.queryCnt6 != ''">
+						and t1.QUERY_CNT_6 =#{dto.queryCnt6}
+    			</if>
+    			<if test="dto.toQueryCnt9 != null and dto.toQueryCnt9 != ''">
+						and t1.TO_QUERY_CNT_9 =#{dto.toQueryCnt9}
+    			</if>
+    			<if test="dto.beQueryCnt9 != null and dto.beQueryCnt9 != ''">
+						and t1.BE_QUERY_CNT_9 =#{dto.beQueryCnt9}
+    			</if>
+    			<if test="dto.queryCnt9 != null and dto.queryCnt9 != ''">
+						and t1.QUERY_CNT_9 =#{dto.queryCnt9}
+    			</if>
+    			<if test="dto.toQueryCnt12 != null and dto.toQueryCnt12 != ''">
+						and t1.TO_QUERY_CNT_12 =#{dto.toQueryCnt12}
+    			</if>
+    			<if test="dto.beQueryCnt12 != null and dto.beQueryCnt12 != ''">
+						and t1.BE_QUERY_CNT_12 =#{dto.beQueryCnt12}
+    			</if>
+    			<if test="dto.queryCnt12 != null and dto.queryCnt12 != ''">
+						and t1.QUERY_CNT_12 =#{dto.queryCnt12}
+    			</if>
+    			<if test="dto.toOrgCnt05 != null and dto.toOrgCnt05 != ''">
+						and t1.TO_ORG_CNT_05 =#{dto.toOrgCnt05}
+    			</if>
+    			<if test="dto.beOrgCnt05 != null and dto.beOrgCnt05 != ''">
+						and t1.BE_ORG_CNT_05 =#{dto.beOrgCnt05}
+    			</if>
+    			<if test="dto.orgCnt05 != null and dto.orgCnt05 != ''">
+						and t1.ORG_CNT_05 =#{dto.orgCnt05}
+    			</if>
+    			<if test="dto.toOrgCnt1 != null and dto.toOrgCnt1 != ''">
+						and t1.TO_ORG_CNT_1 =#{dto.toOrgCnt1}
+    			</if>
+    			<if test="dto.beOrgCnt1 != null and dto.beOrgCnt1 != ''">
+						and t1.BE_ORG_CNT_1 =#{dto.beOrgCnt1}
+    			</if>
+    			<if test="dto.orgCnt1 != null and dto.orgCnt1 != ''">
+						and t1.ORG_CNT_1 =#{dto.orgCnt1}
+    			</if>
+    			<if test="dto.toOrgCnt2 != null and dto.toOrgCnt2 != ''">
+						and t1.TO_ORG_CNT_2 =#{dto.toOrgCnt2}
+    			</if>
+    			<if test="dto.beOrgCnt2 != null and dto.beOrgCnt2 != ''">
+						and t1.BE_ORG_CNT_2 =#{dto.beOrgCnt2}
+    			</if>
+    			<if test="dto.orgCnt2 != null and dto.orgCnt2 != ''">
+						and t1.ORG_CNT_2 =#{dto.orgCnt2}
+    			</if>
+    			<if test="dto.toOrgCnt3 != null and dto.toOrgCnt3 != ''">
+						and t1.TO_ORG_CNT_3 =#{dto.toOrgCnt3}
+    			</if>
+    			<if test="dto.beOrgCnt3 != null and dto.beOrgCnt3 != ''">
+						and t1.BE_ORG_CNT_3 =#{dto.beOrgCnt3}
+    			</if>
+    			<if test="dto.orgCnt3 != null and dto.orgCnt3 != ''">
+						and t1.ORG_CNT_3 =#{dto.orgCnt3}
+    			</if>
+    			<if test="dto.toOrgCnt6 != null and dto.toOrgCnt6 != ''">
+						and t1.TO_ORG_CNT_6 =#{dto.toOrgCnt6}
+    			</if>
+    			<if test="dto.beOrgCnt6 != null and dto.beOrgCnt6 != ''">
+						and t1.BE_ORG_CNT_6 =#{dto.beOrgCnt6}
+    			</if>
+    			<if test="dto.orgCnt6 != null and dto.orgCnt6 != ''">
+						and t1.ORG_CNT_6 =#{dto.orgCnt6}
+    			</if>
+    			<if test="dto.toOrgCnt9 != null and dto.toOrgCnt9 != ''">
+						and t1.TO_ORG_CNT_9 =#{dto.toOrgCnt9}
+    			</if>
+    			<if test="dto.beOrgCnt9 != null and dto.beOrgCnt9 != ''">
+						and t1.BE_ORG_CNT_9 =#{dto.beOrgCnt9}
+    			</if>
+    			<if test="dto.orgCnt9 != null and dto.orgCnt9 != ''">
+						and t1.ORG_CNT_9 =#{dto.orgCnt9}
+    			</if>
+    			<if test="dto.toOrgCnt12 != null and dto.toOrgCnt12 != ''">
+						and t1.TO_ORG_CNT_12 =#{dto.toOrgCnt12}
+    			</if>
+    			<if test="dto.beOrgCnt12 != null and dto.beOrgCnt12 != ''">
+						and t1.BE_ORG_CNT_12 =#{dto.beOrgCnt12}
+    			</if>
+    			<if test="dto.orgCnt12 != null and dto.orgCnt12 != ''">
+						and t1.ORG_CNT_12 =#{dto.orgCnt12}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY =#{dto.modifyBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_JXL_MG_CONTA_QUERY  -->
+<select id="searchExtWlJxlMgContaQuery" parameterType="java.util.Map" resultMap="ExtWlJxlMgContaQueryDTO">
+    	     select 
+						t1.id                             ,
+						t1.user_grid_id                   ,
+						t1.to_recent_query_time           ,
+						t1.be_recent_query_time           ,
+						t1.to_query_cnt_05                ,
+						t1.be_query_cnt_05                ,
+						t1.query_cnt_05                   ,
+						t1.to_query_cnt_1                 ,
+						t1.be_query_cnt_1                 ,
+						t1.query_cnt_1                    ,
+						t1.to_query_cnt_2                 ,
+						t1.be_query_cnt_2                 ,
+						t1.query_cnt_2                    ,
+						t1.to_query_cnt_3                 ,
+						t1.be_query_cnt_3                 ,
+						t1.query_cnt_3                    ,
+						t1.to_query_cnt_6                 ,
+						t1.be_query_cnt_6                 ,
+						t1.query_cnt_6                    ,
+						t1.to_query_cnt_9                 ,
+						t1.be_query_cnt_9                 ,
+						t1.query_cnt_9                    ,
+						t1.to_query_cnt_12                ,
+						t1.be_query_cnt_12                ,
+						t1.query_cnt_12                   ,
+						t1.to_org_cnt_05                  ,
+						t1.be_org_cnt_05                  ,
+						t1.org_cnt_05                     ,
+						t1.to_org_cnt_1                   ,
+						t1.be_org_cnt_1                   ,
+						t1.org_cnt_1                      ,
+						t1.to_org_cnt_2                   ,
+						t1.be_org_cnt_2                   ,
+						t1.org_cnt_2                      ,
+						t1.to_org_cnt_3                   ,
+						t1.be_org_cnt_3                   ,
+						t1.org_cnt_3                      ,
+						t1.to_org_cnt_6                   ,
+						t1.be_org_cnt_6                   ,
+						t1.org_cnt_6                      ,
+						t1.to_org_cnt_9                   ,
+						t1.be_org_cnt_9                   ,
+						t1.org_cnt_9                      ,
+						t1.to_org_cnt_12                  ,
+						t1.be_org_cnt_12                  ,
+						t1.org_cnt_12                     ,
+						t1.create_time                    ,
+						t1.create_by                      ,
+						t1.modify_time                    ,
+						t1.modify_by                      
+				from ext_wl_jxl_mg_conta_query 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.userGridId != null and dto.userGridId != ''">
+						and t1.USER_GRID_ID = #{dto.userGridId}
+    			</if>
+    			<if test="dto.toRecentQueryTime != null and dto.toRecentQueryTime != ''">
+						and t1.TO_RECENT_QUERY_TIME = #{dto.toRecentQueryTime}
+    			</if>
+    			<if test="dto.beRecentQueryTime != null and dto.beRecentQueryTime != ''">
+						and t1.BE_RECENT_QUERY_TIME = #{dto.beRecentQueryTime}
+    			</if>
+    			<if test="dto.toQueryCnt05 != null and dto.toQueryCnt05 != ''">
+						and t1.TO_QUERY_CNT_05 = #{dto.toQueryCnt05}
+    			</if>
+    			<if test="dto.beQueryCnt05 != null and dto.beQueryCnt05 != ''">
+						and t1.BE_QUERY_CNT_05 = #{dto.beQueryCnt05}
+    			</if>
+    			<if test="dto.queryCnt05 != null and dto.queryCnt05 != ''">
+						and t1.QUERY_CNT_05 = #{dto.queryCnt05}
+    			</if>
+    			<if test="dto.toQueryCnt1 != null and dto.toQueryCnt1 != ''">
+						and t1.TO_QUERY_CNT_1 = #{dto.toQueryCnt1}
+    			</if>
+    			<if test="dto.beQueryCnt1 != null and dto.beQueryCnt1 != ''">
+						and t1.BE_QUERY_CNT_1 = #{dto.beQueryCnt1}
+    			</if>
+    			<if test="dto.queryCnt1 != null and dto.queryCnt1 != ''">
+						and t1.QUERY_CNT_1 = #{dto.queryCnt1}
+    			</if>
+    			<if test="dto.toQueryCnt2 != null and dto.toQueryCnt2 != ''">
+						and t1.TO_QUERY_CNT_2 = #{dto.toQueryCnt2}
+    			</if>
+    			<if test="dto.beQueryCnt2 != null and dto.beQueryCnt2 != ''">
+						and t1.BE_QUERY_CNT_2 = #{dto.beQueryCnt2}
+    			</if>
+    			<if test="dto.queryCnt2 != null and dto.queryCnt2 != ''">
+						and t1.QUERY_CNT_2 = #{dto.queryCnt2}
+    			</if>
+    			<if test="dto.toQueryCnt3 != null and dto.toQueryCnt3 != ''">
+						and t1.TO_QUERY_CNT_3 = #{dto.toQueryCnt3}
+    			</if>
+    			<if test="dto.beQueryCnt3 != null and dto.beQueryCnt3 != ''">
+						and t1.BE_QUERY_CNT_3 = #{dto.beQueryCnt3}
+    			</if>
+    			<if test="dto.queryCnt3 != null and dto.queryCnt3 != ''">
+						and t1.QUERY_CNT_3 = #{dto.queryCnt3}
+    			</if>
+    			<if test="dto.toQueryCnt6 != null and dto.toQueryCnt6 != ''">
+						and t1.TO_QUERY_CNT_6 = #{dto.toQueryCnt6}
+    			</if>
+    			<if test="dto.beQueryCnt6 != null and dto.beQueryCnt6 != ''">
+						and t1.BE_QUERY_CNT_6 = #{dto.beQueryCnt6}
+    			</if>
+    			<if test="dto.queryCnt6 != null and dto.queryCnt6 != ''">
+						and t1.QUERY_CNT_6 = #{dto.queryCnt6}
+    			</if>
+    			<if test="dto.toQueryCnt9 != null and dto.toQueryCnt9 != ''">
+						and t1.TO_QUERY_CNT_9 = #{dto.toQueryCnt9}
+    			</if>
+    			<if test="dto.beQueryCnt9 != null and dto.beQueryCnt9 != ''">
+						and t1.BE_QUERY_CNT_9 = #{dto.beQueryCnt9}
+    			</if>
+    			<if test="dto.queryCnt9 != null and dto.queryCnt9 != ''">
+						and t1.QUERY_CNT_9 = #{dto.queryCnt9}
+    			</if>
+    			<if test="dto.toQueryCnt12 != null and dto.toQueryCnt12 != ''">
+						and t1.TO_QUERY_CNT_12 = #{dto.toQueryCnt12}
+    			</if>
+    			<if test="dto.beQueryCnt12 != null and dto.beQueryCnt12 != ''">
+						and t1.BE_QUERY_CNT_12 = #{dto.beQueryCnt12}
+    			</if>
+    			<if test="dto.queryCnt12 != null and dto.queryCnt12 != ''">
+						and t1.QUERY_CNT_12 = #{dto.queryCnt12}
+    			</if>
+    			<if test="dto.toOrgCnt05 != null and dto.toOrgCnt05 != ''">
+						and t1.TO_ORG_CNT_05 = #{dto.toOrgCnt05}
+    			</if>
+    			<if test="dto.beOrgCnt05 != null and dto.beOrgCnt05 != ''">
+						and t1.BE_ORG_CNT_05 = #{dto.beOrgCnt05}
+    			</if>
+    			<if test="dto.orgCnt05 != null and dto.orgCnt05 != ''">
+						and t1.ORG_CNT_05 = #{dto.orgCnt05}
+    			</if>
+    			<if test="dto.toOrgCnt1 != null and dto.toOrgCnt1 != ''">
+						and t1.TO_ORG_CNT_1 = #{dto.toOrgCnt1}
+    			</if>
+    			<if test="dto.beOrgCnt1 != null and dto.beOrgCnt1 != ''">
+						and t1.BE_ORG_CNT_1 = #{dto.beOrgCnt1}
+    			</if>
+    			<if test="dto.orgCnt1 != null and dto.orgCnt1 != ''">
+						and t1.ORG_CNT_1 = #{dto.orgCnt1}
+    			</if>
+    			<if test="dto.toOrgCnt2 != null and dto.toOrgCnt2 != ''">
+						and t1.TO_ORG_CNT_2 = #{dto.toOrgCnt2}
+    			</if>
+    			<if test="dto.beOrgCnt2 != null and dto.beOrgCnt2 != ''">
+						and t1.BE_ORG_CNT_2 = #{dto.beOrgCnt2}
+    			</if>
+    			<if test="dto.orgCnt2 != null and dto.orgCnt2 != ''">
+						and t1.ORG_CNT_2 = #{dto.orgCnt2}
+    			</if>
+    			<if test="dto.toOrgCnt3 != null and dto.toOrgCnt3 != ''">
+						and t1.TO_ORG_CNT_3 = #{dto.toOrgCnt3}
+    			</if>
+    			<if test="dto.beOrgCnt3 != null and dto.beOrgCnt3 != ''">
+						and t1.BE_ORG_CNT_3 = #{dto.beOrgCnt3}
+    			</if>
+    			<if test="dto.orgCnt3 != null and dto.orgCnt3 != ''">
+						and t1.ORG_CNT_3 = #{dto.orgCnt3}
+    			</if>
+    			<if test="dto.toOrgCnt6 != null and dto.toOrgCnt6 != ''">
+						and t1.TO_ORG_CNT_6 = #{dto.toOrgCnt6}
+    			</if>
+    			<if test="dto.beOrgCnt6 != null and dto.beOrgCnt6 != ''">
+						and t1.BE_ORG_CNT_6 = #{dto.beOrgCnt6}
+    			</if>
+    			<if test="dto.orgCnt6 != null and dto.orgCnt6 != ''">
+						and t1.ORG_CNT_6 = #{dto.orgCnt6}
+    			</if>
+    			<if test="dto.toOrgCnt9 != null and dto.toOrgCnt9 != ''">
+						and t1.TO_ORG_CNT_9 = #{dto.toOrgCnt9}
+    			</if>
+    			<if test="dto.beOrgCnt9 != null and dto.beOrgCnt9 != ''">
+						and t1.BE_ORG_CNT_9 = #{dto.beOrgCnt9}
+    			</if>
+    			<if test="dto.orgCnt9 != null and dto.orgCnt9 != ''">
+						and t1.ORG_CNT_9 = #{dto.orgCnt9}
+    			</if>
+    			<if test="dto.toOrgCnt12 != null and dto.toOrgCnt12 != ''">
+						and t1.TO_ORG_CNT_12 = #{dto.toOrgCnt12}
+    			</if>
+    			<if test="dto.beOrgCnt12 != null and dto.beOrgCnt12 != ''">
+						and t1.BE_ORG_CNT_12 = #{dto.beOrgCnt12}
+    			</if>
+    			<if test="dto.orgCnt12 != null and dto.orgCnt12 != ''">
+						and t1.ORG_CNT_12 = #{dto.orgCnt12}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY = #{dto.modifyBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_JXL_MG_CONTA_QUERY -->
+<select id="findExtWlJxlMgContaQueryByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlJxlMgContaQueryDTO">
+   	 		select 
+					t1.id                             ,
+					t1.user_grid_id                   ,
+					t1.to_recent_query_time           ,
+					t1.be_recent_query_time           ,
+					t1.to_query_cnt_05                ,
+					t1.be_query_cnt_05                ,
+					t1.query_cnt_05                   ,
+					t1.to_query_cnt_1                 ,
+					t1.be_query_cnt_1                 ,
+					t1.query_cnt_1                    ,
+					t1.to_query_cnt_2                 ,
+					t1.be_query_cnt_2                 ,
+					t1.query_cnt_2                    ,
+					t1.to_query_cnt_3                 ,
+					t1.be_query_cnt_3                 ,
+					t1.query_cnt_3                    ,
+					t1.to_query_cnt_6                 ,
+					t1.be_query_cnt_6                 ,
+					t1.query_cnt_6                    ,
+					t1.to_query_cnt_9                 ,
+					t1.be_query_cnt_9                 ,
+					t1.query_cnt_9                    ,
+					t1.to_query_cnt_12                ,
+					t1.be_query_cnt_12                ,
+					t1.query_cnt_12                   ,
+					t1.to_org_cnt_05                  ,
+					t1.be_org_cnt_05                  ,
+					t1.org_cnt_05                     ,
+					t1.to_org_cnt_1                   ,
+					t1.be_org_cnt_1                   ,
+					t1.org_cnt_1                      ,
+					t1.to_org_cnt_2                   ,
+					t1.be_org_cnt_2                   ,
+					t1.org_cnt_2                      ,
+					t1.to_org_cnt_3                   ,
+					t1.be_org_cnt_3                   ,
+					t1.org_cnt_3                      ,
+					t1.to_org_cnt_6                   ,
+					t1.be_org_cnt_6                   ,
+					t1.org_cnt_6                      ,
+					t1.to_org_cnt_9                   ,
+					t1.be_org_cnt_9                   ,
+					t1.org_cnt_9                      ,
+					t1.to_org_cnt_12                  ,
+					t1.be_org_cnt_12                  ,
+					t1.org_cnt_12                     ,
+					t1.create_time                    ,
+					t1.create_by                      ,
+					t1.modify_time                    ,
+					t1.modify_by                      
+			from ext_wl_jxl_mg_conta_query 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_JXL_MG_CONTA_QUERY -->
+<insert id="insertExtWlJxlMgContaQuery" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_JXL_MG_CONTA_QUERY.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_jxl_mg_conta_query
+			(   		
+					id                             ,
+					user_grid_id                   ,
+					to_recent_query_time           ,
+					be_recent_query_time           ,
+					to_query_cnt_05                ,
+					be_query_cnt_05                ,
+					query_cnt_05                   ,
+					to_query_cnt_1                 ,
+					be_query_cnt_1                 ,
+					query_cnt_1                    ,
+					to_query_cnt_2                 ,
+					be_query_cnt_2                 ,
+					query_cnt_2                    ,
+					to_query_cnt_3                 ,
+					be_query_cnt_3                 ,
+					query_cnt_3                    ,
+					to_query_cnt_6                 ,
+					be_query_cnt_6                 ,
+					query_cnt_6                    ,
+					to_query_cnt_9                 ,
+					be_query_cnt_9                 ,
+					query_cnt_9                    ,
+					to_query_cnt_12                ,
+					be_query_cnt_12                ,
+					query_cnt_12                   ,
+					to_org_cnt_05                  ,
+					be_org_cnt_05                  ,
+					org_cnt_05                     ,
+					to_org_cnt_1                   ,
+					be_org_cnt_1                   ,
+					org_cnt_1                      ,
+					to_org_cnt_2                   ,
+					be_org_cnt_2                   ,
+					org_cnt_2                      ,
+					to_org_cnt_3                   ,
+					be_org_cnt_3                   ,
+					org_cnt_3                      ,
+					to_org_cnt_6                   ,
+					be_org_cnt_6                   ,
+					org_cnt_6                      ,
+					to_org_cnt_9                   ,
+					be_org_cnt_9                   ,
+					org_cnt_9                      ,
+					to_org_cnt_12                  ,
+					be_org_cnt_12                  ,
+					org_cnt_12                     ,
+					create_time                    ,
+					create_by                      ,
+					modify_time                    ,
+					modify_by                      
+			)
+			values(#{dto.id}
+					,#{dto.userGridId,jdbcType=VARCHAR}
+					,#{dto.toRecentQueryTime,jdbcType=DECIMAL}
+					,#{dto.beRecentQueryTime,jdbcType=DECIMAL}
+					,#{dto.toQueryCnt05,jdbcType=DECIMAL}
+					,#{dto.beQueryCnt05,jdbcType=DECIMAL}
+					,#{dto.queryCnt05,jdbcType=DECIMAL}
+					,#{dto.toQueryCnt1,jdbcType=DECIMAL}
+					,#{dto.beQueryCnt1,jdbcType=DECIMAL}
+					,#{dto.queryCnt1,jdbcType=DECIMAL}
+					,#{dto.toQueryCnt2,jdbcType=DECIMAL}
+					,#{dto.beQueryCnt2,jdbcType=DECIMAL}
+					,#{dto.queryCnt2,jdbcType=DECIMAL}
+					,#{dto.toQueryCnt3,jdbcType=DECIMAL}
+					,#{dto.beQueryCnt3,jdbcType=DECIMAL}
+					,#{dto.queryCnt3,jdbcType=DECIMAL}
+					,#{dto.toQueryCnt6,jdbcType=DECIMAL}
+					,#{dto.beQueryCnt6,jdbcType=DECIMAL}
+					,#{dto.queryCnt6,jdbcType=DECIMAL}
+					,#{dto.toQueryCnt9,jdbcType=DECIMAL}
+					,#{dto.beQueryCnt9,jdbcType=DECIMAL}
+					,#{dto.queryCnt9,jdbcType=DECIMAL}
+					,#{dto.toQueryCnt12,jdbcType=DECIMAL}
+					,#{dto.beQueryCnt12,jdbcType=DECIMAL}
+					,#{dto.queryCnt12,jdbcType=DECIMAL}
+					,#{dto.toOrgCnt05,jdbcType=DECIMAL}
+					,#{dto.beOrgCnt05,jdbcType=DECIMAL}
+					,#{dto.orgCnt05,jdbcType=DECIMAL}
+					,#{dto.toOrgCnt1,jdbcType=DECIMAL}
+					,#{dto.beOrgCnt1,jdbcType=DECIMAL}
+					,#{dto.orgCnt1,jdbcType=DECIMAL}
+					,#{dto.toOrgCnt2,jdbcType=DECIMAL}
+					,#{dto.beOrgCnt2,jdbcType=DECIMAL}
+					,#{dto.orgCnt2,jdbcType=DECIMAL}
+					,#{dto.toOrgCnt3,jdbcType=DECIMAL}
+					,#{dto.beOrgCnt3,jdbcType=DECIMAL}
+					,#{dto.orgCnt3,jdbcType=DECIMAL}
+					,#{dto.toOrgCnt6,jdbcType=DECIMAL}
+					,#{dto.beOrgCnt6,jdbcType=DECIMAL}
+					,#{dto.orgCnt6,jdbcType=DECIMAL}
+					,#{dto.toOrgCnt9,jdbcType=DECIMAL}
+					,#{dto.beOrgCnt9,jdbcType=DECIMAL}
+					,#{dto.orgCnt9,jdbcType=DECIMAL}
+					,#{dto.toOrgCnt12,jdbcType=DECIMAL}
+					,#{dto.beOrgCnt12,jdbcType=DECIMAL}
+					,#{dto.orgCnt12,jdbcType=DECIMAL}
+					,systimestamp
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,#{dto.modifyBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_JXL_MG_CONTA_QUERY -->
+<update id="updateExtWlJxlMgContaQuery" parameterType="java.util.Map">
+	     update ext_wl_jxl_mg_conta_query t1
+	           set 
+			           t1.user_grid_id                   =#{dto.userGridId,jdbcType=VARCHAR},
+			           t1.to_recent_query_time           =#{dto.toRecentQueryTime,jdbcType=DECIMAL},
+			           t1.be_recent_query_time           =#{dto.beRecentQueryTime,jdbcType=DECIMAL},
+			           t1.to_query_cnt_05                =#{dto.toQueryCnt05,jdbcType=DECIMAL},
+			           t1.be_query_cnt_05                =#{dto.beQueryCnt05,jdbcType=DECIMAL},
+			           t1.query_cnt_05                   =#{dto.queryCnt05,jdbcType=DECIMAL},
+			           t1.to_query_cnt_1                 =#{dto.toQueryCnt1,jdbcType=DECIMAL},
+			           t1.be_query_cnt_1                 =#{dto.beQueryCnt1,jdbcType=DECIMAL},
+			           t1.query_cnt_1                    =#{dto.queryCnt1,jdbcType=DECIMAL},
+			           t1.to_query_cnt_2                 =#{dto.toQueryCnt2,jdbcType=DECIMAL},
+			           t1.be_query_cnt_2                 =#{dto.beQueryCnt2,jdbcType=DECIMAL},
+			           t1.query_cnt_2                    =#{dto.queryCnt2,jdbcType=DECIMAL},
+			           t1.to_query_cnt_3                 =#{dto.toQueryCnt3,jdbcType=DECIMAL},
+			           t1.be_query_cnt_3                 =#{dto.beQueryCnt3,jdbcType=DECIMAL},
+			           t1.query_cnt_3                    =#{dto.queryCnt3,jdbcType=DECIMAL},
+			           t1.to_query_cnt_6                 =#{dto.toQueryCnt6,jdbcType=DECIMAL},
+			           t1.be_query_cnt_6                 =#{dto.beQueryCnt6,jdbcType=DECIMAL},
+			           t1.query_cnt_6                    =#{dto.queryCnt6,jdbcType=DECIMAL},
+			           t1.to_query_cnt_9                 =#{dto.toQueryCnt9,jdbcType=DECIMAL},
+			           t1.be_query_cnt_9                 =#{dto.beQueryCnt9,jdbcType=DECIMAL},
+			           t1.query_cnt_9                    =#{dto.queryCnt9,jdbcType=DECIMAL},
+			           t1.to_query_cnt_12                =#{dto.toQueryCnt12,jdbcType=DECIMAL},
+			           t1.be_query_cnt_12                =#{dto.beQueryCnt12,jdbcType=DECIMAL},
+			           t1.query_cnt_12                   =#{dto.queryCnt12,jdbcType=DECIMAL},
+			           t1.to_org_cnt_05                  =#{dto.toOrgCnt05,jdbcType=DECIMAL},
+			           t1.be_org_cnt_05                  =#{dto.beOrgCnt05,jdbcType=DECIMAL},
+			           t1.org_cnt_05                     =#{dto.orgCnt05,jdbcType=DECIMAL},
+			           t1.to_org_cnt_1                   =#{dto.toOrgCnt1,jdbcType=DECIMAL},
+			           t1.be_org_cnt_1                   =#{dto.beOrgCnt1,jdbcType=DECIMAL},
+			           t1.org_cnt_1                      =#{dto.orgCnt1,jdbcType=DECIMAL},
+			           t1.to_org_cnt_2                   =#{dto.toOrgCnt2,jdbcType=DECIMAL},
+			           t1.be_org_cnt_2                   =#{dto.beOrgCnt2,jdbcType=DECIMAL},
+			           t1.org_cnt_2                      =#{dto.orgCnt2,jdbcType=DECIMAL},
+			           t1.to_org_cnt_3                   =#{dto.toOrgCnt3,jdbcType=DECIMAL},
+			           t1.be_org_cnt_3                   =#{dto.beOrgCnt3,jdbcType=DECIMAL},
+			           t1.org_cnt_3                      =#{dto.orgCnt3,jdbcType=DECIMAL},
+			           t1.to_org_cnt_6                   =#{dto.toOrgCnt6,jdbcType=DECIMAL},
+			           t1.be_org_cnt_6                   =#{dto.beOrgCnt6,jdbcType=DECIMAL},
+			           t1.org_cnt_6                      =#{dto.orgCnt6,jdbcType=DECIMAL},
+			           t1.to_org_cnt_9                   =#{dto.toOrgCnt9,jdbcType=DECIMAL},
+			           t1.be_org_cnt_9                   =#{dto.beOrgCnt9,jdbcType=DECIMAL},
+			           t1.org_cnt_9                      =#{dto.orgCnt9,jdbcType=DECIMAL},
+			           t1.to_org_cnt_12                  =#{dto.toOrgCnt12,jdbcType=DECIMAL},
+			           t1.be_org_cnt_12                  =#{dto.beOrgCnt12,jdbcType=DECIMAL},
+			           t1.org_cnt_12                     =#{dto.orgCnt12,jdbcType=DECIMAL},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP},
+			           t1.modify_by                      =#{dto.modifyBy,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_JXL_MG_CONTA_QUERY -->
+<delete id="deleteExtWlJxlMgContaQueryByID" parameterType="java.util.Map">
+    	delete from ext_wl_jxl_mg_conta_query t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_JXL_MG_CONTA_QUERY -->
+<update id="deleteExtWlJxlMgContaQueryByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_jxl_mg_conta_query t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

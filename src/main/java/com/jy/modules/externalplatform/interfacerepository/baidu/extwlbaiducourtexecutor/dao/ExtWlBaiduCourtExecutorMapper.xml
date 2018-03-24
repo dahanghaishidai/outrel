@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.baidu.extwlbaiducourtexecutor.dao.ExtWlBaiduCourtExecutorDao">
+<resultMap id="ExtWlBaiduCourtExecutorDTO" type="com.jy.modules.externalplatform.interfacerepository.baidu.extwlbaiducourtexecutor.dto.ExtWlBaiduCourtExecutorDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="keyId" column="KEY_ID" jdbcType="VARCHAR" />
+				<result property="regDate" column="REG_DATE" jdbcType="VARCHAR" />
+				<result property="caseNo" column="CASE_NO" jdbcType="VARCHAR" />
+				<result property="court" column="COURT" jdbcType="VARCHAR" />
+				<result property="execMoney" column="EXEC_MONEY" jdbcType="VARCHAR" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyBy" column="MODIFY_BY" jdbcType="DECIMAL" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="validateState" column="VALIDATE_STATE" jdbcType="VARCHAR" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_BAIDU_COURT_EXECUTOR -->	
+<select id="searchExtWlBaiduCourtExecutorByPaging" parameterType="java.util.Map" resultMap="ExtWlBaiduCourtExecutorDTO">
+    	 		select 
+						t1.id                             ,
+						t1.key_id                         ,
+						t1.reg_date                       ,
+						t1.case_no                        ,
+						t1.court                          ,
+						t1.exec_money                     ,
+						t1.create_by                      ,
+						t1.create_time                    ,
+						t1.modify_by                      ,
+						t1.modify_time                    ,
+						t1.validate_state                 
+					
+				from ext_wl_baidu_court_executor 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.keyId != null and dto.keyId != ''">
+						and t1.KEY_ID =#{dto.keyId}
+    			</if>
+    			<if test="dto.regDate != null and dto.regDate != ''">
+						and t1.REG_DATE =#{dto.regDate}
+    			</if>
+    			<if test="dto.caseNo != null and dto.caseNo != ''">
+						and t1.CASE_NO =#{dto.caseNo}
+    			</if>
+    			<if test="dto.court != null and dto.court != ''">
+						and t1.COURT =#{dto.court}
+    			</if>
+    			<if test="dto.execMoney != null and dto.execMoney != ''">
+						and t1.EXEC_MONEY =#{dto.execMoney}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY =#{dto.modifyBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE =#{dto.validateState}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_BAIDU_COURT_EXECUTOR  -->
+<select id="searchExtWlBaiduCourtExecutor" parameterType="java.util.Map" resultMap="ExtWlBaiduCourtExecutorDTO">
+    	     select 
+						t1.id                             ,
+						t1.key_id                         ,
+						t1.reg_date                       ,
+						t1.case_no                        ,
+						t1.court                          ,
+						t1.exec_money                     ,
+						t1.create_by                      ,
+						t1.create_time                    ,
+						t1.modify_by                      ,
+						t1.modify_time                    ,
+						t1.validate_state                 
+				from ext_wl_baidu_court_executor 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.keyId != null and dto.keyId != ''">
+						and t1.KEY_ID = #{dto.keyId}
+    			</if>
+    			<if test="dto.regDate != null and dto.regDate != ''">
+						and t1.REG_DATE = #{dto.regDate}
+    			</if>
+    			<if test="dto.caseNo != null and dto.caseNo != ''">
+						and t1.CASE_NO = #{dto.caseNo}
+    			</if>
+    			<if test="dto.court != null and dto.court != ''">
+						and t1.COURT = #{dto.court}
+    			</if>
+    			<if test="dto.execMoney != null and dto.execMoney != ''">
+						and t1.EXEC_MONEY = #{dto.execMoney}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY = #{dto.modifyBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE = #{dto.validateState}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_BAIDU_COURT_EXECUTOR -->
+<select id="findExtWlBaiduCourtExecutorByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlBaiduCourtExecutorDTO">
+   	 		select 
+					t1.id                             ,
+					t1.key_id                         ,
+					t1.reg_date                       ,
+					t1.case_no                        ,
+					t1.court                          ,
+					t1.exec_money                     ,
+					t1.create_by                      ,
+					t1.create_time                    ,
+					t1.modify_by                      ,
+					t1.modify_time                    ,
+					t1.validate_state                 
+			from ext_wl_baidu_court_executor 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_BAIDU_COURT_EXECUTOR -->
+<insert id="insertExtWlBaiduCourtExecutor" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_BAIDU_COURT_EXECUTOR.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_baidu_court_executor
+			(   		
+					id                             ,
+					key_id                         ,
+					reg_date                       ,
+					case_no                        ,
+					court                          ,
+					exec_money                     ,
+					create_by                      ,
+					create_time                    ,
+					modify_by                      ,
+					modify_time                    ,
+					validate_state                 
+			)
+			values(#{dto.id}
+					,#{dto.keyId,jdbcType=VARCHAR}
+					,#{dto.regDate,jdbcType=VARCHAR}
+					,#{dto.caseNo,jdbcType=VARCHAR}
+					,#{dto.court,jdbcType=VARCHAR}
+					,#{dto.execMoney,jdbcType=VARCHAR}
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,systimestamp
+					,#{dto.modifyBy,jdbcType=DECIMAL}
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,'1'
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_BAIDU_COURT_EXECUTOR -->
+<update id="updateExtWlBaiduCourtExecutor" parameterType="java.util.Map">
+	     update ext_wl_baidu_court_executor t1
+	           set 
+			           t1.key_id                         =#{dto.keyId,jdbcType=VARCHAR},
+			           t1.reg_date                       =#{dto.regDate,jdbcType=VARCHAR},
+			           t1.case_no                        =#{dto.caseNo,jdbcType=VARCHAR},
+			           t1.court                          =#{dto.court,jdbcType=VARCHAR},
+			           t1.exec_money                     =#{dto.execMoney,jdbcType=VARCHAR},
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_by                      =#{dto.modifyBy,jdbcType=DECIMAL},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP},
+			           t1.validate_state                 ='1'
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_BAIDU_COURT_EXECUTOR -->
+<delete id="deleteExtWlBaiduCourtExecutorByID" parameterType="java.util.Map">
+    	delete from ext_wl_baidu_court_executor t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_BAIDU_COURT_EXECUTOR -->
+<update id="deleteExtWlBaiduCourtExecutorByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_baidu_court_executor t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+
+	<!-- 批量保存数据-->
+	<insert id="insertBatchCourtExecutor" parameterType="java.util.Map">
+		declare
+		detId number:=0;
+		begin
+
+		detId:=0;
+		<foreach collection="courtExecutorList" item="dto" index="index" >
+			select seq_EXT_WL_BAIDU_COURT_EXE.nextval into detId from dual;
+			insert into ext_wl_baidu_court_executor
+			(
+			id                             ,
+			key_id                         ,
+			reg_date                       ,
+			case_no                        ,
+			court                          ,
+			exec_money                     ,
+			create_by                      ,
+			create_time                    ,
+			validate_state
+			)
+			select detId
+			,#{dto.keyId,jdbcType=VARCHAR}
+			,#{dto.regDate,jdbcType=VARCHAR}
+			,#{dto.caseNo,jdbcType=VARCHAR}
+			,#{dto.court,jdbcType=VARCHAR}
+			,#{dto.execMoney,jdbcType=VARCHAR}
+			,#{dto.createBy,jdbcType=DECIMAL}
+			,systimestamp
+			,'1'
+			from dual           ;
+		</foreach>
+		end ;
+	</insert>
+</mapper>

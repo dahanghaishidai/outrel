@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="ehcache.xsd"
+         updateCheck="false" monitoring="autodetect"
+         dynamicConfig="true">
+    <!--Default Cache configuration. These will applied to caches programmatically created through
+        the CacheManager.
+
+        The following attributes are required:
+
+        maxInMemory                    - Sets the maximum number of objects that will be created in memory
+        eternal                        - Sets whether elements are eternal. If eternal,  timeouts are ignored and the
+                                         element is never expired.
+        overflowToDisk                 - Sets whether elements can overflow to disk when the in-memory cache
+                                         has reached the maxInMemory limit.
+
+        The following attributes are optional:
+        timeToIdleSeconds              - Sets the time to idle for an element before it expires.
+                                         i.e. The maximum amount of time between accesses before an element expires
+                                         Is only used if the element is not eternal.
+                                         Optional attribute. A value of 0 means that an Element can idle for infinity.
+                                         The default value is 0.
+        timeToLiveSeconds              - Sets the time to live for an element before it expires.
+                                         i.e. The maximum time between creation time and when an element expires.
+                                         Is only used if the element is not eternal.
+                                         Optional attribute. A value of 0 means that and Element can live for infinity.
+                                         The default value is 0.
+        diskPersistent                 - Whether the disk store persists between restarts of the Virtual Machine.
+                                         The default value is false.
+        diskExpiryThreadIntervalSeconds- The number of seconds between runs of the disk expiry thread. The default value
+                                         is 120 seconds.
+        -->
+	<diskStore path="java.io.tmpdir/jypt" />
+
+	<!-- DefaultCache setting. -->
+   <defaultCache
+            maxElementsInMemory="10000"
+            eternal="false"
+            timeToIdleSeconds="120"
+            timeToLiveSeconds="120"
+            overflowToDisk="false"
+            diskPersistent="false"
+            diskExpiryThreadIntervalSeconds="120"
+            />
+
+    <!-- 登录记录缓存 锁定10分钟 -->
+    <cache name="loginRecordCache"
+           maxEntriesLocalHeap="2000"
+           eternal="false"
+           timeToIdleSeconds="600"
+           timeToLiveSeconds="0"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+    <!-- 系统用户缓存  没必要过期 -->
+    <cache name="sys-userCache"
+           maxEntriesLocalHeap="10000"
+           overflowToDisk="false"
+           eternal="false"
+           diskPersistent="false"
+           timeToLiveSeconds="0"
+           timeToIdleSeconds="0"
+           statistics="true"/>
+
+    <!-- 系统用户授权缓存  没必要过期 -->
+    <cache name="sys-authCache"
+           maxEntriesLocalHeap="10000"
+           overflowToDisk="false"
+           eternal="false"
+           diskPersistent="false"
+           timeToLiveSeconds="0"
+           timeToIdleSeconds="0"
+           memoryStoreEvictionPolicy="LRU"
+           statistics="true"/>
+
+    <!-- 菜单缓存  没必要过期 -->
+    <cache name="sys-menuCache"
+           maxEntriesLocalHeap="10000"
+           overflowToDisk="false"
+           eternal="false"
+           diskPersistent="false"
+           timeToLiveSeconds="0"
+           timeToIdleSeconds="0"
+           statistics="true"/>
+
+
+    <!-- shiro 会话缓存 不需要序列化到磁盘 此处我们放到db中了 此处cache没必要过期 因为我们存放到db了 -->
+    <cache name="shiro-activeSessionCache"
+           maxEntriesLocalHeap="10000"
+           overflowToDisk="false"
+           eternal="false"
+           diskPersistent="false"
+           timeToLiveSeconds="0"
+           timeToIdleSeconds="0"
+           statistics="true"/>
+           
+    <cache name="SYS_DATE_CACHE"  
+         maxElementsInMemory="10000"  
+         eternal="false"  
+         timeToIdleSeconds="300000"  
+         timeToLiveSeconds="600000"  
+         overflowToDisk="true"  
+         />  
+	
+  
+	<!-- 
+ 	<terracottaConfig url="10.216.43.171:9510"/>
+ 	 -->
+</ehcache>

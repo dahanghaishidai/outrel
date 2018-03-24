@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.txsk.extwltxsknegatived.dao.ExtWlTxskNegativeDDao">
+
+<!-- 新增对象 ext_wl_txsk_negative_d -->
+<insert id="insertExtWlTxskNegativeD" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_ext_wl_txsk_negative_d.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_txsk_negative_d
+			(   		
+					id                             ,
+					fk_id                          ,
+					id_card                        ,
+					name                           ,
+					status                         ,
+					escape                         ,
+					crime                          ,
+					drug                           ,
+					drug_related                   ,
+					escape_compared                ,
+					crime_compared                 ,
+					drug_compared                  ,
+					drug_related_compared          ,
+					case_time                      ,
+					check_count                    ,
+					case_type                      ,
+					create_time                    ,
+					update_time                    ,
+					create_by                      ,
+					update_by                      
+			)
+			values(#{dto.id}
+					,#{dto.fkId,jdbcType=DECIMAL}
+					,#{dto.idCard,jdbcType=VARCHAR}
+					,#{dto.name,jdbcType=VARCHAR}
+					,#{dto.status,jdbcType=VARCHAR}
+					,#{dto.escape,jdbcType=VARCHAR}
+					,#{dto.crime,jdbcType=VARCHAR}
+					,#{dto.drug,jdbcType=VARCHAR}
+					,#{dto.drugRelated,jdbcType=VARCHAR}
+					,#{dto.escapeCompared,jdbcType=VARCHAR}
+					,#{dto.crimeCompared,jdbcType=VARCHAR}
+					,#{dto.drugCompared,jdbcType=VARCHAR}
+					,#{dto.drugRelatedCompared,jdbcType=VARCHAR}
+					,#{dto.caseTime,jdbcType=VARCHAR}
+					,#{dto.checkCount,jdbcType=VARCHAR}
+					,#{dto.caseType,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.updateTime,jdbcType=TIMESTAMP}
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.updateBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+</mapper>

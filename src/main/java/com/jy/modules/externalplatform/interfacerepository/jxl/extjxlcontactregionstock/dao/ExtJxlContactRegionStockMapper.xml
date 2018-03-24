@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.jxl.extjxlcontactregionstock.dao.ExtJxlContactRegionStockDao">
+<resultMap id="ExtJxlContactRegionStockDTO" type="com.jy.modules.externalplatform.interfacerepository.jxl.extjxlcontactregionstock.dto.ExtJxlContactRegionStockDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="fkJxlCustInfoId" column="FK_JXL_CUST_INFO_ID" jdbcType="DECIMAL" />
+				<result property="regionLoc" column="REGION_LOC" jdbcType="VARCHAR" />
+				<result property="regionUniqNumCnt" column="REGION_UNIQ_NUM_CNT" jdbcType="DECIMAL" />
+				<result property="regionCallInCnt" column="REGION_CALL_IN_CNT" jdbcType="DECIMAL" />
+				<result property="regionCallOutCnt" column="REGION_CALL_OUT_CNT" jdbcType="DECIMAL" />
+				<result property="regionCallInTime" column="REGION_CALL_IN_TIME" jdbcType="DECIMAL" />
+				<result property="regionCallOutTime" column="REGION_CALL_OUT_TIME" jdbcType="DECIMAL" />
+				<result property="regionAvgCallInTime" column="REGION_AVG_CALL_IN_TIME" jdbcType="DECIMAL" />
+				<result property="regionAvgCallOutTime" column="REGION_AVG_CALL_OUT_TIME" jdbcType="DECIMAL" />
+				<result property="regionCallInCntPct" column="REGION_CALL_IN_CNT_PCT" jdbcType="DECIMAL" />
+				<result property="regionCallOutCntPct" column="REGION_CALL_OUT_CNT_PCT" jdbcType="DECIMAL" />
+				<result property="regionCallInTimePct" column="REGION_CALL_IN_TIME_PCT" jdbcType="DECIMAL" />
+				<result property="regionCallOutTimePct" column="REGION_CALL_OUT_TIME_PCT" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 EXT_JXL_CONTACT_REGION_STOCK -->	
+<select id="searchExtJxlContactRegionStockByPaging" parameterType="java.util.Map" resultMap="ExtJxlContactRegionStockDTO">
+    	 		select 
+						t1.id                             ,
+						t1.fk_jxl_cust_info_id            ,
+						t1.region_loc                     ,
+						t1.region_uniq_num_cnt            ,
+						t1.region_call_in_cnt             ,
+						t1.region_call_out_cnt            ,
+						t1.region_call_in_time            ,
+						t1.region_call_out_time           ,
+						t1.region_avg_call_in_time        ,
+						t1.region_avg_call_out_time       ,
+						t1.region_call_in_cnt_pct         ,
+						t1.region_call_out_cnt_pct        ,
+						t1.region_call_in_time_pct        ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.region_call_out_time_pct       
+					
+				from ext_jxl_contact_region_stock 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.fkJxlCustInfoId != null and dto.fkJxlCustInfoId != ''">
+						and t1.FK_JXL_CUST_INFO_ID =#{dto.fkJxlCustInfoId}
+    			</if>
+    			<if test="dto.regionLoc != null and dto.regionLoc != ''">
+						and t1.REGION_LOC =#{dto.regionLoc}
+    			</if>
+    			<if test="dto.regionUniqNumCnt != null and dto.regionUniqNumCnt != ''">
+						and t1.REGION_UNIQ_NUM_CNT =#{dto.regionUniqNumCnt}
+    			</if>
+    			<if test="dto.regionCallInCnt != null and dto.regionCallInCnt != ''">
+						and t1.REGION_CALL_IN_CNT =#{dto.regionCallInCnt}
+    			</if>
+    			<if test="dto.regionCallOutCnt != null and dto.regionCallOutCnt != ''">
+						and t1.REGION_CALL_OUT_CNT =#{dto.regionCallOutCnt}
+    			</if>
+    			<if test="dto.regionCallInTime != null and dto.regionCallInTime != ''">
+						and t1.REGION_CALL_IN_TIME =#{dto.regionCallInTime}
+    			</if>
+    			<if test="dto.regionCallOutTime != null and dto.regionCallOutTime != ''">
+						and t1.REGION_CALL_OUT_TIME =#{dto.regionCallOutTime}
+    			</if>
+    			<if test="dto.regionAvgCallInTime != null and dto.regionAvgCallInTime != ''">
+						and t1.REGION_AVG_CALL_IN_TIME =#{dto.regionAvgCallInTime}
+    			</if>
+    			<if test="dto.regionAvgCallOutTime != null and dto.regionAvgCallOutTime != ''">
+						and t1.REGION_AVG_CALL_OUT_TIME =#{dto.regionAvgCallOutTime}
+    			</if>
+    			<if test="dto.regionCallInCntPct != null and dto.regionCallInCntPct != ''">
+						and t1.REGION_CALL_IN_CNT_PCT =#{dto.regionCallInCntPct}
+    			</if>
+    			<if test="dto.regionCallOutCntPct != null and dto.regionCallOutCntPct != ''">
+						and t1.REGION_CALL_OUT_CNT_PCT =#{dto.regionCallOutCntPct}
+    			</if>
+    			<if test="dto.regionCallInTimePct != null and dto.regionCallInTimePct != ''">
+						and t1.REGION_CALL_IN_TIME_PCT =#{dto.regionCallInTimePct}
+    			</if>
+    			<if test="dto.regionCallOutTimePct != null and dto.regionCallOutTimePct != ''">
+						and t1.REGION_CALL_OUT_TIME_PCT =#{dto.regionCallOutTimePct}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_JXL_CONTACT_REGION_STOCK  -->
+<select id="searchExtJxlContactRegionStock" parameterType="java.util.Map" resultMap="ExtJxlContactRegionStockDTO">
+    	     select 
+						t1.id                             ,
+						t1.fk_jxl_cust_info_id            ,
+						t1.region_loc                     ,
+						t1.region_uniq_num_cnt            ,
+						t1.region_call_in_cnt             ,
+						t1.region_call_out_cnt            ,
+						t1.region_call_in_time            ,
+						t1.region_call_out_time           ,
+						t1.region_avg_call_in_time        ,
+						t1.region_avg_call_out_time       ,
+						t1.region_call_in_cnt_pct         ,
+						t1.region_call_out_cnt_pct        ,
+						t1.region_call_in_time_pct        ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.region_call_out_time_pct       
+				from ext_jxl_contact_region_stock 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.fkJxlCustInfoId != null and dto.fkJxlCustInfoId != ''">
+						and t1.FK_JXL_CUST_INFO_ID = #{dto.fkJxlCustInfoId}
+    			</if>
+    			<if test="dto.regionLoc != null and dto.regionLoc != ''">
+						and t1.REGION_LOC = #{dto.regionLoc}
+    			</if>
+    			<if test="dto.regionUniqNumCnt != null and dto.regionUniqNumCnt != ''">
+						and t1.REGION_UNIQ_NUM_CNT = #{dto.regionUniqNumCnt}
+    			</if>
+    			<if test="dto.regionCallInCnt != null and dto.regionCallInCnt != ''">
+						and t1.REGION_CALL_IN_CNT = #{dto.regionCallInCnt}
+    			</if>
+    			<if test="dto.regionCallOutCnt != null and dto.regionCallOutCnt != ''">
+						and t1.REGION_CALL_OUT_CNT = #{dto.regionCallOutCnt}
+    			</if>
+    			<if test="dto.regionCallInTime != null and dto.regionCallInTime != ''">
+						and t1.REGION_CALL_IN_TIME = #{dto.regionCallInTime}
+    			</if>
+    			<if test="dto.regionCallOutTime != null and dto.regionCallOutTime != ''">
+						and t1.REGION_CALL_OUT_TIME = #{dto.regionCallOutTime}
+    			</if>
+    			<if test="dto.regionAvgCallInTime != null and dto.regionAvgCallInTime != ''">
+						and t1.REGION_AVG_CALL_IN_TIME = #{dto.regionAvgCallInTime}
+    			</if>
+    			<if test="dto.regionAvgCallOutTime != null and dto.regionAvgCallOutTime != ''">
+						and t1.REGION_AVG_CALL_OUT_TIME = #{dto.regionAvgCallOutTime}
+    			</if>
+    			<if test="dto.regionCallInCntPct != null and dto.regionCallInCntPct != ''">
+						and t1.REGION_CALL_IN_CNT_PCT = #{dto.regionCallInCntPct}
+    			</if>
+    			<if test="dto.regionCallOutCntPct != null and dto.regionCallOutCntPct != ''">
+						and t1.REGION_CALL_OUT_CNT_PCT = #{dto.regionCallOutCntPct}
+    			</if>
+    			<if test="dto.regionCallInTimePct != null and dto.regionCallInTimePct != ''">
+						and t1.REGION_CALL_IN_TIME_PCT = #{dto.regionCallInTimePct}
+    			</if>
+    			<if test="dto.regionCallOutTimePct != null and dto.regionCallOutTimePct != ''">
+						and t1.REGION_CALL_OUT_TIME_PCT = #{dto.regionCallOutTimePct}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_JXL_CONTACT_REGION_STOCK -->
+<select id="findExtJxlContactRegionStockByPrimaryKey" parameterType="java.util.Map" resultMap="ExtJxlContactRegionStockDTO">
+   	 		select 
+					t1.id                             ,
+					t1.fk_jxl_cust_info_id            ,
+					t1.region_loc                     ,
+					t1.region_uniq_num_cnt            ,
+					t1.region_call_in_cnt             ,
+					t1.region_call_out_cnt            ,
+					t1.region_call_in_time            ,
+					t1.region_call_out_time           ,
+					t1.region_avg_call_in_time        ,
+					t1.region_avg_call_out_time       ,
+					t1.region_call_in_cnt_pct         ,
+					t1.region_call_out_cnt_pct        ,
+					t1.region_call_in_time_pct        ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.region_call_out_time_pct       
+			from ext_jxl_contact_region_stock 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_JXL_CONTACT_REGION_STOCK -->
+<insert id="insertExtJxlContactRegionStock" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select SEQ_EXT_JXL_CON_REGION_STOCK.nextval as id from dual
+	</selectKey>
+			insert into ext_jxl_contact_region_stock
+			(   		
+					id                             ,
+					fk_jxl_cust_info_id            ,
+					region_loc                     ,
+					region_uniq_num_cnt            ,
+					region_call_in_cnt             ,
+					region_call_out_cnt            ,
+					region_call_in_time            ,
+					region_call_out_time           ,
+					region_avg_call_in_time        ,
+					region_avg_call_out_time       ,
+					region_call_in_cnt_pct         ,
+					region_call_out_cnt_pct        ,
+					region_call_in_time_pct        ,
+					create_time                    ,
+					region_call_out_time_pct       
+			)
+			values(#{dto.id}
+					,#{dto.fkJxlCustInfoId,jdbcType=DECIMAL}
+					,#{dto.regionLoc,jdbcType=VARCHAR}
+					,#{dto.regionUniqNumCnt,jdbcType=DECIMAL}
+					,#{dto.regionCallInCnt,jdbcType=DECIMAL}
+					,#{dto.regionCallOutCnt,jdbcType=DECIMAL}
+					,#{dto.regionCallInTime,jdbcType=DECIMAL}
+					,#{dto.regionCallOutTime,jdbcType=DECIMAL}
+					,#{dto.regionAvgCallInTime,jdbcType=DECIMAL}
+					,#{dto.regionAvgCallOutTime,jdbcType=DECIMAL}
+					,#{dto.regionCallInCntPct,jdbcType=DECIMAL}
+					,#{dto.regionCallOutCntPct,jdbcType=DECIMAL}
+					,#{dto.regionCallInTimePct,jdbcType=DECIMAL}
+					,systimestamp
+					,#{dto.regionCallOutTimePct,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_JXL_CONTACT_REGION_STOCK -->
+<update id="updateExtJxlContactRegionStock" parameterType="java.util.Map">
+	     update ext_jxl_contact_region_stock t1
+	           set 
+			           t1.fk_jxl_cust_info_id            =#{dto.fkJxlCustInfoId,jdbcType=DECIMAL},
+			           t1.region_loc                     =#{dto.regionLoc,jdbcType=VARCHAR},
+			           t1.region_uniq_num_cnt            =#{dto.regionUniqNumCnt,jdbcType=DECIMAL},
+			           t1.region_call_in_cnt             =#{dto.regionCallInCnt,jdbcType=DECIMAL},
+			           t1.region_call_out_cnt            =#{dto.regionCallOutCnt,jdbcType=DECIMAL},
+			           t1.region_call_in_time            =#{dto.regionCallInTime,jdbcType=DECIMAL},
+			           t1.region_call_out_time           =#{dto.regionCallOutTime,jdbcType=DECIMAL},
+			           t1.region_avg_call_in_time        =#{dto.regionAvgCallInTime,jdbcType=DECIMAL},
+			           t1.region_avg_call_out_time       =#{dto.regionAvgCallOutTime,jdbcType=DECIMAL},
+			           t1.region_call_in_cnt_pct         =#{dto.regionCallInCntPct,jdbcType=DECIMAL},
+			           t1.region_call_out_cnt_pct        =#{dto.regionCallOutCntPct,jdbcType=DECIMAL},
+			           t1.region_call_in_time_pct        =#{dto.regionCallInTimePct,jdbcType=DECIMAL},
+					   t1.modify_time                    =systimestamp,
+			           t1.region_call_out_time_pct       =#{dto.regionCallOutTimePct,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_JXL_CONTACT_REGION_STOCK -->
+<delete id="deleteExtJxlContactRegionStockByID" parameterType="java.util.Map">
+    	delete from ext_jxl_contact_region_stock t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_JXL_CONTACT_REGION_STOCK -->
+<update id="deleteExtJxlContactRegionStockByPrimaryKey" parameterType="java.util.Map">
+	     update ext_jxl_contact_region_stock t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.zxt.extwlzxtloancountp.dao.ExtWlZxtLoanCountPDao">
+<resultMap id="ExtWlZxtLoanCountPDTO" type="com.jy.modules.externalplatform.interfacerepository.zxt.extwlzxtloancountp.dto.ExtWlZxtLoanCountPDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="moduleFkId" column="MODULE_FK_ID" jdbcType="DECIMAL" />
+				<result property="orgBizType" column="ORG_BIZ_TYPE" jdbcType="VARCHAR" />
+				<result property="mobileNo" column="MOBILE_NO" jdbcType="VARCHAR" />
+				<result property="inLatest7Dates" column="IN_LATEST_7_DATES" jdbcType="VARCHAR" />
+				<result property="inLatest30Dates" column="IN_LATEST_30_DATES" jdbcType="VARCHAR" />
+				<result property="inLatest90Dates" column="IN_LATEST_90_DATES" jdbcType="VARCHAR" />
+				<result property="inLatest180Dates" column="IN_LATEST_180_DATES" jdbcType="VARCHAR" />
+				<result property="recentlyDate" column="RECENTLY_DATE" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="updateTime" column="UPDATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="updateBy" column="UPDATE_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 分页查询 ext_wl_zxt_loan_count_p -->	
+<select id="searchExtWlZxtLoanCountPByPaging" parameterType="java.util.Map" resultMap="ExtWlZxtLoanCountPDTO">
+    	 		select 
+						t1.id                             ,
+						t1.module_fk_id                   ,
+						t1.org_biz_type                   ,
+						t1.mobile_no                      ,
+						t1.in_latest_7_dates              ,
+						t1.in_latest_30_dates             ,
+						t1.in_latest_90_dates             ,
+						t1.in_latest_180_dates            ,
+						t1.recently_date                  ,
+						t1.create_time                    ,
+						t1.update_time                    ,
+						t1.create_by                      ,
+						t1.update_by                      
+					
+				from ext_wl_zxt_loan_count_p 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.moduleFkId != null and dto.moduleFkId != ''">
+						and t1.MODULE_FK_ID =#{dto.moduleFkId}
+    			</if>
+    			<if test="dto.orgBizType != null and dto.orgBizType != ''">
+						and t1.ORG_BIZ_TYPE =#{dto.orgBizType}
+    			</if>
+    			<if test="dto.mobileNo != null and dto.mobileNo != ''">
+						and t1.MOBILE_NO =#{dto.mobileNo}
+    			</if>
+    			<if test="dto.inLatest7Dates != null and dto.inLatest7Dates != ''">
+						and t1.IN_LATEST_7_DATES =#{dto.inLatest7Dates}
+    			</if>
+    			<if test="dto.inLatest30Dates != null and dto.inLatest30Dates != ''">
+						and t1.IN_LATEST_30_DATES =#{dto.inLatest30Dates}
+    			</if>
+    			<if test="dto.inLatest90Dates != null and dto.inLatest90Dates != ''">
+						and t1.IN_LATEST_90_DATES =#{dto.inLatest90Dates}
+    			</if>
+    			<if test="dto.inLatest180Dates != null and dto.inLatest180Dates != ''">
+						and t1.IN_LATEST_180_DATES =#{dto.inLatest180Dates}
+    			</if>
+    			<if test="dto.recentlyDate != null and dto.recentlyDate != ''">
+						and t1.RECENTLY_DATE =#{dto.recentlyDate}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.updateTime != null and dto.updateTime != ''">
+						and t1.UPDATE_TIME =#{dto.updateTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY =#{dto.updateBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 ext_wl_zxt_loan_count_p  -->
+<select id="searchExtWlZxtLoanCountP" parameterType="java.util.Map" resultMap="ExtWlZxtLoanCountPDTO">
+    	     select 
+						t1.id                             ,
+						t1.module_fk_id                   ,
+						t1.org_biz_type                   ,
+						t1.mobile_no                      ,
+						t1.in_latest_7_dates              ,
+						t1.in_latest_30_dates             ,
+						t1.in_latest_90_dates             ,
+						t1.in_latest_180_dates            ,
+						t1.recently_date                  ,
+						t1.create_time                    ,
+						t1.update_time                    ,
+						t1.create_by                      ,
+						t1.update_by                      
+				from ext_wl_zxt_loan_count_p 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.moduleFkId != null and dto.moduleFkId != ''">
+						and t1.MODULE_FK_ID = #{dto.moduleFkId}
+    			</if>
+    			<if test="dto.orgBizType != null and dto.orgBizType != ''">
+						and t1.ORG_BIZ_TYPE = #{dto.orgBizType}
+    			</if>
+    			<if test="dto.mobileNo != null and dto.mobileNo != ''">
+						and t1.MOBILE_NO = #{dto.mobileNo}
+    			</if>
+    			<if test="dto.inLatest7Dates != null and dto.inLatest7Dates != ''">
+						and t1.IN_LATEST_7_DATES = #{dto.inLatest7Dates}
+    			</if>
+    			<if test="dto.inLatest30Dates != null and dto.inLatest30Dates != ''">
+						and t1.IN_LATEST_30_DATES = #{dto.inLatest30Dates}
+    			</if>
+    			<if test="dto.inLatest90Dates != null and dto.inLatest90Dates != ''">
+						and t1.IN_LATEST_90_DATES = #{dto.inLatest90Dates}
+    			</if>
+    			<if test="dto.inLatest180Dates != null and dto.inLatest180Dates != ''">
+						and t1.IN_LATEST_180_DATES = #{dto.inLatest180Dates}
+    			</if>
+    			<if test="dto.recentlyDate != null and dto.recentlyDate != ''">
+						and t1.RECENTLY_DATE = #{dto.recentlyDate}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.updateTime != null and dto.updateTime != ''">
+						and t1.UPDATE_TIME = #{dto.updateTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY = #{dto.updateBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  ext_wl_zxt_loan_count_p -->
+<select id="findExtWlZxtLoanCountPByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlZxtLoanCountPDTO">
+   	 		select 
+					t1.id                             ,
+					t1.module_fk_id                   ,
+					t1.org_biz_type                   ,
+					t1.mobile_no                      ,
+					t1.in_latest_7_dates              ,
+					t1.in_latest_30_dates             ,
+					t1.in_latest_90_dates             ,
+					t1.in_latest_180_dates            ,
+					t1.recently_date                  ,
+					t1.create_time                    ,
+					t1.update_time                    ,
+					t1.create_by                      ,
+					t1.update_by                      
+			from ext_wl_zxt_loan_count_p 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 ext_wl_zxt_loan_count_p -->
+<insert id="insertExtWlZxtLoanCountP" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_ext_wl_zxt_loan_count_p.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_zxt_loan_count_p
+			(   		
+					id                             ,
+					module_fk_id                   ,
+					org_biz_type                   ,
+					mobile_no                      ,
+					in_latest_7_dates              ,
+					in_latest_30_dates             ,
+					in_latest_90_dates             ,
+					in_latest_180_dates            ,
+					recently_date                  ,
+					create_time                    ,
+					update_time                    ,
+					create_by                      ,
+					update_by                      
+			)
+			values(#{dto.id}
+					,#{dto.moduleFkId,jdbcType=DECIMAL}
+					,#{dto.orgBizType,jdbcType=VARCHAR}
+					,#{dto.mobileNo,jdbcType=VARCHAR}
+					,#{dto.inLatest7Dates,jdbcType=VARCHAR}
+					,#{dto.inLatest30Dates,jdbcType=VARCHAR}
+					,#{dto.inLatest90Dates,jdbcType=VARCHAR}
+					,#{dto.inLatest180Dates,jdbcType=VARCHAR}
+					,#{dto.recentlyDate,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.updateTime,jdbcType=TIMESTAMP}
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.updateBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 ext_wl_zxt_loan_count_p -->
+<update id="updateExtWlZxtLoanCountP" parameterType="java.util.Map">
+	     update ext_wl_zxt_loan_count_p t1
+	           set 
+			           t1.module_fk_id                   =#{dto.moduleFkId,jdbcType=DECIMAL},
+			           t1.org_biz_type                   =#{dto.orgBizType,jdbcType=VARCHAR},
+			           t1.mobile_no                      =#{dto.mobileNo,jdbcType=VARCHAR},
+			           t1.in_latest_7_dates              =#{dto.inLatest7Dates,jdbcType=VARCHAR},
+			           t1.in_latest_30_dates             =#{dto.inLatest30Dates,jdbcType=VARCHAR},
+			           t1.in_latest_90_dates             =#{dto.inLatest90Dates,jdbcType=VARCHAR},
+			           t1.in_latest_180_dates            =#{dto.inLatest180Dates,jdbcType=VARCHAR},
+			           t1.recently_date                  =#{dto.recentlyDate,jdbcType=VARCHAR},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.update_time                    =#{dto.updateTime,jdbcType=TIMESTAMP},
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.update_by                      =#{dto.updateBy,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 ext_wl_zxt_loan_count_p -->
+<delete id="deleteExtWlZxtLoanCountPByID" parameterType="java.util.Map">
+    	delete from ext_wl_zxt_loan_count_p t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 ext_wl_zxt_loan_count_p -->
+<update id="deleteExtWlZxtLoanCountPByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_zxt_loan_count_p t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.bqs.extwlbqsstrategyset.dao.ExtWlBqsStrategySetDao">
+<resultMap id="ExtWlBqsStrategySetDTO" type="com.jy.modules.externalplatform.interfacerepository.bqs.extwlbqsstrategyset.dto.ExtWlBqsStrategySetDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="riskDescId" column="RISK_DESC_ID" jdbcType="DECIMAL" />
+				<result property="strategyName" column="STRATEGY_NAME" jdbcType="VARCHAR" />
+				<result property="strategyId" column="STRATEGY_ID" jdbcType="VARCHAR" />
+				<result property="strategyDecision" column="STRATEGY_DECISION" jdbcType="VARCHAR" />
+				<result property="strategyMode" column="STRATEGY_MODE" jdbcType="VARCHAR" />
+				<result property="strategyScore" column="STRATEGY_SCORE" jdbcType="VARCHAR" />
+				<result property="rejectValue" column="REJECT_VALUE" jdbcType="VARCHAR" />
+				<result property="reviewValue" column="REVIEW_VALUE" jdbcType="VARCHAR" />
+				<result property="riskType" column="RISK_TYPE" jdbcType="VARCHAR" />
+				<result property="tips" column="TIPS" jdbcType="VARCHAR" />
+				<result property="validateState" column="VALIDATE_STATE" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="updateTime" column="UPDATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="updateBy" column="UPDATE_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_BQS_STRATEGY_SET -->	
+<select id="searchExtWlBqsStrategySetByPaging" parameterType="java.util.Map" resultMap="ExtWlBqsStrategySetDTO">
+    	 		select 
+						t1.id                             ,
+						t1.risk_desc_id                   ,
+						t1.strategy_name                  ,
+						t1.strategy_id                    ,
+						t1.strategy_decision              ,
+						t1.strategy_mode                  ,
+						t1.strategy_score                 ,
+						t1.reject_value                   ,
+						t1.review_value                   ,
+						t1.risk_type                      ,
+						t1.tips                           ,
+						t1.validate_state                 ,
+						t1.create_time                    ,
+						t1.update_time                    ,
+						t1.create_by                      ,
+						t1.update_by                      
+					
+				from ext_wl_bqs_strategy_set 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.riskDescId != null and dto.riskDescId != ''">
+						and t1.RISK_DESC_ID =#{dto.riskDescId}
+    			</if>
+    			<if test="dto.strategyName != null and dto.strategyName != ''">
+						and t1.STRATEGY_NAME =#{dto.strategyName}
+    			</if>
+    			<if test="dto.strategyId != null and dto.strategyId != ''">
+						and t1.STRATEGY_ID =#{dto.strategyId}
+    			</if>
+    			<if test="dto.strategyDecision != null and dto.strategyDecision != ''">
+						and t1.STRATEGY_DECISION =#{dto.strategyDecision}
+    			</if>
+    			<if test="dto.strategyMode != null and dto.strategyMode != ''">
+						and t1.STRATEGY_MODE =#{dto.strategyMode}
+    			</if>
+    			<if test="dto.strategyScore != null and dto.strategyScore != ''">
+						and t1.STRATEGY_SCORE =#{dto.strategyScore}
+    			</if>
+    			<if test="dto.rejectValue != null and dto.rejectValue != ''">
+						and t1.REJECT_VALUE =#{dto.rejectValue}
+    			</if>
+    			<if test="dto.reviewValue != null and dto.reviewValue != ''">
+						and t1.REVIEW_VALUE =#{dto.reviewValue}
+    			</if>
+    			<if test="dto.riskType != null and dto.riskType != ''">
+						and t1.RISK_TYPE =#{dto.riskType}
+    			</if>
+    			<if test="dto.tips != null and dto.tips != ''">
+						and t1.TIPS =#{dto.tips}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE =#{dto.validateState}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.updateTime != null and dto.updateTime != ''">
+						and t1.UPDATE_TIME =#{dto.updateTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY =#{dto.updateBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_BQS_STRATEGY_SET  -->
+<select id="searchExtWlBqsStrategySet" parameterType="java.util.Map" resultMap="ExtWlBqsStrategySetDTO">
+    	     select 
+						t1.id                             ,
+						t1.risk_desc_id                   ,
+						t1.strategy_name                  ,
+						t1.strategy_id                    ,
+						t1.strategy_decision              ,
+						t1.strategy_mode                  ,
+						t1.strategy_score                 ,
+						t1.reject_value                   ,
+						t1.review_value                   ,
+						t1.risk_type                      ,
+						t1.tips                           ,
+						t1.validate_state                 ,
+						t1.create_time                    ,
+						t1.update_time                    ,
+						t1.create_by                      ,
+						t1.update_by                      
+				from ext_wl_bqs_strategy_set 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.riskDescId != null and dto.riskDescId != ''">
+						and t1.RISK_DESC_ID = #{dto.riskDescId}
+    			</if>
+    			<if test="dto.strategyName != null and dto.strategyName != ''">
+						and t1.STRATEGY_NAME = #{dto.strategyName}
+    			</if>
+    			<if test="dto.strategyId != null and dto.strategyId != ''">
+						and t1.STRATEGY_ID = #{dto.strategyId}
+    			</if>
+    			<if test="dto.strategyDecision != null and dto.strategyDecision != ''">
+						and t1.STRATEGY_DECISION = #{dto.strategyDecision}
+    			</if>
+    			<if test="dto.strategyMode != null and dto.strategyMode != ''">
+						and t1.STRATEGY_MODE = #{dto.strategyMode}
+    			</if>
+    			<if test="dto.strategyScore != null and dto.strategyScore != ''">
+						and t1.STRATEGY_SCORE = #{dto.strategyScore}
+    			</if>
+    			<if test="dto.rejectValue != null and dto.rejectValue != ''">
+						and t1.REJECT_VALUE = #{dto.rejectValue}
+    			</if>
+    			<if test="dto.reviewValue != null and dto.reviewValue != ''">
+						and t1.REVIEW_VALUE = #{dto.reviewValue}
+    			</if>
+    			<if test="dto.riskType != null and dto.riskType != ''">
+						and t1.RISK_TYPE = #{dto.riskType}
+    			</if>
+    			<if test="dto.tips != null and dto.tips != ''">
+						and t1.TIPS = #{dto.tips}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE = #{dto.validateState}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.updateTime != null and dto.updateTime != ''">
+						and t1.UPDATE_TIME = #{dto.updateTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY = #{dto.updateBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_BQS_STRATEGY_SET -->
+<select id="findExtWlBqsStrategySetByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlBqsStrategySetDTO">
+   	 		select 
+					t1.id                             ,
+					t1.risk_desc_id                   ,
+					t1.strategy_name                  ,
+					t1.strategy_id                    ,
+					t1.strategy_decision              ,
+					t1.strategy_mode                  ,
+					t1.strategy_score                 ,
+					t1.reject_value                   ,
+					t1.review_value                   ,
+					t1.risk_type                      ,
+					t1.tips                           ,
+					t1.validate_state                 ,
+					t1.create_time                    ,
+					t1.update_time                    ,
+					t1.create_by                      ,
+					t1.update_by                      
+			from ext_wl_bqs_strategy_set 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_BQS_STRATEGY_SET -->
+<insert id="insertExtWlBqsStrategySet" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_BQS_STRATEGY_SET.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_bqs_strategy_set
+			(   		
+					id                             ,
+					risk_desc_id                   ,
+					strategy_name                  ,
+					strategy_id                    ,
+					strategy_decision              ,
+					strategy_mode                  ,
+					strategy_score                 ,
+					reject_value                   ,
+					review_value                   ,
+					risk_type                      ,
+					tips                           ,
+					validate_state                 ,
+					create_time                    ,
+					update_time                    ,
+					create_by                      ,
+					update_by                      
+			)
+			values(#{dto.id}
+					,#{dto.riskDescId,jdbcType=DECIMAL}
+					,#{dto.strategyName,jdbcType=VARCHAR}
+					,#{dto.strategyId,jdbcType=VARCHAR}
+					,#{dto.strategyDecision,jdbcType=VARCHAR}
+					,#{dto.strategyMode,jdbcType=VARCHAR}
+					,#{dto.strategyScore,jdbcType=VARCHAR}
+					,#{dto.rejectValue,jdbcType=VARCHAR}
+					,#{dto.reviewValue,jdbcType=VARCHAR}
+					,#{dto.riskType,jdbcType=VARCHAR}
+					,#{dto.tips,jdbcType=VARCHAR}
+					,'1'
+					,systimestamp
+					,#{dto.updateTime,jdbcType=TIMESTAMP}
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.updateBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_BQS_STRATEGY_SET -->
+<update id="updateExtWlBqsStrategySet" parameterType="java.util.Map">
+	     update ext_wl_bqs_strategy_set t1
+	           set 
+			           t1.risk_desc_id                   =#{dto.riskDescId,jdbcType=DECIMAL},
+			           t1.strategy_name                  =#{dto.strategyName,jdbcType=VARCHAR},
+			           t1.strategy_id                    =#{dto.strategyId,jdbcType=VARCHAR},
+			           t1.strategy_decision              =#{dto.strategyDecision,jdbcType=VARCHAR},
+			           t1.strategy_mode                  =#{dto.strategyMode,jdbcType=VARCHAR},
+			           t1.strategy_score                 =#{dto.strategyScore,jdbcType=VARCHAR},
+			           t1.reject_value                   =#{dto.rejectValue,jdbcType=VARCHAR},
+			           t1.review_value                   =#{dto.reviewValue,jdbcType=VARCHAR},
+			           t1.risk_type                      =#{dto.riskType,jdbcType=VARCHAR},
+			           t1.tips                           =#{dto.tips,jdbcType=VARCHAR},
+			           t1.validate_state                 ='1',
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.update_time                    =#{dto.updateTime,jdbcType=TIMESTAMP},
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.update_by                      =#{dto.updateBy,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_BQS_STRATEGY_SET -->
+<delete id="deleteExtWlBqsStrategySetByID" parameterType="java.util.Map">
+    	delete from ext_wl_bqs_strategy_set t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_BQS_STRATEGY_SET -->
+<update id="deleteExtWlBqsStrategySetByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_bqs_strategy_set t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

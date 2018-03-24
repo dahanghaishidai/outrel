@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.qhzx.extqhzxblackstock.dao.ExtQhzxBlackStockDao">
+<resultMap id="ExtQhzxBlackStockDTO" type="com.jy.modules.externalplatform.interfacerepository.qhzx.extqhzxblackstock.dto.ExtQhzxBlackStockDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="transNo" column="TRANS_NO" jdbcType="VARCHAR" />
+				<result property="cardType" column="CARD_TYPE" jdbcType="VARCHAR" />
+				<result property="cardId" column="CARD_ID" jdbcType="VARCHAR" />
+				<result property="custName" column="CUST_NAME" jdbcType="VARCHAR" />
+				<result property="reasonCode" column="REASON_CODE" jdbcType="VARCHAR" />
+				<result property="gradeQuery" column="GRADE_QUERY" jdbcType="VARCHAR" />
+				<result property="moneybound" column="MONEYBOUND" jdbcType="VARCHAR" />
+				<result property="dataStatus" column="DATA_STATUS" jdbcType="VARCHAR" />
+				<result property="bizErrorCode" column="BIZ_ERROR_CODE" jdbcType="VARCHAR" />
+				<result property="rtnCode" column="RTN_CODE" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="VARCHAR" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyBy" column="MODIFY_BY" jdbcType="VARCHAR" />
+				<result property="prodCode" column="PROD_CODE" jdbcType="VARCHAR" />
+				<result property="orgCode" column="ORG_CODE" jdbcType="VARCHAR" />
+				<result property="sysCode" column="SYS_CODE" jdbcType="VARCHAR" />
+				<result property="retcode" column="RETCODE" jdbcType="VARCHAR" />
+				<result property="errormsg" column="ERRORMSG" jdbcType="VARCHAR" />
+				<result property="interfaceId" column="INTERFACE_ID" jdbcType="VARCHAR" />
+				<result property="remark" column="REMARK" jdbcType="VARCHAR" />
+</resultMap>
+				
+<!-- 分页查询 ext_qhzx_black_stock -->	
+<select id="searchExtQhzxBlackStockByPaging" parameterType="java.util.Map" resultMap="ExtQhzxBlackStockDTO">
+    	 		select 
+						t1.id                             ,
+						t1.trans_no                       ,
+						t1.card_type                      ,
+						t1.card_id                        ,
+						t1.cust_name                      ,
+						t1.reason_code                    ,
+						t1.grade_query                    ,
+						t1.moneybound                     ,
+						t1.data_status                    ,
+						t1.biz_error_code                 ,
+						t1.rtn_code                       ,
+						t1.create_time                    ,
+						t1.create_by                      ,
+						t1.modify_time                    ,
+						t1.modify_by                      ,
+						t1.prod_code                      ,
+						t1.org_code                       ,
+						t1.sys_code                       ,
+						t1.retcode                        ,
+						t1.errormsg                       ,
+						t1.interface_id                   ,
+						t1.remark                         
+					
+				from ext_qhzx_black_stock 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.transNo != null and dto.transNo != ''">
+						and t1.TRANS_NO =#{dto.transNo}
+    			</if>
+    			<if test="dto.cardType != null and dto.cardType != ''">
+						and t1.CARD_TYPE =#{dto.cardType}
+    			</if>
+    			<if test="dto.cardId != null and dto.cardId != ''">
+						and t1.CARD_ID =#{dto.cardId}
+    			</if>
+    			<if test="dto.custName != null and dto.custName != ''">
+						and t1.CUST_NAME =#{dto.custName}
+    			</if>
+    			<if test="dto.reasonCode != null and dto.reasonCode != ''">
+						and t1.REASON_CODE =#{dto.reasonCode}
+    			</if>
+    			<if test="dto.gradeQuery != null and dto.gradeQuery != ''">
+						and t1.GRADE_QUERY =#{dto.gradeQuery}
+    			</if>
+    			<if test="dto.moneybound != null and dto.moneybound != ''">
+						and t1.MONEYBOUND =#{dto.moneybound}
+    			</if>
+    			<if test="dto.dataStatus != null and dto.dataStatus != ''">
+						and t1.DATA_STATUS =#{dto.dataStatus}
+    			</if>
+    			<if test="dto.bizErrorCode != null and dto.bizErrorCode != ''">
+						and t1.BIZ_ERROR_CODE =#{dto.bizErrorCode}
+    			</if>
+    			<if test="dto.rtnCode != null and dto.rtnCode != ''">
+						and t1.RTN_CODE =#{dto.rtnCode}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY =#{dto.modifyBy}
+    			</if>
+    			<if test="dto.prodCode != null and dto.prodCode != ''">
+						and t1.PROD_CODE =#{dto.prodCode}
+    			</if>
+    			<if test="dto.orgCode != null and dto.orgCode != ''">
+						and t1.ORG_CODE =#{dto.orgCode}
+    			</if>
+    			<if test="dto.sysCode != null and dto.sysCode != ''">
+						and t1.SYS_CODE =#{dto.sysCode}
+    			</if>
+    			<if test="dto.retcode != null and dto.retcode != ''">
+						and t1.RETCODE =#{dto.retcode}
+    			</if>
+    			<if test="dto.errormsg != null and dto.errormsg != ''">
+						and t1.ERRORMSG =#{dto.errormsg}
+    			</if>
+    			<if test="dto.interfaceId != null and dto.interfaceId != ''">
+						and t1.INTERFACE_ID =#{dto.interfaceId}
+    			</if>
+    			<if test="dto.remark != null and dto.remark != ''">
+						and t1.REMARK =#{dto.remark}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 ext_qhzx_black_stock  -->
+<select id="searchExtQhzxBlackStock" parameterType="java.util.Map" resultMap="ExtQhzxBlackStockDTO">
+    	     select 
+						t1.id                             ,
+						t1.trans_no                       ,
+						t1.card_type                      ,
+						t1.card_id                        ,
+						t1.cust_name                      ,
+						t1.reason_code                    ,
+						t1.grade_query                    ,
+						t1.moneybound                     ,
+						t1.data_status                    ,
+						t1.biz_error_code                 ,
+						t1.rtn_code                       ,
+						t1.create_time                    ,
+						t1.create_by                      ,
+						t1.modify_time                    ,
+						t1.modify_by                      ,
+						t1.prod_code                      ,
+						t1.org_code                       ,
+						t1.sys_code                       ,
+						t1.retcode                        ,
+						t1.errormsg                       ,
+						t1.interface_id                   ,
+						t1.remark                         
+				from ext_qhzx_black_stock 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.transNo != null and dto.transNo != ''">
+						and t1.TRANS_NO = #{dto.transNo}
+    			</if>
+    			<if test="dto.cardType != null and dto.cardType != ''">
+						and t1.CARD_TYPE = #{dto.cardType}
+    			</if>
+    			<if test="dto.cardId != null and dto.cardId != ''">
+						and t1.CARD_ID = #{dto.cardId}
+    			</if>
+    			<if test="dto.custName != null and dto.custName != ''">
+						and t1.CUST_NAME = #{dto.custName}
+    			</if>
+    			<if test="dto.reasonCode != null and dto.reasonCode != ''">
+						and t1.REASON_CODE = #{dto.reasonCode}
+    			</if>
+    			<if test="dto.gradeQuery != null and dto.gradeQuery != ''">
+						and t1.GRADE_QUERY = #{dto.gradeQuery}
+    			</if>
+    			<if test="dto.moneybound != null and dto.moneybound != ''">
+						and t1.MONEYBOUND = #{dto.moneybound}
+    			</if>
+    			<if test="dto.dataStatus != null and dto.dataStatus != ''">
+						and t1.DATA_STATUS = #{dto.dataStatus}
+    			</if>
+    			<if test="dto.bizErrorCode != null and dto.bizErrorCode != ''">
+						and t1.BIZ_ERROR_CODE = #{dto.bizErrorCode}
+    			</if>
+    			<if test="dto.rtnCode != null and dto.rtnCode != ''">
+						and t1.RTN_CODE = #{dto.rtnCode}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY = #{dto.modifyBy}
+    			</if>
+    			<if test="dto.prodCode != null and dto.prodCode != ''">
+						and t1.PROD_CODE = #{dto.prodCode}
+    			</if>
+    			<if test="dto.orgCode != null and dto.orgCode != ''">
+						and t1.ORG_CODE = #{dto.orgCode}
+    			</if>
+    			<if test="dto.sysCode != null and dto.sysCode != ''">
+						and t1.SYS_CODE = #{dto.sysCode}
+    			</if>
+    			<if test="dto.retcode != null and dto.retcode != ''">
+						and t1.RETCODE = #{dto.retcode}
+    			</if>
+    			<if test="dto.errormsg != null and dto.errormsg != ''">
+						and t1.ERRORMSG = #{dto.errormsg}
+    			</if>
+    			<if test="dto.interfaceId != null and dto.interfaceId != ''">
+						and t1.INTERFACE_ID = #{dto.interfaceId}
+    			</if>
+    			<if test="dto.remark != null and dto.remark != ''">
+						and t1.REMARK = #{dto.remark}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  ext_qhzx_black_stock -->
+<select id="findExtQhzxBlackStockByPrimaryKey" parameterType="java.util.Map" resultMap="ExtQhzxBlackStockDTO">
+   	 		select 
+					t1.id                             ,
+					t1.trans_no                       ,
+					t1.card_type                      ,
+					t1.card_id                        ,
+					t1.cust_name                      ,
+					t1.reason_code                    ,
+					t1.grade_query                    ,
+					t1.moneybound                     ,
+					t1.data_status                    ,
+					t1.biz_error_code                 ,
+					t1.rtn_code                       ,
+					t1.create_time                    ,
+					t1.create_by                      ,
+					t1.modify_time                    ,
+					t1.modify_by                      ,
+					t1.prod_code                      ,
+					t1.org_code                       ,
+					t1.sys_code                       ,
+					t1.retcode                        ,
+					t1.errormsg                       ,
+					t1.interface_id                   ,
+					t1.remark                         
+			from ext_qhzx_black_stock 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 ext_qhzx_black_stock -->
+<insert id="insertExtQhzxBlackStock" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_ext_qhzx_black_stock.nextval as id from dual
+	</selectKey>
+			insert into ext_qhzx_black_stock
+			(   		
+					id                             ,
+					trans_no                       ,
+					card_type                      ,
+					card_id                        ,
+					cust_name                      ,
+					reason_code                    ,
+					grade_query                    ,
+					moneybound                     ,
+					data_status                    ,
+					biz_error_code                 ,
+					rtn_code                       ,
+					create_time                    ,
+					create_by                      ,
+					prod_code                      ,
+					org_code                       ,
+					sys_code                       ,
+					retcode                        ,
+					errormsg                       ,
+					interface_id                   ,
+					remark                         
+			)
+			values(#{dto.id}
+					,#{dto.transNo,jdbcType=VARCHAR}
+					,#{dto.cardType,jdbcType=VARCHAR}
+					,#{dto.cardId,jdbcType=VARCHAR}
+					,#{dto.custName,jdbcType=VARCHAR}
+					,#{dto.reasonCode,jdbcType=VARCHAR}
+					,#{dto.gradeQuery,jdbcType=VARCHAR}
+					,#{dto.moneybound,jdbcType=VARCHAR}
+					,#{dto.dataStatus,jdbcType=VARCHAR}
+					,#{dto.bizErrorCode,jdbcType=VARCHAR}
+					,#{dto.rtnCode,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.createBy,jdbcType=VARCHAR}
+					,#{dto.prodCode,jdbcType=VARCHAR}
+					,#{dto.orgCode,jdbcType=VARCHAR}
+					,#{dto.sysCode,jdbcType=VARCHAR}
+					,#{dto.retcode,jdbcType=VARCHAR}
+					,#{dto.errormsg,jdbcType=VARCHAR}
+					,#{dto.interfaceId,jdbcType=VARCHAR}
+					,#{dto.remark,jdbcType=VARCHAR}
+			)
+</insert>
+    
+<!-- 更新对象 ext_qhzx_black_stock -->
+<update id="updateExtQhzxBlackStock" parameterType="java.util.Map">
+	     update ext_qhzx_black_stock t1
+	           set 
+			           t1.trans_no                       =#{dto.transNo,jdbcType=VARCHAR},
+			           t1.card_type                      =#{dto.cardType,jdbcType=VARCHAR},
+			           t1.card_id                        =#{dto.cardId,jdbcType=VARCHAR},
+			           t1.cust_name                      =#{dto.custName,jdbcType=VARCHAR},
+			           t1.reason_code                    =#{dto.reasonCode,jdbcType=VARCHAR},
+			           t1.grade_query                    =#{dto.gradeQuery,jdbcType=VARCHAR},
+			           t1.moneybound                     =#{dto.moneybound,jdbcType=VARCHAR},
+			           t1.data_status                    =#{dto.dataStatus,jdbcType=VARCHAR},
+			           t1.biz_error_code                 =#{dto.bizErrorCode,jdbcType=VARCHAR},
+			           t1.rtn_code                       =#{dto.rtnCode,jdbcType=VARCHAR},
+			           t1.modify_time                    =systimestamp,
+			           t1.modify_by                      =#{dto.modifyBy,jdbcType=VARCHAR},
+			           t1.prod_code                      =#{dto.prodCode,jdbcType=VARCHAR},
+			           t1.org_code                       =#{dto.orgCode,jdbcType=VARCHAR},
+			           t1.sys_code                       =#{dto.sysCode,jdbcType=VARCHAR},
+			           t1.retcode                        =#{dto.retcode,jdbcType=VARCHAR},
+			           t1.errormsg                       =#{dto.errormsg,jdbcType=VARCHAR},
+			           t1.interface_id                   =#{dto.interfaceId,jdbcType=VARCHAR},
+			           t1.remark                         =#{dto.remark,jdbcType=VARCHAR}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 ext_qhzx_black_stock -->
+<delete id="deleteExtQhzxBlackStockByID" parameterType="java.util.Map">
+    	delete from ext_qhzx_black_stock t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 ext_qhzx_black_stock -->
+<update id="deleteExtQhzxBlackStockByPrimaryKey" parameterType="java.util.Map">
+	     update ext_qhzx_black_stock t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

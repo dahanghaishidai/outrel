@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.td.exttdblackresult.dao.ExtTdBlackResultDao">
+<resultMap id="ExtTdBlackResultDTO" type="com.jy.modules.externalplatform.interfacerepository.td.exttdblackresult.dto.ExtTdBlackResultDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="bizStage" column="BIZ_STAGE" jdbcType="VARCHAR" />
+				<result property="bizId" column="BIZ_ID" jdbcType="VARCHAR" />
+				<result property="cardId" column="CARD_ID" jdbcType="VARCHAR" />
+				<result property="finalDecision" column="FINAL_DECISION" jdbcType="VARCHAR" />
+				<result property="finalScore" column="FINAL_SCORE" jdbcType="VARCHAR" />
+				<result property="policySetName" column="POLICY_SET_NAME" jdbcType="VARCHAR" />
+				<result property="repMessage" column="REP_MESSAGE" jdbcType="VARCHAR" />
+				<result property="respMessage" column="RESP_MESSAGE" jdbcType="VARCHAR" />
+				<result property="receiveTime" column="RECEIVE_TIME" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="treatResult" column="TREAT_RESULT" jdbcType="VARCHAR" />
+				<result property="treatErrorCode" column="TREAT_ERROR_CODE" jdbcType="VARCHAR" />
+				<result property="errorMessage" column="ERROR_MESSAGE" jdbcType="VARCHAR" />
+				<result property="prodCode" column="PROD_CODE" jdbcType="VARCHAR" />
+				<result property="orgCode" column="ORG_CODE" jdbcType="VARCHAR" />
+				<result property="sysCode" column="SYS_CODE" jdbcType="VARCHAR" />
+				<result property="retcode" column="RETCODE" jdbcType="VARCHAR" />
+				<result property="errormsg" column="ERRORMSG" jdbcType="VARCHAR" />
+				<result property="interfaceId" column="INTERFACE_ID" jdbcType="VARCHAR" />
+				<result property="remark" column="REMARK" jdbcType="VARCHAR" />
+</resultMap>
+				
+<!-- 分页查询 ext_td_black_result -->	
+<select id="searchExtTdBlackResultByPaging" parameterType="java.util.Map" resultMap="ExtTdBlackResultDTO">
+    	 		select 
+						t1.id                             ,
+						t1.biz_stage                      ,
+						t1.biz_id                         ,
+						t1.card_id                        ,
+						t1.final_decision                 ,
+						t1.final_score                    ,
+						t1.policy_set_name                ,
+						t1.rep_message                    ,
+						t1.resp_message                   ,
+						t1.receive_time                   ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.treat_result                   ,
+						t1.treat_error_code               ,
+						t1.error_message                  ,
+						t1.prod_code                      ,
+						t1.org_code                       ,
+						t1.sys_code                       ,
+						t1.retcode                        ,
+						t1.errormsg                       ,
+						t1.interface_id                   ,
+						t1.remark                         
+					
+				from ext_td_black_result 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.bizStage != null and dto.bizStage != ''">
+						and t1.BIZ_STAGE =#{dto.bizStage}
+    			</if>
+    			<if test="dto.bizId != null and dto.bizId != ''">
+						and t1.BIZ_ID =#{dto.bizId}
+    			</if>
+    			<if test="dto.cardId != null and dto.cardId != ''">
+						and t1.CARD_ID =#{dto.cardId}
+    			</if>
+    			<if test="dto.finalDecision != null and dto.finalDecision != ''">
+						and t1.FINAL_DECISION =#{dto.finalDecision}
+    			</if>
+    			<if test="dto.finalScore != null and dto.finalScore != ''">
+						and t1.FINAL_SCORE =#{dto.finalScore}
+    			</if>
+    			<if test="dto.policySetName != null and dto.policySetName != ''">
+						and t1.POLICY_SET_NAME =#{dto.policySetName}
+    			</if>
+    			<if test="dto.repMessage != null and dto.repMessage != ''">
+						and t1.REP_MESSAGE =#{dto.repMessage}
+    			</if>
+    			<if test="dto.respMessage != null and dto.respMessage != ''">
+						and t1.RESP_MESSAGE =#{dto.respMessage}
+    			</if>
+    			<if test="dto.receiveTime != null and dto.receiveTime != ''">
+						and t1.RECEIVE_TIME =#{dto.receiveTime}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.treatResult != null and dto.treatResult != ''">
+						and t1.TREAT_RESULT =#{dto.treatResult}
+    			</if>
+    			<if test="dto.treatErrorCode != null and dto.treatErrorCode != ''">
+						and t1.TREAT_ERROR_CODE =#{dto.treatErrorCode}
+    			</if>
+    			<if test="dto.errorMessage != null and dto.errorMessage != ''">
+						and t1.ERROR_MESSAGE =#{dto.errorMessage}
+    			</if>
+    			<if test="dto.prodCode != null and dto.prodCode != ''">
+						and t1.PROD_CODE =#{dto.prodCode}
+    			</if>
+    			<if test="dto.orgCode != null and dto.orgCode != ''">
+						and t1.ORG_CODE =#{dto.orgCode}
+    			</if>
+    			<if test="dto.sysCode != null and dto.sysCode != ''">
+						and t1.SYS_CODE =#{dto.sysCode}
+    			</if>
+    			<if test="dto.retcode != null and dto.retcode != ''">
+						and t1.RETCODE =#{dto.retcode}
+    			</if>
+    			<if test="dto.errormsg != null and dto.errormsg != ''">
+						and t1.ERRORMSG =#{dto.errormsg}
+    			</if>
+    			<if test="dto.interfaceId != null and dto.interfaceId != ''">
+						and t1.INTERFACE_ID =#{dto.interfaceId}
+    			</if>
+    			<if test="dto.remark != null and dto.remark != ''">
+						and t1.REMARK =#{dto.remark}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 ext_td_black_result  -->
+<select id="searchExtTdBlackResult" parameterType="java.util.Map" resultMap="ExtTdBlackResultDTO">
+    	     select 
+						t1.id                             ,
+						t1.biz_stage                      ,
+						t1.biz_id                         ,
+						t1.card_id                        ,
+						t1.final_decision                 ,
+						t1.final_score                    ,
+						t1.policy_set_name                ,
+						t1.rep_message                    ,
+						t1.resp_message                   ,
+						t1.receive_time                   ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.treat_result                   ,
+						t1.treat_error_code               ,
+						t1.error_message                  ,
+						t1.prod_code                      ,
+						t1.org_code                       ,
+						t1.sys_code                       ,
+						t1.retcode                        ,
+						t1.errormsg                       ,
+						t1.interface_id                   ,
+						t1.remark                         
+				from ext_td_black_result 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.bizStage != null and dto.bizStage != ''">
+						and t1.BIZ_STAGE = #{dto.bizStage}
+    			</if>
+    			<if test="dto.bizId != null and dto.bizId != ''">
+						and t1.BIZ_ID = #{dto.bizId}
+    			</if>
+    			<if test="dto.cardId != null and dto.cardId != ''">
+						and t1.CARD_ID = #{dto.cardId}
+    			</if>
+    			<if test="dto.finalDecision != null and dto.finalDecision != ''">
+						and t1.FINAL_DECISION = #{dto.finalDecision}
+    			</if>
+    			<if test="dto.finalScore != null and dto.finalScore != ''">
+						and t1.FINAL_SCORE = #{dto.finalScore}
+    			</if>
+    			<if test="dto.policySetName != null and dto.policySetName != ''">
+						and t1.POLICY_SET_NAME = #{dto.policySetName}
+    			</if>
+    			<if test="dto.repMessage != null and dto.repMessage != ''">
+						and t1.REP_MESSAGE = #{dto.repMessage}
+    			</if>
+    			<if test="dto.respMessage != null and dto.respMessage != ''">
+						and t1.RESP_MESSAGE = #{dto.respMessage}
+    			</if>
+    			<if test="dto.receiveTime != null and dto.receiveTime != ''">
+						and t1.RECEIVE_TIME = #{dto.receiveTime}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.treatResult != null and dto.treatResult != ''">
+						and t1.TREAT_RESULT = #{dto.treatResult}
+    			</if>
+    			<if test="dto.treatErrorCode != null and dto.treatErrorCode != ''">
+						and t1.TREAT_ERROR_CODE = #{dto.treatErrorCode}
+    			</if>
+    			<if test="dto.errorMessage != null and dto.errorMessage != ''">
+						and t1.ERROR_MESSAGE = #{dto.errorMessage}
+    			</if>
+    			<if test="dto.prodCode != null and dto.prodCode != ''">
+						and t1.PROD_CODE = #{dto.prodCode}
+    			</if>
+    			<if test="dto.orgCode != null and dto.orgCode != ''">
+						and t1.ORG_CODE = #{dto.orgCode}
+    			</if>
+    			<if test="dto.sysCode != null and dto.sysCode != ''">
+						and t1.SYS_CODE = #{dto.sysCode}
+    			</if>
+    			<if test="dto.retcode != null and dto.retcode != ''">
+						and t1.RETCODE = #{dto.retcode}
+    			</if>
+    			<if test="dto.errormsg != null and dto.errormsg != ''">
+						and t1.ERRORMSG = #{dto.errormsg}
+    			</if>
+    			<if test="dto.interfaceId != null and dto.interfaceId != ''">
+						and t1.INTERFACE_ID = #{dto.interfaceId}
+    			</if>
+    			<if test="dto.remark != null and dto.remark != ''">
+						and t1.REMARK = #{dto.remark}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  ext_td_black_result -->
+<select id="findExtTdBlackResultByPrimaryKey" parameterType="java.util.Map" resultMap="ExtTdBlackResultDTO">
+   	 		select 
+					t1.id                             ,
+					t1.biz_stage                      ,
+					t1.biz_id                         ,
+					t1.card_id                        ,
+					t1.final_decision                 ,
+					t1.final_score                    ,
+					t1.policy_set_name                ,
+					t1.rep_message                    ,
+					t1.resp_message                   ,
+					t1.receive_time                   ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.treat_result                   ,
+					t1.treat_error_code               ,
+					t1.error_message                  ,
+					t1.prod_code                      ,
+					t1.org_code                       ,
+					t1.sys_code                       ,
+					t1.retcode                        ,
+					t1.errormsg                       ,
+					t1.interface_id                   ,
+					t1.remark                         
+			from ext_td_black_result 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 ext_td_black_result -->
+<insert id="insertExtTdBlackResult" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_ext_td_black_result.nextval as id from dual
+	</selectKey>
+			insert into ext_td_black_result
+			(   		
+					id                             ,
+					biz_stage                      ,
+					biz_id                         ,
+					card_id                        ,
+					final_decision                 ,
+					final_score                    ,
+					policy_set_name                ,
+					rep_message                    ,
+					resp_message                   ,
+					receive_time                   ,
+					create_time                    ,
+					treat_result                   ,
+					treat_error_code               ,
+					error_message                  ,
+					prod_code                      ,
+					org_code                       ,
+					sys_code                       ,
+					retcode                        ,
+					errormsg                       ,
+					interface_id                   ,
+					remark                         
+			)
+			values(#{dto.id}
+					,#{dto.bizStage,jdbcType=VARCHAR}
+					,#{dto.bizId,jdbcType=VARCHAR}
+					,#{dto.cardId,jdbcType=VARCHAR}
+					,#{dto.finalDecision,jdbcType=VARCHAR}
+					,#{dto.finalScore,jdbcType=VARCHAR}
+					,#{dto.policySetName,jdbcType=VARCHAR}
+					,#{dto.repMessage,jdbcType=VARCHAR}
+					,#{dto.respMessage,jdbcType=VARCHAR}
+					,#{dto.receiveTime,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.treatResult,jdbcType=VARCHAR}
+					,#{dto.treatErrorCode,jdbcType=VARCHAR}
+					,#{dto.errorMessage,jdbcType=VARCHAR}
+					,#{dto.prodCode,jdbcType=VARCHAR}
+					,#{dto.orgCode,jdbcType=VARCHAR}
+					,#{dto.sysCode,jdbcType=VARCHAR}
+					,#{dto.retcode,jdbcType=VARCHAR}
+					,#{dto.errormsg,jdbcType=VARCHAR}
+					,#{dto.interfaceId,jdbcType=VARCHAR}
+					,#{dto.remark,jdbcType=VARCHAR}
+			)
+</insert>
+    
+<!-- 更新对象 ext_td_black_result -->
+<update id="updateExtTdBlackResult" parameterType="java.util.Map">
+	     update ext_td_black_result t1
+	           set 
+			           t1.biz_stage                      =#{dto.bizStage,jdbcType=VARCHAR},
+			           t1.biz_id                         =#{dto.bizId,jdbcType=VARCHAR},
+			           t1.card_id                        =#{dto.cardId,jdbcType=VARCHAR},
+			           t1.final_decision                 =#{dto.finalDecision,jdbcType=VARCHAR},
+			           t1.final_score                    =#{dto.finalScore,jdbcType=VARCHAR},
+			           t1.policy_set_name                =#{dto.policySetName,jdbcType=VARCHAR},
+			           t1.rep_message                    =#{dto.repMessage,jdbcType=VARCHAR},
+			           t1.resp_message                   =#{dto.respMessage,jdbcType=VARCHAR},
+			           t1.receive_time                   =#{dto.receiveTime,jdbcType=VARCHAR},
+			           t1.treat_result                   =#{dto.treatResult,jdbcType=VARCHAR},
+			           t1.treat_error_code               =#{dto.treatErrorCode,jdbcType=VARCHAR},
+			           t1.error_message                  =#{dto.errorMessage,jdbcType=VARCHAR},
+			           t1.prod_code                      =#{dto.prodCode,jdbcType=VARCHAR},
+			           t1.org_code                       =#{dto.orgCode,jdbcType=VARCHAR},
+			           t1.sys_code                       =#{dto.sysCode,jdbcType=VARCHAR},
+			           t1.retcode                        =#{dto.retcode,jdbcType=VARCHAR},
+			           t1.errormsg                       =#{dto.errormsg,jdbcType=VARCHAR},
+			           t1.interface_id                   =#{dto.interfaceId,jdbcType=VARCHAR},
+					   t1.modify_time                    =systimestamp,
+			           t1.remark                         =#{dto.remark,jdbcType=VARCHAR}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 ext_td_black_result -->
+<delete id="deleteExtTdBlackResultByID" parameterType="java.util.Map">
+    	delete from ext_td_black_result t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 ext_td_black_result -->
+<update id="deleteExtTdBlackResultByPrimaryKey" parameterType="java.util.Map">
+	     update ext_td_black_result t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

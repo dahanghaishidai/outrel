@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.jxl.pbccrc.extjxlcreditcard.dao.ExtJxlCreditCardDao">
+<resultMap id="ExtJxlCreditCardDTO" type="com.jy.modules.externalplatform.interfacerepository.jxl.pbccrc.extjxlcreditcard.dto.ExtJxlCreditCardDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="fkReportId" column="FK_REPORT_ID" jdbcType="DECIMAL" />
+				<result property="grantTime" column="GRANT_TIME" jdbcType="VARCHAR" />
+				<result property="grantCompany" column="GRANT_COMPANY" jdbcType="VARCHAR" />
+				<result property="grantAccountType" column="GRANT_ACCOUNT_TYPE" jdbcType="VARCHAR" />
+				<result property="grantName" column="GRANT_NAME" jdbcType="VARCHAR" />
+				<result property="deadlineTime" column="DEADLINE_TIME" jdbcType="VARCHAR" />
+				<result property="creditLimit" column="CREDIT_LIMIT" jdbcType="VARCHAR" />
+				<result property="usedQuotas" column="USED_QUOTAS" jdbcType="VARCHAR" />
+				<result property="overdraftBalance" column="OVERDRAFT_BALANCE" jdbcType="VARCHAR" />
+				<result property="monthOfFiveYear90" column="MONTH_OF_FIVE_YEAR_90" jdbcType="VARCHAR" />
+				<result property="monthOfFiveYear" column="MONTH_OF_FIVE_YEAR" jdbcType="VARCHAR" />
+				<result property="status" column="STATUS" jdbcType="VARCHAR" />
+				<result property="overdueAmount" column="OVERDUE_AMOUNT" jdbcType="VARCHAR" />
+				<result property="originalContent" column="ORIGINAL_CONTENT" jdbcType="VARCHAR" />
+				<result property="overDueStatus" column="OVERDUE_STATUS" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+  
+<!-- 查询列表 EXT_JXL_CREDIT_CARD  -->
+<select id="searchExtJxlCreditCard" parameterType="java.util.Map" resultMap="ExtJxlCreditCardDTO">
+    	     select 
+						t1.id                             ,
+						t1.fk_report_id                   ,
+						t1.grant_time                     ,
+						t1.grant_company                  ,
+						t1.grant_account_type             ,
+						t1.grant_name                     ,
+						t1.deadline_time                  ,
+						t1.credit_limit                   ,
+						t1.used_quotas                    ,
+						t1.overdraft_balance              ,
+						t1.month_of_five_year_90          ,
+						t1.month_of_five_year             ,
+						t1.status                         ,
+						t1.overdue_amount                 ,
+						t1.original_content               ,
+						t1.overdue_status                 ,
+						t1.create_time                    ,
+						t1.modify_time                    
+				from ext_jxl_credit_card 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.fkReportId != null and dto.fkReportId != ''">
+						and t1.FK_REPORT_ID = #{dto.fkReportId}
+    			</if>
+    			<if test="dto.grantTime != null and dto.grantTime != ''">
+						and t1.GRANT_TIME = #{dto.grantTime}
+    			</if>
+    			<if test="dto.grantCompany != null and dto.grantCompany != ''">
+						and t1.GRANT_COMPANY = #{dto.grantCompany}
+    			</if>
+    			<if test="dto.grantAccountType != null and dto.grantAccountType != ''">
+						and t1.GRANT_ACCOUNT_TYPE = #{dto.grantAccountType}
+    			</if>
+    			<if test="dto.grantName != null and dto.grantName != ''">
+						and t1.GRANT_NAME = #{dto.grantName}
+    			</if>
+    			<if test="dto.deadlineTime != null and dto.deadlineTime != ''">
+						and t1.DEADLINE_TIME = #{dto.deadlineTime}
+    			</if>
+    			<if test="dto.creditLimit != null and dto.creditLimit != ''">
+						and t1.CREDIT_LIMIT = #{dto.creditLimit}
+    			</if>
+    			<if test="dto.usedQuotas != null and dto.usedQuotas != ''">
+						and t1.USED_QUOTAS = #{dto.usedQuotas}
+    			</if>
+    			<if test="dto.overdraftBalance != null and dto.overdraftBalance != ''">
+						and t1.OVERDRAFT_BALANCE = #{dto.overdraftBalance}
+    			</if>
+    			<if test="dto.monthOfFiveYear90 != null and dto.monthOfFiveYear90 != ''">
+						and t1.MONTH_OF_FIVE_YEAR_90 = #{dto.monthOfFiveYear90}
+    			</if>
+    			<if test="dto.monthOfFiveYear != null and dto.monthOfFiveYear != ''">
+						and t1.MONTH_OF_FIVE_YEAR = #{dto.monthOfFiveYear}
+    			</if>
+    			<if test="dto.status != null and dto.status != ''">
+						and t1.STATUS = #{dto.status}
+    			</if>
+    			<if test="dto.overdueAmount != null and dto.overdueAmount != ''">
+						and t1.OVERDUE_AMOUNT = #{dto.overdueAmount}
+    			</if>
+    			<if test="dto.originalContent != null and dto.originalContent != ''">
+						and t1.ORIGINAL_CONTENT = #{dto.originalContent}
+    			</if>
+    			<if test="dto.overDueStatus != null and dto.overDueStatus != ''">
+						and t1.OVERDUE_STATUS = #{dto.overDueStatus}
+    			</if>
+                order by t1.id desc
+</select>
+  
+<insert id="insertExtJxlCreditCardList" parameterType="java.util.Map" useGeneratedKeys="true">
+begin
+    <selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+		 select seq_EXT_JXL_CREDIT_CARD.nextval as id from dual
+	</selectKey>
+    <foreach collection="dtoList" item="dto" >
+          insert into ext_jxl_credit_card
+			(   		
+					id                             ,
+					fk_report_id                   ,
+					grant_time                     ,
+					grant_company                  ,
+					grant_account_type             ,
+					grant_name                     ,
+					deadline_time                  ,
+					credit_limit                   ,
+					used_quotas                    ,
+					overdraft_balance              ,
+					month_of_five_year_90          ,
+					month_of_five_year             ,
+					status                         ,
+					overdue_amount                 ,
+					original_content               ,
+					overdue_status                 ,
+					create_time                    
+			)
+			values(seq_EXT_JXL_CREDIT_CARD.nextval
+					,#{fkReportId}
+					,#{dto.grantTime,jdbcType=VARCHAR}
+					,#{dto.grantCompany,jdbcType=VARCHAR}
+					,#{dto.grantAccountType,jdbcType=VARCHAR}
+					,#{dto.grantName,jdbcType=VARCHAR}
+					,#{dto.deadlineTime,jdbcType=VARCHAR}
+					,#{dto.creditLimit,jdbcType=VARCHAR}
+					,#{dto.usedQuotas,jdbcType=VARCHAR}
+					,#{dto.overdraftBalance,jdbcType=VARCHAR}
+					,#{dto.monthOfFiveYear90,jdbcType=VARCHAR}
+					,#{dto.monthOfFiveYear,jdbcType=VARCHAR}
+					,#{dto.status,jdbcType=VARCHAR}
+					,#{dto.overdueAmount,jdbcType=VARCHAR}
+					,#{dto.originalContent,jdbcType=VARCHAR}
+					,#{dto.overDueStatus,jdbcType=VARCHAR}
+					,systimestamp
+			);
+    </foreach>
+  end;
+</insert>
+    
+
+</mapper>

@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.suanhuazx.extwlshprecordpunishm.dao.ExtWlShPrecordPunishmDao">
+<resultMap id="ExtWlShPrecordPunishmDTO" type="com.jy.modules.externalplatform.interfacerepository.suanhuazx.extwlshprecordpunishm.dto.ExtWlShPrecordPunishmDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="fkReportId" column="FK_REPORT_ID" jdbcType="DECIMAL" />
+				<result property="organization" column="ORGANIZATION" jdbcType="VARCHAR" />
+				<result property="docketNo" column="DOCKET_NO" jdbcType="VARCHAR" />
+				<result property="reconsiderationFlag" column="RECONSIDERATION_FLAG" jdbcType="VARCHAR" />
+				<result property="reconsideration" column="RECONSIDERATION" jdbcType="VARCHAR" />
+				<result property="punishmentContent" column="PUNISHMENT_CONTENT" jdbcType="VARCHAR" />
+				<result property="punishmentAmount" column="PUNISHMENT_AMOUNT" jdbcType="VARCHAR" />
+				<result property="punishmentEffective" column="PUNISHMENT_EFFECTIVE" jdbcType="VARCHAR" />
+				<result property="punishmentDeadline" column="PUNISHMENT_DEADLINE" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="validateState" column="VALIDATE_STATE" jdbcType="VARCHAR" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="updateBy" column="UPDATE_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_SH_PRECORD_PUNISHM -->	
+<select id="searchExtWlShPrecordPunishmByPaging" parameterType="java.util.Map" resultMap="ExtWlShPrecordPunishmDTO">
+    	 		select 
+						t1.id                             ,
+						t1.fk_report_id                   ,
+						t1.organization                   ,
+						t1.docket_no                      ,
+						t1.reconsideration_flag           ,
+						t1.reconsideration                ,
+						t1.punishment_content             ,
+						t1.punishment_amount              ,
+						t1.punishment_effective           ,
+						t1.punishment_deadline            ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.validate_state                 ,
+						t1.create_by                      ,
+						t1.update_by                      
+					
+				from ext_wl_sh_precord_punishm 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.fkReportId != null and dto.fkReportId != ''">
+						and t1.FK_REPORT_ID =#{dto.fkReportId}
+    			</if>
+    			<if test="dto.organization != null and dto.organization != ''">
+						and t1.ORGANIZATION =#{dto.organization}
+    			</if>
+    			<if test="dto.docketNo != null and dto.docketNo != ''">
+						and t1.DOCKET_NO =#{dto.docketNo}
+    			</if>
+    			<if test="dto.reconsiderationFlag != null and dto.reconsiderationFlag != ''">
+						and t1.RECONSIDERATION_FLAG =#{dto.reconsiderationFlag}
+    			</if>
+    			<if test="dto.reconsideration != null and dto.reconsideration != ''">
+						and t1.RECONSIDERATION =#{dto.reconsideration}
+    			</if>
+    			<if test="dto.punishmentContent != null and dto.punishmentContent != ''">
+						and t1.PUNISHMENT_CONTENT =#{dto.punishmentContent}
+    			</if>
+    			<if test="dto.punishmentAmount != null and dto.punishmentAmount != ''">
+						and t1.PUNISHMENT_AMOUNT =#{dto.punishmentAmount}
+    			</if>
+    			<if test="dto.punishmentEffective != null and dto.punishmentEffective != ''">
+						and t1.PUNISHMENT_EFFECTIVE =#{dto.punishmentEffective}
+    			</if>
+    			<if test="dto.punishmentDeadline != null and dto.punishmentDeadline != ''">
+						and t1.PUNISHMENT_DEADLINE =#{dto.punishmentDeadline}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE =#{dto.validateState}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY =#{dto.updateBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_SH_PRECORD_PUNISHM  -->
+<select id="searchExtWlShPrecordPunishm" parameterType="java.util.Map" resultMap="ExtWlShPrecordPunishmDTO">
+    	     select 
+						t1.id                             ,
+						t1.fk_report_id                   ,
+						t1.organization                   ,
+						t1.docket_no                      ,
+						t1.reconsideration_flag           ,
+						t1.reconsideration                ,
+						t1.punishment_content             ,
+						t1.punishment_amount              ,
+						t1.punishment_effective           ,
+						t1.punishment_deadline            ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.validate_state                 ,
+						t1.create_by                      ,
+						t1.update_by                      
+				from ext_wl_sh_precord_punishm 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.fkReportId != null and dto.fkReportId != ''">
+						and t1.FK_REPORT_ID = #{dto.fkReportId}
+    			</if>
+    			<if test="dto.organization != null and dto.organization != ''">
+						and t1.ORGANIZATION = #{dto.organization}
+    			</if>
+    			<if test="dto.docketNo != null and dto.docketNo != ''">
+						and t1.DOCKET_NO = #{dto.docketNo}
+    			</if>
+    			<if test="dto.reconsiderationFlag != null and dto.reconsiderationFlag != ''">
+						and t1.RECONSIDERATION_FLAG = #{dto.reconsiderationFlag}
+    			</if>
+    			<if test="dto.reconsideration != null and dto.reconsideration != ''">
+						and t1.RECONSIDERATION = #{dto.reconsideration}
+    			</if>
+    			<if test="dto.punishmentContent != null and dto.punishmentContent != ''">
+						and t1.PUNISHMENT_CONTENT = #{dto.punishmentContent}
+    			</if>
+    			<if test="dto.punishmentAmount != null and dto.punishmentAmount != ''">
+						and t1.PUNISHMENT_AMOUNT = #{dto.punishmentAmount}
+    			</if>
+    			<if test="dto.punishmentEffective != null and dto.punishmentEffective != ''">
+						and t1.PUNISHMENT_EFFECTIVE = #{dto.punishmentEffective}
+    			</if>
+    			<if test="dto.punishmentDeadline != null and dto.punishmentDeadline != ''">
+						and t1.PUNISHMENT_DEADLINE = #{dto.punishmentDeadline}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE = #{dto.validateState}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY = #{dto.updateBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_SH_PRECORD_PUNISHM -->
+<select id="findExtWlShPrecordPunishmByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlShPrecordPunishmDTO">
+   	 		select 
+					t1.id                             ,
+					t1.fk_report_id                   ,
+					t1.organization                   ,
+					t1.docket_no                      ,
+					t1.reconsideration_flag           ,
+					t1.reconsideration                ,
+					t1.punishment_content             ,
+					t1.punishment_amount              ,
+					t1.punishment_effective           ,
+					t1.punishment_deadline            ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.validate_state                 ,
+					t1.create_by                      ,
+					t1.update_by                      
+			from ext_wl_sh_precord_punishm 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_SH_PRECORD_PUNISHM -->
+<insert id="insertExtWlShPrecordPunishm" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_SH_PRECORD_PUNISHM.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_sh_precord_punishm
+			(   		
+					id                             ,
+					fk_report_id                   ,
+					organization                   ,
+					docket_no                      ,
+					reconsideration_flag           ,
+					reconsideration                ,
+					punishment_content             ,
+					punishment_amount              ,
+					punishment_effective           ,
+					punishment_deadline            ,
+					create_time                    ,
+					modify_time                    ,
+					validate_state                 ,
+					create_by                      ,
+					update_by                      
+			)
+			values(#{dto.id}
+					,#{dto.fkReportId,jdbcType=DECIMAL}
+					,#{dto.organization,jdbcType=VARCHAR}
+					,#{dto.docketNo,jdbcType=VARCHAR}
+					,#{dto.reconsiderationFlag,jdbcType=VARCHAR}
+					,#{dto.reconsideration,jdbcType=VARCHAR}
+					,#{dto.punishmentContent,jdbcType=VARCHAR}
+					,#{dto.punishmentAmount,jdbcType=VARCHAR}
+					,#{dto.punishmentEffective,jdbcType=VARCHAR}
+					,#{dto.punishmentDeadline,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,'1'
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.updateBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_SH_PRECORD_PUNISHM -->
+<update id="updateExtWlShPrecordPunishm" parameterType="java.util.Map">
+	     update ext_wl_sh_precord_punishm t1
+	           set 
+			           t1.fk_report_id                   =#{dto.fkReportId,jdbcType=DECIMAL},
+			           t1.organization                   =#{dto.organization,jdbcType=VARCHAR},
+			           t1.docket_no                      =#{dto.docketNo,jdbcType=VARCHAR},
+			           t1.reconsideration_flag           =#{dto.reconsiderationFlag,jdbcType=VARCHAR},
+			           t1.reconsideration                =#{dto.reconsideration,jdbcType=VARCHAR},
+			           t1.punishment_content             =#{dto.punishmentContent,jdbcType=VARCHAR},
+			           t1.punishment_amount              =#{dto.punishmentAmount,jdbcType=VARCHAR},
+			           t1.punishment_effective           =#{dto.punishmentEffective,jdbcType=VARCHAR},
+			           t1.punishment_deadline            =#{dto.punishmentDeadline,jdbcType=VARCHAR},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP},
+			           t1.validate_state                 ='1',
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.update_by                      =#{dto.updateBy,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_SH_PRECORD_PUNISHM -->
+<delete id="deleteExtWlShPrecordPunishmByID" parameterType="java.util.Map">
+    	delete from ext_wl_sh_precord_punishm t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_SH_PRECORD_PUNISHM -->
+<update id="deleteExtWlShPrecordPunishmByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_sh_precord_punishm t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+
+	<!--批量新增 算话人行原版(公共记录_行政处罚记录表)列表-->
+	<insert id="insertExtWlShPrecordPunishmentList" parameterType="java.util.Map" useGeneratedKeys="true">
+		begin
+		<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+			select seq_EXT_WL_SH_PRECORD_PUNISHM.nextval as id from dual
+		</selectKey>
+		<foreach collection="dtoList" item="dto" >
+			insert into ext_wl_sh_precord_punishm
+			(
+			id,
+			fk_report_id,
+			organization,
+			docket_no,
+			reconsideration_flag,
+			reconsideration,
+			punishment_content,
+			punishment_amount,
+			punishment_effective,
+			punishment_deadline,
+			create_time,
+			validate_state
+			)
+			values(seq_EXT_WL_SH_PRECORD_PUNISHM.nextval
+			,#{fkReportId}
+			,#{dto.organization,jdbcType=VARCHAR}
+			,#{dto.docketNo,jdbcType=VARCHAR}
+			,#{dto.reconsiderationFlag,jdbcType=VARCHAR}
+			,#{dto.reconsideration,jdbcType=VARCHAR}
+			,#{dto.punishmentContent,jdbcType=VARCHAR}
+			,#{dto.punishmentAmount,jdbcType=VARCHAR}
+			,#{dto.punishmentEffective,jdbcType=VARCHAR}
+			,#{dto.punishmentDeadline,jdbcType=VARCHAR}
+			,systimestamp
+			,'1'
+			);
+		</foreach>
+		end;
+	</insert>
+</mapper>

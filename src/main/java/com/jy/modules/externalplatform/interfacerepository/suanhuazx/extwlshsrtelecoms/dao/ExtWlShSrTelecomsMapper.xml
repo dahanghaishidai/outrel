@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.suanhuazx.extwlshsrtelecoms.dao.ExtWlShSrTelecomsDao">
+<resultMap id="ExtWlShSrTelecomsDTO" type="com.jy.modules.externalplatform.interfacerepository.suanhuazx.extwlshsrtelecoms.dto.ExtWlShSrTelecomsDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="fkReportId" column="FK_REPORT_ID" jdbcType="DECIMAL" />
+				<result property="original" column="ORIGINAL" jdbcType="VARCHAR" />
+				<result property="telco" column="TELCO" jdbcType="VARCHAR" />
+				<result property="business" column="BUSINESS" jdbcType="VARCHAR" />
+				<result property="recordTime" column="RECORD_TIME" jdbcType="VARCHAR" />
+				<result property="businessTime" column="BUSINESS_TIME" jdbcType="VARCHAR" />
+				<result property="amount" column="AMOUNT" jdbcType="VARCHAR" />
+				<result property="isfail" column="ISFAIL" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="validateState" column="VALIDATE_STATE" jdbcType="VARCHAR" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="updateBy" column="UPDATE_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_SH_SR_TELECOMS -->	
+<select id="searchExtWlShSrTelecomsByPaging" parameterType="java.util.Map" resultMap="ExtWlShSrTelecomsDTO">
+    	 		select 
+						t1.id                             ,
+						t1.fk_report_id                   ,
+						t1.original                       ,
+						t1.telco                          ,
+						t1.business                       ,
+						t1.record_time                    ,
+						t1.business_time                  ,
+						t1.amount                         ,
+						t1.isfail                         ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.validate_state                 ,
+						t1.create_by                      ,
+						t1.update_by                      
+					
+				from ext_wl_sh_sr_telecoms 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.fkReportId != null and dto.fkReportId != ''">
+						and t1.FK_REPORT_ID =#{dto.fkReportId}
+    			</if>
+    			<if test="dto.original != null and dto.original != ''">
+						and t1.ORIGINAL =#{dto.original}
+    			</if>
+    			<if test="dto.telco != null and dto.telco != ''">
+						and t1.TELCO =#{dto.telco}
+    			</if>
+    			<if test="dto.business != null and dto.business != ''">
+						and t1.BUSINESS =#{dto.business}
+    			</if>
+    			<if test="dto.recordTime != null and dto.recordTime != ''">
+						and t1.RECORD_TIME =#{dto.recordTime}
+    			</if>
+    			<if test="dto.businessTime != null and dto.businessTime != ''">
+						and t1.BUSINESS_TIME =#{dto.businessTime}
+    			</if>
+    			<if test="dto.amount != null and dto.amount != ''">
+						and t1.AMOUNT =#{dto.amount}
+    			</if>
+    			<if test="dto.isfail != null and dto.isfail != ''">
+						and t1.ISFAIL =#{dto.isfail}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE =#{dto.validateState}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY =#{dto.updateBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_SH_SR_TELECOMS  -->
+<select id="searchExtWlShSrTelecoms" parameterType="java.util.Map" resultMap="ExtWlShSrTelecomsDTO">
+    	     select 
+						t1.id                             ,
+						t1.fk_report_id                   ,
+						t1.original                       ,
+						t1.telco                          ,
+						t1.business                       ,
+						t1.record_time                    ,
+						t1.business_time                  ,
+						t1.amount                         ,
+						t1.isfail                         ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.validate_state                 ,
+						t1.create_by                      ,
+						t1.update_by                      
+				from ext_wl_sh_sr_telecoms 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.fkReportId != null and dto.fkReportId != ''">
+						and t1.FK_REPORT_ID = #{dto.fkReportId}
+    			</if>
+    			<if test="dto.original != null and dto.original != ''">
+						and t1.ORIGINAL = #{dto.original}
+    			</if>
+    			<if test="dto.telco != null and dto.telco != ''">
+						and t1.TELCO = #{dto.telco}
+    			</if>
+    			<if test="dto.business != null and dto.business != ''">
+						and t1.BUSINESS = #{dto.business}
+    			</if>
+    			<if test="dto.recordTime != null and dto.recordTime != ''">
+						and t1.RECORD_TIME = #{dto.recordTime}
+    			</if>
+    			<if test="dto.businessTime != null and dto.businessTime != ''">
+						and t1.BUSINESS_TIME = #{dto.businessTime}
+    			</if>
+    			<if test="dto.amount != null and dto.amount != ''">
+						and t1.AMOUNT = #{dto.amount}
+    			</if>
+    			<if test="dto.isfail != null and dto.isfail != ''">
+						and t1.ISFAIL = #{dto.isfail}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE = #{dto.validateState}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY = #{dto.updateBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_SH_SR_TELECOMS -->
+<select id="findExtWlShSrTelecomsByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlShSrTelecomsDTO">
+   	 		select 
+					t1.id                             ,
+					t1.fk_report_id                   ,
+					t1.original                       ,
+					t1.telco                          ,
+					t1.business                       ,
+					t1.record_time                    ,
+					t1.business_time                  ,
+					t1.amount                         ,
+					t1.isfail                         ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.validate_state                 ,
+					t1.create_by                      ,
+					t1.update_by                      
+			from ext_wl_sh_sr_telecoms 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_SH_SR_TELECOMS -->
+<insert id="insertExtWlShSrTelecoms" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_SH_SR_TELECOMS.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_sh_sr_telecoms
+			(   		
+					id                             ,
+					fk_report_id                   ,
+					original                       ,
+					telco                          ,
+					business                       ,
+					record_time                    ,
+					business_time                  ,
+					amount                         ,
+					isfail                         ,
+					create_time                    ,
+					modify_time                    ,
+					validate_state                 ,
+					create_by                      ,
+					update_by                      
+			)
+			values(#{dto.id}
+					,#{dto.fkReportId,jdbcType=DECIMAL}
+					,#{dto.original,jdbcType=VARCHAR}
+					,#{dto.telco,jdbcType=VARCHAR}
+					,#{dto.business,jdbcType=VARCHAR}
+					,#{dto.recordTime,jdbcType=VARCHAR}
+					,#{dto.businessTime,jdbcType=VARCHAR}
+					,#{dto.amount,jdbcType=VARCHAR}
+					,#{dto.isfail,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,'1'
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.updateBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_SH_SR_TELECOMS -->
+<update id="updateExtWlShSrTelecoms" parameterType="java.util.Map">
+	     update ext_wl_sh_sr_telecoms t1
+	           set 
+			           t1.fk_report_id                   =#{dto.fkReportId,jdbcType=DECIMAL},
+			           t1.original                       =#{dto.original,jdbcType=VARCHAR},
+			           t1.telco                          =#{dto.telco,jdbcType=VARCHAR},
+			           t1.business                       =#{dto.business,jdbcType=VARCHAR},
+			           t1.record_time                    =#{dto.recordTime,jdbcType=VARCHAR},
+			           t1.business_time                  =#{dto.businessTime,jdbcType=VARCHAR},
+			           t1.amount                         =#{dto.amount,jdbcType=VARCHAR},
+			           t1.isfail                         =#{dto.isfail,jdbcType=VARCHAR},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP},
+			           t1.validate_state                 ='1',
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.update_by                      =#{dto.updateBy,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_SH_SR_TELECOMS -->
+<delete id="deleteExtWlShSrTelecomsByID" parameterType="java.util.Map">
+    	delete from ext_wl_sh_sr_telecoms t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_SH_SR_TELECOMS -->
+<update id="deleteExtWlShSrTelecomsByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_sh_sr_telecoms t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+
+	<!--批量新增 算话人行结构化版(电信欠费信息表)列表-->
+	<insert id="insertExtWlShSrTelecomsList" parameterType="java.util.Map" useGeneratedKeys="true">
+		begin
+		<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+			select seq_EXT_WL_SH_SR_TELECOMS.nextval as id from dual
+		</selectKey>
+		<foreach collection="dtoList" item="dto" >
+			insert into ext_wl_sh_sr_telecoms
+			(
+			id,
+			fk_report_id,
+			original,
+			telco,
+			business,
+			record_time,
+			business_time,
+			amount,
+			isfail,
+			create_time,
+			validate_state
+			)
+			values(seq_EXT_WL_SH_SR_TELECOMS.nextval
+			,#{fkReportId}
+			,#{dto.original,jdbcType=VARCHAR}
+			,#{dto.telco,jdbcType=VARCHAR}
+			,#{dto.business,jdbcType=VARCHAR}
+			,#{dto.recordTime,jdbcType=VARCHAR}
+			,#{dto.businessTime,jdbcType=VARCHAR}
+			,#{dto.amount,jdbcType=VARCHAR}
+			,#{dto.isfail,jdbcType=VARCHAR}
+			,systimestamp
+			,'1'
+			);
+		</foreach>
+		end;
+	</insert>
+</mapper>

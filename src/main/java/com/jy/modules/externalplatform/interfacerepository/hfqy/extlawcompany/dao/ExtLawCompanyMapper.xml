@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.hfqy.extlawcompany.dao.ExtLawCompanyDao">
+<resultMap id="ExtLawCompanyDTO" type="com.jy.modules.externalplatform.interfacerepository.hfqy.extlawcompany.dto.ExtLawCompanyDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="name" column="NAME" jdbcType="VARCHAR" />
+				<result property="cidorcode" column="CIDORCODE" jdbcType="VARCHAR" />
+				<result property="datatime" column="DATATIME" jdbcType="VARCHAR" />
+				<result property="prodCode" column="PROD_CODE" jdbcType="VARCHAR" />
+				<result property="orgCode" column="ORG_CODE" jdbcType="VARCHAR" />
+				<result property="sysCode" column="SYS_CODE" jdbcType="VARCHAR" />
+				<result property="exeMsg" column="EXE_MSG" jdbcType="VARCHAR" />
+				<result property="caseMsg" column="CASE_MSG" jdbcType="VARCHAR" />
+				<result property="dishonestyMsg" column="DISHONESTY_MSG" jdbcType="VARCHAR" />
+				<result property="taxMsg" column="TAX_MSG" jdbcType="VARCHAR" />
+				<result property="cqMsg" column="CQ_MSG" jdbcType="VARCHAR" />
+				<result property="loanoverdueMsg" column="LOANOVERDUE_MSG" jdbcType="VARCHAR" />
+				<result property="opencourtMsg" column="OPENCOURT_MSG" jdbcType="VARCHAR" />
+				<result property="otherMsg" column="OTHER_MSG" jdbcType="VARCHAR" />
+				<result property="procedureMsg" column="PROCEDURE_MSG" jdbcType="VARCHAR" />
+				<result property="retcode" column="RETCODE" jdbcType="VARCHAR" />
+				<result property="errormsg" column="ERRORMSG" jdbcType="VARCHAR" />
+				<result property="interfaceId" column="INTERFACE_ID" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="remark" column="REMARK" jdbcType="VARCHAR" />
+</resultMap>
+				
+<!-- 分页查询 ext_law_company -->	
+<select id="searchExtLawCompanyByPaging" parameterType="java.util.Map" resultMap="ExtLawCompanyDTO">
+    	 		select 
+						t1.id                             ,
+						t1.name                           ,
+						t1.cidorcode                      ,
+						t1.datatime                       ,
+						t1.prod_code                      ,
+						t1.org_code                       ,
+						t1.sys_code                       ,
+						t1.exe_msg                        ,
+						t1.case_msg                       ,
+						t1.dishonesty_msg                 ,
+						t1.tax_msg                        ,
+						t1.cq_msg                         ,
+						t1.loanoverdue_msg                ,
+						t1.opencourt_msg                  ,
+						t1.other_msg                      ,
+						t1.procedure_msg                  ,
+						t1.retcode                        ,
+						t1.errormsg                       ,
+						t1.interface_id                   ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.remark                         
+					
+				from ext_law_company 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.name != null and dto.name != ''">
+						and t1.NAME =#{dto.name}
+    			</if>
+    			<if test="dto.cidorcode != null and dto.cidorcode != ''">
+						and t1.CIDORCODE =#{dto.cidorcode}
+    			</if>
+    			<if test="dto.datatime != null and dto.datatime != ''">
+						and t1.DATATIME =#{dto.datatime}
+    			</if>
+    			<if test="dto.prodCode != null and dto.prodCode != ''">
+						and t1.PROD_CODE =#{dto.prodCode}
+    			</if>
+    			<if test="dto.orgCode != null and dto.orgCode != ''">
+						and t1.ORG_CODE =#{dto.orgCode}
+    			</if>
+    			<if test="dto.sysCode != null and dto.sysCode != ''">
+						and t1.SYS_CODE =#{dto.sysCode}
+    			</if>
+    			<if test="dto.exeMsg != null and dto.exeMsg != ''">
+						and t1.EXE_MSG =#{dto.exeMsg}
+    			</if>
+    			<if test="dto.caseMsg != null and dto.caseMsg != ''">
+						and t1.CASE_MSG =#{dto.caseMsg}
+    			</if>
+    			<if test="dto.dishonestyMsg != null and dto.dishonestyMsg != ''">
+						and t1.DISHONESTY_MSG =#{dto.dishonestyMsg}
+    			</if>
+    			<if test="dto.taxMsg != null and dto.taxMsg != ''">
+						and t1.TAX_MSG =#{dto.taxMsg}
+    			</if>
+    			<if test="dto.cqMsg != null and dto.cqMsg != ''">
+						and t1.CQ_MSG =#{dto.cqMsg}
+    			</if>
+    			<if test="dto.loanoverdueMsg != null and dto.loanoverdueMsg != ''">
+						and t1.LOANOVERDUE_MSG =#{dto.loanoverdueMsg}
+    			</if>
+    			<if test="dto.opencourtMsg != null and dto.opencourtMsg != ''">
+						and t1.OPENCOURT_MSG =#{dto.opencourtMsg}
+    			</if>
+    			<if test="dto.otherMsg != null and dto.otherMsg != ''">
+						and t1.OTHER_MSG =#{dto.otherMsg}
+    			</if>
+    			<if test="dto.procedureMsg != null and dto.procedureMsg != ''">
+						and t1.PROCEDURE_MSG =#{dto.procedureMsg}
+    			</if>
+    			<if test="dto.retcode != null and dto.retcode != ''">
+						and t1.RETCODE =#{dto.retcode}
+    			</if>
+    			<if test="dto.errormsg != null and dto.errormsg != ''">
+						and t1.ERRORMSG =#{dto.errormsg}
+    			</if>
+    			<if test="dto.interfaceId != null and dto.interfaceId != ''">
+						and t1.INTERFACE_ID =#{dto.interfaceId}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.remark != null and dto.remark != ''">
+						and t1.REMARK =#{dto.remark}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 ext_law_company  -->
+<select id="searchExtLawCompany" parameterType="java.util.Map" resultMap="ExtLawCompanyDTO">
+    	     select 
+						t1.id                             ,
+						t1.name                           ,
+						t1.cidorcode                      ,
+						t1.datatime                       ,
+						t1.prod_code                      ,
+						t1.org_code                       ,
+						t1.sys_code                       ,
+						t1.exe_msg                        ,
+						t1.case_msg                       ,
+						t1.dishonesty_msg                 ,
+						t1.tax_msg                        ,
+						t1.cq_msg                         ,
+						t1.loanoverdue_msg                ,
+						t1.opencourt_msg                  ,
+						t1.other_msg                      ,
+						t1.procedure_msg                  ,
+						t1.retcode                        ,
+						t1.errormsg                       ,
+						t1.interface_id                   ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.remark                         
+				from ext_law_company 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.name != null and dto.name != ''">
+						and t1.NAME = #{dto.name}
+    			</if>
+    			<if test="dto.cidorcode != null and dto.cidorcode != ''">
+						and t1.CIDORCODE = #{dto.cidorcode}
+    			</if>
+    			<if test="dto.datatime != null and dto.datatime != ''">
+						and t1.DATATIME = #{dto.datatime}
+    			</if>
+    			<if test="dto.prodCode != null and dto.prodCode != ''">
+						and t1.PROD_CODE = #{dto.prodCode}
+    			</if>
+    			<if test="dto.orgCode != null and dto.orgCode != ''">
+						and t1.ORG_CODE = #{dto.orgCode}
+    			</if>
+    			<if test="dto.sysCode != null and dto.sysCode != ''">
+						and t1.SYS_CODE = #{dto.sysCode}
+    			</if>
+    			<if test="dto.exeMsg != null and dto.exeMsg != ''">
+						and t1.EXE_MSG = #{dto.exeMsg}
+    			</if>
+    			<if test="dto.caseMsg != null and dto.caseMsg != ''">
+						and t1.CASE_MSG = #{dto.caseMsg}
+    			</if>
+    			<if test="dto.dishonestyMsg != null and dto.dishonestyMsg != ''">
+						and t1.DISHONESTY_MSG = #{dto.dishonestyMsg}
+    			</if>
+    			<if test="dto.taxMsg != null and dto.taxMsg != ''">
+						and t1.TAX_MSG = #{dto.taxMsg}
+    			</if>
+    			<if test="dto.cqMsg != null and dto.cqMsg != ''">
+						and t1.CQ_MSG = #{dto.cqMsg}
+    			</if>
+    			<if test="dto.loanoverdueMsg != null and dto.loanoverdueMsg != ''">
+						and t1.LOANOVERDUE_MSG = #{dto.loanoverdueMsg}
+    			</if>
+    			<if test="dto.opencourtMsg != null and dto.opencourtMsg != ''">
+						and t1.OPENCOURT_MSG = #{dto.opencourtMsg}
+    			</if>
+    			<if test="dto.otherMsg != null and dto.otherMsg != ''">
+						and t1.OTHER_MSG = #{dto.otherMsg}
+    			</if>
+    			<if test="dto.procedureMsg != null and dto.procedureMsg != ''">
+						and t1.PROCEDURE_MSG = #{dto.procedureMsg}
+    			</if>
+    			<if test="dto.retcode != null and dto.retcode != ''">
+						and t1.RETCODE = #{dto.retcode}
+    			</if>
+    			<if test="dto.errormsg != null and dto.errormsg != ''">
+						and t1.ERRORMSG = #{dto.errormsg}
+    			</if>
+    			<if test="dto.interfaceId != null and dto.interfaceId != ''">
+						and t1.INTERFACE_ID = #{dto.interfaceId}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.remark != null and dto.remark != ''">
+						and t1.REMARK = #{dto.remark}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  ext_law_company -->
+<select id="findExtLawCompanyByPrimaryKey" parameterType="java.util.Map" resultMap="ExtLawCompanyDTO">
+   	 		select 
+					t1.id                             ,
+					t1.name                           ,
+					t1.cidorcode                      ,
+					t1.datatime                       ,
+					t1.prod_code                      ,
+					t1.org_code                       ,
+					t1.sys_code                       ,
+					t1.exe_msg                        ,
+					t1.case_msg                       ,
+					t1.dishonesty_msg                 ,
+					t1.tax_msg                        ,
+					t1.cq_msg                         ,
+					t1.loanoverdue_msg                ,
+					t1.opencourt_msg                  ,
+					t1.other_msg                      ,
+					t1.procedure_msg                  ,
+					t1.retcode                        ,
+					t1.errormsg                       ,
+					t1.interface_id                   ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.remark                         
+			from ext_law_company 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 ext_law_company -->
+<insert id="insertExtLawCompany" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_ext_law_company.nextval as id from dual
+	</selectKey>
+			insert into ext_law_company
+			(   		
+					id                             ,
+					name                           ,
+					cidorcode                      ,
+					datatime                       ,
+					prod_code                      ,
+					org_code                       ,
+					sys_code                       ,
+					exe_msg                        ,
+					case_msg                       ,
+					dishonesty_msg                 ,
+					tax_msg                        ,
+					cq_msg                         ,
+					loanoverdue_msg                ,
+					opencourt_msg                  ,
+					other_msg                      ,
+					procedure_msg                  ,
+					retcode                        ,
+					errormsg                       ,
+					interface_id                   ,
+					create_time                    ,
+					remark                         
+			)
+			values(#{dto.id}
+					,#{dto.name,jdbcType=VARCHAR}
+					,#{dto.cidorcode,jdbcType=VARCHAR}
+					,#{dto.datatime,jdbcType=VARCHAR}
+					,#{dto.prodCode,jdbcType=VARCHAR}
+					,#{dto.orgCode,jdbcType=VARCHAR}
+					,#{dto.sysCode,jdbcType=VARCHAR}
+					,#{dto.exeMsg,jdbcType=VARCHAR}
+					,#{dto.caseMsg,jdbcType=VARCHAR}
+					,#{dto.dishonestyMsg,jdbcType=VARCHAR}
+					,#{dto.taxMsg,jdbcType=VARCHAR}
+					,#{dto.cqMsg,jdbcType=VARCHAR}
+					,#{dto.loanoverdueMsg,jdbcType=VARCHAR}
+					,#{dto.opencourtMsg,jdbcType=VARCHAR}
+					,#{dto.otherMsg,jdbcType=VARCHAR}
+					,#{dto.procedureMsg,jdbcType=VARCHAR}
+					,#{dto.retcode,jdbcType=VARCHAR}
+					,#{dto.errormsg,jdbcType=VARCHAR}
+					,#{dto.interfaceId,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.remark,jdbcType=VARCHAR}
+			)
+</insert>
+    
+<!-- 更新对象 ext_law_company -->
+<update id="updateExtLawCompany" parameterType="java.util.Map">
+	     update ext_law_company t1
+	           set 
+			           t1.name                           =#{dto.name,jdbcType=VARCHAR},
+			           t1.cidorcode                      =#{dto.cidorcode,jdbcType=VARCHAR},
+			           t1.datatime                       =#{dto.datatime,jdbcType=VARCHAR},
+			           t1.prod_code                      =#{dto.prodCode,jdbcType=VARCHAR},
+			           t1.org_code                       =#{dto.orgCode,jdbcType=VARCHAR},
+			           t1.sys_code                       =#{dto.sysCode,jdbcType=VARCHAR},
+			           t1.exe_msg                        =#{dto.exeMsg,jdbcType=VARCHAR},
+			           t1.case_msg                       =#{dto.caseMsg,jdbcType=VARCHAR},
+			           t1.dishonesty_msg                 =#{dto.dishonestyMsg,jdbcType=VARCHAR},
+			           t1.tax_msg                        =#{dto.taxMsg,jdbcType=VARCHAR},
+			           t1.cq_msg                         =#{dto.cqMsg,jdbcType=VARCHAR},
+			           t1.loanoverdue_msg                =#{dto.loanoverdueMsg,jdbcType=VARCHAR},
+			           t1.opencourt_msg                  =#{dto.opencourtMsg,jdbcType=VARCHAR},
+			           t1.other_msg                      =#{dto.otherMsg,jdbcType=VARCHAR},
+			           t1.procedure_msg                  =#{dto.procedureMsg,jdbcType=VARCHAR},
+			           t1.retcode                        =#{dto.retcode,jdbcType=VARCHAR},
+			           t1.errormsg                       =#{dto.errormsg,jdbcType=VARCHAR},
+			           t1.interface_id                   =#{dto.interfaceId,jdbcType=VARCHAR},
+			           t1.modify_time                    =systimestamp,
+			           t1.remark                         =#{dto.remark,jdbcType=VARCHAR}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 ext_law_company -->
+<delete id="deleteExtLawCompanyByID" parameterType="java.util.Map">
+    	delete from ext_law_company t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 ext_law_company -->
+<update id="deleteExtLawCompanyByPrimaryKey" parameterType="java.util.Map">
+	     update ext_law_company t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

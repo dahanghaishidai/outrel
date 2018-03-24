@@ -1,0 +1,26 @@
+<assembly xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/assembly-1.0.0.xsd">
+    <id>package</id>
+    <formats><!-- Package *.tar.gz filter related setting files -->
+        <format>tar.gz</format>
+    </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <fileSets>
+    	<!-- copy jsp -->
+        <fileSet>
+            <directory>target/${war.name}</directory>
+            <excludes>
+				<exclude>appstore/**</exclude>
+				<exclude>WEB-INF/web.xml</exclude>
+				<exclude>WEB-INF/classes/**</exclude>
+			</excludes>
+            <outputDirectory>/</outputDirectory>
+        </fileSet>
+        <!-- copy Package class -->
+        <fileSet>
+            <directory>target/${war.name}/WEB-INF/classes/com/jy/</directory>
+            <outputDirectory>WEB-INF/classes/com/jy/</outputDirectory>
+        </fileSet>
+        
+    </fileSets>
+</assembly>

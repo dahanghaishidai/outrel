@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.jxl.pbccrc.extjxlcreditinvest.dao.ExtJxlCreditInvestDao">
+<resultMap id="ExtJxlCreditInvestDTO" type="com.jy.modules.externalplatform.interfacerepository.jxl.pbccrc.extjxlcreditinvest.dto.ExtJxlCreditInvestDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="custName" column="CUST_NAME" jdbcType="VARCHAR" />
+				<result property="cellPhoneNum" column="CELL_PHONE_NUM" jdbcType="VARCHAR" />
+				<result property="idCardNum" column="ID_CARD_NUM" jdbcType="VARCHAR" />
+				<result property="success" column="SUCCESS" jdbcType="VARCHAR" />
+				<result property="message" column="MESSAGE" jdbcType="VARCHAR" />
+				<result property="processType" column="PROCESS_TYPE" jdbcType="VARCHAR" />
+				<result property="content" column="CONTENT" jdbcType="VARCHAR" />
+				<result property="processCode" column="PROCESS_CODE" jdbcType="DECIMAL" />
+				<result property="token" column="TOKEN" jdbcType="VARCHAR" />
+				<result property="fkConsultId" column="FK_CONSULT_ID" jdbcType="DECIMAL" />
+				<result property="linkConsultIds" column="LINK_CONSULT_IDS" jdbcType="VARCHAR" />
+				<result property="state" column="STATE" jdbcType="VARCHAR" />
+				<result property="invokeTimes" column="INVOKE_TIMES" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 查询列表 EXT_JXL_CREDIT_INVEST  -->
+<select id="searchExtJxlCreditInvest" parameterType="java.util.Map" resultMap="ExtJxlCreditInvestDTO">
+    	     select 
+						t1.id                             ,
+						t1.cust_name                      ,
+						t1.cell_phone_num                 ,
+						t1.id_card_num                    ,
+						t1.success                        ,
+						t1.message                        ,
+						t1.process_type                   ,
+						t1.content                        ,
+						t1.process_code                   ,
+						t1.token                          ,
+						t1.fk_consult_id                  ,
+						t1.link_consult_ids               ,
+						t1.state                          ,
+						t1.invoke_times                   ,
+						t1.create_time                    ,
+						t1.modify_time                    
+				from ext_jxl_credit_invest 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.custName != null and dto.custName != ''">
+						and t1.CUST_NAME = #{dto.custName}
+    			</if>
+    			<if test="dto.cellPhoneNum != null and dto.cellPhoneNum != ''">
+						and t1.CELL_PHONE_NUM = #{dto.cellPhoneNum}
+    			</if>
+    			<if test="dto.idCardNum != null and dto.idCardNum != ''">
+						and t1.ID_CARD_NUM = #{dto.idCardNum}
+    			</if>
+    			<if test="dto.success != null and dto.success != ''">
+						and t1.SUCCESS = #{dto.success}
+    			</if>
+    			<if test="dto.message != null and dto.message != ''">
+						and t1.MESSAGE = #{dto.message}
+    			</if>
+    			<if test="dto.processType != null and dto.processType != ''">
+						and t1.PROCESS_TYPE = #{dto.processType}
+    			</if>
+    			<if test="dto.content != null and dto.content != ''">
+						and t1.CONTENT = #{dto.content}
+    			</if>
+    			<if test="dto.processCode != null and dto.processCode != ''">
+						and t1.PROCESS_CODE = #{dto.processCode}
+    			</if>
+    			<if test="dto.token != null and dto.token != ''">
+						and t1.TOKEN = #{dto.token}
+    			</if>
+    			<if test="dto.fkConsultId != null and dto.fkConsultId != ''">
+						and t1.FK_CONSULT_ID = #{dto.fkConsultId}
+    			</if>
+    			<if test="dto.state != null and dto.state != ''">
+						and t1.state in (${dto.state})
+    			</if>
+    			
+    			order by t1.id asc
+</select>
+   
+<!-- 新增对象 EXT_JXL_CREDIT_INVEST -->
+<insert id="insertExtJxlCreditInvest" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_JXL_CREDIT_INVEST.nextval as id from dual
+	</selectKey>
+			insert into ext_jxl_credit_invest
+			(   		
+					id                             ,
+					cust_name                      ,
+					cell_phone_num                 ,
+					id_card_num                    ,
+					success                        ,
+					message                        ,
+					process_type                   ,
+					content                        ,
+					process_code                   ,
+					token                          ,
+					fk_consult_id                  ,
+					state                          ,
+					create_time                    
+			)
+			values(#{dto.id}
+					,#{dto.custName,jdbcType=VARCHAR}
+					,#{dto.cellPhoneNum,jdbcType=VARCHAR}
+					,#{dto.idCardNum,jdbcType=VARCHAR}
+					,#{dto.success,jdbcType=VARCHAR}
+					,#{dto.message,jdbcType=VARCHAR}
+					,#{dto.processType,jdbcType=VARCHAR}
+					,#{dto.content,jdbcType=VARCHAR}
+					,#{dto.processCode,jdbcType=DECIMAL}
+					,#{dto.token,jdbcType=VARCHAR}
+					,#{dto.fkConsultId,jdbcType=DECIMAL}
+					,#{dto.state,jdbcType=VARCHAR}
+					,systimestamp
+			)
+</insert>
+
+<!-- 更新对象 更新对象聚信立央行征信采集申请表[调用状态] -->
+<update id="updateExtJxlCreditInvestState" parameterType="java.util.Map">
+	     update ext_jxl_credit_invest t1
+	          set 
+			         t1.state          =#{dto.state},
+			       <if test="dto.state == 3">
+			         t1.invoke_times   =#{dto.invokeTimes},
+			       </if>
+			       t1.modify_time    =systimestamp
+	     where t1.id = #{dto.id}
+</update>
+
+<!-- 更新对象聚信立央行征信采集申请表[关联咨询编号]-->
+<update id="updateExtJxlCreditInvestLinkConsultIds" parameterType="java.util.Map">
+	     update ext_jxl_credit_invest t1
+	          set 
+			       t1.link_consult_ids  =#{dto.linkConsultIds},
+			       t1.modify_time    =systimestamp
+	     where t1.id = #{dto.id}
+</update>
+
+<!-- 查询进件咨询关联信息表中,某进件对应的最大的咨询单号 -->
+<select id="queryMaxConsultIdByIntoId"  parameterType="java.util.Map" resultType="java.util.Map">
+	 select 
+	      t2.consult_id
+	 from (select 
+	           t1.consult_id,
+	           row_number() over(partition by t1.fk_into_id order by t1.id desc) rn
+	       from lb_t_cust_into_rela t1
+	       where t1.fk_into_id = #{intoId}) t2
+	 where rn = 1
+</select>
+
+</mapper>

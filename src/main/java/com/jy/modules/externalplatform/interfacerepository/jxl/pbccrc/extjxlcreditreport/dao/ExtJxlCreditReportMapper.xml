@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.jxl.pbccrc.extjxlcreditreport.dao.ExtJxlCreditReportDao">
+<resultMap id="ExtJxlCreditReportDTO" type="com.jy.modules.externalplatform.interfacerepository.jxl.pbccrc.extjxlcreditreport.dto.ExtJxlCreditReportDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="fkInvestId" column="FK_INVEST_ID" jdbcType="DECIMAL" />
+				<result property="success" column="SUCCESS" jdbcType="VARCHAR" />
+				<result property="note" column="NOTE" jdbcType="VARCHAR" />
+				<result property="reportId" column="REPORT_ID" jdbcType="VARCHAR" />
+				<result property="requestTime" column="REQUEST_TIME" jdbcType="VARCHAR" />
+				<result property="reportTime" column="REPORT_TIME" jdbcType="VARCHAR" />
+				<result property="queriedName" column="QUERIED_NAME" jdbcType="VARCHAR" />
+				<result property="queriedPapers" column="QUERIED_PAPERS" jdbcType="VARCHAR" />
+				<result property="queriedNumber" column="QUERIED_NUMBER" jdbcType="VARCHAR" />
+				<result property="queryMarriage" column="QUERY_MARRIAGE" jdbcType="VARCHAR" />
+				<result property="token" column="TOKEN" jdbcType="VARCHAR" />
+				<result property="dataSource" column="DATA_SOURCE" jdbcType="VARCHAR" />
+				<result property="version" column="VERSION" jdbcType="VARCHAR" />
+				<result property="errorCode" column="ERROR_CODE" jdbcType="VARCHAR" />
+				<result property="errorMsg" column="ERROR_MSG" jdbcType="VARCHAR" />
+				<result property="respMsg" column="RESP_MSG" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				
+				<result property="sysCode" column="SYS_CODE" jdbcType="VARCHAR" />
+				<result property="interfaceId" column="INTERFACE_ID" jdbcType="VARCHAR" />
+</resultMap>
+				
+  
+<!-- 查询列表 EXT_JXL_CREDIT_REPORT  -->
+<select id="searchExtJxlCreditReport" parameterType="java.util.Map" resultMap="ExtJxlCreditReportDTO">
+    	     select 
+						t1.id                             ,
+						t1.fk_invest_id                   ,
+						t1.success                        ,
+						t1.note                           ,
+						t1.report_id                      ,
+						t1.request_time                   ,
+						t1.report_time                    ,
+						t1.queried_name                   ,
+						t1.queried_papers                 ,
+						t1.queried_number                 ,
+						t1.query_marriage                 ,
+						t1.token                          ,
+						t1.data_source                    ,
+						t1.version                        ,
+						t1.error_code                     ,
+						t1.error_msg                      ,
+						t1.create_time                    ,
+						t1.modify_time                    
+				from ext_jxl_credit_report 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.fkInvestId != null and dto.fkInvestId != ''">
+						and t1.FK_INVEST_ID = #{dto.fkInvestId}
+    			</if>
+    			<if test="dto.success != null and dto.success != ''">
+						and t1.SUCCESS = #{dto.success}
+    			</if>
+    			<if test="dto.note != null and dto.note != ''">
+						and t1.NOTE = #{dto.note}
+    			</if>
+    			<if test="dto.reportId != null and dto.reportId != ''">
+						and t1.REPORT_ID = #{dto.reportId}
+    			</if>
+    			<if test="dto.requestTime != null and dto.requestTime != ''">
+						and t1.REQUEST_TIME = #{dto.requestTime}
+    			</if>
+    			<if test="dto.reportTime != null and dto.reportTime != ''">
+						and t1.REPORT_TIME = #{dto.reportTime}
+    			</if>
+    			<if test="dto.queriedName != null and dto.queriedName != ''">
+						and t1.QUERIED_NAME = #{dto.queriedName}
+    			</if>
+    			<if test="dto.queriedPapers != null and dto.queriedPapers != ''">
+						and t1.QUERIED_PAPERS = #{dto.queriedPapers}
+    			</if>
+    			<if test="dto.queriedNumber != null and dto.queriedNumber != ''">
+						and t1.QUERIED_NUMBER = #{dto.queriedNumber}
+    			</if>
+    			<if test="dto.queryMarriage != null and dto.queryMarriage != ''">
+						and t1.QUERY_MARRIAGE = #{dto.queryMarriage}
+    			</if>
+    			<if test="dto.token != null and dto.token != ''">
+						and t1.TOKEN = #{dto.token}
+    			</if>
+    			<if test="dto.dataSource != null and dto.dataSource != ''">
+						and t1.DATA_SOURCE = #{dto.dataSource}
+    			</if>
+    			<if test="dto.version != null and dto.version != ''">
+						and t1.VERSION = #{dto.version}
+    			</if>
+    			<if test="dto.errorCode != null and dto.errorCode != ''">
+						and t1.ERROR_CODE = #{dto.errorCode}
+    			</if>
+    			<if test="dto.errorMsg != null and dto.errorMsg != ''">
+						and t1.ERROR_MSG = #{dto.errorMsg}
+    			</if>
+                        order by t1.id desc
+</select>
+  
+<!-- 更新对象 EXT_JXL_CREDIT_REPORT -->
+<update id="updateExtJxlCreditReport" parameterType="java.util.Map">
+	     update ext_jxl_credit_report t1
+	           set 
+			        t1.fk_invest_id     =#{dto.fkInvestId,jdbcType=DECIMAL},
+					t1.success          =#{dto.success,jdbcType=VARCHAR},
+					t1.note             =#{dto.note,jdbcType=VARCHAR},
+					t1.report_id        =#{dto.reportId,jdbcType=VARCHAR},
+					t1.request_time     =#{dto.requestTime,jdbcType=VARCHAR},
+					t1.report_time      =#{dto.reportTime,jdbcType=VARCHAR},
+					t1.queried_name     =#{dto.queriedName,jdbcType=VARCHAR},
+					t1.queried_papers   =#{dto.queriedPapers,jdbcType=VARCHAR},
+					t1.queried_number   =#{dto.queriedNumber,jdbcType=VARCHAR},
+					t1.query_marriage   =#{dto.queryMarriage,jdbcType=VARCHAR},
+					t1.token            =#{dto.token,jdbcType=VARCHAR},
+					t1.data_source      =#{dto.dataSource,jdbcType=VARCHAR},
+					t1.version          =#{dto.version,jdbcType=VARCHAR},
+					t1.error_code       =#{dto.errorCode,jdbcType=VARCHAR},
+					t1.error_msg        =#{dto.errorMsg,jdbcType=VARCHAR},
+					t1.create_time      =#{dto.respMsg,jdbcType=VARCHAR},
+					t1.modify_time      =systimestamp,
+					t1.sys_code         =#{dto.sysCode,jdbcType=VARCHAR},
+			        t1.interface_id     =#{dto.interfaceId,jdbcType=VARCHAR}
+	     where t1.id = #{dto.id}
+</update>
+  
+<!-- 新增对象 EXT_JXL_CREDIT_REPORT -->
+<insert id="insertExtJxlCreditReport" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_JXL_CREDIT_REPORT.nextval as id from dual
+	</selectKey>
+			insert into ext_jxl_credit_report
+			(   		
+					id                             ,
+					fk_invest_id                   ,
+					success                        ,
+					note                           ,
+					report_id                      ,
+					request_time                   ,
+					report_time                    ,
+					queried_name                   ,
+					queried_papers                 ,
+					queried_number                 ,
+					query_marriage                 ,
+					token                          ,
+					data_source                    ,
+					version                        ,
+					error_code                     ,
+					error_msg                      ,
+					resp_msg                       ,
+					create_time                    
+			)
+			values(#{dto.id}
+					,#{dto.fkInvestId,jdbcType=DECIMAL}
+					,#{dto.success,jdbcType=VARCHAR}
+					,#{dto.note,jdbcType=VARCHAR}
+					,#{dto.reportId,jdbcType=VARCHAR}
+					,#{dto.requestTime,jdbcType=VARCHAR}
+					,#{dto.reportTime,jdbcType=VARCHAR}
+					,#{dto.queriedName,jdbcType=VARCHAR}
+					,#{dto.queriedPapers,jdbcType=VARCHAR}
+					,#{dto.queriedNumber,jdbcType=VARCHAR}
+					,#{dto.queryMarriage,jdbcType=VARCHAR}
+					,#{dto.token,jdbcType=VARCHAR}
+					,#{dto.dataSource,jdbcType=VARCHAR}
+					,#{dto.version,jdbcType=VARCHAR}
+					,#{dto.errorCode,jdbcType=VARCHAR}
+					,#{dto.errorMsg,jdbcType=VARCHAR}
+					,#{dto.respMsg,jdbcType=VARCHAR}
+					,systimestamp
+			)
+</insert>
+
+</mapper>

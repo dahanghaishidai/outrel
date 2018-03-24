@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.sjt.extsjttransbehaviorstock.dao.ExtSjtTransBehaviorStockDao">
+<resultMap id="ExtSjtTransBehaviorStockDTO" type="com.jy.modules.externalplatform.interfacerepository.sjt.extsjttransbehaviorstock.dto.ExtSjtTransBehaviorStockDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="transNo" column="TRANS_NO" jdbcType="VARCHAR" />
+				<result property="intoId" column="INTO_ID" jdbcType="DECIMAL" />
+				<result property="businesstrip" column="BUSINESSTRIP" jdbcType="VARCHAR" />
+				<result property="marriageconsume" column="MARRIAGECONSUME" jdbcType="VARCHAR" />
+				<result property="employed" column="EMPLOYED" jdbcType="VARCHAR" />
+				<result property="unemployed" column="UNEMPLOYED" jdbcType="VARCHAR" />
+				<result property="childinvest" column="CHILDINVEST" jdbcType="VARCHAR" />
+				<result property="nightconsume" column="NIGHTCONSUME" jdbcType="VARCHAR" />
+				<result property="city" column="CITY" jdbcType="VARCHAR" />
+				<result property="workregion" column="WORKREGION" jdbcType="VARCHAR" />
+				<result property="freeregion" column="FREEREGION" jdbcType="VARCHAR" />
+				<result property="fkId" column="FK_ID" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="VARCHAR" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyBy" column="MODIFY_BY" jdbcType="VARCHAR" />
+</resultMap>
+				
+<!-- 分页查询 EXT_SJT_TRANS_BEHAVIOR_STOCK -->	
+<select id="searchExtSjtTransBehaviorStockByPaging" parameterType="java.util.Map" resultMap="ExtSjtTransBehaviorStockDTO">
+    	 		select 
+						t1.id                             ,
+						t1.trans_no                       ,
+						t1.into_id                        ,
+						t1.businesstrip                   ,
+						t1.marriageconsume                ,
+						t1.employed                       ,
+						t1.unemployed                     ,
+						t1.childinvest                    ,
+						t1.nightconsume                   ,
+						t1.city                           ,
+						t1.workregion                     ,
+						t1.freeregion                     ,
+						t1.fk_id                          ,
+						t1.create_time                    ,
+						t1.create_by                      ,
+						t1.modify_time                    ,
+						t1.modify_by                      
+					
+				from ext_sjt_trans_behavior_stock 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.transNo != null and dto.transNo != ''">
+						and t1.TRANS_NO =#{dto.transNo}
+    			</if>
+    			<if test="dto.intoId != null and dto.intoId != ''">
+						and t1.INTO_ID =#{dto.intoId}
+    			</if>
+    			<if test="dto.businesstrip != null and dto.businesstrip != ''">
+						and t1.BUSINESSTRIP =#{dto.businesstrip}
+    			</if>
+    			<if test="dto.marriageconsume != null and dto.marriageconsume != ''">
+						and t1.MARRIAGECONSUME =#{dto.marriageconsume}
+    			</if>
+    			<if test="dto.employed != null and dto.employed != ''">
+						and t1.EMPLOYED =#{dto.employed}
+    			</if>
+    			<if test="dto.unemployed != null and dto.unemployed != ''">
+						and t1.UNEMPLOYED =#{dto.unemployed}
+    			</if>
+    			<if test="dto.childinvest != null and dto.childinvest != ''">
+						and t1.CHILDINVEST =#{dto.childinvest}
+    			</if>
+    			<if test="dto.nightconsume != null and dto.nightconsume != ''">
+						and t1.NIGHTCONSUME =#{dto.nightconsume}
+    			</if>
+    			<if test="dto.city != null and dto.city != ''">
+						and t1.CITY =#{dto.city}
+    			</if>
+    			<if test="dto.workregion != null and dto.workregion != ''">
+						and t1.WORKREGION =#{dto.workregion}
+    			</if>
+    			<if test="dto.freeregion != null and dto.freeregion != ''">
+						and t1.FREEREGION =#{dto.freeregion}
+    			</if>
+    			<if test="dto.fkId != null and dto.fkId != ''">
+						and t1.FK_ID =#{dto.fkId}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY =#{dto.modifyBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_SJT_TRANS_BEHAVIOR_STOCK  -->
+<select id="searchExtSjtTransBehaviorStock" parameterType="java.util.Map" resultMap="ExtSjtTransBehaviorStockDTO">
+    	     select 
+						t1.id                             ,
+						t1.trans_no                       ,
+						t1.into_id                        ,
+						t1.businesstrip                   ,
+						t1.marriageconsume                ,
+						t1.employed                       ,
+						t1.unemployed                     ,
+						t1.childinvest                    ,
+						t1.nightconsume                   ,
+						t1.city                           ,
+						t1.workregion                     ,
+						t1.freeregion                     ,
+						t1.fk_id                          ,
+						t1.create_time                    ,
+						t1.create_by                      ,
+						t1.modify_time                    ,
+						t1.modify_by                      
+				from ext_sjt_trans_behavior_stock 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.transNo != null and dto.transNo != ''">
+						and t1.TRANS_NO = #{dto.transNo}
+    			</if>
+    			<if test="dto.intoId != null and dto.intoId != ''">
+						and t1.INTO_ID = #{dto.intoId}
+    			</if>
+    			<if test="dto.businesstrip != null and dto.businesstrip != ''">
+						and t1.BUSINESSTRIP = #{dto.businesstrip}
+    			</if>
+    			<if test="dto.marriageconsume != null and dto.marriageconsume != ''">
+						and t1.MARRIAGECONSUME = #{dto.marriageconsume}
+    			</if>
+    			<if test="dto.employed != null and dto.employed != ''">
+						and t1.EMPLOYED = #{dto.employed}
+    			</if>
+    			<if test="dto.unemployed != null and dto.unemployed != ''">
+						and t1.UNEMPLOYED = #{dto.unemployed}
+    			</if>
+    			<if test="dto.childinvest != null and dto.childinvest != ''">
+						and t1.CHILDINVEST = #{dto.childinvest}
+    			</if>
+    			<if test="dto.nightconsume != null and dto.nightconsume != ''">
+						and t1.NIGHTCONSUME = #{dto.nightconsume}
+    			</if>
+    			<if test="dto.city != null and dto.city != ''">
+						and t1.CITY = #{dto.city}
+    			</if>
+    			<if test="dto.workregion != null and dto.workregion != ''">
+						and t1.WORKREGION = #{dto.workregion}
+    			</if>
+    			<if test="dto.freeregion != null and dto.freeregion != ''">
+						and t1.FREEREGION = #{dto.freeregion}
+    			</if>
+    			<if test="dto.fkId != null and dto.fkId != ''">
+						and t1.FK_ID = #{dto.fkId}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY = #{dto.modifyBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_SJT_TRANS_BEHAVIOR_STOCK -->
+<select id="findExtSjtTransBehaviorStockByPrimaryKey" parameterType="java.util.Map" resultMap="ExtSjtTransBehaviorStockDTO">
+   	 		select 
+					t1.id                             ,
+					t1.trans_no                       ,
+					t1.into_id                        ,
+					t1.businesstrip                   ,
+					t1.marriageconsume                ,
+					t1.employed                       ,
+					t1.unemployed                     ,
+					t1.childinvest                    ,
+					t1.nightconsume                   ,
+					t1.city                           ,
+					t1.workregion                     ,
+					t1.freeregion                     ,
+					t1.fk_id                          ,
+					t1.create_time                    ,
+					t1.create_by                      ,
+					t1.modify_time                    ,
+					t1.modify_by                      
+			from ext_sjt_trans_behavior_stock 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_SJT_TRANS_BEHAVIOR_STOCK -->
+<insert id="insertExtSjtTransBehaviorStock" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_SJT_TRANS_BEH_STOCK.nextval as id from dual
+	</selectKey>
+			insert into ext_sjt_trans_behavior_stock
+			(   		
+					id                             ,
+					trans_no                       ,
+					into_id                        ,
+					businesstrip                   ,
+					marriageconsume                ,
+					employed                       ,
+					unemployed                     ,
+					childinvest                    ,
+					nightconsume                   ,
+					city                           ,
+					workregion                     ,
+					freeregion                     ,
+					fk_id                          ,
+					create_time                    ,
+					create_by                      
+			)
+			values(#{dto.id}
+					,#{dto.transNo,jdbcType=VARCHAR}
+					,#{dto.intoId,jdbcType=DECIMAL}
+					,#{dto.businesstrip,jdbcType=VARCHAR}
+					,#{dto.marriageconsume,jdbcType=VARCHAR}
+					,#{dto.employed,jdbcType=VARCHAR}
+					,#{dto.unemployed,jdbcType=VARCHAR}
+					,#{dto.childinvest,jdbcType=VARCHAR}
+					,#{dto.nightconsume,jdbcType=VARCHAR}
+					,#{dto.city,jdbcType=VARCHAR}
+					,#{dto.workregion,jdbcType=VARCHAR}
+					,#{dto.freeregion,jdbcType=VARCHAR}
+					,#{dto.fkId,jdbcType=DECIMAL}
+					,systimestamp
+					,#{dto.createBy,jdbcType=VARCHAR}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_SJT_TRANS_BEHAVIOR_STOCK -->
+<update id="updateExtSjtTransBehaviorStock" parameterType="java.util.Map">
+	     update ext_sjt_trans_behavior_stock t1
+	           set 
+			           t1.trans_no                       =#{dto.transNo,jdbcType=VARCHAR},
+			           t1.into_id                        =#{dto.intoId,jdbcType=DECIMAL},
+			           t1.businesstrip                   =#{dto.businesstrip,jdbcType=VARCHAR},
+			           t1.marriageconsume                =#{dto.marriageconsume,jdbcType=VARCHAR},
+			           t1.employed                       =#{dto.employed,jdbcType=VARCHAR},
+			           t1.unemployed                     =#{dto.unemployed,jdbcType=VARCHAR},
+			           t1.childinvest                    =#{dto.childinvest,jdbcType=VARCHAR},
+			           t1.nightconsume                   =#{dto.nightconsume,jdbcType=VARCHAR},
+			           t1.city                           =#{dto.city,jdbcType=VARCHAR},
+			           t1.workregion                     =#{dto.workregion,jdbcType=VARCHAR},
+			           t1.freeregion                     =#{dto.freeregion,jdbcType=VARCHAR},
+			           t1.fk_id                          =#{dto.fkId,jdbcType=DECIMAL},
+			           t1.modify_time                    =systimestamp,
+			           t1.modify_by                      =#{dto.modifyBy,jdbcType=VARCHAR}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_SJT_TRANS_BEHAVIOR_STOCK -->
+<delete id="deleteExtSjtTransBehaviorStockByID" parameterType="java.util.Map">
+    	delete from ext_sjt_trans_behavior_stock t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_SJT_TRANS_BEHAVIOR_STOCK -->
+<update id="deleteExtSjtTransBehaviorStockByPrimaryKey" parameterType="java.util.Map">
+	     update ext_sjt_trans_behavior_stock t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

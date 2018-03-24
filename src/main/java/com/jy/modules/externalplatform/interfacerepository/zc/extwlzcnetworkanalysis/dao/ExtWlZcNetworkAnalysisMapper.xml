@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.zc.extwlzcnetworkanalysis.dao.ExtWlZcNetworkAnalysisDao">
+<resultMap id="ExtWlZcNetworkAnalysisDTO" type="com.jy.modules.externalplatform.interfacerepository.zc.extwlzcnetworkanalysis.dto.ExtWlZcNetworkAnalysisDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="keyId" column="KEY_ID" jdbcType="VARCHAR" />
+				<result property="gender" column="GENDER" jdbcType="VARCHAR" />
+				<result property="genderCode" column="GENDER_CODE" jdbcType="VARCHAR" />
+				<result property="age" column="AGE" jdbcType="VARCHAR" />
+				<result property="idNoLocation" column="ID_NO_LOCATION" jdbcType="VARCHAR" />
+				<result property="mobileLocation" column="MOBILE_LOCATION" jdbcType="VARCHAR" />
+				<result property="mobileOperator" column="MOBILE_OPERATOR" jdbcType="VARCHAR" />
+				<result property="firstOrderBlackCnt" column="FIRST_ORDER_BLACK_CNT" jdbcType="VARCHAR" />
+				<result property="firstOrderOverdueCnt" column="FIRST_ORDER_OVERDUE_CNT" jdbcType="VARCHAR" />
+				<result property="firstOrderM3Cnt" column="FIRST_ORDER_M3_CNT" jdbcType="VARCHAR" />
+				<result property="firstOrderBlackRate" column="FIRST_ORDER_BLACK_RATE" jdbcType="VARCHAR" />
+				<result property="firstOrderOverdueRate" column="FIRST_ORDER_OVERDUE_RATE" jdbcType="VARCHAR" />
+				<result property="secondOrderBlackCnt" column="SECOND_ORDER_BLACK_CNT" jdbcType="VARCHAR" />
+				<result property="secondOrderOverdueCnt" column="SECOND_ORDER_OVERDUE_CNT" jdbcType="VARCHAR" />
+				<result property="secondOrderM3Cnt" column="SECOND_ORDER_M3_CNT" jdbcType="VARCHAR" />
+				<result property="activeCallCnt" column="ACTIVE_CALL_CNT" jdbcType="VARCHAR" />
+				<result property="activeCallBlackCnt" column="ACTIVE_CALL_BLACK_CNT" jdbcType="VARCHAR" />
+				<result property="activeCallOverdueCnt" column="ACTIVE_CALL_OVERDUE_CNT" jdbcType="VARCHAR" />
+				<result property="nightCallCnt" column="NIGHT_CALL_CNT" jdbcType="VARCHAR" />
+				<result property="nightCallNum" column="NIGHT_CALL_NUM" jdbcType="VARCHAR" />
+				<result property="nightCallSeconds" column="NIGHT_CALL_SECONDS" jdbcType="VARCHAR" />
+				<result property="fictionCallCnt" column="FICTION_CALL_CNT" jdbcType="VARCHAR" />
+				<result property="fictionCallNum" column="FICTION_CALL_NUM" jdbcType="VARCHAR" />
+				<result property="fictionCallSeconds" column="FICTION_CALL_SECONDS" jdbcType="VARCHAR" />
+				<result property="remoteCallCnt" column="REMOTE_CALL_CNT" jdbcType="VARCHAR" />
+				<result property="remoteCallNum" column="REMOTE_CALL_NUM" jdbcType="VARCHAR" />
+				<result property="remoteCallSeconds" column="REMOTE_CALL_SECONDS" jdbcType="VARCHAR" />
+				<result property="macaoCallCnt" column="MACAO_CALL_CNT" jdbcType="VARCHAR" />
+				<result property="macaoCallNum" column="MACAO_CALL_NUM" jdbcType="VARCHAR" />
+				<result property="macaoCallSeconds" column="MACAO_CALL_SECONDS" jdbcType="VARCHAR" />
+				<result property="loanCallNum" column="LOAN_CALL_NUM" jdbcType="VARCHAR" />
+				<result property="loanCallSeconds" column="LOAN_CALL_SECONDS" jdbcType="VARCHAR" />
+				<result property="courtCallNum" column="COURT_CALL_NUM" jdbcType="VARCHAR" />
+				<result property="lawyerCallNum" column="LAWYER_CALL_NUM" jdbcType="VARCHAR" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyBy" column="MODIFY_BY" jdbcType="DECIMAL" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="validateState" column="VALIDATE_STATE" jdbcType="VARCHAR" />
+</resultMap>
+				
+<!-- 分页查询 ext_wl_zc_network_analysis -->	
+<select id="searchExtWlZcNetworkAnalysisByPaging" parameterType="java.util.Map" resultMap="ExtWlZcNetworkAnalysisDTO">
+    	 		select 
+						t1.id                             ,
+						t1.key_id                         ,
+						t1.gender                         ,
+						t1.gender_code                    ,
+						t1.age                            ,
+						t1.id_no_location                 ,
+						t1.mobile_location                ,
+						t1.mobile_operator                ,
+						t1.first_order_black_cnt          ,
+						t1.first_order_overdue_cnt        ,
+						t1.first_order_m3_cnt             ,
+						t1.first_order_black_rate         ,
+						t1.first_order_overdue_rate       ,
+						t1.second_order_black_cnt         ,
+						t1.second_order_overdue_cnt       ,
+						t1.second_order_m3_cnt            ,
+						t1.active_call_cnt                ,
+						t1.active_call_black_cnt          ,
+						t1.active_call_overdue_cnt        ,
+						t1.night_call_cnt                 ,
+						t1.night_call_num                 ,
+						t1.night_call_seconds             ,
+						t1.fiction_call_cnt               ,
+						t1.fiction_call_num               ,
+						t1.fiction_call_seconds           ,
+						t1.remote_call_cnt                ,
+						t1.remote_call_num                ,
+						t1.remote_call_seconds            ,
+						t1.macao_call_cnt                 ,
+						t1.macao_call_num                 ,
+						t1.macao_call_seconds             ,
+						t1.loan_call_num                  ,
+						t1.loan_call_seconds              ,
+						t1.court_call_num                 ,
+						t1.lawyer_call_num                ,
+						t1.create_by                      ,
+						t1.create_time                    ,
+						t1.modify_by                      ,
+						t1.modify_time                    ,
+						t1.validate_state                 
+					
+				from ext_wl_zc_network_analysis 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.keyId != null and dto.keyId != ''">
+						and t1.KEY_ID =#{dto.keyId}
+    			</if>
+    			<if test="dto.gender != null and dto.gender != ''">
+						and t1.GENDER =#{dto.gender}
+    			</if>
+    			<if test="dto.genderCode != null and dto.genderCode != ''">
+						and t1.GENDER_CODE =#{dto.genderCode}
+    			</if>
+    			<if test="dto.age != null and dto.age != ''">
+						and t1.AGE =#{dto.age}
+    			</if>
+    			<if test="dto.idNoLocation != null and dto.idNoLocation != ''">
+						and t1.ID_NO_LOCATION =#{dto.idNoLocation}
+    			</if>
+    			<if test="dto.mobileLocation != null and dto.mobileLocation != ''">
+						and t1.MOBILE_LOCATION =#{dto.mobileLocation}
+    			</if>
+    			<if test="dto.mobileOperator != null and dto.mobileOperator != ''">
+						and t1.MOBILE_OPERATOR =#{dto.mobileOperator}
+    			</if>
+    			<if test="dto.firstOrderBlackCnt != null and dto.firstOrderBlackCnt != ''">
+						and t1.FIRST_ORDER_BLACK_CNT =#{dto.firstOrderBlackCnt}
+    			</if>
+    			<if test="dto.firstOrderOverdueCnt != null and dto.firstOrderOverdueCnt != ''">
+						and t1.FIRST_ORDER_OVERDUE_CNT =#{dto.firstOrderOverdueCnt}
+    			</if>
+    			<if test="dto.firstOrderM3Cnt != null and dto.firstOrderM3Cnt != ''">
+						and t1.FIRST_ORDER_M3_CNT =#{dto.firstOrderM3Cnt}
+    			</if>
+    			<if test="dto.firstOrderBlackRate != null and dto.firstOrderBlackRate != ''">
+						and t1.FIRST_ORDER_BLACK_RATE =#{dto.firstOrderBlackRate}
+    			</if>
+    			<if test="dto.firstOrderOverdueRate != null and dto.firstOrderOverdueRate != ''">
+						and t1.FIRST_ORDER_OVERDUE_RATE =#{dto.firstOrderOverdueRate}
+    			</if>
+    			<if test="dto.secondOrderBlackCnt != null and dto.secondOrderBlackCnt != ''">
+						and t1.SECOND_ORDER_BLACK_CNT =#{dto.secondOrderBlackCnt}
+    			</if>
+    			<if test="dto.secondOrderOverdueCnt != null and dto.secondOrderOverdueCnt != ''">
+						and t1.SECOND_ORDER_OVERDUE_CNT =#{dto.secondOrderOverdueCnt}
+    			</if>
+    			<if test="dto.secondOrderM3Cnt != null and dto.secondOrderM3Cnt != ''">
+						and t1.SECOND_ORDER_M3_CNT =#{dto.secondOrderM3Cnt}
+    			</if>
+    			<if test="dto.activeCallCnt != null and dto.activeCallCnt != ''">
+						and t1.ACTIVE_CALL_CNT =#{dto.activeCallCnt}
+    			</if>
+    			<if test="dto.activeCallBlackCnt != null and dto.activeCallBlackCnt != ''">
+						and t1.ACTIVE_CALL_BLACK_CNT =#{dto.activeCallBlackCnt}
+    			</if>
+    			<if test="dto.activeCallOverdueCnt != null and dto.activeCallOverdueCnt != ''">
+						and t1.ACTIVE_CALL_OVERDUE_CNT =#{dto.activeCallOverdueCnt}
+    			</if>
+    			<if test="dto.nightCallCnt != null and dto.nightCallCnt != ''">
+						and t1.NIGHT_CALL_CNT =#{dto.nightCallCnt}
+    			</if>
+    			<if test="dto.nightCallNum != null and dto.nightCallNum != ''">
+						and t1.NIGHT_CALL_NUM =#{dto.nightCallNum}
+    			</if>
+    			<if test="dto.nightCallSeconds != null and dto.nightCallSeconds != ''">
+						and t1.NIGHT_CALL_SECONDS =#{dto.nightCallSeconds}
+    			</if>
+    			<if test="dto.fictionCallCnt != null and dto.fictionCallCnt != ''">
+						and t1.FICTION_CALL_CNT =#{dto.fictionCallCnt}
+    			</if>
+    			<if test="dto.fictionCallNum != null and dto.fictionCallNum != ''">
+						and t1.FICTION_CALL_NUM =#{dto.fictionCallNum}
+    			</if>
+    			<if test="dto.fictionCallSeconds != null and dto.fictionCallSeconds != ''">
+						and t1.FICTION_CALL_SECONDS =#{dto.fictionCallSeconds}
+    			</if>
+    			<if test="dto.remoteCallCnt != null and dto.remoteCallCnt != ''">
+						and t1.REMOTE_CALL_CNT =#{dto.remoteCallCnt}
+    			</if>
+    			<if test="dto.remoteCallNum != null and dto.remoteCallNum != ''">
+						and t1.REMOTE_CALL_NUM =#{dto.remoteCallNum}
+    			</if>
+    			<if test="dto.remoteCallSeconds != null and dto.remoteCallSeconds != ''">
+						and t1.REMOTE_CALL_SECONDS =#{dto.remoteCallSeconds}
+    			</if>
+    			<if test="dto.macaoCallCnt != null and dto.macaoCallCnt != ''">
+						and t1.MACAO_CALL_CNT =#{dto.macaoCallCnt}
+    			</if>
+    			<if test="dto.macaoCallNum != null and dto.macaoCallNum != ''">
+						and t1.MACAO_CALL_NUM =#{dto.macaoCallNum}
+    			</if>
+    			<if test="dto.macaoCallSeconds != null and dto.macaoCallSeconds != ''">
+						and t1.MACAO_CALL_SECONDS =#{dto.macaoCallSeconds}
+    			</if>
+    			<if test="dto.loanCallNum != null and dto.loanCallNum != ''">
+						and t1.LOAN_CALL_NUM =#{dto.loanCallNum}
+    			</if>
+    			<if test="dto.loanCallSeconds != null and dto.loanCallSeconds != ''">
+						and t1.LOAN_CALL_SECONDS =#{dto.loanCallSeconds}
+    			</if>
+    			<if test="dto.courtCallNum != null and dto.courtCallNum != ''">
+						and t1.COURT_CALL_NUM =#{dto.courtCallNum}
+    			</if>
+    			<if test="dto.lawyerCallNum != null and dto.lawyerCallNum != ''">
+						and t1.LAWYER_CALL_NUM =#{dto.lawyerCallNum}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY =#{dto.modifyBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE =#{dto.validateState}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 ext_wl_zc_network_analysis  -->
+<select id="searchExtWlZcNetworkAnalysis" parameterType="java.util.Map" resultMap="ExtWlZcNetworkAnalysisDTO">
+    	     select 
+						t1.id                             ,
+						t1.key_id                         ,
+						t1.gender                         ,
+						t1.gender_code                    ,
+						t1.age                            ,
+						t1.id_no_location                 ,
+						t1.mobile_location                ,
+						t1.mobile_operator                ,
+						t1.first_order_black_cnt          ,
+						t1.first_order_overdue_cnt        ,
+						t1.first_order_m3_cnt             ,
+						t1.first_order_black_rate         ,
+						t1.first_order_overdue_rate       ,
+						t1.second_order_black_cnt         ,
+						t1.second_order_overdue_cnt       ,
+						t1.second_order_m3_cnt            ,
+						t1.active_call_cnt                ,
+						t1.active_call_black_cnt          ,
+						t1.active_call_overdue_cnt        ,
+						t1.night_call_cnt                 ,
+						t1.night_call_num                 ,
+						t1.night_call_seconds             ,
+						t1.fiction_call_cnt               ,
+						t1.fiction_call_num               ,
+						t1.fiction_call_seconds           ,
+						t1.remote_call_cnt                ,
+						t1.remote_call_num                ,
+						t1.remote_call_seconds            ,
+						t1.macao_call_cnt                 ,
+						t1.macao_call_num                 ,
+						t1.macao_call_seconds             ,
+						t1.loan_call_num                  ,
+						t1.loan_call_seconds              ,
+						t1.court_call_num                 ,
+						t1.lawyer_call_num                ,
+						t1.create_by                      ,
+						t1.create_time                    ,
+						t1.modify_by                      ,
+						t1.modify_time                    ,
+						t1.validate_state                 
+				from ext_wl_zc_network_analysis 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.keyId != null and dto.keyId != ''">
+						and t1.KEY_ID = #{dto.keyId}
+    			</if>
+    			<if test="dto.gender != null and dto.gender != ''">
+						and t1.GENDER = #{dto.gender}
+    			</if>
+    			<if test="dto.genderCode != null and dto.genderCode != ''">
+						and t1.GENDER_CODE = #{dto.genderCode}
+    			</if>
+    			<if test="dto.age != null and dto.age != ''">
+						and t1.AGE = #{dto.age}
+    			</if>
+    			<if test="dto.idNoLocation != null and dto.idNoLocation != ''">
+						and t1.ID_NO_LOCATION = #{dto.idNoLocation}
+    			</if>
+    			<if test="dto.mobileLocation != null and dto.mobileLocation != ''">
+						and t1.MOBILE_LOCATION = #{dto.mobileLocation}
+    			</if>
+    			<if test="dto.mobileOperator != null and dto.mobileOperator != ''">
+						and t1.MOBILE_OPERATOR = #{dto.mobileOperator}
+    			</if>
+    			<if test="dto.firstOrderBlackCnt != null and dto.firstOrderBlackCnt != ''">
+						and t1.FIRST_ORDER_BLACK_CNT = #{dto.firstOrderBlackCnt}
+    			</if>
+    			<if test="dto.firstOrderOverdueCnt != null and dto.firstOrderOverdueCnt != ''">
+						and t1.FIRST_ORDER_OVERDUE_CNT = #{dto.firstOrderOverdueCnt}
+    			</if>
+    			<if test="dto.firstOrderM3Cnt != null and dto.firstOrderM3Cnt != ''">
+						and t1.FIRST_ORDER_M3_CNT = #{dto.firstOrderM3Cnt}
+    			</if>
+    			<if test="dto.firstOrderBlackRate != null and dto.firstOrderBlackRate != ''">
+						and t1.FIRST_ORDER_BLACK_RATE = #{dto.firstOrderBlackRate}
+    			</if>
+    			<if test="dto.firstOrderOverdueRate != null and dto.firstOrderOverdueRate != ''">
+						and t1.FIRST_ORDER_OVERDUE_RATE = #{dto.firstOrderOverdueRate}
+    			</if>
+    			<if test="dto.secondOrderBlackCnt != null and dto.secondOrderBlackCnt != ''">
+						and t1.SECOND_ORDER_BLACK_CNT = #{dto.secondOrderBlackCnt}
+    			</if>
+    			<if test="dto.secondOrderOverdueCnt != null and dto.secondOrderOverdueCnt != ''">
+						and t1.SECOND_ORDER_OVERDUE_CNT = #{dto.secondOrderOverdueCnt}
+    			</if>
+    			<if test="dto.secondOrderM3Cnt != null and dto.secondOrderM3Cnt != ''">
+						and t1.SECOND_ORDER_M3_CNT = #{dto.secondOrderM3Cnt}
+    			</if>
+    			<if test="dto.activeCallCnt != null and dto.activeCallCnt != ''">
+						and t1.ACTIVE_CALL_CNT = #{dto.activeCallCnt}
+    			</if>
+    			<if test="dto.activeCallBlackCnt != null and dto.activeCallBlackCnt != ''">
+						and t1.ACTIVE_CALL_BLACK_CNT = #{dto.activeCallBlackCnt}
+    			</if>
+    			<if test="dto.activeCallOverdueCnt != null and dto.activeCallOverdueCnt != ''">
+						and t1.ACTIVE_CALL_OVERDUE_CNT = #{dto.activeCallOverdueCnt}
+    			</if>
+    			<if test="dto.nightCallCnt != null and dto.nightCallCnt != ''">
+						and t1.NIGHT_CALL_CNT = #{dto.nightCallCnt}
+    			</if>
+    			<if test="dto.nightCallNum != null and dto.nightCallNum != ''">
+						and t1.NIGHT_CALL_NUM = #{dto.nightCallNum}
+    			</if>
+    			<if test="dto.nightCallSeconds != null and dto.nightCallSeconds != ''">
+						and t1.NIGHT_CALL_SECONDS = #{dto.nightCallSeconds}
+    			</if>
+    			<if test="dto.fictionCallCnt != null and dto.fictionCallCnt != ''">
+						and t1.FICTION_CALL_CNT = #{dto.fictionCallCnt}
+    			</if>
+    			<if test="dto.fictionCallNum != null and dto.fictionCallNum != ''">
+						and t1.FICTION_CALL_NUM = #{dto.fictionCallNum}
+    			</if>
+    			<if test="dto.fictionCallSeconds != null and dto.fictionCallSeconds != ''">
+						and t1.FICTION_CALL_SECONDS = #{dto.fictionCallSeconds}
+    			</if>
+    			<if test="dto.remoteCallCnt != null and dto.remoteCallCnt != ''">
+						and t1.REMOTE_CALL_CNT = #{dto.remoteCallCnt}
+    			</if>
+    			<if test="dto.remoteCallNum != null and dto.remoteCallNum != ''">
+						and t1.REMOTE_CALL_NUM = #{dto.remoteCallNum}
+    			</if>
+    			<if test="dto.remoteCallSeconds != null and dto.remoteCallSeconds != ''">
+						and t1.REMOTE_CALL_SECONDS = #{dto.remoteCallSeconds}
+    			</if>
+    			<if test="dto.macaoCallCnt != null and dto.macaoCallCnt != ''">
+						and t1.MACAO_CALL_CNT = #{dto.macaoCallCnt}
+    			</if>
+    			<if test="dto.macaoCallNum != null and dto.macaoCallNum != ''">
+						and t1.MACAO_CALL_NUM = #{dto.macaoCallNum}
+    			</if>
+    			<if test="dto.macaoCallSeconds != null and dto.macaoCallSeconds != ''">
+						and t1.MACAO_CALL_SECONDS = #{dto.macaoCallSeconds}
+    			</if>
+    			<if test="dto.loanCallNum != null and dto.loanCallNum != ''">
+						and t1.LOAN_CALL_NUM = #{dto.loanCallNum}
+    			</if>
+    			<if test="dto.loanCallSeconds != null and dto.loanCallSeconds != ''">
+						and t1.LOAN_CALL_SECONDS = #{dto.loanCallSeconds}
+    			</if>
+    			<if test="dto.courtCallNum != null and dto.courtCallNum != ''">
+						and t1.COURT_CALL_NUM = #{dto.courtCallNum}
+    			</if>
+    			<if test="dto.lawyerCallNum != null and dto.lawyerCallNum != ''">
+						and t1.LAWYER_CALL_NUM = #{dto.lawyerCallNum}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY = #{dto.modifyBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE = #{dto.validateState}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  ext_wl_zc_network_analysis -->
+<select id="findExtWlZcNetworkAnalysisByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlZcNetworkAnalysisDTO">
+   	 		select 
+					t1.id                             ,
+					t1.key_id                         ,
+					t1.gender                         ,
+					t1.gender_code                    ,
+					t1.age                            ,
+					t1.id_no_location                 ,
+					t1.mobile_location                ,
+					t1.mobile_operator                ,
+					t1.first_order_black_cnt          ,
+					t1.first_order_overdue_cnt        ,
+					t1.first_order_m3_cnt             ,
+					t1.first_order_black_rate         ,
+					t1.first_order_overdue_rate       ,
+					t1.second_order_black_cnt         ,
+					t1.second_order_overdue_cnt       ,
+					t1.second_order_m3_cnt            ,
+					t1.active_call_cnt                ,
+					t1.active_call_black_cnt          ,
+					t1.active_call_overdue_cnt        ,
+					t1.night_call_cnt                 ,
+					t1.night_call_num                 ,
+					t1.night_call_seconds             ,
+					t1.fiction_call_cnt               ,
+					t1.fiction_call_num               ,
+					t1.fiction_call_seconds           ,
+					t1.remote_call_cnt                ,
+					t1.remote_call_num                ,
+					t1.remote_call_seconds            ,
+					t1.macao_call_cnt                 ,
+					t1.macao_call_num                 ,
+					t1.macao_call_seconds             ,
+					t1.loan_call_num                  ,
+					t1.loan_call_seconds              ,
+					t1.court_call_num                 ,
+					t1.lawyer_call_num                ,
+					t1.create_by                      ,
+					t1.create_time                    ,
+					t1.modify_by                      ,
+					t1.modify_time                    ,
+					t1.validate_state                 
+			from ext_wl_zc_network_analysis 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 ext_wl_zc_network_analysis -->
+<insert id="insertExtWlZcNetworkAnalysis" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_ext_wl_zc_network_analysis.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_zc_network_analysis
+			(   		
+					id                             ,
+					key_id                         ,
+					gender                         ,
+					gender_code                    ,
+					age                            ,
+					id_no_location                 ,
+					mobile_location                ,
+					mobile_operator                ,
+					first_order_black_cnt          ,
+					first_order_overdue_cnt        ,
+					first_order_m3_cnt             ,
+					first_order_black_rate         ,
+					first_order_overdue_rate       ,
+					second_order_black_cnt         ,
+					second_order_overdue_cnt       ,
+					second_order_m3_cnt            ,
+					active_call_cnt                ,
+					active_call_black_cnt          ,
+					active_call_overdue_cnt        ,
+					night_call_cnt                 ,
+					night_call_num                 ,
+					night_call_seconds             ,
+					fiction_call_cnt               ,
+					fiction_call_num               ,
+					fiction_call_seconds           ,
+					remote_call_cnt                ,
+					remote_call_num                ,
+					remote_call_seconds            ,
+					macao_call_cnt                 ,
+					macao_call_num                 ,
+					macao_call_seconds             ,
+					loan_call_num                  ,
+					loan_call_seconds              ,
+					court_call_num                 ,
+					lawyer_call_num                ,
+					create_by                      ,
+					create_time                    ,
+					modify_by                      ,
+					modify_time                    ,
+					validate_state                 
+			)
+			values(#{dto.id}
+					,#{dto.keyId,jdbcType=VARCHAR}
+					,#{dto.gender,jdbcType=VARCHAR}
+					,#{dto.genderCode,jdbcType=VARCHAR}
+					,#{dto.age,jdbcType=VARCHAR}
+					,#{dto.idNoLocation,jdbcType=VARCHAR}
+					,#{dto.mobileLocation,jdbcType=VARCHAR}
+					,#{dto.mobileOperator,jdbcType=VARCHAR}
+					,#{dto.firstOrderBlackCnt,jdbcType=VARCHAR}
+					,#{dto.firstOrderOverdueCnt,jdbcType=VARCHAR}
+					,#{dto.firstOrderM3Cnt,jdbcType=VARCHAR}
+					,#{dto.firstOrderBlackRate,jdbcType=VARCHAR}
+					,#{dto.firstOrderOverdueRate,jdbcType=VARCHAR}
+					,#{dto.secondOrderBlackCnt,jdbcType=VARCHAR}
+					,#{dto.secondOrderOverdueCnt,jdbcType=VARCHAR}
+					,#{dto.secondOrderM3Cnt,jdbcType=VARCHAR}
+					,#{dto.activeCallCnt,jdbcType=VARCHAR}
+					,#{dto.activeCallBlackCnt,jdbcType=VARCHAR}
+					,#{dto.activeCallOverdueCnt,jdbcType=VARCHAR}
+					,#{dto.nightCallCnt,jdbcType=VARCHAR}
+					,#{dto.nightCallNum,jdbcType=VARCHAR}
+					,#{dto.nightCallSeconds,jdbcType=VARCHAR}
+					,#{dto.fictionCallCnt,jdbcType=VARCHAR}
+					,#{dto.fictionCallNum,jdbcType=VARCHAR}
+					,#{dto.fictionCallSeconds,jdbcType=VARCHAR}
+					,#{dto.remoteCallCnt,jdbcType=VARCHAR}
+					,#{dto.remoteCallNum,jdbcType=VARCHAR}
+					,#{dto.remoteCallSeconds,jdbcType=VARCHAR}
+					,#{dto.macaoCallCnt,jdbcType=VARCHAR}
+					,#{dto.macaoCallNum,jdbcType=VARCHAR}
+					,#{dto.macaoCallSeconds,jdbcType=VARCHAR}
+					,#{dto.loanCallNum,jdbcType=VARCHAR}
+					,#{dto.loanCallSeconds,jdbcType=VARCHAR}
+					,#{dto.courtCallNum,jdbcType=VARCHAR}
+					,#{dto.lawyerCallNum,jdbcType=VARCHAR}
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,systimestamp
+					,#{dto.modifyBy,jdbcType=DECIMAL}
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,'1'
+			)
+</insert>
+    
+<!-- 更新对象 ext_wl_zc_network_analysis -->
+<update id="updateExtWlZcNetworkAnalysis" parameterType="java.util.Map">
+	     update ext_wl_zc_network_analysis t1
+	           set 
+			           t1.key_id                         =#{dto.keyId,jdbcType=VARCHAR},
+			           t1.gender                         =#{dto.gender,jdbcType=VARCHAR},
+			           t1.gender_code                    =#{dto.genderCode,jdbcType=VARCHAR},
+			           t1.age                            =#{dto.age,jdbcType=VARCHAR},
+			           t1.id_no_location                 =#{dto.idNoLocation,jdbcType=VARCHAR},
+			           t1.mobile_location                =#{dto.mobileLocation,jdbcType=VARCHAR},
+			           t1.mobile_operator                =#{dto.mobileOperator,jdbcType=VARCHAR},
+			           t1.first_order_black_cnt          =#{dto.firstOrderBlackCnt,jdbcType=VARCHAR},
+			           t1.first_order_overdue_cnt        =#{dto.firstOrderOverdueCnt,jdbcType=VARCHAR},
+			           t1.first_order_m3_cnt             =#{dto.firstOrderM3Cnt,jdbcType=VARCHAR},
+			           t1.first_order_black_rate         =#{dto.firstOrderBlackRate,jdbcType=VARCHAR},
+			           t1.first_order_overdue_rate       =#{dto.firstOrderOverdueRate,jdbcType=VARCHAR},
+			           t1.second_order_black_cnt         =#{dto.secondOrderBlackCnt,jdbcType=VARCHAR},
+			           t1.second_order_overdue_cnt       =#{dto.secondOrderOverdueCnt,jdbcType=VARCHAR},
+			           t1.second_order_m3_cnt            =#{dto.secondOrderM3Cnt,jdbcType=VARCHAR},
+			           t1.active_call_cnt                =#{dto.activeCallCnt,jdbcType=VARCHAR},
+			           t1.active_call_black_cnt          =#{dto.activeCallBlackCnt,jdbcType=VARCHAR},
+			           t1.active_call_overdue_cnt        =#{dto.activeCallOverdueCnt,jdbcType=VARCHAR},
+			           t1.night_call_cnt                 =#{dto.nightCallCnt,jdbcType=VARCHAR},
+			           t1.night_call_num                 =#{dto.nightCallNum,jdbcType=VARCHAR},
+			           t1.night_call_seconds             =#{dto.nightCallSeconds,jdbcType=VARCHAR},
+			           t1.fiction_call_cnt               =#{dto.fictionCallCnt,jdbcType=VARCHAR},
+			           t1.fiction_call_num               =#{dto.fictionCallNum,jdbcType=VARCHAR},
+			           t1.fiction_call_seconds           =#{dto.fictionCallSeconds,jdbcType=VARCHAR},
+			           t1.remote_call_cnt                =#{dto.remoteCallCnt,jdbcType=VARCHAR},
+			           t1.remote_call_num                =#{dto.remoteCallNum,jdbcType=VARCHAR},
+			           t1.remote_call_seconds            =#{dto.remoteCallSeconds,jdbcType=VARCHAR},
+			           t1.macao_call_cnt                 =#{dto.macaoCallCnt,jdbcType=VARCHAR},
+			           t1.macao_call_num                 =#{dto.macaoCallNum,jdbcType=VARCHAR},
+			           t1.macao_call_seconds             =#{dto.macaoCallSeconds,jdbcType=VARCHAR},
+			           t1.loan_call_num                  =#{dto.loanCallNum,jdbcType=VARCHAR},
+			           t1.loan_call_seconds              =#{dto.loanCallSeconds,jdbcType=VARCHAR},
+			           t1.court_call_num                 =#{dto.courtCallNum,jdbcType=VARCHAR},
+			           t1.lawyer_call_num                =#{dto.lawyerCallNum,jdbcType=VARCHAR},
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_by                      =#{dto.modifyBy,jdbcType=DECIMAL},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP},
+			           t1.validate_state                 ='1'
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 ext_wl_zc_network_analysis -->
+<delete id="deleteExtWlZcNetworkAnalysisByID" parameterType="java.util.Map">
+    	delete from ext_wl_zc_network_analysis t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 ext_wl_zc_network_analysis -->
+<update id="deleteExtWlZcNetworkAnalysisByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_zc_network_analysis t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

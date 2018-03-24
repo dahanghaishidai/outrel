@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.xy.extwlxycreditradar.dao.ExtWlXyCreditRadarDao">
+<resultMap id="ExtWlXyCreditRadarDTO" type="com.jy.modules.externalplatform.interfacerepository.xy.extwlxycreditradar.dto.ExtWlXyCreditRadarDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="intoCustRefId" column="INTO_CUST_REF_ID" jdbcType="DECIMAL" />
+				<result property="col21160001" column="COL21160001" jdbcType="VARCHAR" />
+				<result property="col21160002" column="COL21160002" jdbcType="VARCHAR" />
+				<result property="col21160003" column="COL21160003" jdbcType="VARCHAR" />
+				<result property="col21160004" column="COL21160004" jdbcType="VARCHAR" />
+				<result property="col21160005" column="COL21160005" jdbcType="VARCHAR" />
+				<result property="col21160006" column="COL21160006" jdbcType="VARCHAR" />
+				<result property="col21160007" column="COL21160007" jdbcType="VARCHAR" />
+				<result property="col21160008" column="COL21160008" jdbcType="VARCHAR" />
+				<result property="col21160009" column="COL21160009" jdbcType="VARCHAR" />
+				<result property="col21160010" column="COL21160010" jdbcType="VARCHAR" />
+				<result property="col21170001" column="COL21170001" jdbcType="VARCHAR" />
+				<result property="col21170002" column="COL21170002" jdbcType="VARCHAR" />
+				<result property="col21170003" column="COL21170003" jdbcType="VARCHAR" />
+				<result property="col21170004" column="COL21170004" jdbcType="VARCHAR" />
+				<result property="col21170005" column="COL21170005" jdbcType="VARCHAR" />
+				<result property="col21170006" column="COL21170006" jdbcType="VARCHAR" />
+				<result property="col21170007" column="COL21170007" jdbcType="VARCHAR" />
+				<result property="col21170008" column="COL21170008" jdbcType="VARCHAR" />
+				<result property="col21170009" column="COL21170009" jdbcType="VARCHAR" />
+				<result property="col21170010" column="COL21170010" jdbcType="VARCHAR" />
+				<result property="col21170011" column="COL21170011" jdbcType="VARCHAR" />
+				<result property="col21170012" column="COL21170012" jdbcType="VARCHAR" />
+				<result property="col21170013" column="COL21170013" jdbcType="VARCHAR" />
+				<result property="col21170014" column="COL21170014" jdbcType="VARCHAR" />
+				<result property="col21170015" column="COL21170015" jdbcType="VARCHAR" />
+				<result property="col21170016" column="COL21170016" jdbcType="VARCHAR" />
+				<result property="col21170017" column="COL21170017" jdbcType="VARCHAR" />
+				<result property="col21180001" column="COL21180001" jdbcType="VARCHAR" />
+				<result property="col21180002" column="COL21180002" jdbcType="VARCHAR" />
+				<result property="col21180003" column="COL21180003" jdbcType="VARCHAR" />
+				<result property="col21180004" column="COL21180004" jdbcType="VARCHAR" />
+				<result property="col21180005" column="COL21180005" jdbcType="VARCHAR" />
+				<result property="col21180006" column="COL21180006" jdbcType="VARCHAR" />
+				<result property="col21180007" column="COL21180007" jdbcType="VARCHAR" />
+				<result property="col21180008" column="COL21180008" jdbcType="VARCHAR" />
+				<result property="col21180009" column="COL21180009" jdbcType="VARCHAR" />
+				<result property="col21180010" column="COL21180010" jdbcType="VARCHAR" />
+				<result property="col21180011" column="COL21180011" jdbcType="VARCHAR" />
+				<result property="col21180012" column="COL21180012" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="modifyBy" column="MODIFY_BY" jdbcType="DECIMAL" />
+				<result property="cardNo" column="CARD_NO" jdbcType="VARCHAR" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_XY_CREDIT_RADAR -->	
+<select id="searchExtWlXyCreditRadarByPaging" parameterType="java.util.Map" resultMap="ExtWlXyCreditRadarDTO">
+    	 		select 
+						t1.id                             ,
+						t1.into_cust_ref_id               ,
+						t1.col21160001                    ,
+						t1.col21160002                    ,
+						t1.col21160003                    ,
+						t1.col21160004                    ,
+						t1.col21160005                    ,
+						t1.col21160006                    ,
+						t1.col21160007                    ,
+						t1.col21160008                    ,
+						t1.col21160009                    ,
+						t1.col21160010                    ,
+						t1.col21170001                    ,
+						t1.col21170002                    ,
+						t1.col21170003                    ,
+						t1.col21170004                    ,
+						t1.col21170005                    ,
+						t1.col21170006                    ,
+						t1.col21170007                    ,
+						t1.col21170008                    ,
+						t1.col21170009                    ,
+						t1.col21170010                    ,
+						t1.col21170011                    ,
+						t1.col21170012                    ,
+						t1.col21170013                    ,
+						t1.col21170014                    ,
+						t1.col21170015                    ,
+						t1.col21170016                    ,
+						t1.col21170017                    ,
+						t1.col21180001                    ,
+						t1.col21180002                    ,
+						t1.col21180003                    ,
+						t1.col21180004                    ,
+						t1.col21180005                    ,
+						t1.col21180006                    ,
+						t1.col21180007                    ,
+						t1.col21180008                    ,
+						t1.col21180009                    ,
+						t1.col21180010                    ,
+						t1.col21180011                    ,
+						t1.col21180012                    ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.create_by                      ,
+						t1.modify_by                      ,
+						t1.card_no                        
+					
+				from ext_wl_xy_credit_radar 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.intoCustRefId != null and dto.intoCustRefId != ''">
+						and t1.INTO_CUST_REF_ID =#{dto.intoCustRefId}
+    			</if>
+    			<if test="dto.col21160001 != null and dto.col21160001 != ''">
+						and t1.COL21160001 =#{dto.col21160001}
+    			</if>
+    			<if test="dto.col21160002 != null and dto.col21160002 != ''">
+						and t1.COL21160002 =#{dto.col21160002}
+    			</if>
+    			<if test="dto.col21160003 != null and dto.col21160003 != ''">
+						and t1.COL21160003 =#{dto.col21160003}
+    			</if>
+    			<if test="dto.col21160004 != null and dto.col21160004 != ''">
+						and t1.COL21160004 =#{dto.col21160004}
+    			</if>
+    			<if test="dto.col21160005 != null and dto.col21160005 != ''">
+						and t1.COL21160005 =#{dto.col21160005}
+    			</if>
+    			<if test="dto.col21160006 != null and dto.col21160006 != ''">
+						and t1.COL21160006 =#{dto.col21160006}
+    			</if>
+    			<if test="dto.col21160007 != null and dto.col21160007 != ''">
+						and t1.COL21160007 =#{dto.col21160007}
+    			</if>
+    			<if test="dto.col21160008 != null and dto.col21160008 != ''">
+						and t1.COL21160008 =#{dto.col21160008}
+    			</if>
+    			<if test="dto.col21160009 != null and dto.col21160009 != ''">
+						and t1.COL21160009 =#{dto.col21160009}
+    			</if>
+    			<if test="dto.col21160010 != null and dto.col21160010 != ''">
+						and t1.COL21160010 =#{dto.col21160010}
+    			</if>
+    			<if test="dto.col21170001 != null and dto.col21170001 != ''">
+						and t1.COL21170001 =#{dto.col21170001}
+    			</if>
+    			<if test="dto.col21170002 != null and dto.col21170002 != ''">
+						and t1.COL21170002 =#{dto.col21170002}
+    			</if>
+    			<if test="dto.col21170003 != null and dto.col21170003 != ''">
+						and t1.COL21170003 =#{dto.col21170003}
+    			</if>
+    			<if test="dto.col21170004 != null and dto.col21170004 != ''">
+						and t1.COL21170004 =#{dto.col21170004}
+    			</if>
+    			<if test="dto.col21170005 != null and dto.col21170005 != ''">
+						and t1.COL21170005 =#{dto.col21170005}
+    			</if>
+    			<if test="dto.col21170006 != null and dto.col21170006 != ''">
+						and t1.COL21170006 =#{dto.col21170006}
+    			</if>
+    			<if test="dto.col21170007 != null and dto.col21170007 != ''">
+						and t1.COL21170007 =#{dto.col21170007}
+    			</if>
+    			<if test="dto.col21170008 != null and dto.col21170008 != ''">
+						and t1.COL21170008 =#{dto.col21170008}
+    			</if>
+    			<if test="dto.col21170009 != null and dto.col21170009 != ''">
+						and t1.COL21170009 =#{dto.col21170009}
+    			</if>
+    			<if test="dto.col21170010 != null and dto.col21170010 != ''">
+						and t1.COL21170010 =#{dto.col21170010}
+    			</if>
+    			<if test="dto.col21170011 != null and dto.col21170011 != ''">
+						and t1.COL21170011 =#{dto.col21170011}
+    			</if>
+    			<if test="dto.col21170012 != null and dto.col21170012 != ''">
+						and t1.COL21170012 =#{dto.col21170012}
+    			</if>
+    			<if test="dto.col21170013 != null and dto.col21170013 != ''">
+						and t1.COL21170013 =#{dto.col21170013}
+    			</if>
+    			<if test="dto.col21170014 != null and dto.col21170014 != ''">
+						and t1.COL21170014 =#{dto.col21170014}
+    			</if>
+    			<if test="dto.col21170015 != null and dto.col21170015 != ''">
+						and t1.COL21170015 =#{dto.col21170015}
+    			</if>
+    			<if test="dto.col21170016 != null and dto.col21170016 != ''">
+						and t1.COL21170016 =#{dto.col21170016}
+    			</if>
+    			<if test="dto.col21170017 != null and dto.col21170017 != ''">
+						and t1.COL21170017 =#{dto.col21170017}
+    			</if>
+    			<if test="dto.col21180001 != null and dto.col21180001 != ''">
+						and t1.COL21180001 =#{dto.col21180001}
+    			</if>
+    			<if test="dto.col21180002 != null and dto.col21180002 != ''">
+						and t1.COL21180002 =#{dto.col21180002}
+    			</if>
+    			<if test="dto.col21180003 != null and dto.col21180003 != ''">
+						and t1.COL21180003 =#{dto.col21180003}
+    			</if>
+    			<if test="dto.col21180004 != null and dto.col21180004 != ''">
+						and t1.COL21180004 =#{dto.col21180004}
+    			</if>
+    			<if test="dto.col21180005 != null and dto.col21180005 != ''">
+						and t1.COL21180005 =#{dto.col21180005}
+    			</if>
+    			<if test="dto.col21180006 != null and dto.col21180006 != ''">
+						and t1.COL21180006 =#{dto.col21180006}
+    			</if>
+    			<if test="dto.col21180007 != null and dto.col21180007 != ''">
+						and t1.COL21180007 =#{dto.col21180007}
+    			</if>
+    			<if test="dto.col21180008 != null and dto.col21180008 != ''">
+						and t1.COL21180008 =#{dto.col21180008}
+    			</if>
+    			<if test="dto.col21180009 != null and dto.col21180009 != ''">
+						and t1.COL21180009 =#{dto.col21180009}
+    			</if>
+    			<if test="dto.col21180010 != null and dto.col21180010 != ''">
+						and t1.COL21180010 =#{dto.col21180010}
+    			</if>
+    			<if test="dto.col21180011 != null and dto.col21180011 != ''">
+						and t1.COL21180011 =#{dto.col21180011}
+    			</if>
+    			<if test="dto.col21180012 != null and dto.col21180012 != ''">
+						and t1.COL21180012 =#{dto.col21180012}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY =#{dto.modifyBy}
+    			</if>
+    			<if test="dto.cardNo != null and dto.cardNo != ''">
+						and t1.CARD_NO =#{dto.cardNo}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_XY_CREDIT_RADAR  -->
+<select id="searchExtWlXyCreditRadar" parameterType="java.util.Map" resultMap="ExtWlXyCreditRadarDTO">
+    	     select 
+						t1.id                             ,
+						t1.into_cust_ref_id               ,
+						t1.col21160001                    ,
+						t1.col21160002                    ,
+						t1.col21160003                    ,
+						t1.col21160004                    ,
+						t1.col21160005                    ,
+						t1.col21160006                    ,
+						t1.col21160007                    ,
+						t1.col21160008                    ,
+						t1.col21160009                    ,
+						t1.col21160010                    ,
+						t1.col21170001                    ,
+						t1.col21170002                    ,
+						t1.col21170003                    ,
+						t1.col21170004                    ,
+						t1.col21170005                    ,
+						t1.col21170006                    ,
+						t1.col21170007                    ,
+						t1.col21170008                    ,
+						t1.col21170009                    ,
+						t1.col21170010                    ,
+						t1.col21170011                    ,
+						t1.col21170012                    ,
+						t1.col21170013                    ,
+						t1.col21170014                    ,
+						t1.col21170015                    ,
+						t1.col21170016                    ,
+						t1.col21170017                    ,
+						t1.col21180001                    ,
+						t1.col21180002                    ,
+						t1.col21180003                    ,
+						t1.col21180004                    ,
+						t1.col21180005                    ,
+						t1.col21180006                    ,
+						t1.col21180007                    ,
+						t1.col21180008                    ,
+						t1.col21180009                    ,
+						t1.col21180010                    ,
+						t1.col21180011                    ,
+						t1.col21180012                    ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.create_by                      ,
+						t1.modify_by                      ,
+						t1.card_no                        
+				from ext_wl_xy_credit_radar 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.intoCustRefId != null and dto.intoCustRefId != ''">
+						and t1.INTO_CUST_REF_ID = #{dto.intoCustRefId}
+    			</if>
+    			<if test="dto.col21160001 != null and dto.col21160001 != ''">
+						and t1.COL21160001 = #{dto.col21160001}
+    			</if>
+    			<if test="dto.col21160002 != null and dto.col21160002 != ''">
+						and t1.COL21160002 = #{dto.col21160002}
+    			</if>
+    			<if test="dto.col21160003 != null and dto.col21160003 != ''">
+						and t1.COL21160003 = #{dto.col21160003}
+    			</if>
+    			<if test="dto.col21160004 != null and dto.col21160004 != ''">
+						and t1.COL21160004 = #{dto.col21160004}
+    			</if>
+    			<if test="dto.col21160005 != null and dto.col21160005 != ''">
+						and t1.COL21160005 = #{dto.col21160005}
+    			</if>
+    			<if test="dto.col21160006 != null and dto.col21160006 != ''">
+						and t1.COL21160006 = #{dto.col21160006}
+    			</if>
+    			<if test="dto.col21160007 != null and dto.col21160007 != ''">
+						and t1.COL21160007 = #{dto.col21160007}
+    			</if>
+    			<if test="dto.col21160008 != null and dto.col21160008 != ''">
+						and t1.COL21160008 = #{dto.col21160008}
+    			</if>
+    			<if test="dto.col21160009 != null and dto.col21160009 != ''">
+						and t1.COL21160009 = #{dto.col21160009}
+    			</if>
+    			<if test="dto.col21160010 != null and dto.col21160010 != ''">
+						and t1.COL21160010 = #{dto.col21160010}
+    			</if>
+    			<if test="dto.col21170001 != null and dto.col21170001 != ''">
+						and t1.COL21170001 = #{dto.col21170001}
+    			</if>
+    			<if test="dto.col21170002 != null and dto.col21170002 != ''">
+						and t1.COL21170002 = #{dto.col21170002}
+    			</if>
+    			<if test="dto.col21170003 != null and dto.col21170003 != ''">
+						and t1.COL21170003 = #{dto.col21170003}
+    			</if>
+    			<if test="dto.col21170004 != null and dto.col21170004 != ''">
+						and t1.COL21170004 = #{dto.col21170004}
+    			</if>
+    			<if test="dto.col21170005 != null and dto.col21170005 != ''">
+						and t1.COL21170005 = #{dto.col21170005}
+    			</if>
+    			<if test="dto.col21170006 != null and dto.col21170006 != ''">
+						and t1.COL21170006 = #{dto.col21170006}
+    			</if>
+    			<if test="dto.col21170007 != null and dto.col21170007 != ''">
+						and t1.COL21170007 = #{dto.col21170007}
+    			</if>
+    			<if test="dto.col21170008 != null and dto.col21170008 != ''">
+						and t1.COL21170008 = #{dto.col21170008}
+    			</if>
+    			<if test="dto.col21170009 != null and dto.col21170009 != ''">
+						and t1.COL21170009 = #{dto.col21170009}
+    			</if>
+    			<if test="dto.col21170010 != null and dto.col21170010 != ''">
+						and t1.COL21170010 = #{dto.col21170010}
+    			</if>
+    			<if test="dto.col21170011 != null and dto.col21170011 != ''">
+						and t1.COL21170011 = #{dto.col21170011}
+    			</if>
+    			<if test="dto.col21170012 != null and dto.col21170012 != ''">
+						and t1.COL21170012 = #{dto.col21170012}
+    			</if>
+    			<if test="dto.col21170013 != null and dto.col21170013 != ''">
+						and t1.COL21170013 = #{dto.col21170013}
+    			</if>
+    			<if test="dto.col21170014 != null and dto.col21170014 != ''">
+						and t1.COL21170014 = #{dto.col21170014}
+    			</if>
+    			<if test="dto.col21170015 != null and dto.col21170015 != ''">
+						and t1.COL21170015 = #{dto.col21170015}
+    			</if>
+    			<if test="dto.col21170016 != null and dto.col21170016 != ''">
+						and t1.COL21170016 = #{dto.col21170016}
+    			</if>
+    			<if test="dto.col21170017 != null and dto.col21170017 != ''">
+						and t1.COL21170017 = #{dto.col21170017}
+    			</if>
+    			<if test="dto.col21180001 != null and dto.col21180001 != ''">
+						and t1.COL21180001 = #{dto.col21180001}
+    			</if>
+    			<if test="dto.col21180002 != null and dto.col21180002 != ''">
+						and t1.COL21180002 = #{dto.col21180002}
+    			</if>
+    			<if test="dto.col21180003 != null and dto.col21180003 != ''">
+						and t1.COL21180003 = #{dto.col21180003}
+    			</if>
+    			<if test="dto.col21180004 != null and dto.col21180004 != ''">
+						and t1.COL21180004 = #{dto.col21180004}
+    			</if>
+    			<if test="dto.col21180005 != null and dto.col21180005 != ''">
+						and t1.COL21180005 = #{dto.col21180005}
+    			</if>
+    			<if test="dto.col21180006 != null and dto.col21180006 != ''">
+						and t1.COL21180006 = #{dto.col21180006}
+    			</if>
+    			<if test="dto.col21180007 != null and dto.col21180007 != ''">
+						and t1.COL21180007 = #{dto.col21180007}
+    			</if>
+    			<if test="dto.col21180008 != null and dto.col21180008 != ''">
+						and t1.COL21180008 = #{dto.col21180008}
+    			</if>
+    			<if test="dto.col21180009 != null and dto.col21180009 != ''">
+						and t1.COL21180009 = #{dto.col21180009}
+    			</if>
+    			<if test="dto.col21180010 != null and dto.col21180010 != ''">
+						and t1.COL21180010 = #{dto.col21180010}
+    			</if>
+    			<if test="dto.col21180011 != null and dto.col21180011 != ''">
+						and t1.COL21180011 = #{dto.col21180011}
+    			</if>
+    			<if test="dto.col21180012 != null and dto.col21180012 != ''">
+						and t1.COL21180012 = #{dto.col21180012}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY = #{dto.modifyBy}
+    			</if>
+    			<if test="dto.cardNo != null and dto.cardNo != ''">
+						and t1.CARD_NO = #{dto.cardNo}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_XY_CREDIT_RADAR -->
+<select id="findExtWlXyCreditRadarByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlXyCreditRadarDTO">
+   	 		select 
+					t1.id                             ,
+					t1.into_cust_ref_id               ,
+					t1.col21160001                    ,
+					t1.col21160002                    ,
+					t1.col21160003                    ,
+					t1.col21160004                    ,
+					t1.col21160005                    ,
+					t1.col21160006                    ,
+					t1.col21160007                    ,
+					t1.col21160008                    ,
+					t1.col21160009                    ,
+					t1.col21160010                    ,
+					t1.col21170001                    ,
+					t1.col21170002                    ,
+					t1.col21170003                    ,
+					t1.col21170004                    ,
+					t1.col21170005                    ,
+					t1.col21170006                    ,
+					t1.col21170007                    ,
+					t1.col21170008                    ,
+					t1.col21170009                    ,
+					t1.col21170010                    ,
+					t1.col21170011                    ,
+					t1.col21170012                    ,
+					t1.col21170013                    ,
+					t1.col21170014                    ,
+					t1.col21170015                    ,
+					t1.col21170016                    ,
+					t1.col21170017                    ,
+					t1.col21180001                    ,
+					t1.col21180002                    ,
+					t1.col21180003                    ,
+					t1.col21180004                    ,
+					t1.col21180005                    ,
+					t1.col21180006                    ,
+					t1.col21180007                    ,
+					t1.col21180008                    ,
+					t1.col21180009                    ,
+					t1.col21180010                    ,
+					t1.col21180011                    ,
+					t1.col21180012                    ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.create_by                      ,
+					t1.modify_by                      ,
+					t1.card_no                        
+			from ext_wl_xy_credit_radar 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_XY_CREDIT_RADAR -->
+<insert id="insertExtWlXyCreditRadar" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_ext_wl_xy_credit_radar.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_xy_credit_radar
+			(   		
+					id                             ,
+					into_cust_ref_id               ,
+					col21160001                    ,
+					col21160002                    ,
+					col21160003                    ,
+					col21160004                    ,
+					col21160005                    ,
+					col21160006                    ,
+					col21160007                    ,
+					col21160008                    ,
+					col21160009                    ,
+					col21160010                    ,
+					col21170001                    ,
+					col21170002                    ,
+					col21170003                    ,
+					col21170004                    ,
+					col21170005                    ,
+					col21170006                    ,
+					col21170007                    ,
+					col21170008                    ,
+					col21170009                    ,
+					col21170010                    ,
+					col21170011                    ,
+					col21170012                    ,
+					col21170013                    ,
+					col21170014                    ,
+					col21170015                    ,
+					col21170016                    ,
+					col21170017                    ,
+					col21180001                    ,
+					col21180002                    ,
+					col21180003                    ,
+					col21180004                    ,
+					col21180005                    ,
+					col21180006                    ,
+					col21180007                    ,
+					col21180008                    ,
+					col21180009                    ,
+					col21180010                    ,
+					col21180011                    ,
+					col21180012                    ,
+					create_time                    ,
+					modify_time                    ,
+					create_by                      ,
+					modify_by                      ,
+					card_no                        
+			)
+			values(#{dto.id}
+					,#{dto.intoCustRefId,jdbcType=DECIMAL}
+					,#{dto.col21160001,jdbcType=VARCHAR}
+					,#{dto.col21160002,jdbcType=VARCHAR}
+					,#{dto.col21160003,jdbcType=VARCHAR}
+					,#{dto.col21160004,jdbcType=VARCHAR}
+					,#{dto.col21160005,jdbcType=VARCHAR}
+					,#{dto.col21160006,jdbcType=VARCHAR}
+					,#{dto.col21160007,jdbcType=VARCHAR}
+					,#{dto.col21160008,jdbcType=VARCHAR}
+					,#{dto.col21160009,jdbcType=VARCHAR}
+					,#{dto.col21160010,jdbcType=VARCHAR}
+					,#{dto.col21170001,jdbcType=VARCHAR}
+					,#{dto.col21170002,jdbcType=VARCHAR}
+					,#{dto.col21170003,jdbcType=VARCHAR}
+					,#{dto.col21170004,jdbcType=VARCHAR}
+					,#{dto.col21170005,jdbcType=VARCHAR}
+					,#{dto.col21170006,jdbcType=VARCHAR}
+					,#{dto.col21170007,jdbcType=VARCHAR}
+					,#{dto.col21170008,jdbcType=VARCHAR}
+					,#{dto.col21170009,jdbcType=VARCHAR}
+					,#{dto.col21170010,jdbcType=VARCHAR}
+					,#{dto.col21170011,jdbcType=VARCHAR}
+					,#{dto.col21170012,jdbcType=VARCHAR}
+					,#{dto.col21170013,jdbcType=VARCHAR}
+					,#{dto.col21170014,jdbcType=VARCHAR}
+					,#{dto.col21170015,jdbcType=VARCHAR}
+					,#{dto.col21170016,jdbcType=VARCHAR}
+					,#{dto.col21170017,jdbcType=VARCHAR}
+					,#{dto.col21180001,jdbcType=VARCHAR}
+					,#{dto.col21180002,jdbcType=VARCHAR}
+					,#{dto.col21180003,jdbcType=VARCHAR}
+					,#{dto.col21180004,jdbcType=VARCHAR}
+					,#{dto.col21180005,jdbcType=VARCHAR}
+					,#{dto.col21180006,jdbcType=VARCHAR}
+					,#{dto.col21180007,jdbcType=VARCHAR}
+					,#{dto.col21180008,jdbcType=VARCHAR}
+					,#{dto.col21180009,jdbcType=VARCHAR}
+					,#{dto.col21180010,jdbcType=VARCHAR}
+					,#{dto.col21180011,jdbcType=VARCHAR}
+					,#{dto.col21180012,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.modifyBy,jdbcType=DECIMAL}
+					,#{dto.cardNo,jdbcType=VARCHAR}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_XY_CREDIT_RADAR -->
+<update id="updateExtWlXyCreditRadar" parameterType="java.util.Map">
+	     update ext_wl_xy_credit_radar t1
+	           set 
+			           t1.into_cust_ref_id               =#{dto.intoCustRefId,jdbcType=DECIMAL},
+			           t1.col21160001                    =#{dto.col21160001,jdbcType=VARCHAR},
+			           t1.col21160002                    =#{dto.col21160002,jdbcType=VARCHAR},
+			           t1.col21160003                    =#{dto.col21160003,jdbcType=VARCHAR},
+			           t1.col21160004                    =#{dto.col21160004,jdbcType=VARCHAR},
+			           t1.col21160005                    =#{dto.col21160005,jdbcType=VARCHAR},
+			           t1.col21160006                    =#{dto.col21160006,jdbcType=VARCHAR},
+			           t1.col21160007                    =#{dto.col21160007,jdbcType=VARCHAR},
+			           t1.col21160008                    =#{dto.col21160008,jdbcType=VARCHAR},
+			           t1.col21160009                    =#{dto.col21160009,jdbcType=VARCHAR},
+			           t1.col21160010                    =#{dto.col21160010,jdbcType=VARCHAR},
+			           t1.col21170001                    =#{dto.col21170001,jdbcType=VARCHAR},
+			           t1.col21170002                    =#{dto.col21170002,jdbcType=VARCHAR},
+			           t1.col21170003                    =#{dto.col21170003,jdbcType=VARCHAR},
+			           t1.col21170004                    =#{dto.col21170004,jdbcType=VARCHAR},
+			           t1.col21170005                    =#{dto.col21170005,jdbcType=VARCHAR},
+			           t1.col21170006                    =#{dto.col21170006,jdbcType=VARCHAR},
+			           t1.col21170007                    =#{dto.col21170007,jdbcType=VARCHAR},
+			           t1.col21170008                    =#{dto.col21170008,jdbcType=VARCHAR},
+			           t1.col21170009                    =#{dto.col21170009,jdbcType=VARCHAR},
+			           t1.col21170010                    =#{dto.col21170010,jdbcType=VARCHAR},
+			           t1.col21170011                    =#{dto.col21170011,jdbcType=VARCHAR},
+			           t1.col21170012                    =#{dto.col21170012,jdbcType=VARCHAR},
+			           t1.col21170013                    =#{dto.col21170013,jdbcType=VARCHAR},
+			           t1.col21170014                    =#{dto.col21170014,jdbcType=VARCHAR},
+			           t1.col21170015                    =#{dto.col21170015,jdbcType=VARCHAR},
+			           t1.col21170016                    =#{dto.col21170016,jdbcType=VARCHAR},
+			           t1.col21170017                    =#{dto.col21170017,jdbcType=VARCHAR},
+			           t1.col21180001                    =#{dto.col21180001,jdbcType=VARCHAR},
+			           t1.col21180002                    =#{dto.col21180002,jdbcType=VARCHAR},
+			           t1.col21180003                    =#{dto.col21180003,jdbcType=VARCHAR},
+			           t1.col21180004                    =#{dto.col21180004,jdbcType=VARCHAR},
+			           t1.col21180005                    =#{dto.col21180005,jdbcType=VARCHAR},
+			           t1.col21180006                    =#{dto.col21180006,jdbcType=VARCHAR},
+			           t1.col21180007                    =#{dto.col21180007,jdbcType=VARCHAR},
+			           t1.col21180008                    =#{dto.col21180008,jdbcType=VARCHAR},
+			           t1.col21180009                    =#{dto.col21180009,jdbcType=VARCHAR},
+			           t1.col21180010                    =#{dto.col21180010,jdbcType=VARCHAR},
+			           t1.col21180011                    =#{dto.col21180011,jdbcType=VARCHAR},
+			           t1.col21180012                    =#{dto.col21180012,jdbcType=VARCHAR},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP},
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.modify_by                      =#{dto.modifyBy,jdbcType=DECIMAL},
+			           t1.card_no                        =#{dto.cardNo,jdbcType=VARCHAR}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_XY_CREDIT_RADAR -->
+<delete id="deleteExtWlXyCreditRadarByID" parameterType="java.util.Map">
+    	delete from ext_wl_xy_credit_radar t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_XY_CREDIT_RADAR -->
+<update id="deleteExtWlXyCreditRadarByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_xy_credit_radar t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

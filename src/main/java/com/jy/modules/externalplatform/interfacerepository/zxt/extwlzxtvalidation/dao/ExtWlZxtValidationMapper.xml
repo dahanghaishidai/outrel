@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.zxt.extwlzxtvalidation.dao.ExtWlZxtValidationDao">
+<resultMap id="ExtWlZxtValidationDTO" type="com.jy.modules.externalplatform.interfacerepository.zxt.extwlzxtvalidation.dto.ExtWlZxtValidationDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="intoCustRefId" column="INTO_CUST_REF_ID" jdbcType="DECIMAL" />
+				<result property="verId" column="VER_ID" jdbcType="VARCHAR" />
+				<result property="result" column="RESULT" jdbcType="VARCHAR" />
+				<result property="message" column="MESSAGE" jdbcType="VARCHAR" />
+				<result property="createTime1" column="CREATE_TIME1" jdbcType="TIMESTAMP" />
+				<result property="updateTime1" column="UPDATE_TIME1" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="updateBy" column="UPDATE_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 分页查询 ext_wl_zxt_validation -->	
+<select id="searchExtWlZxtValidationByPaging" parameterType="java.util.Map" resultMap="ExtWlZxtValidationDTO">
+    	 		select 
+						t1.id                             ,
+						t1.into_cust_ref_id               ,
+						t1.ver_id                         ,
+						t1.result                         ,
+						t1.message                        ,
+						t1.create_time1                   ,
+						t1.update_time1                   ,
+						t1.create_by                      ,
+						t1.update_by                      
+					
+				from ext_wl_zxt_validation 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.intoCustRefId != null and dto.intoCustRefId != ''">
+						and t1.INTO_CUST_REF_ID =#{dto.intoCustRefId}
+    			</if>
+    			<if test="dto.verId != null and dto.verId != ''">
+						and t1.VER_ID =#{dto.verId}
+    			</if>
+    			<if test="dto.result != null and dto.result != ''">
+						and t1.RESULT =#{dto.result}
+    			</if>
+    			<if test="dto.message != null and dto.message != ''">
+						and t1.MESSAGE =#{dto.message}
+    			</if>
+    			<if test="dto.createTime1 != null and dto.createTime1 != ''">
+						and t1.CREATE_TIME1 =#{dto.createTime1}
+    			</if>
+    			<if test="dto.updateTime1 != null and dto.updateTime1 != ''">
+						and t1.UPDATE_TIME1 =#{dto.updateTime1}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY =#{dto.updateBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 ext_wl_zxt_validation  -->
+<select id="searchExtWlZxtValidation" parameterType="java.util.Map" resultMap="ExtWlZxtValidationDTO">
+    	     select 
+						t1.id                             ,
+						t1.into_cust_ref_id               ,
+						t1.ver_id                         ,
+						t1.result                         ,
+						t1.message                        ,
+						t1.create_time1                   ,
+						t1.update_time1                   ,
+						t1.create_by                      ,
+						t1.update_by                      
+				from ext_wl_zxt_validation 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.intoCustRefId != null and dto.intoCustRefId != ''">
+						and t1.INTO_CUST_REF_ID = #{dto.intoCustRefId}
+    			</if>
+    			<if test="dto.verId != null and dto.verId != ''">
+						and t1.VER_ID = #{dto.verId}
+    			</if>
+    			<if test="dto.result != null and dto.result != ''">
+						and t1.RESULT = #{dto.result}
+    			</if>
+    			<if test="dto.message != null and dto.message != ''">
+						and t1.MESSAGE = #{dto.message}
+    			</if>
+    			<if test="dto.createTime1 != null and dto.createTime1 != ''">
+						and t1.CREATE_TIME1 = #{dto.createTime1}
+    			</if>
+    			<if test="dto.updateTime1 != null and dto.updateTime1 != ''">
+						and t1.UPDATE_TIME1 = #{dto.updateTime1}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY = #{dto.updateBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  ext_wl_zxt_validation -->
+<select id="findExtWlZxtValidationByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlZxtValidationDTO">
+   	 		select 
+					t1.id                             ,
+					t1.into_cust_ref_id               ,
+					t1.ver_id                         ,
+					t1.result                         ,
+					t1.message                        ,
+					t1.create_time1                   ,
+					t1.update_time1                   ,
+					t1.create_by                      ,
+					t1.update_by                      
+			from ext_wl_zxt_validation 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 ext_wl_zxt_validation -->
+<insert id="insertExtWlZxtValidation" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_ext_wl_zxt_validation.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_zxt_validation
+			(   		
+					id                             ,
+					into_cust_ref_id               ,
+					ver_id                         ,
+					result                         ,
+					message                        ,
+					create_time1                   ,
+					update_time1                   ,
+					create_by                      ,
+					update_by                      
+			)
+			values(#{dto.id}
+					,#{dto.intoCustRefId,jdbcType=DECIMAL}
+					,#{dto.verId,jdbcType=VARCHAR}
+					,#{dto.result,jdbcType=VARCHAR}
+					,#{dto.message,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.updateTime1,jdbcType=TIMESTAMP}
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.updateBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 ext_wl_zxt_validation -->
+<update id="updateExtWlZxtValidation" parameterType="java.util.Map">
+	     update ext_wl_zxt_validation t1
+	           set 
+			           t1.into_cust_ref_id               =#{dto.intoCustRefId,jdbcType=DECIMAL},
+			           t1.ver_id                         =#{dto.verId,jdbcType=VARCHAR},
+			           t1.result                         =#{dto.result,jdbcType=VARCHAR},
+			           t1.message                        =#{dto.message,jdbcType=VARCHAR},
+			           t1.create_time1                   =#{dto.createTime1,jdbcType=TIMESTAMP},
+			           t1.update_time1                   =#{dto.updateTime1,jdbcType=TIMESTAMP},
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.update_by                      =#{dto.updateBy,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 ext_wl_zxt_validation -->
+<delete id="deleteExtWlZxtValidationByID" parameterType="java.util.Map">
+    	delete from ext_wl_zxt_validation t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 ext_wl_zxt_validation -->
+<update id="deleteExtWlZxtValidationByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_zxt_validation t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.zc.extwlzcloanrecords.dao.ExtWlZcLoanRecordsDao">
+<resultMap id="ExtWlZcLoanRecordsDTO" type="com.jy.modules.externalplatform.interfacerepository.zc.extwlzcloanrecords.dto.ExtWlZcLoanRecordsDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="keyId" column="KEY_ID" jdbcType="VARCHAR" />
+				<result property="orgName" column="ORG_NAME" jdbcType="VARCHAR" />
+				<result property="name" column="NAME" jdbcType="VARCHAR" />
+				<result property="certNo" column="CERT_NO" jdbcType="VARCHAR" />
+				<result property="loanDate" column="LOAN_DATE" jdbcType="VARCHAR" />
+				<result property="periods" column="PERIODS" jdbcType="VARCHAR" />
+				<result property="loanAmount" column="LOAN_AMOUNT" jdbcType="VARCHAR" />
+				<result property="overdueM3" column="OVERDUE_M3" jdbcType="VARCHAR" />
+				<result property="overdueM6" column="OVERDUE_M6" jdbcType="VARCHAR" />
+				<result property="loanStatusCode" column="LOAN_STATUS_CODE" jdbcType="VARCHAR" />
+				<result property="overdueStatus" column="OVERDUE_STATUS" jdbcType="VARCHAR" />
+				<result property="overdueTotal" column="OVERDUE_TOTAL" jdbcType="VARCHAR" />
+				<result property="overdueAmount" column="OVERDUE_AMOUNT" jdbcType="VARCHAR" />
+				<result property="approvalStatusCode" column="APPROVAL_STATUS_CODE" jdbcType="VARCHAR" />
+				<result property="loanTypeCode" column="LOAN_TYPE_CODE" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 ext_wl_zc_loan_records -->	
+<select id="searchExtWlZcLoanRecordsByPaging" parameterType="java.util.Map" resultMap="ExtWlZcLoanRecordsDTO">
+    	 		select 
+						t1.id                             ,
+						t1.key_id                         ,
+						t1.org_name                       ,
+						t1.name                           ,
+						t1.cert_no                        ,
+						t1.loan_date                      ,
+						t1.periods                        ,
+						t1.loan_amount                    ,
+						t1.overdue_m3                     ,
+						t1.overdue_m6                     ,
+						t1.loan_status_code               ,
+						t1.overdue_status                 ,
+						t1.overdue_total                  ,
+						t1.overdue_amount                 ,
+						t1.approval_status_code           ,
+						t1.loan_type_code                 ,
+						t1.create_time                    ,
+						t1.modify_time                    
+					
+				from ext_wl_zc_loan_records 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.keyId != null and dto.keyId != ''">
+						and t1.KEY_ID =#{dto.keyId}
+    			</if>
+    			<if test="dto.orgName != null and dto.orgName != ''">
+						and t1.ORG_NAME =#{dto.orgName}
+    			</if>
+    			<if test="dto.name != null and dto.name != ''">
+						and t1.NAME =#{dto.name}
+    			</if>
+    			<if test="dto.certNo != null and dto.certNo != ''">
+						and t1.CERT_NO =#{dto.certNo}
+    			</if>
+    			<if test="dto.loanDate != null and dto.loanDate != ''">
+						and t1.LOAN_DATE =#{dto.loanDate}
+    			</if>
+    			<if test="dto.periods != null and dto.periods != ''">
+						and t1.PERIODS =#{dto.periods}
+    			</if>
+    			<if test="dto.loanAmount != null and dto.loanAmount != ''">
+						and t1.LOAN_AMOUNT =#{dto.loanAmount}
+    			</if>
+    			<if test="dto.overdueM3 != null and dto.overdueM3 != ''">
+						and t1.OVERDUE_M3 =#{dto.overdueM3}
+    			</if>
+    			<if test="dto.overdueM6 != null and dto.overdueM6 != ''">
+						and t1.OVERDUE_M6 =#{dto.overdueM6}
+    			</if>
+    			<if test="dto.loanStatusCode != null and dto.loanStatusCode != ''">
+						and t1.LOAN_STATUS_CODE =#{dto.loanStatusCode}
+    			</if>
+    			<if test="dto.overdueStatus != null and dto.overdueStatus != ''">
+						and t1.OVERDUE_STATUS =#{dto.overdueStatus}
+    			</if>
+    			<if test="dto.overdueTotal != null and dto.overdueTotal != ''">
+						and t1.OVERDUE_TOTAL =#{dto.overdueTotal}
+    			</if>
+    			<if test="dto.overdueAmount != null and dto.overdueAmount != ''">
+						and t1.OVERDUE_AMOUNT =#{dto.overdueAmount}
+    			</if>
+    			<if test="dto.approvalStatusCode != null and dto.approvalStatusCode != ''">
+						and t1.APPROVAL_STATUS_CODE =#{dto.approvalStatusCode}
+    			</if>
+    			<if test="dto.loanTypeCode != null and dto.loanTypeCode != ''">
+						and t1.LOAN_TYPE_CODE =#{dto.loanTypeCode}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 ext_wl_zc_loan_records  -->
+<select id="searchExtWlZcLoanRecords" parameterType="java.util.Map" resultMap="ExtWlZcLoanRecordsDTO">
+    	     select 
+						t1.id                             ,
+						t1.key_id                         ,
+						t1.org_name                       ,
+						t1.name                           ,
+						t1.cert_no                        ,
+						t1.loan_date                      ,
+						t1.periods                        ,
+						t1.loan_amount                    ,
+						t1.overdue_m3                     ,
+						t1.overdue_m6                     ,
+						t1.loan_status_code               ,
+						t1.overdue_status                 ,
+						t1.overdue_total                  ,
+						t1.overdue_amount                 ,
+						t1.approval_status_code           ,
+						t1.loan_type_code                 ,
+						t1.create_time                    ,
+						t1.modify_time                    
+				from ext_wl_zc_loan_records 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.keyId != null and dto.keyId != ''">
+						and t1.KEY_ID = #{dto.keyId}
+    			</if>
+    			<if test="dto.orgName != null and dto.orgName != ''">
+						and t1.ORG_NAME = #{dto.orgName}
+    			</if>
+    			<if test="dto.name != null and dto.name != ''">
+						and t1.NAME = #{dto.name}
+    			</if>
+    			<if test="dto.certNo != null and dto.certNo != ''">
+						and t1.CERT_NO = #{dto.certNo}
+    			</if>
+    			<if test="dto.loanDate != null and dto.loanDate != ''">
+						and t1.LOAN_DATE = #{dto.loanDate}
+    			</if>
+    			<if test="dto.periods != null and dto.periods != ''">
+						and t1.PERIODS = #{dto.periods}
+    			</if>
+    			<if test="dto.loanAmount != null and dto.loanAmount != ''">
+						and t1.LOAN_AMOUNT = #{dto.loanAmount}
+    			</if>
+    			<if test="dto.overdueM3 != null and dto.overdueM3 != ''">
+						and t1.OVERDUE_M3 = #{dto.overdueM3}
+    			</if>
+    			<if test="dto.overdueM6 != null and dto.overdueM6 != ''">
+						and t1.OVERDUE_M6 = #{dto.overdueM6}
+    			</if>
+    			<if test="dto.loanStatusCode != null and dto.loanStatusCode != ''">
+						and t1.LOAN_STATUS_CODE = #{dto.loanStatusCode}
+    			</if>
+    			<if test="dto.overdueStatus != null and dto.overdueStatus != ''">
+						and t1.OVERDUE_STATUS = #{dto.overdueStatus}
+    			</if>
+    			<if test="dto.overdueTotal != null and dto.overdueTotal != ''">
+						and t1.OVERDUE_TOTAL = #{dto.overdueTotal}
+    			</if>
+    			<if test="dto.overdueAmount != null and dto.overdueAmount != ''">
+						and t1.OVERDUE_AMOUNT = #{dto.overdueAmount}
+    			</if>
+    			<if test="dto.approvalStatusCode != null and dto.approvalStatusCode != ''">
+						and t1.APPROVAL_STATUS_CODE = #{dto.approvalStatusCode}
+    			</if>
+    			<if test="dto.loanTypeCode != null and dto.loanTypeCode != ''">
+						and t1.LOAN_TYPE_CODE = #{dto.loanTypeCode}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  ext_wl_zc_loan_records -->
+<select id="findExtWlZcLoanRecordsByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlZcLoanRecordsDTO">
+   	 		select 
+					t1.id                             ,
+					t1.key_id                         ,
+					t1.org_name                       ,
+					t1.name                           ,
+					t1.cert_no                        ,
+					t1.loan_date                      ,
+					t1.periods                        ,
+					t1.loan_amount                    ,
+					t1.overdue_m3                     ,
+					t1.overdue_m6                     ,
+					t1.loan_status_code               ,
+					t1.overdue_status                 ,
+					t1.overdue_total                  ,
+					t1.overdue_amount                 ,
+					t1.approval_status_code           ,
+					t1.loan_type_code                 ,
+					t1.create_time                    ,
+					t1.modify_time                    
+			from ext_wl_zc_loan_records 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 ext_wl_zc_loan_records -->
+<insert id="insertExtWlZcLoanRecords" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_ext_wl_zc_loan_records.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_zc_loan_records
+			(   		
+					id                             ,
+					key_id                         ,
+					org_name                       ,
+					name                           ,
+					cert_no                        ,
+					loan_date                      ,
+					periods                        ,
+					loan_amount                    ,
+					overdue_m3                     ,
+					overdue_m6                     ,
+					loan_status_code               ,
+					overdue_status                 ,
+					overdue_total                  ,
+					overdue_amount                 ,
+					approval_status_code           ,
+					loan_type_code                 ,
+					create_time                    ,
+					modify_time                    
+			)
+			values(#{dto.id}
+					,#{dto.keyId,jdbcType=VARCHAR}
+					,#{dto.orgName,jdbcType=VARCHAR}
+					,#{dto.name,jdbcType=VARCHAR}
+					,#{dto.certNo,jdbcType=VARCHAR}
+					,#{dto.loanDate,jdbcType=VARCHAR}
+					,#{dto.periods,jdbcType=VARCHAR}
+					,#{dto.loanAmount,jdbcType=VARCHAR}
+					,#{dto.overdueM3,jdbcType=VARCHAR}
+					,#{dto.overdueM6,jdbcType=VARCHAR}
+					,#{dto.loanStatusCode,jdbcType=VARCHAR}
+					,#{dto.overdueStatus,jdbcType=VARCHAR}
+					,#{dto.overdueTotal,jdbcType=VARCHAR}
+					,#{dto.overdueAmount,jdbcType=VARCHAR}
+					,#{dto.approvalStatusCode,jdbcType=VARCHAR}
+					,#{dto.loanTypeCode,jdbcType=VARCHAR}
+					,#{dto.createTime,jdbcType=TIMESTAMP}
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+			)
+</insert>
+    
+<!-- 更新对象 ext_wl_zc_loan_records -->
+<update id="updateExtWlZcLoanRecords" parameterType="java.util.Map">
+	     update ext_wl_zc_loan_records t1
+	           set 
+			           t1.key_id                         =#{dto.keyId,jdbcType=VARCHAR},
+			           t1.org_name                       =#{dto.orgName,jdbcType=VARCHAR},
+			           t1.name                           =#{dto.name,jdbcType=VARCHAR},
+			           t1.cert_no                        =#{dto.certNo,jdbcType=VARCHAR},
+			           t1.loan_date                      =#{dto.loanDate,jdbcType=VARCHAR},
+			           t1.periods                        =#{dto.periods,jdbcType=VARCHAR},
+			           t1.loan_amount                    =#{dto.loanAmount,jdbcType=VARCHAR},
+			           t1.overdue_m3                     =#{dto.overdueM3,jdbcType=VARCHAR},
+			           t1.overdue_m6                     =#{dto.overdueM6,jdbcType=VARCHAR},
+			           t1.loan_status_code               =#{dto.loanStatusCode,jdbcType=VARCHAR},
+			           t1.overdue_status                 =#{dto.overdueStatus,jdbcType=VARCHAR},
+			           t1.overdue_total                  =#{dto.overdueTotal,jdbcType=VARCHAR},
+			           t1.overdue_amount                 =#{dto.overdueAmount,jdbcType=VARCHAR},
+			           t1.approval_status_code           =#{dto.approvalStatusCode,jdbcType=VARCHAR},
+			           t1.loan_type_code                 =#{dto.loanTypeCode,jdbcType=VARCHAR},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 ext_wl_zc_loan_records -->
+<delete id="deleteExtWlZcLoanRecordsByID" parameterType="java.util.Map">
+    	delete from ext_wl_zc_loan_records t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 ext_wl_zc_loan_records -->
+<update id="deleteExtWlZcLoanRecordsByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_zc_loan_records t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+<!-- 批量保存数据-->
+<insert id="batchInsertLoanRecords" parameterType="java.util.Map">
+	begin
+	<foreach collection="loanRecordsList" item="dto" index="index" > 
+	insert into ext_wl_zc_loan_records
+			(   		
+					id                             ,
+					key_id                         ,
+					org_name                       ,
+					name                           ,
+					cert_no                        ,
+					loan_date                      ,
+					periods                        ,
+					loan_amount                    ,
+					overdue_m3                     ,
+					overdue_m6                     ,
+					loan_status_code               ,
+					overdue_status                 ,
+					overdue_total                  ,
+					overdue_amount                 ,
+					approval_status_code           ,
+					loan_type_code                 ,
+					create_time                     
+			)
+			values(seq_ext_wl_zc_loan_records.nextval
+					,#{dto.keyId,jdbcType=VARCHAR}
+					,#{dto.orgName,jdbcType=VARCHAR}
+					,#{dto.name,jdbcType=VARCHAR}
+					,#{dto.certNo,jdbcType=VARCHAR}
+					,#{dto.loanDate,jdbcType=VARCHAR}
+					,#{dto.periods,jdbcType=VARCHAR}
+					,#{dto.loanAmount,jdbcType=VARCHAR}
+					,#{dto.overdueM3,jdbcType=VARCHAR}
+					,#{dto.overdueM6,jdbcType=VARCHAR}
+					,#{dto.loanStatusCode,jdbcType=VARCHAR}
+					,#{dto.overdueStatus,jdbcType=VARCHAR}
+					,#{dto.overdueTotal,jdbcType=VARCHAR}
+					,#{dto.overdueAmount,jdbcType=VARCHAR}
+					,#{dto.approvalStatusCode,jdbcType=VARCHAR}
+					,#{dto.loanTypeCode,jdbcType=VARCHAR}
+					,systimestamp
+			);
+	</foreach>		
+	end ;
+</insert>
+
+</mapper>

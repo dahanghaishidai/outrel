@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.mg.extwljxlmgcontnumsta.dao.ExtWlJxlMgContNumStaDao">
+<resultMap id="ExtWlJxlMgContNumStaDTO" type="com.jy.modules.externalplatform.interfacerepository.mg.extwljxlmgcontnumsta.dto.ExtWlJxlMgContNumStaDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="userGridId" column="USER_GRID_ID" jdbcType="VARCHAR" />
+				<result property="cntToAll" column="CNT_TO_ALL" jdbcType="DECIMAL" />
+				<result property="cntBeAll" column="CNT_BE_ALL" jdbcType="DECIMAL" />
+				<result property="cntAll" column="CNT_ALL" jdbcType="DECIMAL" />
+				<result property="cntRouter" column="CNT_ROUTER" jdbcType="DECIMAL" />
+				<result property="routerRatio" column="ROUTER_RATIO" jdbcType="DECIMAL" />
+				<result property="cntToBlack" column="CNT_TO_BLACK" jdbcType="DECIMAL" />
+				<result property="cntBeBlack" column="CNT_BE_BLACK" jdbcType="DECIMAL" />
+				<result property="cntBlack" column="CNT_BLACK" jdbcType="DECIMAL" />
+				<result property="blackRatio" column="BLACK_RATIO" jdbcType="DECIMAL" />
+				<result property="cntBlack2" column="CNT_BLACK2" jdbcType="DECIMAL" />
+				<result property="cntToApplied" column="CNT_TO_APPLIED" jdbcType="DECIMAL" />
+				<result property="cntBeApplied" column="CNT_BE_APPLIED" jdbcType="DECIMAL" />
+				<result property="cntApplied" column="CNT_APPLIED" jdbcType="DECIMAL" />
+				<result property="pctCntToAll" column="PCT_CNT_TO_ALL" jdbcType="DECIMAL" />
+				<result property="pctCntBeAll" column="PCT_CNT_BE_ALL" jdbcType="DECIMAL" />
+				<result property="pctCntAll" column="PCT_CNT_ALL" jdbcType="DECIMAL" />
+				<result property="pctCntRouter" column="PCT_CNT_ROUTER" jdbcType="DECIMAL" />
+				<result property="pctRouterRatio" column="PCT_ROUTER_RATIO" jdbcType="DECIMAL" />
+				<result property="pctCntToBlack" column="PCT_CNT_TO_BLACK" jdbcType="DECIMAL" />
+				<result property="pctCntBeBlack" column="PCT_CNT_BE_BLACK" jdbcType="DECIMAL" />
+				<result property="pctCntBlack" column="PCT_CNT_BLACK" jdbcType="DECIMAL" />
+				<result property="pctBlackRatio" column="PCT_BLACK_RATIO" jdbcType="DECIMAL" />
+				<result property="pctCntBlack2" column="PCT_CNT_BLACK2" jdbcType="DECIMAL" />
+				<result property="pctCntToApplied" column="PCT_CNT_TO_APPLIED" jdbcType="DECIMAL" />
+				<result property="pctCntBeApplied" column="PCT_CNT_BE_APPLIED" jdbcType="DECIMAL" />
+				<result property="pctCntApplied" column="PCT_CNT_APPLIED" jdbcType="DECIMAL" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyBy" column="MODIFY_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_JXL_MG_CONT_NUM_STA -->	
+<select id="searchExtWlJxlMgContNumStaByPaging" parameterType="java.util.Map" resultMap="ExtWlJxlMgContNumStaDTO">
+    	 		select 
+						t1.id                             ,
+						t1.user_grid_id                   ,
+						t1.cnt_to_all                     ,
+						t1.cnt_be_all                     ,
+						t1.cnt_all                        ,
+						t1.cnt_router                     ,
+						t1.router_ratio                   ,
+						t1.cnt_to_black                   ,
+						t1.cnt_be_black                   ,
+						t1.cnt_black                      ,
+						t1.black_ratio                    ,
+						t1.cnt_black2                     ,
+						t1.cnt_to_applied                 ,
+						t1.cnt_be_applied                 ,
+						t1.cnt_applied                    ,
+						t1.pct_cnt_to_all                 ,
+						t1.pct_cnt_be_all                 ,
+						t1.pct_cnt_all                    ,
+						t1.pct_cnt_router                 ,
+						t1.pct_router_ratio               ,
+						t1.pct_cnt_to_black               ,
+						t1.pct_cnt_be_black               ,
+						t1.pct_cnt_black                  ,
+						t1.pct_black_ratio                ,
+						t1.pct_cnt_black2                 ,
+						t1.pct_cnt_to_applied             ,
+						t1.pct_cnt_be_applied             ,
+						t1.pct_cnt_applied                ,
+						t1.create_time                    ,
+						t1.create_by                      ,
+						t1.modify_time                    ,
+						t1.modify_by                      
+					
+				from ext_wl_jxl_mg_cont_num_sta 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.userGridId != null and dto.userGridId != ''">
+						and t1.USER_GRID_ID =#{dto.userGridId}
+    			</if>
+    			<if test="dto.cntToAll != null and dto.cntToAll != ''">
+						and t1.CNT_TO_ALL =#{dto.cntToAll}
+    			</if>
+    			<if test="dto.cntBeAll != null and dto.cntBeAll != ''">
+						and t1.CNT_BE_ALL =#{dto.cntBeAll}
+    			</if>
+    			<if test="dto.cntAll != null and dto.cntAll != ''">
+						and t1.CNT_ALL =#{dto.cntAll}
+    			</if>
+    			<if test="dto.cntRouter != null and dto.cntRouter != ''">
+						and t1.CNT_ROUTER =#{dto.cntRouter}
+    			</if>
+    			<if test="dto.routerRatio != null and dto.routerRatio != ''">
+						and t1.ROUTER_RATIO =#{dto.routerRatio}
+    			</if>
+    			<if test="dto.cntToBlack != null and dto.cntToBlack != ''">
+						and t1.CNT_TO_BLACK =#{dto.cntToBlack}
+    			</if>
+    			<if test="dto.cntBeBlack != null and dto.cntBeBlack != ''">
+						and t1.CNT_BE_BLACK =#{dto.cntBeBlack}
+    			</if>
+    			<if test="dto.cntBlack != null and dto.cntBlack != ''">
+						and t1.CNT_BLACK =#{dto.cntBlack}
+    			</if>
+    			<if test="dto.blackRatio != null and dto.blackRatio != ''">
+						and t1.BLACK_RATIO =#{dto.blackRatio}
+    			</if>
+    			<if test="dto.cntBlack2 != null and dto.cntBlack2 != ''">
+						and t1.CNT_BLACK2 =#{dto.cntBlack2}
+    			</if>
+    			<if test="dto.cntToApplied != null and dto.cntToApplied != ''">
+						and t1.CNT_TO_APPLIED =#{dto.cntToApplied}
+    			</if>
+    			<if test="dto.cntBeApplied != null and dto.cntBeApplied != ''">
+						and t1.CNT_BE_APPLIED =#{dto.cntBeApplied}
+    			</if>
+    			<if test="dto.cntApplied != null and dto.cntApplied != ''">
+						and t1.CNT_APPLIED =#{dto.cntApplied}
+    			</if>
+    			<if test="dto.pctCntToAll != null and dto.pctCntToAll != ''">
+						and t1.PCT_CNT_TO_ALL =#{dto.pctCntToAll}
+    			</if>
+    			<if test="dto.pctCntBeAll != null and dto.pctCntBeAll != ''">
+						and t1.PCT_CNT_BE_ALL =#{dto.pctCntBeAll}
+    			</if>
+    			<if test="dto.pctCntAll != null and dto.pctCntAll != ''">
+						and t1.PCT_CNT_ALL =#{dto.pctCntAll}
+    			</if>
+    			<if test="dto.pctCntRouter != null and dto.pctCntRouter != ''">
+						and t1.PCT_CNT_ROUTER =#{dto.pctCntRouter}
+    			</if>
+    			<if test="dto.pctRouterRatio != null and dto.pctRouterRatio != ''">
+						and t1.PCT_ROUTER_RATIO =#{dto.pctRouterRatio}
+    			</if>
+    			<if test="dto.pctCntToBlack != null and dto.pctCntToBlack != ''">
+						and t1.PCT_CNT_TO_BLACK =#{dto.pctCntToBlack}
+    			</if>
+    			<if test="dto.pctCntBeBlack != null and dto.pctCntBeBlack != ''">
+						and t1.PCT_CNT_BE_BLACK =#{dto.pctCntBeBlack}
+    			</if>
+    			<if test="dto.pctCntBlack != null and dto.pctCntBlack != ''">
+						and t1.PCT_CNT_BLACK =#{dto.pctCntBlack}
+    			</if>
+    			<if test="dto.pctBlackRatio != null and dto.pctBlackRatio != ''">
+						and t1.PCT_BLACK_RATIO =#{dto.pctBlackRatio}
+    			</if>
+    			<if test="dto.pctCntBlack2 != null and dto.pctCntBlack2 != ''">
+						and t1.PCT_CNT_BLACK2 =#{dto.pctCntBlack2}
+    			</if>
+    			<if test="dto.pctCntToApplied != null and dto.pctCntToApplied != ''">
+						and t1.PCT_CNT_TO_APPLIED =#{dto.pctCntToApplied}
+    			</if>
+    			<if test="dto.pctCntBeApplied != null and dto.pctCntBeApplied != ''">
+						and t1.PCT_CNT_BE_APPLIED =#{dto.pctCntBeApplied}
+    			</if>
+    			<if test="dto.pctCntApplied != null and dto.pctCntApplied != ''">
+						and t1.PCT_CNT_APPLIED =#{dto.pctCntApplied}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY =#{dto.modifyBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_JXL_MG_CONT_NUM_STA  -->
+<select id="searchExtWlJxlMgContNumSta" parameterType="java.util.Map" resultMap="ExtWlJxlMgContNumStaDTO">
+    	     select 
+						t1.id                             ,
+						t1.user_grid_id                   ,
+						t1.cnt_to_all                     ,
+						t1.cnt_be_all                     ,
+						t1.cnt_all                        ,
+						t1.cnt_router                     ,
+						t1.router_ratio                   ,
+						t1.cnt_to_black                   ,
+						t1.cnt_be_black                   ,
+						t1.cnt_black                      ,
+						t1.black_ratio                    ,
+						t1.cnt_black2                     ,
+						t1.cnt_to_applied                 ,
+						t1.cnt_be_applied                 ,
+						t1.cnt_applied                    ,
+						t1.pct_cnt_to_all                 ,
+						t1.pct_cnt_be_all                 ,
+						t1.pct_cnt_all                    ,
+						t1.pct_cnt_router                 ,
+						t1.pct_router_ratio               ,
+						t1.pct_cnt_to_black               ,
+						t1.pct_cnt_be_black               ,
+						t1.pct_cnt_black                  ,
+						t1.pct_black_ratio                ,
+						t1.pct_cnt_black2                 ,
+						t1.pct_cnt_to_applied             ,
+						t1.pct_cnt_be_applied             ,
+						t1.pct_cnt_applied                ,
+						t1.create_time                    ,
+						t1.create_by                      ,
+						t1.modify_time                    ,
+						t1.modify_by                      
+				from ext_wl_jxl_mg_cont_num_sta 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.userGridId != null and dto.userGridId != ''">
+						and t1.USER_GRID_ID = #{dto.userGridId}
+    			</if>
+    			<if test="dto.cntToAll != null and dto.cntToAll != ''">
+						and t1.CNT_TO_ALL = #{dto.cntToAll}
+    			</if>
+    			<if test="dto.cntBeAll != null and dto.cntBeAll != ''">
+						and t1.CNT_BE_ALL = #{dto.cntBeAll}
+    			</if>
+    			<if test="dto.cntAll != null and dto.cntAll != ''">
+						and t1.CNT_ALL = #{dto.cntAll}
+    			</if>
+    			<if test="dto.cntRouter != null and dto.cntRouter != ''">
+						and t1.CNT_ROUTER = #{dto.cntRouter}
+    			</if>
+    			<if test="dto.routerRatio != null and dto.routerRatio != ''">
+						and t1.ROUTER_RATIO = #{dto.routerRatio}
+    			</if>
+    			<if test="dto.cntToBlack != null and dto.cntToBlack != ''">
+						and t1.CNT_TO_BLACK = #{dto.cntToBlack}
+    			</if>
+    			<if test="dto.cntBeBlack != null and dto.cntBeBlack != ''">
+						and t1.CNT_BE_BLACK = #{dto.cntBeBlack}
+    			</if>
+    			<if test="dto.cntBlack != null and dto.cntBlack != ''">
+						and t1.CNT_BLACK = #{dto.cntBlack}
+    			</if>
+    			<if test="dto.blackRatio != null and dto.blackRatio != ''">
+						and t1.BLACK_RATIO = #{dto.blackRatio}
+    			</if>
+    			<if test="dto.cntBlack2 != null and dto.cntBlack2 != ''">
+						and t1.CNT_BLACK2 = #{dto.cntBlack2}
+    			</if>
+    			<if test="dto.cntToApplied != null and dto.cntToApplied != ''">
+						and t1.CNT_TO_APPLIED = #{dto.cntToApplied}
+    			</if>
+    			<if test="dto.cntBeApplied != null and dto.cntBeApplied != ''">
+						and t1.CNT_BE_APPLIED = #{dto.cntBeApplied}
+    			</if>
+    			<if test="dto.cntApplied != null and dto.cntApplied != ''">
+						and t1.CNT_APPLIED = #{dto.cntApplied}
+    			</if>
+    			<if test="dto.pctCntToAll != null and dto.pctCntToAll != ''">
+						and t1.PCT_CNT_TO_ALL = #{dto.pctCntToAll}
+    			</if>
+    			<if test="dto.pctCntBeAll != null and dto.pctCntBeAll != ''">
+						and t1.PCT_CNT_BE_ALL = #{dto.pctCntBeAll}
+    			</if>
+    			<if test="dto.pctCntAll != null and dto.pctCntAll != ''">
+						and t1.PCT_CNT_ALL = #{dto.pctCntAll}
+    			</if>
+    			<if test="dto.pctCntRouter != null and dto.pctCntRouter != ''">
+						and t1.PCT_CNT_ROUTER = #{dto.pctCntRouter}
+    			</if>
+    			<if test="dto.pctRouterRatio != null and dto.pctRouterRatio != ''">
+						and t1.PCT_ROUTER_RATIO = #{dto.pctRouterRatio}
+    			</if>
+    			<if test="dto.pctCntToBlack != null and dto.pctCntToBlack != ''">
+						and t1.PCT_CNT_TO_BLACK = #{dto.pctCntToBlack}
+    			</if>
+    			<if test="dto.pctCntBeBlack != null and dto.pctCntBeBlack != ''">
+						and t1.PCT_CNT_BE_BLACK = #{dto.pctCntBeBlack}
+    			</if>
+    			<if test="dto.pctCntBlack != null and dto.pctCntBlack != ''">
+						and t1.PCT_CNT_BLACK = #{dto.pctCntBlack}
+    			</if>
+    			<if test="dto.pctBlackRatio != null and dto.pctBlackRatio != ''">
+						and t1.PCT_BLACK_RATIO = #{dto.pctBlackRatio}
+    			</if>
+    			<if test="dto.pctCntBlack2 != null and dto.pctCntBlack2 != ''">
+						and t1.PCT_CNT_BLACK2 = #{dto.pctCntBlack2}
+    			</if>
+    			<if test="dto.pctCntToApplied != null and dto.pctCntToApplied != ''">
+						and t1.PCT_CNT_TO_APPLIED = #{dto.pctCntToApplied}
+    			</if>
+    			<if test="dto.pctCntBeApplied != null and dto.pctCntBeApplied != ''">
+						and t1.PCT_CNT_BE_APPLIED = #{dto.pctCntBeApplied}
+    			</if>
+    			<if test="dto.pctCntApplied != null and dto.pctCntApplied != ''">
+						and t1.PCT_CNT_APPLIED = #{dto.pctCntApplied}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY = #{dto.modifyBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_JXL_MG_CONT_NUM_STA -->
+<select id="findExtWlJxlMgContNumStaByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlJxlMgContNumStaDTO">
+   	 		select 
+					t1.id                             ,
+					t1.user_grid_id                   ,
+					t1.cnt_to_all                     ,
+					t1.cnt_be_all                     ,
+					t1.cnt_all                        ,
+					t1.cnt_router                     ,
+					t1.router_ratio                   ,
+					t1.cnt_to_black                   ,
+					t1.cnt_be_black                   ,
+					t1.cnt_black                      ,
+					t1.black_ratio                    ,
+					t1.cnt_black2                     ,
+					t1.cnt_to_applied                 ,
+					t1.cnt_be_applied                 ,
+					t1.cnt_applied                    ,
+					t1.pct_cnt_to_all                 ,
+					t1.pct_cnt_be_all                 ,
+					t1.pct_cnt_all                    ,
+					t1.pct_cnt_router                 ,
+					t1.pct_router_ratio               ,
+					t1.pct_cnt_to_black               ,
+					t1.pct_cnt_be_black               ,
+					t1.pct_cnt_black                  ,
+					t1.pct_black_ratio                ,
+					t1.pct_cnt_black2                 ,
+					t1.pct_cnt_to_applied             ,
+					t1.pct_cnt_be_applied             ,
+					t1.pct_cnt_applied                ,
+					t1.create_time                    ,
+					t1.create_by                      ,
+					t1.modify_time                    ,
+					t1.modify_by                      
+			from ext_wl_jxl_mg_cont_num_sta 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_JXL_MG_CONT_NUM_STA -->
+<insert id="insertExtWlJxlMgContNumSta" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_JXL_MG_CONT_NUM_STA.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_jxl_mg_cont_num_sta
+			(   		
+					id                             ,
+					user_grid_id                   ,
+					cnt_to_all                     ,
+					cnt_be_all                     ,
+					cnt_all                        ,
+					cnt_router                     ,
+					router_ratio                   ,
+					cnt_to_black                   ,
+					cnt_be_black                   ,
+					cnt_black                      ,
+					black_ratio                    ,
+					cnt_black2                     ,
+					cnt_to_applied                 ,
+					cnt_be_applied                 ,
+					cnt_applied                    ,
+					pct_cnt_to_all                 ,
+					pct_cnt_be_all                 ,
+					pct_cnt_all                    ,
+					pct_cnt_router                 ,
+					pct_router_ratio               ,
+					pct_cnt_to_black               ,
+					pct_cnt_be_black               ,
+					pct_cnt_black                  ,
+					pct_black_ratio                ,
+					pct_cnt_black2                 ,
+					pct_cnt_to_applied             ,
+					pct_cnt_be_applied             ,
+					pct_cnt_applied                ,
+					create_time                    ,
+					create_by                      ,
+					modify_time                    ,
+					modify_by                      
+			)
+			values(#{dto.id}
+					,#{dto.userGridId,jdbcType=VARCHAR}
+					,#{dto.cntToAll,jdbcType=DECIMAL}
+					,#{dto.cntBeAll,jdbcType=DECIMAL}
+					,#{dto.cntAll,jdbcType=DECIMAL}
+					,#{dto.cntRouter,jdbcType=DECIMAL}
+					,#{dto.routerRatio,jdbcType=DECIMAL}
+					,#{dto.cntToBlack,jdbcType=DECIMAL}
+					,#{dto.cntBeBlack,jdbcType=DECIMAL}
+					,#{dto.cntBlack,jdbcType=DECIMAL}
+					,#{dto.blackRatio,jdbcType=DECIMAL}
+					,#{dto.cntBlack2,jdbcType=DECIMAL}
+					,#{dto.cntToApplied,jdbcType=DECIMAL}
+					,#{dto.cntBeApplied,jdbcType=DECIMAL}
+					,#{dto.cntApplied,jdbcType=DECIMAL}
+					,#{dto.pctCntToAll,jdbcType=DECIMAL}
+					,#{dto.pctCntBeAll,jdbcType=DECIMAL}
+					,#{dto.pctCntAll,jdbcType=DECIMAL}
+					,#{dto.pctCntRouter,jdbcType=DECIMAL}
+					,#{dto.pctRouterRatio,jdbcType=DECIMAL}
+					,#{dto.pctCntToBlack,jdbcType=DECIMAL}
+					,#{dto.pctCntBeBlack,jdbcType=DECIMAL}
+					,#{dto.pctCntBlack,jdbcType=DECIMAL}
+					,#{dto.pctBlackRatio,jdbcType=DECIMAL}
+					,#{dto.pctCntBlack2,jdbcType=DECIMAL}
+					,#{dto.pctCntToApplied,jdbcType=DECIMAL}
+					,#{dto.pctCntBeApplied,jdbcType=DECIMAL}
+					,#{dto.pctCntApplied,jdbcType=DECIMAL}
+					,systimestamp
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,#{dto.modifyBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_JXL_MG_CONT_NUM_STA -->
+<update id="updateExtWlJxlMgContNumSta" parameterType="java.util.Map">
+	     update ext_wl_jxl_mg_cont_num_sta t1
+	           set 
+			           t1.user_grid_id                   =#{dto.userGridId,jdbcType=VARCHAR},
+			           t1.cnt_to_all                     =#{dto.cntToAll,jdbcType=DECIMAL},
+			           t1.cnt_be_all                     =#{dto.cntBeAll,jdbcType=DECIMAL},
+			           t1.cnt_all                        =#{dto.cntAll,jdbcType=DECIMAL},
+			           t1.cnt_router                     =#{dto.cntRouter,jdbcType=DECIMAL},
+			           t1.router_ratio                   =#{dto.routerRatio,jdbcType=DECIMAL},
+			           t1.cnt_to_black                   =#{dto.cntToBlack,jdbcType=DECIMAL},
+			           t1.cnt_be_black                   =#{dto.cntBeBlack,jdbcType=DECIMAL},
+			           t1.cnt_black                      =#{dto.cntBlack,jdbcType=DECIMAL},
+			           t1.black_ratio                    =#{dto.blackRatio,jdbcType=DECIMAL},
+			           t1.cnt_black2                     =#{dto.cntBlack2,jdbcType=DECIMAL},
+			           t1.cnt_to_applied                 =#{dto.cntToApplied,jdbcType=DECIMAL},
+			           t1.cnt_be_applied                 =#{dto.cntBeApplied,jdbcType=DECIMAL},
+			           t1.cnt_applied                    =#{dto.cntApplied,jdbcType=DECIMAL},
+			           t1.pct_cnt_to_all                 =#{dto.pctCntToAll,jdbcType=DECIMAL},
+			           t1.pct_cnt_be_all                 =#{dto.pctCntBeAll,jdbcType=DECIMAL},
+			           t1.pct_cnt_all                    =#{dto.pctCntAll,jdbcType=DECIMAL},
+			           t1.pct_cnt_router                 =#{dto.pctCntRouter,jdbcType=DECIMAL},
+			           t1.pct_router_ratio               =#{dto.pctRouterRatio,jdbcType=DECIMAL},
+			           t1.pct_cnt_to_black               =#{dto.pctCntToBlack,jdbcType=DECIMAL},
+			           t1.pct_cnt_be_black               =#{dto.pctCntBeBlack,jdbcType=DECIMAL},
+			           t1.pct_cnt_black                  =#{dto.pctCntBlack,jdbcType=DECIMAL},
+			           t1.pct_black_ratio                =#{dto.pctBlackRatio,jdbcType=DECIMAL},
+			           t1.pct_cnt_black2                 =#{dto.pctCntBlack2,jdbcType=DECIMAL},
+			           t1.pct_cnt_to_applied             =#{dto.pctCntToApplied,jdbcType=DECIMAL},
+			           t1.pct_cnt_be_applied             =#{dto.pctCntBeApplied,jdbcType=DECIMAL},
+			           t1.pct_cnt_applied                =#{dto.pctCntApplied,jdbcType=DECIMAL},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP},
+			           t1.modify_by                      =#{dto.modifyBy,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_JXL_MG_CONT_NUM_STA -->
+<delete id="deleteExtWlJxlMgContNumStaByID" parameterType="java.util.Map">
+    	delete from ext_wl_jxl_mg_cont_num_sta t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_JXL_MG_CONT_NUM_STA -->
+<update id="deleteExtWlJxlMgContNumStaByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_jxl_mg_cont_num_sta t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.td.exttdblackhitrules.dao.ExtTdBlackHitRulesDao">
+<resultMap id="ExtTdBlackHitRulesDTO" type="com.jy.modules.externalplatform.interfacerepository.td.exttdblackhitrules.dto.ExtTdBlackHitRulesDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="fkTdBlackResultId" column="FK_TD_BLACK_RESULT_ID" jdbcType="DECIMAL" />
+				<result property="ruleId" column="RULE_ID" jdbcType="VARCHAR" />
+				<result property="ruleName" column="RULE_NAME" jdbcType="VARCHAR" />
+				<result property="ruleDecision" column="RULE_DECISION" jdbcType="VARCHAR" />
+				<result property="ruleScore" column="RULE_SCORE" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 EXT_td_black_hit_rules -->	
+<select id="searchExtTdBlackHitRulesByPaging" parameterType="java.util.Map" resultMap="ExtTdBlackHitRulesDTO">
+    	 		select 
+						t1.id                             ,
+						t1.fk_td_black_result_id          ,
+						t1.rule_id                        ,
+						t1.rule_name                      ,
+						t1.rule_decision                  ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.rule_score                     
+					
+				from ext_td_black_hit_rules 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.fkTdBlackResultId != null and dto.fkTdBlackResultId != ''">
+						and t1.FK_TD_BLACK_RESULT_ID =#{dto.fkTdBlackResultId}
+    			</if>
+    			<if test="dto.ruleId != null and dto.ruleId != ''">
+						and t1.RULE_ID =#{dto.ruleId}
+    			</if>
+    			<if test="dto.ruleName != null and dto.ruleName != ''">
+						and t1.RULE_NAME =#{dto.ruleName}
+    			</if>
+    			<if test="dto.ruleDecision != null and dto.ruleDecision != ''">
+						and t1.RULE_DECISION =#{dto.ruleDecision}
+    			</if>
+    			<if test="dto.ruleScore != null and dto.ruleScore != ''">
+						and t1.RULE_SCORE =#{dto.ruleScore}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_td_black_hit_rules  -->
+<select id="searchExtTdBlackHitRules" parameterType="java.util.Map" resultMap="ExtTdBlackHitRulesDTO">
+    	     select 
+						t1.id                             ,
+						t1.fk_td_black_result_id          ,
+						t1.rule_id                        ,
+						t1.rule_name                      ,
+						t1.rule_decision                  ,
+						t1.create_time                    ,
+						t1.modify_time                    ,
+						t1.rule_score                     
+				from ext_td_black_hit_rules 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.fkTdBlackResultId != null and dto.fkTdBlackResultId != ''">
+						and t1.FK_TD_BLACK_RESULT_ID = #{dto.fkTdBlackResultId}
+    			</if>
+    			<if test="dto.ruleId != null and dto.ruleId != ''">
+						and t1.RULE_ID = #{dto.ruleId}
+    			</if>
+    			<if test="dto.ruleName != null and dto.ruleName != ''">
+						and t1.RULE_NAME = #{dto.ruleName}
+    			</if>
+    			<if test="dto.ruleDecision != null and dto.ruleDecision != ''">
+						and t1.RULE_DECISION = #{dto.ruleDecision}
+    			</if>
+    			<if test="dto.ruleScore != null and dto.ruleScore != ''">
+						and t1.RULE_SCORE = #{dto.ruleScore}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_td_black_hit_rules -->
+<select id="findExtTdBlackHitRulesByPrimaryKey" parameterType="java.util.Map" resultMap="ExtTdBlackHitRulesDTO">
+   	 		select 
+					t1.id                             ,
+					t1.fk_td_black_result_id          ,
+					t1.rule_id                        ,
+					t1.rule_name                      ,
+					t1.rule_decision                  ,
+					t1.create_time                    ,
+					t1.modify_time                    ,
+					t1.rule_score                     
+			from ext_td_black_hit_rules 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_td_black_hit_rules -->
+<insert id="insertExtTdBlackHitRules" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_td_black_hit_rules.nextval as id from dual
+	</selectKey>
+			insert into ext_td_black_hit_rules
+			(   		
+					id                             ,
+					fk_td_black_result_id          ,
+					rule_id                        ,
+					rule_name                      ,
+					rule_decision                  ,
+					create_time                    ,
+					rule_score                     
+			)
+			values(#{dto.id}
+					,#{dto.fkTdBlackResultId,jdbcType=DECIMAL}
+					,#{dto.ruleId,jdbcType=VARCHAR}
+					,#{dto.ruleName,jdbcType=VARCHAR}
+					,#{dto.ruleDecision,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.ruleScore,jdbcType=VARCHAR}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_td_black_hit_rules -->
+<update id="updateExtTdBlackHitRules" parameterType="java.util.Map">
+	     update ext_td_black_hit_rules t1
+	           set 
+			           t1.fk_td_black_result_id          =#{dto.fkTdBlackResultId,jdbcType=DECIMAL},
+			           t1.rule_id                        =#{dto.ruleId,jdbcType=VARCHAR},
+			           t1.rule_name                      =#{dto.ruleName,jdbcType=VARCHAR},
+			           t1.rule_decision                  =#{dto.ruleDecision,jdbcType=VARCHAR},
+					   t1.modify_time                    =systimestamp,
+			           t1.rule_score                     =#{dto.ruleScore,jdbcType=VARCHAR}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_td_black_hit_rules -->
+<delete id="deleteExtTdBlackHitRulesByID" parameterType="java.util.Map">
+    	delete from ext_td_black_hit_rules t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_td_black_hit_rules -->
+<update id="deleteExtTdBlackHitRulesByPrimaryKey" parameterType="java.util.Map">
+	     update ext_td_black_hit_rules t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+
+<!-- 新增对象 Ext_TD_BLACK_HIT_RULES -->
+<insert id="batchInsertExtTdBlackHitRules" parameterType="java.util.Map">
+begin
+	<foreach collection="dataList" item="dto" index="index">
+			insert into ext_td_black_hit_rules
+			(   		
+					id                             ,
+					fk_td_black_result_id          ,
+					rule_id                        ,
+					rule_name                      ,
+					rule_decision                  ,
+					create_time                    ,
+					rule_score                     
+			)
+			values(seq_EXT_TD_BLACK_HIT_RULES.nextval
+					,#{fkTdBlackResultId}
+					,#{dto.ruleId,jdbcType=VARCHAR}
+					,#{dto.ruleName,jdbcType=VARCHAR}
+					,#{dto.ruleDecision,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.ruleScore,jdbcType=VARCHAR}
+			);
+	</foreach>
+end;	
+</insert>
+</mapper>

@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.suanhuazx.extwlshpersonoverd.dao.ExtWlShPersonOverdDao">
+<resultMap id="ExtWlShPersonOverdDTO" type="com.jy.modules.externalplatform.interfacerepository.suanhuazx.extwlshpersonoverd.dto.ExtWlShPersonOverdDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="creditOrgCounts" column="CREDIT_ORG_COUNTS" jdbcType="VARCHAR" />
+				<result property="creditAmts" column="CREDIT_AMTS" jdbcType="VARCHAR" />
+				<result property="creditOrgCounts200" column="CREDIT_ORG_COUNTS200" jdbcType="VARCHAR" />
+				<result property="creditAmts200" column="CREDIT_AMTS_200" jdbcType="VARCHAR" />
+				<result property="creditCountsM60" column="CREDIT_COUNTS_M60" jdbcType="VARCHAR" />
+				<result property="creditCountsM60D90" column="CREDIT_COUNTS_M60D90" jdbcType="VARCHAR" />
+				<result property="loanCounts" column="LOAN_COUNTS" jdbcType="VARCHAR" />
+				<result property="loanAmts" column="LOAN_AMTS" jdbcType="VARCHAR" />
+				<result property="loanCountsM60" column="LOAN_COUNTS_M60" jdbcType="VARCHAR" />
+				<result property="loanCountsM60D90" column="LOAN_COUNTS_M60D90" jdbcType="VARCHAR" />
+				<result property="countsM60" column="COUNTS_M60" jdbcType="VARCHAR" />
+				<result property="countsM60D90" column="COUNTS_M60D90" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="fkPersonalReportId" column="FK_PERSONAL_REPORT_ID" jdbcType="DECIMAL" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="validateState" column="VALIDATE_STATE" jdbcType="VARCHAR" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="updateBy" column="UPDATE_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_SH_PERSON_OVERD -->	
+<select id="searchExtWlShPersonOverdByPaging" parameterType="java.util.Map" resultMap="ExtWlShPersonOverdDTO">
+    	 		select 
+						t1.id                             ,
+						t1.credit_org_counts              ,
+						t1.credit_amts                    ,
+						t1.credit_org_counts200           ,
+						t1.credit_amts_200                ,
+						t1.credit_counts_m60              ,
+						t1.credit_counts_m60d90           ,
+						t1.loan_counts                    ,
+						t1.loan_amts                      ,
+						t1.loan_counts_m60                ,
+						t1.loan_counts_m60d90             ,
+						t1.counts_m60                     ,
+						t1.counts_m60d90                  ,
+						t1.create_time                    ,
+						t1.fk_personal_report_id          ,
+						t1.modify_time                    ,
+						t1.validate_state                 ,
+						t1.create_by                      ,
+						t1.update_by                      
+					
+				from ext_wl_sh_person_overd 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.creditOrgCounts != null and dto.creditOrgCounts != ''">
+						and t1.CREDIT_ORG_COUNTS =#{dto.creditOrgCounts}
+    			</if>
+    			<if test="dto.creditAmts != null and dto.creditAmts != ''">
+						and t1.CREDIT_AMTS =#{dto.creditAmts}
+    			</if>
+    			<if test="dto.creditOrgCounts200 != null and dto.creditOrgCounts200 != ''">
+						and t1.CREDIT_ORG_COUNTS200 =#{dto.creditOrgCounts200}
+    			</if>
+    			<if test="dto.creditAmts200 != null and dto.creditAmts200 != ''">
+						and t1.CREDIT_AMTS_200 =#{dto.creditAmts200}
+    			</if>
+    			<if test="dto.creditCountsM60 != null and dto.creditCountsM60 != ''">
+						and t1.CREDIT_COUNTS_M60 =#{dto.creditCountsM60}
+    			</if>
+    			<if test="dto.creditCountsM60D90 != null and dto.creditCountsM60D90 != ''">
+						and t1.CREDIT_COUNTS_M60D90 =#{dto.creditCountsM60D90}
+    			</if>
+    			<if test="dto.loanCounts != null and dto.loanCounts != ''">
+						and t1.LOAN_COUNTS =#{dto.loanCounts}
+    			</if>
+    			<if test="dto.loanAmts != null and dto.loanAmts != ''">
+						and t1.LOAN_AMTS =#{dto.loanAmts}
+    			</if>
+    			<if test="dto.loanCountsM60 != null and dto.loanCountsM60 != ''">
+						and t1.LOAN_COUNTS_M60 =#{dto.loanCountsM60}
+    			</if>
+    			<if test="dto.loanCountsM60D90 != null and dto.loanCountsM60D90 != ''">
+						and t1.LOAN_COUNTS_M60D90 =#{dto.loanCountsM60D90}
+    			</if>
+    			<if test="dto.countsM60 != null and dto.countsM60 != ''">
+						and t1.COUNTS_M60 =#{dto.countsM60}
+    			</if>
+    			<if test="dto.countsM60D90 != null and dto.countsM60D90 != ''">
+						and t1.COUNTS_M60D90 =#{dto.countsM60D90}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.fkPersonalReportId != null and dto.fkPersonalReportId != ''">
+						and t1.FK_PERSONAL_REPORT_ID =#{dto.fkPersonalReportId}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE =#{dto.validateState}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY =#{dto.updateBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_SH_PERSON_OVERD  -->
+<select id="searchExtWlShPersonOverd" parameterType="java.util.Map" resultMap="ExtWlShPersonOverdDTO">
+    	     select 
+						t1.id                             ,
+						t1.credit_org_counts              ,
+						t1.credit_amts                    ,
+						t1.credit_org_counts200           ,
+						t1.credit_amts_200                ,
+						t1.credit_counts_m60              ,
+						t1.credit_counts_m60d90           ,
+						t1.loan_counts                    ,
+						t1.loan_amts                      ,
+						t1.loan_counts_m60                ,
+						t1.loan_counts_m60d90             ,
+						t1.counts_m60                     ,
+						t1.counts_m60d90                  ,
+						t1.create_time                    ,
+						t1.fk_personal_report_id          ,
+						t1.modify_time                    ,
+						t1.validate_state                 ,
+						t1.create_by                      ,
+						t1.update_by                      
+				from ext_wl_sh_person_overd 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.creditOrgCounts != null and dto.creditOrgCounts != ''">
+						and t1.CREDIT_ORG_COUNTS = #{dto.creditOrgCounts}
+    			</if>
+    			<if test="dto.creditAmts != null and dto.creditAmts != ''">
+						and t1.CREDIT_AMTS = #{dto.creditAmts}
+    			</if>
+    			<if test="dto.creditOrgCounts200 != null and dto.creditOrgCounts200 != ''">
+						and t1.CREDIT_ORG_COUNTS200 = #{dto.creditOrgCounts200}
+    			</if>
+    			<if test="dto.creditAmts200 != null and dto.creditAmts200 != ''">
+						and t1.CREDIT_AMTS_200 = #{dto.creditAmts200}
+    			</if>
+    			<if test="dto.creditCountsM60 != null and dto.creditCountsM60 != ''">
+						and t1.CREDIT_COUNTS_M60 = #{dto.creditCountsM60}
+    			</if>
+    			<if test="dto.creditCountsM60D90 != null and dto.creditCountsM60D90 != ''">
+						and t1.CREDIT_COUNTS_M60D90 = #{dto.creditCountsM60D90}
+    			</if>
+    			<if test="dto.loanCounts != null and dto.loanCounts != ''">
+						and t1.LOAN_COUNTS = #{dto.loanCounts}
+    			</if>
+    			<if test="dto.loanAmts != null and dto.loanAmts != ''">
+						and t1.LOAN_AMTS = #{dto.loanAmts}
+    			</if>
+    			<if test="dto.loanCountsM60 != null and dto.loanCountsM60 != ''">
+						and t1.LOAN_COUNTS_M60 = #{dto.loanCountsM60}
+    			</if>
+    			<if test="dto.loanCountsM60D90 != null and dto.loanCountsM60D90 != ''">
+						and t1.LOAN_COUNTS_M60D90 = #{dto.loanCountsM60D90}
+    			</if>
+    			<if test="dto.countsM60 != null and dto.countsM60 != ''">
+						and t1.COUNTS_M60 = #{dto.countsM60}
+    			</if>
+    			<if test="dto.countsM60D90 != null and dto.countsM60D90 != ''">
+						and t1.COUNTS_M60D90 = #{dto.countsM60D90}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.fkPersonalReportId != null and dto.fkPersonalReportId != ''">
+						and t1.FK_PERSONAL_REPORT_ID = #{dto.fkPersonalReportId}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE = #{dto.validateState}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY = #{dto.updateBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_SH_PERSON_OVERD -->
+<select id="findExtWlShPersonOverdByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlShPersonOverdDTO">
+   	 		select 
+					t1.id                             ,
+					t1.credit_org_counts              ,
+					t1.credit_amts                    ,
+					t1.credit_org_counts200           ,
+					t1.credit_amts_200                ,
+					t1.credit_counts_m60              ,
+					t1.credit_counts_m60d90           ,
+					t1.loan_counts                    ,
+					t1.loan_amts                      ,
+					t1.loan_counts_m60                ,
+					t1.loan_counts_m60d90             ,
+					t1.counts_m60                     ,
+					t1.counts_m60d90                  ,
+					t1.create_time                    ,
+					t1.fk_personal_report_id          ,
+					t1.modify_time                    ,
+					t1.validate_state                 ,
+					t1.create_by                      ,
+					t1.update_by                      
+			from ext_wl_sh_person_overd 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_SH_PERSON_OVERD -->
+<insert id="insertExtWlShPersonOverd" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_SH_PERSON_OVERD.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_sh_person_overd
+			(   		
+					id                             ,
+					credit_org_counts              ,
+					credit_amts                    ,
+					credit_org_counts200           ,
+					credit_amts_200                ,
+					credit_counts_m60              ,
+					credit_counts_m60d90           ,
+					loan_counts                    ,
+					loan_amts                      ,
+					loan_counts_m60                ,
+					loan_counts_m60d90             ,
+					counts_m60                     ,
+					counts_m60d90                  ,
+					create_time                    ,
+					fk_personal_report_id          ,
+					modify_time                    ,
+					validate_state                 ,
+					create_by                      ,
+					update_by                      
+			)
+			values(#{dto.id}
+					,#{dto.creditOrgCounts,jdbcType=VARCHAR}
+					,#{dto.creditAmts,jdbcType=VARCHAR}
+					,#{dto.creditOrgCounts200,jdbcType=VARCHAR}
+					,#{dto.creditAmts200,jdbcType=VARCHAR}
+					,#{dto.creditCountsM60,jdbcType=VARCHAR}
+					,#{dto.creditCountsM60D90,jdbcType=VARCHAR}
+					,#{dto.loanCounts,jdbcType=VARCHAR}
+					,#{dto.loanAmts,jdbcType=VARCHAR}
+					,#{dto.loanCountsM60,jdbcType=VARCHAR}
+					,#{dto.loanCountsM60D90,jdbcType=VARCHAR}
+					,#{dto.countsM60,jdbcType=VARCHAR}
+					,#{dto.countsM60D90,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.fkPersonalReportId,jdbcType=DECIMAL}
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,'1'
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.updateBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_SH_PERSON_OVERD -->
+<update id="updateExtWlShPersonOverd" parameterType="java.util.Map">
+	     update ext_wl_sh_person_overd t1
+	           set 
+			           t1.credit_org_counts              =#{dto.creditOrgCounts,jdbcType=VARCHAR},
+			           t1.credit_amts                    =#{dto.creditAmts,jdbcType=VARCHAR},
+			           t1.credit_org_counts200           =#{dto.creditOrgCounts200,jdbcType=VARCHAR},
+			           t1.credit_amts_200                =#{dto.creditAmts200,jdbcType=VARCHAR},
+			           t1.credit_counts_m60              =#{dto.creditCountsM60,jdbcType=VARCHAR},
+			           t1.credit_counts_m60d90           =#{dto.creditCountsM60D90,jdbcType=VARCHAR},
+			           t1.loan_counts                    =#{dto.loanCounts,jdbcType=VARCHAR},
+			           t1.loan_amts                      =#{dto.loanAmts,jdbcType=VARCHAR},
+			           t1.loan_counts_m60                =#{dto.loanCountsM60,jdbcType=VARCHAR},
+			           t1.loan_counts_m60d90             =#{dto.loanCountsM60D90,jdbcType=VARCHAR},
+			           t1.counts_m60                     =#{dto.countsM60,jdbcType=VARCHAR},
+			           t1.counts_m60d90                  =#{dto.countsM60D90,jdbcType=VARCHAR},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.fk_personal_report_id          =#{dto.fkPersonalReportId,jdbcType=DECIMAL},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP},
+			           t1.validate_state                 ='1',
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.update_by                      =#{dto.updateBy,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_SH_PERSON_OVERD -->
+<delete id="deleteExtWlShPersonOverdByID" parameterType="java.util.Map">
+    	delete from ext_wl_sh_person_overd t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_SH_PERSON_OVERD -->
+<update id="deleteExtWlShPersonOverdByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_sh_person_overd t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

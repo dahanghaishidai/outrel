@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.mg.extwljxlmguserblacklist.dao.ExtWlJxlMgUserBlacklistDao">
+<resultMap id="ExtWlJxlMgUserBlacklistDTO" type="com.jy.modules.externalplatform.interfacerepository.mg.extwljxlmguserblacklist.dto.ExtWlJxlMgUserBlacklistDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="userGridId" column="USER_GRID_ID" jdbcType="VARCHAR" />
+				<result property="blacklistNameWithPhone" column="BLACKLIST_NAME_WITH_PHONE" jdbcType="VARCHAR" />
+				<result property="blacklistNameWithIdcard" column="BLACKLIST_NAME_WITH_IDCARD" jdbcType="VARCHAR" />
+				<result property="blacklistCategoryStr" column="BLACKLIST_CATEGORY" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyBy" column="MODIFY_BY" jdbcType="DECIMAL" />
+				<result property="updateTimeNamePhone" column="UPDATE_TIME_NAME_PHONE" jdbcType="VARCHAR" />
+				<result property="updateTimeNameIdcard" column="UPDATE_TIME_NAME_IDCARD" jdbcType="VARCHAR" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_JXL_MG_USER_BLACKLIST -->	
+<select id="searchExtWlJxlMgUserBlacklistByPaging" parameterType="java.util.Map" resultMap="ExtWlJxlMgUserBlacklistDTO">
+    	 		select 
+						t1.id                             ,
+						t1.user_grid_id                   ,
+						t1.blacklist_name_with_phone      ,
+						t1.blacklist_name_with_idcard     ,
+						t1.blacklist_category             ,
+						t1.create_time                    ,
+						t1.create_by                      ,
+						t1.modify_time                    ,
+						t1.modify_by                      ,
+						t1.update_time_name_phone         ,
+						t1.update_time_name_idcard        
+					
+				from ext_wl_jxl_mg_user_blacklist 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.userGridId != null and dto.userGridId != ''">
+						and t1.USER_GRID_ID =#{dto.userGridId}
+    			</if>
+    			<if test="dto.blacklistNameWithPhone != null and dto.blacklistNameWithPhone != ''">
+						and t1.BLACKLIST_NAME_WITH_PHONE =#{dto.blacklistNameWithPhone}
+    			</if>
+    			<if test="dto.blacklistNameWithIdcard != null and dto.blacklistNameWithIdcard != ''">
+						and t1.BLACKLIST_NAME_WITH_IDCARD =#{dto.blacklistNameWithIdcard}
+    			</if>
+    			<if test="dto.blacklistCategory != null and dto.blacklistCategory != ''">
+						and t1.BLACKLIST_CATEGORY =#{dto.blacklistCategory}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY =#{dto.modifyBy}
+    			</if>
+    			<if test="dto.updateTimeNamePhone != null and dto.updateTimeNamePhone != ''">
+						and t1.UPDATE_TIME_NAME_PHONE =#{dto.updateTimeNamePhone}
+    			</if>
+    			<if test="dto.updateTimeNameIdcard != null and dto.updateTimeNameIdcard != ''">
+						and t1.UPDATE_TIME_NAME_IDCARD =#{dto.updateTimeNameIdcard}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_JXL_MG_USER_BLACKLIST  -->
+<select id="searchExtWlJxlMgUserBlacklist" parameterType="java.util.Map" resultMap="ExtWlJxlMgUserBlacklistDTO">
+    	     select 
+						t1.id                             ,
+						t1.user_grid_id                   ,
+						t1.blacklist_name_with_phone      ,
+						t1.blacklist_name_with_idcard     ,
+						t1.blacklist_category             ,
+						t1.create_time                    ,
+						t1.create_by                      ,
+						t1.modify_time                    ,
+						t1.modify_by                      ,
+						t1.update_time_name_phone         ,
+						t1.update_time_name_idcard        
+				from ext_wl_jxl_mg_user_blacklist 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.userGridId != null and dto.userGridId != ''">
+						and t1.USER_GRID_ID = #{dto.userGridId}
+    			</if>
+    			<if test="dto.blacklistNameWithPhone != null and dto.blacklistNameWithPhone != ''">
+						and t1.BLACKLIST_NAME_WITH_PHONE = #{dto.blacklistNameWithPhone}
+    			</if>
+    			<if test="dto.blacklistNameWithIdcard != null and dto.blacklistNameWithIdcard != ''">
+						and t1.BLACKLIST_NAME_WITH_IDCARD = #{dto.blacklistNameWithIdcard}
+    			</if>
+    			<if test="dto.blacklistCategory != null and dto.blacklistCategory != ''">
+						and t1.BLACKLIST_CATEGORY = #{dto.blacklistCategory}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.modifyBy != null and dto.modifyBy != ''">
+						and t1.MODIFY_BY = #{dto.modifyBy}
+    			</if>
+    			<if test="dto.updateTimeNamePhone != null and dto.updateTimeNamePhone != ''">
+						and t1.UPDATE_TIME_NAME_PHONE = #{dto.updateTimeNamePhone}
+    			</if>
+    			<if test="dto.updateTimeNameIdcard != null and dto.updateTimeNameIdcard != ''">
+						and t1.UPDATE_TIME_NAME_IDCARD = #{dto.updateTimeNameIdcard}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_JXL_MG_USER_BLACKLIST -->
+<select id="findExtWlJxlMgUserBlacklistByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlJxlMgUserBlacklistDTO">
+   	 		select 
+					t1.id                             ,
+					t1.user_grid_id                   ,
+					t1.blacklist_name_with_phone      ,
+					t1.blacklist_name_with_idcard     ,
+					t1.blacklist_category             ,
+					t1.create_time                    ,
+					t1.create_by                      ,
+					t1.modify_time                    ,
+					t1.modify_by                      ,
+					t1.update_time_name_phone         ,
+					t1.update_time_name_idcard        
+			from ext_wl_jxl_mg_user_blacklist 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_JXL_MG_USER_BLACKLIST -->
+<insert id="insertExtWlJxlMgUserBlacklist" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_JXL_MG_USR_BLLIST.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_jxl_mg_user_blacklist
+			(   		
+					id                             ,
+					user_grid_id                   ,
+					blacklist_name_with_phone      ,
+					blacklist_name_with_idcard     ,
+					blacklist_category             ,
+					create_time                    ,
+					create_by                      ,
+					modify_time                    ,
+					modify_by                      ,
+					update_time_name_phone         ,
+					update_time_name_idcard        
+			)
+			values(#{dto.id}
+					,#{dto.userGridId,jdbcType=VARCHAR}
+					,#{dto.blacklistNameWithPhone,jdbcType=VARCHAR}
+					,#{dto.blacklistNameWithIdcard,jdbcType=VARCHAR}
+					,#{dto.blacklistCategoryStr,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,#{dto.modifyBy,jdbcType=DECIMAL}
+					,#{dto.updateTimeNamePhone,jdbcType=VARCHAR}
+					,#{dto.updateTimeNameIdcard,jdbcType=VARCHAR}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_JXL_MG_USER_BLACKLIST -->
+<update id="updateExtWlJxlMgUserBlacklist" parameterType="java.util.Map">
+	     update ext_wl_jxl_mg_user_blacklist t1
+	           set 
+			           t1.user_grid_id                   =#{dto.userGridId,jdbcType=VARCHAR},
+			           t1.blacklist_name_with_phone      =#{dto.blacklistNameWithPhone,jdbcType=VARCHAR},
+			           t1.blacklist_name_with_idcard     =#{dto.blacklistNameWithIdcard,jdbcType=VARCHAR},
+			           t1.blacklist_category             =#{dto.blacklistCategory,jdbcType=VARCHAR},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP},
+			           t1.modify_by                      =#{dto.modifyBy,jdbcType=DECIMAL},
+			           t1.update_time_name_phone         =#{dto.updateTimeNamePhone,jdbcType=VARCHAR},
+			           t1.update_time_name_idcard        =#{dto.updateTimeNameIdcard,jdbcType=VARCHAR}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_JXL_MG_USER_BLACKLIST -->
+<delete id="deleteExtWlJxlMgUserBlacklistByID" parameterType="java.util.Map">
+    	delete from ext_wl_jxl_mg_user_blacklist t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_JXL_MG_USER_BLACKLIST -->
+<update id="deleteExtWlJxlMgUserBlacklistByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_jxl_mg_user_blacklist t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

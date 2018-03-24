@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.yszx.extyszxhdinfo.dao.ExtHdMgBaseInfoDao">
+	<resultMap id="extHdCreditInfoDTO" type="com.jy.modules.externalplatform.interfacerepository.yszx.extyszxhdinfo.dto.ExtHdCreditInfoDTO">
+		<result property="id" column="ID" jdbcType="DECIMAL" />
+		<result property="intoAppId" column="into_app_id" jdbcType="VARCHAR" />
+		<result property="intoCustRefId" column="into_cust_ref_id" jdbcType="VARCHAR" />
+		<result property="registerNum" column="register_num" jdbcType="VARCHAR" />
+		<result property="loannum" column="loan_num" jdbcType="VARCHAR" />
+		<result property="resultnum" column="result_num" jdbcType="VARCHAR" />
+		<result property="passes" column="passes_num" jdbcType="VARCHAR" />
+		<result property="rejected" column="register_num" jdbcType="VARCHAR" />
+		<result property="loanlendersnum" column="loan_lenders_num" jdbcType="VARCHAR" />
+		<result property="loanrejectionnum" column="loan_rejection_num" jdbcType="VARCHAR" />
+		<result property="counts" column="counts_num" jdbcType="VARCHAR" />
+		<result property="money" column="money" jdbcType="VARCHAR" />
+		<result column="LOAN_PLANT_DETAIL" property="loanPlantDetail" jdbcType="VARCHAR" />
+		<result column="LOAN_APPLY_DETAIL" property="loanApplyDetail" jdbcType="VARCHAR" />
+		<result column="LOAN_GRANT_DETAIL" property="loanGrantDetail" jdbcType="VARCHAR" />
+		<result column="LOAN_REGECT_DETAIL" property="loanRegectDetail" jdbcType="VARCHAR" />
+		<result column="LOAN_OVERDUE_DETAIL" property="loanOverdueDetail" jdbcType="VARCHAR" />
+		<result column="LOAN_DEBAT_DETAIL" property="loanDebatDetail" jdbcType="VARCHAR" />
+		<result property="validateState" column="validate_state" jdbcType="VARCHAR" />
+		<result property="createTime" column="create_time" jdbcType="TIMESTAMP" />
+		<result property="modifyTime" column="modify_time" jdbcType="TIMESTAMP" />
+		<result property="createBy" column="create_by" jdbcType="VARCHAR" />
+		<result property="modifyBy" column="modify_by" jdbcType="VARCHAR" />
+	</resultMap>
+	<resultMap id="extHdPhoneBckLisDTO" type="com.jy.modules.externalplatform.interfacerepository.yszx.extyszxhdinfo.dto.ExtHdPhoneBckLisDTO">
+		<result property="id" column="ID" jdbcType="DECIMAL" />
+		<result property="intoCustRefId" column="into_cust_ref_id" jdbcType="VARCHAR" />
+		<result property="code" column="CODE" jdbcType="VARCHAR" />
+		<result property="isBlack" column="IS_BLACK" jdbcType="VARCHAR" />
+		<result property="remark" column="IS_REMARK" jdbcType="VARCHAR" />
+		<result property="validateState" column="validate_state" jdbcType="VARCHAR" />
+		<result property="createTime" column="create_time" jdbcType="TIMESTAMP" />
+		<result property="modifyTime" column="modify_time" jdbcType="TIMESTAMP" />
+		<result property="createBy" column="create_by" jdbcType="VARCHAR" />
+		<result property="modifyBy" column="modify_by" jdbcType="VARCHAR" />
+	</resultMap>
+	<select id="searchExtHdCreditInfo" parameterType="java.util.Map" resultMap="extHdCreditInfoDTO">
+		select
+		id,
+		into_app_id,
+		into_cust_ref_id,
+		register_num,
+		loan_num,
+		passes_num,
+		rejected_num,
+		result_num,
+		loan_lenders_num,
+		loan_rejection_num,
+		counts_num,
+		money,
+		validate_state,
+		create_time,
+		modify_time,
+		create_by,
+		modify_by
+		FROM EXT_HD_CREDIT_INFO t
+		WHERE id = (select max(id)
+               from EXT_HD_CREDIT_INFO
+              where into_app_id =#{intoId}
+              group by into_app_id)
+	</select>
+	<select id="searchExtHdPhoneBckLisByPaging" parameterType="java.util.Map" resultMap="extHdPhoneBckLisDTO">
+		select
+		id,
+		into_cust_ref_id,
+		 (case when t.is_black is not null then '是' else '否' end) as IS_REMARK,
+         is_black,
+		validate_state,
+		create_time,
+		modify_time,
+		create_by,
+		modify_by
+		FROM EXT_HD_PHONE_BCKLIS t
+		WHERE t.into_cust_ref_id =#{intoCustRefId} and t.is_black is not null
+	</select>
+
+	<insert id="insertExtHdCreditInfo" parameterType="java.util.Map" useGeneratedKeys="true">
+		<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+			select seq_ext_hd_credit_info.nextval as id from dual
+		</selectKey>
+		insert into ext_hd_credit_info
+		(
+		id,
+		into_app_id,
+		into_cust_ref_id,
+		register_num,
+		loan_num,
+		passes_num,
+		rejected_num,
+		result_num,
+		loan_lenders_num,
+		loan_rejection_num,
+		counts_num,
+		money,
+		loan_plant_detail,
+		loan_apply_detail,
+		loan_grant_detail,
+		loan_regect_detail,
+		loan_overdue_detail,
+		loan_debat_detail,
+		validate_state,
+		create_time,
+		create_by
+		)
+		values(#{dto.id}
+		,#{INTO_APP_ID,jdbcType=VARCHAR}
+		,#{INTO_CUST_REF_ID,jdbcType=VARCHAR}
+		,#{REGISTERNUM,jdbcType=VARCHAR}
+		,#{LOANNUM,jdbcType=VARCHAR}
+		,#{PASSES,jdbcType=VARCHAR}
+		,#{REJECTED,jdbcType=VARCHAR}
+		,#{RESULTNUM,jdbcType=VARCHAR}
+		,#{LOANLENDERSNUM,jdbcType=VARCHAR}
+		,#{LOANREJECTIONNUM,jdbcType=VARCHAR}
+		,#{COUNTS,jdbcType=VARCHAR}
+		,#{MONEY,jdbcType=VARCHAR}
+		,#{LOAN_PLANT_DETAIL,jdbcType=VARCHAR}
+		,#{LOAN_APPLY_DETAIL,jdbcType=VARCHAR}
+		,#{LOAN_GRANT_DETAIL,jdbcType=VARCHAR}
+		,#{LOAN_REGECT_DETAIL,jdbcType=VARCHAR}
+		,#{LOAN_OVERDUE_DETAIL,jdbcType=VARCHAR}
+		,#{LOAN_DEBAT_DETAIL,jdbcType=VARCHAR}
+		,#{VALIDATE_STATE,jdbcType=VARCHAR}
+		,systimestamp
+		,#{CREATE_BY,jdbcType=VARCHAR}
+		)
+	</insert>
+	<insert id="insertExtHdPhoneBckLis" parameterType="java.util.Map" useGeneratedKeys="true">
+		<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+			select seq_ext_hd_phone_bcklis.nextval as id from dual
+		</selectKey>
+		insert into ext_hd_phone_bcklis
+		(
+		id,
+		into_cust_ref_id,
+		code,
+		is_black,
+		validate_state,
+		create_time,
+		create_by
+		)
+		values(#{dto.id}
+		,#{INTO_CUST_REF_ID,jdbcType=VARCHAR}
+		,#{CODE,jdbcType=VARCHAR}
+		,#{IS_BLACK,jdbcType=VARCHAR}
+		,#{VALIDATE_STATE,jdbcType=VARCHAR}
+		,systimestamp
+		,#{CREATE_BY,jdbcType=VARCHAR}
+		)
+	</insert>
+	
+	<insert id="insertExtHdWLCreditInfo" parameterType="java.util.Map" useGeneratedKeys="true">
+		<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+			select SEQ_EXT_WL_HD_CREDIT_INFO.nextval as id from dual
+		</selectKey>
+		insert into EXT_WL_HD_CREDIT_INFO
+		(
+		id,
+		into_app_id,
+		into_cust_ref_id,
+		register_num,
+		loan_num,
+		passes_num,
+		rejected_num,
+		result_num,
+		loan_lenders_num,
+		loan_rejection_num,
+		counts_num,
+		money,
+		loan_plant_detail,
+		loan_apply_detail,
+		loan_grant_detail,
+		loan_regect_detail,
+		loan_overdue_detail,
+		loan_debat_detail,
+		validate_state,
+		create_time,
+		create_by
+		)
+		values(#{dto.id}
+		,#{INTO_APP_ID,jdbcType=VARCHAR}
+		,#{INTO_CUST_REF_ID,jdbcType=VARCHAR}
+		,#{REGISTERNUM,jdbcType=VARCHAR}
+		,#{LOANNUM,jdbcType=VARCHAR}
+		,#{PASSES,jdbcType=VARCHAR}
+		,#{REJECTED,jdbcType=VARCHAR}
+		,#{RESULTNUM,jdbcType=VARCHAR}
+		,#{LOANLENDERSNUM,jdbcType=VARCHAR}
+		,#{LOANREJECTIONNUM,jdbcType=VARCHAR}
+		,#{COUNTS,jdbcType=VARCHAR}
+		,#{MONEY,jdbcType=VARCHAR}
+		,#{LOAN_PLANT_DETAIL,jdbcType=VARCHAR}
+		,#{LOAN_APPLY_DETAIL,jdbcType=VARCHAR}
+		,#{LOAN_GRANT_DETAIL,jdbcType=VARCHAR}
+		,#{LOAN_REGECT_DETAIL,jdbcType=VARCHAR}
+		,#{LOAN_OVERDUE_DETAIL,jdbcType=VARCHAR}
+		,#{LOAN_DEBAT_DETAIL,jdbcType=VARCHAR}
+		,#{VALIDATE_STATE,jdbcType=VARCHAR}
+		,systimestamp
+		,#{CREATE_BY,jdbcType=VARCHAR}
+		)
+	</insert>
+	<insert id="insertExtHdWLPhoneBckLis" parameterType="java.util.Map" useGeneratedKeys="true">
+		<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+			select SEQ_EXT_WL_HD_PHONE_BCKLIS.nextval as id from dual
+		</selectKey>
+		insert into EXT_WL_HD_PHONE_BCKLIS
+		(
+		id,
+		into_cust_ref_id,
+		code,
+		is_black,
+		validate_state,
+		create_time,
+		create_by
+		)
+		values(#{dto.id}
+		,#{INTO_CUST_REF_ID,jdbcType=VARCHAR}
+		,#{CODE,jdbcType=VARCHAR}
+		,#{IS_BLACK,jdbcType=VARCHAR}
+		,#{VALIDATE_STATE,jdbcType=VARCHAR}
+		,systimestamp
+		,#{CREATE_BY,jdbcType=VARCHAR}
+		)
+	</insert>
+</mapper>

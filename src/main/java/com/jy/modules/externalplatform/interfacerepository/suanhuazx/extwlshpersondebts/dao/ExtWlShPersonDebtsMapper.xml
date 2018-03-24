@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.suanhuazx.extwlshpersondebts.dao.ExtWlShPersonDebtsDao">
+<resultMap id="ExtWlShPersonDebtsDTO" type="com.jy.modules.externalplatform.interfacerepository.suanhuazx.extwlshpersondebts.dto.ExtWlShPersonDebtsDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="creditLimitMax" column="CREDIT_LIMIT_MAX" jdbcType="VARCHAR" />
+				<result property="creditLimitTotal" column="CREDIT_LIMIT_TOTAL" jdbcType="VARCHAR" />
+				<result property="creditOrgCounts" column="CREDIT_ORG_COUNTS" jdbcType="VARCHAR" />
+				<result property="creditLimitUsed" column="CREDIT_LIMIT_USED" jdbcType="VARCHAR" />
+				<result property="creditLimitUseRate" column="CREDIT_LIMIT_USE_RATE" jdbcType="VARCHAR" />
+				<result property="loanAmts" column="LOAN_AMTS" jdbcType="VARCHAR" />
+				<result property="loanAmtsNoSettle" column="LOAN_AMTS_NO_SETTLE" jdbcType="VARCHAR" />
+				<result property="loanBalancesMortgage" column="LOAN_BALANCES_MORTGAGE" jdbcType="VARCHAR" />
+				<result property="loanBalancesCar" column="LOAN_BALANCES_CAR" jdbcType="VARCHAR" />
+				<result property="loanBalancesBiz" column="LOAN_BALANCES_BIZ" jdbcType="VARCHAR" />
+				<result property="loanBalancesOther" column="LOAN_BALANCES_OTHER" jdbcType="VARCHAR" />
+				<result property="loanCounts" column="LOAN_COUNTS" jdbcType="VARCHAR" />
+				<result property="loanBalanceCounts" column="LOAN_BALANCE_COUNTS" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="fkPersonalReportId" column="FK_PERSONAL_REPORT_ID" jdbcType="DECIMAL" />
+				<result property="loanBalances" column="LOAN_BALANCES" jdbcType="VARCHAR" />
+				<result property="loanBalancesMonth" column="LOAN_BALANCES_MONTH" jdbcType="VARCHAR" />
+				<result property="loanBalancesMortgageMonth" column="LOAN_BALANCES_MORTGAGE_MONTH" jdbcType="VARCHAR" />
+				<result property="loanBalancesCarMonth" column="LOAN_BALANCES_CAR_MONTH" jdbcType="VARCHAR" />
+				<result property="loanBalancesBizMonth" column="LOAN_BALANCES_BIZ_MONTH" jdbcType="VARCHAR" />
+				<result property="loanBalancesOtherMonth" column="LOAN_BALANCES_OTHER_MONTH" jdbcType="VARCHAR" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="validateState" column="VALIDATE_STATE" jdbcType="VARCHAR" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="updateBy" column="UPDATE_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+<!-- 分页查询 EXT_WL_SH_PERSON_DEBTS -->	
+<select id="searchExtWlShPersonDebtsByPaging" parameterType="java.util.Map" resultMap="ExtWlShPersonDebtsDTO">
+    	 		select 
+						t1.id                             ,
+						t1.credit_limit_max               ,
+						t1.credit_limit_total             ,
+						t1.credit_org_counts              ,
+						t1.credit_limit_used              ,
+						t1.credit_limit_use_rate          ,
+						t1.loan_amts                      ,
+						t1.loan_amts_no_settle            ,
+						t1.loan_balances_mortgage         ,
+						t1.loan_balances_car              ,
+						t1.loan_balances_biz              ,
+						t1.loan_balances_other            ,
+						t1.loan_counts                    ,
+						t1.loan_balance_counts            ,
+						t1.create_time                    ,
+						t1.fk_personal_report_id          ,
+						t1.loan_balances                  ,
+						t1.loan_balances_month            ,
+						t1.loan_balances_mortgage_month   ,
+						t1.loan_balances_car_month        ,
+						t1.loan_balances_biz_month        ,
+						t1.loan_balances_other_month      ,
+						t1.modify_time                    ,
+						t1.validate_state                 ,
+						t1.create_by                      ,
+						t1.update_by                      
+					
+				from ext_wl_sh_person_debts 	t1
+				where 1=1
+				and t1.validate_state='1'
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.creditLimitMax != null and dto.creditLimitMax != ''">
+						and t1.CREDIT_LIMIT_MAX =#{dto.creditLimitMax}
+    			</if>
+    			<if test="dto.creditLimitTotal != null and dto.creditLimitTotal != ''">
+						and t1.CREDIT_LIMIT_TOTAL =#{dto.creditLimitTotal}
+    			</if>
+    			<if test="dto.creditOrgCounts != null and dto.creditOrgCounts != ''">
+						and t1.CREDIT_ORG_COUNTS =#{dto.creditOrgCounts}
+    			</if>
+    			<if test="dto.creditLimitUsed != null and dto.creditLimitUsed != ''">
+						and t1.CREDIT_LIMIT_USED =#{dto.creditLimitUsed}
+    			</if>
+    			<if test="dto.creditLimitUseRate != null and dto.creditLimitUseRate != ''">
+						and t1.CREDIT_LIMIT_USE_RATE =#{dto.creditLimitUseRate}
+    			</if>
+    			<if test="dto.loanAmts != null and dto.loanAmts != ''">
+						and t1.LOAN_AMTS =#{dto.loanAmts}
+    			</if>
+    			<if test="dto.loanAmtsNoSettle != null and dto.loanAmtsNoSettle != ''">
+						and t1.LOAN_AMTS_NO_SETTLE =#{dto.loanAmtsNoSettle}
+    			</if>
+    			<if test="dto.loanBalancesMortgage != null and dto.loanBalancesMortgage != ''">
+						and t1.LOAN_BALANCES_MORTGAGE =#{dto.loanBalancesMortgage}
+    			</if>
+    			<if test="dto.loanBalancesCar != null and dto.loanBalancesCar != ''">
+						and t1.LOAN_BALANCES_CAR =#{dto.loanBalancesCar}
+    			</if>
+    			<if test="dto.loanBalancesBiz != null and dto.loanBalancesBiz != ''">
+						and t1.LOAN_BALANCES_BIZ =#{dto.loanBalancesBiz}
+    			</if>
+    			<if test="dto.loanBalancesOther != null and dto.loanBalancesOther != ''">
+						and t1.LOAN_BALANCES_OTHER =#{dto.loanBalancesOther}
+    			</if>
+    			<if test="dto.loanCounts != null and dto.loanCounts != ''">
+						and t1.LOAN_COUNTS =#{dto.loanCounts}
+    			</if>
+    			<if test="dto.loanBalanceCounts != null and dto.loanBalanceCounts != ''">
+						and t1.LOAN_BALANCE_COUNTS =#{dto.loanBalanceCounts}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+    			<if test="dto.fkPersonalReportId != null and dto.fkPersonalReportId != ''">
+						and t1.FK_PERSONAL_REPORT_ID =#{dto.fkPersonalReportId}
+    			</if>
+    			<if test="dto.loanBalances != null and dto.loanBalances != ''">
+						and t1.LOAN_BALANCES =#{dto.loanBalances}
+    			</if>
+    			<if test="dto.loanBalancesMonth != null and dto.loanBalancesMonth != ''">
+						and t1.LOAN_BALANCES_MONTH =#{dto.loanBalancesMonth}
+    			</if>
+    			<if test="dto.loanBalancesMortgageMonth != null and dto.loanBalancesMortgageMonth != ''">
+						and t1.LOAN_BALANCES_MORTGAGE_MONTH =#{dto.loanBalancesMortgageMonth}
+    			</if>
+    			<if test="dto.loanBalancesCarMonth != null and dto.loanBalancesCarMonth != ''">
+						and t1.LOAN_BALANCES_CAR_MONTH =#{dto.loanBalancesCarMonth}
+    			</if>
+    			<if test="dto.loanBalancesBizMonth != null and dto.loanBalancesBizMonth != ''">
+						and t1.LOAN_BALANCES_BIZ_MONTH =#{dto.loanBalancesBizMonth}
+    			</if>
+    			<if test="dto.loanBalancesOtherMonth != null and dto.loanBalancesOtherMonth != ''">
+						and t1.LOAN_BALANCES_OTHER_MONTH =#{dto.loanBalancesOtherMonth}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME =#{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE =#{dto.validateState}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY =#{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY =#{dto.updateBy}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 EXT_WL_SH_PERSON_DEBTS  -->
+<select id="searchExtWlShPersonDebts" parameterType="java.util.Map" resultMap="ExtWlShPersonDebtsDTO">
+    	     select 
+						t1.id                             ,
+						t1.credit_limit_max               ,
+						t1.credit_limit_total             ,
+						t1.credit_org_counts              ,
+						t1.credit_limit_used              ,
+						t1.credit_limit_use_rate          ,
+						t1.loan_amts                      ,
+						t1.loan_amts_no_settle            ,
+						t1.loan_balances_mortgage         ,
+						t1.loan_balances_car              ,
+						t1.loan_balances_biz              ,
+						t1.loan_balances_other            ,
+						t1.loan_counts                    ,
+						t1.loan_balance_counts            ,
+						t1.create_time                    ,
+						t1.fk_personal_report_id          ,
+						t1.loan_balances                  ,
+						t1.loan_balances_month            ,
+						t1.loan_balances_mortgage_month   ,
+						t1.loan_balances_car_month        ,
+						t1.loan_balances_biz_month        ,
+						t1.loan_balances_other_month      ,
+						t1.modify_time                    ,
+						t1.validate_state                 ,
+						t1.create_by                      ,
+						t1.update_by                      
+				from ext_wl_sh_person_debts 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.creditLimitMax != null and dto.creditLimitMax != ''">
+						and t1.CREDIT_LIMIT_MAX = #{dto.creditLimitMax}
+    			</if>
+    			<if test="dto.creditLimitTotal != null and dto.creditLimitTotal != ''">
+						and t1.CREDIT_LIMIT_TOTAL = #{dto.creditLimitTotal}
+    			</if>
+    			<if test="dto.creditOrgCounts != null and dto.creditOrgCounts != ''">
+						and t1.CREDIT_ORG_COUNTS = #{dto.creditOrgCounts}
+    			</if>
+    			<if test="dto.creditLimitUsed != null and dto.creditLimitUsed != ''">
+						and t1.CREDIT_LIMIT_USED = #{dto.creditLimitUsed}
+    			</if>
+    			<if test="dto.creditLimitUseRate != null and dto.creditLimitUseRate != ''">
+						and t1.CREDIT_LIMIT_USE_RATE = #{dto.creditLimitUseRate}
+    			</if>
+    			<if test="dto.loanAmts != null and dto.loanAmts != ''">
+						and t1.LOAN_AMTS = #{dto.loanAmts}
+    			</if>
+    			<if test="dto.loanAmtsNoSettle != null and dto.loanAmtsNoSettle != ''">
+						and t1.LOAN_AMTS_NO_SETTLE = #{dto.loanAmtsNoSettle}
+    			</if>
+    			<if test="dto.loanBalancesMortgage != null and dto.loanBalancesMortgage != ''">
+						and t1.LOAN_BALANCES_MORTGAGE = #{dto.loanBalancesMortgage}
+    			</if>
+    			<if test="dto.loanBalancesCar != null and dto.loanBalancesCar != ''">
+						and t1.LOAN_BALANCES_CAR = #{dto.loanBalancesCar}
+    			</if>
+    			<if test="dto.loanBalancesBiz != null and dto.loanBalancesBiz != ''">
+						and t1.LOAN_BALANCES_BIZ = #{dto.loanBalancesBiz}
+    			</if>
+    			<if test="dto.loanBalancesOther != null and dto.loanBalancesOther != ''">
+						and t1.LOAN_BALANCES_OTHER = #{dto.loanBalancesOther}
+    			</if>
+    			<if test="dto.loanCounts != null and dto.loanCounts != ''">
+						and t1.LOAN_COUNTS = #{dto.loanCounts}
+    			</if>
+    			<if test="dto.loanBalanceCounts != null and dto.loanBalanceCounts != ''">
+						and t1.LOAN_BALANCE_COUNTS = #{dto.loanBalanceCounts}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+    			<if test="dto.fkPersonalReportId != null and dto.fkPersonalReportId != ''">
+						and t1.FK_PERSONAL_REPORT_ID = #{dto.fkPersonalReportId}
+    			</if>
+    			<if test="dto.loanBalances != null and dto.loanBalances != ''">
+						and t1.LOAN_BALANCES = #{dto.loanBalances}
+    			</if>
+    			<if test="dto.loanBalancesMonth != null and dto.loanBalancesMonth != ''">
+						and t1.LOAN_BALANCES_MONTH = #{dto.loanBalancesMonth}
+    			</if>
+    			<if test="dto.loanBalancesMortgageMonth != null and dto.loanBalancesMortgageMonth != ''">
+						and t1.LOAN_BALANCES_MORTGAGE_MONTH = #{dto.loanBalancesMortgageMonth}
+    			</if>
+    			<if test="dto.loanBalancesCarMonth != null and dto.loanBalancesCarMonth != ''">
+						and t1.LOAN_BALANCES_CAR_MONTH = #{dto.loanBalancesCarMonth}
+    			</if>
+    			<if test="dto.loanBalancesBizMonth != null and dto.loanBalancesBizMonth != ''">
+						and t1.LOAN_BALANCES_BIZ_MONTH = #{dto.loanBalancesBizMonth}
+    			</if>
+    			<if test="dto.loanBalancesOtherMonth != null and dto.loanBalancesOtherMonth != ''">
+						and t1.LOAN_BALANCES_OTHER_MONTH = #{dto.loanBalancesOtherMonth}
+    			</if>
+    			<if test="dto.modifyTime != null and dto.modifyTime != ''">
+						and t1.MODIFY_TIME = #{dto.modifyTime}
+    			</if>
+    			<if test="dto.validateState != null and dto.validateState != ''">
+						and t1.VALIDATE_STATE = #{dto.validateState}
+    			</if>
+    			<if test="dto.createBy != null and dto.createBy != ''">
+						and t1.CREATE_BY = #{dto.createBy}
+    			</if>
+    			<if test="dto.updateBy != null and dto.updateBy != ''">
+						and t1.UPDATE_BY = #{dto.updateBy}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  EXT_WL_SH_PERSON_DEBTS -->
+<select id="findExtWlShPersonDebtsByPrimaryKey" parameterType="java.util.Map" resultMap="ExtWlShPersonDebtsDTO">
+   	 		select 
+					t1.id                             ,
+					t1.credit_limit_max               ,
+					t1.credit_limit_total             ,
+					t1.credit_org_counts              ,
+					t1.credit_limit_used              ,
+					t1.credit_limit_use_rate          ,
+					t1.loan_amts                      ,
+					t1.loan_amts_no_settle            ,
+					t1.loan_balances_mortgage         ,
+					t1.loan_balances_car              ,
+					t1.loan_balances_biz              ,
+					t1.loan_balances_other            ,
+					t1.loan_counts                    ,
+					t1.loan_balance_counts            ,
+					t1.create_time                    ,
+					t1.fk_personal_report_id          ,
+					t1.loan_balances                  ,
+					t1.loan_balances_month            ,
+					t1.loan_balances_mortgage_month   ,
+					t1.loan_balances_car_month        ,
+					t1.loan_balances_biz_month        ,
+					t1.loan_balances_other_month      ,
+					t1.modify_time                    ,
+					t1.validate_state                 ,
+					t1.create_by                      ,
+					t1.update_by                      
+			from ext_wl_sh_person_debts 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 EXT_WL_SH_PERSON_DEBTS -->
+<insert id="insertExtWlShPersonDebts" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_SH_PERSON_DEBTS.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_sh_person_debts
+			(   		
+					id                             ,
+					credit_limit_max               ,
+					credit_limit_total             ,
+					credit_org_counts              ,
+					credit_limit_used              ,
+					credit_limit_use_rate          ,
+					loan_amts                      ,
+					loan_amts_no_settle            ,
+					loan_balances_mortgage         ,
+					loan_balances_car              ,
+					loan_balances_biz              ,
+					loan_balances_other            ,
+					loan_counts                    ,
+					loan_balance_counts            ,
+					create_time                    ,
+					fk_personal_report_id          ,
+					loan_balances                  ,
+					loan_balances_month            ,
+					loan_balances_mortgage_month   ,
+					loan_balances_car_month        ,
+					loan_balances_biz_month        ,
+					loan_balances_other_month      ,
+					modify_time                    ,
+					validate_state                 ,
+					create_by                      ,
+					update_by                      
+			)
+			values(#{dto.id}
+					,#{dto.creditLimitMax,jdbcType=VARCHAR}
+					,#{dto.creditLimitTotal,jdbcType=VARCHAR}
+					,#{dto.creditOrgCounts,jdbcType=VARCHAR}
+					,#{dto.creditLimitUsed,jdbcType=VARCHAR}
+					,#{dto.creditLimitUseRate,jdbcType=VARCHAR}
+					,#{dto.loanAmts,jdbcType=VARCHAR}
+					,#{dto.loanAmtsNoSettle,jdbcType=VARCHAR}
+					,#{dto.loanBalancesMortgage,jdbcType=VARCHAR}
+					,#{dto.loanBalancesCar,jdbcType=VARCHAR}
+					,#{dto.loanBalancesBiz,jdbcType=VARCHAR}
+					,#{dto.loanBalancesOther,jdbcType=VARCHAR}
+					,#{dto.loanCounts,jdbcType=VARCHAR}
+					,#{dto.loanBalanceCounts,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.fkPersonalReportId,jdbcType=DECIMAL}
+					,#{dto.loanBalances,jdbcType=VARCHAR}
+					,#{dto.loanBalancesMonth,jdbcType=VARCHAR}
+					,#{dto.loanBalancesMortgageMonth,jdbcType=VARCHAR}
+					,#{dto.loanBalancesCarMonth,jdbcType=VARCHAR}
+					,#{dto.loanBalancesBizMonth,jdbcType=VARCHAR}
+					,#{dto.loanBalancesOtherMonth,jdbcType=VARCHAR}
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,'1'
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.updateBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+<!-- 更新对象 EXT_WL_SH_PERSON_DEBTS -->
+<update id="updateExtWlShPersonDebts" parameterType="java.util.Map">
+	     update ext_wl_sh_person_debts t1
+	           set 
+			           t1.credit_limit_max               =#{dto.creditLimitMax,jdbcType=VARCHAR},
+			           t1.credit_limit_total             =#{dto.creditLimitTotal,jdbcType=VARCHAR},
+			           t1.credit_org_counts              =#{dto.creditOrgCounts,jdbcType=VARCHAR},
+			           t1.credit_limit_used              =#{dto.creditLimitUsed,jdbcType=VARCHAR},
+			           t1.credit_limit_use_rate          =#{dto.creditLimitUseRate,jdbcType=VARCHAR},
+			           t1.loan_amts                      =#{dto.loanAmts,jdbcType=VARCHAR},
+			           t1.loan_amts_no_settle            =#{dto.loanAmtsNoSettle,jdbcType=VARCHAR},
+			           t1.loan_balances_mortgage         =#{dto.loanBalancesMortgage,jdbcType=VARCHAR},
+			           t1.loan_balances_car              =#{dto.loanBalancesCar,jdbcType=VARCHAR},
+			           t1.loan_balances_biz              =#{dto.loanBalancesBiz,jdbcType=VARCHAR},
+			           t1.loan_balances_other            =#{dto.loanBalancesOther,jdbcType=VARCHAR},
+			           t1.loan_counts                    =#{dto.loanCounts,jdbcType=VARCHAR},
+			           t1.loan_balance_counts            =#{dto.loanBalanceCounts,jdbcType=VARCHAR},
+			           t1.create_time                    =#{dto.createTime,jdbcType=TIMESTAMP},
+			           t1.fk_personal_report_id          =#{dto.fkPersonalReportId,jdbcType=DECIMAL},
+			           t1.loan_balances                  =#{dto.loanBalances,jdbcType=VARCHAR},
+			           t1.loan_balances_month            =#{dto.loanBalancesMonth,jdbcType=VARCHAR},
+			           t1.loan_balances_mortgage_month   =#{dto.loanBalancesMortgageMonth,jdbcType=VARCHAR},
+			           t1.loan_balances_car_month        =#{dto.loanBalancesCarMonth,jdbcType=VARCHAR},
+			           t1.loan_balances_biz_month        =#{dto.loanBalancesBizMonth,jdbcType=VARCHAR},
+			           t1.loan_balances_other_month      =#{dto.loanBalancesOtherMonth,jdbcType=VARCHAR},
+			           t1.modify_time                    =#{dto.modifyTime,jdbcType=TIMESTAMP},
+			           t1.validate_state                 ='1',
+			           t1.create_by                      =#{dto.createBy,jdbcType=DECIMAL},
+			           t1.update_by                      =#{dto.updateBy,jdbcType=DECIMAL}
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 EXT_WL_SH_PERSON_DEBTS -->
+<delete id="deleteExtWlShPersonDebtsByID" parameterType="java.util.Map">
+    	delete from ext_wl_sh_person_debts t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 EXT_WL_SH_PERSON_DEBTS -->
+<update id="deleteExtWlShPersonDebtsByPrimaryKey" parameterType="java.util.Map">
+	     update ext_wl_sh_person_debts t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

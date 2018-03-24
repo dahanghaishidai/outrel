@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.yszx.extyszxshareholderinfo.dao.ExtYszxShareholderInfoDao">
+<resultMap id="ExtYszxShareholderInfoDTO" type="com.jy.modules.externalplatform.interfacerepository.yszx.extyszxshareholderinfo.dto.ExtYszxShareholderInfoDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="fkReportId" column="FK_REPORT_ID" jdbcType="DECIMAL" />
+				<result property="ryname" column="RYNAME" jdbcType="VARCHAR" />
+				<result property="entname" column="ENTNAME" jdbcType="VARCHAR" />
+				<result property="regno" column="REGNO" jdbcType="VARCHAR" />
+				<result property="enttype" column="ENTTYPE" jdbcType="VARCHAR" />
+				<result property="regcap" column="REGCAP" jdbcType="VARCHAR" />
+				<result property="regcapcur" column="REGCAPCUR" jdbcType="VARCHAR" />
+				<result property="entstatus" column="ENTSTATUS" jdbcType="VARCHAR" />
+				<result property="subconam" column="SUBCONAM" jdbcType="VARCHAR" />
+				<result property="currency" column="CURRENCY" jdbcType="VARCHAR" />
+				<result property="conform" column="CONFORM" jdbcType="VARCHAR" />
+				<result property="fundedratio" column="FUNDEDRATIO" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+</resultMap>
+				
+<!-- 分页查询 ext_yszx_shareholder_info -->	
+<select id="searchExtYszxShareholderInfoByPaging" parameterType="java.util.Map" resultMap="ExtYszxShareholderInfoDTO">
+    	 		select 
+						t1.id                             ,
+						t1.fk_report_id                   ,
+						t1.ryname                         ,
+						t1.entname                        ,
+						t1.regno                          ,
+						t1.enttype                        ,
+						t1.regcap                         ,
+						t1.regcapcur                      ,
+						t1.entstatus                      ,
+						t1.subconam                       ,
+						t1.currency                       ,
+						t1.conform                        ,
+						t1.fundedratio                    ,
+						t1.create_time                    
+					
+				from ext_yszx_shareholder_info 	t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID =#{dto.id}
+    			</if>
+    			<if test="dto.fkReportId != null and dto.fkReportId != ''">
+						and t1.FK_REPORT_ID =#{dto.fkReportId}
+    			</if>
+    			<if test="dto.ryname != null and dto.ryname != ''">
+						and t1.RYNAME =#{dto.ryname}
+    			</if>
+    			<if test="dto.entname != null and dto.entname != ''">
+						and t1.ENTNAME =#{dto.entname}
+    			</if>
+    			<if test="dto.regno != null and dto.regno != ''">
+						and t1.REGNO =#{dto.regno}
+    			</if>
+    			<if test="dto.enttype != null and dto.enttype != ''">
+						and t1.ENTTYPE =#{dto.enttype}
+    			</if>
+    			<if test="dto.regcap != null and dto.regcap != ''">
+						and t1.REGCAP =#{dto.regcap}
+    			</if>
+    			<if test="dto.regcapcur != null and dto.regcapcur != ''">
+						and t1.REGCAPCUR =#{dto.regcapcur}
+    			</if>
+    			<if test="dto.entstatus != null and dto.entstatus != ''">
+						and t1.ENTSTATUS =#{dto.entstatus}
+    			</if>
+    			<if test="dto.subconam != null and dto.subconam != ''">
+						and t1.SUBCONAM =#{dto.subconam}
+    			</if>
+    			<if test="dto.currency != null and dto.currency != ''">
+						and t1.CURRENCY =#{dto.currency}
+    			</if>
+    			<if test="dto.conform != null and dto.conform != ''">
+						and t1.CONFORM =#{dto.conform}
+    			</if>
+    			<if test="dto.fundedratio != null and dto.fundedratio != ''">
+						and t1.FUNDEDRATIO =#{dto.fundedratio}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME =#{dto.createTime}
+    			</if>
+				
+				order by t1.id desc
+</select>
+  
+<!-- 查询列表 ext_yszx_shareholder_info  -->
+<select id="searchExtYszxShareholderInfo" parameterType="java.util.Map" resultMap="ExtYszxShareholderInfoDTO">
+    	     select 
+						t1.id                             ,
+						t1.fk_report_id                   ,
+						t1.ryname                         ,
+						t1.entname                        ,
+						t1.regno                          ,
+						t1.enttype                        ,
+						t1.regcap                         ,
+						t1.regcapcur                      ,
+						t1.entstatus                      ,
+						t1.subconam                       ,
+						t1.currency                       ,
+						t1.conform                        ,
+						t1.fundedratio                    ,
+						t1.create_time                    
+				from ext_yszx_shareholder_info 		t1
+				where 1=1
+    			<if test="dto.id != null and dto.id != ''">
+						and t1.ID = #{dto.id}
+    			</if>
+    			<if test="dto.fkReportId != null and dto.fkReportId != ''">
+						and t1.FK_REPORT_ID = #{dto.fkReportId}
+    			</if>
+    			<if test="dto.ryname != null and dto.ryname != ''">
+						and t1.RYNAME = #{dto.ryname}
+    			</if>
+    			<if test="dto.entname != null and dto.entname != ''">
+						and t1.ENTNAME = #{dto.entname}
+    			</if>
+    			<if test="dto.regno != null and dto.regno != ''">
+						and t1.REGNO = #{dto.regno}
+    			</if>
+    			<if test="dto.enttype != null and dto.enttype != ''">
+						and t1.ENTTYPE = #{dto.enttype}
+    			</if>
+    			<if test="dto.regcap != null and dto.regcap != ''">
+						and t1.REGCAP = #{dto.regcap}
+    			</if>
+    			<if test="dto.regcapcur != null and dto.regcapcur != ''">
+						and t1.REGCAPCUR = #{dto.regcapcur}
+    			</if>
+    			<if test="dto.entstatus != null and dto.entstatus != ''">
+						and t1.ENTSTATUS = #{dto.entstatus}
+    			</if>
+    			<if test="dto.subconam != null and dto.subconam != ''">
+						and t1.SUBCONAM = #{dto.subconam}
+    			</if>
+    			<if test="dto.currency != null and dto.currency != ''">
+						and t1.CURRENCY = #{dto.currency}
+    			</if>
+    			<if test="dto.conform != null and dto.conform != ''">
+						and t1.CONFORM = #{dto.conform}
+    			</if>
+    			<if test="dto.fundedratio != null and dto.fundedratio != ''">
+						and t1.FUNDEDRATIO = #{dto.fundedratio}
+    			</if>
+    			<if test="dto.createTime != null and dto.createTime != ''">
+						and t1.CREATE_TIME = #{dto.createTime}
+    			</if>
+</select>
+  
+<!-- 主键查询对象  ext_yszx_shareholder_info -->
+<select id="findExtYszxShareholderInfoByPrimaryKey" parameterType="java.util.Map" resultMap="ExtYszxShareholderInfoDTO">
+   	 		select 
+					t1.id                             ,
+					t1.fk_report_id                   ,
+					t1.ryname                         ,
+					t1.entname                        ,
+					t1.regno                          ,
+					t1.enttype                        ,
+					t1.regcap                         ,
+					t1.regcapcur                      ,
+					t1.entstatus                      ,
+					t1.subconam                       ,
+					t1.currency                       ,
+					t1.conform                        ,
+					t1.fundedratio                    ,
+					t1.create_time                    
+			from ext_yszx_shareholder_info 		t1
+			where 
+				t1.id = #{id}
+</select>
+  
+<!-- 新增对象 ext_yszx_shareholder_info -->
+<insert id="insertExtYszxShareholderInfo" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_ext_yszx_shareholder_info.nextval as id from dual
+	</selectKey>
+			insert into ext_yszx_shareholder_info
+			(   		
+					id                             ,
+					fk_report_id                   ,
+					ryname                         ,
+					entname                        ,
+					regno                          ,
+					enttype                        ,
+					regcap                         ,
+					regcapcur                      ,
+					entstatus                      ,
+					subconam                       ,
+					currency                       ,
+					conform                        ,
+					fundedratio                    ,
+					create_time                    
+			)
+			values(#{dto.id}
+					,#{dto.fkReportId,jdbcType=DECIMAL}
+					,#{dto.ryname,jdbcType=VARCHAR}
+					,#{dto.entname,jdbcType=VARCHAR}
+					,#{dto.regno,jdbcType=VARCHAR}
+					,#{dto.enttype,jdbcType=VARCHAR}
+					,#{dto.regcap,jdbcType=VARCHAR}
+					,#{dto.regcapcur,jdbcType=VARCHAR}
+					,#{dto.entstatus,jdbcType=VARCHAR}
+					,#{dto.subconam,jdbcType=VARCHAR}
+					,#{dto.currency,jdbcType=VARCHAR}
+					,#{dto.conform,jdbcType=VARCHAR}
+					,#{dto.fundedratio,jdbcType=VARCHAR}
+					,systimestamp
+			)
+</insert>
+    
+<!-- 更新对象 ext_yszx_shareholder_info -->
+<update id="updateExtYszxShareholderInfo" parameterType="java.util.Map">
+	     update ext_yszx_shareholder_info t1
+	           set 
+			           t1.fk_report_id                   =#{dto.fkReportId,jdbcType=DECIMAL},
+			           t1.ryname                         =#{dto.ryname,jdbcType=VARCHAR},
+			           t1.entname                        =#{dto.entname,jdbcType=VARCHAR},
+			           t1.regno                          =#{dto.regno,jdbcType=VARCHAR},
+			           t1.enttype                        =#{dto.enttype,jdbcType=VARCHAR},
+			           t1.regcap                         =#{dto.regcap,jdbcType=VARCHAR},
+			           t1.regcapcur                      =#{dto.regcapcur,jdbcType=VARCHAR},
+			           t1.entstatus                      =#{dto.entstatus,jdbcType=VARCHAR},
+			           t1.subconam                       =#{dto.subconam,jdbcType=VARCHAR},
+			           t1.currency                       =#{dto.currency,jdbcType=VARCHAR},
+			           t1.conform                        =#{dto.conform,jdbcType=VARCHAR},
+			           t1.fundedratio                    =#{dto.fundedratio,jdbcType=VARCHAR}    
+	     where t1.id = #{dto.id}
+</update>
+   
+<!-- 主键删除 ext_yszx_shareholder_info -->
+<delete id="deleteExtYszxShareholderInfoByID" parameterType="java.util.Map">
+    	delete from ext_yszx_shareholder_info t1 where t1.ID in (${ids} )
+</delete>
+<!-- 主键假删除 ext_yszx_shareholder_info -->
+<update id="deleteExtYszxShareholderInfoByPrimaryKey" parameterType="java.util.Map">
+	     update ext_yszx_shareholder_info t1
+	           set   t1.validate_state='0'	
+	     where t1.id in( ${ids})
+</update>
+</mapper>

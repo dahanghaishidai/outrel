@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jy.modules.externalplatform.interfacerepository.pyzx.extwlpyzxeducationcheck.dao.ExtWlPyzxEducationCheckDao">
+<resultMap id="ExtWlPyzxEducationCheckDTO" type="com.jy.modules.externalplatform.interfacerepository.pyzx.extwlpyzxeducationcheck.dto.ExtWlPyzxEducationCheckDTO">
+				<result property="id" column="ID" jdbcType="DECIMAL" />
+				<result property="fkIntoCustId" column="FK_INTO_CUST_ID" jdbcType="DECIMAL" />
+				<result property="name" column="NAME" jdbcType="VARCHAR" />
+				<result property="documentNo" column="DOCUMENT_NO" jdbcType="VARCHAR" />
+				<result property="levelNo" column="LEVEL_NO" jdbcType="VARCHAR" />
+				<result property="graduateTime" column="GRADUATE_TIME" jdbcType="VARCHAR" />
+				<result property="college" column="COLLEGE" jdbcType="VARCHAR" />
+				<result property="collegeLevel" column="COLLEGE_LEVEL" jdbcType="VARCHAR" />
+				<result property="nameCheckResult" column="NAME_CHECK_RESULT" jdbcType="VARCHAR" />
+				<result property="documentNoCheckResult" column="DOCUMENT_NO_CHECK_RESULT" jdbcType="VARCHAR" />
+				<result property="levelNoCheckResult" column="LEVEL_NO_CHECK_RESULT" jdbcType="VARCHAR" />
+				<result property="graduateTimeCheckResult" column="GRADUATE_TIME_CHECK_RESULT" jdbcType="VARCHAR" />
+				<result property="collegeCheckResult" column="COLLEGE_CHECK_RESULT" jdbcType="VARCHAR" />
+				<result property="collegeLevelCheckResult" column="COLLEGE_LEVEL_CHECK_RESULT" jdbcType="VARCHAR" />
+				<result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP" />
+				<result property="modifyTime" column="MODIFY_TIME" jdbcType="TIMESTAMP" />
+				<result property="createBy" column="CREATE_BY" jdbcType="DECIMAL" />
+				<result property="modifyBy" column="MODIFY_BY" jdbcType="DECIMAL" />
+</resultMap>
+				
+
+<!-- 新增对象 EXT_WL_PYZX_EDUCATION_CHECK -->
+<insert id="insertExtWlPyzxEducationCheck" parameterType="java.util.Map" useGeneratedKeys="true">
+	<selectKey resultType="java.lang.Long" keyProperty="dto.id" order="BEFORE">
+				select seq_EXT_WL_PYZX_EDUCATION_CHE.nextval as id from dual
+	</selectKey>
+			insert into ext_wl_pyzx_education_check
+			(   		
+					id                             ,
+					fk_into_cust_id                ,
+					name                           ,
+					document_no                    ,
+					level_no                       ,
+					graduate_time                  ,
+					college                        ,
+					college_level                  ,
+					name_check_result              ,
+					document_no_check_result       ,
+					level_no_check_result          ,
+					graduate_time_check_result     ,
+					college_check_result           ,
+					college_level_check_result     ,
+					create_time                    ,
+					modify_time                    ,
+					create_by                      ,
+					modify_by                      
+			)
+			values(#{dto.id}
+					,#{dto.fkIntoCustId,jdbcType=DECIMAL}
+					,#{dto.name,jdbcType=VARCHAR}
+					,#{dto.documentNo,jdbcType=VARCHAR}
+					,#{dto.levelNo,jdbcType=VARCHAR}
+					,#{dto.graduateTime,jdbcType=VARCHAR}
+					,#{dto.college,jdbcType=VARCHAR}
+					,#{dto.collegeLevel,jdbcType=VARCHAR}
+					,#{dto.nameCheckResult,jdbcType=VARCHAR}
+					,#{dto.documentNoCheckResult,jdbcType=VARCHAR}
+					,#{dto.levelNoCheckResult,jdbcType=VARCHAR}
+					,#{dto.graduateTimeCheckResult,jdbcType=VARCHAR}
+					,#{dto.collegeCheckResult,jdbcType=VARCHAR}
+					,#{dto.collegeLevelCheckResult,jdbcType=VARCHAR}
+					,systimestamp
+					,#{dto.modifyTime,jdbcType=TIMESTAMP}
+					,#{dto.createBy,jdbcType=DECIMAL}
+					,#{dto.modifyBy,jdbcType=DECIMAL}
+			)
+</insert>
+    
+
+</mapper>
